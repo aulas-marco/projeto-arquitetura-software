@@ -178,3 +178,67 @@ Configuração do MkDocs, navegação das seis aulas, dossiê da ACME aprofundad
 2. Ementa e partição das Aulas 3 a 6
 3. Verificação das três referências listadas em 7.3
 4. Definição do método de avaliação da disciplina, que a página inicial precisa declarar
+
+## 12. Revisão 1, 19/09/2026
+
+O professor revisou o Módulo 1 publicado e determinou as mudanças abaixo. Elas alteram decisões tomadas nas seções anteriores e têm precedência sobre elas.
+
+### 12.1 Anatomia da página de bloco, revista
+
+A página de bloco passa a ter **sete seções**, não oito. O Gabarito sai da anatomia pública.
+
+1. Título de nível 1, funcional
+2. Linha de enquadramento
+3. `## Antes de começar`
+4. `## Conceito`
+5. `## Uso pelo arquiteto`
+6. `## Exercício N`, com N o número sequencial do exercício ao longo de toda a disciplina (Aula 1: 1 a 4, Aula 2 continua de 5, e assim por diante)
+7. `## Fontes`
+
+O validador de conteúdo (`scripts/validate_content.py`) e seus testes precisam refletir essa anatomia de sete seções, sem exigir Gabarito, e passam a exigir que o cabeçalho de Exercício traga um número.
+
+### 12.2 Gabarito sai do site, entra na narrativa do PKA
+
+Nenhuma página pública contém gabarito, resposta ou critério de avaliação fechado. Esse conteúdo é reescrito com mais profundidade do que tinha no site e passa a viver em `~/pka/projects/aulas/PRJ-aulas-iec-asd-10-estrategias-e-projeto-de-arquitetura-de-software.md`, arquivo de narrativa do projeto no PKA do professor, fora deste repositório.
+
+### 12.3 Enunciado de exercício em lista numerada, não em prosa
+
+A palavra "prosa" não aparece em lugar nenhum do site. Onde um enunciado de exercício traz mais de uma pergunta ou instrução, elas aparecem como lista numerada (`1.`, `2.`, `3.`), não emendadas num parágrafo corrido. Os dados do caso continuam em tabela, como já estava.
+
+### 12.4 Datas reais removidas, cronograma genérico
+
+Nenhuma data de calendário real (DD/MM/AAAA de 2026) aparece fora da trilha do caso ACME. O cronograma e os índices de módulo passam a falar em "Aula 1", "Aula 2" e assim por diante, sem data. O horário de aula (19h00 às 22h30, intervalo 20h30 às 20h45) permanece, por ser estrutura de bloco, não data de calendário.
+
+As datas fictícias do caso ACME (calendário acadêmico, incidentes) **não são tocadas** por esta regra. Pertencem ao universo do caso, não ao calendário real da oferta.
+
+A página inicial (`docs/index.md`) perde o parágrafo de abertura que descrevia a disciplina e suas duas funções, por decisão editorial do professor.
+
+### 12.5 Bibliografia em formato APA
+
+`docs/referencia/bibliografia.md` e as citações nas seções Fontes das páginas de bloco seguem o formato APA 7. Dados confirmados para as cinco referências já em uso:
+
+- International Organization for Standardization/International Electrotechnical Commission/Institute of Electrical and Electronics Engineers. (2022). *Systems and software engineering — Architecture description* (ISO/IEC/IEEE 42010:2022).
+- International Organization for Standardization. (2023). *Systems and software engineering — Systems and software quality requirements and evaluation (SQuaRE) — Product quality model* (ISO/IEC 25010:2023).
+- Barbacci, M., Ellison, R., Lattanze, A., Stafford, J., Weinstock, C., & Wood, W. (2003). *Quality attribute workshops (QAWs), third edition* (CMU/SEI-2003-TR-016). Software Engineering Institute, Carnegie Mellon University.
+- Bass, L., Clements, P., & Kazman, R. (2021). *Software architecture in practice* (4th ed.). Addison-Wesley.
+- Ford, N., & Richards, M. (2020). *Fundamentals of software architecture*. O'Reilly.
+
+Os dados de Bass, Clements e Kazman (4ª edição, 2021, Addison-Wesley) foram confirmados na bibliografia publicada de `marco-mendes.github.io/arquitetura-software`, do próprio professor. As duas lacunas antes registradas na seção 7.3 (número de características da 25010:2023, DOI do relatório do SEI, e a "Quality Attribute Workshop Collection" de 2016) continuam sem entrar na bibliografia, porque não foram verificadas.
+
+### 12.6 Aprofundamento do bloco de cenários e QAW
+
+O bloco que trata de cenários de atributo de qualidade e significância arquitetural (hoje `bloco-3-cenarios-e-significancia-arquitetural.md`) ganha tratamento mais rigoroso do método Quality Attribute Workshop: mais exemplos de cenário, além dos dois já usados, e descrição mais completa do processo de elicitação do QAW junto às partes interessadas, mantendo a base no texto de referência do professor (`docs/superpowers/specs/2026-09-19-texto-referencia-atributos-qualidade.md`).
+
+### 12.7 Aprofundamento do bloco de estilos, com o material de base do professor
+
+O bloco que trata de estilos arquiteturais (hoje `bloco-4-estilos-arquiteturais.md`) ganha tratamento muito mais profundo, inspirado no rigor do material de base do professor em `marco-mendes.github.io/arquitetura-software` (repositório `marco-mendes/arquitetura-software`, arquivos `docs/modulo-1-visao-geral/conceitos.md` e `padroes-e-decisoes.md`): tabela de forças, anti-padrão e quando usar/evitar para cada estilo comparado, heurística prática por estilo (por exemplo a regra do sumidouro, quando mais de 80% das chamadas apenas repassam sem decidir), e referência à Lei de Conway quando pertinente.
+
+Isso **não reabre** a decisão da seção 9 sobre MVC, MVVM, DDD e Strangler não serem estilos arquiteturais para este curso. O professor confirmou manter a exclusão em 19/09/2026, mesmo o material de base dele os tratando como parte de uma taxonomia mais ampla de famílias arquiteturais. Os quatro estilos comparados no exercício continuam sendo camadas, microsserviços, orientado a eventos e microkernel.
+
+A obra do próprio professor entra na bibliografia como material de curso, em formato APA de página web:
+
+- Mendes, M. (2026). *Arquitetura de software* [Material de curso]. https://marco-mendes.github.io/arquitetura-software/
+
+### 12.8 Negrito parcimonioso
+
+Os termos centrais de cada conceito, no primeiro uso dentro da seção Conceito, podem receber destaque em negrito, no máximo três a cinco por página de bloco. Negrito não é usado em frase inteira, em dado numérico, nem em mais de uma ocorrência do mesmo termo na mesma página.
