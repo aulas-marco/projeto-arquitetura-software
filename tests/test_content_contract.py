@@ -28,10 +28,10 @@ class ContentContractTest(unittest.TestCase):
 
     def test_validator_declares_the_named_block_sections(self):
         text = (ROOT / "scripts/validate_content.py").read_text(encoding="utf-8")
-        # Seis das oito secoes da anatomia sao cabecalhos. As outras duas,
+        # Cinco das sete secoes da anatomia sao cabecalhos. As outras duas,
         # titulo e linha de enquadramento, nao sao verificaveis por nome.
         for section in ("Antes de começar", "Conceito", "Uso pelo arquiteto",
-                        "Exercício", "Gabarito", "Fontes"):
+                        "Exercício", "Fontes"):
             self.assertIn(section, text, section)
 
     def test_validator_rejects_forbidden_editorial_markers(self):
@@ -208,8 +208,7 @@ class ContentContractTest(unittest.TestCase):
             "## Antes de começar\n\nTexto.\n\n"
             "## Conceito\n\nTexto.\n\n"
             "## Uso pelo arquiteto\n\nTexto.\n\n"
-            "## Exercício\n\nTexto.\n\n"
-            "## Gabarito\n\nTexto.\n\n"
+            "## Exercício 1\n\nTexto.\n\n"
             "## Fontes\n\nTexto.\n",
             encoding="utf-8",
         )
@@ -229,8 +228,7 @@ class ContentContractTest(unittest.TestCase):
             "## Conceito\n\nTexto.\n\n"
             "## Antes de começar\n\nTexto.\n\n"
             "## Uso pelo arquiteto\n\nTexto.\n\n"
-            "## Exercício\n\nTexto.\n\n"
-            "## Gabarito\n\nTexto.\n\n"
+            "## Exercício 1\n\nTexto.\n\n"
             "## Fontes\n\nTexto.\n",
             encoding="utf-8",
         )
@@ -293,6 +291,62 @@ class ContentContractTest(unittest.TestCase):
             )
         finally:
             backup_path.rename(index_path)
+
+    def test_validator_catches_exercise_heading_without_number(self):
+        offender = DOCS / "modulo-1-fundamentos" / "bloco-9-teste-sem-numero.md"
+        offender.write_text(
+            "# Bloco teste\n\n"
+            "## Antes de começar\n\nTexto.\n\n"
+            "## Conceito\n\nTexto.\n\n"
+            "## Uso pelo arquiteto\n\nTexto.\n\n"
+            "## Exercício\n\nTexto.\n\n"
+            "## Fontes\n\nTexto.\n",
+            encoding="utf-8",
+        )
+        try:
+            result = subprocess.run(
+                ["python3", "scripts/validate_content.py"],
+                cwd=ROOT, text=True, capture_output=True,
+            )
+            self.assertEqual(1, result.returncode)
+            self.assertIn("falta a secao Exercício", result.stdout)
+        finally:
+            offender.unlink()
+
+    def test_validator_allows_exercise_heading_with_number(self):
+        allowed = DOCS / "modulo-1-fundamentos" / "bloco-9-teste-com-numero.md"
+        allowed.write_text(
+            "# Bloco teste\n\n"
+            "## Antes de começar\n\nTexto.\n\n"
+            "## Conceito\n\nTexto.\n\n"
+            "## Uso pelo arquiteto\n\nTexto.\n\n"
+            "## Exercício 7\n\nTexto.\n\n"
+            "## Fontes\n\nTexto.\n",
+            encoding="utf-8",
+        )
+        try:
+            result = subprocess.run(
+                ["python3", "scripts/validate_content.py"],
+                cwd=ROOT, text=True, capture_output=True,
+            )
+            self.assertNotIn("bloco-9-teste-com-numero", result.stdout)
+        finally:
+            allowed.unlink()
+
+    def test_validator_catches_forbidden_word_prosa(self):
+        offender = ROOT / "docs" / "_teste_palavra_prosa.md"
+        offender.write_text(
+            "# Teste\n\nResponda em prosa, sem usar bullets.\n", encoding="utf-8"
+        )
+        try:
+            result = subprocess.run(
+                ["python3", "scripts/validate_content.py"],
+                cwd=ROOT, text=True, capture_output=True,
+            )
+            self.assertEqual(1, result.returncode)
+            self.assertIn("palavra prosa proibida", result.stdout)
+        finally:
+            offender.unlink()
 
 
 if __name__ == "__main__":

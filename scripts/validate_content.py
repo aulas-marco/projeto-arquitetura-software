@@ -32,7 +32,6 @@ BLOCK_SECTIONS = (
     "Conceito",
     "Uso pelo arquiteto",
     "Exercício",
-    "Gabarito",
     "Fontes",
 )
 
@@ -137,12 +136,19 @@ def check_headings(path: Path, prose: list[tuple[int, str]]) -> list[str]:
 
 
 def check_block_anatomy(path: Path, text: str) -> list[str]:
-    """Paginas de bloco precisam das seis secoes nomeadas, na ordem."""
+    """Paginas de bloco precisam das cinco secoes nomeadas, na ordem.
+
+    "Exercicio" e caso especial: o cabecalho precisa trazer um numero
+    inteiro (## Exercicio N), nao apenas o nome da secao.
+    """
     if not path.name.startswith("bloco-"):
         return []
     positions = []
     for section in BLOCK_SECTIONS:
-        match = re.search(rf"^##\s+{re.escape(section)}", text, re.MULTILINE)
+        if section == "Exercício":
+            match = re.search(r"^##\s+Exerc[ií]cio\s+\d+\s*$", text, re.MULTILINE)
+        else:
+            match = re.search(rf"^##\s+{re.escape(section)}", text, re.MULTILINE)
         if match is None:
             return [f"{path.relative_to(ROOT)}: falta a secao {section}"]
         positions.append(match.start())
@@ -206,6 +212,14 @@ def check_relative_links(path: Path, text: str) -> list[str]:
     return offenders
 
 
+def check_prosa_word(path: Path, prose: list[tuple[int, str]]) -> list[str]:
+    return [
+        f"{path.relative_to(ROOT)}:{number} palavra prosa proibida"
+        for number, line in prose
+        if re.search(r"\bprosa\b", line, re.IGNORECASE)
+    ]
+
+
 def check_module_structure() -> list[str]:
     offenders = []
     for slug in MODULES:
@@ -231,6 +245,7 @@ def validate(module: str | None = None) -> list[str]:
         offenders += check_em_dashes(path, prose)
         offenders += check_markers(path, prose)
         offenders += check_headings(path, prose)
+        offenders += check_prosa_word(path, prose)
         offenders += check_block_anatomy(path, text)
         offenders += check_relative_links(path, text)
     return offenders
