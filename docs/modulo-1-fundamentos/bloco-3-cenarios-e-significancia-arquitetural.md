@@ -1,6 +1,6 @@
 # Cenários de qualidade e significância arquitetural
 
-Este bloco responde a uma pergunta que segue diretamente da anterior, como tornar um requisito de atributo de qualidade concreto o bastante para orientar decisão, e como julgar se um requisito, de qualquer natureza, deve pesar sobre a arquitetura.
+Este bloco responde a uma pergunta que segue diretamente da tratada no [bloco 2](bloco-2-qualidade-e-tipos-de-requisito.md), como tornar um requisito de atributo de qualidade concreto o bastante para orientar decisão, e como julgar se um requisito, de qualquer natureza, deve pesar sobre a arquitetura.
 
 ## Antes de começar
 
@@ -11,6 +11,8 @@ Este bloco responde a uma pergunta que segue diretamente da anterior, como torna
 ## Conceito
 
 Um requisito de atributo de qualidade, mesmo bem formulado, ainda deixa dúvida sobre em que situação exata ele vale e sobre como equipes diferentes devem interpretá-lo. O Software Engineering Institute usa cenários para reduzir essa ambiguidade. O relatório CMU/SEI-2003-TR-016 descreve o Quality Attribute Workshop, QAW, como método conduzido com os interessados para descobrir atributos de qualidade importantes e esclarecer requisitos antes mesmo de existir uma arquitetura detalhada. No QAW, os interessados geram, consolidam, priorizam e refinam cenários que representam os requisitos de qualidade do sistema. Esse trabalho também revela suposições e conflitos que permaneceriam ocultos em expressões genéricas como rápido, seguro ou flexível.
+
+O relatório também descreve como esse processo de elicitação se organiza na prática. Representantes de negócio expõem objetivos, restrições e riscos do projeto, e arquitetos apresentam o que já existe de decisão de projeto, quando existe alguma. Um grupo amplo de interessados, que reúne usuários, operadores, equipe técnica e patrocinadores, formula cenários brutos a partir da experiência de cada um com o sistema ou com sistemas parecidos, sem se preocupar ainda com a forma final. Um **facilitador** conduz a sessão de **elicitação** sem opinar sobre o mérito de cada cenário proposto. Cenários repetidos ou muito próximos são consolidados em um único enunciado, a lista consolidada passa por **priorização**, tipicamente por votação dos próprios interessados, e só os cenários priorizados avançam para o refinamento no formato de seis elementos, porque detalhar cada cenário bruto da sessão consumiria esforço desproporcional ao benefício.
 
 Um cenário de atributo de qualidade organiza essa expectativa em seis elementos.
 
@@ -27,13 +29,13 @@ Um cenário de atributo de qualidade organiza essa expectativa em seis elementos
 
 *Figura 1 — A estrutura de seis elementos do cenário de atributo de qualidade. Fonte: material do curso.*
 
-Um exemplo aplicado torna a estrutura concreta antes das duas variações detalhadas a seguir.
+Um exemplo aplicado torna a estrutura concreta antes das três variações detalhadas a seguir.
 
 ![Diagrama do exemplo desempenho do catálogo, seis caixas conectadas por setas. Fonte do estímulo, 5.000 usuários simultâneos. Estímulo, realizam buscas no catálogo. Ambiente, operação normal. Artefato, serviço de catálogo. Resposta, consulta e retorna resultados. Medida de resposta, 95% das buscas em até 2 segundos. Uma barra de destaque abaixo afirma que o cenário transforma uma expectativa de qualidade em um requisito verificável.](../assets/images/bloco-3-exemplo-desempenho-catalogo.png)
 
 *Figura 2 — Exemplo aplicado da estrutura de seis elementos a um requisito de desempenho de um serviço de catálogo. Fonte: material do curso.*
 
-O exemplo abaixo aplica a mesma estrutura a um requisito de desempenho em outro domínio, na mesma progressão de contexto e medida vista no bloco anterior.
+O exemplo abaixo aplica a mesma estrutura a um requisito de desempenho em outro domínio, na mesma progressão de contexto e medida vista no exemplo de desempenho da plataforma de vídeo, apresentado na seção Conceito do [bloco 2](bloco-2-qualidade-e-tipos-de-requisito.md).
 
 | Elemento | Especificação |
 | --- | --- |
@@ -54,6 +56,17 @@ O exemplo seguinte aplica a mesma estrutura a um requisito de modificabilidade, 
 | Artefato | Componente de roteamento de pagamentos |
 | Resposta | Implementar e ativar a nova integração sem alterar as integrações existentes |
 | Medida | Até dez dias úteis, alterações limitadas ao adaptador, configuração e testes contratuais |
+
+O terceiro exemplo aplica a mesma estrutura a um requisito de segurança, em um domínio ainda não usado nesta aula, o portal de sinistros de uma seguradora.
+
+| Elemento | Especificação |
+| --- | --- |
+| Fonte | Agente que tenta acesso não autorizado a uma conta de segurado |
+| Estímulo | Cinco tentativas de autenticação inválida para a mesma conta em dez minutos |
+| Ambiente | Operação normal do portal de sinistros |
+| Artefato | Serviço de identidade do portal de sinistros |
+| Resposta | Bloquear novas tentativas, registrar o evento e notificar o segurado |
+| Medida | Bloqueio por quinze minutos, registro em log de auditoria, notificação em até um minuto |
 
 Um cenário bem escrito não é, por si, um requisito arquiteturalmente significativo. Depois de formulado, ele ainda precisa ser priorizado e avaliado quanto ao impacto sobre a arquitetura.
 
@@ -92,24 +105,12 @@ Dois erros conceituais recorrentes merecem atenção neste ponto. O primeiro é 
 
 O arquiteto usa o cenário e o roteiro de sete perguntas para decidir onde investir esforço de design, dentro de um conjunto de requisitos que nunca recebe atenção equivalente. Cenários bem formados tornam comparável o que antes era apenas uma lista de rótulos de atributo, e o roteiro filtra, entre os cenários escritos, quais realmente pesam sobre decisão estrutural, risco ou custo de mudança tardia. O resultado orienta a prioridade de análise antes de qualquer proposta de solução, evitando que o esforço de arquitetura se disperse sobre requisito que a implementação convencional já resolve.
 
-## Exercício
+## Exercício 3
 
 A ACME é uma universidade privada brasileira cujo sistema acadêmico está em modernização, e cujo portal registra 815 sessões simultâneas em média anual ponderada, com pico de 5.800 sessões na abertura da matrícula, uma razão de 7,1 entre pico e média, e taxa de erro de 6,3% das requisições nesse intervalo de pico, contra 0,2% em dia letivo comum. Nessa mesma abertura, em 04/02/2026, o limite de tarefas concorrentes do monitor CICS foi atingido, porque sessões da camada web permaneciam com transação aberta após o abandono do navegador, sem tempo limite de sessão configurado. O incidente durou 4h20, 62% das tentativas de matrícula retornaram erro, 9.400 alunos não concluíram a inscrição no dia e a janela foi prorrogada em 2 dias úteis.
 
-Escreva dois cenários de atributo de qualidade para a ACME, no formato de seis elementos apresentado no Conceito. O primeiro cenário deve ter como estímulo o pico de sazonalidade descrito acima, e pode partir, como orientação de continuidade e sem obrigatoriedade, da reescrita mensurável de R2 sobre disponibilidade na janela de matrícula produzida no bloco 2. O segundo deve ter como estímulo o incidente descrito acima. Em seguida, para cada um dos dois cenários, aplique o roteiro de sete perguntas e defenda, com base nas respostas, se aquele cenário constitui um requisito arquiteturalmente significativo.
-
-## Gabarito
-
-<details>
-<summary>Critério de avaliação</summary>
-
-Como o exercício pede produção interpretativa sobre um caso real, não há resposta única. Um cenário bem formado preenche os seis elementos sem lacuna e sem redundância entre eles. Fonte e estímulo distinguem quem provoca o evento do que efetivamente acontece, o ambiente declara a condição de carga ou de falha em que o evento ocorre, articulando um dos números do extrato acima, o artefato nomeia a parte do sistema afetada com precisão suficiente para orientar decisão, e não apenas o sistema em geral, a resposta descreve o comportamento esperado, e a medida da resposta permite verificação objetiva, com prazo, percentual ou taxa de erro.
-
-Para o cenário de pico, uma resposta forte usa a razão de 7,1 entre pico e média para justificar por que dimensionar a capacidade pelo pico tem custo diferente de dimensionar pela média, e usa a taxa de erro observada no intervalo, 6,3%, como parte da medida de resposta. Para o cenário de incidente, uma resposta forte identifica o mecanismo estrutural causador, a ausência de tempo limite de sessão, como o ponto que o cenário deve testar, e não apenas o sintoma de erro na matrícula.
-
-Uma defesa de significância bem argumentada percorre as sete perguntas do roteiro sem pular nenhuma, mesmo quando a resposta a alguma delas é curta, e conclui com um juízo explícito, é ASR ou não é, apoiado nas respostas dadas e não apenas na suposição de que todo requisito de disponibilidade importa. Para os dois cenários da ACME, uma resposta forte tende a concluir que ambos são ASR, o de pico porque envolve alcance sobre vários componentes e alto custo de subdimensionamento tardio, o do incidente porque revela um risco técnico concreto, já materializado, com custo de correção que atravessa a camada web e o núcleo transacional. Uma resposta fraca aplica o roteiro de forma genérica, sem amarrar cada resposta a um dado do extrato, ou classifica os dois cenários como ASR apenas porque tratam de disponibilidade, incorrendo no primeiro erro conceitual apresentado no Conceito.
-
-</details>
+1. Escreva dois cenários de atributo de qualidade para a ACME, no formato de seis elementos apresentado no Conceito. O primeiro cenário deve ter como estímulo o pico de sazonalidade descrito acima, e pode partir, como orientação de continuidade e sem obrigatoriedade, da reescrita mensurável de R2 sobre disponibilidade na janela de matrícula, produzida no exercício do bloco 2 desta mesma aula. O segundo cenário deve ter como estímulo o incidente descrito acima.
+2. Para cada um dos dois cenários, aplique o roteiro de sete perguntas apresentado no Conceito e defenda, com base nas respostas, se aquele cenário constitui um requisito arquiteturalmente significativo.
 
 ## Fontes
 
