@@ -2,11 +2,11 @@
 
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos e um sistema acadêmico em operação desde 2004, usado como caso único ao longo das seis aulas da disciplina. Esta página registra o que cada aula acrescenta ao dossiê do caso.
 
-O dossiê é cumulativo. Cada exercício produz um artefato que serve de entrada para a aula seguinte, de modo que o aluno termina a disciplina com um conjunto encadeado de decisões sobre o mesmo sistema, e não com exercícios isolados.
+O dossiê é cumulativo. A maior parte dos exercícios produz um artefato que serve de entrada para a aula seguinte, de modo que o aluno termina a disciplina com um conjunto encadeado de decisões sobre o mesmo sistema, e não com exercícios isolados.
 
 ## Aula 1, fundamentos
 
-A ementa da Aula 1 está definida. Os quatro artefatos abaixo correspondem aos quatro blocos da aula, realizados em 21/09/2026.
+A ementa da Aula 1 está definida. A tabela abaixo cobre os quatro blocos da aula, realizados em 21/09/2026, três deles com artefato formal.
 
 | Bloco | Artefato produzido | Entrada usada do dossiê | Critério de aceitação |
 | --- | --- | --- | --- |
