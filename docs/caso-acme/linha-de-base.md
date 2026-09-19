@@ -140,6 +140,8 @@ Nenhuma troca com o ERP financeiro ou com o ambiente virtual de aprendizagem é 
 | Retorno de notas e frequência de atividades | 06h15 | 35 min | Ambiente virtual para ACME | Nota de atividade avaliativa e presença |
 | Extração do censo da educação superior | Maio, anual | 6h20 | ACME para órgão regulador | Base completa de alunos, docentes e cursos |
 
+Os lotes são sequenciais, com uma exceção. A exportação de notas das 05h10 e o retorno de baixas de pagamento das 05h30 correm em paralelo por 30 minutos. Os dois têm sentidos opostos, da ACME para o ambiente virtual e do ERP para a ACME, e não disputam o mesmo arquivo, mas disputam a mesma capacidade de processamento noturna. Essa concorrência é característica declarada da linha de base, não um erro de agendamento. A janela das 23h00 às 07h00 está saturada, porque os seis lotes diários somam 5h50 de execução em 8 horas de janela, e não há espaço para acrescentar um lote novo sem sobreposição.
+
 A janela de lote vai das 23h00 às 07h00. A consequência operacional é a latência de propagação. Uma matrícula confirmada às 09h00 só aparece no ambiente virtual de aprendizagem no dia seguinte, às 04h55. Uma nota lançada pelo professor às 15h00 só chega ao ambiente virtual às 06h00 do dia seguinte, porque depende do lote de exportação de notas das 05h10. Um pagamento compensado só é refletido na situação do aluno cerca de 30 horas depois da transação bancária. O requisito R7 da [página inicial do caso](index.md), que pede propagação de nota em até 10 minutos, é incompatível com essa estrutura de lote.
 
 ## Dívida técnica medida

@@ -20,11 +20,11 @@ O pico de 5.800 sessões simultâneas é medido nos 30 minutos seguintes à aber
 
 ## Sazonalidade
 
-A média anual é a média ponderada dos seis tipos de período pela quantidade de dias úteis de cada um, conforme a tabela acima. Para as sessões simultâneas, a soma de 153 vezes 640, 48 vezes 90, 20 vezes 1.150, 18 vezes 2.700, 10 vezes 1.900 e 2 vezes 5.800 resulta em 204.440, que dividido por 251 dias úteis dá 814 sessões. O mesmo cálculo aplicado às transações resulta em 543,3 milhões no ano e média de 2,16 milhões por dia útil.
+A média anual é a média ponderada dos seis tipos de período pela quantidade de dias úteis de cada um, conforme a tabela acima. Para as sessões simultâneas, a soma de 153 vezes 640, 48 vezes 90, 20 vezes 1.150, 18 vezes 2.700, 10 vezes 1.900 e 2 vezes 5.800 resulta em 204.440, que dividido por 251 dias úteis dá 814,5, arredondado para 815 sessões. O mesmo cálculo aplicado às transações resulta em 543,3 milhões no ano e média de 2,16 milhões por dia útil.
 
 | Indicador | Média anual ponderada | Pico | Razão |
 | --- | --- | --- | --- |
-| Sessões simultâneas | 814 | 5.800 | 7,1 |
+| Sessões simultâneas | 815 | 5.800 | 7,1 |
 | Transações no núcleo por dia | 2,16 milhões | 14,2 milhões | 6,6 |
 
 A capacidade contratada de processamento é dimensionada para o pico, que ocupa 94% dela. A ocupação média anual é de 13%, obtida pela divisão dos 94% pela razão de 7,1, e em dia letivo comum fica em 10%.
@@ -45,7 +45,7 @@ As duas janelas de matrícula somam 20 dias úteis, dos quais 2 são de abertura
 
 Na janela de matrícula, 34.800 alunos renovam a inscrição em disciplina. Os outros 3.600 são ingressantes, que entram pelo processo seletivo e têm matrícula registrada pela Secretaria Acadêmica. O primeiro dia concentra 14.300 confirmações, ou 41% do total da janela, porque a ordem de chegada define a prioridade de vaga em turma com lotação esgotada.
 
-Na janela de fechamento, 2.150 professores lançam notas de 4.900 turmas. A base é de 230.400 matrículas em disciplina, com 4 avaliações por disciplina, o que resulta em 921.600 lançamentos de nota por semestre. A concentração de 78% nos dois últimos dias significa 359.424 lançamentos nesses dois dias e cerca de 67.600 por dia nos três primeiros.
+Na janela de fechamento, 2.150 professores lançam notas de 4.900 turmas. A base é de 230.400 matrículas em disciplina, com 4 avaliações por disciplina, o que resulta em 921.600 lançamentos de nota por semestre. A concentração de 78% nos dois últimos dias significa 718.848 lançamentos nesses dois dias, ou 359.424 por dia, e 202.752 nos três primeiros, ou 67.584 por dia. As duas parcelas somam os 921.600 lançamentos do semestre.
 
 ## Incidentes registrados
 
