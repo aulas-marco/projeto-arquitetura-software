@@ -20,14 +20,14 @@ Os números abaixo descrevem a instituição no ano letivo de 2026 e são refer�
 | Cursos de graduação | 62 |
 | Turmas por semestre | 4.900 |
 | Matrículas em disciplina por semestre | 230.400 |
-| Orçamento anual da instituição | R$ 1,18 bilhão |
-| Custo anual do sistema acadêmico | R$ 13,04 milhões |
+| Orçamento anual da instituição | R$ 560 milhões |
+| Custo anual de propriedade do sistema acadêmico | R$ 15,83 milhões |
 
 A média de 6,0 disciplinas por aluno por semestre explica o total de 230.400 matrículas em disciplina, base de cálculo do volume de lançamento de notas descrito na página de [dados operacionais](dados-operacionais.md).
 
 ## A pergunta central
 
-O sistema acadêmico da ACME funciona. Ele processa a matrícula, calcula a situação do aluno, emite documentos com validade legal e alimenta o ERP financeiro. O problema não é de correção funcional, e sim de custo de mudança, de risco operacional concentrado em janelas curtas e de dependência de especialistas cuja oferta no mercado diminui a cada ano.
+O sistema acadêmico atende aos processos para os quais foi construído, entre eles a matrícula, o cálculo da situação do aluno, a emissão de documentos com validade legal e a alimentação do ERP financeiro. Os problemas registrados pela Diretoria de TI são de outra natureza. O prazo médio entre pedido aprovado e entrega em produção é de 34 dias úteis. O risco operacional concentra-se em janelas de poucos dias, nas quais ocorreram dois dos três incidentes graves dos últimos 18 meses. A alteração do módulo de matrícula depende de 1 profissional, entre os 6 especialistas em COBOL da sustentação, dos quais 2 se aposentam em 2027.
 
 A pergunta que organiza o caso é como evoluir o sistema acadêmico de forma segura e incremental, mantendo a operação contínua durante a transição e respeitando os compromissos contratuais já assumidos pela instituição.
 
@@ -41,7 +41,7 @@ Cada linha da tabela descreve um papel, a área à qual ele pertence, o resultad
 | --- | --- | --- | --- |
 | Reitora | Reitoria | Resultado visível em 12 meses e aplicativo móvel do aluno em operação antes do vestibular de 2027 | Investimento de R$ 6,2 milhões sem efeito perceptível e queda de nota na avaliação regulatória |
 | Pró-Reitora de Graduação | Graduação | Matrícula sem falha e notas publicadas dentro do calendário | Repetição do incidente de 04/02/2026 e nova prorrogação da janela de matrícula |
-| Diretor de TI | Tecnologia da Informação | Reduzir a dependência de especialistas COBOL e o custo anual de R$ 13,04 milhões | Perder os 6 profissionais de COBOL e ficar sem quem sustente o núcleo |
+| Diretor de TI | Tecnologia da Informação | Reduzir a dependência de especialistas COBOL e o custo anual de R$ 15,83 milhões | Perder os 6 profissionais de COBOL e ficar sem quem sustente o núcleo |
 | Diretor Financeiro | Administração e Finanças | Preservar os contratos vigentes até o fim do prazo, já provisionados no plano plurianual | Desembolso duplicado, com legado e nuvem cobrados no mesmo exercício |
 | Gerente de sustentação | Fábrica de software contratada | Manter o escopo e a previsibilidade do contrato até 30/09/2027 | Perder receita e escopo com a internalização do conhecimento do núcleo |
 | Coordenadora de Educação a Distância | Educação a Distância | Notas e turmas propagadas ao ambiente virtual de aprendizagem em minutos | Continuar dependente do lote diário, com reclamação de aluno a cada fechamento |
@@ -92,7 +92,7 @@ A lista abaixo reproduz o que cada parte interessada declarou nas entrevistas de
 | R12 | A disponibilidade na janela de matrícula é de 99,9%, medida em minutos de indisponibilidade no mês | Pró-Reitoria de Graduação |
 | R13 | O aluno consulta o resultado da solicitação de aproveitamento de disciplina pelo portal | Secretaria Acadêmica |
 | R14 | Nenhum dado pessoal de aluno é processado fora do território nacional | Jurídico |
-| R15 | O custo anual do sistema acadêmico cai para R$ 9,0 milhões até o fim de 2029 | Diretoria de TI |
+| R15 | O custo anual de propriedade do sistema acadêmico, hoje em R$ 15,83 milhões, cai para R$ 11,0 milhões até o fim de 2029, no mesmo escopo de medição | Diretoria de TI |
 
 ## Continuação do dossiê
 

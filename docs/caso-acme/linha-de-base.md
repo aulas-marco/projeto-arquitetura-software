@@ -12,7 +12,7 @@ O sistema tem quatro camadas. O núcleo transacional em COBOL executa sob o moni
 graph TD
     ALU["Aluno, portal e navegador"]
     PROF["Professor, portal de notas"]
-    SEC["Secretaria e gestao"]
+    SEC["Secretaria e gestão"]
 
     subgraph WEB["Camada web, JSF 1.2 e EJB 2.0, 2007 a 2009"]
         PA["Portal do Aluno"]
@@ -21,43 +21,44 @@ graph TD
         PG["Portal do Gestor"]
     end
 
-    subgraph NUC["Nucleo transacional, COBOL sobre CICS, desde 2004"]
-        CICS["Monitor CICS, 380 transacoes"]
-        MOD["11 modulos funcionais, 1.940 programas"]
+    subgraph NUC["Núcleo transacional, COBOL sobre CICS, desde 2004"]
+        CICS["Monitor CICS, 380 transações"]
+        MOD["11 módulos funcionais, 1.940 programas"]
     end
 
     ORA[("Oracle 12c R2, 740 tabelas, 11 TB")]
-    LDAP["Diretorio corporativo"]
+    LDAP["Diretório corporativo"]
     PAG["Gateway de pagamento"]
     ICP["Assinador digital ICP-Brasil"]
     ERP["ERP financeiro"]
     AVA["Ambiente virtual de aprendizagem"]
     DW["Data warehouse institucional"]
-    INEP["Orgao regulador"]
+    INEP["Órgão regulador"]
 
     ALU --> PA
     PROF --> PP
     SEC --> PS
     SEC --> PG
 
-    PA -->|"sincrono, conector transacional, timeout de 30 s"| CICS
-    PP -->|"sincrono, conector transacional"| CICS
-    PS -->|"sincrono, conector transacional"| CICS
-    PG -->|"sincrono, acesso direto ao banco"| ORA
-    PA -->|"sincrono, acesso direto ao banco, 2.300 pontos"| ORA
+    PA -->|"síncrono, conector transacional, tempo limite de 30 s"| CICS
+    PP -->|"síncrono, conector transacional"| CICS
+    PS -->|"síncrono, conector transacional"| CICS
+    PG -->|"síncrono, acesso direto ao banco"| ORA
+    PA -->|"síncrono, acesso direto ao banco, 2.300 pontos"| ORA
 
     CICS --> MOD
     MOD --> ORA
 
-    PA -->|"sincrono, HTTPS"| PAG
-    PS -->|"sincrono, HTTPS"| ICP
-    WEB -->|"sincrono, LDAP"| LDAP
+    PA -->|"síncrono, HTTPS"| PAG
+    PS -->|"síncrono, HTTPS"| ICP
+    WEB -->|"síncrono, LDAP"| LDAP
 
-    MOD -->|"lote diario, 23h10, arquivo posicional"| ERP
-    ERP -->|"lote diario, 05h30, retorno de baixas"| MOD
-    MOD -->|"lote diario, 04h00, carga de turmas"| AVA
-    AVA -->|"lote diario, 06h15, retorno de notas"| MOD
-    ORA -->|"lote diario, 02h30, extracao"| DW
+    MOD -->|"lote diário, 23h10, arquivo posicional"| ERP
+    ERP -->|"lote diário, 05h30, retorno de baixas"| MOD
+    MOD -->|"lote diário, 04h00, carga de turmas"| AVA
+    MOD -->|"lote diário, 05h10, exportação de notas"| AVA
+    AVA -->|"lote diário, 06h15, retorno de notas de atividade"| MOD
+    ORA -->|"lote diário, 02h30, extração"| DW
     MOD -->|"lote anual, maio, censo"| INEP
 ```
 
@@ -134,11 +135,12 @@ Nenhuma troca com o ERP financeiro ou com o ambiente virtual de aprendizagem é 
 | Exportação de lançamentos financeiros | 23h10 | 1h40 | ACME para ERP | Mensalidade, multa e desconto do dia |
 | Extração para o data warehouse | 02h30 | 1h10 | Oracle para data warehouse | Cópia integral de 140 tabelas |
 | Carga de turmas e matrículas | 04h00 | 55 min | ACME para ambiente virtual | Turma, matrícula e vínculo docente |
+| Exportação de notas consolidadas | 05h10 | 50 min | ACME para ambiente virtual | Nota consolidada e situação por disciplina, 4.800 lançamentos em dia letivo comum e até 360.000 na janela de fechamento |
 | Retorno de baixas de pagamento | 05h30 | 40 min | ERP para ACME | Confirmação de pagamento e inadimplência |
 | Retorno de notas e frequência de atividades | 06h15 | 35 min | Ambiente virtual para ACME | Nota de atividade avaliativa e presença |
 | Extração do censo da educação superior | Maio, anual | 6h20 | ACME para órgão regulador | Base completa de alunos, docentes e cursos |
 
-A janela de lote vai das 23h00 às 07h00. A consequência operacional é a latência de propagação. Uma matrícula confirmada às 09h00 só aparece no ambiente virtual de aprendizagem no dia seguinte, às 04h55, e um pagamento compensado só é refletido na situação do aluno cerca de 30 horas depois da transação bancária.
+A janela de lote vai das 23h00 às 07h00. A consequência operacional é a latência de propagação. Uma matrícula confirmada às 09h00 só aparece no ambiente virtual de aprendizagem no dia seguinte, às 04h55. Uma nota lançada pelo professor às 15h00 só chega ao ambiente virtual às 06h00 do dia seguinte, porque depende do lote de exportação de notas das 05h10. Um pagamento compensado só é refletido na situação do aluno cerca de 30 horas depois da transação bancária. O requisito R7 da [página inicial do caso](index.md), que pede propagação de nota em até 10 minutos, é incompatível com essa estrutura de lote.
 
 ## Dívida técnica medida
 
