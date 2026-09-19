@@ -53,3 +53,7 @@ Conjunto de tecnologias, serviços e convenções sobre os quais um sistema é c
 ## ADR
 
 Registro de decisão de arquitetura, do inglês Architecture Decision Record, documento curto que descreve uma decisão arquitetural, o contexto que a motivou e suas consequências.
+
+## Modelo C4
+
+Notação para representar a arquitetura de um sistema em quatro níveis de abstração progressiva, Contexto, Contêineres, Componentes e Código, cada nível com nome próprio, o modelo inteiro chamado C4 por ter quatro níveis.
