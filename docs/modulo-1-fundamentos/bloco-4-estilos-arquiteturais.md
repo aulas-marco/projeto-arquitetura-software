@@ -27,7 +27,7 @@ A arquitetura em camadas é o estilo mais direto de descrever e o mais frequente
 | --- | --- |
 | Simplicidade de raciocínio e testabilidade de cada camada em isolamento | O **sumidouro**, quando uma camada apenas repassa a chamada adiante sem decidir, validar ou transformar nada |
 
-A heurística prática para reconhecer o sumidouro vem de Richards e Ford, autores já citados no início desta seção Conceito. Se mais de 80% das chamadas de um sistema em camadas apenas repassam a requisição adiante, sem tomar decisão, validar dado ou transformar resultado, o estilo em camadas provavelmente deixou de ser o certo para esse sistema, porque a estrutura passa a cobrar latência de travessia sem devolver benefício algum. No exemplo do sistema de gestão de estoque industrial descrito acima, esse sinal apareceria se a camada de negócio apenas repassasse a consulta de saldo à persistência, sem aplicar a regra de ponto de pedido que justifica sua existência.
+A heurística prática para reconhecer o sumidouro vem de Ford e Richards, autores já citados no início desta seção Conceito. Se mais de 80% das chamadas de um sistema em camadas apenas repassam a requisição adiante, sem tomar decisão, validar dado ou transformar resultado, o estilo em camadas provavelmente deixou de ser o certo para esse sistema, porque a estrutura passa a cobrar latência de travessia sem devolver benefício algum. No exemplo do sistema de gestão de estoque industrial descrito acima, esse sinal apareceria se a camada de negócio apenas repassasse a consulta de saldo à persistência, sem aplicar a regra de ponto de pedido que justifica sua existência.
 
 A prevalência do estilo em camadas em sistema corporativo tem, além da explicação técnica, uma explicação organizacional. A **Lei de Conway** descreve que organizações produzem arquiteturas que espelham sua própria estrutura de comunicação. Uma equipe dividida em front-end, back-end e banco de dados tende a produzir, mesmo sem decisão deliberada de um arquiteto, um sistema também dividido nessas três camadas.
 
@@ -85,7 +85,7 @@ O arquiteto usa essa comparação de estilo por atributo de qualidade para defen
 
 A ACME é uma universidade privada brasileira cujo sistema acadêmico legado sustenta um núcleo transacional em COBOL sobre o monitor CICS, uma camada web em JSF e EJB e integrações por arquivo em lote com o ERP financeiro e o ambiente virtual de aprendizagem, em processo de modernização incremental.
 
-Os dois cenários abaixo já foram formulados no formato de seis elementos. Se o aluno já escreveu seus próprios cenários no bloco 3, pode usá-los no lugar destes, que servem de versão de referência para quem ainda não os tem.
+Os dois cenários abaixo já foram formulados no formato de seis elementos. Se o aluno já escreveu seus próprios cenários no [bloco 3](bloco-3-cenarios-e-significancia-arquitetural.md), pode usá-los no lugar destes, que servem de versão de referência para quem ainda não os tem.
 
 Cenário 1, pico de sazonalidade
 
@@ -114,4 +114,4 @@ Cenário 2, incidente de 04/02/2026
 
 ## Fontes
 
-Glossário do curso, entrada [estilo arquitetural](../referencia/glossario.md#estilo-arquitetural). Ford, N. e Richards, M., obra de referência sobre comparação de estilos arquiteturais por atributo de qualidade, listada na [bibliografia](../referencia/bibliografia.md). Bass, L., Clements, P. e Kazman, R., Software Architecture in Practice, listado na [bibliografia](../referencia/bibliografia.md). Mendes, M., Arquitetura de software, material de curso, listado na [bibliografia](../referencia/bibliografia.md). Dossiê da instituição fictícia [ACME](../caso-acme/index.md), [arquitetura de linha de base](../caso-acme/linha-de-base.md) e [dados operacionais](../caso-acme/dados-operacionais.md).
+Glossário do curso, entrada [estilo arquitetural](../referencia/glossario.md#estilo-arquitetural). Ford e Richards (2020), obra de referência sobre comparação de estilos arquiteturais por atributo de qualidade, listada na [bibliografia](../referencia/bibliografia.md). Bass et al. (2021), listado na [bibliografia](../referencia/bibliografia.md). Mendes (2026), material de curso, listado na [bibliografia](../referencia/bibliografia.md). Dossiê da instituição fictícia [ACME](../caso-acme/index.md), [arquitetura de linha de base](../caso-acme/linha-de-base.md) e [dados operacionais](../caso-acme/dados-operacionais.md).

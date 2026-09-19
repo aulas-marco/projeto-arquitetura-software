@@ -22,14 +22,14 @@ As perguntas abaixo são para o aluno responder a si mesmo, sem gabarito públic
 
 ## Fontes da aula
 
-ISO/IEC/IEEE 42010:2022. Software, systems and enterprise, architecture description. Segunda edição, substitui a edição de 2011.
+International Organization for Standardization/International Electrotechnical Commission/Institute of Electrical and Electronics Engineers (2022), norma sobre descrição de arquitetura, segunda edição, substitui a edição de 2011.
 
-ISO/IEC 25010. Systems and software engineering, systems and software quality requirements and evaluation, modelo de qualidade de produto de software.
+International Organization for Standardization (2023), modelo de qualidade de produto de software.
 
-Barbacci, M. e outros. Quality Attribute Workshops, terceira edição. CMU/SEI-2003-TR-016. Software Engineering Institute, Carnegie Mellon University.
+Barbacci et al. (2003), relatório sobre Quality Attribute Workshops, terceira edição, do Software Engineering Institute, Carnegie Mellon University.
 
-Bass, L., Clements, P. e Kazman, R. Software Architecture in Practice.
+Bass et al. (2021), obra de referência sobre arquitetura de software na prática.
 
-Ford, N. e Richards, M. Obra de referência sobre comparação de estilos arquiteturais por atributo de qualidade.
+Ford e Richards (2020), obra de referência sobre comparação de estilos arquiteturais por atributo de qualidade.
 
 A lista completa, com as fontes ainda em verificação, está na [bibliografia](../referencia/bibliografia.md) do curso.
