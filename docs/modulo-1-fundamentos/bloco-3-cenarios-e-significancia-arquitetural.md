@@ -23,7 +23,17 @@ Um cenário de atributo de qualidade organiza essa expectativa em seis elementos
 | Resposta | O que o sistema deve fazer |
 | Medida da resposta | Como se verificará o atendimento |
 
-O exemplo abaixo aplica a estrutura a um requisito de desempenho, na mesma progressão de contexto e medida vista no bloco anterior.
+![Diagrama horizontal com seis caixas conectadas por setas, numeradas de 1 a 6, sob o título Cenário de atributo de qualidade e o subtítulo estrutura para especificar requisitos não funcionais. Caixa 1, Fonte do estímulo, quem gera o evento. Caixa 2, Estímulo, evento que exige resposta. Caixa 3, Ambiente, condições no momento do evento. Caixa 4, Artefato, elemento que recebe o estímulo. Caixa 5, Resposta, ação executada pelo sistema. Caixa 6, Medida de resposta, critério mensurável para verificar o requisito.](../assets/images/bloco-3-cenario-atributo-qualidade.png)
+
+*Figura 1 — A estrutura de seis elementos do cenário de atributo de qualidade. Fonte: material do curso.*
+
+Um exemplo aplicado torna a estrutura concreta antes das duas variações detalhadas a seguir.
+
+![Diagrama do exemplo desempenho do catálogo, seis caixas conectadas por setas. Fonte do estímulo, 5.000 usuários simultâneos. Estímulo, realizam buscas no catálogo. Ambiente, operação normal. Artefato, serviço de catálogo. Resposta, consulta e retorna resultados. Medida de resposta, 95% das buscas em até 2 segundos. Uma barra de destaque abaixo afirma que o cenário transforma uma expectativa de qualidade em um requisito verificável.](../assets/images/bloco-3-exemplo-desempenho-catalogo.png)
+
+*Figura 2 — Exemplo aplicado da estrutura de seis elementos a um requisito de desempenho de um serviço de catálogo. Fonte: material do curso.*
+
+O exemplo abaixo aplica a mesma estrutura a um requisito de desempenho em outro domínio, na mesma progressão de contexto e medida vista no bloco anterior.
 
 | Elemento | Especificação |
 | --- | --- |
