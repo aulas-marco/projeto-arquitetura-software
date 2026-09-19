@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import re
 import sys
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -150,18 +151,58 @@ def check_block_anatomy(path: Path, text: str) -> list[str]:
     return []
 
 
+def _slugify_heading(title: str) -> str:
+    """Reproduz o algoritmo de geracao de ancora do MkDocs (extensao toc).
+
+    Normaliza acentos via NFKD, remove o que sobra fora de letra, numero,
+    espaco ou hifen, passa para minusculas e troca espacos por hifen.
+    """
+    normalized = unicodedata.normalize("NFKD", title)
+    ascii_text = normalized.encode("ascii", "ignore").decode("ascii")
+    ascii_text = ascii_text.lower().strip()
+    ascii_text = re.sub(r"[^a-z0-9\s-]", "", ascii_text)
+    ascii_text = re.sub(r"[\s]+", "-", ascii_text).strip("-")
+    return ascii_text
+
+
+def _heading_slugs(text: str) -> set[str]:
+    """Extrai o conjunto de ancoras que o MkDocs geraria para as headings do arquivo."""
+    slugs: set[str] = set()
+    seen: dict[str, int] = {}
+    for match in re.finditer(r"^#{1,6}\s+(.+?)\s*$", text, re.MULTILINE):
+        base = _slugify_heading(match.group(1))
+        if not base:
+            continue
+        if base in seen:
+            seen[base] += 1
+            slug = f"{base}_{seen[base]}"
+        else:
+            seen[base] = 0
+            slug = base
+        slugs.add(slug)
+    return slugs
+
+
 def check_relative_links(path: Path, text: str) -> list[str]:
     offenders = []
     for match in re.finditer(r"\]\((?!https?://|#|mailto:)([^)]+)\)", text):
-        target = match.group(1).split("#")[0]
+        raw = match.group(1)
+        target, _, fragment = raw.partition("#")
         if not target:
             continue
         resolved = (path.parent / target).resolve()
+        line = text[: match.start()].count("\n") + 1
         if not resolved.exists():
-            line = text[: match.start()].count("\n") + 1
             offenders.append(
                 f"{path.relative_to(ROOT)}:{line} link relativo quebrado {target}"
             )
+            continue
+        if fragment:
+            target_text = resolved.read_text(encoding="utf-8")
+            if fragment not in _heading_slugs(target_text):
+                offenders.append(
+                    f"{path.relative_to(ROOT)}:{line} ancora inexistente #{fragment} em {target}"
+                )
     return offenders
 
 

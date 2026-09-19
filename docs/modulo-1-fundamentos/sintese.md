@@ -8,7 +8,7 @@ Esta página fecha o módulo de fundamentos com o que precisa permanecer depois 
 - O formato de seis elementos de um cenário de atributo de qualidade, fonte do estímulo, estímulo, artefato afetado, ambiente, resposta e medida da resposta
 - O critério para julgar se um requisito é arquiteturalmente significativo, aplicado ao impacto do requisito sobre as decisões estruturais do sistema
 - A relação entre estilo arquitetural e atributo de qualidade, entendida como adequação e não como escolha única correta
-- Os dois artefatos produzidos nos exercícios, a classificação de requisitos com as reescritas mensuráveis do bloco 2 e os cenários do bloco 3, porque a Aula 2 parte deles
+- Os três artefatos formais produzidos nos exercícios, a classificação de requisitos com as reescritas mensuráveis do bloco 2, os dois cenários do bloco 3 e a comparação de estilos com decisão justificada do bloco 4, porque a Aula 2 parte deles. O bloco 1 não produz artefato formal
 
 ## Autoavaliação
 

@@ -32,7 +32,7 @@ O [bloco 1](bloco-1-arquitetura-e-papel-do-arquiteto.md) expõe o conceito de ar
 
 O [bloco 2](bloco-2-qualidade-e-tipos-de-requisito.md) expõe o conceito de qualidade em software e distingue requisito funcional, requisito não funcional, requisito de atributo de qualidade e restrição. O exercício classifica os requisitos declarados pela ACME nessas quatro categorias e reescreve dois deles em forma mensurável. As reescritas mensuráveis produzidas aqui alimentam o bloco 3, porque um cenário de atributo de qualidade parte de um requisito já expresso de forma verificável.
 
-O [bloco 3](bloco-3-cenarios-e-significancia-arquitetural.md) expõe o formato de seis elementos de um cenário de atributo de qualidade e o julgamento de significância arquitetural. O exercício escreve dois cenários para a ACME, a partir das reescritas do bloco 2, e defende quais deles constituem requisito arquiteturalmente significativo. Os cenários escritos aqui alimentam o bloco 4, que compara estilos contra eles.
+O [bloco 3](bloco-3-cenarios-e-significancia-arquitetural.md) expõe o formato de seis elementos de um cenário de atributo de qualidade e o julgamento de significância arquitetural. O exercício escreve dois cenários para a ACME, um deles orientado pela reescrita de R2 produzida no bloco 2, e defende quais deles constituem requisito arquiteturalmente significativo. Os cenários escritos aqui alimentam o bloco 4, que compara estilos contra eles.
 
 O [bloco 4](bloco-4-estilos-arquiteturais.md) expõe o conceito de estilo arquitetural e sua relação com atributo de qualidade. O exercício compara três estilos candidatos contra os cenários escritos no bloco 3, avaliando qual estilo atende melhor a cada cenário.
 

@@ -16,4 +16,4 @@ Barbacci, M. e outros. Quality Attribute Workshops, terceira edição. CMU/SEI-2
 
 Bass, L., Clements, P. e Kazman, R. Software Architecture in Practice.
 
-Ford, N. e Richards, M. Obra de referência sobre comparação de estilos arquiteturais por atributo de qualidade.
+Ford, N. e Richards, M. *Fundamentals of Software Architecture*. O'Reilly, 2020. Referência para comparação de estilos arquiteturais por atributo de qualidade.

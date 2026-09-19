@@ -49,13 +49,13 @@ A arquitetura microkernel serve bem quando a maior parte do sistema é estável 
 
 ## Uso pelo arquiteto
 
-O arquiteto usa essa comparação de estilo por atributo de qualidade para defender uma escolha diante de stakeholders com prioridades diferentes, traduzindo uma preferência técnica em uma tabela de trocas explícitas. Em vez de afirmar que um estilo é melhor em abstrato, o arquiteto mostra qual atributo o estilo escolhido favorece, qual ele sacrifica, e associa cada um desses atributos ao cenário de qualidade que a organização já reconheceu como prioritário, o que torna a decisão auditável e reduz a chance de reabri-la sem novo dado.
+O arquiteto usa essa comparação de estilo por atributo de qualidade para defender uma escolha diante de partes interessadas com prioridades diferentes, traduzindo uma preferência técnica em uma tabela de trocas explícitas. Em vez de afirmar que um estilo é melhor em abstrato, o arquiteto mostra qual atributo o estilo escolhido favorece, qual ele sacrifica, e associa cada um desses atributos ao cenário de qualidade que a organização já reconheceu como prioritário, o que torna a decisão auditável e reduz a chance de reabri-la sem novo dado.
 
 ## Exercício
 
 A ACME é uma universidade privada brasileira cujo sistema acadêmico legado sustenta um núcleo transacional em COBOL sobre o monitor CICS, uma camada web em JSF e EJB e integrações por arquivo em lote com o ERP financeiro e o ambiente virtual de aprendizagem, em processo de modernização incremental.
 
-Os dois cenários abaixo já foram formulados no formato de seis elementos.
+Os dois cenários abaixo já foram formulados no formato de seis elementos. Se o aluno já escreveu seus próprios cenários no bloco 3, pode usá-los no lugar destes, que servem de versão de referência para quem ainda não os tem.
 
 **Cenário 1, pico de sazonalidade**
 

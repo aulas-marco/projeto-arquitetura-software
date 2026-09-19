@@ -27,11 +27,11 @@ O exemplo abaixo aplica a estrutura a um requisito de desempenho, na mesma progr
 
 | Elemento | Especificação |
 | --- | --- |
-| Fonte | Usuários autenticados do aplicativo móvel |
-| Estímulo | Submissão de consulta de saldo |
+| Fonte | Usuários autenticados do aplicativo de rastreamento de encomendas |
+| Estímulo | Submissão de consulta de status de uma encomenda |
 | Ambiente | Pico mensal de 2.000 requisições por segundo |
-| Artefato | API de contas e dependências necessárias |
-| Resposta | Validar a identidade, recuperar o saldo e devolver a resposta |
+| Artefato | API de rastreamento e dependências necessárias |
+| Resposta | Validar a identidade, recuperar o status da encomenda e devolver a resposta |
 | Medida | p95 até 500 ms, p99 até 1 s, erros abaixo de 0,1% |
 
 O exemplo seguinte aplica a mesma estrutura a um requisito de modificabilidade, em um sistema de pagamentos com múltiplos adquirentes.
@@ -84,9 +84,9 @@ O arquiteto usa o cenário e o roteiro de sete perguntas para decidir onde inves
 
 ## Exercício
 
-A ACME é uma universidade privada brasileira cujo sistema acadêmico está em modernização, e cujo portal registra 815 sessões simultâneas em média anual ponderada, com pico de 5.800 sessões na abertura da matrícula, uma razão de 7,1 entre pico e média. Nessa mesma abertura, em 04/02/2026, o limite de tarefas concorrentes do monitor CICS foi atingido, porque sessões da camada web permaneciam com transação aberta após o abandono do navegador, sem tempo limite de sessão configurado. O incidente durou 4h20, 62% das tentativas de matrícula retornaram erro, 9.400 alunos não concluíram a inscrição no dia e a janela foi prorrogada em 2 dias úteis.
+A ACME é uma universidade privada brasileira cujo sistema acadêmico está em modernização, e cujo portal registra 815 sessões simultâneas em média anual ponderada, com pico de 5.800 sessões na abertura da matrícula, uma razão de 7,1 entre pico e média, e taxa de erro de 6,3% das requisições nesse intervalo de pico, contra 0,2% em dia letivo comum. Nessa mesma abertura, em 04/02/2026, o limite de tarefas concorrentes do monitor CICS foi atingido, porque sessões da camada web permaneciam com transação aberta após o abandono do navegador, sem tempo limite de sessão configurado. O incidente durou 4h20, 62% das tentativas de matrícula retornaram erro, 9.400 alunos não concluíram a inscrição no dia e a janela foi prorrogada em 2 dias úteis.
 
-Escreva dois cenários de atributo de qualidade para a ACME, no formato de seis elementos apresentado no Conceito. O primeiro cenário deve ter como estímulo o pico de sazonalidade descrito acima. O segundo deve ter como estímulo o incidente descrito acima. Em seguida, para cada um dos dois cenários, aplique o roteiro de sete perguntas e defenda, com base nas respostas, se aquele cenário constitui um requisito arquiteturalmente significativo.
+Escreva dois cenários de atributo de qualidade para a ACME, no formato de seis elementos apresentado no Conceito. O primeiro cenário deve ter como estímulo o pico de sazonalidade descrito acima, e pode partir, como orientação de continuidade e sem obrigatoriedade, da reescrita mensurável de R2 sobre disponibilidade na janela de matrícula produzida no bloco 2. O segundo deve ter como estímulo o incidente descrito acima. Em seguida, para cada um dos dois cenários, aplique o roteiro de sete perguntas e defenda, com base nas respostas, se aquele cenário constitui um requisito arquiteturalmente significativo.
 
 ## Gabarito
 

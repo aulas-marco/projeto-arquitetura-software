@@ -244,6 +244,40 @@ class ContentContractTest(unittest.TestCase):
         finally:
             offender.unlink()
 
+    def test_validator_catches_nonexistent_anchor(self):
+        offender = ROOT / "docs" / "_teste_ancora_quebrada.md"
+        offender.write_text(
+            "# Teste\n\n"
+            "Veja [atributo](referencia/glossario.md#ancora-que-nao-existe) para mais detalhes.\n",
+            encoding="utf-8",
+        )
+        try:
+            result = subprocess.run(
+                ["python3", "scripts/validate_content.py"],
+                cwd=ROOT, text=True, capture_output=True,
+            )
+            self.assertEqual(1, result.returncode)
+            self.assertIn("ancora inexistente", result.stdout)
+        finally:
+            offender.unlink()
+
+    def test_validator_allows_existing_anchor(self):
+        allowed = ROOT / "docs" / "_teste_ancora_ok.md"
+        allowed.write_text(
+            "# Teste\n\n"
+            "Veja [atributo](referencia/glossario.md#atributo-de-qualidade) para mais detalhes.\n",
+            encoding="utf-8",
+        )
+        try:
+            result = subprocess.run(
+                ["python3", "scripts/validate_content.py"],
+                cwd=ROOT, text=True, capture_output=True,
+            )
+            self.assertNotIn("_teste_ancora_ok", result.stdout)
+            self.assertNotIn("ancora inexistente", result.stdout)
+        finally:
+            allowed.unlink()
+
     def test_validator_catches_missing_module_index(self):
         index_path = DOCS / "modulo-6-evolucao-e-governanca" / "index.md"
         backup_path = index_path.with_name("index.md.bak")
