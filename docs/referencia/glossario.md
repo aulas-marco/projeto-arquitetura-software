@@ -48,11 +48,19 @@ Padrão de organização estrutural de um sistema, que define tipos de component
 
 ## Plataforma arquitetural
 
-Conjunto de tecnologias, serviços e convenções sobre os quais um sistema é construído e executado, adotado como decisão arquitetural própria.
+Conjunto estruturado e consistente de ferramentas, frameworks, bibliotecas e práticas de desenho, organizadas para implementar um ou mais estilos arquiteturais, cobrindo desenvolvimento, integração, implantação e manutenção. Adotada como decisão arquitetural própria, posterior à decisão de estilo.
 
 ## ADR
 
 Registro de decisão de arquitetura, do inglês Architecture Decision Record, documento curto que descreve uma decisão arquitetural, o contexto que a motivou e suas consequências.
+
+## Racional arquitetural
+
+Base intelectual que justifica as decisões de desenho de um sistema, conectando cada escolha às metas estratégicas, aos requisitos técnicos e às restrições de negócio. Registra não apenas a escolha feita, mas o raciocínio por trás dela, as alternativas consideradas, os critérios de seleção e os impactos esperados.
+
+## Dependência de fornecedor
+
+Dificuldade de trocar ou negociar uma dependência técnica ou organizacional adotada pelo sistema. Precisa ficar explícita no registro de decisão em seis dimensões, API proprietária, formato de dados, identidade, observabilidade, custo de saída de dados e habilidades da equipe.
 
 ## Modelo C4
 

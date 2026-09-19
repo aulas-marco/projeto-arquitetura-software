@@ -1,6 +1,6 @@
 # Representação de modelos e C4
 
-Este bloco fecha a aula tratando de uma pergunta anterior às duas ADRs já escritas, como representar o sistema de forma que estilo e plataforma decididos nos blocos anteriores fiquem visíveis num modelo, não apenas descritos em texto.
+Este bloco fecha a aula tratando de uma pergunta anterior às duas decisões já registradas, como representar o sistema de forma que estilo e plataforma fiquem visíveis num modelo, não apenas descritos em texto.
 
 ## Antes de começar
 
@@ -8,72 +8,125 @@ Este bloco fecha a aula tratando de uma pergunta anterior às duas ADRs já escr
 
 ## Conceito
 
-Um modelo de arquitetura é uma representação simplificada do sistema, feita para responder a uma pergunta específica de uma audiência específica. Um diagrama solto, desenhado sem convenção declarada, mistura níveis de detalhe diferentes na mesma figura, obriga quem lê a adivinhar o que uma caixa representa, um processo, uma máquina ou uma equipe, e não sobrevive à saída de quem o desenhou. Um bom modelo declara o que cada elemento significa, mantém um nível de abstração consistente dentro da mesma figura e é redesenhável por outra pessoa a partir da mesma convenção, sem depender de explicação oral de quem o produziu.
+Um diagrama solto e um modelo arquitetural não são a mesma coisa. O diagrama solto nasce de uma conversa, usa símbolos escolhidos na hora e serve àquela conversa. O modelo tem convenção declarada, define o que cada forma significa e o que cada nível de detalhe pode ou não conter, e por isso continua legível para quem não estava na sala. A diferença prática aparece quando duas pessoas desenham o mesmo sistema. Com convenção, os dois desenhos são comparáveis. Sem convenção, cada um inventa a sua e o desenho vira ilustração.
 
-O **modelo C4**, criado por Brown, resolve esse problema com quatro níveis de abstração progressiva, Contexto, Contêineres, Componentes e Código. Cada nível aprofunda o anterior sem repetir o nome do modelo inteiro como se fosse o nome do nível, o modelo se chama C4 porque tem quatro níveis, cada nível tem nome próprio. O nível de contexto mostra o sistema como uma caixa única, sem revelar sua composição interna. O nível de contêineres abre essa caixa e mostra as partes que a compõem. Os níveis de componentes e de código aprofundam ainda mais, mas não são cobertos nesta aula, que trata apenas dos dois primeiros.
+O **modelo C4**, criado por Brown (n.d.), é uma dessas convenções. Ele organiza a descrição do sistema em quatro níveis de abstração, que permitem compreensão progressiva de acordo com o público e o propósito da documentação. O nome vem das iniciais dos quatro níveis em inglês, Context, Containers, Components e Code. O modelo inteiro se chama C4 porque tem quatro níveis, e cada nível tem nome próprio, o que significa que o quarto nível se chama Código, não C4 outra vez.
 
-O **diagrama de contexto**, nível 1, é o ponto de partida. Ele mostra o sistema em foco como uma única caixa, os atores humanos que interagem com ele e os sistemas externos com os quais ele troca informação, sem detalhar nada do que acontece dentro da caixa. A pergunta que esse diagrama responde é o que o sistema faz e com quem ele se relaciona, pergunta suficiente para um stakeholder de negócio que não precisa saber como o sistema é construído por dentro.
+![Hierarquia de abstrações do modelo C4, com um sistema de software no topo, decomposto em contêineres, cada contêiner decomposto em componentes, e cada componente decomposto em elementos de código.](../assets/images/c4-quatro-niveis.png)
+
+*Os quatro níveis de abstração do C4. Fonte: [c4model.com](https://c4model.com), reproduzido do material base do professor.*
+
+Cada nível responde a uma pergunta diferente e atende a um público diferente. É essa correspondência, e não a quantidade de detalhe, que decide qual diagrama usar em cada situação.
+
+| Nível | Pergunta que responde | Público |
+| --- | --- | --- |
+| Contexto | O que o sistema faz? | Partes interessadas não técnicas que precisam entender o escopo geral |
+| Contêineres | Como o sistema funciona como um todo? | Arquitetos e desenvolvedores, para entender a estrutura de alto nível |
+| Componentes | Como cada parte de um contêiner é estruturada? | Desenvolvedores que implementam ou mantêm o sistema |
+| Código | Como a implementação de um componente é realizada? | Desenvolvedores em nível de detalhamento máximo |
+
+Esta aula cobre os dois primeiros níveis. Os níveis de componentes e de código existem e seguem a mesma lógica de decomposição, mas ficam fora do escopo aqui.
+
+Três princípios organizam o uso das abstrações. A progressividade pede começar pela visão ampla e descer ao detalhe, alinhando o nível ao público e ao propósito. A coerência pede manter as abstrações alinhadas entre os níveis, para que o que aparece como contêiner no nível 2 não reapareça como sistema externo no nível 1. O foco no propósito pede que cada diagrama tenha um objetivo claro e responda à pergunta de um grupo específico de interessados.
+
+### Nível 1, diagrama de contexto
+
+O **diagrama de contexto** fornece uma visão ampla do sistema modelado e de como ele se relaciona com os atores externos. Ele comunica os limites do sistema e as interações de alto nível, e por isso trabalha com apenas três tipos de elemento. Pessoas representam os atores humanos que interagem diretamente com o sistema, sejam usuários finais ou outras partes interessadas. Sistemas de software representam tanto o sistema sendo modelado quanto os outros sistemas com que ele se comunica. Relações demonstram como atores e sistemas externos interagem com o sistema principal, descrevendo o meio e o protocolo usados.
+
+![Diagrama de contexto com três elementos, um ator Cliente marcado como pessoa, o Sistema Principal marcado como sistema, e um Serviço de API Externa marcado como sistema externo, ligados por relações rotuladas com o protocolo de cada interação.](../assets/images/c4-exemplo-contexto.png)
+
+*Diagrama de contexto genérico, com os três tipos de elemento e as relações rotuladas por protocolo. Fonte: material base do professor.*
+
+O roteiro para montar esse diagrama tem cinco etapas. Identifique o sistema de interesse, determinando qual sistema é o foco do modelo. Defina os atores externos, identificando as pessoas que interagem com ele. Liste os sistemas externos que trocam informação diretamente com o sistema principal. Desenhe as relações, conectando pessoas e sistemas ao sistema principal, com descrição clara da interação e do protocolo. Acrescente descrição a cada elemento, para que o diagrama seja compreensível por todos os interessados, inclusive os que não participaram do desenho.
+
+### Nível 2, diagrama de contêineres
+
+O **diagrama de contêineres** detalha os principais contêineres que compõem o sistema, com suas responsabilidades e com a forma como interagem entre si e com os sistemas externos. Contêineres representam as aplicações, bancos de dados ou outros serviços que compõem o sistema, cada um com responsabilidade específica e tecnologia declarada. Sistemas externos e relações continuam presentes, com o mesmo significado do nível anterior.
+
+![Diagrama de contêineres com o sistema principal decomposto em aplicação web, API e banco de dados, cada um com sua tecnologia, ligados entre si e ao sistema externo por relações rotuladas com protocolo.](../assets/images/c4-exemplo-conteineres.png)
+
+*Diagrama de contêineres genérico, com a decomposição interna do sistema e a tecnologia de cada contêiner. Fonte: material base do professor.*
+
+O roteiro aqui tem quatro etapas. Identifique os sistemas externos com que o sistema principal interage diretamente, que são os mesmos do nível 1. Defina os contêineres principais, como aplicação de interface, serviço de retaguarda ou banco de dados. Descreva as relações entre contêineres e entre eles e os sistemas externos, especificando protocolo e direção. Acrescente a cada contêiner uma descrição curta da responsabilidade e da tecnologia usada.
+
+Os mesmos dois níveis em notação Mermaid, que é a notação usada neste site, aplicados a uma plataforma de agendamento de consultas odontológicas.
 
 ```mermaid
 graph TD
     PAC["Paciente"]
-    REC["Recepcionista"]
+    REC["Recepção da clínica"]
+    AGE["Sistema de agendamento odontológico"]
+    CONV["Operadora de convênio"]
+    SMS["Serviço de mensagens"]
 
-    subgraph SIS["Plataforma de agendamento de consultas odontológicas"]
-        AGE["Sistema de agendamento"]
-    end
-
-    PLA["Operadora de plano odontológico"]
-    LEM["Serviço de lembrete por mensagem de texto"]
-
-    PAC -->|"marca e cancela consulta pelo aplicativo"| AGE
-    REC -->|"confirma presença e reorganiza a agenda do dia"| AGE
-    AGE -->|"consulta cobertura e envia guia de procedimento"| PLA
-    AGE -->|"solicita envio de lembrete"| LEM
+    PAC -->|"marca e confirma consulta"| AGE
+    REC -->|"gerencia agenda e encaixes"| AGE
+    AGE -->|"consulta elegibilidade e autorização"| CONV
+    AGE -->|"envia lembrete de consulta"| SMS
 ```
 
-O **diagrama de contêineres**, nível 2, abre a caixa única do nível de contexto e mostra como o sistema se decompõe em aplicações, bancos de dados e serviços, cada um com a tecnologia que o implementa. A pergunta que esse diagrama responde é como o sistema funciona por dentro, em termos de suas partes principais, sem descer ao nível de classe ou de função que o nível de componentes trataria. Continua sem repetir a comunicação já registrada no diagrama de contexto com o mesmo nível de detalhe, cada contêiner aparece com sua responsabilidade e sua tecnologia.
+No nível de contêineres, o mesmo sistema se decompõe sem que os atores e os sistemas externos mudem.
 
 ```mermaid
 graph TD
-    MOR["Morador"]
-    POR["Porteiro"]
+    PAC["Paciente"]
+    REC["Recepção da clínica"]
 
-    subgraph SIS["Sistema de controle de acesso predial"]
-        APP["Aplicativo do morador, iOS e Android"]
-        API["API de autorização, Java"]
-        BD[("Banco de eventos de acesso, PostgreSQL")]
-        CAT["Serviço de cadastro de visitante, Java"]
+    subgraph AGE["Sistema de agendamento odontológico"]
+        APP["Aplicativo do paciente"]
+        WEB["Painel da recepção"]
+        API["Serviço de agenda"]
+        BD[("Banco de agendamentos")]
     end
 
-    LEI["Leitor de credencial na catraca"]
-    CFT["Câmera com reconhecimento facial"]
+    CONV["Operadora de convênio"]
+    SMS["Serviço de mensagens"]
 
-    MOR -->|"solicita liberação de visitante pelo aplicativo"| APP
-    POR -->|"cadastra visitante na portaria"| CAT
-    APP -->|"HTTPS, chama API"| API
-    CAT -->|"HTTPS, chama API"| API
-    API -->|"grava e consulta evento de acesso"| BD
-    LEI -->|"envia leitura de credencial"| API
-    API -->|"consulta reconhecimento"| CFT
+    PAC --> APP
+    REC --> WEB
+    APP -->|"HTTPS"| API
+    WEB -->|"HTTPS"| API
+    API --> BD
+    API -->|"HTTPS"| CONV
+    API -->|"HTTPS"| SMS
 ```
 
-Os dois exemplos acima cobrem domínios distintos entre si e distintos do domínio principal do [bloco 3](bloco-3-adr-de-plataforma.md) desta aula, a seguradora de mensageria entre serviços de apólice, risco e sinistro. Os níveis de componentes e de código existem no modelo C4 completo, mas ficam fora do escopo desta aula, que se detém nos dois primeiros níveis.
+Note que o par de sistemas externos, operadora de convênio e serviço de mensagens, é o mesmo nos dois níveis. Mudar esse conjunto entre um nível e outro é a quebra de coerência mais comum em modelos C4.
+
+### Um exemplo completo nos dois níveis
+
+O par de diagramas abaixo modela um sistema de internet banking, primeiro no nível de contexto e depois no de contêineres. Ele interessa a esta disciplina por um detalhe, o sistema mainframe bancário aparece como sistema externo, fora da caixa do sistema modelado.
+
+![Diagrama de contexto do sistema de internet banking, com o cliente bancário como pessoa, o sistema de internet banking como sistema modelado, e o sistema mainframe bancário e o sistema de e-mail como sistemas externos, ligados por relações rotuladas.](../assets/images/c4-banking-contexto.png)
+
+*Nível de contexto do sistema de internet banking, com o mainframe tratado como sistema externo. Fonte: material base do professor.*
+
+![Diagrama de contêineres do mesmo sistema de internet banking, decomposto em aplicação web, aplicação de página única, aplicativo móvel, aplicação de API e banco de dados, cada um com sua tecnologia, mantendo o mainframe e o sistema de e-mail como sistemas externos.](../assets/images/c4-banking-conteineres.png)
+
+*Nível de contêineres do mesmo sistema, com a tecnologia declarada em cada contêiner e os mesmos dois sistemas externos do nível anterior. Fonte: material base do professor.*
+
+A decisão de colocar o mainframe fora da caixa é uma decisão de escopo, não uma regra do modelo. Ali, o banco tratou o mainframe como sistema de terceiro, mantido por outra equipe, com o qual o internet banking apenas conversa. Na ACME, o núcleo COBOL sobre CICS é mantido pela mesma organização e faz parte do sistema acadêmico, então ele fica dentro da caixa, como contêiner. O critério é a fronteira de responsabilidade sobre o sistema, não a idade nem a tecnologia do componente.
 
 ## Uso pelo arquiteto
 
-O arquiteto escolhe o nível de detalhe do diagrama conforme a audiência que vai lê-lo. Um stakeholder de negócio, que decide sobre orçamento ou prioridade, só precisa do diagrama de contexto, porque a pergunta dele é sobre escopo e relação externa, não sobre tecnologia interna. A própria equipe técnica, que vai implementar ou manter o sistema, precisa do diagrama de contêineres, porque a pergunta dela é sobre como as partes internas se comunicam e com qual tecnologia cada uma foi construída. Entregar o diagrama de contêineres a um stakeholder de negócio sobrecarrega a conversa com detalhe irrelevante para a decisão que ele precisa tomar, e entregar apenas o diagrama de contexto a um desenvolvedor que vai implementar uma integração nova deixa de fora a informação de que contêiner ele está alterando.
+O arquiteto escolhe o nível pela audiência, não pela quantidade de informação que gostaria de mostrar. Diante de uma parte interessada de negócio, que decide sobre escopo e sobre relação com terceiros, o diagrama de contexto é suficiente e o de contêineres é ruído, porque ninguém naquela mesa vai decidir sobre tecnologia interna. Diante da própria equipe técnica, que precisa saber onde um requisito será implementado, o diagrama de contexto é vago demais e o de contêineres é o mínimo útil.
+
+O erro simétrico também existe. Levar o diagrama de contêineres a uma reunião de orçamento costuma deslocar a discussão para escolhas de tecnologia que não estavam em pauta, e levar o diagrama de contexto a uma reunião técnica costuma terminar com alguém desenhando o nível seguinte no quadro branco.
 
 ## Exercício 8
 
-A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, cujo núcleo transacional em COBOL sobre o monitor CICS segue em operação durante toda a transição, com uma camada web em JSF e EJB servindo quatro portais de acesso, aluno, professor, secretaria e gestor, e integrações por arquivo, em lote noturno, com o ERP financeiro e o ambiente virtual de aprendizagem, conforme descrito na [arquitetura de linha de base](../caso-acme/linha-de-base.md) do caso.
+A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico. O núcleo transacional em COBOL sobre o monitor CICS concentra as regras acadêmicas, uma camada web em JSF e EJB serve os portais de acesso, um banco Oracle guarda o estado, e as integrações com o ERP financeiro e com o ambiente virtual de aprendizagem são resolvidas por arquivo, em lote noturno, conforme a [arquitetura de linha de base](../caso-acme/linha-de-base.md).
 
-1. Desenhe o diagrama de contexto, nível 1, do sistema acadêmico da ACME, identificando o sistema como uma única caixa, os atores humanos, aluno e secretaria, e os sistemas externos, o ERP financeiro e o ambiente virtual de aprendizagem, no formato de pessoa, sistema e relação apresentado no [Conceito](#conceito) acima.
-2. Desenhe o diagrama de contêineres, nível 2, decompondo o sistema acadêmico nos contêineres que a [arquitetura de linha de base](../caso-acme/linha-de-base.md) da ACME já descreve, o núcleo COBOL sobre CICS, a camada web e as integrações com os sistemas externos, no formato apresentado no [Conceito](#conceito) acima.
-3. Justifique em uma frase por que um stakeholder de negócio da ACME só precisaria ver o diagrama de contexto do item 1, não o diagrama de contêineres do item 2.
+1. Desenhe o diagrama de contexto da ACME, identificando o sistema acadêmico como caixa única, os atores humanos e os sistemas externos, seguindo as cinco etapas do roteiro apresentado no Conceito.
+2. Desenhe o diagrama de contêineres, decompondo o sistema acadêmico nos contêineres que a linha de base descreve, com a tecnologia de cada um, seguindo as quatro etapas do roteiro. Mantenha os mesmos sistemas externos que você usou no item 1.
+3. Justifique em uma frase por que uma parte interessada de negócio precisaria ver apenas o diagrama do item 1.
 
-Entregue os dois diagramas em Mermaid ou em desenho livre, à sua escolha.
+Entregue os dois diagramas em Mermaid ou em desenho livre, à sua escolha. Um erro comum no item 1 é detalhar contêiner interno, o que mistura os dois níveis. Se o núcleo COBOL aparecer no diagrama de contexto, o item está no nível errado.
 
 ## Fontes
 
-Glossário do curso, entrada [modelo C4](../referencia/glossario.md#modelo-c4). Brown (sem data), listado na [bibliografia](../referencia/bibliografia.md). Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+Glossário do curso, entrada [modelo C4](../referencia/glossario.md#modelo-c4).
+
+Material base do professor, guias [Modelagem C4](https://github.com/aulas-marco/projeto-arquitetura-software/blob/main/3.1%20Modelagem%20C4.md), [Nível C1, diagrama de contexto](https://github.com/aulas-marco/projeto-arquitetura-software/blob/main/3.2%20%20N%C3%ADvel%20C1%20-%20Diagrama%20de%20Contexto.md) e [Nível C2, diagrama de contêineres](https://github.com/aulas-marco/projeto-arquitetura-software/blob/main/3.3%20Nivel%20C2%20-%20Diagrama%20de%20Conteineres.md), de onde vêm os quatro níveis, os princípios de abstração, os elementos de cada diagrama, os dois roteiros de montagem e as três figuras reproduzidas nesta página.
+
+Brown (n.d.), sítio oficial do modelo C4, listado na [bibliografia](../referencia/bibliografia.md). Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md).

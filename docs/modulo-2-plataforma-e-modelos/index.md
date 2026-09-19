@@ -17,22 +17,22 @@ A aula ocorre das 19h00 às 22h30, com intervalo das 20h30 às 20h45. O tempo de
 
 | Bloco | Conceito | Conceito (min) | Exercício (min) |
 | --- | --- | --- | --- |
-| 1 | Registro de decisão arquitetural, ADR, formatos de Nygard e MADR | 25 | 15 |
-| 2 | Plataforma arquitetural e sua relação com o estilo já escolhido | 25 | 15 |
-| 3 | ADR de plataforma | 25 | 15 |
+| 1 | Racional arquitetural e ADR, nos formatos de Nygard, MADR e no template do curso | 25 | 15 |
+| 2 | Plataforma arquitetural, suas quatro características e os sete fatores de escolha | 25 | 15 |
+| 3 | ADR de plataforma e dependência de fornecedor | 25 | 15 |
 | 4 | Representação de modelos e C4, níveis de contexto e de contêineres | 25 | 15 |
 
 Os quatro blocos somam 160 minutos. Os 15 minutos restantes do tempo útil de 175 minutos cobrem abertura, transições e fechamento.
 
 ## Roteiro da aula
 
-O [bloco 1](bloco-1-registro-de-decisao-arquitetural.md) expõe o conceito de registro de decisão arquitetural, o ADR, nos formatos de Nygard e de MADR. O exercício 5 desse bloco escreve o ADR que registra a escolha de estilo arquitetural já feita no exercício do [bloco 4 da Aula 1](../modulo-1-fundamentos/bloco-4-estilos-arquiteturais.md), sem introduzir extrato novo do caso. O produto desse exercício é um ADR completo sobre uma decisão que o aluno já tomou, o que libera o tempo do exercício para praticar o formato, não para reler dado do caso.
+O [bloco 1](bloco-1-registro-de-decisao-arquitetural.md) parte do racional arquitetural, que é a fundamentação da decisão e não apenas o seu registro, e apresenta três formatos de ADR, o de cinco partes de Nygard, a especificação aberta MADR e o template de nove campos adotado por esta disciplina. O exercício 5 escreve o ADR que registra a escolha de estilo arquitetural já feita no exercício do [bloco 4 da Aula 1](../modulo-1-fundamentos/bloco-4-estilos-arquiteturais.md), sem introduzir extrato novo do caso, o que libera o tempo do exercício para praticar o formato, não para reler dado do caso.
 
-O [bloco 2](bloco-2-plataforma-arquitetural.md) expõe o conceito de plataforma arquitetural e sua relação com o estilo já escolhido. O exercício 6 compara plataformas candidatas para o estilo escolhido na Aula 1, a partir de critérios explícitos apresentados no Conceito desse bloco. A comparação produzida aqui alimenta o [bloco 3](bloco-3-adr-de-plataforma.md), porque o ADR de plataforma parte de uma escolha entre alternativas já justificada.
+O [bloco 2](bloco-2-plataforma-arquitetural.md) expõe o conceito de plataforma arquitetural, suas quatro características e os sete fatores que orientam a escolha, com oito exemplos de pilha tecnológica nomeada, um por estilo. O exercício 6 compara plataformas candidatas para o estilo escolhido na Aula 1 e produz o quadro comparativo que alimenta o [bloco 3](bloco-3-adr-de-plataforma.md).
 
-O [bloco 3](bloco-3-adr-de-plataforma.md) repete a prática de registrar uma decisão em formato de ADR, desta vez sobre a escolha de plataforma. O exercício 7 escreve o ADR que registra a escolha de plataforma feita no [exercício 6 do bloco 2](bloco-2-plataforma-arquitetural.md) desta aula, dando ao aluno uma segunda oportunidade de praticar o formato em contexto diferente do [bloco 1](bloco-1-registro-de-decisao-arquitetural.md).
+O [bloco 3](bloco-3-adr-de-plataforma.md) aplica o mesmo template de nove campos à escolha de plataforma, mostrando o que muda nos campos de forças, alternativas e consequências, e acrescenta a dependência de fornecedor como força própria dessa decisão. O exercício 7 escreve o ADR que registra a escolha feita no [exercício 6 do bloco 2](bloco-2-plataforma-arquitetural.md), transportando para o campo de alternativas o quadro comparativo já montado.
 
-O [bloco 4](bloco-4-representacao-de-modelos-e-c4.md) expõe a representação de modelos arquiteturais e o modelo C4, restrito aos níveis de contexto e de contêineres. O exercício 8 modela a ACME nesses dois níveis, a partir do estilo e da plataforma já decididos nos blocos anteriores desta aula.
+O [bloco 4](bloco-4-representacao-de-modelos-e-c4.md) expõe a representação de modelos arquiteturais e o modelo C4, restrito aos níveis de contexto e de contêineres, com os princípios de abstração e o roteiro de montagem de cada um dos dois níveis. O exercício 8 modela a ACME nesses dois níveis.
 
 A [síntese](sintese.md) fecha o módulo com o checklist do que precisa permanecer, a autoavaliação e as fontes da aula inteira.
 
