@@ -10,7 +10,7 @@ Este bloco fecha o par de decisões da aula respondendo a uma pergunta que só s
 
 ## Conceito
 
-Um **ADR de plataforma** é o segundo ADR do par ensinado nesta aula, escrito no mesmo template de nove campos apresentado no [bloco 1](bloco-1-registro-de-decisao-arquitetural.md) desta aula, mas aplicado a uma decisão de natureza diferente da primeira. O ADR do bloco 1 registra a escolha de um estilo arquitetural. O ADR deste bloco registra a escolha de uma das plataformas candidatas capazes de concretizar esse estilo, comparação que o [bloco 2](bloco-2-plataforma-arquitetural.md) desta aula já ensinou a montar.
+Um **ADR de plataforma** é o segundo ADR do par ensinado nesta aula, escrito no mesmo template de dez campos apresentado no [bloco 1](bloco-1-registro-de-decisao-arquitetural.md) desta aula, mas aplicado a uma decisão de natureza diferente da primeira. O ADR do bloco 1 registra a escolha de um estilo arquitetural. O ADR deste bloco registra a escolha de uma das plataformas candidatas capazes de concretizar esse estilo, comparação que o [bloco 2](bloco-2-plataforma-arquitetural.md) desta aula já ensinou a montar.
 
 O template não muda entre os dois. O conteúdo de cada campo muda, e três campos mudam de forma característica.
 
@@ -49,7 +49,7 @@ O arquiteto escreve este segundo registro logo depois de fechar a comparação d
 
 ## Exercício 7
 
-Escreva o ADR que registra a escolha de plataforma que você fez no [Exercício 6](bloco-2-plataforma-arquitetural.md#exercicio-6) do bloco anterior, no mesmo template de nove campos usado no [bloco 1](bloco-1-registro-de-decisao-arquitetural.md).
+Escreva o ADR que registra a escolha de plataforma que você fez no [Exercício 6](bloco-2-plataforma-arquitetural.md#exercicio-6) do bloco anterior, no mesmo template de dez campos usado no [bloco 1](bloco-1-registro-de-decisao-arquitetural.md).
 
 1. título, estado e data
 2. contexto, referenciando pelo título o ADR de estilo que você escreveu no [Exercício 5](bloco-1-registro-de-decisao-arquitetural.md#exercicio-5)
@@ -66,6 +66,6 @@ O campo de evidências é o mais difícil neste exercício, porque a ACME não t
 
 Glossário do curso, entradas [ADR](../referencia/glossario.md#adr), [plataforma arquitetural](../referencia/glossario.md#plataforma-arquitetural) e [dependência de fornecedor](../referencia/glossario.md#dependencia-de-fornecedor).
 
-[Template de ADR](https://marco-mendes.github.io/arquitetura-software/referencia/template-adr/) do site base do professor, fonte dos nove campos usados nesta página. Seção [Custo e lock-in](https://marco-mendes.github.io/arquitetura-software/modulo-6-nuvem/padroes-e-decisoes/), do mesmo site, fonte da definição de dependência de fornecedor e das seis dimensões que precisam ficar explícitas no ADR.
+[Template de ADR](https://marco-mendes.github.io/arquitetura-software/referencia/template-adr/) do site base do professor, fonte dos dez campos usados nesta página. Seção [Custo e lock-in](https://marco-mendes.github.io/arquitetura-software/modulo-6-nuvem/padroes-e-decisoes/), do mesmo site, fonte da definição de dependência de fornecedor e das seis dimensões que precisam ficar explícitas no ADR.
 
 Nygard (2011) e especificação [MADR 4.0.0](https://adr.github.io/madr/), formatos apresentados no [bloco 1](bloco-1-registro-de-decisao-arquitetural.md) desta aula, ambos listados na [bibliografia](../referencia/bibliografia.md). Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md).

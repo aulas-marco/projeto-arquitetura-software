@@ -17,9 +17,9 @@ A plataforma não escolhe o estilo, ela o executa. Por isso essa decisão vem de
 
 A primeira é a **instanciação de estilos arquiteturais**. Toda plataforma está baseada em um ou mais estilos. O Java EE implementa arquitetura em camadas e web. O Spring Boot com Spring Cloud concretiza microsserviços. O Event Store e o Apache Kafka dão suporte à arquitetura baseada em eventos.
 
-A segunda é a **composição multidimensional**. Uma plataforma não é monolítica, ela reúne frameworks base, que definem o núcleo funcional e estrutural, ferramentas de integração para comunicação e orquestração, ferramentas de monitoramento e manutenção, e bibliotecas complementares de apoio, como as de acesso HTTP e de validação de dados.
+A segunda é a **composição multidimensional**. Uma plataforma não é monolítica, ela reúne quatro tipos de peça. Frameworks base definem o núcleo funcional e estrutural, como o Spring Framework ou o ASP.NET Core. Ferramentas de integração cuidam da comunicação e da orquestração, como o RabbitMQ ou o gRPC. Ferramentas de monitoramento e manutenção acompanham a execução, como o Prometheus e o Grafana. Bibliotecas complementares resolvem necessidades pontuais, como o Axios para acesso HTTP e o Zod para validação de dados.
 
-A terceira é o alinhamento com práticas de engenharia. A plataforma promove testabilidade, por meio de ferramentas de teste automatizado, automação, por meio de integração contínua e esteiras de implantação, e escalabilidade e manutenção, por meio de orquestração de execução.
+A terceira é o **alinhamento com práticas de engenharia**. A plataforma promove testabilidade, com ferramentas como o Jest e o JUnit, automação, com integração contínua e esteiras de implantação, e escalabilidade e manutenção, com orquestração de execução em Kubernetes ou Service Fabric.
 
 A quarta é a **adaptação ao contexto**. Plataformas não são universais. Elas são selecionadas e configuradas a partir de um racional arquitetural, apresentado no Conceito do [bloco 1](bloco-1-registro-de-decisao-arquitetural.md) desta aula, que leva em conta sete fatores.
 
@@ -39,11 +39,11 @@ Os exemplos abaixo são ilustrações de composição, não recomendações de u
 
 #### Pipelines de processamento de dados, ETL e ELT
 
-Orquestração de fluxos com Apache NiFi. Transformação com Apache Beam, em Python ou Java, em lote ou em fluxo contínuo. Conectores de ingestão com Kafka, Amazon S3, FTP e APIs REST, e de persistência com PostgreSQL, Elasticsearch e MongoDB. Controle de qualidade de dados com Great Expectations. Monitoramento com Prometheus e Grafana. Gestão de dependências com Poetry. Testes com Pytest. Versionamento de pipelines com Git e NiFi Registry.
+Orquestração de fluxos com Apache NiFi. Transformação com Apache Beam, em Python ou Java, em lote ou em fluxo contínuo. Conectores de ingestão com Kafka, Amazon S3, FTP e SFTP e APIs REST, e de persistência com PostgreSQL, Elasticsearch e MongoDB. Controle de qualidade de dados com Great Expectations. Monitoramento com Prometheus e Grafana. Gestão de dependências com Poetry. Testes com Pytest. Versionamento de pipelines com Git e NiFi Registry.
 
 #### Arquitetura de serviços escaláveis em nuvem
 
-Processamento de dados com Dataflow, com suporte nativo ao Apache Beam. Armazenamento estruturado com BigQuery e não estruturado com Google Cloud Storage. Mensageria com Cloud Pub/Sub. Gerenciamento de contêineres com Google Kubernetes Engine e Istio. Monitoramento com o Cloud Operations Suite. Automação de infraestrutura com Terraform. Testes com Testcontainers. Segurança com Identity-Aware Proxy.
+Processamento de dados com Dataflow, com suporte nativo ao Apache Beam. Armazenamento estruturado com BigQuery e não estruturado com Google Cloud Storage. Mensageria com Cloud Pub/Sub. Gerenciamento de contêineres com Google Kubernetes Engine, com escalabilidade automática e suporte nativo a Istio. Monitoramento com o Cloud Operations Suite. Automação de infraestrutura com Terraform. Testes com Testcontainers. Segurança com Identity-Aware Proxy.
 
 #### Serverless orientado a eventos
 
@@ -51,7 +51,7 @@ Execução sob demanda com AWS Lambda. Mensageria com Amazon SQS. Orquestração
 
 #### Desenvolvimento móvel com React Native
 
-Gerenciamento de estado com Zustand. Navegação com React Navigation. Estilo e componentes com Tailwind CSS e NativeWind. Formulários e validação com React Hook Form e Zod. Requisições HTTP com Axios. Gestão de dados remotos com TanStack Query. Internacionalização com i18next. Armazenamento local com MMKV. Notificações com Expo Notification. Testes com Jest e React Native Testing Library. Lint e formatação com ESLint e Prettier. A organização interna dessa pilha segue o padrão *Model-View-ViewModel*, que estrutura a camada de interface e não é um estilo arquitetural no sentido usado no [bloco 4 da Aula 1](../modulo-1-fundamentos/bloco-4-estilos-arquiteturais.md).
+Gerenciamento de estado com Zustand. Navegação com React Navigation. Estilo e componentes com Tailwind CSS e NativeWind. Formulários e validação com React Hook Form e Zod. Requisições HTTP com Axios. Gestão de dados remotos com TanStack Query. Internacionalização com i18next. Armazenamento local com MMKV. Notificações com Expo Notification. Testes com Jest e React Native Testing Library. Lint e formatação com ESLint e Prettier. A organização interna dessa pilha segue o *Model-View-ViewModel*, e aqui cabe uma ressalva de vocabulário. Boa parte da literatura, e o próprio material base desta disciplina, lista MVC e MVVM entre os estilos arquiteturais. Esta disciplina os trata como padrão de organização da camada de interface, e não como estilo, porque a definição adotada no [bloco 4 da Aula 1](../modulo-1-fundamentos/bloco-4-estilos-arquiteturais.md) exige que o estilo descreva a forma estrutural do sistema inteiro, não a organização interna de uma camada. É escolha de recorte desta disciplina, não erro da literatura, e vale conhecer as duas leituras porque você vai encontrar ambas em texto profissional.
 
 #### Aplicação web de página única com Vue.js
 
@@ -75,15 +75,15 @@ Alguns arquitetos preferem representar a plataforma em desenho, mostrando como a
 
 ![Arquitetura web sobre serviços da AWS, com Route 53 e CloudFront na borda, recursos estáticos em S3, duas camadas de balanceamento elástico sobre grupos de autoescalonamento de instâncias EC2 distribuídos em duas zonas de disponibilidade, e banco RDS principal replicado entre zonas.](../assets/images/plataforma-web-aws.png)
 
-*Arquitetura web com soluções AWS, materializando um estilo em camadas distribuído entre duas zonas de disponibilidade.*
+*Arquitetura web com soluções AWS, materializando um estilo em camadas distribuído entre duas zonas de disponibilidade. Fonte: material base do professor.*
 
 ![Arquitetura de streaming sobre serviços da AWS, com fluxo de dados em tempo real chegando ao Amazon Kinesis, que despacha para bucket S3, para funções Lambda com persistência em DynamoDB, e para aplicações Kinesis executando em instâncias EC2.](../assets/images/plataforma-streaming-aws.png)
 
-*Arquitetura de streaming com soluções AWS, materializando o estilo orientado a eventos.*
+*Arquitetura de streaming com soluções AWS, materializando o estilo orientado a eventos. Fonte: material base do professor.*
 
 ![Plataforma de automação residencial, com dispositivos conectados em cômodos da casa falando MQTT sobre SSL com o Amazon IoT, e aplicação em instâncias EC2 distribuídas em duas zonas de disponibilidade atrás de balanceador elástico, acessada por telefone celular via Route 53.](../assets/images/plataforma-iot-residencial.png)
 
-*Plataforma IoT para automação residencial, com o protocolo MQTT sobre SSL ligando os dispositivos ao serviço de nuvem.*
+*Plataforma IoT para automação residencial, com o protocolo MQTT sobre SSL ligando os dispositivos ao serviço de nuvem. Fonte: material base do professor.*
 
 ## Uso pelo arquiteto
 

@@ -19,6 +19,8 @@ Um dos maiores riscos no processo decisório arquitetural é a influência de pr
 
 O **racional arquitetural** é a base intelectual que justifica as decisões de desenho em um sistema, conectando cada escolha às metas estratégicas, aos requisitos técnicos e às restrições de negócio. Ele exige que o arquiteto documente não apenas a escolha feita, mas também o raciocínio por trás dela, incluindo as alternativas consideradas, os critérios de seleção e os impactos esperados. Mais do que artefato técnico, o racional funciona como ferramenta contra viés, porque obriga a fundamentar a escolha na necessidade do problema e na limitação do ambiente, não na preferência de quem decide.
 
+O efeito não é apenas individual. Envolver o time na elaboração do racional favorece um ambiente colaborativo e reduz a possibilidade de decisão unilateral, e o registro resultante fortalece a confiança da equipe e das partes interessadas no processo, estabelecendo base para a evolução do sistema no longo prazo. Um racional escrito a portas fechadas cumpre metade da função, ele documenta, mas não constrói acordo.
+
 ### Abordagem leve para registro de decisões
 
 Em projetos ágeis, decisões emergem de forma iterativa, a partir de novos aprendizados ou de mudança de escopo. Abordagens tradicionais como o *Rational Unified Process*, descrito por Kruchten (2004), e o método *Views and Beyond*, de Clements et al. (2010), enfatizam documentação detalhada e extensa. O registro leve adota o caminho oposto, incremental e modular. Em vez de um volume monolítico que se torna obsoleto rapidamente, o foco está em registros pequenos e acessíveis, que a equipe consegue atualizar, escritos em Markdown dentro do próprio repositório do código.
@@ -41,11 +43,11 @@ Michael Nygard propôs o formato original em Nygard (2011), com cinco partes fix
 | Status | Estágio da decisão, proposta, aceita ou substituída |
 | Consequências | Resultados esperados, incluindo pontos positivos, negativos e neutros |
 
-A categoria de consequência neutra costuma ser a mais esquecida e é a que separa um registro honesto de uma justificativa. Nem todo efeito de uma decisão é ganho ou perda, alguns apenas deslocam trabalho de um lugar para outro, e nomeá-los evita que apareçam depois como surpresa.
+A categoria de consequência neutra é a que separa um registro honesto de uma justificativa, e vale conferir se ela foi preenchida. Nem todo efeito de uma decisão é ganho ou perda, alguns apenas deslocam trabalho de um lugar para outro, e nomeá-los evita que apareçam depois como surpresa.
 
-O **MADR**, sigla de *Markdown Architectural Decision Records*, é uma especificação aberta mantida em [adr.github.io/madr](https://adr.github.io/madr/), na versão 4.0.0 de 17/09/2024. O cabeçalho traz `title`, além dos campos opcionais `status`, `date`, `decision-makers`, `consulted` e `informed`, que nomeiam quem decidiu, quem foi consultado e quem foi informado. O corpo tem as seções Context and Problem Statement, Decision Drivers, Considered Options, Decision Outcome, Consequences, Confirmation, Pros and Cons of the Options e More Information, das quais apenas contexto e problema, opções consideradas e resultado da decisão são obrigatórias. A diferença prática está em Considered Options e Pros and Cons of the Options, que forçam o autor a nomear cada opção avaliada e a listar prós e contras de cada uma antes de justificar a escolhida.
+O **MADR**, sigla de *Markdown Architectural Decision Records*, é uma especificação aberta mantida em [adr.github.io/madr](https://adr.github.io/madr/), na versão 4.0.0 de 17/09/2024. O título é o cabeçalho de primeiro nível do arquivo, e o bloco de metadados no topo traz cinco campos opcionais, `status`, `date`, `decision-makers`, `consulted` e `informed`, que nomeiam quem decidiu, quem foi consultado e quem foi informado. O corpo tem as seções Context and Problem Statement, Decision Drivers, Considered Options, Decision Outcome, Consequences, Confirmation, Pros and Cons of the Options e More Information, das quais apenas contexto e problema, opções consideradas e resultado da decisão são obrigatórias. A diferença prática está em Considered Options e Pros and Cons of the Options, que forçam o autor a nomear cada opção avaliada e a listar prós e contras de cada uma antes de justificar a escolhida.
 
-O [template de ADR](https://marco-mendes.github.io/arquitetura-software/referencia/template-adr/) do material base do professor organiza a mesma informação em nove campos e é o formato que esta disciplina usa. Ele parte do formato de Nygard e acrescenta quatro seções próprias, Forças, Alternativas, Evidências e Revisão.
+O [template de ADR](https://marco-mendes.github.io/arquitetura-software/referencia/template-adr/) do material base do professor organiza a mesma informação em dez campos e é o formato que esta disciplina usa. Ele parte do formato de Nygard, onde Estado corresponde ao Status, e acrescenta cinco campos próprios, Data, Forças, Alternativas, Evidências e Revisão.
 
 | Campo | O que registrar |
 | --- | --- |
@@ -64,7 +66,7 @@ Os dois campos que o formato de Nygard não tem e que mais mudam a qualidade do 
 
 ### Um exemplo completo
 
-O registro abaixo aplica o template de nove campos a uma decisão de infraestrutura. Ele aparece como o arquivo Markdown ficaria no repositório, que é a forma real do artefato.
+O registro abaixo aplica o template de dez campos a uma decisão de infraestrutura. Ele aparece como o arquivo Markdown ficaria no repositório, que é a forma real do artefato.
 
 ```markdown
 # ADR 5, adoção do Kubernetes para gerenciamento de infraestrutura e aplicações
@@ -152,7 +154,7 @@ Quando falta dado para preencher um campo, o caminho é registrar o ADR com esta
 
 ## Exercício 5
 
-A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. No exercício do [bloco 4 da Aula 1](../modulo-1-fundamentos/bloco-4-estilos-arquiteturais.md), você comparou três estilos arquiteturais contra os dois cenários da ACME e defendeu um deles. Escreva o ADR que registra essa decisão, no template de nove campos apresentado no Conceito acima.
+A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. No exercício do [bloco 4 da Aula 1](../modulo-1-fundamentos/bloco-4-estilos-arquiteturais.md), você comparou três estilos arquiteturais contra os dois cenários da ACME e defendeu um deles. Escreva o ADR que registra essa decisão, no template de dez campos apresentado no Conceito acima.
 
 1. título, estado e data
 2. contexto, descrevendo de forma neutra os dois cenários que motivaram a análise e delimitando o que fica fora do registro
@@ -176,6 +178,6 @@ Alternativa listada só pelo nome não foi comparada, e um gatilho do tipo "revi
 
 Glossário do curso, entradas [ADR](../referencia/glossario.md#adr) e [racional arquitetural](../referencia/glossario.md#racional-arquitetural).
 
-Material base do professor, guia [Registro de Decisões Arquiteturais (ADR)](https://github.com/aulas-marco/projeto-arquitetura-software/blob/main/2.1%20ADR.md), de onde vêm o racional do arquiteto, a abordagem leve, o exemplo do Kubernetes e as práticas recomendadas. [Template de ADR](https://marco-mendes.github.io/arquitetura-software/referencia/template-adr/) do site base do professor, fonte dos nove campos e do texto de orientação de cada um. Estudo de caso do [Módulo 1 do site base](https://marco-mendes.github.io/arquitetura-software/modulo-1-visao-geral/estudo-de-caso/#exercicio-4-consequencias-e-adr-001), fonte das quatro frases-modelo e da regra de registrar como proposta quando faltar dado.
+Material base do professor, guia [Registro de Decisões Arquiteturais (ADR)](https://github.com/aulas-marco/projeto-arquitetura-software/blob/main/2.1%20ADR.md), de onde vêm o racional do arquiteto, a abordagem leve, o exemplo do Kubernetes e as práticas recomendadas. [Template de ADR](https://marco-mendes.github.io/arquitetura-software/referencia/template-adr/) do site base do professor, fonte dos dez campos e do texto de orientação de cada um. Estudo de caso do [Módulo 1 do site base](https://marco-mendes.github.io/arquitetura-software/modulo-1-visao-geral/estudo-de-caso/#exercicio-4-consequencias-e-adr-001), fonte das quatro frases-modelo e da regra de registrar como proposta quando faltar dado.
 
 Nygard (2011), fonte do formato de cinco partes. Especificação [MADR 4.0.0](https://adr.github.io/madr/), fonte dos campos do formato citados no Conceito. Coleção de exemplos e modelos de ADR mantida por [Henderson (n.d.)](https://github.com/joelparkerhenderson/architecture-decision-record). Kruchten (2004) e Clements et al. (2010), citados na abordagem leve como contraponto de documentação extensa. As referências com autor e ano estão listadas na [bibliografia](../referencia/bibliografia.md).

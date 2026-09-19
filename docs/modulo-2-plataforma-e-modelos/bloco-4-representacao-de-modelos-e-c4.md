@@ -91,7 +91,7 @@ graph TD
     API -->|"HTTPS"| SMS
 ```
 
-Note que o par de sistemas externos, operadora de convênio e serviço de mensagens, é o mesmo nos dois níveis. Mudar esse conjunto entre um nível e outro é a quebra de coerência mais comum em modelos C4.
+Note que o par de sistemas externos, operadora de convênio e serviço de mensagens, é o mesmo nos dois níveis. Mudar esse conjunto entre um nível e outro quebra o princípio da coerência, e vale conferir isso sempre que os dois diagramas forem desenhados em momentos diferentes.
 
 ### Um exemplo completo nos dois níveis
 

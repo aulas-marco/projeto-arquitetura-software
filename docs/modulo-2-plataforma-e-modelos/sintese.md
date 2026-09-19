@@ -5,7 +5,7 @@ Esta página fecha o módulo de plataforma e modelos com o que precisa permanece
 ## Checklist do que precisa permanecer
 
 - O racional arquitetural como fundamentação da decisão, e não apenas o registro dela, com a função de reduzir viés de preferência pessoal
-- Os três formatos de ADR apresentados, as cinco partes de Nygard, a especificação MADR e o template de nove campos do curso, e quando cada um se ajusta melhor
+- Os três formatos de ADR apresentados, as cinco partes de Nygard, a especificação MADR e o template de dez campos do curso, e quando cada um se ajusta melhor
 - Os dois campos que o template do curso acrescenta e que mais mudam a qualidade do registro, evidências e revisão
 - Os sete fatores de adaptação ao contexto que orientam a escolha de plataforma, e as seis dimensões de dependência de fornecedor que precisam ficar explícitas no registro
 - A diferença entre a decisão de estilo, registrada na Aula 1, e a decisão de plataforma, registrada nesta aula, como dois ADRs distintos sobre o mesmo sistema
@@ -16,7 +16,7 @@ Esta página fecha o módulo de plataforma e modelos com o que precisa permanece
 
 As perguntas abaixo são para o aluno responder a si mesmo, sem gabarito público, como verificação de retenção antes da Aula 3.
 
-1. Eu escrevo um ADR completo, no template de nove campos do curso, para uma decisão arquitetural já tomada, incluindo evidências e gatilho de revisão.
+1. Eu escrevo um ADR completo, no template de dez campos do curso, para uma decisão arquitetural já tomada, incluindo evidências e gatilho de revisão.
 2. Eu explico a diferença entre os três formatos apresentados e escolho um deles a partir do número de alternativas em jogo.
 3. Eu comparo duas ou mais plataformas candidatas a um estilo dado, citando ao menos três dos sete fatores de adaptação ao contexto.
 4. Eu nomeio as seis dimensões de dependência de fornecedor e identifico quais delas a minha escolha de plataforma aciona.
