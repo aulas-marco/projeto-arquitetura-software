@@ -8,5 +8,7 @@ Fontes conferidas, no formato APA 7ª edição. Referências adicionais entram s
 - Bass, L., Clements, P., & Kazman, R. (2021). *Software architecture in practice* (4th ed.). Addison-Wesley.
 - Ford, N., & Richards, M. (2020). *Fundamentals of software architecture*. O'Reilly.
 - Mendes, M. (2026). *Arquitetura de software* [Material de curso]. https://marco-mendes.github.io/arquitetura-software/
+- Nygard, M. (2011). *Documenting architecture decisions*. Cognitect Blog.
+- MADR. (n.d.). *Markdown Architectural Decision Records*. https://adr.github.io/madr/
 
-As referências ainda não confirmadas (o número de características da ISO/IEC 25010:2023, o DOI do relatório do SEI e a coletânea de 2016 do Quality Attribute Workshop) ficam fora da lista até serem conferidas.
+As referências ainda não confirmadas (o número de características da ISO/IEC 25010:2023, o DOI do relatório do SEI e a coletânea de 2016 do Quality Attribute Workshop) ficam fora da lista até serem conferidas. A data de 2011 e a atribuição ao Cognitect Blog para Nygard não foram verificadas nesta sessão, apoiadas em conhecimento consolidado da área, não em fonte aberta consultada.
