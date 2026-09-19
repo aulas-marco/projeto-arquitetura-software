@@ -18,10 +18,10 @@ DOCS = ROOT / "docs"
 MODULES = (
     "modulo-1-fundamentos",
     "modulo-2-plataforma-e-modelos",
-    "modulo-3-descoberta-e-riscos",
-    "modulo-4-dados-e-seguranca",
-    "modulo-5-blueprint-e-trm",
-    "modulo-6-evolucao-e-governanca",
+    "modulo-3-aplicacao-e-servicos",
+    "modulo-4-integracao-e-dados",
+    "modulo-5-seguranca-e-trm",
+    "modulo-6-riscos-e-provas-de-conceito",
 )
 
 # Secoes do site que nao sao modulos de aula, mas que --module aceita filtrar

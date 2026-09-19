@@ -58,14 +58,14 @@ nav:
       - "Bloco 3: ADR de plataforma": modulo-2-plataforma-e-modelos/bloco-3-adr-de-plataforma.md
       - "Bloco 4: representação de modelos e C4": modulo-2-plataforma-e-modelos/bloco-4-representacao-de-modelos-e-c4.md
       - Síntese: modulo-2-plataforma-e-modelos/sintese.md
-  - "Aula 3 — Descoberta e riscos":
-      - Visão geral: modulo-3-descoberta-e-riscos/index.md
-  - "Aula 4 — Dados e segurança":
-      - Visão geral: modulo-4-dados-e-seguranca/index.md
-  - "Aula 5 — Blueprint e TRM":
-      - Visão geral: modulo-5-blueprint-e-trm/index.md
-  - "Aula 6 — Evolução e governança":
-      - Visão geral: modulo-6-evolucao-e-governanca/index.md
+  - "Aula 3 — Aplicação e serviços":
+      - Visão geral: modulo-3-aplicacao-e-servicos/index.md
+  - "Aula 4 — Integração e dados":
+      - Visão geral: modulo-4-integracao-e-dados/index.md
+  - "Aula 5 — Segurança e TRM":
+      - Visão geral: modulo-5-seguranca-e-trm/index.md
+  - "Aula 6 — Riscos e provas de conceito":
+      - Visão geral: modulo-6-riscos-e-provas-de-conceito/index.md
   - Caso ACME:
       - Visão e contexto: caso-acme/index.md
       - Arquitetura de linha de base: caso-acme/linha-de-base.md
