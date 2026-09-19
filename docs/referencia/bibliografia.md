@@ -8,6 +8,7 @@ Fontes conferidas, no formato APA 7ª edição. Referências adicionais entram s
 - Bass, L., Clements, P., & Kazman, R. (2021). *Software architecture in practice* (4th ed.). Addison-Wesley.
 - Ford, N., & Richards, M. (2020). *Fundamentals of software architecture*. O'Reilly.
 - Clements, P., Bachmann, F., Bass, L., Garlan, D., Ivers, J., Little, R., Merson, P., Nord, R., & Stafford, J. (2010). *Documenting software architectures: Views and beyond* (2nd ed.). Addison-Wesley.
+- Eeles, P. (2001). *Capturing architectural requirements*. Rational Software Corporation.
 - Henderson, J. P. (n.d.). *Architecture decision record (ADR)* [Repositório de modelos e exemplos]. https://github.com/joelparkerhenderson/architecture-decision-record
 - Kruchten, P. (2004). *The rational unified process: An introduction* (3rd ed.). Addison-Wesley.
 - Mendes, M. (2026). *Arquitetura de software* [Material de curso]. https://marco-mendes.github.io/arquitetura-software/

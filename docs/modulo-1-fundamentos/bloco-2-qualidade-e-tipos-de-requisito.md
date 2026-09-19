@@ -44,9 +44,36 @@ Um **requisito de atributo de qualidade** declara o comportamento esperado do si
 
 Somente a terceira formulação fornece informação suficiente para orientar decisões com razoável precisão. O nome do atributo indica o que importa, o requisito descreve o que se espera que aconteça. O mesmo raciocínio vale para segurança. Dizer que um sistema deve ser seguro não informa quais ativos devem ser protegidos, contra quais ameaças, em qual ambiente e com que resposta. Uma formulação mais útil, aplicada a um sistema hospitalar, seria a seguinte. Quando cinco tentativas inválidas de autenticação forem realizadas para a mesma conta em até dez minutos, o serviço de identidade deverá bloquear novas tentativas por quinze minutos, registrar o evento e notificar o usuário em até um minuto. Nessa formulação existe um evento observável, uma parte afetada do sistema, uma resposta esperada e medidas de tempo.
 
+### Doze categorias de requisito arquitetural
+
+A classificação em quatro conceitos apresentada acima responde a uma pergunta sobre natureza, se aquela declaração é função, qualidade, categoria ampla ou restrição. Existe uma segunda classificação, que responde a uma pergunta diferente e complementar, sobre qual dimensão de preocupação o requisito toca. Ela não substitui a primeira. A função dela é outra, reduzir omissão, porque na entrevista com as partes interessadas o risco maior não é classificar errado, é não perguntar. Percorrer as doze categorias antes de encerrar o levantamento torna explícitas as dimensões que influenciam a arquitetura e que ninguém levantou espontaneamente.
+
+| Categoria | O que ela cobra da estrutura | Exemplo |
+| --- | --- | --- |
+| Funcionalidade arquitetural | Componentes transversais, serviços compartilhados ou infraestrutura especializada para funções que não cabem numa regra de negócio isolada | Auditoria e rastreabilidade, que exige armazenamento estruturado de eventos, correlação de registros e política de retenção |
+| Usabilidade | Escolha de framework de interface, estrutura de navegação, estratégia de cache no cliente e telemetria de uso | A aplicação deve atender ao padrão de acessibilidade WCAG nível AA |
+| Confiabilidade | Topologia de implantação, replicação de dados, estratégia de cópia de segurança, monitoramento ativo e políticas de nova tentativa | Tempo de recuperação de 15 minutos e perda máxima de dados de 5 minutos |
+| Desempenho | Estratégia de cache, balanceamento de carga, modelagem de dados e uso de filas e processamento assíncrono | Latência de percentil 95 abaixo de 200 ms nas operações críticas, com capacidade de absorver carga de dez vezes em campanha |
+| Sustentação e evolução | Estrutura de código, estratégia de testes, observabilidade e esteira de entrega contínua | Implantação contínua sem indisponibilidade, por liberação paralela ou gradual |
+| Restrições de projeto | A forma estrutural da solução, fechando alternativas antes da análise | Separação obrigatória entre camada de domínio e camada de infraestrutura |
+| Restrições de implementação | Limites tecnológicos específicos, que reduzem flexibilidade e podem gerar dependência de fornecedor | A esteira deve gerar inventário de componentes de software e executar análise de vulnerabilidades |
+| Interface | Estrutura de APIs, versionamento, compatibilidade retroativa e segurança da integração | APIs em padrão OpenAPI versionado, com autenticação OAuth2 e escopos definidos |
+| Físicos e de infraestrutura | Topologia e replicação, por imposição do ambiente onde o sistema executa | Residência obrigatória de dados em território nacional |
+| Segurança | Autenticação, autorização, proteção contra ataque, gestão de segredos e conformidade regulatória, com efeito transversal | Criptografia de dados em repouso e em trânsito, com segregação de ambientes por política de acesso |
+| Sustentabilidade operacional | Decisões de capacidade e de elasticidade, pelo custo financeiro e ambiental do consumo de recursos | Desligamento automático de ambientes não produtivos fora do horário de uso |
+| Inteligência artificial e aprendizado de máquina | Pipeline de dados, armazenamento especializado e monitoramento adicional | Versionamento de modelos, monitoramento de desvio de comportamento em produção e rastreabilidade dos dados de treinamento |
+
+Três observações sobre essa lista. A primeira categoria é a menos intuitiva, porque funcionalidade costuma ser associada apenas a regra de negócio. Algumas funções, porém, exigem mecanismo estrutural dedicado e por isso são arquiteturalmente significativas. Relatório analítico complexo pode exigir separação entre banco transacional e banco analítico. Fluxo de aprovação demanda modelagem de estados, persistência de histórico e motor de regras. API pública oferecida como produto implica gateway, versionamento, limitação de taxa e monitoramento. Nenhuma dessas é apenas mais uma funcionalidade, todas moldam a estrutura do sistema.
+
+A segunda observação é que as duas últimas categorias não aparecem nas taxonomias clássicas. Sustentabilidade operacional entrou na lista porque consumo de recurso virou custo relevante e critério de decisão de capacidade. Inteligência artificial entrou porque modelo em produção introduz um objeto que envelhece sozinho, sem que o código mude, o que exige monitoramento de desvio e atualização controlada, coisas que nenhuma categoria anterior cobre.
+
+A terceira é que as categorias de restrição, de projeto e de implementação, se cruzam com o conceito de restrição já apresentado no quadro acima. O cruzamento é esperado, porque as duas classificações olham para o mesmo conjunto de requisitos por ângulos diferentes. Uma diz que aquilo é restrição, a outra diz sobre o que a restrição recai, se sobre a forma da solução ou sobre a tecnologia permitida.
+
 ## Uso pelo arquiteto
 
 O arquiteto separa requisito não funcional de requisito de atributo de qualidade porque a especificação de um sistema precisa de critério verificável, não de rótulo. Um requisito arquivado apenas como não funcional de desempenho ou de disponibilidade ainda não diz o que testar, o que priorizar diante de conflito entre qualidades, nem quando considerar o requisito satisfeito. Reescrever a expectativa como requisito de atributo de qualidade, com contexto, carga e medida, é o que permite negociar prazo, orçar esforço e decidir entre soluções concorrentes com base em evidência, e não em impressão.
+
+As doze categorias entram em outro momento do trabalho. Elas não servem para rotular o requisito depois de escrito, servem como lista de verificação antes de encerrar o levantamento. O arquiteto percorre as doze e pergunta, para cada uma, se aquela dimensão foi discutida com alguém. As que ninguém mencionou são o material da próxima entrevista, e costumam ser justamente as caras de corrigir depois, como residência de dados, tempo de recuperação e compatibilidade retroativa de integração.
 
 ## Exercício 2
 
@@ -68,4 +95,8 @@ A ACME, universidade privada brasileira cujo sistema acadêmico está em moderni
 
 ## Fontes
 
-Glossário do curso, entradas [atributo de qualidade](../referencia/glossario.md#atributo-de-qualidade), [requisito funcional](../referencia/glossario.md#requisito-funcional), [requisito não funcional](../referencia/glossario.md#requisito-nao-funcional) e [requisito de atributo de qualidade](../referencia/glossario.md#requisito-de-atributo-de-qualidade). International Organization for Standardization/International Electrotechnical Commission/Institute of Electrical and Electronics Engineers (2022), listada na [bibliografia](../referencia/bibliografia.md). International Organization for Standardization (2023), listada na [bibliografia](../referencia/bibliografia.md). Barbacci et al. (2003), listado na [bibliografia](../referencia/bibliografia.md). Dossiê da instituição fictícia [ACME](../caso-acme/index.md), requisitos declarados pelas partes interessadas.
+Glossário do curso, entradas [atributo de qualidade](../referencia/glossario.md#atributo-de-qualidade), [requisito funcional](../referencia/glossario.md#requisito-funcional), [requisito não funcional](../referencia/glossario.md#requisito-nao-funcional) e [requisito de atributo de qualidade](../referencia/glossario.md#requisito-de-atributo-de-qualidade). International Organization for Standardization/International Electrotechnical Commission/Institute of Electrical and Electronics Engineers (2022), listada na [bibliografia](../referencia/bibliografia.md). International Organization for Standardization (2023), listada na [bibliografia](../referencia/bibliografia.md). Barbacci et al. (2003), listado na [bibliografia](../referencia/bibliografia.md).
+
+Material base do professor, guia [Como capturar requisitos arquiteturais](https://github.com/aulas-marco/projeto-arquitetura-software/blob/main/1.1.1%20Como%20capturar%20requisitos%20arquiteturais.md), seção 2, fonte das doze categorias de requisito arquitetural, do que cada uma cobra da estrutura e dos exemplos reproduzidos nesta página. Esse guia cita Eeles (2001), listado na [bibliografia](../referencia/bibliografia.md), como origem do método de captura.
+
+Dossiê da instituição fictícia [ACME](../caso-acme/index.md), requisitos declarados pelas partes interessadas.
