@@ -53,6 +53,11 @@ nav:
       - Síntese: modulo-1-fundamentos/sintese.md
   - "Aula 2 — Plataforma e modelos":
       - Visão geral: modulo-2-plataforma-e-modelos/index.md
+      - "Bloco 1: registro de decisão arquitetural": modulo-2-plataforma-e-modelos/bloco-1-registro-de-decisao-arquitetural.md
+      - "Bloco 2: plataforma arquitetural": modulo-2-plataforma-e-modelos/bloco-2-plataforma-arquitetural.md
+      - "Bloco 3: ADR de plataforma": modulo-2-plataforma-e-modelos/bloco-3-adr-de-plataforma.md
+      - "Bloco 4: representação de modelos e C4": modulo-2-plataforma-e-modelos/bloco-4-representacao-de-modelos-e-c4.md
+      - Síntese: modulo-2-plataforma-e-modelos/sintese.md
   - "Aula 3 — Descoberta e riscos":
       - Visão geral: modulo-3-descoberta-e-riscos/index.md
   - "Aula 4 — Dados e segurança":
