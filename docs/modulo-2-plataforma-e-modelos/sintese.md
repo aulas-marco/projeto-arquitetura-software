@@ -8,13 +8,13 @@ Esta página fecha o módulo de plataforma e modelos com o que precisa permanece
 - O critério para comparar plataformas candidatas a um estilo arquitetural já escolhido, distinguindo critério explícito de preferência não justificada
 - A diferença entre a decisão de estilo, registrada na Aula 1, e a decisão de plataforma, registrada nesta aula, como dois ADRs distintos sobre o mesmo sistema
 - Os níveis de contexto e de contêineres do modelo C4, e o que cada um deles representa e deixa de fora
-- Os quatro artefatos formais produzidos nos exercícios, a ADR de estilo do bloco 1, a comparação de plataformas com critérios explícitos do bloco 2, a ADR de plataforma do bloco 3, e o modelo C4 nos dois níveis do bloco 4, porque a Aula 3 parte deles
+- Os quatro artefatos formais produzidos nos exercícios, o ADR de estilo do [bloco 1](bloco-1-registro-de-decisao-arquitetural.md), a comparação de plataformas com critérios explícitos do [bloco 2](bloco-2-plataforma-arquitetural.md), o ADR de plataforma do [bloco 3](bloco-3-adr-de-plataforma.md), e o modelo C4 nos dois níveis do [bloco 4](bloco-4-representacao-de-modelos-e-c4.md), porque a Aula 3 parte deles
 
 ## Autoavaliação
 
 As perguntas abaixo são para o aluno responder a si mesmo, sem gabarito público, como verificação de retenção antes da Aula 3.
 
-1. Eu escrevo uma ADR completa, com contexto, decisão e consequências, para uma decisão arquitetural já tomada.
+1. Eu escrevo um ADR completo, com contexto, decisão e consequências, para uma decisão arquitetural já tomada.
 2. Eu comparo duas ou mais plataformas candidatas a um estilo dado, citando ao menos dois critérios explícitos para cada uma.
 3. Eu explico por que a escolha de plataforma exige um ADR próprio, separado do ADR que registra a escolha de estilo.
 4. Eu distingo o que aparece no nível de contexto do que aparece no nível de contêineres de um diagrama C4, para o mesmo sistema.
