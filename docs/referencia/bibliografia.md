@@ -10,11 +10,13 @@ Fontes conferidas, no formato APA 7ª edição. Referências adicionais entram s
 - Clements, P., Bachmann, F., Bass, L., Garlan, D., Ivers, J., Little, R., Merson, P., Nord, R., & Stafford, J. (2010). *Documenting software architectures: Views and beyond* (2nd ed.). Addison-Wesley.
 - Eeles, P. (2001). *Capturing architectural requirements*. Rational Software Corporation.
 - Henderson, J. P. (n.d.). *Architecture decision record (ADR)* [Repositório de modelos e exemplos]. https://github.com/joelparkerhenderson/architecture-decision-record
+- Hohpe, G., & Woolf, B. (2003). *Enterprise integration patterns: Designing, building, and deploying messaging solutions*. Addison-Wesley.
 - Kruchten, P. (2004). *The rational unified process: An introduction* (3rd ed.). Addison-Wesley.
 - Mendes, M. (2026). *Arquitetura de software* [Material de curso]. https://marco-mendes.github.io/arquitetura-software/
 - Nygard, M. (2011, 15 de novembro). *Documenting architecture decisions*. Cognitect Blog. https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
 - MADR. (2024). *Markdown Architectural Decision Records* (Versão 4.0.0). https://adr.github.io/madr/
 - Brown, S. (n.d.). *The C4 model for visualising software architecture*. https://c4model.com
+- Vernon, V. (2013). *Implementing domain-driven design*. Addison-Wesley.
 
 As referências ainda não confirmadas (o número de características da ISO/IEC 25010:2023, o DOI do relatório do SEI e a coletânea de 2016 do Quality Attribute Workshop) ficam fora da lista até serem conferidas.
 
