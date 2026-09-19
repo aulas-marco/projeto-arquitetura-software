@@ -19,6 +19,7 @@
 - Enunciado de exercício com mais de uma instrução usa lista numerada, não parágrafo corrido
 - Bibliografia e citações em Fontes em formato APA 7
 - Negrito no máximo três a cinco termos por página de bloco, só no primeiro uso, nunca em frase inteira ou número
+- Toda referência a exemplo, quadro, seção ou conceito de outro ponto do site vem com o local exato (nome da seção, e nome do bloco ou link quando for de outra página). "Seguindo o padrão do exemplo de desempenho" é proibido, sem dizer onde esse exemplo está. Ver seção 12.9 da especificação
 - Os quatro estilos comparados continuam camadas, microsserviços, orientado a eventos, microkernel. MVC, MVVM, DDD e Strangler continuam fora, por decisão confirmada em 19/09/2026
 
 ---
@@ -182,7 +183,11 @@ Antes de apagar, copiar o texto completo da seção Gabarito deste bloco para `.
 
 - [ ] **Step 3: Renomear `## Exercício` para `## Exercício 1`**
 
-- [ ] **Step 4: Converter o enunciado em lista numerada**
+- [ ] **Step 4: Auditar referências vagas a outras partes do site**
+
+Ler a página inteira em busca de menção a exemplo, quadro ou conceito de outra seção sem dizer onde ele está (padrão "seguindo o exemplo de X" sem apontar a seção). Se encontrar, corrigir acrescentando o nome da seção ou do bloco. Ver seção 12.9 da especificação.
+
+- [ ] **Step 5: Converter o enunciado em lista numerada**
 
 A frase "responda em prosa a três perguntas" e o parágrafo corrido com as três perguntas viram:
 
@@ -196,16 +201,16 @@ Responda às três perguntas abaixo.
 
 Ajustar a pontuação de cada item para as regras do curso (zero ponto-e-vírgula, no máximo um travessão por parágrafo).
 
-- [ ] **Step 5: Aplicar negrito parcimonioso na seção Conceito**
+- [ ] **Step 6: Aplicar negrito parcimonioso na seção Conceito**
 
 Três a cinco termos centrais no primeiro uso, por exemplo **arquitetura de software** e **enquadramento do problema**. Não repetir o mesmo termo em negrito duas vezes na página.
 
-- [ ] **Step 6: Verificar**
+- [ ] **Step 7: Verificar**
 
 Run: `python3 scripts/validate_content.py --module modulo-1-fundamentos`
 Expected: zero violação nesta página. As demais três páginas de bloco continuam com violação esperada até as tarefas 5 a 7.
 
-- [ ] **Step 7: Commit**
+- [ ] **Step 8: Commit**
 
 ```bash
 git add docs/modulo-1-fundamentos/bloco-1-arquitetura-e-papel-do-arquiteto.md
@@ -228,23 +233,27 @@ git commit -m "docs(modulo-1): bloco 1 sem gabarito publico, exercicio 1 itemiza
 
 - [ ] **Step 2: Remover `## Gabarito`, renomear para `## Exercício 2`**
 
-- [ ] **Step 3: Converter o enunciado em lista numerada**
+- [ ] **Step 3: Converter o enunciado em lista numerada, corrigindo a referência vaga ao exemplo de desempenho**
 
-"Classifique cada um dos oito requisitos... justificando em uma frase. Em seguida, escolha dois requisitos... reescreva..." vira:
+A frase atual do segundo item não diz onde o exemplo de desempenho da plataforma de vídeo está. Corrija isso ao mesmo tempo em que itemiza. "Classifique cada um dos oito requisitos... justificando em uma frase. Em seguida, escolha dois requisitos... reescreva..." vira:
 
 ```markdown
 1. Classifique cada um dos oito requisitos em uma das quatro categorias, requisito funcional, requisito não funcional, requisito de atributo de qualidade ou restrição, justificando em uma frase.
-2. Escolha dois requisitos que sejam requisitos de atributo de qualidade mal formulados e reescreva cada um em forma mensurável, seguindo o padrão de contexto, carga e medida usado no exemplo de desempenho da plataforma de vídeo.
+2. Escolha dois requisitos que sejam requisitos de atributo de qualidade mal formulados e reescreva cada um em forma mensurável, seguindo o padrão de contexto, carga e medida usado no exemplo de desempenho da plataforma de vídeo, apresentado na seção Conceito acima.
 ```
 
-- [ ] **Step 4: Negrito parcimonioso na seção Conceito**, três a cinco termos.
+- [ ] **Step 4: Auditar o restante da página em busca do mesmo padrão de referência vaga**
 
-- [ ] **Step 5: Verificar**
+Ler a página inteira. Se houver outra menção a exemplo, quadro ou conceito de outra seção sem dizer onde está, corrigir da mesma forma. Ver seção 12.9 da especificação.
+
+- [ ] **Step 5: Negrito parcimonioso na seção Conceito**, três a cinco termos.
+
+- [ ] **Step 6: Verificar**
 
 Run: `python3 scripts/validate_content.py --module modulo-1-fundamentos`
 Expected: zero violação nesta página.
 
-- [ ] **Step 6: Commit**
+- [ ] **Step 7: Commit**
 
 ```bash
 git add docs/modulo-1-fundamentos/bloco-2-qualidade-e-tipos-de-requisito.md
@@ -276,18 +285,24 @@ Sem perder o que já está lá, acrescentar: descrição mais completa do proces
 - [ ] **Step 4: Converter o enunciado em lista numerada**
 
 ```markdown
-1. Escreva dois cenários de atributo de qualidade para a ACME, no formato de seis elementos apresentado no Conceito. O primeiro cenário deve ter como estímulo o pico de sazonalidade descrito acima, e pode partir, como orientação de continuidade e sem obrigatoriedade, da reescrita mensurável de R2 sobre disponibilidade na janela de matrícula produzida no bloco 2. O segundo deve ter como estímulo o incidente descrito acima.
-2. Para cada um dos dois cenários, aplique o roteiro de sete perguntas e defenda, com base nas respostas, se aquele cenário constitui um requisito arquiteturalmente significativo.
+1. Escreva dois cenários de atributo de qualidade para a ACME, no formato de seis elementos apresentado no Conceito. O primeiro cenário deve ter como estímulo o pico de sazonalidade descrito acima, e pode partir, como orientação de continuidade e sem obrigatoriedade, da reescrita mensurável de R2 sobre disponibilidade na janela de matrícula, produzida no exercício do bloco 2 desta mesma aula. O segundo deve ter como estímulo o incidente descrito acima.
+2. Para cada um dos dois cenários, aplique o roteiro de sete perguntas apresentado no Conceito e defenda, com base nas respostas, se aquele cenário constitui um requisito arquiteturalmente significativo.
 ```
 
-- [ ] **Step 5: Negrito parcimonioso** na seção Conceito ampliada.
+Note que "produzida no bloco 2" sozinho não basta, porque o aluno não sabe se isso é um link, um bloco desta aula ou de outra. Use a forma completa acima ou equivalente, nomeando que é o exercício do bloco 2 desta mesma aula.
 
-- [ ] **Step 6: Verificar**
+- [ ] **Step 5: Auditar toda a página, incluindo o Conceito ampliado do Step 2, em busca de referência vaga a exemplo ou seção sem local**
+
+Isto é especialmente importante aqui porque o Step 2 acrescenta conteúdo novo. Todo novo exemplo de cenário criado precisa, se remeter a algo do Conceito já existente ou de outro bloco, dizer exatamente onde. Ver seção 12.9 da especificação.
+
+- [ ] **Step 6: Negrito parcimonioso** na seção Conceito ampliada.
+
+- [ ] **Step 7: Verificar**
 
 Run: `python3 scripts/validate_content.py --module modulo-1-fundamentos && .venv/bin/mkdocs build --strict`
 Expected: zero violação nesta página, build limpo.
 
-- [ ] **Step 7: Commit**
+- [ ] **Step 8: Commit**
 
 ```bash
 git add docs/modulo-1-fundamentos/bloco-3-cenarios-e-significancia-arquitetural.md
@@ -332,14 +347,18 @@ NÃO reabrir a lista de estilos comparados, NÃO incluir MVC, MVVM, DDD ou Stran
 
 Acrescentar, no formato APA já fixado na Task 3: "Mendes, M. (2026). *Arquitetura de software* [Material de curso]. https://marco-mendes.github.io/arquitetura-software/", além de Ford e Richards e Bass, Clements e Kazman já citados.
 
-- [ ] **Step 6: Negrito parcimonioso** na seção Conceito ampliada.
+- [ ] **Step 6: Auditar toda a página, incluindo o Conceito ampliado do Step 2, em busca de referência vaga a exemplo ou seção sem local**
 
-- [ ] **Step 7: Verificar**
+O Step 2 acrescenta tabelas de força, anti-padrão e heurística por estilo. Se alguma delas remeter a um estilo ou cenário já descrito antes na mesma página ("como visto no estilo em camadas"), o texto precisa nomear a seção ou o estilo por extenso, não por referência vaga. Ver seção 12.9 da especificação.
+
+- [ ] **Step 7: Negrito parcimonioso** na seção Conceito ampliada.
+
+- [ ] **Step 8: Verificar**
 
 Run: `python3 scripts/validate_content.py && .venv/bin/mkdocs build --strict`
 Expected: zero violação em todo o repositório, build limpo, porque esta é a última das quatro páginas de bloco a ser corrigida.
 
-- [ ] **Step 8: Commit**
+- [ ] **Step 9: Commit**
 
 ```bash
 git add docs/modulo-1-fundamentos/bloco-4-estilos-arquiteturais.md
@@ -417,7 +436,7 @@ Run: `grep -c "^### Bloco" "/Users/marcomendes/Library/CloudStorage/Dropbox/Pess
 
 - [ ] **Step 8: Ler as quatro páginas de bloco por inteiro**
 
-Confirmar tom, negrito parcimonioso (não mais que cinco por página), e que a lista numerada de cada exercício está clara.
+Confirmar tom, negrito parcimonioso (não mais que cinco por página), que a lista numerada de cada exercício está clara, e que nenhuma referência a exemplo, quadro ou conceito de outra parte do site ficou sem dizer onde esse exemplo está (seção 12.9 da especificação). Procurar especificamente por padrões como "seguindo o exemplo de", "como visto em", "conforme apresentado" sem nome de seção ou de bloco logo em seguida.
 
 - [ ] **Step 9: Commit final, se houver correção**
 

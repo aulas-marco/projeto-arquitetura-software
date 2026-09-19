@@ -242,3 +242,9 @@ A obra do próprio professor entra na bibliografia como material de curso, em fo
 ### 12.8 Negrito parcimonioso
 
 Os termos centrais de cada conceito, no primeiro uso dentro da seção Conceito, podem receber destaque em negrito, no máximo três a cinco por página de bloco. Negrito não é usado em frase inteira, em dado numérico, nem em mais de uma ocorrência do mesmo termo na mesma página.
+
+### 12.9 Toda referência a exemplo, seção ou conceito de outro ponto do site vem com o local exato
+
+O aluno não conhece o site de cor. Nenhum enunciado de exercício, nem seção alguma do site, referencia um exemplo, um quadro ou um conceito de outra parte do material sem dizer onde ele está. "Seguindo o padrão do exemplo de desempenho" é proibido. "Seguindo o padrão do exemplo de desempenho apresentado na seção Conceito acima" é o formato exigido, e quando a referência aponta para outro bloco ou outra página, o nome do bloco ou da página entra também, com link Markdown quando o alvo existir no site.
+
+O padrão correto já existe no próprio bloco 3, na frase "no formato de seis elementos apresentado no Conceito" do enunciado do exercício. O bloco 2 viola essa regra em "seguindo o padrão de contexto, carga e medida usado no exemplo de desempenho da plataforma de vídeo", que não diz onde esse exemplo está. Essa é a instância conhecida a corrigir, e cada tarefa que toca conteúdo de bloco deve auditar a própria página em busca do mesmo padrão de referência vaga, não só corrigir a instância nomeada aqui.
