@@ -1,1 +1,76 @@
-# bloco-1-arquitetura-e-papel-do-arquiteto
+# Arquitetura de software e o papel do arquiteto
+
+Este bloco responde a uma pergunta anterior a qualquer decisão técnica, o que é arquitetura de software, o que cabe ao arquiteto decidir e como ele enquadra um problema antes de propor solução.
+
+## Antes de começar
+
+- [Arquitetura de software](../referencia/glossario.md#arquitetura-de-software)
+- [Arquiteto de software](../referencia/glossario.md#arquiteto-de-software)
+- [Restrição](../referencia/glossario.md#restricao)
+- [Direcionador arquitetural](../referencia/glossario.md#direcionador-arquitetural)
+
+## Conceito
+
+Arquitetura de software é o conjunto das decisões estruturais fundamentais sobre um sistema, decisões difíceis de reverter depois de tomadas, que determinam a capacidade desse sistema de satisfazer os atributos de qualidade exigidos dele. Essas decisões definem os elementos que compõem o sistema, as conexões entre eles e as restrições que essa organização impõe às etapas seguintes do projeto.
+
+A distinção entre decisão arquitetural e decisão de implementação está no custo de reversão e no alcance do efeito. Uma decisão arquitetural condiciona partes do sistema que ainda não existem e é cara de desfazer depois que o desenvolvimento avança sobre ela. Uma decisão de implementação afeta um trecho localizado de código e pode ser revista sem repercussão sobre o restante do sistema. Em um sistema de comércio eletrônico, decidir que o catálogo de produtos e o processamento de pedidos são serviços separados, comunicados por mensageria assíncrona, é decisão arquitetural, porque condiciona como cada parte pode escalar e falhar de forma independente. Escolher a estrutura de dados usada para ordenar os itens de uma página de resultado é decisão de implementação, porque pode ser trocada sem afetar a separação entre catálogo e pedidos. Em um sistema de controle industrial, decidir que os controladores de chão de fábrica se comunicam com a camada de supervisão por um protocolo com garantia de entrega e limite de latência é decisão arquitetural, porque qualquer componente futuro do sistema de supervisão herda essa restrição. Ajustar o intervalo de repetição de uma rotina de leitura de sensor é decisão de implementação, porque não altera o contrato entre as camadas.
+
+O arquiteto de software é o profissional responsável por tomar e documentar essas decisões estruturais, balanceando atributos de qualidade concorrentes, requisitos funcionais e restrições de negócio. O arquiteto decide a organização geral do sistema, a divisão de responsabilidades entre seus elementos principais, as tecnologias e plataformas de base e os pontos de integração entre componentes internos e sistemas externos. Para tomar essas decisões, o arquiteto interage com as áreas de negócio interessadas no resultado do sistema, com os times de desenvolvimento que constroem sobre a estrutura definida e, quando o domínio exige, com especialistas em segurança, dados ou infraestrutura.
+
+Não é responsabilidade do arquiteto definir o detalhe interno de cada módulo, escolher nomes de variáveis ou algoritmos locais, nem conduzir a gestão do cronograma do projeto. No sistema de comércio eletrônico do exemplo anterior, cabe ao arquiteto decidir que catálogo e pedidos são serviços separados, e cabe ao time de desenvolvimento decidir como o serviço de catálogo indexa seus produtos internamente. No sistema de controle industrial, cabe ao arquiteto decidir o protocolo entre chão de fábrica e supervisão, e cabe à equipe de automação decidir o algoritmo de filtragem de ruído de um sensor específico.
+
+A primeira atividade do processo de arquitetura é o enquadramento do problema, e não a escolha de uma solução. Enquadrar o problema significa identificar o que a organização busca com o sistema, quem tem autoridade para decidir cada tipo de questão e quais restrições já chegam fechadas, impostas por fatores fora do controle do arquiteto. No sistema de comércio eletrônico, a decisão de operar em um único provedor de nuvem já contratado pela organização é uma restrição que elimina alternativas de arquitetura multinuvem, antes mesmo de qualquer discussão sobre estilo. No sistema de controle industrial, a exigência regulatória de retenção de registros de operação por um número mínimo de anos restringe as opções de armazenamento antes de qualquer decisão sobre desempenho. Um direcionador arquitetural, seja de negócio ou técnico, orienta essas decisões antes de se traduzir em requisitos específicos, e reconhecê-lo cedo evita que o arquiteto avalie alternativas que a própria organização já descartou.
+
+## Uso pelo arquiteto
+
+No dia a dia, o arquiteto aplica essa distinção para decidir onde investir tempo de análise, reservando profundidade de avaliação para as decisões estruturais difíceis de reverter e delegando ao time de desenvolvimento as decisões locais que a estrutura já comporta. Antes de propor qualquer solução, o arquiteto levanta quem decide o quê na organização e quais restrições já estão fechadas, para não gastar esforço em alternativas que nunca poderiam ser adotadas.
+
+## Exercício
+
+A ACME é uma universidade privada brasileira, de porte consolidado, cujo sistema acadêmico foi construído ao longo de duas décadas e sustenta matrícula, avaliação, emissão de documentos e integração financeira. A instituição está em processo de modernização desse sistema legado.
+
+O quadro abaixo reproduz o mapa de atores da ACME, com o papel, o que cada um busca e o que teme.
+
+| Papel | O que quer | O que teme |
+| --- | --- | --- |
+| Reitora | Resultado visível em 12 meses e aplicativo móvel do aluno em operação antes do vestibular de 2027 | Investimento de R$ 6,2 milhões sem efeito perceptível e queda de nota na avaliação regulatória |
+| Pró-Reitora de Graduação | Matrícula sem falha e notas publicadas dentro do calendário | Repetição de incidente na janela de matrícula e nova prorrogação |
+| Diretor de TI | Reduzir a dependência de especialistas em COBOL e o custo anual de manutenção do sistema | Perder os profissionais de COBOL e ficar sem quem sustente o núcleo |
+| Diretor Financeiro | Preservar os contratos vigentes até o fim do prazo, já provisionados no plano plurianual | Desembolso duplicado, com legado e nuvem cobrados no mesmo exercício |
+| Gerente de sustentação | Manter o escopo e a previsibilidade do contrato de sustentação até o fim de sua vigência | Perder receita e escopo com a internalização do conhecimento do núcleo |
+| Coordenadora de Educação a Distância | Notas e turmas propagadas ao ambiente virtual de aprendizagem em minutos | Continuar dependente do lote diário, com reclamação de aluno a cada fechamento |
+| Encarregada de proteção de dados | Conformidade com a LGPD, base legal declarada e trilha de auditoria sobre dado pessoal | Transferência de dado de aluno para fora do território nacional sem amparo |
+| Representação discente | Aplicativo móvel e matrícula que não falhe na abertura | Perda de vaga em disciplina por indisponibilidade do portal |
+
+As restrições abaixo chegam fechadas ao arquiteto, impostas por decisão anterior ao projeto.
+
+| Restrição | Origem |
+| --- | --- |
+| O sistema acadêmico não pode parar em período letivo | Pró-Reitoria de Graduação |
+| O ambiente virtual de aprendizagem e o ERP financeiro permanecem, o trabalho é de integração e governança, não de substituição | Reitoria |
+| Apenas dois provedores de nuvem pré-aprovados podem ser usados | Conselho Universitário |
+| Identidade e autorização seguem padrões abertos, não um produto proprietário | Comitê de Segurança da Informação |
+| Dado pessoal de aluno é processado em território nacional | Jurídico |
+| A manutenção do núcleo COBOL permanece sob contrato de sustentação até 30/09/2027 | Contrato de sustentação |
+| O roteiro de evolução cabe em um orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses | Reitoria |
+
+A partir desses dois quadros, responda em prosa a três perguntas. O que a instituição quer do sistema acadêmico, considerando os interesses que aparecem em mais de um papel. Quem, entre os papéis listados, tem autoridade para decidir sobre orçamento, sobre padrão de identidade e sobre prazo de contrato de sustentação, e por quê. Qual das sete restrições, isoladamente, elimina a alternativa de reescrever o sistema acadêmico inteiro em uma única entrega, e qual elimina a alternativa de substituí-lo por um produto de mercado.
+
+## Gabarito
+
+<details>
+<summary>Critério de avaliação</summary>
+
+Uma resposta forte separa o que é convergência de interesse do que é conflito, em vez de tratar o mapa de atores como uma lista neutra. O interesse comum mais evidente é a continuidade da operação acadêmica sem interrupção perceptível, presente na Pró-Reitoria de Graduação, na Representação discente e na Coordenadora de Educação a Distância, cada uma preocupada com uma frente diferente da mesma continuidade.
+
+Sobre autoridade de decisão, uma resposta forte associa cada tipo de questão a quem tem competência declarada sobre ela, não a quem simplesmente aparece mencionado no mesmo assunto. Orçamento é decisão da Reitoria, porque o Conselho Universitário e a Reitoria são as instâncias que aprovam valor e prazo de investimento. Padrão de identidade é decisão do Comitê de Segurança da Informação, porque a restrição nasce ali, não de uma preferência do Diretor de TI. Prazo de contrato de sustentação é decisão que depende do contrato já firmado, e nem o Diretor de TI nem o arquiteto podem alterá-lo isoladamente.
+
+Sobre as restrições, uma resposta forte identifica que a proibição de parar o sistema em período letivo, combinada com a ausência de janela de calendário para uma virada simultânea de todos os módulos, elimina a reescrita completa em uma única entrega. E identifica que o custo de migrar os dados históricos acumulados, associado à especificidade do regime acadêmico da instituição, é o que fecha a porta para a substituição por um produto de mercado, não uma limitação técnica de integração.
+
+Uma resposta fraca lista os dois quadros sem cruzá-los, ou atribui a uma restrição um efeito que ela não produz sozinha.
+
+</details>
+
+## Fontes
+
+Glossário do curso, entradas [arquitetura de software](../referencia/glossario.md#arquitetura-de-software), [arquiteto de software](../referencia/glossario.md#arquiteto-de-software) e [direcionador arquitetural](../referencia/glossario.md#direcionador-arquitetural). Bass, L., Clements, P. e Kazman, R., Software Architecture in Practice, listado na [bibliografia](../referencia/bibliografia.md). ISO/IEC/IEEE 42010:2022, listada na [bibliografia](../referencia/bibliografia.md). Dossiê da instituição fictícia [ACME](../caso-acme/index.md), mapa de atores e restrições fechadas.
