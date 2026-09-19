@@ -4,7 +4,8 @@ Esta página fecha o módulo de fundamentos com o que precisa permanecer depois 
 
 ## Checklist do que precisa permanecer
 
-- A distinção entre requisito funcional, requisito não funcional, requisito de atributo de qualidade e restrição, aplicada a um requisito concreto declarado por uma parte interessada
+- A distinção entre requisito funcional, requisito não funcional, requisito de atributo de qualidade e restrição, com o entendimento de que não funcional é o rótulo de chegada e as outras três são as categorias de trabalho
+- As doze dimensões de preocupação arquitetural, usadas como lista de verificação contra omissão antes de encerrar o levantamento
 - O formato de seis elementos de um cenário de atributo de qualidade, fonte do estímulo, estímulo, artefato afetado, ambiente, resposta e medida da resposta
 - O critério para julgar se um requisito é arquiteturalmente significativo, aplicado ao impacto do requisito sobre as decisões estruturais do sistema
 - A relação entre estilo arquitetural e atributo de qualidade, entendida como adequação e não como escolha única correta
@@ -14,7 +15,7 @@ Esta página fecha o módulo de fundamentos com o que precisa permanecer depois 
 
 As perguntas abaixo são para o aluno responder a si mesmo, sem gabarito público, como verificação de retenção antes da Aula 2.
 
-1. Dado um requisito declarado por uma parte interessada, eu consigo dizer em qual das quatro categorias ele se encaixa e justificar por quê.
+1. Dada uma declaração que chegou rotulada como não funcional, eu digo se ela é requisito de atributo de qualidade ou restrição, e justifico por quê.
 2. Eu escrevo um cenário de atributo de qualidade citando os seis elementos, sem omitir a medida da resposta.
 3. Eu explico a diferença entre um requisito de atributo de qualidade e um requisito arquiteturalmente significativo, com um exemplo em que o primeiro não implica o segundo.
 4. Para um cenário dado, eu indico ao menos dois estilos arquiteturais candidatos e argumento qual atende melhor, a partir do atributo de qualidade envolvido.
