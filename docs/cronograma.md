@@ -2,14 +2,14 @@
 
 A disciplina tem seis aulas, das 19h00 às 22h30, com intervalo das 20h30 às 20h45 e encerramento do conteúdo até as 22h10. Cada aula é dividida em quatro blocos de quarenta minutos.
 
-| Aula | Data | Tema |
-| --- | --- | --- |
-| 1 | 21/09/2026 | Arquitetura, papel do arquiteto, atributos de qualidade, cenários de significância arquitetural e estilos arquiteturais |
-| 2 | 23/09/2026 | Plataforma arquitetural, ADR de plataforma, representação de modelos e modelagem C4 |
-| 3 | 28/09/2026 | Descoberta detalhada, arquitetura de linha de base e riscos sistêmicos |
-| 4 | 30/09/2026 | Requisitos avançados, arquitetura de dados e arquitetura de segurança |
-| 5 | 05/10/2026 | Blueprint da solução, modelo técnico de referência e infraestrutura alvo |
-| 6 | 15/10/2026 | Análise de lacunas, compromissos arquiteturais, roteiro de evolução e governança |
+| Aula | Tema |
+| --- | --- |
+| 1 | Arquitetura, papel do arquiteto, atributos de qualidade, cenários de significância arquitetural e estilos arquiteturais |
+| 2 | Plataforma arquitetural, ADR de plataforma, representação de modelos e modelagem C4 |
+| 3 | Descoberta detalhada, arquitetura de linha de base e riscos sistêmicos |
+| 4 | Requisitos avançados, arquitetura de dados e arquitetura de segurança |
+| 5 | Blueprint da solução, modelo técnico de referência e infraestrutura alvo |
+| 6 | Análise de lacunas, compromissos arquiteturais, roteiro de evolução e governança |
 
 ## Blocos da Aula 1
 

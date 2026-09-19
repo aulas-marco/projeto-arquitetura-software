@@ -15,7 +15,7 @@ Ao final da aula, o aluno é capaz de
 
 ## Grade de tempo
 
-A aula ocorre em 21/09/2026, das 19h00 às 22h30, com intervalo das 20h30 às 20h45. O tempo de conteúdo encerra até as 22h10. Os quatro blocos abaixo são o único lugar do site em que os minutos aparecem. As páginas de cada bloco não exibem cronômetro.
+A aula ocorre das 19h00 às 22h30, com intervalo das 20h30 às 20h45. O tempo de conteúdo encerra até as 22h10. Os quatro blocos abaixo são o único lugar do site em que os minutos aparecem. As páginas de cada bloco não exibem cronômetro.
 
 | Bloco | Conceito | Conceito (min) | Exercício (min) |
 | --- | --- | --- | --- |
@@ -40,4 +40,4 @@ A [síntese](sintese.md) fecha o módulo com o checklist do que precisa permanec
 
 ## Preparação para a Aula 2
 
-A Aula 2, em 23/09/2026, trata de plataforma arquitetural, registro de decisão de arquitetura, representação de modelos e modelagem C4 nos níveis 1 e 2. Os cenários de qualidade e o julgamento de significância arquitetural desta aula são o insumo da Aula 2, porque a escolha de plataforma e a primeira decisão registrada em ADR partem dos requisitos arquiteturalmente significativos identificados aqui. A leitura de estilo arquitetural do bloco 4 também é pré-condição, porque o nível 2 do C4 detalha os componentes internos de um sistema já situado dentro de um estilo escolhido.
+A Aula 2 trata de plataforma arquitetural, registro de decisão de arquitetura, representação de modelos e modelagem C4 nos níveis 1 e 2. Os cenários de qualidade e o julgamento de significância arquitetural desta aula são o insumo da Aula 2, porque a escolha de plataforma e a primeira decisão registrada em ADR partem dos requisitos arquiteturalmente significativos identificados aqui. A leitura de estilo arquitetural do bloco 4 também é pré-condição, porque o nível 2 do C4 detalha os componentes internos de um sistema já situado dentro de um estilo escolhido.

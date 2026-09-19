@@ -1,10 +1,10 @@
 # Estratégias e Projeto de Arquitetura de Software
 
-Este site reúne o material da disciplina Estratégias e Projeto de Arquitetura de Software, do IEC/PUC Minas, oferecida às turmas Arq. Software Distribuído 10.1 e Arq. Soluções Digitais 1.1. O conteúdo cumpre duas funções ao mesmo tempo, material de estudo para o aluno e roteiro de condução das aulas síncronas.
+Disciplina do IEC/PUC Minas, oferecida às turmas Arq. Software Distribuído 10.1 e Arq. Soluções Digitais 1.1. O conteúdo cumpre duas funções ao mesmo tempo, material de estudo para o aluno e roteiro de condução das aulas síncronas.
 
 ## O que o site contém
 
-O material está organizado em seis aulas, cada uma dividida em quatro blocos de quarenta minutos. Cada bloco expõe um conceito de arquitetura de software, relaciona esse conceito à prática profissional do arquiteto e propõe um exercício de aplicação, com gabarito. O [cronograma](cronograma.md) lista as seis aulas com data e tema.
+O material está organizado em seis aulas, cada uma dividida em quatro blocos de quarenta minutos. Cada bloco expõe um conceito de arquitetura de software, relaciona esse conceito à prática profissional do arquiteto e propõe um exercício de aplicação, com gabarito. O [cronograma](cronograma.md) lista as seis aulas com o tema de cada uma.
 
 A seção Referência reúne o [glossário](referencia/glossario.md) de termos usados no curso e a [bibliografia](referencia/bibliografia.md) consultada na elaboração do material.
 
