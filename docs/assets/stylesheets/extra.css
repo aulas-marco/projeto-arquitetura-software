@@ -1,0 +1,28 @@
+:root {
+  --course-ink: #16243A;
+  --course-cobalt: #254DB8;
+  --course-cyan: #5FC0D1;
+  --course-paper: #F2F6FB;
+  --course-white: #FFFFFF;
+  --course-amber: #F2B84B;
+
+  --md-primary-fg-color: var(--course-ink);
+  --md-primary-fg-color--light: #293B57;
+  --md-primary-fg-color--dark: #0D1727;
+  --md-accent-fg-color: var(--course-cobalt);
+  --md-typeset-a-color: var(--course-cobalt);
+  --md-default-fg-color: var(--course-ink);
+  --md-default-bg-color: var(--course-paper);
+}
+
+.md-typeset table:not([class]) {
+  font-size: 0.75rem;
+}
+
+.md-typeset details {
+  border-left: 0.2rem solid var(--course-cobalt);
+}
+
+.md-typeset .grade-tempo td:first-child {
+  white-space: nowrap;
+}

@@ -1,0 +1,71 @@
+site_name: Estratégias e Projeto de Arquitetura de Software
+site_description: Material da disciplina do IEC/PUC Minas, turmas Arq. Software Distribuído 10.1 e Arq. Soluções Digitais 1.1
+use_directory_urls: true
+exclude_docs: |
+  superpowers/**
+
+theme:
+  name: material
+  language: pt-BR
+  font: false
+  palette:
+    scheme: default
+    primary: custom
+    accent: custom
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+    - search.suggest
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/javascripts/mermaid.mjs
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - footnotes
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+nav:
+  - Início: index.md
+  - Cronograma: cronograma.md
+  - "Aula 1 — Fundamentos":
+      - Visão geral: modulo-1-fundamentos/index.md
+      - "Bloco 1: arquitetura e papel do arquiteto": modulo-1-fundamentos/bloco-1-arquitetura-e-papel-do-arquiteto.md
+      - "Bloco 2: qualidade e tipos de requisito": modulo-1-fundamentos/bloco-2-qualidade-e-tipos-de-requisito.md
+      - "Bloco 3: cenários e significância arquitetural": modulo-1-fundamentos/bloco-3-cenarios-e-significancia-arquitetural.md
+      - "Bloco 4: estilos arquiteturais": modulo-1-fundamentos/bloco-4-estilos-arquiteturais.md
+      - Síntese: modulo-1-fundamentos/sintese.md
+  - "Aula 2 — Plataforma e modelos":
+      - Visão geral: modulo-2-plataforma-e-modelos/index.md
+  - "Aula 3 — Descoberta e riscos":
+      - Visão geral: modulo-3-descoberta-e-riscos/index.md
+  - "Aula 4 — Dados e segurança":
+      - Visão geral: modulo-4-dados-e-seguranca/index.md
+  - "Aula 5 — Blueprint e TRM":
+      - Visão geral: modulo-5-blueprint-e-trm/index.md
+  - "Aula 6 — Evolução e governança":
+      - Visão geral: modulo-6-evolucao-e-governanca/index.md
+  - Caso ACME:
+      - Visão e contexto: caso-acme/index.md
+      - Arquitetura de linha de base: caso-acme/linha-de-base.md
+      - Dados operacionais: caso-acme/dados-operacionais.md
+      - Artefatos por aula: caso-acme/artefatos.md
+  - Referência:
+      - Glossário: referencia/glossario.md
+      - Bibliografia: referencia/bibliografia.md
