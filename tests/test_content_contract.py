@@ -100,6 +100,29 @@ class ContentContractTest(unittest.TestCase):
         finally:
             offender.unlink()
 
+    def test_validator_exempts_bibliografia_from_em_dash_limit(self):
+        """Titulo oficial de norma tecnica usa travessao duplo por convencao.
+
+        A bibliografia e o unico arquivo isento dessa checagem, porque cita
+        titulos oficiais (por exemplo ISO/IEC 25010) que o curso nao pode
+        truncar sem alterar o dado bibliografico.
+        """
+        target = ROOT / "docs" / "referencia" / "bibliografia.md"
+        original = target.read_text(encoding="utf-8")
+        try:
+            target.write_text(
+                "# Bibliografia\n\n"
+                "- Norma X. *Titulo A — Titulo B — Titulo C*.\n",
+                encoding="utf-8",
+            )
+            result = subprocess.run(
+                ["python3", "scripts/validate_content.py"],
+                cwd=ROOT, text=True, capture_output=True,
+            )
+            self.assertNotIn("mais de um travessao no paragrafo", result.stdout)
+        finally:
+            target.write_text(original, encoding="utf-8")
+
     def test_validator_allows_single_em_dash_split_across_two_lines(self):
         allowed = ROOT / "docs" / "_teste_travessao_unico.md"
         allowed.write_text(

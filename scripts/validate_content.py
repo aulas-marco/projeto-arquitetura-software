@@ -63,13 +63,24 @@ def check_semicolons(path: Path, prose: list[tuple[int, str]]) -> list[str]:
     ]
 
 
+EM_DASH_EXEMPT_FILES = ("docs/referencia/bibliografia.md",)
+
+
 def check_em_dashes(path: Path, prose: list[tuple[int, str]]) -> list[str]:
     """Conta travessoes por paragrafo, nao por linha fisica.
 
     Um paragrafo termina em linha em branco. Linhas de tabela (comecam com
     barra vertical) sao ignoradas. Cada item de lista e cada titulo formam
     um paragrafo proprio, de uma linha so.
+
+    A bibliografia e isenta: titulo oficial de norma tecnica (por exemplo
+    ISO/IEC 25010, "Systems and software engineering -- ... -- Product
+    quality model") usa o travessao duplo como convencao propria de
+    hierarquia de titulo, nao como escrita do curso. Truncar o titulo
+    oficial para caber na regra seria alterar um dado bibliografico.
     """
+    if str(path.relative_to(ROOT)) in EM_DASH_EXEMPT_FILES:
+        return []
     offenders = []
     paragraph: list[tuple[int, str]] = []
 
