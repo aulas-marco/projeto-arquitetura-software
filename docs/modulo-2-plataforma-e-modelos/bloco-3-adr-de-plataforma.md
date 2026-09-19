@@ -17,7 +17,7 @@ Uma seguradora que já decidiu por uma arquitetura orientada a eventos para sepa
 
 ## Uso pelo arquiteto
 
-O arquiteto que já escreveu a ADR de estilo do bloco 1 consolida o hábito de registro ao escrever esta segunda ADR logo depois de fechar a comparação de plataformas do bloco 2, no mesmo momento em que as candidatas descartadas e o critério que as eliminou ainda estão claros. As duas ADRs não vivem isoladas uma da outra, a ADR de plataforma faz uma **referência cruzada** ao título da ADR de estilo no seu campo de contexto, porque a plataforma só faz sentido como resposta a um estilo já fixado, e um leitor que chega à ADR de plataforma sem ter lido a ADR de estilo precisa encontrar esse encadeamento no próprio texto, não em uma conversa que não está mais disponível. Quando a prática se firma, o próprio ADR de estilo passa a citar, na seção de consequências, a ADR de plataforma que veio depois, fechando o par nos dois sentidos.
+O arquiteto que já escreveu a ADR de estilo do [bloco 1](bloco-1-registro-de-decisao-arquitetural.md) consolida o hábito de registro ao escrever esta segunda ADR logo depois de fechar a comparação de plataformas do [bloco 2](bloco-2-plataforma-arquitetural.md), no mesmo momento em que as candidatas descartadas e o critério que as eliminou ainda estão claros. As duas ADRs não vivem isoladas uma da outra, a ADR de plataforma faz uma **referência cruzada** ao título da ADR de estilo no seu campo de contexto, porque a plataforma só faz sentido como resposta a um estilo já fixado, e um leitor que chega à ADR de plataforma sem ter lido a ADR de estilo precisa encontrar esse encadeamento no próprio texto, não em uma conversa que não está mais disponível. Quando a prática se firma, o próprio ADR de estilo passa a citar, na seção de consequências, a ADR de plataforma que veio depois, fechando o par nos dois sentidos.
 
 ## Exercício 7
 
@@ -31,7 +31,7 @@ A ADR precisa conter
 4. status
 5. consequências, com ao menos uma positiva e uma negativa
 
-O campo de contexto precisa referenciar, pelo título, a ADR de estilo que você escreveu no exercício do bloco 1. O campo de decisão precisa citar o quadro comparativo que você montou no Exercício 6 como evidência de que a escolha considerou alternativas reais, não apenas a plataforma mais familiar.
+O campo de contexto precisa referenciar, pelo título, a ADR de estilo que você escreveu no exercício do [bloco 1](bloco-1-registro-de-decisao-arquitetural.md). O campo de decisão precisa citar o quadro comparativo que você montou no Exercício 6 como evidência de que a escolha considerou alternativas reais, não apenas a plataforma mais familiar.
 
 ## Fontes
 
