@@ -71,7 +71,25 @@ Orquestração de mensagens com Apache Kafka. Processamento de fluxos com Kafka 
 
 ### Representação visual da plataforma
 
-Alguns arquitetos preferem representar a plataforma em desenho, mostrando como a pilha tecnológica se organiza para implementar o estilo. Nos três exemplos abaixo, o nome da ferramenta aparece em amarelo.
+Alguns arquitetos preferem representar a plataforma em desenho, mostrando como a pilha tecnológica se organiza para implementar o estilo. As quatro figuras a seguir desenham plataformas inteiras, com as três dimensões que o Conceito já apresentou visíveis no mesmo quadro, as peças que compõem a plataforma, as fronteiras com quem a consome e com os sistemas externos, e os serviços transversais que atravessam tudo.
+
+![Plataforma Java EE e Jakarta EE. À esquerda, navegador e cliente móvel acessam por HTTPS e REST. No centro, um servidor de aplicação Java reúne três contêineres, o web com JSF, Servlet e JAX-RS, o de negócio com CDI, EJB e Bean Validation, e o de integração com JMS, conector JCA e agendador. Abaixo, JPA e Hibernate persistem em PostgreSQL e Oracle. À direita, mensageria Kafka ou ActiveMQ e sistemas externos de ERP, CRM e legado. Na base, serviços transversais de segurança, transações, observabilidade e configuração.](../assets/images/plataforma-java-ee.png)
+
+*Plataforma Java EE e Jakarta EE, materializando o estilo em camadas. Os três contêineres do servidor de aplicação são a divisão estrutural que o estilo impõe, e a faixa de serviços transversais na base é o que nenhum framework isolado entrega. Fonte: material base do professor.*
+
+![Plataforma de microsserviços. À esquerda, clientes web, móvel e usuários entram por HTTP e HTTPS num gateway de API com NGINX Ingress. No centro, um agrupamento Kubernetes com camada de serviço e três pods em contêineres Docker, um serviço de catálogo em Java, um de pedidos em .NET e um de pagamentos em Node.js, apoiados por Redis, PostgreSQL e um barramento Kafka. À direita, observabilidade com Prometheus para métricas, Grafana para painéis e OpenTelemetry para rastros. Na base, a esteira de integração e entrega, do código ao GitHub Actions, ao registro de contêineres e à implantação no Kubernetes.](../assets/images/plataforma-microsservicos.png)
+
+*Plataforma de microsserviços, materializando o estilo de mesmo nome. Note que os três serviços usam linguagens diferentes, o que o estilo permite e a plataforma precisa sustentar, e que a esteira de entrega faz parte da plataforma, não é acessório dela. Fonte: material base do professor.*
+
+![Plataforma de data lake. À esquerda, fontes de dados de ERP, CRM, IoT, SaaS, arquivos e fluxos de eventos. Em seguida, ingestão por Kafka ou Kinesis, por API e em lote. No centro, armazenamento de objetos dividido em três zonas, bruta, curada e analítica. Acima, governança com catálogo de dados, qualidade de dados e controle de acesso. Abaixo, processamento com Spark, ETL e ELT e dbt. À direita, consumidores, análise SQL com Athena ou Trino, painéis em Power BI, aprendizado de máquina com SageMaker e aplicações.](../assets/images/plataforma-data-lake.png)
+
+*Plataforma de data lake, materializando o estilo de pipelines de processamento de dados. As três zonas de armazenamento, bruta, curada e analítica, são a restrição estrutural do estilo, e a faixa de governança no topo é o que distingue um data lake de um depósito de arquivos. Fonte: material base do professor.*
+
+![Plataforma .NET. À esquerda, navegador, aplicativo móvel e API de parceiro entram por Azure Front Door e gestão de API. No centro, a plataforma de aplicação .NET com ASP.NET Core, serviço de trabalho, serviço gRPC e Blazor sobre uma camada de domínio e Entity Framework Core. À direita, repositórios de dados com SQL Server, Cosmos DB e Redis, e mensageria com Azure Service Bus ou RabbitMQ. Abaixo, empacotamento em Docker e orquestração em AKS Kubernetes. Na base, serviços transversais de plataforma, Microsoft Entra ID, OpenTelemetry, Application Insights e a esteira de integração e entrega.](../assets/images/plataforma-dotnet.png)
+
+*Plataforma .NET, materializando um estilo em camadas com a camada de domínio isolada no centro. É a mesma forma estrutural da plataforma Java EE acima, com outro conjunto de ferramentas, o que mostra que um estilo admite mais de uma plataforma. Fonte: material base do professor.*
+
+As três figuras seguintes vêm de outra convenção de desenho, mais próxima do diagrama de infraestrutura do fornecedor, e nelas o nome da ferramenta aparece em amarelo.
 
 ![Arquitetura web sobre serviços da AWS, com Route 53 e CloudFront na borda, recursos estáticos em S3, duas camadas de balanceamento elástico sobre grupos de autoescalonamento de instâncias EC2 distribuídos em duas zonas de disponibilidade, e banco RDS principal replicado entre zonas.](../assets/images/plataforma-web-aws.png)
 
