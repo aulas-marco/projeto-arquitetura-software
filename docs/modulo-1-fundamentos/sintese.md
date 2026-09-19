@@ -4,9 +4,9 @@ Esta página fecha o módulo de fundamentos com o que precisa permanecer depois 
 
 ## Checklist do que precisa permanecer
 
-- A distinção entre requisito funcional, requisito não funcional, requisito de atributo de qualidade e restrição, aplicada a um requisito concreto, não apenas às definições
+- A distinção entre requisito funcional, requisito não funcional, requisito de atributo de qualidade e restrição, aplicada a um requisito concreto declarado por uma parte interessada
 - O formato de seis elementos de um cenário de atributo de qualidade, fonte do estímulo, estímulo, artefato afetado, ambiente, resposta e medida da resposta
-- O critério para julgar se um requisito é arquiteturalmente significativo, e não apenas se ele é um requisito de qualidade
+- O critério para julgar se um requisito é arquiteturalmente significativo, aplicado ao impacto do requisito sobre as decisões estruturais do sistema
 - A relação entre estilo arquitetural e atributo de qualidade, entendida como adequação e não como escolha única correta
 - Os dois artefatos produzidos nos exercícios, a classificação de requisitos com as reescritas mensuráveis do bloco 2 e os cenários do bloco 3, porque a Aula 2 parte deles
 
