@@ -87,7 +87,7 @@ A ACME é uma universidade privada brasileira cujo sistema acadêmico legado sus
 
 Os dois cenários abaixo já foram formulados no formato de seis elementos. Se o aluno já escreveu seus próprios cenários no bloco 3, pode usá-los no lugar destes, que servem de versão de referência para quem ainda não os tem.
 
-**Cenário 1, pico de sazonalidade**
+Cenário 1, pico de sazonalidade
 
 | Elemento | Especificação |
 | --- | --- |
@@ -98,7 +98,7 @@ Os dois cenários abaixo já foram formulados no formato de seis elementos. Se o
 | Resposta | Processar as tentativas de confirmação sem degradar acima de um limite aceitável de erro |
 | Medida | Taxa de erro abaixo de 1%, contra os 6,3% observados atualmente no mesmo intervalo |
 
-**Cenário 2, incidente de 04/02/2026**
+Cenário 2, incidente de 04/02/2026
 
 | Elemento | Especificação |
 | --- | --- |
