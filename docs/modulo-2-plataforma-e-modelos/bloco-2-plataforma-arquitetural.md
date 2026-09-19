@@ -18,7 +18,7 @@ Um sistema de emissão de bilhetes para eventos que já decidiu por uma arquitet
 
 ## Uso pelo arquiteto
 
-O arquiteto documenta essa comparação antes de decidir, em um **quadro comparativo** que lista as plataformas candidatas nas linhas e os critérios do Conceito nas colunas, com uma nota curta em cada célula sobre como aquela plataforma se sai naquele critério. Esse quadro entra no ADR de plataforma como evidência de que a escolha considerou alternativas reais, não apenas a plataforma mais familiar ao time, o que faz a decisão resistir a questionamento meses depois, quando quem pergunta por que aquela plataforma foi escolhida encontra o raciocínio registrado, não apenas o resultado.
+O arquiteto documenta essa comparação antes de decidir, em um **quadro comparativo** que lista as plataformas candidatas nas linhas e os critérios do Conceito nas colunas, com uma nota curta em cada célula sobre como aquela plataforma se sai naquele critério. Esse quadro entra no ADR de plataforma, escrito no [bloco 3](bloco-3-adr-de-plataforma.md) desta aula, como evidência de que a escolha considerou alternativas reais, não apenas a plataforma mais familiar ao time, o que faz a decisão resistir a questionamento meses depois, quando quem pergunta por que aquela plataforma foi escolhida encontra o raciocínio registrado, não apenas o resultado.
 
 ## Exercício 6
 
