@@ -13,11 +13,11 @@ Este bloco responde a uma pergunta que antecede qualquer especificação de sist
 
 Em linguagem cotidiana, qualidade costuma significar que alguma coisa é boa. Em engenharia de software essa formulação é insuficiente, porque sistemas diferentes precisam ser bons de maneiras diferentes. Um aplicativo bancário precisa proteger dados e transações. Um sistema hospitalar precisa permanecer disponível mesmo em condições adversas, porque uma indisponibilidade de cinco minutos, tolerável em um portal institucional, pode ser inaceitável em um sistema de controle hospitalar. Segurança e disponibilidade são aspectos diferentes da qualidade, e nenhum dos dois sozinho descreve o outro. Por isso a qualidade de um sistema não deve ser tratada como uma propriedade única, ela é observada por meio de diversas características. A ISO/IEC 25010 apresenta um modelo de qualidade composto por características e subcaracterísticas, usado como referência para especificar, medir e avaliar propriedades de produtos de TIC e software.
 
-Um atributo de qualidade é uma propriedade ou dimensão pela qual o comportamento ou a estrutura de um sistema pode ser observado e avaliado. Entre os exemplos mais comuns estão o desempenho, com que rapidez e capacidade o sistema realiza seu trabalho, a disponibilidade, por quanto tempo e em quais condições o serviço permanece acessível, a confiabilidade, com que consistência o sistema executa corretamente suas funções, a segurança, como o sistema protege informações, operações e recursos, a usabilidade, com que eficácia as pessoas conseguem utilizar o produto, e a modificabilidade, com que esforço o sistema pode ser alterado. Esses termos nomeiam aspectos da qualidade, mas ainda não dizem quanto de cada qualidade é necessário. Desempenho é um atributo, segurança também é um atributo, e nenhum dos dois, isoladamente, constitui um requisito completo. Duas organizações podem considerar o mesmo atributo relevante e, ainda assim, necessitar de comportamentos muito diferentes, como no contraste entre o portal institucional e o sistema hospitalar citado acima.
+Um **atributo de qualidade** é uma propriedade ou dimensão pela qual o comportamento ou a estrutura de um sistema pode ser observado e avaliado. Entre os exemplos mais comuns estão o desempenho, com que rapidez e capacidade o sistema realiza seu trabalho, a disponibilidade, por quanto tempo e em quais condições o serviço permanece acessível, a confiabilidade, com que consistência o sistema executa corretamente suas funções, a segurança, como o sistema protege informações, operações e recursos, a usabilidade, com que eficácia as pessoas conseguem utilizar o produto, e a modificabilidade, com que esforço o sistema pode ser alterado. Esses termos nomeiam aspectos da qualidade, mas ainda não dizem quanto de cada qualidade é necessário. Desempenho é um atributo, segurança também é um atributo, e nenhum dos dois, isoladamente, constitui um requisito completo. Duas organizações podem considerar o mesmo atributo relevante e, ainda assim, necessitar de comportamentos muito diferentes, como no contraste entre o portal institucional e o sistema hospitalar citado acima.
 
-Um requisito expressa uma necessidade, capacidade, condição ou restrição que o sistema deve satisfazer, transformando expectativas gerais em algo que possa ser analisado, negociado, implementado e verificado. Dizer que um aplicativo bancário deve permitir consultar o saldo descreve uma capacidade funcional. Dizer que esse mesmo aplicativo deve utilizar o provedor corporativo de identidade estabelece uma restrição. Requisitos podem, portanto, tratar do que o sistema faz, das condições sob as quais opera ou dos limites que devem ser respeitados.
+Um **requisito** expressa uma necessidade, capacidade, condição ou restrição que o sistema deve satisfazer, transformando expectativas gerais em algo que possa ser analisado, negociado, implementado e verificado. Dizer que um aplicativo bancário deve permitir consultar o saldo descreve uma capacidade funcional. Dizer que esse mesmo aplicativo deve utilizar o provedor corporativo de identidade estabelece uma restrição. Requisitos podem, portanto, tratar do que o sistema faz, das condições sob as quais opera ou dos limites que devem ser respeitados.
 
-Muitos alunos aprendem inicialmente a dividir requisitos em dois grupos, os requisitos funcionais, que descrevem serviços, comportamentos ou capacidades que o sistema deve oferecer, e os requisitos não funcionais, que descrevem qualidades, condições, limites ou restrições associados ao funcionamento do sistema. Nesse vocabulário, requisitos de desempenho, disponibilidade, segurança, usabilidade e modificabilidade normalmente são classificados como não funcionais, como mostra o quadro abaixo.
+Muitos alunos aprendem inicialmente a dividir requisitos em dois grupos, os **requisitos funcionais**, que descrevem serviços, comportamentos ou capacidades que o sistema deve oferecer, e os **requisitos não funcionais**, que descrevem qualidades, condições, limites ou restrições associados ao funcionamento do sistema. Nesse vocabulário, requisitos de desempenho, disponibilidade, segurança, usabilidade e modificabilidade normalmente são classificados como não funcionais, como mostra o quadro abaixo.
 
 | Requisito | Classificação inicial |
 | --- | --- |
@@ -34,7 +34,7 @@ Essa divisão em dois grupos é útil como introdução, mas a expressão não f
 | Requisito de atributo de qualidade | Especifica de modo contextualizado e verificável uma expectativa sobre uma qualidade |
 | Restrição | Limita as alternativas possíveis, como tecnologia, plataforma, norma ou localização |
 
-Um requisito de atributo de qualidade declara o comportamento esperado do sistema em relação a uma característica de qualidade, respondendo a uma pergunta mais concreta, que nível de desempenho, disponibilidade ou segurança é necessário, em determinada situação. O quadro seguinte contrasta três formulações sucessivas sobre desempenho, aplicadas a uma plataforma de vídeo.
+Um **requisito de atributo de qualidade** declara o comportamento esperado do sistema em relação a uma característica de qualidade, respondendo a uma pergunta mais concreta, que nível de desempenho, disponibilidade ou segurança é necessário, em determinada situação. O quadro seguinte contrasta três formulações sucessivas sobre desempenho, aplicadas a uma plataforma de vídeo.
 
 | Formulação | O que ela informa |
 | --- | --- |
@@ -48,7 +48,7 @@ Somente a terceira formulação fornece informação suficiente para orientar de
 
 O arquiteto separa requisito não funcional de requisito de atributo de qualidade porque a especificação de um sistema precisa de critério verificável, não de rótulo. Um requisito arquivado apenas como não funcional de desempenho ou de disponibilidade ainda não diz o que testar, o que priorizar diante de conflito entre qualidades, nem quando considerar o requisito satisfeito. Reescrever a expectativa como requisito de atributo de qualidade, com contexto, carga e medida, é o que permite negociar prazo, orçar esforço e decidir entre soluções concorrentes com base em evidência, e não em impressão.
 
-## Exercício
+## Exercício 2
 
 A ACME, universidade privada brasileira cujo sistema acadêmico está em modernização, levantou os requisitos abaixo em entrevistas com as partes interessadas, sem depuração editorial.
 
@@ -63,20 +63,8 @@ A ACME, universidade privada brasileira cujo sistema acadêmico está em moderni
 | R11 | O sistema precisa ser moderno e escalável |
 | R13 | O aluno consulta o resultado da solicitação de aproveitamento de disciplina pelo portal |
 
-Classifique cada um dos oito requisitos em uma das quatro categorias, requisito funcional, requisito não funcional, requisito de atributo de qualidade ou restrição, justificando em uma frase. Em seguida, escolha dois requisitos que sejam requisitos de atributo de qualidade mal formulados e reescreva cada um em forma mensurável, seguindo o padrão de contexto, carga e medida usado no exemplo de desempenho da plataforma de vídeo.
-
-## Gabarito
-
-<details>
-<summary>Classificação e critério de avaliação</summary>
-
-R5 e R13 são requisitos funcionais, porque cada um descreve uma capacidade que o sistema oferece, emitir um documento e permitir a consulta de um resultado. R4 e R10 são restrições, porque nenhum dos dois descreve comportamento nem qualidade, cada um fecha uma alternativa, de plataforma de nuvem e de fornecedor do núcleo, por decisão anterior ao projeto. R6 é um requisito de atributo de qualidade bem formulado, porque indica o ambiente, a carga de 5.800 sessões simultâneas, e a medida, o percentil 95 em até 4 segundos. R11 é um requisito não funcional na categoria ampla e tradicional, porque mistura um termo sem critério de verificação, moderno, com o nome solto de um atributo, escalável, sem contexto nem medida.
-
-R2 e R3 são requisitos de atributo de qualidade mal formulados, o primeiro sobre disponibilidade e o segundo sobre desempenho, porque cada um nomeia uma intenção sem critério de verificação, no mesmo estágio da primeira formulação do quadro de progressão apresentado no Conceito.
-
-Para a reescrita, uma resposta forte para R2 declara o ambiente da janela de matrícula, a carga esperada de acessos simultâneos e uma medida de disponibilidade ou de taxa de erro no período, seguindo o padrão do requisito R6 já mensurável do próprio caso. Uma resposta forte para R3 declara a operação específica cujo tempo de resposta está em questão, o ambiente de carga em que a medida vale e um percentil de tempo em milissegundos ou segundos. Variação de valor numérico entre respostas é aceitável, o critério é a presença de contexto, carga e medida, não a coincidência com um número de referência.
-
-</details>
+1. Classifique cada um dos oito requisitos em uma das quatro categorias, requisito funcional, requisito não funcional, requisito de atributo de qualidade ou restrição, justificando em uma frase.
+2. Escolha dois requisitos que sejam requisitos de atributo de qualidade mal formulados e reescreva cada um em forma mensurável, seguindo o padrão de contexto, carga e medida usado no exemplo de desempenho da plataforma de vídeo, apresentado na seção Conceito acima.
 
 ## Fontes
 
