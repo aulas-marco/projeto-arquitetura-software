@@ -64,14 +64,40 @@ def check_semicolons(path: Path, prose: list[tuple[int, str]]) -> list[str]:
 
 
 def check_em_dashes(path: Path, prose: list[tuple[int, str]]) -> list[str]:
+    """Conta travessoes por paragrafo, nao por linha fisica.
+
+    Um paragrafo termina em linha em branco. Linhas de tabela (comecam com
+    barra vertical) sao ignoradas. Cada item de lista e cada titulo formam
+    um paragrafo proprio, de uma linha so.
+    """
     offenders = []
-    for number, line in prose:
-        if line.lstrip().startswith("|"):
-            continue
-        if line.count(EM_DASH) > 1:
+    paragraph: list[tuple[int, str]] = []
+
+    def flush() -> None:
+        if not paragraph:
+            return
+        start_number = paragraph[0][0]
+        total = sum(text.count(EM_DASH) for _, text in paragraph)
+        if total > 1:
             offenders.append(
-                f"{path.relative_to(ROOT)}:{number} mais de um travessao no paragrafo"
+                f"{path.relative_to(ROOT)}:{start_number} mais de um travessao no paragrafo"
             )
+        paragraph.clear()
+
+    for number, line in prose:
+        stripped = line.lstrip()
+        if stripped.startswith("|"):
+            continue
+        if line.strip() == "":
+            flush()
+            continue
+        if stripped.startswith("#") or re.match(r"^([-*+]|\d+[.)])\s", stripped):
+            flush()
+            paragraph.append((number, line))
+            flush()
+            continue
+        paragraph.append((number, line))
+    flush()
     return offenders
 
 
