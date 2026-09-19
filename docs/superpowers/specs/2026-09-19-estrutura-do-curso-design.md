@@ -248,3 +248,59 @@ Os termos centrais de cada conceito, no primeiro uso dentro da seção Conceito,
 O aluno não conhece o site de cor. Nenhum enunciado de exercício, nem seção alguma do site, referencia um exemplo, um quadro ou um conceito de outra parte do material sem dizer onde ele está. "Seguindo o padrão do exemplo de desempenho" é proibido. "Seguindo o padrão do exemplo de desempenho apresentado na seção Conceito acima" é o formato exigido, e quando a referência aponta para outro bloco ou outra página, o nome do bloco ou da página entra também, com link Markdown quando o alvo existir no site.
 
 O padrão correto já existe no próprio bloco 3, na frase "no formato de seis elementos apresentado no Conceito" do enunciado do exercício. O bloco 2 viola essa regra em "seguindo o padrão de contexto, carga e medida usado no exemplo de desempenho da plataforma de vídeo", que não diz onde esse exemplo está. Essa é a instância conhecida a corrigir, e cada tarefa que toca conteúdo de bloco deve auditar a própria página em busca do mesmo padrão de referência vaga, não só corrigir a instância nomeada aqui.
+
+## 13. Aula 2, ADR, plataforma arquitetural e modelagem C4
+
+Data: 19/09/2026. Ementa fixada pelo professor, partição em blocos confirmada na mesma data.
+
+### 13.1 Correção retroativa da ementa da Aula 1 no PKA
+
+A narrativa do projeto no PKA (`~/pka/projects/aulas/PRJ-aulas-iec-asd-10-estrategias-e-projeto-de-arquitetura-de-software.md`) listava ADR como parte da Aula 1, o que nunca foi construído no site. A ementa do PKA foi corrigida em 19/09/2026 para bater com os quatro blocos reais da Aula 1, e ADR passou formalmente para a Aula 2, junto de plataforma arquitetural.
+
+### 13.2 Partição em quatro blocos
+
+Cinco temas para quatro blocos de 40 minutos: conceito de ADR, plataforma arquitetural, ADR de plataforma, representação de modelos, modelagem C4. A partição, decidida pelo professor, encadeia cada exercício no seguinte, no mesmo padrão causal da Aula 1.
+
+| Bloco | Conceito | Exercício |
+| --- | --- | --- |
+| 1 | Registro de decisão arquitetural, ADR, formatos de Nygard e MADR | Escrever a ADR que registra a escolha de estilo já feita no exercício do bloco 4 da Aula 1, sem introduzir extrato novo do caso |
+| 2 | Plataforma arquitetural, sua relação com o estilo escolhido | Comparar plataformas candidatas para o estilo escolhido na Aula 1 |
+| 3 | ADR de plataforma | Escrever a ADR que registra a escolha de plataforma feita no exercício do bloco 2 desta aula |
+| 4 | Representação de modelos, revisão de modelagem arquitetural, C4 níveis 1 e 2 | Modelar a ACME nos níveis de contexto e contêineres |
+
+O bloco 1 foi desenhado deliberadamente para não exigir leitura de extrato novo do caso: o aluno formaliza uma decisão que ele mesmo já tomou no bloco 4 da Aula 1, o que libera os 15 minutos de exercício para o formato da ADR, que é o conteúdo novo do bloco, em vez de gastar tempo relendo dado do caso. O bloco 3 repete a prática de escrever ADR, desta vez sobre uma decisão nova, a de plataforma, dando ao aluno uma segunda oportunidade de praticar o formato em contexto diferente.
+
+### 13.3 Fontes para ADR
+
+O formato de Nygard é a referência canônica, mencionado por nome mas sem uma única publicação verificável a citar em APA nesta rodada. O formato alternativo MADR (Markdown Architectural Decision Records) tem URL estável e citável: `https://adr.github.io/madr/`. Entram na bibliografia:
+
+- Nygard, M. (2011). *Documenting architecture decisions*. Cognitect Blog.
+- MADR (n.d.). *Markdown Architectural Decision Records*. https://adr.github.io/madr/
+
+A data de 2011 para Nygard e a atribuição ao Cognitect Blog não foram verificadas nesta sessão, apoiadas em conhecimento consolidado da área, não em fonte aberta consultada. Registrar como pendência de verificação, no mesmo padrão da seção 7.3.
+
+### 13.4 Fontes para C4
+
+O modelo C4 (Contexto, Contêineres, Componentes, Código) é de autoria de Simon Brown, publicado e mantido em `c4model.com`, sem uma edição ou ano único citável em APA. Entra na bibliografia como:
+
+- Brown, S. (n.d.). *The C4 model for visualising software architecture*. https://c4model.com
+
+O bloco 4 desta aula cobre apenas os dois primeiros níveis, contexto e contêineres, conforme a ementa do professor. Os níveis de componentes e código não são cobertos nesta aula.
+
+### 13.5 Domínios de exemplo
+
+Os domínios já usados como principal em algum bloco desta disciplina: comércio eletrônico, controle industrial, aplicativo bancário, sistema hospitalar, portal institucional, plataforma de vídeo, rastreamento de encomendas, pagamentos com múltiplos adquirentes, portal de sinistros de seguradora, catálogo, gestão de estoque industrial, streaming de música, reservas de companhia aérea. Cada bloco da Aula 2 usa domínio ainda não principal no bloco imediatamente anterior ou seguinte desta mesma aula, podendo reaproveitar domínio já usado em blocos não adjacentes da Aula 1, desde que a página deixe claro tratar-se de exemplo novo, não do caso ACME.
+
+### 13.6 Estrutura de arquivos
+
+```
+docs/modulo-2-plataforma-e-modelos/
+  index.md
+  bloco-1-registro-de-decisao-arquitetural.md
+  bloco-2-plataforma-arquitetural.md
+  bloco-3-adr-de-plataforma.md
+  bloco-4-representacao-de-modelos-e-c4.md
+  sintese.md
+```
+
+Anatomia de sete seções, exercício numerado (5, 6, 7, 8, dando sequência aos quatro já usados na Aula 1), e todas as regras da seção 12 valem integralmente para esta aula, sem exceção nova.
