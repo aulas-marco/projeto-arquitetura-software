@@ -1,5 +1,5 @@
 site_name: Estratégias e Projeto de Arquitetura de Software
-site_description: Material da disciplina do IEC/PUC Minas, turmas Arq. Software Distribuído 10.1 e Arq. Soluções Digitais 1.1
+site_description: Material de disciplina de pós-graduação em estratégias e projeto de arquitetura de software, em seis aulas síncronas
 use_directory_urls: true
 exclude_docs: |
   superpowers/**

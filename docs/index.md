@@ -1,6 +1,6 @@
 # Estratégias e Projeto de Arquitetura de Software
 
-Disciplina do IEC/PUC Minas, oferecida às turmas Arq. Software Distribuído 10.1 e Arq. Soluções Digitais 1.1. O conteúdo cumpre duas funções ao mesmo tempo, material de estudo para o aluno e roteiro de condução das aulas síncronas.
+Material de disciplina de pós-graduação em arquitetura de software, conduzida em seis aulas síncronas. O conteúdo cumpre duas funções ao mesmo tempo, material de estudo para o aluno e roteiro de condução das aulas.
 
 ## O que o site contém
 
@@ -10,7 +10,7 @@ A seção Referência reúne o [glossário](referencia/glossario.md) de termos u
 
 ## Como o material se organiza
 
-Cada aula corresponde a um módulo do site. A página de visão geral do módulo apresenta o tema da aula e, quando já definida, a partição em blocos. Cada página de bloco contém a exposição do conceito, seu uso pelo arquiteto, o enunciado do exercício e as fontes daquele bloco.
+Cada aula corresponde a um módulo do site. A página de visão geral do módulo apresenta o tema da aula e a partição em quatro blocos. Cada página de bloco contém a exposição do conceito, seu uso pelo arquiteto, o enunciado do exercício e as fontes daquele bloco.
 
 ## O caso ACME
 
@@ -18,4 +18,4 @@ A disciplina utiliza um caso corporativo contínuo, a instituição fictícia AC
 
 ## Avaliação
 
-O método de avaliação da disciplina será divulgado em aula.
+Os exercícios de cada aula são o instrumento de avaliação, somados à participação nos encontros ao vivo. A distribuição de pontos está no [cronograma](cronograma.md).
