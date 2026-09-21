@@ -2,6 +2,8 @@
 
 A aula responde à seguinte questão: o que distingue a arquitetura de soluções da arquitetura de software, sobre que objeto o arquiteto de solução trabalha, o que o papel exige e por qual processo uma solução é definida.
 
+![Diagrama de uma solução completa em que uma necessidade de negócio é atendida pela interação entre pessoas, estrutura organizacional, processos, informação e tecnologia, culminando em resultado percebido pelo aluno.](../assets/images/modulo-1-visao-da-solucao.svg){ .module-diagram }
+
 ## Objetivos de aprendizagem
 
 Ao final da aula, o aluno é capaz de

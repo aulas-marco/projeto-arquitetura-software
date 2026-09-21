@@ -64,8 +64,10 @@ O campo de evidências é o mais difícil neste exercício, porque a ACME não t
 
 ## Fontes
 
-Glossário do curso, entradas [ADR](../referencia/glossario.md#adr), [plataforma arquitetural](../referencia/glossario.md#plataforma-arquitetural) e [dependência de fornecedor](../referencia/glossario.md#dependencia-de-fornecedor).
+As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso. O trecho consultado aparece entre parênteses ao fim de cada entrada.
 
-[Template de ADR](https://marco-mendes.github.io/arquitetura-software/referencia/template-adr/) do site base do professor, fonte dos dez campos usados nesta página. Seção [Custo e lock-in](https://marco-mendes.github.io/arquitetura-software/modulo-6-nuvem/padroes-e-decisoes/), do mesmo site, fonte da definição de dependência de fornecedor e das seis dimensões que precisam ficar explícitas no ADR.
+- Mendes, M. (2026a). *Arquitetura de software* [Material de curso]. https://marco-mendes.github.io/arquitetura-software/ ([template de ADR](https://marco-mendes.github.io/arquitetura-software/referencia/template-adr/) de dez campos e a seção [custo e lock-in](https://marco-mendes.github.io/arquitetura-software/modulo-6-nuvem/padroes-e-decisoes/), fonte da definição de dependência de fornecedor e das seis dimensões)
+- Nygard, M. (2011, 15 de novembro). *Documenting architecture decisions*. Cognitect Blog. https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions (formato de cinco partes)
+- MADR. (2024). *Markdown Architectural Decision Records* (Versão 4.0.0). https://adr.github.io/madr/ (campos do formato MADR)
 
-Nygard (2011) e especificação [MADR 4.0.0](https://adr.github.io/madr/), formatos apresentados no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), ambos listados na [bibliografia](../referencia/bibliografia.md). Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+**Material do curso.** Glossário, entradas [ADR](../referencia/glossario.md#adr), [plataforma arquitetural](../referencia/glossario.md#plataforma-arquitetural) e [dependência de fornecedor](../referencia/glossario.md#dependencia-de-fornecedor). Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md).

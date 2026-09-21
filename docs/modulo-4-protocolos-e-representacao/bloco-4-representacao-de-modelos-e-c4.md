@@ -125,8 +125,9 @@ Entregue os dois diagramas em Mermaid ou em desenho livre, à sua escolha. Um er
 
 ## Fontes
 
-Glossário do curso, entrada [modelo C4](../referencia/glossario.md#modelo-c4).
+As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso. O trecho consultado aparece entre parênteses ao fim de cada entrada.
 
-Material base do professor, guias [Modelagem C4](https://github.com/aulas-marco/projeto-arquitetura-software/blob/main/3.1%20Modelagem%20C4.md), [Nível C1, diagrama de contexto](https://github.com/aulas-marco/projeto-arquitetura-software/blob/main/3.2%20%20N%C3%ADvel%20C1%20-%20Diagrama%20de%20Contexto.md) e [Nível C2, diagrama de contêineres](https://github.com/aulas-marco/projeto-arquitetura-software/blob/main/3.3%20Nivel%20C2%20-%20Diagrama%20de%20Conteineres.md), de onde vêm os quatro níveis, os princípios de abstração, os elementos de cada diagrama, os dois roteiros de montagem e as três figuras reproduzidas nesta página.
+- Brown, S. (n.d.). *The C4 model for visualising software architecture*. https://c4model.com (sítio oficial do modelo C4)
+- Mendes, M. (2026b). *Guias de projeto de arquitetura de software* [Material de curso, versão arquivada]. https://github.com/aulas-marco/projeto-arquitetura-software/tree/30f15cd (guias 3.1, 3.2 e 3.3, fonte dos quatro níveis, dos princípios de abstração, dos elementos de cada diagrama, dos dois roteiros de montagem e das três figuras reproduzidas nesta página)
 
-Brown (n.d.), sítio oficial do modelo C4, listado na [bibliografia](../referencia/bibliografia.md). Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+**Material do curso.** Glossário, entrada [modelo C4](../referencia/glossario.md#modelo-c4). Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md).

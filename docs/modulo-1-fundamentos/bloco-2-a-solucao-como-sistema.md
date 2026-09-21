@@ -12,6 +12,8 @@ Este bloco trata do objeto sobre o qual o arquiteto de solução trabalha, a sol
 
 Uma solução atende a um problema, um risco ou uma oportunidade da organização. Com o tempo, as soluções implantadas deixam de ser reconhecíveis como tais e passam a fazer parte do tecido da instituição, de modo que uma solução nova quase sempre substitui ou modifica uma solução anterior, mesmo quando ninguém a chamou assim na época.
 
+![Diagrama de três níveis encaixados. O sistema de negócio contém o sistema de informação, que contém o sistema de TI. Um fluxo de nota é apoiado por uma lista de verificação de pessoas, estruturas, processos, informação e tecnologia.](../assets/images/modulo-1-solucao-como-sistema.svg){ .module-diagram }
+
 A arquitetura de solução trata a solução como um sistema, com partes que interagem para produzir o comportamento exigido. As partes podem ser novas ou já existentes, podem ser compartilhadas com outras soluções, e interagem por interfaces nas quais informação é trocada. Essa leitura tem uma consequência direta: uma solução não é avaliada pela qualidade isolada de cada parte, e sim pelo comportamento que o conjunto produz.
 
 ### Os três níveis de uma organização
@@ -64,4 +66,8 @@ Responda às três perguntas abaixo.
 
 ## Fontes
 
-Glossário do curso, entradas [componentes da solução](../referencia/glossario.md#componentes-da-solucao), [arquitetura de solução](../referencia/glossario.md#arquitetura-de-solucao) e [parte interessada](../referencia/glossario.md#parte-interessada). Lovatt (2021), seções 1.2, 1.3, 1.4 e 1.8, listado na [bibliografia](../referencia/bibliografia.md). Dossiê da instituição fictícia [ACME](../caso-acme/index.md), porte da instituição, requisitos declarados e interesses em conflito.
+As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso. O trecho consultado aparece entre parênteses ao fim de cada entrada.
+
+- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seções 1.2, 1.3, 1.4 e 1.8)
+
+**Material do curso.** Glossário, entradas [componentes da solução](../referencia/glossario.md#componentes-da-solucao), [arquitetura de solução](../referencia/glossario.md#arquitetura-de-solucao) e [parte interessada](../referencia/glossario.md#parte-interessada). Dossiê da instituição fictícia [ACME](../caso-acme/index.md), porte da instituição, requisitos declarados e interesses em conflito.

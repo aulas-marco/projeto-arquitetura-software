@@ -159,8 +159,9 @@ Considerando o estilo arquitetural que você escolheu no exercício do [bloco 2 
 
 ## Fontes
 
-Glossário do curso, entradas [plataforma arquitetural](../referencia/glossario.md#plataforma-arquitetural) e [racional arquitetural](../referencia/glossario.md#racional-arquitetural).
+As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso. O trecho consultado aparece entre parênteses ao fim de cada entrada.
 
-Material base do professor, guia [Plataforma Arquitetural](https://github.com/aulas-marco/projeto-arquitetura-software/blob/main/2.2%20Plataforma%20Arquitetural.md), de onde vêm a definição, as quatro características, os sete fatores de adaptação ao contexto, os oito exemplos de plataforma por estilo e as três representações visuais reproduzidos nesta página.
+- Mendes, M. (2026b). *Guias de projeto de arquitetura de software* [Material de curso, versão arquivada]. https://github.com/aulas-marco/projeto-arquitetura-software/tree/30f15cd (guia 2.2, fonte da definição, das quatro características, dos sete fatores de adaptação ao contexto, dos oito exemplos de plataforma por estilo e das representações visuais reproduzidas nesta página)
+- Ford, N., & Richards, M. (2020). *Fundamentals of software architecture*. O'Reilly. (comparação por atributo de qualidade, aplicada aqui a plataformas)
 
-Ford e Richards (2020), listado na [bibliografia](../referencia/bibliografia.md), referência já usada na comparação de estilos por atributo de qualidade e igualmente pertinente à comparação de plataformas. Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+**Material do curso.** Glossário, entradas [plataforma arquitetural](../referencia/glossario.md#plataforma-arquitetural) e [racional arquitetural](../referencia/glossario.md#racional-arquitetural). Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md).

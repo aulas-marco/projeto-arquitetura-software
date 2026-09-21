@@ -26,3 +26,14 @@
 .md-typeset .grade-tempo td:first-child {
   white-space: nowrap;
 }
+
+.md-typeset img.module-diagram {
+  display: block;
+  width: 100%;
+  max-width: 75rem;
+  margin: 1.5rem auto 2rem;
+  border: 1px solid #D8E5F1;
+  border-radius: 0.75rem;
+  background: var(--course-paper);
+  box-shadow: 0 0.4rem 1.2rem rgb(22 36 58 / 8%);
+}

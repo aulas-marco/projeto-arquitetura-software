@@ -13,6 +13,8 @@ Este bloco apresenta o ciclo de vida de oito fases que organiza o trabalho de ar
 
 Produzir um desenho de solução completo e realista a partir apenas de uma ideia inicial exige trabalho organizado. O processo adotado no curso organiza esse trabalho em oito fases sequenciais, cada uma construída sobre as saídas das anteriores. O ponto de partida é o conceito de solução, a ideia de que uma solução é necessária. Alguns dos artefatos usados no percurso já existem e descrevem a situação atual, e são chamados de artefatos de linha de base, guardados no repositório de arquitetura corporativa. O processo modifica parte deles, cria outros, e devolve as versões finais a esse repositório.
 
+![Diagrama sequencial das oito fases do processo de definição da arquitetura, de iniciação a conclusão, com a passagem de artefatos e decisões de continuidade entre as fases.](../assets/images/modulo-1-processo-definicao-arquitetura.svg){ .module-diagram }
+
 O ciclo não é obrigatoriamente percorrido até o fim. Durante qualquer fase, ou ao término dela, é legítimo abandonar o processo quando nenhuma solução aceitável for encontrada. Mais comum que o abandono é a mudança de escopo, que pode ser reduzido quando apenas parte do problema tem solução viável, ou ampliado para incluir áreas do negócio que estavam fora do recorte inicial.
 
 ### As oito fases
@@ -73,4 +75,8 @@ Responda às três perguntas abaixo.
 
 ## Fontes
 
-Glossário do curso, entradas [fase do processo de definição da arquitetura](../referencia/glossario.md#fase-do-processo-de-definicao-da-arquitetura), [artefato de linha de base](../referencia/glossario.md#artefato-de-linha-de-base) e [bloco de construção da solução](../referencia/glossario.md#bloco-de-construcao-da-solucao). Lovatt (2021), seções 3.1 a 3.10, listado na [bibliografia](../referencia/bibliografia.md). Dossiê da instituição fictícia [ACME](../caso-acme/index.md), pergunta central, restrições fechadas e [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso. O trecho consultado aparece entre parênteses ao fim de cada entrada.
+
+- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seções 3.1 a 3.10)
+
+**Material do curso.** Glossário, entradas [fase do processo de definição da arquitetura](../referencia/glossario.md#fase-do-processo-de-definicao-da-arquitetura), [artefato de linha de base](../referencia/glossario.md#artefato-de-linha-de-base) e [bloco de construção da solução](../referencia/glossario.md#bloco-de-construcao-da-solucao). Dossiê da instituição fictícia [ACME](../caso-acme/index.md), pergunta central, restrições fechadas e [arquitetura de linha de base](../caso-acme/linha-de-base.md).

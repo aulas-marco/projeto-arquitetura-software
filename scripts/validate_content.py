@@ -78,11 +78,17 @@ def check_em_dashes(path: Path, prose: list[tuple[int, str]]) -> list[str]:
     quality model") usa o travessao duplo como convencao propria de
     hierarquia de titulo, nao como escrita do curso. Truncar o titulo
     oficial para caber na regra seria alterar um dado bibliografico.
+
+    A secao de fontes de qualquer pagina e isenta pela mesma razao:
+    ela lista referencias em APA, com os mesmos titulos oficiais. Vale
+    tanto para "## Fontes", nas paginas de bloco, quanto para
+    "## Fontes da aula", nas sinteses.
     """
     if str(path.relative_to(ROOT)) in EM_DASH_EXEMPT_FILES:
         return []
     offenders = []
     paragraph: list[tuple[int, str]] = []
+    in_sources = False
 
     def flush() -> None:
         if not paragraph:
@@ -97,6 +103,11 @@ def check_em_dashes(path: Path, prose: list[tuple[int, str]]) -> list[str]:
 
     for number, line in prose:
         stripped = line.lstrip()
+        if re.match(r"^#{1,2}\s", stripped):
+            flush()
+            in_sources = bool(re.match(r"^##\s+Fontes\b", stripped))
+        if in_sources:
+            continue
         if stripped.startswith("|"):
             continue
         if line.strip() == "":

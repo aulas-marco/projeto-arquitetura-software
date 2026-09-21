@@ -27,6 +27,6 @@ mkdocs serve
 
 ## Material de origem
 
-Os guias de arquitetura de software escritos pelo professor, usados como fonte de parte do conteúdo, ficam no repositório <https://github.com/marco-mendes/projeto-arquitetura-software> e no site <https://marco-mendes.github.io/arquitetura-software/>. Eles não são mais mantidos aqui, para que este repositório contenha apenas o material da disciplina.
+Os guias de arquitetura de software escritos pelo professor, usados como fonte de parte do conteúdo, estavam na raiz deste repositório e foram removidos em 21/09/2026, para que ele contenha apenas o material da disciplina. Eles continuam acessíveis na versão arquivada em <https://github.com/aulas-marco/projeto-arquitetura-software/tree/30f15cd>, que é o endereço citado nas páginas do site. O material publicado do professor sobre arquitetura de software fica em <https://marco-mendes.github.io/arquitetura-software/>.
 
 O livro-texto da disciplina é LOVATT, Mark. *Solution architecture foundations*. BCS, The Chartered Institute for IT, 2021. A bibliografia completa está na [seção de referência](https://aulas-marco.github.io/projeto-arquitetura-software/referencia/bibliografia/) do site.

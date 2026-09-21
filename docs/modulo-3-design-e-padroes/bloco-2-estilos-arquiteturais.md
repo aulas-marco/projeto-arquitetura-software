@@ -147,6 +147,13 @@ Cenário 2, incidente de 04/02/2026
 
 ## Fontes
 
-Glossário do curso, entrada [estilo arquitetural](../referencia/glossario.md#estilo-arquitetural). Ford e Richards (2020), obra de referência sobre comparação de estilos arquiteturais por atributo de qualidade, listada na [bibliografia](../referencia/bibliografia.md). Bass et al. (2021), listado na [bibliografia](../referencia/bibliografia.md). Mendes (2026), material de curso, listado na [bibliografia](../referencia/bibliografia.md).
+As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso. O trecho consultado aparece entre parênteses ao fim de cada entrada.
 
-Material base do professor, guia [Sobre estilos arquiteturais](https://github.com/aulas-marco/projeto-arquitetura-software/blob/main/1.3%20Estilos%20Arquiteturais.md), fonte da analogia da casa com telhado pontudo e da caracterização dos estilos hexagonal, pipes and filters e orientada a APIs apresentados no Conceito. Esse guia indica Vernon (2013) como leitura para a arquitetura hexagonal e Hohpe e Woolf (2003) para pipes and filters, ambos listados na [bibliografia](../referencia/bibliografia.md). Dossiê da instituição fictícia [ACME](../caso-acme/index.md), [arquitetura de linha de base](../caso-acme/linha-de-base.md) e [dados operacionais](../caso-acme/dados-operacionais.md).
+- Ford, N., & Richards, M. (2020). *Fundamentals of software architecture*. O'Reilly. (comparação de estilos por atributo de qualidade)
+- Bass, L., Clements, P., & Kazman, R. (2021). *Software architecture in practice* (4th ed.). Addison-Wesley. (relação entre estilo e atributo de qualidade)
+- Mendes, M. (2026b). *Guias de projeto de arquitetura de software* [Material de curso, versão arquivada]. https://github.com/aulas-marco/projeto-arquitetura-software/tree/30f15cd (guia 1.3, fonte da analogia da casa e da caracterização dos estilos hexagonal, pipes and filters e orientada a APIs)
+- Mendes, M. (2026a). *Arquitetura de software* [Material de curso]. https://marco-mendes.github.io/arquitetura-software/ (material publicado do professor)
+- Vernon, V. (2013). *Implementing domain-driven design*. Addison-Wesley. (arquitetura hexagonal, leitura indicada por Mendes (2026b))
+- Hohpe, G., & Woolf, B. (2003). *Enterprise integration patterns: Designing, building, and deploying messaging solutions*. Addison-Wesley. (pipes and filters, leitura indicada por Mendes (2026b))
+
+**Material do curso.** Glossário, entrada [estilo arquitetural](../referencia/glossario.md#estilo-arquitetural). Dossiê da instituição fictícia [ACME](../caso-acme/index.md), [arquitetura de linha de base](../caso-acme/linha-de-base.md) e [dados operacionais](../caso-acme/dados-operacionais.md).

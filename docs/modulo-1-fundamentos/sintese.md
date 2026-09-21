@@ -2,6 +2,8 @@
 
 Esta página fecha o módulo de abertura com o que precisa permanecer depois da aula, uma autoavaliação e as fontes usadas nos quatro blocos.
 
+![Mapa conceitual que conecta os quatro fundamentos da aula, escopo da decisão, solução como sistema, papel do arquiteto e processo, ao resultado de uma solução implementável.](../assets/images/modulo-1-sintese-fundamentos.svg){ .module-diagram }
+
 ## Checklist do que precisa permanecer
 
 - A definição de arquitetura de solução pela produção e pela gestão do plano de uma solução completa que atende a uma necessidade de negócio, distinta da definição de arquitetura de software pela estrutura e pelo comportamento de um sistema ou componente de software
@@ -24,10 +26,8 @@ As perguntas abaixo são para o aluno responder a si mesmo, sem gabarito públic
 
 ## Fontes da aula
 
-Lovatt (2021), livro-texto da disciplina, capítulos 1, 2 e 3, base dos quatro blocos.
+As referências seguem o formato APA, 7ª edição. A lista completa, com as fontes ainda em verificação, está na [bibliografia](../referencia/bibliografia.md) do curso.
 
-International Organization for Standardization/International Electrotechnical Commission/Institute of Electrical and Electronics Engineers (2022), norma sobre descrição de arquitetura, origem da definição de parte interessada adotada no curso.
-
-Ford e Richards (2020), obra de referência sobre o papel do arquiteto e sobre comparação de estilos.
-
-A lista completa, com as fontes ainda em verificação, está na [bibliografia](../referencia/bibliografia.md) do curso.
+- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (livro-texto da disciplina, capítulos 1, 2 e 3, base dos quatro blocos)
+- International Organization for Standardization/International Electrotechnical Commission/Institute of Electrical and Electronics Engineers. (2022). *Systems and software engineering — Architecture description* (ISO/IEC/IEEE 42010:2022). (origem da definição de parte interessada adotada no curso)
+- Ford, N., & Richards, M. (2020). *Fundamentals of software architecture*. O'Reilly. (papel do arquiteto)

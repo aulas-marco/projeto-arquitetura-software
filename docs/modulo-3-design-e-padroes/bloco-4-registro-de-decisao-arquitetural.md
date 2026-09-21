@@ -176,8 +176,14 @@ Alternativa listada só pelo nome não foi comparada, e um gatilho do tipo "revi
 
 ## Fontes
 
-Glossário do curso, entradas [ADR](../referencia/glossario.md#adr) e [racional arquitetural](../referencia/glossario.md#racional-arquitetural).
+As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso. O trecho consultado aparece entre parênteses ao fim de cada entrada.
 
-Material base do professor, guia [Registro de Decisões Arquiteturais (ADR)](https://github.com/aulas-marco/projeto-arquitetura-software/blob/main/2.1%20ADR.md), de onde vêm o racional do arquiteto, a abordagem leve, o exemplo do Kubernetes e as práticas recomendadas. [Template de ADR](https://marco-mendes.github.io/arquitetura-software/referencia/template-adr/) do site base do professor, fonte dos dez campos e do texto de orientação de cada um. Estudo de caso do [Módulo 1 do site base](https://marco-mendes.github.io/arquitetura-software/modulo-1-visao-geral/estudo-de-caso/#exercicio-4-consequencias-e-adr-001), fonte das quatro frases-modelo e da regra de registrar como proposta quando faltar dado.
+- Nygard, M. (2011, 15 de novembro). *Documenting architecture decisions*. Cognitect Blog. https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions (formato de cinco partes)
+- MADR. (2024). *Markdown Architectural Decision Records* (Versão 4.0.0). https://adr.github.io/madr/ (campos do formato MADR)
+- Mendes, M. (2026a). *Arquitetura de software* [Material de curso]. https://marco-mendes.github.io/arquitetura-software/ ([template de ADR](https://marco-mendes.github.io/arquitetura-software/referencia/template-adr/) de dez campos e o [estudo de caso do módulo 1](https://marco-mendes.github.io/arquitetura-software/modulo-1-visao-geral/estudo-de-caso/#exercicio-4-consequencias-e-adr-001))
+- Mendes, M. (2026b). *Guias de projeto de arquitetura de software* [Material de curso, versão arquivada]. https://github.com/aulas-marco/projeto-arquitetura-software/tree/30f15cd (guia 2.1, fonte do racional do arquiteto, da abordagem leve, do exemplo do Kubernetes e das práticas recomendadas)
+- Henderson, J. P. (n.d.). *Architecture decision record (ADR)* [Repositório de modelos e exemplos]. https://github.com/joelparkerhenderson/architecture-decision-record (coleção de exemplos e modelos)
+- Kruchten, P. (2004). *The rational unified process: An introduction* (3rd ed.). Addison-Wesley. (contraponto de documentação extensa)
+- Clements, P., Bachmann, F., Bass, L., Garlan, D., Ivers, J., Little, R., Merson, P., Nord, R., & Stafford, J. (2010). *Documenting software architectures: Views and beyond* (2nd ed.). Addison-Wesley. (contraponto de documentação extensa)
 
-Nygard (2011), fonte do formato de cinco partes. Especificação [MADR 4.0.0](https://adr.github.io/madr/), fonte dos campos do formato citados no Conceito. Coleção de exemplos e modelos de ADR mantida por [Henderson (n.d.)](https://github.com/joelparkerhenderson/architecture-decision-record). Kruchten (2004) e Clements et al. (2010), citados na abordagem leve como contraponto de documentação extensa. As referências com autor e ano estão listadas na [bibliografia](../referencia/bibliografia.md).
+**Material do curso.** Glossário, entradas [ADR](../referencia/glossario.md#adr) e [racional arquitetural](../referencia/glossario.md#racional-arquitetural). Dossiê da instituição fictícia [ACME](../caso-acme/index.md).

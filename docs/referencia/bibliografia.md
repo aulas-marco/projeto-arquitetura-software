@@ -13,7 +13,8 @@ Fontes conferidas, no formato APA 7ª edição. Referências adicionais entram s
 - Hohpe, G., & Woolf, B. (2003). *Enterprise integration patterns: Designing, building, and deploying messaging solutions*. Addison-Wesley.
 - Kruchten, P. (2004). *The rational unified process: An introduction* (3rd ed.). Addison-Wesley.
 - Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT.
-- Mendes, M. (2026). *Arquitetura de software* [Material de curso]. https://marco-mendes.github.io/arquitetura-software/
+- Mendes, M. (2026a). *Arquitetura de software* [Material de curso]. https://marco-mendes.github.io/arquitetura-software/
+- Mendes, M. (2026b). *Guias de projeto de arquitetura de software* [Material de curso, versão arquivada]. https://github.com/aulas-marco/projeto-arquitetura-software/tree/30f15cd
 - Nygard, M. (2011, 15 de novembro). *Documenting architecture decisions*. Cognitect Blog. https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
 - MADR. (2024). *Markdown Architectural Decision Records* (Versão 4.0.0). https://adr.github.io/madr/
 - Brown, S. (n.d.). *The C4 model for visualising software architecture*. https://c4model.com

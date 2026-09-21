@@ -11,6 +11,8 @@ Este bloco descreve o que o arquiteto de solução faz, quais competências o pa
 
 ## Conceito
 
+![Diagrama do papel do arquiteto de solução. Necessidade, partes interessadas e restrições entram no trabalho de arquitetura, que produz desenho implementável, roteiro de entrega e estimativa de mudança, apoiado por competências de negócio, técnica, entrega e prática.](../assets/images/modulo-1-papel-arquiteto.svg){ .module-diagram }
+
 Cada solução proposta costuma ser responsabilidade de um único arquiteto de solução. Problemas grandes demais são decompostos em áreas de tamanho realista, cada uma conduzida por um arquiteto, com a coordenação do conjunto a cargo de um arquiteto sênior. O risco de aceitar uma área de problema grande demais é ela não poder ser resolvida como unidade.
 
 As atividades do papel começam antes de qualquer desenho. O arquiteto organiza o processo, interage com as partes interessadas, investiga a situação atual, levanta requisitos, propõe alternativas, modela a solução escolhida, valida o desenho com quem tem autoridade para aprová-lo e permanece com responsabilidade de governança durante a implantação. Parte interessada, na definição da norma ISO/IEC/IEEE 42010, é o indivíduo, a equipe, a organização ou a classe desses que tem interesse em um sistema.
@@ -66,4 +68,10 @@ Responda às três perguntas abaixo.
 
 ## Fontes
 
-Glossário do curso, entradas [arquiteto de solução](../referencia/glossario.md#arquiteto-de-solucao), [parte interessada](../referencia/glossario.md#parte-interessada) e [bloco de construção da solução](../referencia/glossario.md#bloco-de-construcao-da-solucao). Lovatt (2021), seções 1.5, 1.6, 1.7 e 1.9, listado na [bibliografia](../referencia/bibliografia.md). International Organization for Standardization/International Electrotechnical Commission/Institute of Electrical and Electronics Engineers (2022), definição de parte interessada, listada na [bibliografia](../referencia/bibliografia.md). Ford e Richards (2020), listado na [bibliografia](../referencia/bibliografia.md). Dossiê da instituição fictícia [ACME](../caso-acme/index.md), restrições fechadas e mapa de atores.
+As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso. O trecho consultado aparece entre parênteses ao fim de cada entrada.
+
+- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seções 1.5 a 1.7 e 1.9)
+- International Organization for Standardization/International Electrotechnical Commission/Institute of Electrical and Electronics Engineers. (2022). *Systems and software engineering — Architecture description* (ISO/IEC/IEEE 42010:2022). (definição de parte interessada)
+- Ford, N., & Richards, M. (2020). *Fundamentals of software architecture*. O'Reilly. (papel do arquiteto)
+
+**Material do curso.** Glossário, entradas [arquiteto de solução](../referencia/glossario.md#arquiteto-de-solucao), [parte interessada](../referencia/glossario.md#parte-interessada) e [bloco de construção da solução](../referencia/glossario.md#bloco-de-construcao-da-solucao). Dossiê da instituição fictícia [ACME](../caso-acme/index.md), restrições fechadas e mapa de atores.

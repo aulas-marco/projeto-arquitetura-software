@@ -7,6 +7,24 @@ DOCS = ROOT / "docs"
 
 
 class ContentContractTest(unittest.TestCase):
+    def test_module_one_pages_have_descriptive_illustrations(self):
+        """Cada página da Aula 1 deve conter ao menos um diagrama local com alt text."""
+        module = DOCS / "modulo-1-fundamentos"
+        for page in sorted(module.glob("*.md")):
+            with self.subTest(page=page.name):
+                text = page.read_text(encoding="utf-8")
+                self.assertRegex(
+                    text,
+                    r"!\[[^\]]+\]\(\.\./assets/images/modulo-1-[^)]+\.svg\)",
+                )
+
+    def test_block_one_includes_togaf_enterprise_architecture_diagram(self):
+        page = DOCS / "modulo-1-fundamentos" / "bloco-1-arquitetura-de-solucoes-e-de-software.md"
+        self.assertIn(
+            "../assets/images/modulo-1-arquitetura-corporativa-togaf.svg",
+            page.read_text(encoding="utf-8"),
+        )
+
     def test_validator_exists_and_runs(self):
         result = subprocess.run(
             ["python3", "scripts/validate_content.py"],
@@ -139,6 +157,49 @@ class ContentContractTest(unittest.TestCase):
             self.assertNotIn("_teste_travessao_unico", result.stdout)
         finally:
             allowed.unlink()
+
+    def test_validator_exempts_fontes_section_from_em_dash_limit(self):
+        """A secao Fontes lista referencias em APA, com titulos oficiais de norma."""
+        allowed = DOCS / "modulo-1-fundamentos" / "bloco-9-teste-fontes.md"
+        allowed.write_text(
+            "# Bloco teste\n\n"
+            "## Antes de começar\n\nTexto.\n\n"
+            "## Conceito\n\nTexto.\n\n"
+            "## Uso pelo arquiteto\n\nTexto.\n\n"
+            "## Exercício 1\n\nTexto.\n\n"
+            "## Fontes\n\n"
+            "- Norma X. *Titulo A — Titulo B — Titulo C*.\n",
+            encoding="utf-8",
+        )
+        try:
+            result = subprocess.run(
+                ["python3", "scripts/validate_content.py"],
+                cwd=ROOT, text=True, capture_output=True,
+            )
+            self.assertNotIn("bloco-9-teste-fontes", result.stdout)
+        finally:
+            allowed.unlink()
+
+    def test_validator_still_counts_em_dashes_outside_fontes(self):
+        offender = DOCS / "modulo-1-fundamentos" / "bloco-9-teste-conceito.md"
+        offender.write_text(
+            "# Bloco teste\n\n"
+            "## Antes de começar\n\nTexto.\n\n"
+            "## Conceito\n\nUma frase — com aposto — e outro aposto.\n\n"
+            "## Uso pelo arquiteto\n\nTexto.\n\n"
+            "## Exercício 1\n\nTexto.\n\n"
+            "## Fontes\n\nTexto.\n",
+            encoding="utf-8",
+        )
+        try:
+            result = subprocess.run(
+                ["python3", "scripts/validate_content.py"],
+                cwd=ROOT, text=True, capture_output=True,
+            )
+            self.assertEqual(1, result.returncode)
+            self.assertIn("mais de um travessao no paragrafo", result.stdout)
+        finally:
+            offender.unlink()
 
     def test_validator_catches_heading_opening_with_por_que(self):
         offender = ROOT / "docs" / "_teste_titulo_por_que.md"
