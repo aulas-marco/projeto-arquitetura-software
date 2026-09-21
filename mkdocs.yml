@@ -7,6 +7,7 @@ exclude_docs: |
 
 theme:
   name: material
+  custom_dir: overrides
   language: pt-BR
   font: false
   palette:

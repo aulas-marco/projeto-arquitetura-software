@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <meta http-equiv="refresh" content="5; url={{ config.site_url }}">
+{% endblock %}
+
+{% block content %}
+<h1>Página não encontrada</h1>
+
+<p>O endereço acessado não existe neste site. Isso costuma acontecer com links salvos antes da reorganização das aulas, quando várias páginas mudaram de módulo.</p>
+
+<p>Você será levado à página inicial em cinco segundos. Para ir agora, use o link abaixo, ou a busca no topo da página para encontrar o assunto pelo nome.</p>
+
+<p><a href="{{ config.site_url }}">Ir para a página inicial</a></p>
+{% endblock %}
