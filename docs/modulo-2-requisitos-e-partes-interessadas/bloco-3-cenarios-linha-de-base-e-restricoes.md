@@ -1,12 +1,14 @@
-# Cenários de qualidade e significância arquitetural
+# Cenários de qualidade, linha de base e restrições
 
-Este bloco responde a uma pergunta que segue diretamente da tratada no [bloco 2](bloco-2-qualidade-e-tipos-de-requisito.md), como tornar um requisito de atributo de qualidade concreto o bastante para orientar decisão, e como julgar se um requisito, de qualquer natureza, deve pesar sobre a arquitetura.
+Este bloco trata de como tornar um requisito de atributo de qualidade concreto o bastante para orientar decisão, como julgar se um requisito deve pesar sobre a arquitetura, e quais insumos já existentes entram no processo antes de qualquer desenho, os artefatos de linha de base e as restrições.
 
 ## Antes de começar
 
 - [Cenário de atributo de qualidade](../referencia/glossario.md#cenario-de-atributo-de-qualidade)
 - [Requisito arquiteturalmente significativo](../referencia/glossario.md#requisito-arquiteturalmente-significativo)
 - [Direcionador arquitetural](../referencia/glossario.md#direcionador-arquitetural)
+- [Artefato de linha de base](../referencia/glossario.md#artefato-de-linha-de-base)
+- [Arquitetura de linha de base](../referencia/glossario.md#arquitetura-de-linha-de-base)
 
 ## Conceito
 
@@ -99,17 +101,35 @@ Uma heurística resume o roteiro. Se uma alteração relevante no requisito obri
 
 Dois erros conceituais recorrentes merecem atenção neste ponto. O primeiro é tratar todo requisito não funcional como ASR. Nem todo requisito de qualidade altera a arquitetura, e alguns são satisfeitos por configuração local, implementação convencional ou capacidade já existente, como no exemplo da consulta administrativa, citado no parágrafo sobre a relação entre atributo de qualidade e ASR, nesta mesma seção Conceito. O segundo é tratar todo ASR como requisito não funcional. Funcionalidade, restrição regulatória, padrão corporativo e integração mandatória também podem condicionar a arquitetura, como mostra o exemplo do roteamento entre adquirentes de pagamento, apresentado no mesmo parágrafo sobre a relação entre atributo de qualidade e ASR, que é, no núcleo, um requisito funcional.
 
+### Artefatos de linha de base
+
+Cenário e julgamento de significância não são os únicos insumos da fase de descoberta. Parte do que o arquiteto precisa já existe na organização, descrita como situação atual, e recebe o nome de artefato de linha de base. Usá-los evita refazer levantamento e, mais importante, evita que a solução seja desenhada sobre uma leitura inventada do sistema existente.
+
+Os artefatos de linha de base mais frequentes são a descrição da arquitetura atual, com componentes e integrações, o catálogo de aplicações, os modelos de processo de negócio, os modelos de dados, os contratos vigentes com fornecedores e os registros de incidente e de capacidade. Cada um deles tem data, dono e grau de confiabilidade, e parte do trabalho de descoberta é justamente estabelecer quanto de cada artefato ainda descreve a realidade.
+
+Na ACME, universidade privada brasileira fictícia com sistema acadêmico em operação desde 2004, os artefatos de linha de base disponíveis incluem o inventário de componentes com idade e responsável, o registro dos três incidentes graves dos últimos 18 meses, a medição de 34 dias úteis entre pedido aprovado e entrega em produção, o custo anual de propriedade de R$ 15,83 milhões e os contratos de sustentação e de capacidade, com prazos em 30/09/2027 e 31/12/2028.
+
+### Restrições ao desenho
+
+Restrição é decisão tomada fora do processo de projeto, que limita as alternativas do arquiteto sem ser negociável por ele. Ela difere do requisito em dois pontos. O requisito descreve o que a solução precisa entregar e admite discussão sobre a forma de atendê-lo, enquanto a restrição fecha alternativas antes da análise. Tratar restrição como requisito leva a comparar opções que a organização já descartou, e tratar requisito como restrição leva a aceitar como fechado o que ainda podia ser negociado.
+
+As restrições chegam de origens distintas, e a origem determina quem pode revê-las. Restrição regulatória vem de fora e só muda com mudança normativa. Restrição contratual vem de acordo assinado e muda por negociação com o fornecedor, dentro dos prazos previstos. Restrição de política interna vem de decisão de governança e muda com nova decisão do mesmo nível. Restrição técnica vem do parque instalado e muda com investimento.
+
+Sete restrições chegam fechadas ao caso da ACME, entre elas a impossibilidade de parar o sistema em período letivo, imposta pela Pró-Reitoria de Graduação, a permanência do ambiente virtual de aprendizagem e do ERP financeiro, decidida pela Reitoria em 12/03/2026, o uso de apenas dois provedores de nuvem pré-aprovados pelo Conselho Universitário, e o processamento de dado pessoal de aluno em território nacional, conforme parecer jurídico de 28/04/2026.
+
 ## Uso pelo arquiteto
 
 O arquiteto usa o cenário e o roteiro de sete perguntas para decidir onde investir esforço de design, dentro de um conjunto de requisitos que nunca recebe atenção equivalente. Cenários bem formados tornam comparável o que antes era apenas uma lista de rótulos de atributo, e o roteiro filtra, entre os cenários escritos, quais realmente pesam sobre decisão estrutural, risco ou custo de mudança tardia. O resultado orienta a prioridade de análise antes de qualquer proposta de solução, evitando que o esforço de arquitetura se disperse sobre requisito que a implementação convencional já resolve.
 
-## Exercício 3
+## Exercício 7
 
 A ACME é uma universidade privada brasileira cujo sistema acadêmico está em modernização, e cujo portal registra 815 sessões simultâneas em média anual ponderada, com pico de 5.800 sessões na abertura da matrícula, uma razão de 7,1 entre pico e média, e taxa de erro de 6,3% das requisições nesse intervalo de pico, contra 0,2% em dia letivo comum. Nessa mesma abertura, em 04/02/2026, o limite de tarefas concorrentes do monitor CICS foi atingido, porque sessões da camada web permaneciam com transação aberta após o abandono do navegador, sem tempo limite de sessão configurado. O incidente durou 4h20, 62% das tentativas de matrícula retornaram erro, 9.400 alunos não concluíram a inscrição no dia e a janela foi prorrogada em 2 dias úteis.
 
 1. Escreva dois cenários de atributo de qualidade para a ACME, no formato de seis elementos apresentado no Conceito. O primeiro cenário deve ter como estímulo o pico de sazonalidade descrito acima, e pode partir, como orientação de continuidade e sem obrigatoriedade, da reescrita mensurável de R2 sobre disponibilidade na janela de matrícula, produzida no exercício do [bloco 2](bloco-2-qualidade-e-tipos-de-requisito.md) desta mesma aula. O segundo cenário deve ter como estímulo o incidente descrito acima.
 2. Para cada um dos dois cenários, aplique o roteiro de sete perguntas apresentado no Conceito e defenda, com base nas respostas, se aquele cenário constitui um requisito arquiteturalmente significativo.
+3. Liste quatro artefatos de linha de base da ACME que você usaria para sustentar os dois cenários, indicando para cada um o dado específico que ele fornece e o que aconteceria com o cenário se esse dado estivesse desatualizado.
+4. Tome as sete restrições fechadas do caso e classifique cada uma pela origem, entre regulatória, contratual, de política interna e técnica, indicando quem teria autoridade para revê-la.
 
 ## Fontes
 
-Glossário do curso, entradas [cenário de atributo de qualidade](../referencia/glossario.md#cenario-de-atributo-de-qualidade), [requisito arquiteturalmente significativo](../referencia/glossario.md#requisito-arquiteturalmente-significativo) e [direcionador arquitetural](../referencia/glossario.md#direcionador-arquitetural). International Organization for Standardization/International Electrotechnical Commission/Institute of Electrical and Electronics Engineers (2022), listada na [bibliografia](../referencia/bibliografia.md). International Organization for Standardization (2023), listada na [bibliografia](../referencia/bibliografia.md). Barbacci et al. (2003), listado na [bibliografia](../referencia/bibliografia.md). Dossiê da instituição fictícia [ACME](../caso-acme/index.md), dados operacionais de sazonalidade e incidentes.
+Glossário do curso, entradas [cenário de atributo de qualidade](../referencia/glossario.md#cenario-de-atributo-de-qualidade), [requisito arquiteturalmente significativo](../referencia/glossario.md#requisito-arquiteturalmente-significativo) e [direcionador arquitetural](../referencia/glossario.md#direcionador-arquitetural). International Organization for Standardization/International Electrotechnical Commission/Institute of Electrical and Electronics Engineers (2022), listada na [bibliografia](../referencia/bibliografia.md). International Organization for Standardization (2023), listada na [bibliografia](../referencia/bibliografia.md). Barbacci et al. (2003), listado na [bibliografia](../referencia/bibliografia.md). Lovatt (2021), seções 4.7 e 4.8, listado na [bibliografia](../referencia/bibliografia.md). Dossiê da instituição fictícia [ACME](../caso-acme/index.md), dados operacionais de sazonalidade e incidentes, restrições fechadas e [arquitetura de linha de base](../caso-acme/linha-de-base.md).

@@ -1,5 +1,5 @@
-site_name: Estratégias e Projeto de Arquitetura de Software
-site_description: Material de disciplina de pós-graduação em estratégias e projeto de arquitetura de software, em seis aulas síncronas
+site_name: Projeto e Inovação em Arquitetura de Soluções
+site_description: Material de disciplina de pós-graduação em projeto e inovação em arquitetura de soluções, em seis aulas síncronas
 use_directory_urls: true
 exclude_docs: |
   superpowers/**
@@ -44,28 +44,33 @@ markdown_extensions:
 nav:
   - Início: index.md
   - Cronograma: cronograma.md
-  - "Aula 1 — Fundamentos":
+  - "Aula 1, arquitetura de soluções e seu processo":
       - Visão geral: modulo-1-fundamentos/index.md
-      - "Bloco 1: arquitetura e papel do arquiteto": modulo-1-fundamentos/bloco-1-arquitetura-e-papel-do-arquiteto.md
-      - "Bloco 2: qualidade e tipos de requisito": modulo-1-fundamentos/bloco-2-qualidade-e-tipos-de-requisito.md
-      - "Bloco 3: cenários e significância arquitetural": modulo-1-fundamentos/bloco-3-cenarios-e-significancia-arquitetural.md
-      - "Bloco 4: estilos arquiteturais": modulo-1-fundamentos/bloco-4-estilos-arquiteturais.md
+      - "Bloco 1: arquitetura de soluções e arquitetura de software": modulo-1-fundamentos/bloco-1-arquitetura-de-solucoes-e-de-software.md
+      - "Bloco 2: a solução como sistema": modulo-1-fundamentos/bloco-2-a-solucao-como-sistema.md
+      - "Bloco 3: o papel do arquiteto de solução": modulo-1-fundamentos/bloco-3-papel-do-arquiteto-de-solucao.md
+      - "Bloco 4: o processo de definição da arquitetura": modulo-1-fundamentos/bloco-4-processo-de-definicao-da-arquitetura.md
       - Síntese: modulo-1-fundamentos/sintese.md
-  - "Aula 2 — Plataforma e modelos":
-      - Visão geral: modulo-2-plataforma-e-modelos/index.md
-      - "Bloco 1: registro de decisão arquitetural": modulo-2-plataforma-e-modelos/bloco-1-registro-de-decisao-arquitetural.md
-      - "Bloco 2: plataforma arquitetural": modulo-2-plataforma-e-modelos/bloco-2-plataforma-arquitetural.md
-      - "Bloco 3: ADR de plataforma": modulo-2-plataforma-e-modelos/bloco-3-adr-de-plataforma.md
-      - "Bloco 4: representação de modelos e C4": modulo-2-plataforma-e-modelos/bloco-4-representacao-de-modelos-e-c4.md
-      - Síntese: modulo-2-plataforma-e-modelos/sintese.md
-  - "Aula 3 — Aplicação e serviços":
-      - Visão geral: modulo-3-aplicacao-e-servicos/index.md
-  - "Aula 4 — Integração e dados":
-      - Visão geral: modulo-4-integracao-e-dados/index.md
-  - "Aula 5 — Segurança e TRM":
-      - Visão geral: modulo-5-seguranca-e-trm/index.md
-  - "Aula 6 — Riscos e provas de conceito":
-      - Visão geral: modulo-6-riscos-e-provas-de-conceito/index.md
+  - "Aula 2, entradas, requisitos e partes interessadas":
+      - Visão geral: modulo-2-requisitos-e-partes-interessadas/index.md
+      - "Bloco 1: direcionadores de mudança": modulo-2-requisitos-e-partes-interessadas/bloco-1-direcionadores-de-mudanca.md
+      - "Bloco 2: qualidade e tipos de requisito": modulo-2-requisitos-e-partes-interessadas/bloco-2-qualidade-e-tipos-de-requisito.md
+      - "Bloco 3: cenários, linha de base e restrições": modulo-2-requisitos-e-partes-interessadas/bloco-3-cenarios-linha-de-base-e-restricoes.md
+      - "Bloco 4: partes interessadas e pontos de vista": modulo-2-requisitos-e-partes-interessadas/bloco-4-partes-interessadas-e-pontos-de-vista.md
+      - Síntese: modulo-2-requisitos-e-partes-interessadas/sintese.md
+  - "Aula 3, princípios de design e padrões":
+      - Visão geral: modulo-3-design-e-padroes/index.md
+      - "Bloco 2: estilos arquiteturais": modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md
+      - "Bloco 4: registro de decisão arquitetural": modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md
+  - "Aula 4, protocolos e representação":
+      - Visão geral: modulo-4-protocolos-e-representacao/index.md
+      - "Bloco 4: representação de modelos e C4": modulo-4-protocolos-e-representacao/bloco-4-representacao-de-modelos-e-c4.md
+  - "Aula 5, frameworks e tecnologias":
+      - Visão geral: modulo-5-frameworks-e-tecnologias/index.md
+      - "Bloco 2: plataforma arquitetural": modulo-5-frameworks-e-tecnologias/bloco-2-plataforma-arquitetural.md
+      - "Bloco 4: ADR de plataforma": modulo-5-frameworks-e-tecnologias/bloco-4-adr-de-plataforma.md
+  - "Aula 6, lacunas, roteiro e governança":
+      - Visão geral: modulo-6-lacunas-e-governanca/index.md
   - Caso ACME:
       - Visão e contexto: caso-acme/index.md
       - Arquitetura de linha de base: caso-acme/linha-de-base.md

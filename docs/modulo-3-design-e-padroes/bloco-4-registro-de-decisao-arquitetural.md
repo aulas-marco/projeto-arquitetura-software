@@ -9,7 +9,7 @@ Este bloco abre a aula respondendo a uma pergunta prática, como registrar uma d
 
 ## Conceito
 
-A distinção entre decisão arquitetural e decisão de implementação já foi estabelecida na seção Conceito do [bloco 1 da Aula 1](../modulo-1-fundamentos/bloco-1-arquitetura-e-papel-do-arquiteto.md#conceito). Este bloco parte dessa distinção para tratar de como registrar a primeira de forma rastreável.
+A distinção entre decisão de arquitetura de solução e decisão de arquitetura de software já foi estabelecida na seção Conceito do [bloco 1 da Aula 1](../modulo-1-fundamentos/bloco-1-arquitetura-de-solucoes-e-de-software.md#conceito). Este bloco parte dessa distinção para tratar de como registrar uma decisão de forma rastreável.
 
 Decisões arquiteturais são aquelas que afetam a estrutura, as características não funcionais, as dependências, as interfaces ou as técnicas de construção do sistema. A definição é operacional, ela permite separar o que merece registro do que não merece sem recorrer a julgamento de importância. Escolher a fronteira entre dois módulos é decisão arquitetural. Escolher o formatador de código do projeto não é.
 
@@ -152,9 +152,9 @@ O arquiteto escreve o ADR no momento da decisão, não depois, porque é nesse m
 
 Quando falta dado para preencher um campo, o caminho é registrar o ADR com estado proposta e listar ao final os campos que ficaram incompletos. Um registro incompleto e honesto continua utilizável. Um registro completo por invenção contamina todas as decisões que vierem depois dele.
 
-## Exercício 5
+## Exercício 12
 
-A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. No exercício do [bloco 4 da Aula 1](../modulo-1-fundamentos/bloco-4-estilos-arquiteturais.md), você comparou três estilos arquiteturais contra os dois cenários da ACME e defendeu um deles. Escreva o ADR que registra essa decisão, no template de dez campos apresentado no Conceito acima.
+A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. No exercício do [bloco 2 desta aula](bloco-2-estilos-arquiteturais.md), você comparou três estilos arquiteturais contra os dois cenários da ACME e defendeu um deles. Escreva o ADR que registra essa decisão, no template de dez campos apresentado no Conceito acima.
 
 1. título, estado e data
 2. contexto, descrevendo de forma neutra os dois cenários que motivaram a análise e delimitando o que fica fora do registro

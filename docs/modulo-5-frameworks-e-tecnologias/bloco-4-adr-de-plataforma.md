@@ -10,7 +10,7 @@ Este bloco fecha o par de decisões da aula respondendo a uma pergunta que só s
 
 ## Conceito
 
-Um **ADR de plataforma** é o segundo ADR do par ensinado nesta aula, escrito no mesmo template de dez campos apresentado no [bloco 1](bloco-1-registro-de-decisao-arquitetural.md) desta aula, mas aplicado a uma decisão de natureza diferente da primeira. O ADR do bloco 1 registra a escolha de um estilo arquitetural. O ADR deste bloco registra a escolha de uma das plataformas candidatas capazes de concretizar esse estilo, comparação que o [bloco 2](bloco-2-plataforma-arquitetural.md) desta aula já ensinou a montar.
+Um **ADR de plataforma** é o segundo ADR do par ensinado na disciplina, escrito no mesmo template de dez campos apresentado no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), mas aplicado a uma decisão de natureza diferente da primeira. Aquele ADR registra a escolha de um estilo arquitetural. O ADR deste bloco registra a escolha de uma das plataformas candidatas capazes de concretizar esse estilo, comparação que o [bloco 2](bloco-2-plataforma-arquitetural.md) desta aula já ensinou a montar.
 
 O template não muda entre os dois. O conteúdo de cada campo muda, e três campos mudam de forma característica.
 
@@ -31,7 +31,7 @@ Abstrair tudo antecipadamente para fugir dessa dependência cria uma plataforma 
 
 ### O que muda no campo de alternativas
 
-Em um ADR de plataforma, o campo de alternativas já vem pronto do bloco anterior. O quadro comparativo montado no [Exercício 6](bloco-2-plataforma-arquitetural.md#exercicio-6), com as plataformas candidatas nas linhas e os fatores nas colunas, é exatamente o que o campo pede, cada alternativa com as forças que atende e os riscos que introduz. Transportar o quadro para o registro é o que impede que a alternativa descartada apareça só pelo nome, sem ter sido comparada de fato.
+Em um ADR de plataforma, o campo de alternativas já vem pronto do bloco anterior. O quadro comparativo montado no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18), com as plataformas candidatas nas linhas e os fatores nas colunas, é exatamente o que o campo pede, cada alternativa com as forças que atende e os riscos que introduz. Transportar o quadro para o registro é o que impede que a alternativa descartada apareça só pelo nome, sem ter sido comparada de fato.
 
 ### O que muda no campo de consequências
 
@@ -47,14 +47,14 @@ Os dois ADRs não vivem isolados um do outro. O ADR de plataforma faz uma **refe
 
 O arquiteto escreve este segundo registro logo depois de fechar a comparação de plataformas, no mesmo momento em que as candidatas descartadas e o critério que as eliminou ainda estão claros. O campo de evidências é o que mais se beneficia desse momento, porque é quando ainda existem o teste de carga, a prova de conceito ou a medição que sustentaram a escolha, e é trivial anotar onde cada um pode ser reproduzido. Meses depois, essa informação já se perdeu, e o registro fica com uma justificativa que ninguém consegue verificar.
 
-## Exercício 7
+## Exercício 20
 
-Escreva o ADR que registra a escolha de plataforma que você fez no [Exercício 6](bloco-2-plataforma-arquitetural.md#exercicio-6) do bloco anterior, no mesmo template de dez campos usado no [bloco 1](bloco-1-registro-de-decisao-arquitetural.md).
+Escreva o ADR que registra a escolha de plataforma que você fez no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) do bloco anterior, no mesmo template de dez campos usado no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md).
 
 1. título, estado e data
-2. contexto, referenciando pelo título o ADR de estilo que você escreveu no [Exercício 5](bloco-1-registro-de-decisao-arquitetural.md#exercicio-5)
+2. contexto, referenciando pelo título o ADR de estilo que você escreveu no [Exercício 12](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md#exercicio-12)
 3. forças, com pelo menos três dos sete fatores de adaptação ao contexto do bloco 2, mais ao menos uma das seis dimensões de dependência de fornecedor listadas no Conceito acima
-4. alternativas, transportando o quadro comparativo que você montou no Exercício 6
+4. alternativas, transportando o quadro comparativo que você montou no Exercício 18
 5. decisão, nomeando a plataforma escolhida e conectando a justificativa às forças
 6. consequências, com ao menos uma positiva, uma negativa e uma neutra
 7. evidências, indicando o que sustentaria a escolha e onde poderia ser reproduzido
@@ -68,4 +68,4 @@ Glossário do curso, entradas [ADR](../referencia/glossario.md#adr), [plataforma
 
 [Template de ADR](https://marco-mendes.github.io/arquitetura-software/referencia/template-adr/) do site base do professor, fonte dos dez campos usados nesta página. Seção [Custo e lock-in](https://marco-mendes.github.io/arquitetura-software/modulo-6-nuvem/padroes-e-decisoes/), do mesmo site, fonte da definição de dependência de fornecedor e das seis dimensões que precisam ficar explícitas no ADR.
 
-Nygard (2011) e especificação [MADR 4.0.0](https://adr.github.io/madr/), formatos apresentados no [bloco 1](bloco-1-registro-de-decisao-arquitetural.md) desta aula, ambos listados na [bibliografia](../referencia/bibliografia.md). Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+Nygard (2011) e especificação [MADR 4.0.0](https://adr.github.io/madr/), formatos apresentados no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), ambos listados na [bibliografia](../referencia/bibliografia.md). Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md).

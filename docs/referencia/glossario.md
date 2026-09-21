@@ -2,6 +2,58 @@
 
 Este glossário reúne os termos usados nas páginas de conceito do curso, com a definição adotada pela disciplina. Cada entrada corresponde a uma âncora, referenciada pela seção "Antes de começar" das páginas de bloco.
 
+## Arquitetura de solução
+
+Disciplina responsável pela produção e pela gestão do plano de uma solução completa, que atende a uma necessidade, um problema ou uma oportunidade de negócio e se integra ao negócio em alinhamento com a estratégia, minimizando impactos negativos. O plano descreve a estrutura e o comportamento da solução em alto nível, antes da escolha dos produtos que a realizam.
+
+## Arquiteto de solução
+
+Profissional que conduz a definição de uma solução inteira, investiga o problema, levanta as partes interessadas, compara alternativas e responde pela integridade do desenho até a entrega. Decide sobre os cinco tipos de componente da solução, não apenas sobre software.
+
+## Arquitetura corporativa
+
+Disciplina que emite diretrizes, princípios e modelos válidos para a organização inteira, organizados nos domínios de negócio, aplicações, dados, infraestrutura e segurança. Opera no nível de granularidade mais alto, acima de qualquer solução isolada.
+
+## Componentes da solução
+
+Os cinco tipos de elemento que compõem uma solução, usados como lista de verificação para que nenhum deles fique de fora do desenho: pessoas, estruturas organizacionais, processos, informação e tecnologia.
+
+## Bloco de construção da solução
+
+Unidade lógica do desenho, que representa uma capacidade necessária à solução antes de estar decidido qual produto ou serviço a realiza. Um bloco de granularidade grossa agrupa vários blocos de granularidade fina.
+
+## Direcionador de mudança
+
+Fator que leva a organização a buscar uma solução. É interno quando nasce da própria operação, como custo, risco ou limitação de capacidade, e externo quando vem de fora, como exigência regulatória, movimento de concorrente ou mudança de expectativa do usuário.
+
+## Parte interessada
+
+Pessoa, papel ou área com interesse legítimo no resultado da solução, seja porque decide sobre ela, porque a usa, porque a sustenta ou porque é afetada por ela.
+
+## Ponto de vista
+
+Conjunto de convenções que define como construir e ler um tipo de representação da arquitetura, escolhido em função das preocupações de uma parte interessada.
+
+## Visão
+
+Representação concreta da arquitetura construída segundo um ponto de vista, que responde às preocupações às quais aquele ponto de vista se dirige.
+
+## Arquitetura de linha de base
+
+Descrição da arquitetura como ela é hoje, com os componentes existentes, suas idades, seus responsáveis e suas integrações. É o ponto de partida da comparação com a arquitetura alvo.
+
+## Arquitetura alvo
+
+Descrição da arquitetura pretendida ao fim de um ciclo de evolução. A diferença entre ela e a arquitetura de linha de base é o objeto da análise de lacunas.
+
+## Artefato de linha de base
+
+Documento ou modelo já existente que descreve parte da situação atual e entra como insumo do processo de definição da arquitetura, em vez de ser produzido do zero.
+
+## Fase do processo de definição da arquitetura
+
+Etapa do ciclo de vida que organiza o trabalho do arquiteto de solução, com entrada, atividades e saída próprias. O curso adota o ciclo de oito fases, de iniciação a conclusão.
+
 ## Arquitetura de software
 
 Conjunto das decisões estruturais fundamentais sobre um sistema, difíceis de reverter depois de tomadas, que determinam sua capacidade de satisfazer os atributos de qualidade exigidos.

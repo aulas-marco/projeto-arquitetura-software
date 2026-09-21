@@ -77,7 +77,7 @@ O arquiteto separa requisito não funcional de requisito de atributo de qualidad
 
 As doze dimensões entram em outro momento do trabalho. Elas não servem para rotular o requisito depois de escrito, servem como lista de verificação antes de encerrar o levantamento. O arquiteto percorre as doze e pergunta, para cada uma, se aquela dimensão foi discutida com alguém. As que ninguém mencionou são o material da próxima entrevista, e costumam ser justamente as caras de corrigir depois, como residência de dados, tempo de recuperação e compatibilidade retroativa de integração.
 
-## Exercício 2
+## Exercício 6
 
 A ACME, universidade privada brasileira cujo sistema acadêmico está em modernização, levantou os requisitos abaixo em entrevistas com as partes interessadas, sem depuração editorial.
 

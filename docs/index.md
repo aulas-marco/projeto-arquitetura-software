@@ -1,10 +1,10 @@
-# Estratégias e Projeto de Arquitetura de Software
+# Projeto e Inovação em Arquitetura de Soluções
 
-Material de disciplina de pós-graduação em arquitetura de software, conduzida em seis aulas síncronas. O conteúdo cumpre duas funções ao mesmo tempo, material de estudo para o aluno e roteiro de condução das aulas.
+Material de disciplina de pós-graduação em arquitetura de soluções, conduzida em seis aulas síncronas. O conteúdo cumpre duas funções ao mesmo tempo, material de estudo para o aluno e roteiro de condução das aulas.
 
 ## O que o site contém
 
-O material está organizado em seis aulas, cada uma dividida em quatro blocos de quarenta minutos. Cada bloco expõe um conceito de arquitetura de software, relaciona esse conceito à prática profissional do arquiteto e propõe um exercício de aplicação. O [cronograma](cronograma.md) lista as seis aulas com o tema de cada uma.
+O material está organizado em seis aulas, cada uma dividida em quatro blocos de quarenta minutos. Cada bloco expõe um conceito de arquitetura de soluções, relaciona esse conceito à prática profissional do arquiteto e propõe um exercício de aplicação. O [cronograma](cronograma.md) lista as seis aulas com o tema de cada uma.
 
 A seção Referência reúne o [glossário](referencia/glossario.md) de termos usados no curso e a [bibliografia](referencia/bibliografia.md) consultada na elaboração do material.
 

@@ -113,7 +113,7 @@ O arquiteto escolhe o nível pela audiência, não pela quantidade de informaç�
 
 O erro simétrico também existe. Levar o diagrama de contêineres a uma reunião de orçamento costuma deslocar a discussão para escolhas de tecnologia que não estavam em pauta, e levar o diagrama de contexto a uma reunião técnica costuma terminar com alguém desenhando o nível seguinte no quadro branco.
 
-## Exercício 8
+## Exercício 16
 
 A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico. O núcleo transacional em COBOL sobre o monitor CICS concentra as regras acadêmicas, uma camada web em JSF e EJB serve os portais de acesso, um banco Oracle guarda o estado, e as integrações com o ERP financeiro e com o ambiente virtual de aprendizagem são resolvidas por arquivo, em lote noturno, conforme a [arquitetura de linha de base](../caso-acme/linha-de-base.md).
 

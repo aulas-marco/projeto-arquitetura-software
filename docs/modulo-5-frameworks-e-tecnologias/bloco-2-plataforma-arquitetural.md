@@ -21,7 +21,7 @@ A segunda é a **composição multidimensional**. Uma plataforma não é monolí
 
 A terceira é o **alinhamento com práticas de engenharia**. A plataforma promove testabilidade, com ferramentas como o Jest e o JUnit, automação, com integração contínua e esteiras de implantação, e escalabilidade e manutenção, com orquestração de execução em Kubernetes ou Service Fabric.
 
-A quarta é a **adaptação ao contexto**. Plataformas não são universais. Elas são selecionadas e configuradas a partir de um racional arquitetural, apresentado no Conceito do [bloco 1](bloco-1-registro-de-decisao-arquitetural.md) desta aula, que leva em conta sete fatores.
+A quarta é a **adaptação ao contexto**. Plataformas não são universais. Elas são selecionadas e configuradas a partir de um racional arquitetural, apresentado no Conceito do [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), que leva em conta sete fatores.
 
 1. atendimento aos requisitos funcionais
 2. atendimento aos requisitos não funcionais, como escalabilidade e tolerância a falhas
@@ -39,7 +39,7 @@ Os exemplos abaixo são ilustrações de composição, não recomendações de u
 
 Sete dos exemplos vêm acompanhados de desenho. Quatro deles usam a convenção de diagrama de plataforma, que mostra a pilha inteira com os serviços transversais na base, e três usam a convenção de diagrama de infraestrutura do fornecedor, em que o nome do produto aparece em amarelo.
 
-Esta é a seção mais longa da aula e serve como catálogo de consulta. Em sala, percorremos dois ou três exemplos, escolhidos conforme os estilos que a turma defendeu no exercício da Aula 1, e os demais ficam para leitura posterior e para apoiar o Exercício 6.
+Esta é a seção mais longa da aula e serve como catálogo de consulta. Em sala, percorremos dois ou três exemplos, escolhidos conforme os estilos que a turma defendeu no exercício da Aula 3, e os demais ficam para leitura posterior e para apoiar o Exercício 18.
 
 #### Plataforma Java EE e Jakarta EE
 
@@ -139,19 +139,19 @@ As duas pilhas abaixo não materializam um estilo de sistema inteiro, elas organ
 
 Na pilha móvel com React Native, o Zustand guarda o estado compartilhado entre telas em um lugar só, o React Navigation controla a pilha de telas e o botão de voltar, o Zod declara o formato esperado do dado e valida a entrada contra ele, o TanStack Query cuida do dado que vem do servidor, incluindo cache, nova tentativa e invalidação, e o MMKV guarda dado local com leitura rápida. Na pilha web de página única com Vue.js, o Pinia faz o papel do repositório de estado, o Vue Router a navegação, o Vuetify entrega componentes visuais prontos, o Axios faz a chamada HTTP e o Vite empacota o código para o navegador.
 
-A pilha móvel segue o *Model-View-ViewModel*, e aqui cabe uma ressalva de vocabulário. Boa parte da literatura, e o próprio material base desta disciplina, lista MVC e MVVM entre os estilos arquiteturais. Esta disciplina os trata como padrão de organização da camada de interface, e não como estilo, porque a definição adotada no [bloco 4 da Aula 1](../modulo-1-fundamentos/bloco-4-estilos-arquiteturais.md) exige que o estilo descreva a forma estrutural do sistema inteiro, não a organização interna de uma camada. É escolha de recorte desta disciplina, não erro da literatura, e vale conhecer as duas leituras porque você vai encontrar ambas em texto profissional.
+A pilha móvel segue o *Model-View-ViewModel*, e aqui cabe uma ressalva de vocabulário. Boa parte da literatura, e o próprio material base desta disciplina, lista MVC e MVVM entre os estilos arquiteturais. Esta disciplina os trata como padrão de organização da camada de interface, e não como estilo, porque a definição adotada no [bloco 2 da Aula 3](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md) exige que o estilo descreva a forma estrutural do sistema inteiro, não a organização interna de uma camada. É escolha de recorte desta disciplina, não erro da literatura, e vale conhecer as duas leituras porque você vai encontrar ambas em texto profissional.
 
 ## Uso pelo arquiteto
 
-Assim como o estilo arquitetural é a maior decisão que um arquiteto toma em um projeto, a plataforma arquitetural é a maior decisão tecnológica do projeto. Por consequência, ela precisa ser justificada e registrada em um ADR próprio, escrito no [bloco 3](bloco-3-adr-de-plataforma.md) desta aula.
+Assim como o estilo arquitetural é a maior decisão que um arquiteto toma em um projeto, a plataforma arquitetural é a maior decisão tecnológica do projeto. Por consequência, ela precisa ser justificada e registrada em um ADR próprio, escrito no [bloco 4](bloco-4-adr-de-plataforma.md) desta aula.
 
 O arquiteto documenta a comparação antes de decidir, em um **quadro comparativo** que lista as plataformas candidatas nas linhas e os sete fatores de adaptação ao contexto nas colunas, com uma nota curta em cada célula. Esse quadro entra no ADR de plataforma como evidência de que a escolha considerou alternativas reais, não apenas a plataforma mais familiar ao time, o que faz a decisão resistir a questionamento meses depois.
 
-## Exercício 6
+## Exercício 18
 
 A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, cujo núcleo transacional em COBOL sobre o monitor CICS segue em operação durante toda a transição, com uma camada web em JSF e EJB e integrações com o ERP financeiro e o ambiente virtual de aprendizagem resolvidas por arquivo, em lote noturno.
 
-Considerando o estilo arquitetural que você escolheu no exercício do [bloco 4 da Aula 1](../modulo-1-fundamentos/bloco-4-estilos-arquiteturais.md), levante duas plataformas candidatas capazes de concretizar esse estilo, considerando que o núcleo COBOL sobre CICS permanece em operação durante a transição.
+Considerando o estilo arquitetural que você escolheu no exercício do [bloco 2 da Aula 3](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md), levante duas plataformas candidatas capazes de concretizar esse estilo, considerando que o núcleo COBOL sobre CICS permanece em operação durante a transição.
 
 1. Nomeie as duas plataformas candidatas, com as ferramentas concretas de cada uma, no nível de detalhe dos exemplos de plataforma por estilo apresentados no Conceito.
 2. Monte o quadro comparativo das duas, usando pelo menos quatro dos sete fatores de adaptação ao contexto listados no Conceito.

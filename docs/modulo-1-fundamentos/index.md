@@ -1,17 +1,17 @@
-# Aula 1, fundamentos de arquitetura de software
+# Aula 1, arquitetura de soluções e seu processo
 
-A aula responde à seguinte questão: o que um arquiteto de software decide, a partir de qual entendimento de qualidade, e com base em qual repertório de estilos.
+A aula responde à seguinte questão: o que distingue a arquitetura de soluções da arquitetura de software, sobre que objeto o arquiteto de solução trabalha, o que o papel exige e por qual processo uma solução é definida.
 
 ## Objetivos de aprendizagem
 
 Ao final da aula, o aluno é capaz de
 
-- descrever o papel do arquiteto de software e distingui-lo de outros papéis técnicos de decisão
-- diferenciar requisito funcional, requisito não funcional, requisito de atributo de qualidade e restrição
-- converter uma declaração que chegou rotulada como não funcional em requisito de atributo de qualidade ou em restrição, que são as categorias com que o arquiteto trabalha
-- escrever um cenário de atributo de qualidade no formato de seis elementos
-- justificar, para um requisito dado, se ele constitui um requisito arquiteturalmente significativo
-- comparar estilos arquiteturais candidatos a partir de sua adequação a cenários de qualidade
+- diferenciar arquitetura corporativa, arquitetura de solução e arquitetura de software pelo alcance da decisão que cada uma toma
+- descrever uma solução como sistema, identificando seus componentes nos cinco tipos, pessoas, estruturas organizacionais, processos, informação e tecnologia
+- situar uma exigência de negócio nos três níveis de sistema de negócio, sistema de informação e sistema de TI
+- descrever o papel do arquiteto de solução, suas competências e o que a disciplina entrega ao fim do trabalho
+- descrever as oito fases do processo de definição da arquitetura, com a entrada e a saída de cada uma
+- classificar artefatos de um caso real entre entrada, produto intermediário e entregável do processo
 
 ## Grade de tempo
 
@@ -19,25 +19,25 @@ A aula ocorre das 19h00 às 22h30, com intervalo das 20h30 às 20h45. O tempo de
 
 | Bloco | Conceito | Conceito (min) | Exercício (min) |
 | --- | --- | --- | --- |
-| 1 | Arquitetura, papel do arquiteto e enquadramento do problema | 25 | 15 |
-| 2 | Qualidade em software, atributo de qualidade e tipos de requisito | 25 | 15 |
-| 3 | Cenários de atributos de qualidade e significância arquitetural | 25 | 15 |
-| 4 | Estilos arquiteturais e sua relação com atributo de qualidade | 25 | 15 |
+| 1 | Arquitetura de soluções e arquitetura de software | 25 | 15 |
+| 2 | A solução como sistema e seus componentes | 25 | 15 |
+| 3 | O papel do arquiteto de solução | 25 | 15 |
+| 4 | O processo de definição da arquitetura | 25 | 15 |
 
 Os quatro blocos somam 160 minutos. Os 15 minutos restantes do tempo útil de 175 minutos cobrem abertura, transições e fechamento.
 
 ## Roteiro da aula
 
-O [bloco 1](bloco-1-arquitetura-e-papel-do-arquiteto.md) expõe o conceito de arquitetura de software e o papel do arquiteto. O exercício desse bloco parte do dossiê da instituição fictícia ACME, caso corporativo usado em toda a disciplina, e pede a identificação do que a instituição quer, quem decide e quais restrições chegam fechadas ao arquiteto. O produto desse exercício é uma leitura estruturada do contexto de decisão, sem artefato formal que alimente o bloco seguinte.
+O [bloco 1](bloco-1-arquitetura-de-solucoes-e-de-software.md) estabelece a distinção que organiza a disciplina inteira, entre arquitetura corporativa, de solução e de software, com o critério de granularidade que diz a quem pertence cada decisão. O exercício classifica nove decisões do caso da instituição fictícia ACME nos três níveis. O produto é uma leitura estruturada de autoridade sobre decisão, sem artefato formal que alimente o bloco seguinte.
 
-O [bloco 2](bloco-2-qualidade-e-tipos-de-requisito.md) expõe o conceito de qualidade em software e distingue requisito funcional, requisito não funcional, requisito de atributo de qualidade e restrição, mostrando por que o rótulo não funcional é ponto de partida e não destino. Apresenta também as doze dimensões de preocupação que servem de lista de verificação contra omissão no levantamento. O exercício classifica as declarações da ACME nas três categorias de trabalho e reescreve duas delas em forma mensurável. As reescritas mensuráveis produzidas aqui alimentam o bloco 3, porque um cenário de atributo de qualidade parte de um requisito já expresso de forma verificável.
+O [bloco 2](bloco-2-a-solucao-como-sistema.md) trata do objeto sobre o qual o arquiteto de solução trabalha, a solução vista como sistema, com os cinco tipos de componente e os três níveis em que uma organização é modelada. O exercício monta o inventário de componentes da solução que atende ao requisito de propagação de nota da ACME. Esse inventário alimenta o bloco 4, porque as fases do processo operam sobre componentes já identificados.
 
-O [bloco 3](bloco-3-cenarios-e-significancia-arquitetural.md) expõe o formato de seis elementos de um cenário de atributo de qualidade e o julgamento de significância arquitetural. O exercício escreve dois cenários para a ACME, um deles orientado pela reescrita de R2 produzida no bloco 2, e defende quais deles constituem requisito arquiteturalmente significativo. Os cenários escritos aqui alimentam o bloco 4, que compara estilos contra eles.
+O [bloco 3](bloco-3-papel-do-arquiteto-de-solucao.md) descreve o papel do arquiteto de solução, os quatro grupos de competência exigidos, as três saídas do trabalho e os sete benefícios da abordagem arquitetural. O exercício separa dez tarefas do ciclo de modernização da ACME entre arquiteto de solução, arquiteto de software e arquitetura corporativa.
 
-O [bloco 4](bloco-4-estilos-arquiteturais.md) expõe o conceito de estilo arquitetural e sua relação com atributo de qualidade. O exercício compara três estilos candidatos contra os cenários escritos no bloco 3, avaliando qual estilo atende melhor a cada cenário.
+O [bloco 4](bloco-4-processo-de-definicao-da-arquitetura.md) apresenta o ciclo de oito fases, da iniciação à conclusão, com a entrada, a atividade central e a saída de cada uma. O exercício associa dez artefatos do caso da ACME às fases correspondentes e distingue artefato de linha de base de artefato produzido no processo.
 
 A [síntese](sintese.md) fecha o módulo com o checklist do que precisa permanecer, a autoavaliação e as fontes da aula inteira.
 
 ## Preparação para a Aula 2
 
-A Aula 2 trata de plataforma arquitetural, registro de decisão de arquitetura, representação de modelos e modelagem C4 nos níveis 1 e 2. Os cenários de qualidade e o julgamento de significância arquitetural desta aula são o insumo da Aula 2, porque a escolha de plataforma e a primeira decisão registrada em ADR partem dos requisitos arquiteturalmente significativos identificados aqui. A leitura de estilo arquitetural do bloco 4 também é pré-condição, porque o nível 2 do C4 detalha os componentes internos de um sistema já situado dentro de um estilo escolhido.
+A Aula 2 trata das entradas do processo, dos requisitos e das partes interessadas, que correspondem à fase de descoberta apresentada no bloco 4 desta aula. A distinção de granularidade do bloco 1 é pré-condição, porque separar requisito de solução de requisito de software depende dela. O inventário de componentes do bloco 2 também é insumo, porque cada tipo de componente gera exigências próprias que aparecem no levantamento.

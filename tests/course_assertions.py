@@ -5,16 +5,16 @@ DOCS = ROOT / "docs"
 
 MODULES = (
     "modulo-1-fundamentos",
-    "modulo-2-plataforma-e-modelos",
-    "modulo-3-descoberta-e-riscos",
-    "modulo-4-dados-e-seguranca",
-    "modulo-5-blueprint-e-trm",
-    "modulo-6-evolucao-e-governanca",
+    "modulo-2-requisitos-e-partes-interessadas",
+    "modulo-3-design-e-padroes",
+    "modulo-4-protocolos-e-representacao",
+    "modulo-5-frameworks-e-tecnologias",
+    "modulo-6-lacunas-e-governanca",
 )
 
 BLOCK_PAGES = (
-    "bloco-1-arquitetura-e-papel-do-arquiteto",
-    "bloco-2-qualidade-e-tipos-de-requisito",
-    "bloco-3-cenarios-e-significancia-arquitetural",
-    "bloco-4-estilos-arquiteturais",
+    "bloco-1-arquitetura-de-solucoes-e-de-software",
+    "bloco-2-a-solucao-como-sistema",
+    "bloco-3-papel-do-arquiteto-de-solucao",
+    "bloco-4-processo-de-definicao-da-arquitetura",
 )

@@ -6,74 +6,74 @@ As datas de cada oferta não aparecem aqui. Elas são divulgadas pela instituiç
 
 ## Sequência das aulas
 
-As duas primeiras aulas estabelecem os fundamentos e as duas decisões maiores, estilo e plataforma. As quatro seguintes percorrem os domínios da arquitetura e fecham no que permanece incerto.
+As duas primeiras aulas enquadram o problema, com a disciplina e seu processo, depois as entradas, os requisitos e as partes interessadas. As quatro seguintes percorrem o desenho, a tecnologia e a entrega.
 
 | Aula | Tema |
 | --- | --- |
-| 1 | Arquitetura, papel do arquiteto, atributos de qualidade, cenários de significância arquitetural e estilos arquiteturais |
-| 2 | Registro de decisão arquitetural, plataforma arquitetural, ADR de plataforma e modelagem C4 |
-| 3 | Arquitetura de aplicação e serviços |
-| 4 | Arquitetura de integração e arquitetura de dados |
-| 5 | Arquitetura de segurança e modelo técnico de referência |
-| 6 | Mapa de riscos arquiteturais e organização de provas de conceito |
+| 1 | Arquitetura de soluções e arquitetura de software, componentes da solução, papel do arquiteto e processo de definição da arquitetura |
+| 2 | Direcionadores de mudança, requisitos e atributos de qualidade, artefatos de linha de base, restrições e partes interessadas |
+| 3 | Princípios de design, estilos arquiteturais, padrões de design e registro de decisão arquitetural |
+| 4 | Arquitetura de aplicações, dados, infraestrutura e segurança, contratos de integração e modelagem C4 |
+| 5 | Definição tecnológica, plataforma arquitetural, frameworks e modelo técnico de referência |
+| 6 | Análise de lacunas, roteiro de entrega, governança, inovação e tendências |
 
-O encadeamento das aulas 3 a 6 vai de estrutura para comunicação, depois para proteção, e termina em incerteza. A Aula 3 recorta o sistema em serviços. A Aula 4 define como esses serviços conversam e quem é dono de cada dado. A Aula 5 define como o conjunto se protege e com que tecnologias. A Aula 6 identifica o que ainda não se sabe e organiza os experimentos que respondem a isso.
+O encadeamento vai do enquadramento ao desenho, do desenho à tecnologia, e da tecnologia à entrega governada. A Aula 1 estabelece de que disciplina se trata e por qual processo ela opera. A Aula 2 reúne tudo o que entra antes de qualquer alternativa. A Aula 3 escolhe a forma estrutural e registra a escolha. A Aula 4 trata do que a solução precisa respeitar para se integrar e de como ela é representada. A Aula 5 converte o desenho lógico em tecnologia. A Aula 6 compara a situação atual com a pretendida e organiza a entrega.
 
 ## Blocos de cada aula
 
-### Aula 1, fundamentos
+### Aula 1, arquitetura de soluções e seu processo
 
 | Bloco | Tema | Exercício |
 | --- | --- | --- |
-| 1 | Arquitetura e papel do arquiteto | 1 |
-| 2 | Qualidade e tipos de requisito | 2 |
-| 3 | Cenários e significância arquitetural | 3 |
-| 4 | Estilos arquiteturais | 4 |
+| 1 | Arquitetura de soluções e arquitetura de software | 1 |
+| 2 | A solução como sistema e seus componentes | 2 |
+| 3 | O papel do arquiteto de solução | 3 |
+| 4 | O processo de definição da arquitetura | 4 |
 
-### Aula 2, plataforma e modelos
-
-| Bloco | Tema | Exercício |
-| --- | --- | --- |
-| 1 | Registro de decisão arquitetural | 5 |
-| 2 | Plataforma arquitetural | 6 |
-| 3 | ADR de plataforma | 7 |
-| 4 | Representação de modelos e C4, níveis de contexto e de contêineres | 8 |
-
-### Aula 3, aplicação e serviços
+### Aula 2, entradas, requisitos e partes interessadas
 
 | Bloco | Tema | Exercício |
 | --- | --- | --- |
-| 1 | Arquitetura de aplicação, do contêiner ao componente, e a tríade de táticas | 9 |
-| 2 | Decomposição em serviços, critérios de recorte e granularidade | 10 |
-| 3 | Contrato de serviço, compatibilidade e versionamento | 11 |
-| 4 | Convivência com o legado, fachada e extração incremental | 12 |
+| 1 | Direcionadores de mudança, internos e externos | 5 |
+| 2 | Qualidade e tipos de requisito | 6 |
+| 3 | Cenários de qualidade, linha de base e restrições | 7 |
+| 4 | Partes interessadas, pontos de vista e escopo | 8 |
 
-### Aula 4, integração e dados
-
-| Bloco | Tema | Exercício |
-| --- | --- | --- |
-| 1 | Arquitetura de integração, síncrono e assíncrono, mediado e ponto a ponto | 13 |
-| 2 | Do lote ao evento, garantias de entrega, ordem e idempotência | 14 |
-| 3 | Arquitetura de dados, propriedade do dado e convivência com banco compartilhado | 15 |
-| 4 | Táticas de dados, consistência, réplica de leitura e retenção | 16 |
-
-### Aula 5, segurança e modelo técnico de referência
+### Aula 3, princípios de design e padrões
 
 | Bloco | Tema | Exercício |
 | --- | --- | --- |
-| 1 | Arquitetura de segurança, identidade, autenticação e autorização | 17 |
-| 2 | Proteção de dado e conformidade, criptografia, trilha de auditoria e residência de dados | 18 |
-| 3 | Modelo técnico de referência, a taxonomia de serviços de plataforma | 19 |
-| 4 | Montagem do modelo técnico de referência e as restrições que o moldam | 20 |
+| 1 | Princípios de design da solução e a passagem do conceitual ao lógico | 9 |
+| 2 | Estilos arquiteturais e sua relação com atributo de qualidade | 10 |
+| 3 | Padrões de design e sua relação com padrões arquiteturais | 11 |
+| 4 | Registro de decisão arquitetural, formatos Nygard e MADR | 12 |
 
-### Aula 6, riscos e provas de conceito
+### Aula 4, protocolos e representação
 
 | Bloco | Tema | Exercício |
 | --- | --- | --- |
-| 1 | Risco arquitetural, identificação e classificação | 21 |
-| 2 | Plano de resposta a risco | 22 |
-| 3 | Prova de conceito, a pergunta delimitada e o critério de sucesso | 23 |
-| 4 | Organização e encerramento de provas de conceito | 24 |
+| 1 | Arquitetura de aplicações e de dados na solução, com propriedade do dado | 13 |
+| 2 | Arquitetura de infraestrutura e segurança fim a fim | 14 |
+| 3 | Padrão, protocolo e especificação, e o contrato de integração | 15 |
+| 4 | Representação de modelos e C4, níveis de contexto e de contêineres | 16 |
+
+### Aula 5, frameworks e tecnologias
+
+| Bloco | Tema | Exercício |
+| --- | --- | --- |
+| 1 | Definição tecnológica, do bloco de construção ao serviço de infraestrutura | 17 |
+| 2 | Plataforma arquitetural, frameworks e dependência de fornecedor | 18 |
+| 3 | Modelo técnico de referência e a taxonomia de serviços de plataforma | 19 |
+| 4 | ADR de plataforma e lacunas na provisão de serviços | 20 |
+
+### Aula 6, lacunas, roteiro e governança
+
+| Bloco | Tema | Exercício |
+| --- | --- | --- |
+| 1 | Análise de lacunas, método, entradas e saídas | 21 |
+| 2 | Roteiro de entrega, ondas e frentes de trabalho | 22 |
+| 3 | Governança, autoridade de projeto, níveis de serviço e sustentação | 23 |
+| 4 | Inovação em soluções tecnológicas e tendências | 24 |
 
 ## Avaliação
 
