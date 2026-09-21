@@ -1,4 +1,5 @@
 site_name: Projeto e Inovação em Arquitetura de Soluções
+site_url: https://aulas-marco.github.io/projeto-arquitetura-software/
 site_description: Material de disciplina de pós-graduação em projeto e inovação em arquitetura de soluções, em seis aulas síncronas
 use_directory_urls: true
 exclude_docs: |
@@ -20,6 +21,25 @@ theme:
     - navigation.footer
     - content.code.copy
     - search.suggest
+
+plugins:
+  - search
+  - redirects:
+      redirect_maps:
+        modulo-1-fundamentos/bloco-1-arquitetura-e-papel-do-arquiteto.md: modulo-1-fundamentos/bloco-1-arquitetura-de-solucoes-e-de-software.md
+        modulo-1-fundamentos/bloco-2-qualidade-e-tipos-de-requisito.md: modulo-2-requisitos-e-partes-interessadas/bloco-2-qualidade-e-tipos-de-requisito.md
+        modulo-1-fundamentos/bloco-3-cenarios-e-significancia-arquitetural.md: modulo-2-requisitos-e-partes-interessadas/bloco-3-cenarios-linha-de-base-e-restricoes.md
+        modulo-1-fundamentos/bloco-4-estilos-arquiteturais.md: modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md
+        modulo-2-plataforma-e-modelos/index.md: modulo-2-requisitos-e-partes-interessadas/index.md
+        modulo-2-plataforma-e-modelos/sintese.md: modulo-2-requisitos-e-partes-interessadas/sintese.md
+        modulo-2-plataforma-e-modelos/bloco-1-registro-de-decisao-arquitetural.md: modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md
+        modulo-2-plataforma-e-modelos/bloco-2-plataforma-arquitetural.md: modulo-5-frameworks-e-tecnologias/bloco-2-plataforma-arquitetural.md
+        modulo-2-plataforma-e-modelos/bloco-3-adr-de-plataforma.md: modulo-5-frameworks-e-tecnologias/bloco-4-adr-de-plataforma.md
+        modulo-2-plataforma-e-modelos/bloco-4-representacao-de-modelos-e-c4.md: modulo-4-protocolos-e-representacao/bloco-4-representacao-de-modelos-e-c4.md
+        modulo-3-aplicacao-e-servicos/index.md: modulo-3-design-e-padroes/index.md
+        modulo-4-integracao-e-dados/index.md: modulo-4-protocolos-e-representacao/index.md
+        modulo-5-seguranca-e-trm/index.md: modulo-5-frameworks-e-tecnologias/index.md
+        modulo-6-riscos-e-provas-de-conceito/index.md: modulo-6-lacunas-e-governanca/index.md
 
 extra_css:
   - assets/stylesheets/extra.css
