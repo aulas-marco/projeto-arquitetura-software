@@ -27,9 +27,13 @@ MODULES = (
 # Secoes do site que nao sao modulos de aula, mas que --module aceita filtrar
 EXTRA_SECTIONS = ("caso-acme", "referencia")
 
+# A secao de conceito aceita titulo livre, para que cada bloco possa nomear
+# o proprio assunto. As demais sao verificadas pelo nome exato.
+CONCEPT_SECTION = "Conceito"
+
 BLOCK_SECTIONS = (
     "Antes de começar",
-    "Conceito",
+    CONCEPT_SECTION,
     "Uso pelo arquiteto",
     "Exercício",
     "Fontes",
@@ -157,6 +161,26 @@ def check_headings(path: Path, prose: list[tuple[int, str]]) -> list[str]:
     return offenders
 
 
+def _find_concept_section(text: str) -> re.Match | None:
+    """Localiza a secao de conceito, cujo titulo e livre.
+
+    E o primeiro cabecalho de nivel 2 depois de "Antes de comecar" que nao
+    seja uma das outras secoes nomeadas da anatomia. Assim o autor pode
+    chamar a secao de "Conceito" ou de algo especifico do bloco.
+    """
+    abertura = re.search(r"^##\s+Antes de começar", text, re.MULTILINE)
+    if abertura is None:
+        return None
+    nomeadas = ("Uso pelo arquiteto", "Exercício", "Exercicio", "Fontes")
+    for titulo in re.finditer(r"^##\s+(.+?)\s*$", text, re.MULTILINE):
+        if titulo.start() <= abertura.start():
+            continue
+        if any(titulo.group(1).startswith(nome) for nome in nomeadas):
+            return None
+        return titulo
+    return None
+
+
 def check_block_anatomy(path: Path, text: str) -> list[str]:
     """Paginas de bloco precisam das cinco secoes nomeadas, na ordem.
 
@@ -169,6 +193,8 @@ def check_block_anatomy(path: Path, text: str) -> list[str]:
     for section in BLOCK_SECTIONS:
         if section == "Exercício":
             match = re.search(r"^##\s+Exerc[ií]cio\s+\d+\s*$", text, re.MULTILINE)
+        elif section == CONCEPT_SECTION:
+            match = _find_concept_section(text)
         else:
             match = re.search(rf"^##\s+{re.escape(section)}", text, re.MULTILINE)
         if match is None:

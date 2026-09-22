@@ -339,11 +339,11 @@ class ContentContractTest(unittest.TestCase):
         offender = DOCS / "modulo-1-fundamentos" / "bloco-teste-fora-de-ordem.md"
         offender.write_text(
             "# Bloco teste\n\n"
-            "## Conceito\n\nTexto.\n\n"
             "## Antes de começar\n\nTexto.\n\n"
+            "## Conceito\n\nTexto.\n\n"
+            "## Fontes\n\nTexto.\n\n"
             "## Uso pelo arquiteto\n\nTexto.\n\n"
-            "## Exercício 1\n\nTexto.\n\n"
-            "## Fontes\n\nTexto.\n",
+            "## Exercício 1\n\nTexto.\n",
             encoding="utf-8",
         )
         try:
@@ -355,6 +355,27 @@ class ContentContractTest(unittest.TestCase):
             self.assertIn("fora da ordem", result.stdout)
         finally:
             offender.unlink()
+
+    def test_validator_accepts_free_title_in_the_concept_section(self):
+        """A secao de conceito pode ter titulo proprio do bloco."""
+        allowed = DOCS / "modulo-1-fundamentos" / "bloco-teste-titulo-livre.md"
+        allowed.write_text(
+            "# Bloco teste\n\n"
+            "## Antes de começar\n\nTexto.\n\n"
+            "## O que é arquitetura de solução?\n\nTexto.\n\n"
+            "## Uso pelo arquiteto\n\nTexto.\n\n"
+            "## Exercício 1\n\nTexto.\n\n"
+            "## Fontes\n\nTexto.\n",
+            encoding="utf-8",
+        )
+        try:
+            result = subprocess.run(
+                ["python3", "scripts/validate_content.py"],
+                cwd=ROOT, text=True, capture_output=True,
+            )
+            self.assertNotIn("bloco-teste-titulo-livre", result.stdout)
+        finally:
+            allowed.unlink()
 
     def test_validator_catches_nonexistent_anchor(self):
         offender = ROOT / "docs" / "_teste_ancora_quebrada.md"

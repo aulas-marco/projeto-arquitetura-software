@@ -9,7 +9,7 @@ Este bloco abre a aula respondendo a uma pergunta prática, como registrar uma d
 
 ## Conceito
 
-A distinção entre decisão de arquitetura de solução e decisão de arquitetura de software já foi estabelecida na seção Conceito do [bloco 1 da Aula 1](../modulo-1-fundamentos/bloco-1-arquitetura-de-solucoes-e-de-software.md#conceito). Este bloco parte dessa distinção para tratar de como registrar uma decisão de forma rastreável.
+A distinção entre decisão de arquitetura de solução e decisão de arquitetura de software já foi estabelecida no [bloco 1 da Aula 1](../modulo-1-fundamentos/bloco-1-arquitetura-de-solucoes-e-de-software.md#o-que-e-arquitetura-de-solucao). Este bloco parte dessa distinção para tratar de como registrar uma decisão de forma rastreável.
 
 Decisões arquiteturais são aquelas que afetam a estrutura, as características não funcionais, as dependências, as interfaces ou as técnicas de construção do sistema. A definição é operacional, ela permite separar o que merece registro do que não merece sem recorrer a julgamento de importância. Escolher a fronteira entre dois módulos é decisão arquitetural. Escolher o formatador de código do projeto não é.
 
