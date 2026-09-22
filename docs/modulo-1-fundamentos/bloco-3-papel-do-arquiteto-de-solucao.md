@@ -13,15 +13,10 @@ Este bloco descreve o que o arquiteto de solução faz, quais competências o pa
 
 <figure markdown="span">
 ![Infográfico panorâmico do papel do arquiteto de solução. À esquerda, os conceitos de partida e as três saídas do trabalho, desenho da solução, roteiro de entrega e estimativa de custo, com os tipos de artefato, entradas, produtos intermediários e entregáveis. Ao centro, o ciclo numerado das sete atividades, de organizar o processo a governar a implementação. À direita, os quatro grupos de competência, negócio, técnico, entrega e prático, e a lista dos sete benefícios da abordagem, de visão do todo a resolução precoce de conflito e duplicação.](../assets/images/modulo-1-papel-arquiteto-panorama.png){ .module-diagram }
-<figcaption>Figura 1. Panorama do bloco, com as atividades, as competências, as saídas do trabalho e os sete benefícios da abordagem arquitetural.</figcaption>
+<figcaption>Panorama do bloco, com as atividades, as competências, as saídas do trabalho e os sete benefícios da abordagem arquitetural.</figcaption>
 </figure>
 
 O infográfico reúne, em uma página, o conteúdo que as seções seguintes desenvolvem, e serve tanto de mapa de leitura antes do estudo quanto de material de revisão depois dele. O ciclo central numerado de 1 a 7 corresponde às atividades descritas no próximo parágrafo, e a coluna da direita corresponde às competências e aos benefícios tratados nas duas seções finais.
-
-<figure markdown="span">
-![Mapa de responsabilidade das tarefas T1 a T10 da ACME, organizado pelos eixos negócio e tecnologia, especificação e implementação. O mapa distingue arquiteto de solução, arquiteto de software, equipe de desenvolvimento e arquitetura corporativa.](../assets/images/modulo-1-papel-arquiteto.svg){ .module-diagram }
-<figcaption>Figura 2. Distribuição das tarefas T1 a T10 da ACME entre arquiteto de solução, arquiteto de software, equipe de desenvolvimento e arquitetura corporativa.</figcaption>
-</figure>
 
 Cada solução proposta costuma ser responsabilidade de um único arquiteto de solução. Problemas grandes demais são decompostos em áreas de tamanho realista, cada uma conduzida por um arquiteto, com a coordenação do conjunto a cargo de um arquiteto sênior. O risco de aceitar uma área de problema grande demais é ela não poder ser resolvida como unidade.
 

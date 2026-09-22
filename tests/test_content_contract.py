@@ -29,14 +29,17 @@ class ContentContractTest(unittest.TestCase):
                     self.assertIn(term, image)
 
     def test_module_one_pages_have_descriptive_illustrations(self):
-        """Cada página da Aula 1 deve conter ao menos um diagrama local com alt text."""
+        """Cada página da Aula 1 deve conter ao menos uma figura local com alt text.
+
+        A figura pode ser diagrama em SVG ou infográfico em PNG.
+        """
         module = DOCS / "modulo-1-fundamentos"
         for page in sorted(module.glob("*.md")):
             with self.subTest(page=page.name):
                 text = page.read_text(encoding="utf-8")
                 self.assertRegex(
                     text,
-                    r"!\[[^\]]+\]\(\.\./assets/images/modulo-1-[^)]+\.svg\)",
+                    r"!\[[^\]]+\]\(\.\./assets/images/modulo-1-[^)]+\.(svg|png)\)",
                 )
 
     def test_block_one_includes_togaf_enterprise_architecture_diagram(self):
@@ -46,14 +49,21 @@ class ContentContractTest(unittest.TestCase):
             page.read_text(encoding="utf-8"),
         )
 
-    def test_r7_figure_follows_its_case_context(self):
-        """O diagrama R7 só faz sentido depois de o requisito ter sido apresentado."""
-        page = DOCS / "modulo-1-fundamentos" / "bloco-2-a-solucao-como-sistema.md"
-        text = page.read_text(encoding="utf-8")
-        self.assertLess(
-            text.index("registrado como R7 no dossiê do caso"),
-            text.index("../assets/images/modulo-1-solucao-como-sistema.svg"),
-        )
+    def test_exercise_statements_do_not_show_their_own_answer(self):
+        """O enunciado nao traz a figura que resolve o exercicio.
+
+        O diagrama do R7 monta o inventario de componentes pedido no
+        Exercicio 2, e o mapa T1 a T10 distribui as tarefas pedidas no
+        Exercicio 3. Nenhum dos dois pode aparecer nas paginas.
+        """
+        casos = {
+            "bloco-2-a-solucao-como-sistema.md": "modulo-1-solucao-como-sistema.svg",
+            "bloco-3-papel-do-arquiteto-de-solucao.md": "modulo-1-papel-arquiteto.svg",
+        }
+        for nome, figura in casos.items():
+            with self.subTest(page=nome):
+                text = (DOCS / "modulo-1-fundamentos" / nome).read_text(encoding="utf-8")
+                self.assertNotIn(figura, text)
 
     def test_validator_exists_and_runs(self):
         result = subprocess.run(
