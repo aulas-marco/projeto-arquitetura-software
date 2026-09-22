@@ -11,7 +11,17 @@ Este bloco descreve o que o arquiteto de solução faz, quais competências o pa
 
 ## Conceito
 
+<figure markdown="span">
+![Infográfico panorâmico do papel do arquiteto de solução. À esquerda, os conceitos de partida e as três saídas do trabalho, desenho da solução, roteiro de entrega e estimativa de custo, com os tipos de artefato, entradas, produtos intermediários e entregáveis. Ao centro, o ciclo numerado das sete atividades, de organizar o processo a governar a implementação. À direita, os quatro grupos de competência, negócio, técnico, entrega e prático, e a lista dos sete benefícios da abordagem, de visão do todo a resolução precoce de conflito e duplicação.](../assets/images/modulo-1-papel-arquiteto-panorama.png){ .module-diagram }
+<figcaption>Figura 1. Panorama do bloco, com as atividades, as competências, as saídas do trabalho e os sete benefícios da abordagem arquitetural.</figcaption>
+</figure>
+
+O infográfico reúne, em uma página, o conteúdo que as seções seguintes desenvolvem, e serve tanto de mapa de leitura antes do estudo quanto de material de revisão depois dele. O ciclo central numerado de 1 a 7 corresponde às atividades descritas no próximo parágrafo, e a coluna da direita corresponde às competências e aos benefícios tratados nas duas seções finais.
+
+<figure markdown="span">
 ![Mapa de responsabilidade das tarefas T1 a T10 da ACME, organizado pelos eixos negócio e tecnologia, especificação e implementação. O mapa distingue arquiteto de solução, arquiteto de software, equipe de desenvolvimento e arquitetura corporativa.](../assets/images/modulo-1-papel-arquiteto.svg){ .module-diagram }
+<figcaption>Figura 2. Distribuição das tarefas T1 a T10 da ACME entre arquiteto de solução, arquiteto de software, equipe de desenvolvimento e arquitetura corporativa.</figcaption>
+</figure>
 
 Cada solução proposta costuma ser responsabilidade de um único arquiteto de solução. Problemas grandes demais são decompostos em áreas de tamanho realista, cada uma conduzida por um arquiteto, com a coordenação do conjunto a cargo de um arquiteto sênior. O risco de aceitar uma área de problema grande demais é ela não poder ser resolvida como unidade.
 
@@ -20,8 +30,6 @@ As atividades do papel começam antes de qualquer desenho. O arquiteto organiza 
 ### Competências exigidas
 
 As competências do papel distribuem-se em quatro grupos, e nenhum deles é dispensável. No grupo de **negócio** entram a estratégia da organização, o modelo operacional atual e planejado, a política interna, os fatores comerciais e de mercado e a leitura do ambiente externo. No grupo **técnico** entram a estratégia técnica, a arquitetura de infraestrutura e de tecnologia vigente e planejada, e as abordagens metodológicas de desenvolvimento. No grupo de **entrega** entram gestão de projetos, de programas e de portfólio, gestão de mudança e de configuração, e gestão de riscos. No grupo **prático** entram comunicação, gestão de partes interessadas, tratamento de requisitos, resolução de problemas, inovação e liderança.
-
-O papel se situa em dois eixos, com quatro extremidades. Um eixo vai de **negócio**, extremidade ocupada por papéis como o analista de negócio e o arquiteto de negócio, a **tecnologia**, extremidade ocupada por papéis como o engenheiro de sistemas e o arquiteto de infraestrutura. O outro eixo vai de **especificação**, que responde à necessidade de negócio produzindo o plano da solução, a **implementação**, que entrega a mudança equilibrando custo, recurso, risco e prazo. O arquiteto de solução fica mais próximo das extremidades de negócio e de especificação, e o arquiteto técnico fica mais próximo das extremidades de tecnologia e de implementação.
 
 ### O que o trabalho entrega
 

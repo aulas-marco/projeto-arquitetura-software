@@ -18,6 +18,13 @@ A arquitetura de solução trata a solução como um sistema, com partes que int
 
 Uma organização pode ser modelada em três níveis encaixados. O **sistema de negócio** é a organização, ou uma unidade dela, tratada como sistema, com estrutura e comportamento próprios, que oferece serviços a clientes e parceiros por interfaces externas. O **sistema de informação** é um híbrido de processos conduzidos por pessoas e sistemas computacionais que gerencia a informação do negócio, e pode incluir atividades manuais. O **sistema de TI** é a combinação de equipamento e software que trata dados e informação dentro do contexto de um sistema de informação.
 
+<figure markdown="span">
+![Infográfico dos três níveis de uma organização, representados como elipses encaixadas. A externa é o sistema de negócio, a organização que oferece serviços a clientes, que recebem serviços e geram demandas, e a parceiros, que colaboram e integram serviços. A intermediária é o sistema de informação, com a sequência pessoas, processos, informação e sistemas de informação. A interna é o sistema de TI, com equipamentos e software. Um eixo à esquerda vai do mais estratégico ao mais técnico, e a coluna à direita define cada nível e traz exemplos.](../assets/images/modulo-1-tres-niveis-organizacao.png){ .module-diagram }
+<figcaption>Figura 1. Os três sistemas encaixados que modelam uma organização, com a definição e exemplos de cada nível na coluna à direita.</figcaption>
+</figure>
+
+O encaixe das elipses é a informação principal do infográfico, porque cada nível se apoia no nível interno para entregar valor e nenhum deles é avaliado isoladamente. O eixo vertical à esquerda indica que o nível externo concentra as decisões de alcance estratégico e o interno concentra as decisões técnicas, e o parágrafo seguinte instancia os três níveis no processo de matrícula da ACME.
+
 Na ACME, universidade privada brasileira fictícia com 38.400 alunos ativos e sistema acadêmico em operação desde 2004, a matrícula ilustra os três níveis. O sistema de negócio é o processo acadêmico de alocar alunos em turmas a cada semestre, com regras de pré-requisito, limite de vagas e prazos definidos pelo calendário. O sistema de informação abrange a orientação prestada pelo coordenador de curso, a conferência manual feita pela Secretaria Acadêmica nos casos de aproveitamento de disciplina e os registros que circulam entre essas pessoas. O sistema de TI é o portal do aluno, o núcleo em COBOL que calcula a situação do aluno e as integrações com o ambiente virtual de aprendizagem e com o ERP financeiro.
 
 A arquitetura de solução ocupa-se de soluções que são sistemas de negócio contendo dentro de si sistemas de informação e sistemas de TI. Algumas soluções têm como foco um sistema de informação ou de TI novo ou modificado, e é raro que não haja envolvimento ou impacto mais amplo do negócio.
@@ -56,7 +63,10 @@ A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativo
 
 A Coordenação de Educação a Distância declarou o seguinte requisito, registrado como R7 no dossiê do caso: a nota lançada pelo professor chega ao ambiente virtual de aprendizagem em até 10 minutos. Hoje essa propagação ocorre por lote diário noturno, o que gera reclamação de aluno a cada fechamento. O ambiente virtual permanece em operação e não será substituído, por decisão da Reitoria de 12/03/2026, e o plano contratado do fornecedor que oferece interfaces de programação custa 38% a mais que o plano vigente.
 
+<figure markdown="span">
 ![Diagrama antes e depois do requisito R7 da ACME. A propagação de nota deixa o lote diário e passa a usar evento, mensageria e confirmação em até 10 minutos, com mudanças explícitas em pessoas, estrutura, processo, informação e tecnologia.](../assets/images/modulo-1-solucao-como-sistema.svg){ .module-diagram }
+<figcaption>Figura 2. Situação atual e situação desejada do requisito R7, com as mudanças exigidas em cada um dos cinco tipos de componente.</figcaption>
+</figure>
 
 Responda às três perguntas abaixo.
 
