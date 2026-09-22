@@ -2,7 +2,7 @@
 
 Esta página fecha o módulo de abertura com o que precisa permanecer depois da aula, uma autoavaliação e as fontes usadas nos quatro blocos.
 
-![Mapa conceitual que conecta os quatro fundamentos da aula, escopo da decisão, solução como sistema, papel do arquiteto e processo, ao resultado de uma solução implementável.](../assets/images/modulo-1-sintese-fundamentos.svg){ .module-diagram }
+![Roteiro de recuperação da Aula 1 pelo caso ACME. A sequência parte de classificar D1 a D3, desenhar a solução para R7, atribuir T1 a T10 e situar A1 a A10 no processo.](../assets/images/modulo-1-sintese-fundamentos.svg){ .module-diagram }
 
 ## Checklist do que precisa permanecer
 

@@ -11,7 +11,7 @@ Este bloco descreve o que o arquiteto de solução faz, quais competências o pa
 
 ## Conceito
 
-![Diagrama do papel do arquiteto de solução. Necessidade, partes interessadas e restrições entram no trabalho de arquitetura, que produz desenho implementável, roteiro de entrega e estimativa de mudança, apoiado por competências de negócio, técnica, entrega e prática.](../assets/images/modulo-1-papel-arquiteto.svg){ .module-diagram }
+![Mapa de responsabilidade das tarefas T1 a T10 da ACME, organizado pelos eixos negócio e tecnologia, especificação e implementação. O mapa distingue arquiteto de solução, arquiteto de software, equipe de desenvolvimento e arquitetura corporativa.](../assets/images/modulo-1-papel-arquiteto.svg){ .module-diagram }
 
 Cada solução proposta costuma ser responsabilidade de um único arquiteto de solução. Problemas grandes demais são decompostos em áreas de tamanho realista, cada uma conduzida por um arquiteto, com a coordenação do conjunto a cargo de um arquiteto sênior. O risco de aceitar uma área de problema grande demais é ela não poder ser resolvida como unidade.
 

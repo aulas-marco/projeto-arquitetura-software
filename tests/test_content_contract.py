@@ -7,6 +7,27 @@ DOCS = ROOT / "docs"
 
 
 class ContentContractTest(unittest.TestCase):
+    def test_module_one_visuals_are_anchored_in_the_acme_case(self):
+        """As figuras da Aula 1 precisam ensinar usando conceitos e artefatos do caso."""
+        expected_terms = {
+            "modulo-1-visao-da-solucao.svg": ("ACME", "Escopo", "Processo"),
+            "modulo-1-arquitetura-corporativa-togaf.svg": (
+                "TOGAF", "D1", "transversal", "Arquitetura de solução · D2",
+                "Arquitetura de software · D3",
+            ),
+            "modulo-1-solucao-como-sistema.svg": (
+                "R7", "lote diário", "10 minutos", "AVA", "Confirmação",
+            ),
+            "modulo-1-papel-arquiteto.svg": ("T1", "T10", "Tecnologia"),
+            "modulo-1-processo-definicao-arquitetura.svg": ("A1", "A10", "Linha de base"),
+            "modulo-1-sintese-fundamentos.svg": ("ACME", "R7", "A1"),
+        }
+        for filename, terms in expected_terms.items():
+            with self.subTest(image=filename):
+                image = (DOCS / "assets" / "images" / filename).read_text(encoding="utf-8")
+                for term in terms:
+                    self.assertIn(term, image)
+
     def test_module_one_pages_have_descriptive_illustrations(self):
         """Cada página da Aula 1 deve conter ao menos um diagrama local com alt text."""
         module = DOCS / "modulo-1-fundamentos"

@@ -21,15 +21,13 @@ Arquitetura, nesse enquadramento, é a estrutura e o comportamento inerentes de 
 
 As duas definições não se contradizem, e a diferença entre elas está no alcance. Uma solução resolve um problema de negócio e depende de pessoas, estruturas organizacionais, processos, informação e tecnologia, os cinco tipos de componente que o arquiteto de solução usa como lista de verificação. O software é um desses componentes. Uma solução que troque um formulário em papel por um aplicativo, sem mudar quem aprova o pedido nem o prazo do processo, não resolveu o problema de negócio, ainda que o software esteja bem construído.
 
-![Diagrama com três escopos encaixados. A arquitetura corporativa governa a organização inteira, a arquitetura de solução organiza uma mudança completa e a arquitetura de software detalha um componente, cada qual com seu tipo de decisão.](../assets/images/modulo-1-granularidade-arquitetural.svg){ .module-diagram }
-
 ### Granularidade da arquitetura
 
 A distinção operacional entre as disciplinas está na granularidade. A **arquitetura corporativa** opera no nível mais alto e emite diretrizes, políticas e princípios válidos para a organização inteira, necessariamente generalizados, organizados nos domínios de negócio, aplicações, dados, infraestrutura e segurança. A **arquitetura de solução** opera no nível intermediário, responde por uma solução inteira e se sobrepõe a três desses domínios, negócio, dados e aplicações, refinando o que a arquitetura corporativa definiu e acrescentando o detalhe que só interessa àquela solução. A **arquitetura de software** opera no nível mais específico e projeta os componentes de software que fazem parte de uma solução ou que prestam um serviço de infraestrutura.
 
-![Diagrama didático de arquitetura corporativa alinhado ao TOGAF. A visão de arquitetura e a gestão contínua de requisitos orientam os domínios de negócio, dados, aplicações e tecnologia, cujas diretrizes são refinadas pela arquitetura de solução.](../assets/images/modulo-1-arquitetura-corporativa-togaf.svg){ .module-diagram }
+![Diagrama técnico da ACME alinhado ao TOGAF. Os domínios corporativos de negócio, dados, aplicações e tecnologia estabelecem diretrizes. A decisão corporativa D1 é refinada na decisão de solução D2 e orienta a decisão de software D3.](../assets/images/modulo-1-arquitetura-corporativa-togaf.svg){ .module-diagram }
 
-O diagrama adota os quatro domínios de arquitetura usados pelo TOGAF e mostra a visão de arquitetura e a gestão de requisitos como elementos contínuos do método. Ele é uma leitura didática, não uma reprodução de notação oficial do framework.
+O diagrama adota os quatro domínios de arquitetura usados pelo TOGAF para explicitar o caminho de uma diretriz corporativa até uma decisão de componente. Ele é uma leitura didática, não uma reprodução de notação oficial do framework.
 
 A tabela abaixo situa as três disciplinas no caso usado em todo o curso. A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, cujo sistema acadêmico entrou em operação em 2004 e sustenta matrícula, avaliação, emissão de documentos e integração financeira, hoje em processo de modernização.
 

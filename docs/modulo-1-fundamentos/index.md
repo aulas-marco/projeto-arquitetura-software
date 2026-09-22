@@ -2,7 +2,7 @@
 
 A aula responde à seguinte questão: o que distingue a arquitetura de soluções da arquitetura de software, sobre que objeto o arquiteto de solução trabalha, o que o papel exige e por qual processo uma solução é definida.
 
-![Diagrama de uma solução completa em que uma necessidade de negócio é atendida pela interação entre pessoas, estrutura organizacional, processos, informação e tecnologia, culminando em resultado percebido pelo aluno.](../assets/images/modulo-1-visao-da-solucao.svg){ .module-diagram }
+![Atlas visual da modernização da ACME. O requisito R7 é analisado em quatro lentes conectadas, escopo das decisões D1 a D3, solução como sistema, responsabilidades T1 a T10 e processo com artefatos A1 a A10.](../assets/images/modulo-1-visao-da-solucao.svg){ .module-diagram }
 
 ## Objetivos de aprendizagem
 

@@ -12,7 +12,7 @@ Este bloco trata do objeto sobre o qual o arquiteto de solução trabalha, a sol
 
 Uma solução atende a um problema, um risco ou uma oportunidade da organização. Com o tempo, as soluções implantadas deixam de ser reconhecíveis como tais e passam a fazer parte do tecido da instituição, de modo que uma solução nova quase sempre substitui ou modifica uma solução anterior, mesmo quando ninguém a chamou assim na época.
 
-![Diagrama de três níveis encaixados. O sistema de negócio contém o sistema de informação, que contém o sistema de TI. Um fluxo de nota é apoiado por uma lista de verificação de pessoas, estruturas, processos, informação e tecnologia.](../assets/images/modulo-1-solucao-como-sistema.svg){ .module-diagram }
+![Diagrama antes e depois do requisito R7 da ACME. A propagação de nota deixa o lote diário e passa a usar evento, mensageria e confirmação em até 10 minutos, com mudanças explícitas em pessoas, estrutura, processo, informação e tecnologia.](../assets/images/modulo-1-solucao-como-sistema.svg){ .module-diagram }
 
 A arquitetura de solução trata a solução como um sistema, com partes que interagem para produzir o comportamento exigido. As partes podem ser novas ou já existentes, podem ser compartilhadas com outras soluções, e interagem por interfaces nas quais informação é trocada. Essa leitura tem uma consequência direta: uma solução não é avaliada pela qualidade isolada de cada parte, e sim pelo comportamento que o conjunto produz.
 

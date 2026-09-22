@@ -13,7 +13,7 @@ Este bloco apresenta o ciclo de vida de oito fases que organiza o trabalho de ar
 
 Produzir um desenho de solução completo e realista a partir apenas de uma ideia inicial exige trabalho organizado. O processo adotado no curso organiza esse trabalho em oito fases sequenciais, cada uma construída sobre as saídas das anteriores. O ponto de partida é o conceito de solução, a ideia de que uma solução é necessária. Alguns dos artefatos usados no percurso já existem e descrevem a situação atual, e são chamados de artefatos de linha de base, guardados no repositório de arquitetura corporativa. O processo modifica parte deles, cria outros, e devolve as versões finais a esse repositório.
 
-![Diagrama sequencial das oito fases do processo de definição da arquitetura, de iniciação a conclusão, com a passagem de artefatos e decisões de continuidade entre as fases.](../assets/images/modulo-1-processo-definicao-arquitetura.svg){ .module-diagram }
+![Diagrama das oito fases do processo ligado aos artefatos A1 a A10 da ACME. A9 autoriza a iniciação, A1, A2 e A4 formam linha de base, A7 organiza o roteiro e A10 registra a solução implantada.](../assets/images/modulo-1-processo-definicao-arquitetura.svg){ .module-diagram }
 
 O ciclo não é obrigatoriamente percorrido até o fim. Durante qualquer fase, ou ao término dela, é legítimo abandonar o processo quando nenhuma solução aceitável for encontrada. Mais comum que o abandono é a mudança de escopo, que pode ser reduzido quando apenas parte do problema tem solução viável, ou ampliado para incluir áreas do negócio que estavam fora do recorte inicial.
 
