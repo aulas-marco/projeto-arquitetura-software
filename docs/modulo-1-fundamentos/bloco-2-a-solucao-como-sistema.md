@@ -12,8 +12,6 @@ Este bloco trata do objeto sobre o qual o arquiteto de solução trabalha, a sol
 
 Uma solução atende a um problema, um risco ou uma oportunidade da organização. Com o tempo, as soluções implantadas deixam de ser reconhecíveis como tais e passam a fazer parte do tecido da instituição, de modo que uma solução nova quase sempre substitui ou modifica uma solução anterior, mesmo quando ninguém a chamou assim na época.
 
-![Diagrama antes e depois do requisito R7 da ACME. A propagação de nota deixa o lote diário e passa a usar evento, mensageria e confirmação em até 10 minutos, com mudanças explícitas em pessoas, estrutura, processo, informação e tecnologia.](../assets/images/modulo-1-solucao-como-sistema.svg){ .module-diagram }
-
 A arquitetura de solução trata a solução como um sistema, com partes que interagem para produzir o comportamento exigido. As partes podem ser novas ou já existentes, podem ser compartilhadas com outras soluções, e interagem por interfaces nas quais informação é trocada. Essa leitura tem uma consequência direta: uma solução não é avaliada pela qualidade isolada de cada parte, e sim pelo comportamento que o conjunto produz.
 
 ### Os três níveis de uma organização
@@ -57,6 +55,8 @@ Os três níveis servem para situar o alcance do que está sendo desenhado e par
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, dos quais 10.200 na graduação a distância, 2.150 professores e 4 campi em 3 cidades. O sistema acadêmico está em operação desde 2004 e sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro.
 
 A Coordenação de Educação a Distância declarou o seguinte requisito, registrado como R7 no dossiê do caso: a nota lançada pelo professor chega ao ambiente virtual de aprendizagem em até 10 minutos. Hoje essa propagação ocorre por lote diário noturno, o que gera reclamação de aluno a cada fechamento. O ambiente virtual permanece em operação e não será substituído, por decisão da Reitoria de 12/03/2026, e o plano contratado do fornecedor que oferece interfaces de programação custa 38% a mais que o plano vigente.
+
+![Diagrama antes e depois do requisito R7 da ACME. A propagação de nota deixa o lote diário e passa a usar evento, mensageria e confirmação em até 10 minutos, com mudanças explícitas em pessoas, estrutura, processo, informação e tecnologia.](../assets/images/modulo-1-solucao-como-sistema.svg){ .module-diagram }
 
 Responda às três perguntas abaixo.
 

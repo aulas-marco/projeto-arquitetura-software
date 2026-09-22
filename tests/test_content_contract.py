@@ -46,6 +46,15 @@ class ContentContractTest(unittest.TestCase):
             page.read_text(encoding="utf-8"),
         )
 
+    def test_r7_figure_follows_its_case_context(self):
+        """O diagrama R7 só faz sentido depois de o requisito ter sido apresentado."""
+        page = DOCS / "modulo-1-fundamentos" / "bloco-2-a-solucao-como-sistema.md"
+        text = page.read_text(encoding="utf-8")
+        self.assertLess(
+            text.index("registrado como R7 no dossiê do caso"),
+            text.index("../assets/images/modulo-1-solucao-como-sistema.svg"),
+        )
+
     def test_validator_exists_and_runs(self):
         result = subprocess.run(
             ["python3", "scripts/validate_content.py"],
