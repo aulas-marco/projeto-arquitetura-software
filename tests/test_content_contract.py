@@ -34,7 +34,10 @@ class ContentContractTest(unittest.TestCase):
         A figura pode ser diagrama em SVG ou infográfico em PNG.
         """
         module = DOCS / "modulo-1-fundamentos"
+        # A sintese e pagina de fechamento em texto, sem figura propria.
         for page in sorted(module.glob("*.md")):
+            if page.name == "sintese.md":
+                continue
             with self.subTest(page=page.name):
                 text = page.read_text(encoding="utf-8")
                 self.assertRegex(

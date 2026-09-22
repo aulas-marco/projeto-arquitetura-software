@@ -2,8 +2,6 @@
 
 Esta página fecha o módulo de abertura com o que precisa permanecer depois da aula, uma autoavaliação e as fontes usadas nos quatro blocos.
 
-![Roteiro de recuperação da Aula 1 pelo caso ACME. A sequência parte de classificar D1 a D3, desenhar a solução para R7, atribuir T1 a T10 e situar A1 a A10 no processo.](../assets/images/modulo-1-sintese-fundamentos.svg){ .module-diagram }
-
 ## Checklist do que precisa permanecer
 
 - A definição de arquitetura de solução pela produção e pela gestão do plano de uma solução completa que atende a uma necessidade de negócio, distinta da definição de arquitetura de software pela estrutura e pelo comportamento de um sistema ou componente de software
