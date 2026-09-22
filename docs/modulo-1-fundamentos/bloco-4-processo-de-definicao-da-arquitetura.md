@@ -13,18 +13,13 @@ Este bloco apresenta o ciclo de vida de oito fases que organiza o trabalho de ar
 
 Produzir um desenho de solução completo e realista a partir apenas de uma ideia inicial exige trabalho organizado. O processo adotado no curso organiza esse trabalho em oito fases sequenciais, cada uma construída sobre as saídas das anteriores. O ponto de partida é o conceito de solução, a ideia de que uma solução é necessária. Alguns dos artefatos usados no percurso já existem e descrevem a situação atual, e são chamados de artefatos de linha de base, guardados no repositório de arquitetura corporativa. O processo modifica parte deles, cria outros, e devolve as versões finais a esse repositório.
 
-<figure markdown="span">
-![Diagrama das oito fases do processo ligado aos artefatos A1 a A10 da ACME. A9 autoriza a iniciação, A1, A2 e A4 formam linha de base, A7 organiza o roteiro e A10 registra a solução implantada.](../assets/images/modulo-1-processo-definicao-arquitetura.svg){ .module-diagram }
-<figcaption>Figura 1. As oito fases ligadas aos artefatos A1 a A10 da ACME, com indicação de quais deles são de linha de base e quais são produzidos no percurso.</figcaption>
-</figure>
-
 O ciclo não é obrigatoriamente percorrido até o fim. Durante qualquer fase, ou ao término dela, é legítimo abandonar o processo quando nenhuma solução aceitável for encontrada. Mais comum que o abandono é a mudança de escopo, que pode ser reduzido quando apenas parte do problema tem solução viável, ou ampliado para incluir áreas do negócio que estavam fora do recorte inicial.
 
 ### As oito fases
 
 <figure markdown="span">
 ![Infográfico do processo de definição da arquitetura de solução em oito fases sequenciais, iniciação, descoberta, definição do esboço da solução, análise, desenho lógico, validação, desenvolvimento do roteiro e conclusão. Cada fase traz a entrada principal, a atividade central e a saída principal. Abaixo das fases, uma seta vai da ideia inicial à solução implantada, com retorno de aprendizado e realimentação, e a observação de que o escopo pode ser revisado ou o processo encerrado em qualquer fase. Na faixa inferior, as definições de artefatos de linha de base, blocos de construção da solução e resultado do processo.](../assets/images/modulo-1-processo-oito-fases.png){ .module-diagram }
-<figcaption>Figura 2. Entrada, atividade central e saída de cada uma das oito fases, com o percurso da ideia inicial até a solução implantada.</figcaption>
+<figcaption>Entrada, atividade central e saída de cada uma das oito fases, com o percurso da ideia inicial até a solução implantada.</figcaption>
 </figure>
 
 A tabela abaixo repete o conteúdo do infográfico em texto, para consulta e para busca no site. A seta de realimentação representada na parte inferior da figura é o que distingue o processo de uma sequência rígida, e as duas observações do parágrafo seguinte, sobre abandono e mudança de escopo, descrevem quando essa realimentação se torna necessária.
