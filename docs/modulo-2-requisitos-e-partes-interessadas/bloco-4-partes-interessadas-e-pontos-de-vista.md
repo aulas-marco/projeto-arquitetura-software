@@ -13,6 +13,10 @@ Este bloco trata de quem decide sobre a solução, como essas pessoas são ident
 
 As partes interessadas são a ligação entre a solução e o negócio. Escolhidas corretamente, elas representam o negócio e decidem em seu nome, de modo que uma solução que as satisfaça é a solução que o negócio quer. A norma ISO/IEC/IEEE 42010 define parte interessada como o indivíduo, a equipe, a organização ou a classe desses que tem interesse em um sistema.
 
+<figure markdown="span">
+![Infográfico sobre partes interessadas, pontos de vista e escopo. À esquerda, as partes são agrupadas entre quem patrocina e decide, usa e opera, constrói e mantém, e regula e audita. Ao centro, o interesse da parte gera uma preocupação, que orienta um ponto de vista e resulta em uma visão. À direita, o escopo pergunta o que está dentro, o que fica fora e quais interfaces atravessam a fronteira.](../assets/images/modulo-2-partes-interessadas-pontos-vista.png){ .module-diagram }
+</figure>
+
 O critério prático de inclusão é uma lista de quatro perguntas. É parte interessada quem precisa de informação sobre a solução, quem fornece conhecimento essencial do negócio ou do domínio, quem tem autoridade sobre orçamento, recursos ou outras decisões organizacionais, e quem participa do desenho, da implementação ou da implantação.
 
 A comunicação com essas pessoas existe por quatro motivos distintos, e confundi-los gera atrito. **Informação** mantém todos cientes do andamento, em fluxo predominantemente de mão única. **Consulta** captura conhecimento de negócio, é de mão dupla e exige registro para rastrear insumo e decisão. **Prestação de contas** registra a aprovação de decisões arquiteturais por pessoas determinadas. **Responsabilidade** aloca e acompanha tarefas atribuídas a partes interessadas.

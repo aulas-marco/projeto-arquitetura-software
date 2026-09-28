@@ -1,3 +1,4 @@
+import re
 import subprocess
 import unittest
 from pathlib import Path
@@ -7,6 +8,44 @@ DOCS = ROOT / "docs"
 
 
 class ContentContractTest(unittest.TestCase):
+    def test_module_two_blocks_have_descriptive_infographics(self):
+        """Cada bloco da Aula 2 precisa de um infografico local e acessivel."""
+        module = DOCS / "modulo-2-requisitos-e-partes-interessadas"
+        expected = {
+            "bloco-1-direcionadores-de-mudanca.md": "modulo-2-direcionadores-mudanca.png",
+            "bloco-2-qualidade-e-tipos-de-requisito.md": "modulo-2-qualidade-tipos-requisito.png",
+            "bloco-3-cenarios-linha-de-base-e-restricoes.md": "modulo-2-cenarios-linha-base-restricoes.png",
+            "bloco-4-partes-interessadas-e-pontos-de-vista.md": "modulo-2-partes-interessadas-pontos-vista.png",
+        }
+        for page_name, image_name in expected.items():
+            with self.subTest(page=page_name):
+                text = (module / page_name).read_text(encoding="utf-8")
+                self.assertRegex(
+                    text,
+                    rf"!\[[^\]]+\]\(\.\./assets/images/{re.escape(image_name)}\)"
+                    r"\{ \.module-diagram \}",
+                )
+                self.assertTrue((DOCS / "assets" / "images" / image_name).is_file())
+
+    def test_pestle_is_defined_and_applied_to_acme(self):
+        """PESTLE precisa ser explicado antes de ser usado no exercicio."""
+        page = (
+            DOCS
+            / "modulo-2-requisitos-e-partes-interessadas"
+            / "bloco-1-direcionadores-de-mudanca.md"
+        ).read_text(encoding="utf-8")
+        for term in (
+            "Política",
+            "Econômica",
+            "Sociocultural",
+            "Tecnológica",
+            "Legal",
+            "Ambiental",
+            "macroambiente",
+            "ACME",
+        ):
+            self.assertIn(term, page)
+
     def test_module_one_visuals_are_anchored_in_the_acme_case(self):
         """As figuras da Aula 1 precisam ensinar usando conceitos e artefatos do caso."""
         expected_terms = {

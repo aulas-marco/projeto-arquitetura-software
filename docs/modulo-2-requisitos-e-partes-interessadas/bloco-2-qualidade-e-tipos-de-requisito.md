@@ -17,6 +17,10 @@ Um **atributo de qualidade** é uma propriedade ou dimensão pela qual o comport
 
 Um **requisito** expressa uma necessidade, capacidade, condição ou restrição que o sistema deve satisfazer, transformando expectativas gerais em algo que possa ser analisado, negociado, implementado e verificado. Dizer que um aplicativo bancário deve permitir consultar o saldo descreve uma capacidade funcional. Dizer que esse mesmo aplicativo deve utilizar o provedor corporativo de identidade estabelece uma restrição. Requisitos podem, portanto, tratar do que o sistema faz, das condições sob as quais opera ou dos limites que devem ser respeitados.
 
+<figure markdown="span">
+![Infográfico sobre qualidade e tipos de requisito. A função descreve o que o sistema faz, o atributo de qualidade nomeia uma propriedade relevante, o requisito verificável combina contexto, comportamento e medida, e a restrição limita alternativas. Uma faixa inferior mostra a passagem do termo vago à decisão testável em três movimentos, nomear o atributo, situar o cenário e definir a medida.](../assets/images/modulo-2-qualidade-tipos-requisito.png){ .module-diagram }
+</figure>
+
 Muitos alunos aprendem inicialmente a dividir requisitos em dois grupos, os **requisitos funcionais**, que descrevem serviços, comportamentos ou capacidades que o sistema deve oferecer, e os **requisitos não funcionais**, que descrevem qualidades, condições, limites ou restrições associados ao funcionamento do sistema. Nesse vocabulário, requisitos de desempenho, disponibilidade, segurança, usabilidade e modificabilidade normalmente são classificados como não funcionais, como mostra o quadro abaixo.
 
 | Requisito | Classificação inicial |

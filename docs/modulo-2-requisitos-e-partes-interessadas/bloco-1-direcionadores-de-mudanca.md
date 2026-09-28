@@ -12,6 +12,10 @@ Este bloco trata do que põe uma solução em movimento, os direcionadores inter
 
 Direcionador é a força que faz a organização sentir pressão para mudar parte do negócio, mudança que pode ser alcançada com uma solução nova ou modificada. No início do ciclo de vida, o negócio entrega à equipe de arquitetura três coisas, a declaração do problema contida na declaração de visão da solução, qualquer documentação existente que ajude a entender a situação, e a autorização para investigar, contida no documento de iniciação da arquitetura.
 
+<figure markdown="span">
+![Infográfico sobre direcionadores de mudança. À esquerda, os direcionadores internos estratégia de negócio, estratégia de TI e análise de negócio. Ao centro, a pressão para mudar passa pela análise e orienta decisões arquiteturais. À direita, a análise do macroambiente é organizada nas seis dimensões PESTLE, política, econômica, sociocultural, tecnológica, legal e ambiental.](../assets/images/modulo-2-direcionadores-mudanca.png){ .module-diagram }
+</figure>
+
 ### Direcionadores internos
 
 Três fontes internas alimentam o desenho. A **estratégia de negócio** define a direção e as prioridades da operação, e descreve por que as coisas precisam mudar e em que parte do negócio a ação deve se concentrar. Dela vêm requisitos de negócio, objetivos e metas, resultados de investigações anteriores e artefatos como planos, mapas, modelos e cadeias de valor. A estratégia também é fonte de restrição, sobretudo quando um plano já em curso se sobrepõe ao problema em análise.
@@ -33,7 +37,24 @@ Alguns direcionadores têm causa externa inequívoca, como mudança de legislaç
 | Retorno de clientes | Reclamação recorrente ou pesquisa de satisfação |
 | Legislação | Lei nova ou alterada que muda obrigações da organização |
 
-A resposta a esses direcionadores é reativa quando eles já se tornaram problema. Para agir de forma antecipada, a organização precisa prever a mudança externa, determinar seu impacto e decidir que ações cabem. A análise PESTLE apoia esse trabalho ao dividir o ambiente em seis categorias, política, econômica, sociocultural, tecnológica, legal e ambiental, e ao provocar a mesma pergunta em seis pontos de vista diferentes, se existe algo naquela categoria capaz de afetar o negócio.
+A resposta a esses direcionadores é reativa quando eles já se tornaram problema. Para agir de forma antecipada, a organização precisa prever a mudança externa, determinar seu impacto e decidir que ações cabem.
+
+### Análise PESTLE
+
+PESTLE é uma técnica de análise do macroambiente, isto é, das condições externas amplas que a organização não controla, mas que podem criar oportunidades, ameaças ou restrições. O nome é um acrônimo formado pelas iniciais de seis lentes. Usá-las como roteiro reduz o risco de observar apenas os fatores mais familiares à equipe, como tecnologia e legislação, e ignorar mudanças sociais, econômicas ou ambientais capazes de alterar o problema.
+
+| Dimensão | Pergunta orientadora | Exemplo para uma instituição de ensino |
+| --- | --- | --- |
+| **Política** | Que prioridades, políticas públicas ou decisões governamentais podem mudar o setor? | Mudança em programas públicos de financiamento estudantil |
+| **Econômica** | Que condições de renda, crédito, inflação ou custo podem afetar demanda e operação? | Redução da capacidade de pagamento dos alunos |
+| **Sociocultural** | Que mudanças de comportamento, expectativa ou perfil demográfico influenciam o serviço? | Preferência crescente por jornadas móveis e flexíveis |
+| **Tecnológica** | Que tecnologias emergentes, obsolescentes ou mais acessíveis alteram as possibilidades? | Oferta de serviços de nuvem previamente homologados |
+| **Legal** | Que leis, normas ou decisões regulatórias criam obrigações? | Exigência de residência de dados em território nacional |
+| **Ambiental** | Que condições ambientais ou compromissos de sustentabilidade afetam a operação? | Eventos climáticos que interrompem o acesso a um campus |
+
+PESTLE não produz requisitos automaticamente e não serve para prever o futuro com certeza. Ela organiza a investigação. Para cada fator relevante, a equipe registra a evidência, estima o possível impacto, identifica o horizonte de tempo e decide se deve monitorar o sinal, formular um requisito ou reconhecer uma restrição.
+
+No caso da ACME, a análise pode começar com fatos já documentados. A dimensão legal aparece na exigência de processamento de dados no Brasil, a tecnológica aparece nos provedores de nuvem pré-aprovados e a sociocultural aparece na expectativa por acesso móvel. As outras dimensões exigem pesquisa adicional. Essa distinção é importante, porque um fator plausível levantado numa oficina ainda é hipótese, enquanto uma condição apoiada por fonte verificável pode orientar uma decisão.
 
 ### Os direcionadores da ACME
 
