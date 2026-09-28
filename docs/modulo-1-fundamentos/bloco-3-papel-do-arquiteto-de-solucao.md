@@ -46,6 +46,8 @@ A separação entre entradas, produtos intermediários e entregáveis organiza a
 
 ## Exercício 3
 
+Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 2.150 professores e 4 campi, cujo sistema acadêmico está em operação desde 2004. A instituição aprovou um ciclo de modernização de 12 meses com orçamento de R$ 6,2 milhões, mantendo o ambiente virtual de aprendizagem e o ERP financeiro em operação. O núcleo em COBOL permanece sob contrato de sustentação de uma fábrica de software até 30/09/2027.
 
 A lista abaixo traz dez tarefas do ciclo de modernização.

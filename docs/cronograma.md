@@ -1,6 +1,6 @@
 # Cronograma
 
-A disciplina tem seis aulas, das 19h00 às 22h30, com intervalo das 20h30 às 20h45 e encerramento do conteúdo até as 22h10. Cada aula é dividida em quatro blocos de quarenta minutos, com vinte e cinco minutos de conceito e quinze de exercício.
+A disciplina tem seis aulas, das 19h00 às 22h30, com intervalo das 20h30 às 20h45 e encerramento do conteúdo até as 22h10. Cada aula é dividida em quatro blocos de quarenta minutos de apresentação conceitual, e os exercícios de cada bloco são realizados fora do horário de aula, como atividade de aplicação do conceito ao caso da instituição fictícia ACME.
 
 As datas de cada oferta não aparecem aqui. Elas são divulgadas pela instituição a cada turma, e este cronograma descreve apenas a sequência dos temas, que não muda entre ofertas.
 
@@ -81,4 +81,4 @@ Cada aula vale dez pontos, distribuídos entre os quatro exercícios daquela aul
 
 ## Como os artefatos se encadeiam
 
-Os exercícios não são independentes entre si. O artefato produzido em um bloco costuma ser a entrada do bloco seguinte, e o [caso ACME](caso-acme/index.md) é o mesmo em toda a disciplina. A página de [artefatos por aula](caso-acme/artefatos.md) descreve o que cada exercício produz, com que entrada do dossiê e sob qual critério de aceitação.
+Os exercícios não são independentes entre si. O artefato produzido em um bloco costuma ser a entrada do bloco seguinte, e como o exercício é feito fora do horário de aula, o aluno chega ao encontro seguinte com o artefato que aquela aula consome, e o [caso ACME](caso-acme/index.md) é o mesmo em toda a disciplina. A página de [artefatos por aula](caso-acme/artefatos.md) descreve o que cada exercício produz, com que entrada do dossiê e sob qual critério de aceitação.

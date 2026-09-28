@@ -9,4 +9,6 @@ A Aula 5 converte o desenho lógico em escolha de tecnologia. Ela vai do bloco d
 | 3 | Modelo técnico de referência e a taxonomia de serviços de plataforma | 19 |
 | 4 | [ADR de plataforma](bloco-4-adr-de-plataforma.md) e lacunas na provisão de serviços | 20 |
 
+Os exercícios dos quatro blocos são realizados fora do horário de aula, que é dedicado inteiramente à apresentação conceitual.
+
 Os blocos 2 e 4 já estão publicados, porque seu conteúdo foi escrito antes da reorganização da disciplina. Os blocos 1 e 3 são publicados antes da aula. O [cronograma](../cronograma.md) traz a sequência completa das seis aulas.

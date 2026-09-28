@@ -17,14 +17,14 @@ Ao final da aula, o aluno é capaz de
 
 ## Grade de tempo
 
-A aula ocorre das 19h00 às 22h30, com intervalo das 20h30 às 20h45. O tempo de conteúdo encerra até as 22h10. Os quatro blocos abaixo são o único lugar do site em que os minutos aparecem. As páginas de cada bloco não exibem cronômetro.
+A aula ocorre das 19h00 às 22h30, com intervalo das 20h30 às 20h45, e o tempo de conteúdo encerra até as 22h10. Todo o tempo de aula é destinado à apresentação conceitual dos quatro blocos, e os exercícios são realizados fora do horário de aula. A tabela abaixo é o único lugar do site em que os minutos de cada bloco aparecem, porque as páginas de bloco não exibem cronômetro.
 
-| Bloco | Conceito | Conceito (min) | Exercício (min) |
-| --- | --- | --- | --- |
-| 1 | Arquitetura de soluções e arquitetura de software | 25 | 15 |
-| 2 | A solução como sistema e seus componentes | 25 | 15 |
-| 3 | O papel do arquiteto de solução | 25 | 15 |
-| 4 | O processo de definição da arquitetura | 25 | 15 |
+| Bloco | Conceito | Apresentação (min) |
+| --- | --- | --- |
+| 1 | Arquitetura de soluções e arquitetura de software | 40 |
+| 2 | A solução como sistema e seus componentes | 40 |
+| 3 | O papel do arquiteto de solução | 40 |
+| 4 | O processo de definição da arquitetura | 40 |
 
 Os quatro blocos somam 160 minutos. Os 15 minutos restantes do tempo útil de 175 minutos cobrem abertura, transições e fechamento.
 

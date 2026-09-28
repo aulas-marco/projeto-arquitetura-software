@@ -149,6 +149,8 @@ O arquiteto documenta a comparação antes de decidir, em um **quadro comparativ
 
 ## Exercício 18
 
+Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+
 A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, cujo núcleo transacional em COBOL sobre o monitor CICS segue em operação durante toda a transição, com uma camada web em JSF e EJB e integrações com o ERP financeiro e o ambiente virtual de aprendizagem resolvidas por arquivo, em lote noturno.
 
 Considerando o estilo arquitetural que você escolheu no exercício do [bloco 2 da Aula 3](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md), levante duas plataformas candidatas capazes de concretizar esse estilo, considerando que o núcleo COBOL sobre CICS permanece em operação durante a transição.

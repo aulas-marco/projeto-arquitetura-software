@@ -84,6 +84,8 @@ O arquiteto usa princípios priorizados para tomar decisões sucessivas com o me
 
 ## Exercício 9
 
+Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+
 A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. As quatro entradas abaixo foram reproduzidas da [página inicial do caso](../caso-acme/index.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md), com a origem de cada uma.
 
 | Entrada | Conteúdo | Origem |

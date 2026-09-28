@@ -184,6 +184,8 @@ O arquiteto seleciona um padrão pelo problema declarado e registra, junto com a
 
 ## Exercício 11
 
+Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+
 A ACME é uma universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. No [exercício 10](bloco-2-estilos-arquiteturais.md#exercicio-10), o aluno recomendou um estilo arquitetural para a modernização. Este exercício seleciona padrões dentro desse estilo para três problemas da ACME, cujos dados estão reproduzidos abaixo da [arquitetura de linha de base](../caso-acme/linha-de-base.md) e dos [dados operacionais](../caso-acme/dados-operacionais.md).
 
 | Problema | Dados do caso |

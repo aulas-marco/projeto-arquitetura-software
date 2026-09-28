@@ -165,6 +165,8 @@ Quando falta dado para preencher um campo, o caminho é registrar o ADR com esta
 
 ## Exercício 12
 
+Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+
 A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. Os três exercícios anteriores desta aula produziram as entradas do registro, os princípios priorizados e o esboço lógico do [exercício 9](bloco-1-principios-de-design.md#exercicio-9), a comparação de três estilos com o estilo recomendado do [exercício 10](bloco-2-estilos-arquiteturais.md#exercicio-10) e o mapa de problema, padrão e consequência do [exercício 11](bloco-3-padroes-arquiteturais-e-de-design.md#exercicio-11). Escreva o ADR que registra o estilo escolhido e os padrões que materializam a estratégia de modernização, no template de dez campos apresentado no Conceito acima.
 
 1. título, estado e data

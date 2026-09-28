@@ -115,6 +115,8 @@ O erro simétrico também existe. Levar o diagrama de contêineres a uma reuniã
 
 ## Exercício 16
 
+Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+
 A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico. O núcleo transacional em COBOL sobre o monitor CICS concentra as regras acadêmicas, uma camada web em JSF e EJB serve os portais de acesso, um banco Oracle guarda o estado, e as integrações com o ERP financeiro e com o ambiente virtual de aprendizagem são resolvidas por arquivo, em lote noturno, conforme a [arquitetura de linha de base](../caso-acme/linha-de-base.md).
 
 1. Desenhe o diagrama de contexto da ACME, identificando o sistema acadêmico como caixa única, os atores humanos e os sistemas externos, seguindo as cinco etapas do roteiro apresentado no Conceito.

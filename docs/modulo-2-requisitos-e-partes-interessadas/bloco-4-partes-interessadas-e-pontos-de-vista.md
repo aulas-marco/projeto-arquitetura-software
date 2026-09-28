@@ -92,6 +92,8 @@ Os pontos de vista servem para não travar a discussão em um modelo único. Apr
 
 ## Exercício 8
 
+Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 2.150 professores, 1.480 técnico-administrativos e 4 campi. O sistema acadêmico está em operação desde 2004 e é mantido por uma fábrica de software contratada, sob contrato de sustentação vigente até 30/09/2027.
 
 O quadro abaixo reproduz o mapa de atores do caso, com o que cada papel quer e o que teme.

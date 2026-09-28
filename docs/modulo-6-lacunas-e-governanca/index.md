@@ -9,4 +9,6 @@ A Aula 6 fecha a disciplina comparando a arquitetura de linha de base com a arqu
 | 3 | Governança, autoridade de projeto, níveis de serviço e sustentação | 23 |
 | 4 | Inovação em soluções tecnológicas e tendências | 24 |
 
+Os exercícios dos quatro blocos são realizados fora do horário de aula, que é dedicado inteiramente à apresentação conceitual.
+
 As páginas de cada bloco são publicadas antes da aula. O [cronograma](../cronograma.md) traz a sequência completa das seis aulas.

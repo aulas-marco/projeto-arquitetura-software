@@ -55,6 +55,8 @@ O ciclo também organiza a conversa sobre incerteza. Quando o patrocinador pergu
 
 ## Exercício 4
 
+Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 4.900 turmas por semestre e 230.400 matrículas em disciplina por semestre. O sistema acadêmico está em operação desde 2004 e sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro. A modernização foi autorizada pela Reitoria com orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses.
 
 A lista abaixo traz dez artefatos do caso, alguns já existentes e outros ainda por produzir.

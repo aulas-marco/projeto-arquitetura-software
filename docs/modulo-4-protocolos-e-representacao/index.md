@@ -9,4 +9,6 @@ A Aula 4 trata do que a solução precisa respeitar para conversar com o resto d
 | 3 | Padrão, protocolo e especificação, e o contrato de integração | 15 |
 | 4 | [Representação de modelos e C4](bloco-4-representacao-de-modelos-e-c4.md), níveis de contexto e de contêineres | 16 |
 
+Os exercícios dos quatro blocos são realizados fora do horário de aula, que é dedicado inteiramente à apresentação conceitual.
+
 O bloco 4 já está publicado, porque seu conteúdo foi escrito antes da reorganização da disciplina. Os blocos 1 a 3 são publicados antes da aula. O [cronograma](../cronograma.md) traz a sequência completa das seis aulas.

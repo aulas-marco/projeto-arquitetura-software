@@ -15,14 +15,14 @@ Ao final da aula, o aluno é capaz de
 
 ## Grade de tempo
 
-A aula ocorre das 19h00 às 22h30, com intervalo das 20h30 às 20h45, e o tempo de conteúdo encerra até as 22h10. A tabela abaixo é o único lugar do site em que os minutos de cada bloco aparecem, porque as páginas de bloco não exibem cronômetro.
+A aula ocorre das 19h00 às 22h30, com intervalo das 20h30 às 20h45, e o tempo de conteúdo encerra até as 22h10. Todo o tempo de aula é destinado à apresentação conceitual dos quatro blocos, e os exercícios são realizados fora do horário de aula. A tabela abaixo é o único lugar do site em que os minutos de cada bloco aparecem, porque as páginas de bloco não exibem cronômetro.
 
-| Bloco | Conceito | Conceito (min) | Exercício (min) |
-| --- | --- | --- | --- |
-| 1 | Princípios de design e passagem do conceitual ao lógico | 25 | 15 |
-| 2 | Estilos arquiteturais, forças e compromissos | 25 | 15 |
-| 3 | Padrões arquiteturais e padrões de design | 25 | 15 |
-| 4 | Registro de decisão arquitetural | 25 | 15 |
+| Bloco | Conceito | Apresentação (min) |
+| --- | --- | --- |
+| 1 | Princípios de design e passagem do conceitual ao lógico | 40 |
+| 2 | Estilos arquiteturais, forças e compromissos | 40 |
+| 3 | Padrões arquiteturais e padrões de design | 40 |
+| 4 | Registro de decisão arquitetural | 40 |
 
 Os quatro blocos somam 160 minutos. Os 15 minutos restantes do tempo útil de 175 minutos cobrem abertura, transições e fechamento.
 

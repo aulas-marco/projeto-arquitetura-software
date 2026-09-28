@@ -59,6 +59,8 @@ Os três níveis servem para situar o alcance do que está sendo desenhado e par
 
 ## Exercício 2
 
+Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, dos quais 10.200 na graduação a distância, 2.150 professores e 4 campi em 3 cidades. O sistema acadêmico está em operação desde 2004 e sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro.
 
 A Coordenação de Educação a Distância declarou o seguinte requisito, registrado como R7 no dossiê do caso: a nota lançada pelo professor chega ao ambiente virtual de aprendizagem em até 10 minutos. Hoje essa propagação ocorre por lote diário noturno, o que gera reclamação de aluno a cada fechamento. O ambiente virtual permanece em operação e não será substituído, por decisão da Reitoria de 12/03/2026, e o plano contratado do fornecedor que oferece interfaces de programação custa 38% a mais que o plano vigente.

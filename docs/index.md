@@ -4,7 +4,7 @@ Material de disciplina de pós-graduação em arquitetura de soluções, conduzi
 
 ## O que o site contém
 
-O material está organizado em seis aulas, cada uma dividida em quatro blocos de quarenta minutos. Cada bloco expõe um conceito de arquitetura de soluções, relaciona esse conceito à prática profissional do arquiteto e propõe um exercício de aplicação. O [cronograma](cronograma.md) lista as seis aulas com o tema de cada uma.
+O material está organizado em seis aulas, cada uma dividida em quatro blocos de quarenta minutos. Cada bloco expõe um conceito de arquitetura de soluções, relaciona esse conceito à prática profissional do arquiteto e propõe um exercício de aplicação, realizado fora do horário de aula, porque o tempo de cada encontro é dedicado à apresentação conceitual. O [cronograma](cronograma.md) lista as seis aulas com o tema de cada uma.
 
 A seção Referência reúne o [glossário](referencia/glossario.md) de termos usados no curso e a [bibliografia](referencia/bibliografia.md) consultada na elaboração do material.
 

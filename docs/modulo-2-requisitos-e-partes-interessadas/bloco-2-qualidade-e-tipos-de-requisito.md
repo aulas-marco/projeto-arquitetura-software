@@ -83,6 +83,8 @@ As doze dimensões entram em outro momento do trabalho. Elas não servem para ro
 
 ## Exercício 6
 
+Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+
 A ACME, universidade privada brasileira cujo sistema acadêmico está em modernização, levantou os requisitos abaixo em entrevistas com as partes interessadas, sem depuração editorial.
 
 | Código | Declaração |

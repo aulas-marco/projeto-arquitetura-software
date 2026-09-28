@@ -49,6 +49,8 @@ O arquiteto escreve este segundo registro logo depois de fechar a comparação d
 
 ## Exercício 20
 
+Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+
 Escreva o ADR que registra a escolha de plataforma que você fez no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) do bloco anterior, no mesmo template de dez campos usado no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md).
 
 1. título, estado e data
