@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Três níveis de decisão de desenho</title><desc id="desc">Três faixas aninhadas. A externa é o estilo arquitetural, que organiza o sistema inteiro. A intermediária é o padrão arquitetural, que resolve uma preocupação transversal ou de integração. A interna é o padrão de design, que organiza a colaboração dentro de uma parte. Cada faixa traz sua pergunta e dois exemplos genéricos.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:25px;font-weight:700}.t{font-size:19px;font-weight:700}.q{font-size:14px;fill:#52657E}.e{font-size:13px;font-weight:700}</style></defs>
+  <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
+  <text x="70" y="62" class="h">O nível do padrão define o alcance da decisão</text>
+  <text x="70" y="86" class="q">Cada nível responde a uma pergunta própria e afeta um conjunto diferente de elementos e de equipes.</text>
+
+  <rect x="70" y="115" width="1060" height="480" rx="28" fill="#E6EEF9" stroke="#16243A" stroke-width="3"/>
+  <text x="105" y="158" class="t">Estilo arquitetural</text>
+  <text x="105" y="182" class="q">Como o sistema inteiro se organiza?</text>
+  <rect x="820" y="140" width="130" height="34" rx="17" fill="#16243A"/><text x="885" y="162" text-anchor="middle" class="e" style="fill:white">Camadas</text>
+  <rect x="965" y="140" width="130" height="34" rx="17" fill="#16243A"/><text x="1030" y="162" text-anchor="middle" class="e" style="fill:white">Eventos</text>
+
+  <rect x="150" y="215" width="900" height="340" rx="24" fill="#D8E9FF" stroke="#254DB8" stroke-width="3"/>
+  <text x="185" y="258" class="t">Padrão arquitetural</text>
+  <text x="185" y="282" class="q">Como uma preocupação transversal ou de integração é resolvida?</text>
+  <rect x="740" y="240" width="140" height="34" rx="17" fill="#254DB8"/><text x="810" y="262" text-anchor="middle" class="e" style="fill:white">API Gateway</text>
+  <rect x="895" y="240" width="120" height="34" rx="17" fill="#254DB8"/><text x="955" y="262" text-anchor="middle" class="e" style="fill:white">Saga</text>
+
+  <rect x="240" y="320" width="720" height="195" rx="20" fill="white" stroke="#5FC0D1" stroke-width="4"/>
+  <text x="275" y="363" class="t">Padrão de design</text>
+  <text x="275" y="387" class="q">Como responsabilidades colaboram dentro de uma parte do sistema?</text>
+  <rect x="275" y="420" width="130" height="34" rx="17" fill="#5FC0D1"/><text x="340" y="442" text-anchor="middle" class="e">Adapter</text>
+  <rect x="420" y="420" width="130" height="34" rx="17" fill="#5FC0D1"/><text x="485" y="442" text-anchor="middle" class="e">Strategy</text>
+  <text x="275" y="490" class="q">Decidido em geral pela equipe responsável pela parte afetada</text>
+
+  <text x="185" y="540" class="q">Afeta a relação entre partes distintas e entra no registro de decisão da solução</text>
+  <text x="105" y="580" class="q">Afeta todos os elementos e condiciona os atributos de qualidade que o sistema sustenta com naturalidade</text>
+
+  <rect x="70" y="612" width="1060" height="40" rx="20" fill="#F2B84B"/>
+  <text x="600" y="638" text-anchor="middle" style="font-size:14px;font-weight:700">A seleção parte do problema declarado e registra o custo aceito</text>
+</svg>

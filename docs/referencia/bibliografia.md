@@ -19,6 +19,11 @@ Fontes conferidas, no formato APA 7ª edição. Referências adicionais entram s
 - MADR. (2024). *Markdown Architectural Decision Records* (Versão 4.0.0). https://adr.github.io/madr/
 - Brown, S. (n.d.). *The C4 model for visualising software architecture*. https://c4model.com
 - Vernon, V. (2013). *Implementing domain-driven design*. Addison-Wesley.
+- Gamma, E., Helm, R., Johnson, R., & Vlissides, J. (1994). *Design patterns: Elements of reusable object-oriented software*. Addison-Wesley.
+- Evans, E. (2003). *Domain-driven design: Tackling complexity in the heart of software*. Addison-Wesley.
+- Fowler, M. (2024, 22 de agosto). *Strangler fig*. martinfowler.com. https://martinfowler.com/bliki/StranglerFigApplication.html
+- Richardson, C. (2018). *Microservices patterns*. Manning.
+- Nygard, M. (2018). *Release it! Design and deploy production-ready software* (2nd ed.). The Pragmatic Programmers.
 
 As referências ainda não confirmadas (o número de características da ISO/IEC 25010:2023, o DOI do relatório do SEI e a coletânea de 2016 do Quality Attribute Workshop) ficam fora da lista até serem conferidas.
 

@@ -110,6 +110,14 @@ Descrição da solução em termos de capacidades, responsabilidades e relaçõe
 
 Descrição da solução em elementos lógicos com responsabilidades, interfaces e fluxos declarados, ainda sem produto, linguagem ou plataforma escolhidos.
 
+## Padrão arquitetural
+
+Solução recorrente para uma preocupação transversal ou de integração entre partes de um sistema, com escopo menor que o do estilo arquitetural e maior que o do padrão de design.
+
+## Padrão de design
+
+Solução recorrente para a colaboração entre responsabilidades dentro de uma parte do sistema, descrita em termos de papéis, interfaces e relações entre elementos.
+
 ## Plataforma arquitetural
 
 Conjunto estruturado e consistente de ferramentas, frameworks, bibliotecas e práticas de desenho, organizadas para implementar um ou mais estilos arquiteturais, cobrindo desenvolvimento, integração, implantação e manutenção. Adotada como decisão arquitetural própria, posterior à decisão de estilo.
