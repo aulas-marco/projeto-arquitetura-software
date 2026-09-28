@@ -1,0 +1,40 @@
+@startuml
+!pragma layout smetana
+!include <C4/C4_Container>
+
+title Visão de segurança C2 — controles e fronteiras de confiança
+LAYOUT_LEFT_RIGHT()
+HIDE_STEREOTYPE()
+SHOW_PERSON_OUTLINE()
+
+AddElementTag("exposto", $bgColor="#FFF5DE", $fontColor="#16243A", $borderColor="#F2B84B")
+AddElementTag("legado", $bgColor="#EAF0FF", $fontColor="#16243A", $borderColor="#254DB8")
+AddElementTag("dados", $bgColor="#F3ECFF", $fontColor="#16243A", $borderColor="#7047B8")
+AddElementTag("controle", $bgColor="#E7F7F1", $fontColor="#075E4A", $borderColor="#0B8A6B")
+AddRelTag("protegido", $textColor="#0B8A6B", $lineColor="#0B8A6B")
+AddRelTag("risco", $textColor="#C44A13", $lineColor="#C44A13", $lineStyle=DashedLine())
+
+Person(usuario, "Usuários", "Alunos, professores e equipe administrativa")
+System_Ext(idp, "Diretório corporativo", "Autentica os perfis institucionais", $tags="controle")
+System_Ext(externos, "Sistemas externos", "AVA, ERP, pagamentos, assinatura e regulador")
+
+System_Boundary(acad, "Sistema Acadêmico — fronteira sob responsabilidade da ACME") {
+  Container(portais, "Portais web", "Java, JSF 1.2 e EJB 2.0", "Recebem requisições dos quatro públicos", $tags="exposto")
+  Container(nucleo, "Núcleo acadêmico", "COBOL sobre CICS", "Executa regras e transações acadêmicas", $tags="legado")
+  Container(integracao, "Integração em lote", "Arquivos posicionais", "Troca dados com sistemas externos", $tags="legado")
+  ContainerDb(banco, "Banco acadêmico", "Oracle 12c R2", "Armazena dados acadêmicos e pessoais", $tags="dados")
+  Container(auditoria, "Trilha de auditoria", "Controle requerido por R9", "Registra leitura de dado pessoal por cinco anos", $tags="controle")
+}
+
+Rel(usuario, portais, "Acessa funções acadêmicas", "HTTPS", $tags="protegido")
+Rel(portais, idp, "Autentica perfis", "LDAP — migrar para padrão aberto", $tags="risco")
+Rel(portais, nucleo, "Executa transações", "Conector proprietário", $tags="risco")
+Rel(portais, banco, "Lê e grava diretamente em 2.300 pontos", "SQL", $tags="risco")
+Rel(nucleo, banco, "Persiste o estado acadêmico", "SQL")
+Rel(nucleo, integracao, "Produz e consome lotes", "Arquivo posicional", $tags="risco")
+Rel(integracao, externos, "Troca dados acadêmicos e financeiros", "Lote e HTTPS")
+Rel(portais, auditoria, "Registra acesso a dado pessoal", "Evento", $tags="protegido")
+Rel(nucleo, auditoria, "Registra acesso a dado pessoal", "Evento", $tags="protegido")
+
+SHOW_LEGEND()
+@enduml

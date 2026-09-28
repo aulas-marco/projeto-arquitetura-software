@@ -1,0 +1,33 @@
+@startuml
+!pragma layout smetana
+!include <C4/C4_Context>
+
+title Visão de contexto C1 — decisão do patrocinador
+LAYOUT_LEFT_RIGHT()
+HIDE_STEREOTYPE()
+SHOW_PERSON_OUTLINE()
+
+AddElementTag("foco", $bgColor="#254DB8", $fontColor="#FFFFFF", $borderColor="#16243A")
+AddElementTag("externo", $bgColor="#FFFFFF", $fontColor="#16243A", $borderColor="#5FC0D1")
+
+Person(aluno, "Aluno", "Realiza matrícula e consulta sua vida acadêmica")
+Person(professor, "Professor", "Registra frequência e avaliações")
+Person(gestao, "Gestão acadêmica", "Opera processos e acompanha resultados")
+
+System(acad, "Sistema Acadêmico", "Sustenta matrícula, avaliação, documentos e integrações", $tags="foco")
+
+System_Ext(ava, "Ambiente virtual de aprendizagem", "Recebe turmas, matrículas e notas", $tags="externo")
+System_Ext(erp, "ERP financeiro", "Processa lançamentos e devolve baixas", $tags="externo")
+System_Ext(servicos, "Serviços institucionais", "Identidade, pagamentos e assinatura digital", $tags="externo")
+System_Ext(regulador, "Órgão regulador", "Recebe informações do censo", $tags="externo")
+
+Rel(aluno, acad, "Faz matrícula e solicita serviços")
+Rel(professor, acad, "Registra notas e frequência")
+Rel(gestao, acad, "Administra a operação acadêmica")
+Rel(acad, ava, "Compartilha turmas, matrículas e notas")
+Rel(acad, erp, "Troca lançamentos e baixas")
+Rel(acad, servicos, "Autentica, cobra e assina documentos")
+Rel(acad, regulador, "Entrega dados regulatórios")
+
+SHOW_LEGEND()
+@enduml

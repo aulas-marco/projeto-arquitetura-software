@@ -46,6 +46,38 @@ class ContentContractTest(unittest.TestCase):
         ):
             self.assertIn(term, page)
 
+    def test_block_four_shows_three_practical_viewpoints(self):
+        """O bloco 4 demonstra como audiencia e preocupacao mudam a visao."""
+        page_path = (
+            DOCS
+            / "modulo-2-requisitos-e-partes-interessadas"
+            / "bloco-4-partes-interessadas-e-pontos-de-vista.md"
+        )
+        page = page_path.read_text(encoding="utf-8")
+        expected = {
+            "modulo-2-visao-contexto-patrocinador.svg": (
+                "patrocinador",
+                "C1",
+            ),
+            "modulo-2-visao-seguranca-c2.svg": (
+                "segurança",
+                "C2",
+            ),
+            "modulo-2-visao-rastreabilidade-gestor.svg": (
+                "gestor",
+                "rastreabilidade",
+            ),
+        }
+        for image_name, terms in expected.items():
+            with self.subTest(image=image_name):
+                self.assertIn(f"../assets/images/{image_name}", page)
+                self.assertTrue((DOCS / "assets" / "images" / image_name).is_file())
+                source = DOCS / "assets" / "diagrams" / image_name.replace(".svg", ".puml")
+                self.assertTrue(source.is_file())
+                nearby = page[page.index(image_name) - 900:page.index(image_name) + 900].lower()
+                for term in terms:
+                    self.assertIn(term.lower(), nearby)
+
     def test_module_one_visuals_are_anchored_in_the_acme_case(self):
         """As figuras da Aula 1 precisam ensinar usando conceitos e artefatos do caso."""
         expected_terms = {

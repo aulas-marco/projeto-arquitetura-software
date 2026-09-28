@@ -45,6 +45,39 @@ A técnica que organiza esse tratamento tem dois termos que não são sinônimos
 
 A consequência prática aparece na validação do desenho. Aplicar o mesmo ponto de vista à arquitetura de linha de base e à arquitetura alvo produz duas visões comparáveis, e a comparação mostra o efeito da mudança sob a perspectiva daquela parte interessada, sem obrigá-la a ler o modelo inteiro.
 
+### Pontos de vista na prática
+
+As três visões a seguir descrevem aspectos da mesma solução, mas não são intercambiáveis. Cada uma seleciona elementos, relações e informações adequados a uma preocupação e a uma audiência. O que constitui detalhe indispensável para uma equipe pode ser ruído para outra.
+
+#### Visão de contexto C1 para o patrocinador
+
+O patrocinador precisa decidir sobre escopo, valor e dependências organizacionais. Por isso, o ponto de vista seleciona os usuários, o Sistema Acadêmico como uma única caixa e os sistemas externos com que ele se relaciona. O nível C1 da modelagem C4 responde quem usa a solução, qual é sua fronteira e de que outros sistemas ela depende. Portais, banco de dados e tecnologias internas ficam de fora porque não ajudam essa audiência a tomar a decisão em pauta.
+
+<figure markdown="span">
+![Visão de contexto C1 da ACME destinada ao patrocinador. Aluno, professor e gestão acadêmica interagem com o Sistema Acadêmico, apresentado como uma única caixa. O sistema troca informações com o ambiente virtual de aprendizagem, o ERP financeiro, os serviços institucionais e o órgão regulador.](../assets/images/modulo-2-visao-contexto-patrocinador.svg){ .module-diagram }
+<figcaption>Visão C1 para o patrocinador: fronteira, usuários e dependências externas, sem detalhe interno.</figcaption>
+</figure>
+
+#### Visão de segurança C2 para a equipe de segurança
+
+A equipe de segurança precisa localizar superfícies expostas, dados pessoais, integrações frágeis e pontos onde os controles devem operar. O nível C2 da modelagem C4 decompõe o Sistema Acadêmico em contêineres e preserva sua fronteira de responsabilidade. As relações em laranja destacam exposições da linha de base, enquanto as relações verdes mostram controles requeridos. A trilha de auditoria aparece como controle exigido pelo requisito R9, e não como componente já existente.
+
+<figure markdown="span">
+![Visão de contêineres C2 da ACME destinada à equipe de segurança. Dentro da fronteira do Sistema Acadêmico aparecem os portais web, o núcleo COBOL sobre CICS, a integração em lote, o banco Oracle e a trilha de auditoria requerida. Relações destacam autenticação, acesso direto ao banco, conectores proprietários, arquivos posicionais e registro de acesso a dados pessoais.](../assets/images/modulo-2-visao-seguranca-c2.svg){ .module-diagram }
+<figcaption>Visão C2 de segurança: contêineres, fronteiras de confiança, riscos existentes e controles requeridos.</figcaption>
+</figure>
+
+#### Visão de rastreabilidade para o gestor
+
+O gestor precisa saber se cada preocupação chegou a uma decisão acompanhável. Para essa audiência, uma planilha é mais útil do que um diagrama estrutural. O ponto de vista seleciona a origem da necessidade, o requisito que a formaliza, o elemento arquitetural afetado, a evidência esperada e a situação da decisão. A planilha permite localizar lacunas, como um requisito sem elemento responsável ou uma decisão sem forma de verificação.
+
+<figure markdown="span">
+![Visão de rastreabilidade da ACME em formato de planilha para o gestor. As linhas relacionam código, preocupação, parte interessada, requisito, elemento da visão, evidência ou decisão e situação. Os exemplos incluem matrícula no pico, propagação de notas, identidade aberta, auditoria de dados pessoais e residência de dados.](../assets/images/modulo-2-visao-rastreabilidade-gestor.svg){ .module-diagram }
+<figcaption>Visão de rastreabilidade: da preocupação da parte interessada até a evidência que permite acompanhar a decisão.</figcaption>
+</figure>
+
+O contraste mostra que ponto de vista não é apenas nível de zoom. O patrocinador recebe um mapa de contexto, a equipe de segurança recebe uma decomposição orientada a controles, e o gestor recebe uma matriz de cobertura. As três visões podem derivar da mesma descrição de arquitetura sem apresentar a mesma informação.
+
 ### Definição do escopo
 
 O escopo da solução é declarado em termos de componentes, e não de intenção. Entram na declaração os componentes de negócio, os de informação e tecnologia, e os blocos de construção, com a distinção entre bloco de construção de arquitetura, que é genérico e reutilizável, e bloco de construção da solução, que é a realização daquele bloco naquela solução. A declaração é documentada e aprovada formalmente, porque é ela que delimita o que será mudado e, por exclusão, o que permanece.

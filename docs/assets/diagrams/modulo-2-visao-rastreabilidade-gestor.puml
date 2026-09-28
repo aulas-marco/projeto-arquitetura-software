@@ -1,0 +1,21 @@
+@startsalt
+title Visão de rastreabilidade — acompanhamento do gestor
+
+skinparam backgroundColor #F2F6FB
+skinparam defaultFontName SansSerif
+skinparam defaultFontColor #16243A
+skinparam shadowing false
+
+{
+  {#
+    <b>Código | <b>Preocupação | <b>Parte interessada | <b>Requisito | <b>Elemento da visão | <b>Evidência / decisão | <b>Situação
+    R6 | Matrícula no pico | Diretoria de TI | 5.800 sessões; p95 ≤ 4 s | Portais + núcleo CICS | Cenário e teste de carga | Em análise
+    R7 | Nota no AVA | Educação a Distância | Propagação ≤ 10 min | Integração com AVA | Substituir lote por interface | Decisão pendente
+    R8 | Identidade aberta | Comitê de Segurança | Padrões abertos | Portais + diretório | ADR de identidade | A decidir
+    R9 | Auditoria de dado pessoal | Proteção de dados | Retenção de 5 anos | Portais + núcleo + trilha | Política e teste de auditoria | Obrigatório
+    R14 | Residência de dados | Jurídico | Processar no Brasil | Banco + plataforma | Região aprovada | Restrição
+  }
+  --
+  <b>Leitura do gestor: cada preocupação precisa chegar a um requisito, a um elemento arquitetural e a uma evidência verificável.
+}
+@endsalt
