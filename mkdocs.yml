@@ -81,8 +81,11 @@ nav:
       - Síntese: modulo-2-requisitos-e-partes-interessadas/sintese.md
   - "Aula 3, princípios de design e padrões":
       - Visão geral: modulo-3-design-e-padroes/index.md
+      - "Bloco 1: princípios de design": modulo-3-design-e-padroes/bloco-1-principios-de-design.md
       - "Bloco 2: estilos arquiteturais": modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md
+      - "Bloco 3: padrões arquiteturais e de design": modulo-3-design-e-padroes/bloco-3-padroes-arquiteturais-e-de-design.md
       - "Bloco 4: registro de decisão arquitetural": modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md
+      - Síntese: modulo-3-design-e-padroes/sintese.md
   - "Aula 4, protocolos e representação":
       - Visão geral: modulo-4-protocolos-e-representacao/index.md
       - "Bloco 4: representação de modelos e C4": modulo-4-protocolos-e-representacao/bloco-4-representacao-de-modelos-e-c4.md
