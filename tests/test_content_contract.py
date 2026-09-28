@@ -46,6 +46,35 @@ class ContentContractTest(unittest.TestCase):
         ):
             self.assertIn(term, page)
 
+    def test_block_one_presents_practical_research_sources_after_pestle(self):
+        """Hype Cycle, Magic Quadrant e Forrester Wave como fontes de evidencia."""
+        page = (
+            DOCS
+            / "modulo-2-requisitos-e-partes-interessadas"
+            / "bloco-1-direcionadores-de-mudanca.md"
+        ).read_text(encoding="utf-8")
+        heading = "### Fontes práticas de pesquisa para o arquiteto"
+        self.assertIn(heading, page)
+        start = page.index(heading)
+        self.assertLess(page.index("### Análise PESTLE"), start)
+        self.assertLess(start, page.index("## Uso pelo arquiteto"))
+        section = page[start:page.index("## Uso pelo arquiteto")]
+        for term in (
+            "Hype Cycle", "Magic Quadrant", "Forrester Wave", "Forrester Research",
+            "Ability to Execute", "Completeness of Vision", "Customer Feedback",
+            "Trough of Disillusionment",
+        ):
+            with self.subTest(term=term):
+                self.assertIn(term, section)
+        fontes = page[page.index("## Fontes"):]
+        for url in (
+            "https://www.gartner.com/en/research/methodologies/gartner-hype-cycle",
+            "https://www.gartner.com/en/research/methodologies/magic-quadrants-research",
+            "https://www.forrester.com/policies/forrester-wave-methodology/",
+        ):
+            with self.subTest(url=url):
+                self.assertIn(url, fontes)
+
     def test_block_four_shows_three_practical_viewpoints(self):
         """O bloco 4 demonstra como audiencia e preocupacao mudam a visao."""
         page_path = (

@@ -18,6 +18,9 @@ Fontes conferidas, no formato APA 7ª edição. Referências adicionais entram s
 - Nygard, M. (2011, 15 de novembro). *Documenting architecture decisions*. Cognitect Blog. https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
 - MADR. (2024). *Markdown Architectural Decision Records* (Versão 4.0.0). https://adr.github.io/madr/
 - Brown, S. (n.d.). *The C4 model for visualising software architecture*. https://c4model.com
+- Gartner. (n.d.). *Gartner Hype Cycle research methodology*. https://www.gartner.com/en/research/methodologies/gartner-hype-cycle
+- Gartner. (n.d.). *Magic Quadrant research methodology*. https://www.gartner.com/en/research/methodologies/magic-quadrants-research
+- Forrester Research. (n.d.). *The Forrester Wave methodology*. https://www.forrester.com/policies/forrester-wave-methodology/
 - Vernon, V. (2013). *Implementing domain-driven design*. Addison-Wesley.
 
 As referências ainda não confirmadas (o número de características da ISO/IEC 25010:2023, o DOI do relatório do SEI e a coletânea de 2016 do Quality Attribute Workshop) ficam fora da lista até serem conferidas.

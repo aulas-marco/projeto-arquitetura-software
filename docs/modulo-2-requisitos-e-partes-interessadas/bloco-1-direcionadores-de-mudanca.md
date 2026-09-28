@@ -72,6 +72,45 @@ A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativo
 
 A leitura conjunta mostra por que o problema não é apenas técnico. Três direcionadores são internos e apontam para custo, prazo e competência, e quatro são externos e apontam para conformidade, reputação e expectativa. Uma solução que trate só dos internos deixa de responder ao que pressiona a instituição de fora.
 
+### Fontes práticas de pesquisa para o arquiteto
+
+A análise PESTLE exige evidência verificável para cada fator, e as dimensões tecnológica e econômica dependem de informação sobre maturidade de tecnologias e sobre mercados de fornecedores que a equipe raramente produz sozinha. Empresas de pesquisa e consultoria em tecnologia publicam relatórios recorrentes com essa informação, e três deles aparecem com frequência em discussões de arquitetura, o Hype Cycle e o Magic Quadrant, ambos do Gartner, e o Forrester Wave, da Forrester Research. O acesso ao conteúdo completo desses relatórios costuma depender de assinatura, enquanto as metodologias que os definem estão descritas publicamente nos sites das duas empresas.
+
+O **Hype Cycle** representa a trajetória das expectativas sobre uma inovação ao longo do tempo. Segundo o Gartner, o eixo vertical mede as expectativas e o eixo horizontal as relaciona ao valor comprovado da inovação à medida que o tempo passa, e a travessia do ciclo leva com frequência entre três e cinco anos, com parte das inovações abandonada antes de chegar ao fim. A tabela abaixo descreve as cinco fases do ciclo, com a tradução adotada nesta disciplina e o nome original usado pelo Gartner em inglês.
+
+| Fase | Nome original | O que caracteriza a fase |
+| --- | --- | --- |
+| Gatilho da inovação | Innovation Trigger | Um avanço técnico ou o lançamento de um produto passa a atrair atenção |
+| Pico das expectativas infladas | Peak of Inflated Expectations | O uso cresce, mas ainda há mais expectativa do que prova de que a inovação entrega o que promete |
+| Vale da desilusão | Trough of Disillusionment | O interesse diminui quando experimentos e implantações não entregam o resultado esperado |
+| Rampa do esclarecimento | Slope of Enlightenment | Os primeiros adotantes obtêm benefícios e outras organizações entendem como adaptar a inovação |
+| Platô da produtividade | Plateau of Productivity | Mais usuários obtêm benefício real e a inovação passa ao uso corrente |
+
+Para o arquiteto, o Hype Cycle ajuda a estimar o horizonte de tempo de um fator tecnológico da análise PESTLE e o risco de adotar uma tecnologia que ainda está no pico das expectativas, quando o custo de ser um dos primeiros adotantes tende a ser maior. A posição de uma tecnologia no ciclo descreve a expectativa do mercado em geral, e a adequação dessa tecnologia ao problema da organização continua dependendo dos requisitos e das restrições do caso.
+
+O **Magic Quadrant** compara fornecedores de um mesmo mercado em dois critérios, a capacidade de execução, Ability to Execute, e a abrangência da visão, Completeness of Vision. O cruzamento dos dois critérios define quatro quadrantes.
+
+| Quadrante | Nome original | Descrição resumida do Gartner |
+| --- | --- | --- |
+| Líderes | Leaders | Oferta madura que atende à demanda do mercado, com visão demonstrada para sustentar a posição à medida que os requisitos evoluem |
+| Desafiantes | Challengers | Forte capacidade de execução, mas talvez sem plano que mantenha proposta de valor forte para clientes novos |
+| Visionários | Visionaries | Alinhados à visão do Gartner sobre a evolução do mercado, com capacidade de entrega ainda menos comprovada |
+| Participantes de nicho | Niche Players | Bom desempenho em um segmento do mercado, por foco em uma funcionalidade ou região, ou por serem entrantes recentes |
+
+O próprio Gartner declara, no aviso que acompanha as publicações do Magic Quadrant, que não endossa fornecedor, produto ou serviço representado em sua pesquisa e que não recomenda selecionar apenas os fornecedores com as avaliações mais altas, porque suas publicações expressam a opinião da sua organização de pesquisa. Um participante de nicho pode ser a melhor escolha quando o nicho coincide com o problema da organização, e essa é a leitura que o arquiteto precisa fazer antes de usar o quadrante como lista de candidatos.
+
+O **Forrester Wave** é descrito pela Forrester Research como um guia para compradores que avaliam opções em um mercado de tecnologia, baseado na análise e na opinião da empresa. A avaliação combina a oferta atual do fornecedor, Current Offering, e a sua estratégia, Strategy, e desde 01/07/2024 o gráfico apresenta a avaliação de clientes, Customer Feedback, no lugar da antiga presença de mercado. Na mesma revisão, a classificação passou a ter três categorias, Leaders, Strong Performers e Contenders. O nome da empresa é Forrester Research, e a grafia Forrester Group, que aparece em algumas referências informais, não corresponde à razão social.
+
+Os três instrumentos respondem a perguntas diferentes e entram em momentos diferentes do processo, e a tabela abaixo resume essa correspondência.
+
+| Instrumento | Pergunta respondida | Uso no processo de arquitetura | Cuidado na leitura |
+| --- | --- | --- | --- |
+| Hype Cycle | Em que estágio de maturidade e de expectativa está uma tecnologia? | Horizonte de tempo e risco de adoção de um fator tecnológico na análise PESTLE | A posição reflete a expectativa do mercado e não a adequação ao caso |
+| Magic Quadrant | Como os fornecedores de um mercado se comparam em execução e visão? | Lista inicial de candidatos antes da comparação de plataformas, tratada na Aula 5 | O recorte do mercado definido pelo Gartner pode diferir do problema da organização |
+| Forrester Wave | Como os fornecedores se comparam em oferta atual, estratégia e avaliação de clientes? | Segunda opinião sobre o mesmo mercado, útil para confrontar com o Magic Quadrant | Os critérios e os pesos pertencem à Forrester Research e podem divergir das forças do caso |
+
+Nenhum dos três relatórios substitui a evidência produzida pela própria organização, como prova de conceito, contato com clientes do fornecedor e verificação de aderência às restrições. Ao citar qualquer um deles em uma análise PESTLE ou em um registro de decisão, o arquiteto registra o título, a edição, a data de publicação e o mercado avaliado, porque os relatórios são revistos com frequência e uma posição de dois anos antes pode não valer mais. Na ACME, por exemplo, um Magic Quadrant de plataformas de nuvem pode informar a comparação entre os dois provedores pré-aprovados pelo Conselho Universitário em 12/03/2026, mas não reabre a restrição que limita a escolha a esses dois.
+
 ## Uso pelo arquiteto
 
 O arquiteto levanta os direcionadores antes de discutir alternativa, porque eles determinam o que conta como solução aceitável. Um direcionador externo de natureza legal costuma fechar alternativas de forma definitiva, enquanto um direcionador interno de custo costuma apenas ordenar preferências, e confundir os dois leva a descartar cedo demais uma opção que ainda era viável.
@@ -93,5 +132,8 @@ Responda às três perguntas abaixo.
 As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso. O trecho consultado aparece entre parênteses ao fim de cada entrada.
 
 - Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seções 4.1 e 4.2)
+- Gartner. (n.d.). *Gartner Hype Cycle research methodology*. https://www.gartner.com/en/research/methodologies/gartner-hype-cycle (eixos e cinco fases do Hype Cycle)
+- Gartner. (n.d.). *Magic Quadrant research methodology*. https://www.gartner.com/en/research/methodologies/magic-quadrants-research (critérios e quadrantes do Magic Quadrant)
+- Forrester Research. (n.d.). *The Forrester Wave methodology*. https://www.forrester.com/policies/forrester-wave-methodology/ (dimensões e categorias do Forrester Wave, revisão de 01/07/2024)
 
 **Material do curso.** Glossário, entradas [direcionador de mudança](../referencia/glossario.md#direcionador-de-mudanca), [arquitetura de solução](../referencia/glossario.md#arquitetura-de-solucao) e [artefato de linha de base](../referencia/glossario.md#artefato-de-linha-de-base). Dossiê da instituição fictícia [ACME](../caso-acme/index.md), pergunta central, restrições fechadas e [dados operacionais](../caso-acme/dados-operacionais.md).
