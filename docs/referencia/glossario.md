@@ -98,6 +98,18 @@ Descrição estruturada de um requisito de qualidade em seis elementos, fonte do
 
 Padrão de organização estrutural de um sistema, que define tipos de componentes, formas de conexão entre eles e restrições sobre essa organização.
 
+## Princípio de design
+
+Regra durável, derivada de objetivos, requisitos e restrições, que orienta um conjunto de decisões de desenho e admite verificação da sua aplicação por evidência observável.
+
+## Desenho conceitual
+
+Descrição da solução em termos de capacidades, responsabilidades e relações com o ambiente, sem estrutura interna detalhada e sem compromisso com tecnologia.
+
+## Desenho lógico
+
+Descrição da solução em elementos lógicos com responsabilidades, interfaces e fluxos declarados, ainda sem produto, linguagem ou plataforma escolhidos.
+
 ## Plataforma arquitetural
 
 Conjunto estruturado e consistente de ferramentas, frameworks, bibliotecas e práticas de desenho, organizadas para implementar um ou mais estilos arquiteturais, cobrindo desenvolvimento, integração, implantação e manutenção. Adotada como decisão arquitetural própria, posterior à decisão de estilo.

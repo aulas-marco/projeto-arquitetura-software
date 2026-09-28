@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Das entradas arquiteturais ao desenho lógico</title><desc id="desc">Faixa superior com objetivo, requisito e restrição, princípio, decisão e elemento lógico ligados por setas. Faixa inferior com os cinco passos da passagem do desenho conceitual ao desenho lógico.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:25px;font-weight:700}.t{font-size:18px;font-weight:700}.s{font-size:13px;fill:#52657E}.n{font-size:15px;font-weight:700;fill:white}.w{font-size:14px;font-weight:600}</style><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0L10 3L0 6Z" fill="#254DB8"/></marker></defs>
+  <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
+  <text x="70" y="62" class="h">Das entradas arquiteturais ao desenho lógico</text>
+  <text x="70" y="86" class="s">Cada conceito consome o anterior. O princípio é a regra que liga a exigência às decisões.</text>
+
+  <g>
+    <rect x="70" y="120" width="190" height="150" rx="20" fill="white" stroke="#16243A" stroke-width="3"/>
+    <text x="90" y="160" class="t">Objetivo</text><text x="90" y="186" class="s">Resultado de negócio</text><text x="90" y="204" class="s">pretendido</text>
+    <rect x="290" y="120" width="190" height="150" rx="20" fill="white" stroke="#16243A" stroke-width="3"/>
+    <text x="310" y="160" class="t">Requisito e</text><text x="310" y="182" class="t">restrição</text><text x="310" y="208" class="s">Necessidade verificável</text><text x="310" y="226" class="s">ou limite já decidido</text>
+    <rect x="510" y="120" width="190" height="150" rx="20" fill="#D8E9FF" stroke="#254DB8" stroke-width="4"/>
+    <text x="530" y="160" class="t">Princípio</text><text x="530" y="186" class="s">Regra durável com</text><text x="530" y="204" class="s">motivação, implicação</text><text x="530" y="222" class="s">e evidência</text>
+    <rect x="730" y="120" width="190" height="150" rx="20" fill="white" stroke="#16243A" stroke-width="3"/>
+    <text x="750" y="160" class="t">Decisão</text><text x="750" y="186" class="s">Escolha situada entre</text><text x="750" y="204" class="s">alternativas</text>
+    <rect x="950" y="120" width="190" height="150" rx="20" fill="white" stroke="#5FC0D1" stroke-width="4"/>
+    <text x="970" y="160" class="t">Elemento lógico</text><text x="970" y="186" class="s">Responsabilidade e</text><text x="970" y="204" class="s">interfaces, sem</text><text x="970" y="222" class="s">tecnologia escolhida</text>
+    <path d="M262 195H286" stroke="#254DB8" stroke-width="3" marker-end="url(#a)"/><path d="M482 195H506" stroke="#254DB8" stroke-width="3" marker-end="url(#a)"/><path d="M702 195H726" stroke="#254DB8" stroke-width="3" marker-end="url(#a)"/><path d="M922 195H946" stroke="#254DB8" stroke-width="3" marker-end="url(#a)"/>
+  </g>
+
+  <rect x="70" y="310" width="1070" height="40" rx="20" fill="#16243A"/>
+  <text x="605" y="336" text-anchor="middle" style="font-size:15px;font-weight:700;fill:white">Passagem do desenho conceitual ao desenho lógico</text>
+
+  <g>
+    <rect x="70" y="380" width="198" height="200" rx="20" fill="#E6EEF9" stroke="#254DB8" stroke-width="2"/>
+    <circle cx="104" cy="416" r="20" fill="#254DB8"/><text x="104" y="421" text-anchor="middle" class="n">1</text>
+    <text x="90" y="470" class="w">Identificar</text><text x="90" y="490" class="w">capacidades e</text><text x="90" y="510" class="w">responsabilidades</text>
+    <rect x="288" y="380" width="198" height="200" rx="20" fill="#E6EEF9" stroke="#254DB8" stroke-width="2"/>
+    <circle cx="322" cy="416" r="20" fill="#254DB8"/><text x="322" y="421" text-anchor="middle" class="n">2</text>
+    <text x="308" y="470" class="w">Agrupar</text><text x="308" y="490" class="w">responsabilidades</text><text x="308" y="510" class="w">que mudam juntas</text>
+    <rect x="506" y="380" width="198" height="200" rx="20" fill="#E6EEF9" stroke="#254DB8" stroke-width="2"/>
+    <circle cx="540" cy="416" r="20" fill="#254DB8"/><text x="540" y="421" text-anchor="middle" class="n">3</text>
+    <text x="526" y="470" class="w">Declarar</text><text x="526" y="490" class="w">interfaces e fluxos</text><text x="526" y="510" class="w">entre os grupos</text>
+    <rect x="724" y="380" width="198" height="200" rx="20" fill="#E6EEF9" stroke="#254DB8" stroke-width="2"/>
+    <circle cx="758" cy="416" r="20" fill="#254DB8"/><text x="758" y="421" text-anchor="middle" class="n">4</text>
+    <text x="744" y="470" class="w">Aplicar</text><text x="744" y="490" class="w">restrições e</text><text x="744" y="510" class="w">princípios</text>
+    <rect x="942" y="380" width="198" height="200" rx="20" fill="#E6EEF9" stroke="#254DB8" stroke-width="2"/>
+    <circle cx="976" cy="416" r="20" fill="#254DB8"/><text x="976" y="421" text-anchor="middle" class="n">5</text>
+    <text x="962" y="470" class="w">Localizar riscos</text><text x="962" y="490" class="w">e decisões</text><text x="962" y="510" class="w">pendentes</text>
+    <path d="M270 480H284" stroke="#254DB8" stroke-width="3" marker-end="url(#a)"/><path d="M488 480H502" stroke="#254DB8" stroke-width="3" marker-end="url(#a)"/><path d="M706 480H720" stroke="#254DB8" stroke-width="3" marker-end="url(#a)"/><path d="M924 480H938" stroke="#254DB8" stroke-width="3" marker-end="url(#a)"/>
+  </g>
+
+  <rect x="70" y="605" width="1070" height="40" rx="20" fill="#F2B84B"/>
+  <text x="605" y="631" text-anchor="middle" style="font-size:14px;font-weight:700">Nenhum passo nomeia linguagem, provedor de nuvem, banco de dados ou framework</text>
+</svg>

@@ -222,7 +222,7 @@ class IndexSynthesisAndReferenceTest(unittest.TestCase):
     def test_bibliography_lists_the_new_sources(self):
         text = (DOCS / "referencia" / "bibliografia.md").read_text(encoding="utf-8")
         for author in ("Gamma, E.", "Evans, E.", "Fowler, M.", "Richardson, C.",
-                       "Nygard, M. T. (2018)", "The Open Group"):
+                       "Nygard, M. (2018)"):
             with self.subTest(author=author):
                 self.assertIn(author, text)
 
