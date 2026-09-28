@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Ciclo de vida e anatomia de um ADR</title><desc id="desc">À esquerda, os estados de um ADR, proposta, aceita, rejeitada e substituída, com as transições entre eles e o vínculo do registro substituído com o novo registro. À direita, o arquivo do ADR com os dez campos do template agrupados em identificação, contexto, escolha e controle.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:25px;font-weight:700}.t{font-size:17px;font-weight:700}.s{font-size:13px;fill:#52657E}.f{font-size:14px;font-weight:600}.g{font-size:12px;font-weight:700;fill:#254DB8;letter-spacing:.06em}</style><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0L10 3L0 6Z" fill="#254DB8"/></marker></defs>
+  <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
+  <text x="70" y="62" class="h">Um ADR registra uma decisão e a mantém revisável</text>
+  <text x="70" y="86" class="s">O registro aceito não é reescrito. Uma decisão nova gera um registro novo, e o anterior aponta para ele.</text>
+
+  <text x="70" y="140" class="g">CICLO DE VIDA</text>
+  <rect x="70" y="160" width="190" height="64" rx="18" fill="white" stroke="#16243A" stroke-width="3"/><text x="165" y="198" text-anchor="middle" class="t">Proposta</text>
+  <rect x="340" y="160" width="190" height="64" rx="18" fill="#D8E9FF" stroke="#254DB8" stroke-width="3"/><text x="435" y="198" text-anchor="middle" class="t">Aceita</text>
+  <rect x="70" y="320" width="190" height="64" rx="18" fill="white" stroke="#8A9BB2" stroke-width="3"/><text x="165" y="358" text-anchor="middle" class="t">Rejeitada</text>
+  <rect x="340" y="320" width="190" height="64" rx="18" fill="white" stroke="#8A9BB2" stroke-width="3"/><text x="435" y="358" text-anchor="middle" class="t">Substituída</text>
+  <path d="M262 192H336" stroke="#254DB8" stroke-width="3" marker-end="url(#a)"/>
+  <path d="M165 226V316" stroke="#254DB8" stroke-width="3" marker-end="url(#a)"/>
+  <path d="M435 226V316" stroke="#254DB8" stroke-width="3" marker-end="url(#a)"/>
+  <text x="299" y="180" text-anchor="middle" class="s">aprovação</text>
+  <text x="178" y="276" class="s">recusa</text>
+  <text x="448" y="266" class="s">gatilho de</text><text x="448" y="283" class="s">revisão atingido</text>
+  <rect x="70" y="440" width="460" height="130" rx="18" fill="#E6EEF9" stroke="#254DB8" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="95" y="475" class="f">ADR N, substituída</text>
+  <text x="95" y="498" class="s">Mantido no repositório, com o vínculo para o registro novo</text>
+  <path d="M195 520H420" stroke="#254DB8" stroke-width="3" marker-end="url(#a)"/>
+  <text x="95" y="525" class="f">aponta para</text>
+  <rect x="425" y="500" width="90" height="40" rx="12" fill="#254DB8"/><text x="470" y="526" text-anchor="middle" style="font-size:14px;font-weight:700;fill:white">ADR M</text>
+
+  <text x="610" y="140" class="g">ANATOMIA DO REGISTRO</text>
+  <rect x="610" y="160" width="520" height="410" rx="20" fill="white" stroke="#16243A" stroke-width="3"/>
+  <rect x="630" y="178" width="480" height="70" rx="12" fill="#E6EEF9"/><text x="648" y="202" class="g">IDENTIFICAÇÃO</text><text x="648" y="230" class="f">Título · Estado · Data</text>
+  <rect x="630" y="258" width="480" height="70" rx="12" fill="#E6EEF9"/><text x="648" y="282" class="g">CONTEXTO</text><text x="648" y="310" class="f">Contexto · Forças</text>
+  <rect x="630" y="338" width="480" height="70" rx="12" fill="#D8E9FF"/><text x="648" y="362" class="g">ESCOLHA</text><text x="648" y="390" class="f">Alternativas · Decisão</text>
+  <rect x="630" y="418" width="480" height="70" rx="12" fill="#E6EEF9"/><text x="648" y="442" class="g">CONTROLE</text><text x="648" y="470" class="f">Consequências · Evidências · Revisão</text>
+  <text x="630" y="522" class="s">As forças vêm dos princípios e dos cenários, as alternativas</text>
+  <text x="630" y="542" class="s">da comparação de estilos e os custos aceitos dos padrões.</text>
+
+  <rect x="70" y="605" width="1060" height="40" rx="20" fill="#F2B84B"/>
+  <text x="600" y="631" text-anchor="middle" style="font-size:14px;font-weight:700">O gatilho de revisão precisa ser observável, com valor ou prazo definido</text>
+</svg>
