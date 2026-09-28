@@ -90,7 +90,7 @@ O API Gateway é um ponto único de entrada para os clientes externos de um conj
 
 ### Resiliência na integração
 
-O exemplo desta seção é uma transportadora de cargas que atende 1.400 clientes corporativos e cujo portal de cotação consulta, a cada pedido, o serviço de tarifa de três parceiros de transporte e o serviço de rastreamento de um operador logístico externo. Nygard (2018) reúne sob o nome de padrões de estabilidade as soluções que impedem que a falha de uma dependência se propague ao sistema que a chama, e os quatro padrões abaixo pertencem a esse grupo.
+O exemplo desta seção é uma transportadora de cargas que atende 1.400 clientes corporativos e cujo portal de cotação consulta, a cada pedido, o serviço de tarifa de três parceiros de transporte e o serviço de rastreamento de um operador logístico externo. Nygard (2018) reúne sob o nome de padrões de estabilidade as soluções que impedem que a falha de uma dependência se propague ao sistema que a chama, e três dos quatro padrões abaixo, Timeout, Circuit Breaker e Bulkhead, pertencem a esse grupo. O Retry com limite completa o conjunto como prática de tratamento de falha transitória, segura apenas quando combinada com Timeout e aplicada a operações idempotentes.
 
 #### Timeout
 
@@ -190,10 +190,10 @@ A ACME é uma universidade privada brasileira em modernização incremental do s
 | --- | --- |
 | Coexistência entre legado e solução nova | O núcleo COBOL sobre CICS permanece em operação durante toda a transição, a camada Java tem 2.300 pontos de acesso direto às tabelas do núcleo, e a alteração dos programas do núcleo depende da fábrica contratada até 30/09/2027 |
 | Proteção contra falha de integração | Os portais chamam o CICS por conector transacional síncrono com tempo limite de 30 s, e no incidente de 04/02/2026 sessões abandonadas mantiveram transações abertas até esgotar o limite de tarefas concorrentes, com 4h20 de indisponibilidade e 62% de erro nas tentativas de matrícula |
-| Publicação confiável de mudança acadêmica | O requisito R7 exige que a nota lançada chegue ao ambiente virtual de aprendizagem em até 10 minutos, a exportação atual ocorre em lote diário iniciado às 05h10, e a janela de fechamento chega a 360.000 lançamentos |
+| Publicação confiável de mudança acadêmica | O requisito R7 exige que a nota lançada chegue ao ambiente virtual de aprendizagem em até 10 minutos, a exportação atual ocorre em lote diário iniciado às 05h10, a janela de fechamento chega a 360.000 lançamentos, e a integração por interface de programação exige o plano do ambiente virtual com acréscimo de 38% sobre o valor anual do contrato vigente |
 
 1. Para cada um dos três problemas, a coexistência entre legado e solução nova, a proteção contra falha de integração e a publicação confiável de mudança acadêmica, escolha um padrão do repertório deste bloco, ou mais de um quando resolverem aspectos distintos do mesmo problema, e indique o nível de cada padrão na taxonomia de três níveis.
-2. Para cada escolha, registre o problema, o padrão, o elemento afetado do esboço lógico produzido no exercício 9, a consequência favorável esperada e o custo aceito.
+2. Para cada escolha, registre o problema, o padrão, o elemento afetado do esboço lógico produzido no [exercício 9](bloco-1-principios-de-design.md#exercicio-9), a consequência favorável esperada e o custo aceito. Quem não tem o esboço lógico pode indicar como elemento afetado o componente correspondente da arquitetura de linha de base.
 3. Indique um padrão que você considerou e descartou para um dos problemas, com o motivo do descarte ligado ao contexto da ACME.
 
 O mapa de problema, padrão e consequência produzido neste exercício é a entrada do ADR do exercício 12, no [bloco 4](bloco-4-registro-de-decisao-arquitetural.md).

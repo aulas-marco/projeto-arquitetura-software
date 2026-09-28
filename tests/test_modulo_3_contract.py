@@ -227,5 +227,30 @@ class IndexSynthesisAndReferenceTest(unittest.TestCase):
                 self.assertIn(author, text)
 
 
+class ReviewFindingsTest(unittest.TestCase):
+    """Achados da revisao final da branch, fixados para nao regredirem."""
+
+    def test_block_2_quotes_the_maxim_in_the_right_order(self):
+        text = read("bloco-2-estilos-arquiteturais.md")
+        self.assertIn("a forma segue a função", text)
+        self.assertNotIn("a função segue a forma", text)
+
+    def test_retry_is_not_attributed_to_nygard(self):
+        text = read("bloco-3-padroes-arquiteturais-e-de-design.md")
+        self.assertNotIn("os quatro padrões abaixo pertencem a esse grupo", text)
+        match = re.search(r"^#### Retry com limite\s*$", text, re.MULTILINE)
+        rest = text[match.end():]
+        body = rest[: re.search(r"^#{2,4}\s", rest, re.MULTILINE).start()]
+        self.assertNotIn("Nygard", body)
+
+    def test_exercise_11_reproduces_the_virtual_learning_contract_cost(self):
+        ex = section(read("bloco-3-padroes-arquiteturais-e-de-design.md"), "Exercício 11")
+        self.assertIn("38%", ex)
+
+    def test_exercise_11_points_to_the_logical_sketch_of_exercise_9(self):
+        ex = section(read("bloco-3-padroes-arquiteturais-e-de-design.md"), "Exercício 11")
+        self.assertIn("bloco-1-principios-de-design.md#exercicio-9", ex)
+
+
 if __name__ == "__main__":
     unittest.main()
