@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Estilos arquiteturais por força e compromisso</title><desc id="desc">Matriz com sete estilos nas linhas e quatro forças genéricas nas colunas, acoplamento baixo, implantação independente, consistência imediata e simplicidade operacional. Cada célula indica se o estilo tende a favorecer, ser neutro ou prejudicar a força.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:25px;font-weight:700}.s{font-size:13px;fill:#52657E}.c{font-size:14px;font-weight:700}.r{font-size:15px;font-weight:600}.m{font-size:12px;font-weight:600}</style></defs>
+  <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
+  <text x="70" y="62" class="h">Todo estilo favorece algumas forças e cobra outras</text>
+  <text x="70" y="86" class="s">Tendência estrutural de cada estilo, antes de qualquer mecanismo compensatório acrescentado ao desenho.</text>
+  <text x="485.0" y="150" text-anchor="middle" class="c">Acoplamento</text><text x="485.0" y="170" text-anchor="middle" class="c">baixo</text>
+  <text x="675.0" y="150" text-anchor="middle" class="c">Implantação</text><text x="675.0" y="170" text-anchor="middle" class="c">independente</text>
+  <text x="865.0" y="150" text-anchor="middle" class="c">Consistência</text><text x="865.0" y="170" text-anchor="middle" class="c">imediata</text>
+  <text x="1055.0" y="150" text-anchor="middle" class="c">Simplicidade</text><text x="1055.0" y="170" text-anchor="middle" class="c">operacional</text>
+  <rect x="70" y="200" width="1080" height="50" rx="12" fill="white"/>
+  <text x="94" y="231" class="r">Arquitetura em camadas</text>
+  <circle cx="445.0" cy="225" r="10" fill="white" stroke="#8A9BB2" stroke-width="3"/><text x="461.0" y="230" class="m" style="fill:#52657E">neutro</text>
+  <rect x="624.0" y="214" width="22" height="22" rx="5" fill="#F2B84B"/><text x="651.0" y="230" class="m">prejudica</text>
+  <circle cx="825.0" cy="225" r="11" fill="#254DB8"/><text x="841.0" y="230" class="m">favorece</text>
+  <circle cx="1015.0" cy="225" r="11" fill="#254DB8"/><text x="1031.0" y="230" class="m">favorece</text>
+  <rect x="70" y="256" width="1080" height="50" rx="12" fill="#E6EEF9"/>
+  <text x="94" y="287" class="r">Microsserviços</text>
+  <circle cx="445.0" cy="281" r="11" fill="#254DB8"/><text x="461.0" y="286" class="m">favorece</text>
+  <circle cx="635.0" cy="281" r="11" fill="#254DB8"/><text x="651.0" y="286" class="m">favorece</text>
+  <rect x="814.0" y="270" width="22" height="22" rx="5" fill="#F2B84B"/><text x="841.0" y="286" class="m">prejudica</text>
+  <rect x="1004.0" y="270" width="22" height="22" rx="5" fill="#F2B84B"/><text x="1031.0" y="286" class="m">prejudica</text>
+  <rect x="70" y="312" width="1080" height="50" rx="12" fill="white"/>
+  <text x="94" y="343" class="r">Orientada a eventos</text>
+  <circle cx="445.0" cy="337" r="11" fill="#254DB8"/><text x="461.0" y="342" class="m">favorece</text>
+  <circle cx="635.0" cy="337" r="11" fill="#254DB8"/><text x="651.0" y="342" class="m">favorece</text>
+  <rect x="814.0" y="326" width="22" height="22" rx="5" fill="#F2B84B"/><text x="841.0" y="342" class="m">prejudica</text>
+  <rect x="1004.0" y="326" width="22" height="22" rx="5" fill="#F2B84B"/><text x="1031.0" y="342" class="m">prejudica</text>
+  <rect x="70" y="368" width="1080" height="50" rx="12" fill="#E6EEF9"/>
+  <text x="94" y="399" class="r">Microkernel</text>
+  <circle cx="445.0" cy="393" r="10" fill="white" stroke="#8A9BB2" stroke-width="3"/><text x="461.0" y="398" class="m" style="fill:#52657E">neutro</text>
+  <circle cx="635.0" cy="393" r="11" fill="#254DB8"/><text x="651.0" y="398" class="m">favorece</text>
+  <circle cx="825.0" cy="393" r="11" fill="#254DB8"/><text x="841.0" y="398" class="m">favorece</text>
+  <circle cx="1015.0" cy="393" r="10" fill="white" stroke="#8A9BB2" stroke-width="3"/><text x="1031.0" y="398" class="m" style="fill:#52657E">neutro</text>
+  <rect x="70" y="424" width="1080" height="50" rx="12" fill="white"/>
+  <text x="94" y="455" class="r">Hexagonal</text>
+  <circle cx="445.0" cy="449" r="11" fill="#254DB8"/><text x="461.0" y="454" class="m">favorece</text>
+  <circle cx="635.0" cy="449" r="10" fill="white" stroke="#8A9BB2" stroke-width="3"/><text x="651.0" y="454" class="m" style="fill:#52657E">neutro</text>
+  <circle cx="825.0" cy="449" r="11" fill="#254DB8"/><text x="841.0" y="454" class="m">favorece</text>
+  <circle cx="1015.0" cy="449" r="10" fill="white" stroke="#8A9BB2" stroke-width="3"/><text x="1031.0" y="454" class="m" style="fill:#52657E">neutro</text>
+  <rect x="70" y="480" width="1080" height="50" rx="12" fill="#E6EEF9"/>
+  <text x="94" y="511" class="r">Pipes and filters</text>
+  <circle cx="445.0" cy="505" r="11" fill="#254DB8"/><text x="461.0" y="510" class="m">favorece</text>
+  <circle cx="635.0" cy="505" r="10" fill="white" stroke="#8A9BB2" stroke-width="3"/><text x="651.0" y="510" class="m" style="fill:#52657E">neutro</text>
+  <circle cx="825.0" cy="505" r="10" fill="white" stroke="#8A9BB2" stroke-width="3"/><text x="841.0" y="510" class="m" style="fill:#52657E">neutro</text>
+  <circle cx="1015.0" cy="505" r="11" fill="#254DB8"/><text x="1031.0" y="510" class="m">favorece</text>
+  <rect x="70" y="536" width="1080" height="50" rx="12" fill="white"/>
+  <text x="94" y="567" class="r">Orientada a APIs</text>
+  <circle cx="445.0" cy="561" r="11" fill="#254DB8"/><text x="461.0" y="566" class="m">favorece</text>
+  <circle cx="635.0" cy="561" r="11" fill="#254DB8"/><text x="651.0" y="566" class="m">favorece</text>
+  <circle cx="825.0" cy="561" r="10" fill="white" stroke="#8A9BB2" stroke-width="3"/><text x="841.0" y="566" class="m" style="fill:#52657E">neutro</text>
+  <circle cx="1015.0" cy="561" r="10" fill="white" stroke="#8A9BB2" stroke-width="3"/><text x="1031.0" y="566" class="m" style="fill:#52657E">neutro</text>
+  <rect x="70" y="605" width="1080" height="40" rx="20" fill="#16243A"/>
+  <text x="610" y="631" text-anchor="middle" style="font-size:14px;font-weight:700;fill:white">A matriz indica tendência estrutural, e a escolha depende dos cenários e dos princípios priorizados.</text>
+</svg>
