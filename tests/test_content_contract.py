@@ -78,6 +78,23 @@ class ContentContractTest(unittest.TestCase):
                 for term in terms:
                     self.assertIn(term.lower(), nearby)
 
+        for source_name in (
+            "modulo-2-visao-contexto-patrocinador.puml",
+            "modulo-2-visao-seguranca-c2.puml",
+        ):
+            source = (DOCS / "assets" / "diagrams" / source_name).read_text(
+                encoding="utf-8"
+            )
+            self.assertIn("Linha de base atual da ACME (2026)", source)
+
+        security_source = (
+            DOCS
+            / "assets"
+            / "diagrams"
+            / "modulo-2-visao-seguranca-c2.puml"
+        ).read_text(encoding="utf-8")
+        self.assertIn("Java legado — JSF 1.2 e EJB 2.0", security_source)
+
     def test_module_one_visuals_are_anchored_in_the_acme_case(self):
         """As figuras da Aula 1 precisam ensinar usando conceitos e artefatos do caso."""
         expected_terms = {

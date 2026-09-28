@@ -3,6 +3,7 @@
 !include <C4/C4_Context>
 
 title Visão de contexto C1 — decisão do patrocinador
+footer Linha de base atual da ACME (2026)
 LAYOUT_LEFT_RIGHT()
 HIDE_STEREOTYPE()
 SHOW_PERSON_OUTLINE()

@@ -3,6 +3,7 @@
 !include <C4/C4_Container>
 
 title Visão de segurança C2 — controles e fronteiras de confiança
+footer Linha de base atual da ACME (2026) — a trilha de auditoria é um controle requerido por R9
 LAYOUT_LEFT_RIGHT()
 HIDE_STEREOTYPE()
 SHOW_PERSON_OUTLINE()
@@ -19,7 +20,7 @@ System_Ext(idp, "Diretório corporativo", "Autentica os perfis institucionais", 
 System_Ext(externos, "Sistemas externos", "AVA, ERP, pagamentos, assinatura e regulador")
 
 System_Boundary(acad, "Sistema Acadêmico — fronteira sob responsabilidade da ACME") {
-  Container(portais, "Portais web", "Java, JSF 1.2 e EJB 2.0", "Recebem requisições dos quatro públicos", $tags="exposto")
+  Container(portais, "Portais web", "Java legado — JSF 1.2 e EJB 2.0", "Recebem requisições dos quatro públicos", $tags="exposto")
   Container(nucleo, "Núcleo acadêmico", "COBOL sobre CICS", "Executa regras e transações acadêmicas", $tags="legado")
   Container(integracao, "Integração em lote", "Arquivos posicionais", "Troca dados com sistemas externos", $tags="legado")
   ContainerDb(banco, "Banco acadêmico", "Oracle 12c R2", "Armazena dados acadêmicos e pessoais", $tags="dados")

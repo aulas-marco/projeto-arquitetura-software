@@ -51,20 +51,20 @@ As três visões a seguir descrevem aspectos da mesma solução, mas não são i
 
 #### Visão de contexto C1 para o patrocinador
 
-O patrocinador precisa decidir sobre escopo, valor e dependências organizacionais. Por isso, o ponto de vista seleciona os usuários, o Sistema Acadêmico como uma única caixa e os sistemas externos com que ele se relaciona. O nível C1 da modelagem C4 responde quem usa a solução, qual é sua fronteira e de que outros sistemas ela depende. Portais, banco de dados e tecnologias internas ficam de fora porque não ajudam essa audiência a tomar a decisão em pauta.
+O patrocinador precisa decidir sobre escopo, valor e dependências organizacionais. Por isso, o ponto de vista seleciona os usuários, o Sistema Acadêmico como uma única caixa e os sistemas externos com que ele se relaciona. O nível C1 da modelagem C4 responde quem usa a solução, qual é sua fronteira e de que outros sistemas ela depende. Portais, banco de dados e tecnologias internas ficam de fora porque não ajudam essa audiência a tomar a decisão em pauta. A legenda temporal identifica a visão como representação da linha de base atual da ACME em 2026, e não como arquitetura alvo.
 
 <figure markdown="span">
 ![Visão de contexto C1 da ACME destinada ao patrocinador. Aluno, professor e gestão acadêmica interagem com o Sistema Acadêmico, apresentado como uma única caixa. O sistema troca informações com o ambiente virtual de aprendizagem, o ERP financeiro, os serviços institucionais e o órgão regulador.](../assets/images/modulo-2-visao-contexto-patrocinador.svg){ .module-diagram }
-<figcaption>Visão C1 para o patrocinador: fronteira, usuários e dependências externas, sem detalhe interno.</figcaption>
+<figcaption>Visão C1 para o patrocinador, linha de base atual da ACME em 2026: fronteira, usuários e dependências externas, sem detalhe interno.</figcaption>
 </figure>
 
 #### Visão de segurança C2 para a equipe de segurança
 
-A equipe de segurança precisa localizar superfícies expostas, dados pessoais, integrações frágeis e pontos onde os controles devem operar. O nível C2 da modelagem C4 decompõe o Sistema Acadêmico em contêineres e preserva sua fronteira de responsabilidade. As relações em laranja destacam exposições da linha de base, enquanto as relações verdes mostram controles requeridos. A trilha de auditoria aparece como controle exigido pelo requisito R9, e não como componente já existente.
+A equipe de segurança precisa localizar superfícies expostas, dados pessoais, integrações frágeis e pontos onde os controles devem operar. O nível C2 da modelagem C4 decompõe o Sistema Acadêmico em contêineres e preserva sua fronteira de responsabilidade. As relações em laranja destacam exposições da linha de base, enquanto as relações verdes mostram controles requeridos. A tecnologia dos portais é identificada como Java legado com JSF 1.2 e EJB 2.0 para documentar a situação atual, não para recomendá-la. A trilha de auditoria aparece como controle exigido pelo requisito R9, e não como componente já existente.
 
 <figure markdown="span">
 ![Visão de contêineres C2 da ACME destinada à equipe de segurança. Dentro da fronteira do Sistema Acadêmico aparecem os portais web, o núcleo COBOL sobre CICS, a integração em lote, o banco Oracle e a trilha de auditoria requerida. Relações destacam autenticação, acesso direto ao banco, conectores proprietários, arquivos posicionais e registro de acesso a dados pessoais.](../assets/images/modulo-2-visao-seguranca-c2.svg){ .module-diagram }
-<figcaption>Visão C2 de segurança: contêineres, fronteiras de confiança, riscos existentes e controles requeridos.</figcaption>
+<figcaption>Visão C2 de segurança, linha de base atual da ACME em 2026: contêineres, fronteiras de confiança, riscos existentes e controles requeridos.</figcaption>
 </figure>
 
 #### Visão de rastreabilidade para o gestor
