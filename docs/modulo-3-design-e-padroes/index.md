@@ -15,16 +15,21 @@ Ao final da aula, o aluno é capaz de
 
 ## Grade de tempo
 
-A aula ocorre das 19h00 às 22h30, com intervalo das 20h30 às 20h45, e o tempo de conteúdo encerra até as 22h10. Todo o tempo de aula é destinado à apresentação conceitual dos quatro blocos, e os exercícios são realizados fora do horário de aula. A tabela abaixo é o único lugar do site em que os minutos de cada bloco aparecem, porque as páginas de bloco não exibem cronômetro.
+A aula ocorre das 19h00 às 22h30, com intervalo das 20h30 às 20h45, e o tempo de conteúdo encerra até as 22h10. O tempo de aula é dividido entre a apresentação conceitual dos quatro blocos, as questões sobre a aula anterior e três questionários Kahoot, e os exercícios são realizados fora do horário de aula. A tabela abaixo é o único lugar do site em que os minutos de cada bloco aparecem, porque as páginas de bloco não exibem cronômetro.
 
-| Bloco | Conceito | Apresentação (min) |
+| Horário | Atividade | Duração (min) |
 | --- | --- | --- |
-| 1 | Princípios de design e passagem do conceitual ao lógico | 40 |
-| 2 | Estilos arquiteturais, forças e compromissos | 40 |
-| 3 | Padrões arquiteturais e padrões de design | 40 |
-| 4 | Registro de decisão arquitetural | 40 |
+| 19h00–19h15 | Questões sobre a Aula 2 | 15 |
+| 19h15–19h25 | Kahoot de revisão da Aula 2 | 10 |
+| 19h25–19h58 | Bloco 1, princípios de design e passagem do conceitual ao lógico | 33 |
+| 19h58–20h30 | Bloco 2, estilos arquiteturais, forças e compromissos | 32 |
+| 20h30–20h45 | Intervalo | 15 |
+| 20h45–20h55 | Kahoot dos blocos 1 e 2 | 10 |
+| 20h55–21h28 | Bloco 3, padrões arquiteturais e padrões de design | 33 |
+| 21h28–22h00 | Bloco 4, registro de decisão arquitetural | 32 |
+| 22h00–22h10 | Kahoot dos blocos 3 e 4 | 10 |
 
-Os quatro blocos somam 160 minutos. Os 15 minutos restantes do tempo útil de 175 minutos cobrem abertura, transições e fechamento.
+Os quatro blocos somam 130 minutos de apresentação conceitual, e os três questionários e as questões iniciais ocupam os 45 minutos restantes do tempo útil de 175 minutos.
 
 ## Entrada recebida da Aula 2
 

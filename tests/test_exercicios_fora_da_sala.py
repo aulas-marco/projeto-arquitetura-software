@@ -14,7 +14,7 @@ class ExercisesOutsideClassTest(unittest.TestCase):
     def test_schedule_gives_class_time_only_to_concepts(self):
         text = (DOCS / "cronograma.md").read_text(encoding="utf-8")
         self.assertNotIn("quinze de exercício", text)
-        self.assertIn("quarenta minutos de apresentação conceitual", text)
+        self.assertIn("blocos de apresentação conceitual somam 130 minutos", text)
         self.assertIn(MARKER, text)
 
     def test_home_page_states_the_rule(self):
@@ -30,7 +30,16 @@ class ExercisesOutsideClassTest(unittest.TestCase):
             text = (module / "index.md").read_text(encoding="utf-8")
             with self.subTest(module=module.name):
                 self.assertNotIn("Exercício (min)", text)
-                if "## Grade de tempo" in text:
+                if "## Grade de tempo" not in text:
+                    continue
+                if "| Horário | Atividade |" in text:
+                    # Grade com Kahoot, adotada a partir da Aula 3: 130 minutos de blocos.
+                    rows = re.findall(r"^\| [\dh–]+ \| Bloco [1-4],.*\| (\d+) \|\s*$", text, re.MULTILINE)
+                    self.assertEqual(4, len(rows))
+                    self.assertEqual(130, sum(int(r) for r in rows))
+                    self.assertEqual(3, len(re.findall(r"^\| [\dh–]+ \| Kahoot", text, re.MULTILINE)))
+                else:
+                    # Grade das Aulas 1 e 2, ministradas antes da mudança.
                     rows = re.findall(r"^\| [1-4] \|.*\| (\d+) \|\s*$", text, re.MULTILINE)
                     self.assertEqual(["40", "40", "40", "40"], rows)
 
