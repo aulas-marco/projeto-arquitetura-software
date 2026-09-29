@@ -88,6 +88,8 @@ O **Hype Cycle** representa a trajetória das expectativas sobre uma inovação 
 
 Para o arquiteto, o Hype Cycle ajuda a estimar o horizonte de tempo de um fator tecnológico da análise PESTLE e o risco de adotar uma tecnologia que ainda está no pico das expectativas, quando o custo de ser um dos primeiros adotantes tende a ser maior. A posição de uma tecnologia no ciclo descreve a expectativa do mercado em geral, e a adequação dessa tecnologia ao problema da organização continua dependendo dos requisitos e das restrições do caso.
 
+O Gartner mantém uma página pública sobre o [Hype Cycle for Emerging Technologies](https://www.gartner.com/en/articles/hype-cycle-for-emerging-technologies), a edição anual dedicada a tecnologias emergentes, que serve de exemplo de aplicação do ciclo a um conjunto concreto de tecnologias e foi consultada em 29/09/2026.
+
 O **Magic Quadrant** compara fornecedores de um mesmo mercado em dois critérios, a capacidade de execução, Ability to Execute, e a abrangência da visão, Completeness of Vision. O cruzamento dos dois critérios define quatro quadrantes.
 
 | Quadrante | Nome original | Descrição resumida do Gartner |
@@ -99,7 +101,11 @@ O **Magic Quadrant** compara fornecedores de um mesmo mercado em dois critérios
 
 O próprio Gartner declara, no aviso que acompanha as publicações do Magic Quadrant, que não endossa fornecedor, produto ou serviço representado em sua pesquisa e que não recomenda selecionar apenas os fornecedores com as avaliações mais altas, porque suas publicações expressam a opinião da sua organização de pesquisa. Um participante de nicho pode ser a melhor escolha quando o nicho coincide com o problema da organização, e essa é a leitura que o arquiteto precisa fazer antes de usar o quadrante como lista de candidatos.
 
+Um exemplo publicado é o Magic Quadrant for Strategic Cloud Platform Services, com as posições de maio de 2025, exibido por completo em uma [publicação do Google Cloud de 08/08/2025](https://cloud.google.com/blog/products/compute/google-is-a-leader-in-gartner-magic-quadrant-for-scps), consultada em 29/09/2026. A página pertence a um dos fornecedores avaliados, que reproduz o gráfico sob licença do Gartner, e por isso deve ser lida como material promocional que contém dado de terceiro.
+
 O **Forrester Wave** é descrito pela Forrester Research como um guia para compradores que avaliam opções em um mercado de tecnologia, baseado na análise e na opinião da empresa. A avaliação combina a oferta atual do fornecedor, Current Offering, e a sua estratégia, Strategy, e desde 01/07/2024 o gráfico apresenta a avaliação de clientes, Customer Feedback, no lugar da antiga presença de mercado. Na mesma revisão, a classificação passou a ter três categorias, Leaders, Strong Performers e Contenders. O nome da empresa é Forrester Research, e a grafia Forrester Group, que aparece em algumas referências informais, não corresponde à razão social.
+
+Um exemplo publicado é o [Forrester Wave: Public Cloud Platforms, Q4 2024](https://reprint.forrester.com/reports/the-forrester-wave-tm-public-cloud-platforms-q4-2024-9c26c6b4/index.html), distribuído em reimpressão licenciada no portal de reimpressões da Forrester Research e consultado em 29/09/2026. Ele avalia um mercado próximo ao do Magic Quadrant citado acima, o que permite confrontar a opinião das duas empresas sobre provedores de nuvem.
 
 Os três instrumentos respondem a perguntas diferentes e entram em momentos diferentes do processo, e a tabela abaixo resume essa correspondência.
 

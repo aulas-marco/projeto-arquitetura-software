@@ -66,6 +66,14 @@ class ContentContractTest(unittest.TestCase):
         ):
             with self.subTest(term=term):
                 self.assertIn(term, section)
+        for url in (
+            "https://www.gartner.com/en/articles/hype-cycle-for-emerging-technologies",
+            "https://cloud.google.com/blog/products/compute/google-is-a-leader-in-gartner-magic-quadrant-for-scps",
+            "https://reprint.forrester.com/reports/the-forrester-wave-tm-public-cloud-platforms-q4-2024-9c26c6b4/index.html",
+        ):
+            with self.subTest(example=url):
+                self.assertIn(url, section)
+        self.assertIn("29/09/2026", section)
         fontes = page[page.index("## Fontes"):]
         for url in (
             "https://www.gartner.com/en/research/methodologies/gartner-hype-cycle",
