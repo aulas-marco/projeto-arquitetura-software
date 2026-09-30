@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
   <title id="title">Estilos arquiteturais por força e compromisso</title><desc id="desc">Matriz com sete estilos nas linhas e quatro forças genéricas nas colunas, acoplamento baixo, implantação independente, consistência imediata e simplicidade operacional. Cada célula indica se o estilo tende a favorecer, ser neutro ou prejudicar a força.</desc>
-  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:25px;font-weight:700}.s{font-size:13px;fill:#52657E}.c{font-size:14px;font-weight:700}.r{font-size:15px;font-weight:600}.m{font-size:12px;font-weight:600}</style></defs>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:30px;font-weight:700}.s{font-size:16px;fill:#52657E}.c{font-size:17px;font-weight:700}.r{font-size:18px;font-weight:600}.m{font-size:16px;font-weight:600}</style></defs>
   <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
   <text x="70" y="62" class="h">Todo estilo favorece algumas forças e cobra outras</text>
   <text x="70" y="86" class="s">Tendência estrutural de cada estilo, antes de qualquer mecanismo compensatório acrescentado ao desenho.</text>
@@ -51,5 +51,5 @@
   <circle cx="825.0" cy="561" r="10" fill="white" stroke="#8A9BB2" stroke-width="3"/><text x="841.0" y="566" class="m" style="fill:#52657E">neutro</text>
   <circle cx="1015.0" cy="561" r="10" fill="white" stroke="#8A9BB2" stroke-width="3"/><text x="1031.0" y="566" class="m" style="fill:#52657E">neutro</text>
   <rect x="70" y="605" width="1080" height="40" rx="20" fill="#16243A"/>
-  <text x="610" y="631" text-anchor="middle" style="font-size:14px;font-weight:700;fill:white">A matriz indica tendência estrutural, e a escolha depende dos cenários e dos princípios priorizados.</text>
+  <text x="610" y="631" text-anchor="middle" style="font-size:16px;font-weight:700;fill:white">A matriz indica tendência estrutural, e a escolha depende dos cenários e dos princípios priorizados.</text>
 </svg>

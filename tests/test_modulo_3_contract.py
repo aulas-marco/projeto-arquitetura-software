@@ -63,20 +63,25 @@ def section(text: str, heading_regex: str) -> str:
 
 
 class ModuleThreeStructureTest(unittest.TestCase):
-    def test_module_diagrams_expand_beyond_the_text_column_on_wide_screens(self):
+    def test_module_diagrams_stay_inside_the_content_column(self):
         css = STYLESHEET.read_text(encoding="utf-8")
-        wide_screen_rule = re.search(
-            r"@media\s*\(min-width:\s*60em\)\s*\{(?P<body>.*?)\n\}",
+        rule = re.search(
+            r"\.md-typeset img\.module-diagram\s*\{(?P<body>.*?)\n\}",
             css,
             re.DOTALL,
-        )
+        ).group("body")
 
-        self.assertIsNotNone(wide_screen_rule)
-        rule = wide_screen_rule.group("body")
-        self.assertIn(".md-typeset img.module-diagram", rule)
-        self.assertRegex(rule, r"width:\s*min\(75rem, calc\(100vw - 4rem\)\)")
-        self.assertRegex(rule, r"margin-left:\s*50%")
-        self.assertRegex(rule, r"transform:\s*translateX\(-50%\)")
+        self.assertRegex(rule, r"width:\s*100%")
+        for overflow_technique in ("100vw", "translateX", "margin-left"):
+            self.assertNotIn(overflow_technique, css)
+
+    def test_module_diagrams_use_legible_internal_type(self):
+        for image, _ in BLOCKS.values():
+            svg = (IMAGES / image).read_text(encoding="utf-8")
+            sizes = [int(size) for size in re.findall(r"font-size:(\d+)px", svg)]
+            with self.subTest(image=image):
+                self.assertTrue(sizes)
+                self.assertGreaterEqual(min(sizes), 16)
 
     def test_all_pages_exist_and_are_in_nav(self):
         nav = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
