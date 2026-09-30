@@ -66,7 +66,7 @@ class ModuleThreeStructureTest(unittest.TestCase):
     def test_module_diagrams_expand_beyond_the_text_column_on_wide_screens(self):
         css = STYLESHEET.read_text(encoding="utf-8")
         wide_screen_rule = re.search(
-            r"@media\s*\(min-width:\s*76\.25em\)\s*\{(?P<body>.*?)\n\}",
+            r"@media\s*\(min-width:\s*60em\)\s*\{(?P<body>.*?)\n\}",
             css,
             re.DOTALL,
         )
@@ -74,8 +74,9 @@ class ModuleThreeStructureTest(unittest.TestCase):
         self.assertIsNotNone(wide_screen_rule)
         rule = wide_screen_rule.group("body")
         self.assertIn(".md-typeset img.module-diagram", rule)
-        self.assertRegex(rule, r"width:\s*calc\(100% \+ 12rem\)")
-        self.assertRegex(rule, r"margin-left:\s*-6rem")
+        self.assertRegex(rule, r"width:\s*min\(75rem, calc\(100vw - 4rem\)\)")
+        self.assertRegex(rule, r"margin-left:\s*50%")
+        self.assertRegex(rule, r"transform:\s*translateX\(-50%\)")
 
     def test_all_pages_exist_and_are_in_nav(self):
         nav = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
