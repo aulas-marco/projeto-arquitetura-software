@@ -37,3 +37,10 @@
   background: var(--course-paper);
   box-shadow: 0 0.4rem 1.2rem rgb(22 36 58 / 8%);
 }
+
+@media (min-width: 76.25em) {
+  .md-typeset img.module-diagram {
+    width: calc(100% + 12rem);
+    margin-left: -6rem;
+  }
+}

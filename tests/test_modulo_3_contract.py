@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 MODULE = DOCS / "modulo-3-design-e-padroes"
 IMAGES = DOCS / "assets" / "images"
+STYLESHEET = DOCS / "assets" / "stylesheets" / "extra.css"
 
 BLOCKS = {
     "bloco-1-principios-de-design.md": ("modulo-3-principios-ao-desenho-logico.svg", 9),
@@ -62,6 +63,20 @@ def section(text: str, heading_regex: str) -> str:
 
 
 class ModuleThreeStructureTest(unittest.TestCase):
+    def test_module_diagrams_expand_beyond_the_text_column_on_wide_screens(self):
+        css = STYLESHEET.read_text(encoding="utf-8")
+        wide_screen_rule = re.search(
+            r"@media\s*\(min-width:\s*76\.25em\)\s*\{(?P<body>.*?)\n\}",
+            css,
+            re.DOTALL,
+        )
+
+        self.assertIsNotNone(wide_screen_rule)
+        rule = wide_screen_rule.group("body")
+        self.assertIn(".md-typeset img.module-diagram", rule)
+        self.assertRegex(rule, r"width:\s*calc\(100% \+ 12rem\)")
+        self.assertRegex(rule, r"margin-left:\s*-6rem")
+
     def test_all_pages_exist_and_are_in_nav(self):
         nav = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
         for name in ("index.md", *BLOCKS, "sintese.md"):
