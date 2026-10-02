@@ -137,3 +137,15 @@ Dificuldade de trocar ou negociar uma dependência técnica ou organizacional ad
 ## Modelo C4
 
 Notação para representar a arquitetura de um sistema em quatro níveis de abstração progressiva, Contexto, Contêineres, Componentes e Código, cada nível com nome próprio, o modelo inteiro chamado C4 por ter quatro níveis.
+
+## Arquitetura de negócio
+
+Representação da organização em capacidades, fluxos de valor, informação e estrutura organizacional, usada para alinhar objetivos estratégicos e demandas táticas, e que é ao mesmo tempo origem e alvo da mudança promovida por uma solução.
+
+## Capacidade
+
+Aquilo que a organização precisa conseguir fazer para entregar seus serviços e executar sua estratégia, caracterizada pelo volume que consegue entregar em paralelo, pela competência exigida e pelos recursos que a habilitam.
+
+## Fluxo de valor
+
+Conjunto de etapas de ponta a ponta pelo qual a organização entrega valor a um cliente, do primeiro contato com a organização até a realização desse valor pelo cliente.
