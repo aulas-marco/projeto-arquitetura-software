@@ -185,3 +185,7 @@ Descrição verificável de uma interface particular, com as operações ou mens
 ## Contrato de integração
 
 Especificação de interface somada às garantias acordadas entre provedor e consumidor, como versionamento, garantia de entrega, idempotência e nível de serviço.
+
+## Arquitetura de infraestrutura
+
+Arquitetura dos componentes e serviços tecnológicos que sustentam as atividades da organização, como equipamentos, redes, plataformas e capacidade de processamento, chamada de arquitetura de tecnologia no TOGAF.
