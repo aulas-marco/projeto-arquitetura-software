@@ -149,3 +149,19 @@ Aquilo que a organização precisa conseguir fazer para entregar seus serviços 
 ## Fluxo de valor
 
 Conjunto de etapas de ponta a ponta pelo qual a organização entrega valor a um cliente, do primeiro contato com a organização até a realização desse valor pelo cliente.
+
+## Arquitetura de dados
+
+Subdomínio da arquitetura corporativa que trata dos dados, dos metadados e da informação da organização, e ao qual a arquitetura de dados de cada solução precisa ser consistente.
+
+## Propriedade do dado
+
+Atribuição de uma entidade de dado a um único responsável, que a grava, enquanto as demais partes a leem por interface ou a recebem por evento.
+
+## Fonte de verdade
+
+Local em que uma entidade de dado é registrada e mantida com autoridade, e do qual as demais cópias derivam.
+
+## Regime de consistência
+
+Garantia declarada sobre o momento em que uma cópia reflete a fonte de verdade, forte quando reflete imediatamente e eventual quando reflete dentro de um prazo declarado.
