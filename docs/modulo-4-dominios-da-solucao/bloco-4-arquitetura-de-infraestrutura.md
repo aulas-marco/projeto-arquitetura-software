@@ -8,37 +8,6 @@ Este bloco fecha a aula tratando de uma pergunta anterior às duas decisões já
 
 ## Conceito
 
-Um diagrama solto e um modelo arquitetural não são a mesma coisa. O diagrama solto nasce de uma conversa, usa símbolos escolhidos na hora e serve àquela conversa. O modelo tem convenção declarada, define o que cada forma significa e o que cada nível de detalhe pode ou não conter, e por isso continua legível para quem não estava na sala. A diferença prática aparece quando duas pessoas desenham o mesmo sistema. Com convenção, os dois desenhos são comparáveis. Sem convenção, cada um inventa a sua e o desenho vira ilustração.
-
-O **modelo C4**, criado por Brown (n.d.), é uma dessas convenções. Ele organiza a descrição do sistema em quatro níveis de abstração, que permitem compreensão progressiva de acordo com o público e o propósito da documentação. O nome vem das iniciais dos quatro níveis em inglês, Context, Containers, Components e Code. O modelo inteiro se chama C4 porque tem quatro níveis, e cada nível tem nome próprio, o que significa que o quarto nível se chama Código, não C4 outra vez.
-
-![Hierarquia de abstrações do modelo C4, com um sistema de software no topo, decomposto em contêineres, cada contêiner decomposto em componentes, e cada componente decomposto em elementos de código.](../assets/images/c4-quatro-niveis.png)
-
-*Os quatro níveis de abstração do C4. Fonte: [c4model.com](https://c4model.com), reproduzido do material base do professor.*
-
-Cada nível responde a uma pergunta diferente e atende a um público diferente. É essa correspondência, e não a quantidade de detalhe, que decide qual diagrama usar em cada situação.
-
-| Nível | Pergunta que responde | Público |
-| --- | --- | --- |
-| Contexto | O que o sistema faz? | Partes interessadas não técnicas que precisam entender o escopo geral |
-| Contêineres | Como o sistema funciona como um todo? | Arquitetos e desenvolvedores, para entender a estrutura de alto nível |
-| Componentes | Como cada parte de um contêiner é estruturada? | Desenvolvedores que implementam ou mantêm o sistema |
-| Código | Como a implementação de um componente é realizada? | Desenvolvedores em nível de detalhamento máximo |
-
-Esta aula cobre os dois primeiros níveis. Os níveis de componentes e de código existem e seguem a mesma lógica de decomposição, mas ficam fora do escopo aqui.
-
-Três princípios organizam o uso das abstrações. A progressividade pede começar pela visão ampla e descer ao detalhe, alinhando o nível ao público e ao propósito. A coerência pede manter as abstrações alinhadas entre os níveis, para que o que aparece como contêiner no nível 2 não reapareça como sistema externo no nível 1. O foco no propósito pede que cada diagrama tenha um objetivo claro e responda à pergunta de um grupo específico de interessados.
-
-### Nível 1, diagrama de contexto
-
-O **diagrama de contexto** fornece uma visão ampla do sistema modelado e de como ele se relaciona com os atores externos. Ele comunica os limites do sistema e as interações de alto nível, e por isso trabalha com apenas três tipos de elemento. Pessoas representam os atores humanos que interagem diretamente com o sistema, sejam usuários finais ou outras partes interessadas. Sistemas de software representam tanto o sistema sendo modelado quanto os outros sistemas com que ele se comunica. Relações demonstram como atores e sistemas externos interagem com o sistema principal, descrevendo o meio e o protocolo usados.
-
-![Diagrama de contexto com três elementos, um ator Cliente marcado como pessoa, o Sistema Principal marcado como sistema, e um Serviço de API Externa marcado como sistema externo, ligados por relações rotuladas com o protocolo de cada interação.](../assets/images/c4-exemplo-contexto.png)
-
-*Diagrama de contexto genérico, com os três tipos de elemento e as relações rotuladas por protocolo. Fonte: material base do professor.*
-
-O roteiro para montar esse diagrama tem cinco etapas. Identifique o sistema de interesse, determinando qual sistema é o foco do modelo. Defina os atores externos, identificando as pessoas que interagem com ele. Liste os sistemas externos que trocam informação diretamente com o sistema principal. Desenhe as relações, conectando pessoas e sistemas ao sistema principal, com descrição clara da interação e do protocolo. Acrescente descrição a cada elemento, para que o diagrama seja compreensível por todos os interessados, inclusive os que não participaram do desenho.
-
 ### Nível 2, diagrama de contêineres
 
 O **diagrama de contêineres** detalha os principais contêineres que compõem o sistema, com suas responsabilidades e com a forma como interagem entre si e com os sistemas externos. Contêineres representam as aplicações, bancos de dados ou outros serviços que compõem o sistema, cada um com responsabilidade específica e tecnologia declarada. Sistemas externos e relações continuam presentes, com o mesmo significado do nível anterior.
@@ -48,22 +17,6 @@ O **diagrama de contêineres** detalha os principais contêineres que compõem o
 *Diagrama de contêineres genérico, com a decomposição interna do sistema e a tecnologia de cada contêiner. Fonte: material base do professor.*
 
 O roteiro aqui tem quatro etapas. Identifique os sistemas externos com que o sistema principal interage diretamente, que são os mesmos do nível 1. Defina os contêineres principais, como aplicação de interface, serviço de retaguarda ou banco de dados. Descreva as relações entre contêineres e entre eles e os sistemas externos, especificando protocolo e direção. Acrescente a cada contêiner uma descrição curta da responsabilidade e da tecnologia usada.
-
-Os mesmos dois níveis em notação Mermaid, que é a notação usada neste site, aplicados a uma plataforma de agendamento de consultas odontológicas.
-
-```mermaid
-graph TD
-    PAC["Paciente"]
-    REC["Recepção da clínica"]
-    AGE["Sistema de agendamento odontológico"]
-    CONV["Operadora de convênio"]
-    SMS["Serviço de mensagens"]
-
-    PAC -->|"marca e confirma consulta"| AGE
-    REC -->|"gerencia agenda e encaixes"| AGE
-    AGE -->|"consulta elegibilidade e autorização"| CONV
-    AGE -->|"envia lembrete de consulta"| SMS
-```
 
 No nível de contêineres, o mesmo sistema se decompõe sem que os atores e os sistemas externos mudem.
 

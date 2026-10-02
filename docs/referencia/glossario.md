@@ -165,3 +165,23 @@ Local em que uma entidade de dado é registrada e mantida com autoridade, e do q
 ## Regime de consistência
 
 Garantia declarada sobre o momento em que uma cópia reflete a fonte de verdade, forte quando reflete imediatamente e eventual quando reflete dentro de um prazo declarado.
+
+## Arquitetura de aplicações
+
+Subdomínio da arquitetura corporativa que mantém a visão do portfólio de aplicações da organização e dos serviços que elas oferecem, e que liga a arquitetura de negócio à arquitetura de dados.
+
+## Padrão técnico
+
+Especificação adotada pela organização que fixa processos, documentação, regras e parâmetros a observar, correspondente ao termo inglês *standard* e distinta do padrão arquitetural e do padrão de design, que correspondem a *pattern*.
+
+## Protocolo
+
+Conjunto de regras que duas partes seguem para trocar mensagens, com formato, sequência e tratamento de erro definidos.
+
+## Especificação de interface
+
+Descrição verificável de uma interface particular, com as operações ou mensagens, os esquemas dos dados trocados e os erros possíveis.
+
+## Contrato de integração
+
+Especificação de interface somada às garantias acordadas entre provedor e consumidor, como versionamento, garantia de entrega, idempotência e nível de serviço.

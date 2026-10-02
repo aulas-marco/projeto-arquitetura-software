@@ -29,6 +29,10 @@ Fontes conferidas, no formato APA 7ª edição. Referências adicionais entram s
 - Nygard, M. (2018). *Release it! Design and deploy production-ready software* (2nd ed.). The Pragmatic Programmers.
 - Kleppmann, M. (2017). *Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems*. O'Reilly Media.
 - Dehghani, Z. (2022). *Data mesh: Delivering data-driven value at scale*. O'Reilly Media.
+- Fielding, R., Nottingham, M., & Reschke, J. (Eds.). (2022). *HTTP semantics* (RFC 9110). RFC Editor. https://www.rfc-editor.org/rfc/rfc9110
+- OpenAPI Initiative. (2026). *OpenAPI specification* (Versão 3.2.1). https://spec.openapis.org/oas/latest.html
+- AsyncAPI Initiative. (n.d.). *AsyncAPI specification* (Versão 3.1.0). https://www.asyncapi.com/docs/reference/specification/latest
+- *Sistema Nota Fiscal Eletrônica: Manual de orientação do contribuinte, visão geral* (Versão 7.00). (2020). https://www.confaz.fazenda.gov.br/legislacao/arquivo-manuais/moc7-visao-geral.pdf
 
 As referências ainda não confirmadas (o número de características da ISO/IEC 25010:2023, o DOI do relatório do SEI e a coletânea de 2016 do Quality Attribute Workshop) ficam fora da lista até serem conferidas.
 

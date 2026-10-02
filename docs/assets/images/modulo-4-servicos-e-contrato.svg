@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Hierarquia de serviços e camadas do contrato de integração</title><desc id="desc">À esquerda, cinco camadas empilhadas, serviço de negócio, processo de negócio, serviço de aplicação, componente de aplicação e serviço de tecnologia, cada uma dependendo da camada inferior. À direita, quatro camadas da base ao topo, padrão técnico, protocolo, especificação e contrato, com os seis atributos de interface junto à especificação e as garantias acordadas junto ao contrato.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:30px;font-weight:700}.t{font-size:20px;font-weight:700}.q{font-size:17px;fill:#52657E}.e{font-size:16px;font-weight:700}</style></defs>
+  <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
+  <text x="70" y="62" class="h">Do serviço de negócio ao contrato de integração</text>
+  <text x="70" y="86" class="q">Cada camada depende só da inferior, e cada integração é governada em quatro níveis.</text>
+
+  <text x="70" y="135" class="t">Hierarquia de serviços</text>
+  <rect x="70" y="155" width="440" height="62" rx="16" fill="#16243A"/><text x="290" y="193" text-anchor="middle" class="t" style="fill:white">Serviço de negócio</text>
+  <rect x="70" y="232" width="440" height="62" rx="16" fill="#254DB8"/><text x="290" y="270" text-anchor="middle" class="t" style="fill:white">Processo de negócio</text>
+  <rect x="70" y="309" width="440" height="62" rx="16" fill="#5FC0D1"/><text x="290" y="347" text-anchor="middle" class="t">Serviço de aplicação</text>
+  <rect x="70" y="386" width="440" height="62" rx="16" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/><text x="290" y="424" text-anchor="middle" class="t">Componente de aplicação</text>
+  <rect x="70" y="463" width="440" height="62" rx="16" fill="white" stroke="#254DB8" stroke-width="2"/><text x="290" y="501" text-anchor="middle" class="t">Serviço de tecnologia</text>
+  <text x="70" y="560" class="q">Pessoas e informação atravessam todas as camadas.</text>
+
+  <text x="590" y="135" class="t">Governança de uma integração</text>
+  <rect x="590" y="155" width="540" height="92" rx="16" fill="#F2B84B"/>
+  <text x="615" y="190" class="t">Contrato</text>
+  <text x="615" y="220" class="e">Versão, entrega, idempotência, erro, nível de serviço</text>
+  <rect x="590" y="262" width="540" height="122" rx="16" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <text x="615" y="297" class="t">Especificação</text>
+  <text x="615" y="327" class="q">Origem, destino, gatilho, itens trocados,</text>
+  <text x="615" y="352" class="q">sequência, pré e pós-condições, esquemas</text>
+  <rect x="590" y="399" width="540" height="62" rx="16" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="615" y="436" class="t">Protocolo</text><text x="780" y="436" class="q">regras de troca de mensagens</text>
+  <rect x="590" y="476" width="540" height="62" rx="16" fill="#E6EEF9" stroke="#16243A" stroke-width="2"/>
+  <text x="615" y="513" class="t">Padrão técnico</text><text x="790" y="513" class="q">especificação adotada e recortada</text>
+  <text x="590" y="575" class="q">Padrão técnico corresponde ao termo inglês standard.</text>
+
+  <rect x="70" y="600" width="1060" height="44" rx="22" fill="#16243A"/>
+  <text x="600" y="628" text-anchor="middle" class="e" style="fill:white">A especificação descreve o que trafega, e o contrato registra o que cada parte garante</text>
+</svg>
