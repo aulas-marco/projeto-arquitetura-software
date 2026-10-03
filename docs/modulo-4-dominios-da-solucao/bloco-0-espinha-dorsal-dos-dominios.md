@@ -13,7 +13,7 @@ Este bloco apresenta, antes do detalhamento de cada domínio, o que o arquiteto 
 
 O arquiteto de solução trabalha sobre uma única solução, delimitada pela declaração de escopo, e a detalha em quatro domínios, na ordem negócio, dados, aplicações e infraestrutura. Em cada domínio, ele consulta os modelos que a arquitetura corporativa e as áreas especialistas já mantêm, decide o que é próprio da solução e entrega ao domínio seguinte a decisão de que ele precisa, como parte do papel apresentado no [bloco 3 da Aula 1](../modulo-1-fundamentos/bloco-3-papel-do-arquiteto-de-solucao.md). O percurso parte do estilo e dos padrões registrados no [ADR da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md) e termina nas exigências que a definição tecnológica da Aula 5 recebe.
 
-A Figura 1 organiza esse percurso em quatro camadas, cada uma com a pergunta que o arquiteto responde e três colunas. A coluna Recebe registra o que chega ao domínio e de quem, a coluna Decide registra o trabalho próprio do arquiteto, e a coluna Entrega registra o produto que segue para o domínio seguinte, indicado pelas setas que ligam a coluna Entrega de uma camada à coluna Recebe da camada abaixo.
+A Figura 1 organiza esse percurso em quatro camadas, cada uma com a forma curta da pergunta que o arquiteto responde, detalhada no roteiro da seção Uso pelo arquiteto, e três colunas. A coluna Recebe registra o que chega ao domínio e de quem, a coluna Decide registra o trabalho próprio do arquiteto, e a coluna Entrega registra o produto que segue para o domínio seguinte, indicado pelas setas que ligam a coluna Entrega de uma camada à coluna Recebe da camada abaixo.
 
 <figure markdown="span">
 ![Quatro camadas empilhadas, negócio, dados, aplicações e infraestrutura, entre a faixa de entrada com o estilo e os padrões registrados em ADR na Aula 3 e a faixa de saída com a definição tecnológica da Aula 5. Cada camada traz a pergunta do arquiteto e as colunas recebe, decide e entrega, com a coluna decide em destaque, e setas ortogonais ligam a entrega de cada camada ao que a camada seguinte recebe. À esquerda, a hierarquia de serviços acompanha as camadas.](../assets/images/modulo-4-b0-espinha-dorsal.svg){ .module-diagram }
@@ -25,12 +25,12 @@ A Figura 1 organiza esse percurso em quatro camadas, cada uma com a pergunta que
 
 A tabela detalha as três colunas da Figura 1 e acrescenta o limite do papel, isto é, o trabalho que o arquiteto de solução consulta ou solicita, sem assumir como tarefa própria.
 
-| Domínio | Recebe, e de quem | Decide | Produz | Trabalho que não assume |
+| Domínio | Recebe, e de quem | Decide | Entrega | Trabalho que não assume |
 | --- | --- | --- | --- | --- |
-| Negócio | Mapa de capacidades, fluxo de valor e modelo de processo, da arquitetura corporativa e da análise de negócio | Capacidades, etapas e atividades em que a mudança incide | Recorte dos modelos de negócio com a mudança localizada | Modelagem de processos, que cabe à análise de negócio |
+| Negócio | Mapa de capacidades, fluxo de valor e modelo de processo, da arquitetura corporativa e da análise de negócio | Capacidades, etapas e atividades em que a mudança incide | Capacidades, etapas e atividades afetadas | Modelagem de processos, que cabe à análise de negócio |
 | Dados | Capacidades afetadas e modelo de dados corporativo, da arquitetura de dados | Dono, fonte de verdade, regime de consistência e obrigações de cada entidade | Grade dado × aplicação | Manutenção do modelo de dados corporativo, que cabe à arquitetura de dados |
 | Aplicações | Grade dado × aplicação e portfólio de aplicações | Aplicações que mudam, interfaces, contratos e fronteira da solução | Diagramas de contexto e de contêineres e contratos de integração | Escolha de produto e de framework, que cabe à definição tecnológica da Aula 5 |
-| Infraestrutura | Contêineres e relações, do domínio de aplicações | Modo, volume e latência de cada relação, camada de execução e topologia | Diagrama de implantação e exigências para a definição tecnológica | Operação da plataforma, que cabe à área de infraestrutura |
+| Infraestrutura | Contêineres e relações, do domínio de aplicações | Modo, volume e latência de cada relação, camada de execução compatível e topologia | Diagrama de implantação e exigências para a definição tecnológica | Operação da plataforma, que cabe à área de infraestrutura |
 
 Quando um insumo da coluna Recebe não existe, o arquiteto registra a ausência como risco e solicita o artefato à área responsável, procedimento que o [bloco 1](bloco-1-arquitetura-de-negocio.md) detalha para os modelos de negócio.
 

@@ -13,5 +13,5 @@
   <text x="260" y="188" class="c" style="font-size:19px">Decide: Aplicações que mudam, interfaces, contratos e fronteira</text></g>
   <g opacity="0.45"><rect x="20" y="218" width="1160" height="56" rx="12" fill="white" stroke="#9AA9BC" stroke-width="2"/>
   <text x="44" y="254" class="d">Infraestrutura</text>
-  <text x="260" y="254" class="c" style="font-size:19px">Decide: Modo, volume e latência, camada de execução e topologia</text></g>
+  <text x="260" y="254" class="c" style="font-size:19px">Decide: Modo, volume, latência, camada de execução compatível e topologia</text></g>
 </svg>

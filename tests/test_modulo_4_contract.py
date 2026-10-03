@@ -268,6 +268,38 @@ class BlockZeroTest(unittest.TestCase):
         text = (DOCS / "referencia" / "glossario.md").read_text(encoding="utf-8")
         self.assertRegex(text, r"(?m)^## Espinha dorsal dos domínios\s*$")
 
+class BlockZeroReviewTest(unittest.TestCase):
+    """Achados da revisao final da branch do bloco 0."""
+
+    def test_execution_layer_is_a_requirement_not_a_choice(self):
+        svg = (IMAGES / "modulo-4-b0-espinha-dorsal.svg").read_text(encoding="utf-8")
+        self.assertIn("compatível", svg)
+        self.assertIn("camada de execução compatível", read(B0))
+        opening = concept(read(B4))[:1500]
+        self.assertIn("camada de execução compatível", opening)
+
+    def test_course_pages_mention_the_block_0_opening(self):
+        cronograma = (DOCS / "cronograma.md").read_text(encoding="utf-8").split("\n\n")[1]
+        self.assertIn("bloco 0", cronograma)
+        home = (DOCS / "index.md").read_text(encoding="utf-8")
+        self.assertIn("bloco 0", home)
+
+    def test_figure_questions_are_declared_short_forms(self):
+        self.assertIn("forma curta da pergunta", read(B0))
+
+    def test_table_third_column_matches_the_figure(self):
+        text = read(B0)
+        self.assertIn("| Domínio | Recebe, e de quem | Decide | Entrega |", text)
+        row = next(l for l in text.splitlines() if l.startswith("| Negócio |"))
+        self.assertIn("Capacidades, etapas e atividades afetadas", row)
+
+    def test_side_axis_boxes_fit_their_labels(self):
+        svg = (IMAGES / "modulo-4-b0-espinha-dorsal.svg").read_text(encoding="utf-8")
+        widths = [int(w) for w in re.findall(r'<rect x="\d+" y="\d+" width="(\d+)" height="90"', svg)]
+        self.assertEqual(4, len(widths))
+        self.assertGreaterEqual(min(widths), 160)
+
+
 class ExerciseRuleTest(unittest.TestCase):
     def test_exercises_do_not_ask_the_student_to_build_models(self):
         for name, (_, number, _) in BLOCKS.items():

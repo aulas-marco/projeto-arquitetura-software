@@ -8,8 +8,8 @@
   <text x="350" y="130" text-anchor="middle" class="ch">Recebe</text>
   <text x="680" y="130" text-anchor="middle" class="ch">Decide</text>
   <text x="1010" y="130" text-anchor="middle" class="ch">Entrega</text>
-  <text x="90" y="130" text-anchor="middle" class="axh">Hierarquia</text>
-  <text x="90" y="150" text-anchor="middle" class="axh">de serviços</text>
+  <text x="97" y="130" text-anchor="middle" class="axh">Hierarquia</text>
+  <text x="97" y="150" text-anchor="middle" class="axh">de serviços</text>
   <rect x="190" y="160" width="990" height="150" rx="14" fill="white" stroke="#9AA9BC" stroke-width="2"/>
   <text x="206" y="188" class="d">Negócio</text>
   <text x="520" y="188" class="q">Onde a mudança incide no negócio?</text>
@@ -22,10 +22,10 @@
   <rect x="864" y="208" width="300" height="86" rx="10" fill="#F2F6FB" stroke="#9AA9BC" stroke-width="2"/>
   <text x="1014.0" y="246" text-anchor="middle" class="c">Capacidades, etapas e</text>
   <text x="1014.0" y="268" text-anchor="middle" class="c">atividades afetadas</text>
-  <rect x="20" y="190" width="140" height="90" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
-  <text x="90" y="231" text-anchor="middle" class="ax">Serviço de negócio</text>
-  <text x="90" y="251" text-anchor="middle" class="ax">e processo</text>
-  <path d="M90 280V358" stroke="#254DB8" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+  <rect x="12" y="190" width="170" height="90" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="97" y="231" text-anchor="middle" class="ax">Serviço de negócio</text>
+  <text x="97" y="251" text-anchor="middle" class="ax">e processo</text>
+  <path d="M97 280V358" stroke="#254DB8" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
   <rect x="190" y="330" width="990" height="150" rx="14" fill="white" stroke="#9AA9BC" stroke-width="2"/>
   <text x="206" y="358" class="d">Dados</text>
   <text x="520" y="358" class="q">A quem pertence cada dado e com que atraso cada cópia o reflete?</text>
@@ -37,10 +37,10 @@
   <text x="680.0" y="438" text-anchor="middle" class="c">de consistência e obrigações</text>
   <rect x="864" y="378" width="300" height="86" rx="10" fill="#F2F6FB" stroke="#9AA9BC" stroke-width="2"/>
   <text x="1014.0" y="427" text-anchor="middle" class="c">Grade dado × aplicação</text>
-  <rect x="20" y="360" width="140" height="90" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
-  <text x="90" y="401" text-anchor="middle" class="ax">Informação que</text>
-  <text x="90" y="421" text-anchor="middle" class="ax">sustenta os serviços</text>
-  <path d="M90 450V528" stroke="#254DB8" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+  <rect x="12" y="360" width="170" height="90" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="97" y="401" text-anchor="middle" class="ax">Informação que</text>
+  <text x="97" y="421" text-anchor="middle" class="ax">sustenta os serviços</text>
+  <path d="M97 450V528" stroke="#254DB8" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
   <rect x="190" y="500" width="990" height="150" rx="14" fill="white" stroke="#9AA9BC" stroke-width="2"/>
   <text x="206" y="528" class="d">Aplicações</text>
   <text x="520" y="528" class="q">Que aplicações mudam e como trocam dados?</text>
@@ -53,24 +53,24 @@
   <rect x="864" y="548" width="300" height="86" rx="10" fill="#F2F6FB" stroke="#9AA9BC" stroke-width="2"/>
   <text x="1014.0" y="586" text-anchor="middle" class="c">Diagramas de contexto e de</text>
   <text x="1014.0" y="608" text-anchor="middle" class="c">contêineres e contratos</text>
-  <rect x="20" y="530" width="140" height="90" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
-  <text x="90" y="571" text-anchor="middle" class="ax">Serviço de aplicação</text>
-  <text x="90" y="591" text-anchor="middle" class="ax">e componente</text>
-  <path d="M90 620V698" stroke="#254DB8" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+  <rect x="12" y="530" width="170" height="90" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="97" y="571" text-anchor="middle" class="ax">Serviço de aplicação</text>
+  <text x="97" y="591" text-anchor="middle" class="ax">e componente</text>
+  <path d="M97 620V698" stroke="#254DB8" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
   <rect x="190" y="670" width="990" height="150" rx="14" fill="white" stroke="#9AA9BC" stroke-width="2"/>
   <text x="206" y="698" class="d">Infraestrutura</text>
   <text x="520" y="698" class="q">Onde cada contêiner executa e com que exigências?</text>
   <rect x="206" y="718" width="290" height="86" rx="10" fill="#F2F6FB" stroke="#9AA9BC" stroke-width="2"/>
   <text x="351.0" y="767" text-anchor="middle" class="c">Contêineres e relações</text>
   <rect x="520" y="718" width="320" height="86" rx="10" fill="#FFF1D6" stroke="#F2B84B" stroke-width="2"/>
-  <text x="680.0" y="756" text-anchor="middle" class="c">Modo, volume e latência, camada</text>
-  <text x="680.0" y="778" text-anchor="middle" class="c">de execução e topologia</text>
+  <text x="680.0" y="756" text-anchor="middle" class="c">Modo, volume, latência, camada</text>
+  <text x="680.0" y="778" text-anchor="middle" class="c">de execução compatível e topologia</text>
   <rect x="864" y="718" width="300" height="86" rx="10" fill="#F2F6FB" stroke="#9AA9BC" stroke-width="2"/>
   <text x="1014.0" y="756" text-anchor="middle" class="c">Diagrama de implantação e</text>
   <text x="1014.0" y="778" text-anchor="middle" class="c">exigências para a Aula 5</text>
-  <rect x="20" y="700" width="140" height="90" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
-  <text x="90" y="741" text-anchor="middle" class="ax">Serviço de</text>
-  <text x="90" y="761" text-anchor="middle" class="ax">tecnologia</text>
+  <rect x="12" y="700" width="170" height="90" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="97" y="741" text-anchor="middle" class="ax">Serviço de</text>
+  <text x="97" y="761" text-anchor="middle" class="ax">tecnologia</text>
   <path d="M450 100V206" stroke="#52657E" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
   <path d="M1014 294V320H450V376" stroke="#52657E" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
   <path d="M1014 464V490H450V546" stroke="#52657E" stroke-width="2.5" fill="none" marker-end="url(#a)"/>

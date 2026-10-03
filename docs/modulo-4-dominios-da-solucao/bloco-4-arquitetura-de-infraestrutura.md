@@ -15,7 +15,7 @@ Este bloco conclui o detalhamento por domínios e responde onde a solução exec
 ![Mapa do bloco 0 com quatro faixas empilhadas, negócio, dados, aplicações e infraestrutura, e o que o arquiteto decide em cada uma, com a faixa de infraestrutura em destaque e as demais esmaecidas.](../assets/images/modulo-4-b0-mapa-infraestrutura.svg){ .module-diagram }
 </figure>
 
-No mapa do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), este bloco trata do domínio de infraestrutura, o último dos quatro. O arquiteto recebe os contêineres e as relações definidos no [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md), decide o modo, o volume e a latência de cada relação, a camada de execução e a topologia, e entrega o diagrama de implantação e as exigências que a definição tecnológica da Aula 5 recebe.
+No mapa do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), este bloco trata do domínio de infraestrutura, o último dos quatro. O arquiteto recebe os contêineres e as relações definidos no [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md), decide o modo, o volume e a latência de cada relação, a camada de execução compatível e a topologia, e entrega o diagrama de implantação e as exigências que a definição tecnológica da Aula 5 recebe.
 
 A **arquitetura de infraestrutura** é a arquitetura dos componentes e serviços tecnológicos que sustentam as atividades da organização, chamada de arquitetura de tecnologia no TOGAF. Ela inclui equipamentos, sistemas operacionais, plataformas intermediárias, redes, comunicações, capacidade de processamento e padrões técnicos, e também ativos intangíveis, como contratos com fornecedores.
 

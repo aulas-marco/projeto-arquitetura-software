@@ -1,6 +1,6 @@
 # Cronograma
 
-A disciplina tem seis aulas, das 19h00 às 22h30, com intervalo das 20h30 às 20h45 e encerramento do conteúdo até as 22h10. A partir da Aula 3, cada aula abre com 15 minutos de questões sobre a aula anterior e três questionários Kahoot de 10 minutos, um de revisão da aula anterior, um sobre os blocos 1 e 2, depois do intervalo, e um sobre os blocos 3 e 4, no encerramento. Os quatro blocos de apresentação conceitual somam 130 minutos, com 32 ou 33 minutos por bloco. Os exercícios de cada bloco são realizados fora do horário de aula, como atividade de aplicação do conceito ao caso da instituição fictícia ACME.
+A disciplina tem seis aulas, das 19h00 às 22h30, com intervalo das 20h30 às 20h45 e encerramento do conteúdo até as 22h10. A partir da Aula 3, cada aula abre com 15 minutos de questões sobre a aula anterior e três questionários Kahoot de 10 minutos, um de revisão da aula anterior, um sobre os blocos 1 e 2, depois do intervalo, e um sobre os blocos 3 e 4, no encerramento. Os quatro blocos de apresentação conceitual somam 130 minutos, com 32 ou 33 minutos por bloco. Na Aula 4, o bloco 0, de 10 minutos e sem exercício, precede os quatro blocos, e os blocos 1 e 2 passam a 28 e 27 minutos para manter o total de 130. Os exercícios de cada bloco são realizados fora do horário de aula, como atividade de aplicação do conceito ao caso da instituição fictícia ACME.
 
 As datas de cada oferta não aparecem aqui. Elas são divulgadas pela instituição a cada turma, e este cronograma descreve apenas a sequência dos temas, que não muda entre ofertas.
 

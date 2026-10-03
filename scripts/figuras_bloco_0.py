@@ -30,7 +30,7 @@ DOMINIOS = [
      ["Serviço de aplicação", "e componente"]),
     ("infraestrutura", "Infraestrutura", "Onde cada contêiner executa e com que exigências?",
      ["Contêineres e relações"],
-     ["Modo, volume e latência, camada", "de execução e topologia"],
+     ["Modo, volume, latência, camada", "de execução compatível e topologia"],
      ["Diagrama de implantação e", "exigências para a Aula 5"],
      ["Serviço de", "tecnologia"]),
 ]
@@ -61,8 +61,8 @@ def central():
            '  <text x="350" y="130" text-anchor="middle" class="ch">Recebe</text>',
            '  <text x="680" y="130" text-anchor="middle" class="ch">Decide</text>',
            '  <text x="1010" y="130" text-anchor="middle" class="ch">Entrega</text>',
-           '  <text x="90" y="130" text-anchor="middle" class="axh">Hierarquia</text>',
-           '  <text x="90" y="150" text-anchor="middle" class="axh">de serviços</text>']
+           '  <text x="97" y="130" text-anchor="middle" class="axh">Hierarquia</text>',
+           '  <text x="97" y="150" text-anchor="middle" class="axh">de serviços</text>']
     ys = [160, 330, 500, 670]
     for (key, nome, pergunta, recebe, decide, entrega, eixo), y in zip(DOMINIOS, ys):
         out.append(f'  <rect x="190" y="{y}" width="990" height="150" rx="14" fill="white" stroke="#9AA9BC" stroke-width="2"/>')
@@ -71,12 +71,12 @@ def central():
         cell(out, 206, y + 48, 290, 86, recebe, "#F2F6FB", "#9AA9BC")
         cell(out, 520, y + 48, 320, 86, decide, "#FFF1D6", "#F2B84B")
         cell(out, 864, y + 48, 300, 86, entrega, "#F2F6FB", "#9AA9BC")
-        out.append(f'  <rect x="20" y="{y + 30}" width="140" height="90" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>')
+        out.append(f'  <rect x="12" y="{y + 30}" width="170" height="90" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>')
         top = y + 75 - (len(eixo) - 1) * 10 + 6
         for i, line in enumerate(eixo):
-            out.append(f'  <text x="90" y="{top + i * 20:.0f}" text-anchor="middle" class="ax">{line}</text>')
+            out.append(f'  <text x="97" y="{top + i * 20:.0f}" text-anchor="middle" class="ax">{line}</text>')
         if y != ys[-1]:
-            out.append(f'  <path d="M90 {y + 120}V{y + 198}" stroke="#254DB8" stroke-width="2.5" fill="none" marker-end="url(#a)"/>')
+            out.append(f'  <path d="M97 {y + 120}V{y + 198}" stroke="#254DB8" stroke-width="2.5" fill="none" marker-end="url(#a)"/>')
     out.append('  <path d="M450 100V206" stroke="#52657E" stroke-width="2.5" fill="none" marker-end="url(#a)"/>')
     for y in ys[:-1]:
         out.append(f'  <path d="M1014 {y + 134}V{y + 160}H450V{y + 216}" stroke="#52657E" stroke-width="2.5" fill="none" marker-end="url(#a)"/>')
