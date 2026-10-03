@@ -17,7 +17,7 @@ Esta página fecha o módulo de domínios da arquitetura de solução com o que 
 
 ## Cadeia dos domínios
 
-A aula detalha uma única solução por domínios, e cada exercício consome o produto do anterior.
+A aula detalha uma única solução por domínios, no encadeamento apresentado no [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), e cada exercício consome o produto do anterior.
 
 1. O domínio de negócio localiza a mudança nas capacidades, nas etapas do fluxo de valor e nas atividades do processo, no exercício 13.
 2. O domínio de dados atribui a cada entidade que sustenta as capacidades afetadas um dono e um regime de consistência por consumidor, no exercício 14.

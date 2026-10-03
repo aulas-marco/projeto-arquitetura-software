@@ -11,6 +11,12 @@ Este bloco conclui o detalhamento por domínios e responde onde a solução exec
 
 ## Infraestrutura e contêineres
 
+<figure markdown="span">
+![Mapa do bloco 0 com quatro faixas empilhadas, negócio, dados, aplicações e infraestrutura, e o que o arquiteto decide em cada uma, com a faixa de infraestrutura em destaque e as demais esmaecidas.](../assets/images/modulo-4-b0-mapa-infraestrutura.svg){ .module-diagram }
+</figure>
+
+No mapa do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), este bloco trata do domínio de infraestrutura, o último dos quatro. O arquiteto recebe os contêineres e as relações definidos no [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md), decide o modo, o volume e a latência de cada relação, a camada de execução e a topologia, e entrega o diagrama de implantação e as exigências que a definição tecnológica da Aula 5 recebe.
+
 A **arquitetura de infraestrutura** é a arquitetura dos componentes e serviços tecnológicos que sustentam as atividades da organização, chamada de arquitetura de tecnologia no TOGAF. Ela inclui equipamentos, sistemas operacionais, plataformas intermediárias, redes, comunicações, capacidade de processamento e padrões técnicos, e também ativos intangíveis, como contratos com fornecedores.
 
 ### Infraestrutura na solução
@@ -99,6 +105,8 @@ Os nós de cliente aparecem fora do ambiente de produção, porque o aplicativo 
 As setas do diagrama de implantação repetem as relações do diagrama de contêineres da clínica no bloco 3, agora com a indicação do nó em que cada extremidade executa, e por isso o diagrama mostra quais interfaces atravessam a fronteira entre zonas, entre a região e o centro de dados local ou entre a solução e a internet. Na fase lógica, os nós recebem nomes genéricos, como máquina virtual Linux ou nó do cluster Kubernetes, e o nome do serviço do provedor só aparece depois da definição tecnológica da Aula 5.
 
 ## Uso pelo arquiteto
+
+A pergunta do arquiteto neste domínio, no roteiro do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), é a seguinte. Em que nó cada contêiner executa, com que modo, volume e latência cada relação opera e o que fica como exigência para a definição tecnológica?
 
 O arquiteto usa a visão de infraestrutura para converter cada contêiner do [diagrama de contêineres](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#diagrama-de-conteineres) e cada interface do grafo em exigências de execução e de comunicação que a Aula 5 recebe como entrada. Para cada contêiner, ele registra a camada de execução compatível, o número de réplicas e de zonas de disponibilidade imposto pelo requisito de disponibilidade e a capacidade necessária no pico, e para cada interface registra o modo de comunicação, o volume, a latência e se ela cruza a fronteira entre a nuvem e o centro de dados local, caso em que exige conexão dedicada ou VPN. O diagrama de implantação desse estágio usa nós genéricos, como máquina virtual, cluster Kubernetes ou função sem servidor, e não nomeia provedor, região nem serviço gerenciado do provedor, porque a definição tecnológica da solução e o modelo técnico de referência, que fazem essa escolha, são o assunto da Aula 5. O Kubernetes entra nesse estágio como tecnologia de orquestração genérica, oferecida por vários provedores, e o nome do serviço de Kubernetes de cada provedor é decidido na Aula 5.
 

@@ -14,6 +14,12 @@ Este bloco identifica os dados que sustentam a mudança localizada no bloco 1 e 
 
 ## Dados na solução
 
+<figure markdown="span">
+![Mapa do bloco 0 com quatro faixas empilhadas, negócio, dados, aplicações e infraestrutura, e o que o arquiteto decide em cada uma, com a faixa de dados em destaque e as demais esmaecidas.](../assets/images/modulo-4-b0-mapa-dados.svg){ .module-diagram }
+</figure>
+
+No mapa do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), este bloco trata do domínio de dados. O arquiteto recebe as capacidades afetadas, localizadas no [bloco 1](bloco-1-arquitetura-de-negocio.md), e o modelo de dados corporativo, decide o dono, a fonte de verdade, o regime de consistência e as obrigações de cada entidade e entrega ao bloco 3 a grade dado × aplicação.
+
 A DAMA International, associação profissional que mantém o corpo de conhecimento em gestão de dados conhecido como DMBOK (*Data Management Body of Knowledge*), define a **arquitetura de dados** como a estrutura geral dos dados e dos recursos relacionados a dados, tratada como parte integrante da arquitetura corporativa. A referência vigente é a segunda edição revisada do DMBOK, publicada em 2024 e disponível em português, e a terceira edição está prevista para 2027 (DAMA International, 2024). Toda solução tem uma arquitetura de dados própria, mais específica que a corporativa, e essa arquitetura precisa ser consistente com a arquitetura de dados da organização, porque a inconsistência na definição ou no uso do dado produz erro em serviço de negócio.
 
 A Produtora ACME, empresa de produção de vídeo, ilustra essa inconsistência. A produtora mantém o cadastro dos autores do conteúdo, funcionários ou contratados externos, e a área comercial mantém o cadastro de clientes. Alguns contratados externos também são clientes, mas as definições de cliente e de autor são incompatíveis, de modo que a mudança de endereço informada por essa pessoa é registrada como cliente ou como autor, nunca nos dois, e a produtora passa a contatá-la com dados errados. O problema é de dado mestre, tratado adiante, e dele decorre a regra de que toda solução nova recebe como entrada os componentes relevantes da arquitetura de dados corporativa e devolve a ela, o quanto antes, todo dado novo que cria.
@@ -186,6 +192,8 @@ flowchart TB
 Para o arquiteto de solução, a escolha da plataforma analítica pertence em geral à arquitetura corporativa. A solução decide como o dado operacional chega a essa plataforma, com que regime de consistência e com quais atributos pessoais removidos ou pseudonimizados.
 
 ## Uso pelo arquiteto
+
+A pergunta do arquiteto neste domínio, no roteiro do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), é a seguinte. Que entidades sustentam as capacidades afetadas, quem é o dono de cada uma, onde fica a fonte de verdade, com que regime cada cópia a reflete e que obrigações o dado carrega?
 
 O arquiteto recebe da arquitetura de dados corporativa o recorte do modelo corporativo na zona de impacto e usa a grade dado × aplicação para localizar o impacto de mudar uma entidade e para revelar entidades sem dono declarado ou com mais de uma aplicação que as grava. Para cada entidade, ele registra o dono, a fonte de verdade, o estilo de dado mestre quando a entidade é compartilhada, o regime de consistência de cada consumidor e as obrigações de qualidade e de proteção, e devolve ao modelo corporativo a diferença que a solução cria. O dono de cada entidade é a origem natural das interfaces que a expõem no [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md), e o regime de consistência de cada consumidor é a exigência que o [contrato de integração](../referencia/glossario.md#contrato-de-integracao) precisa garantir.
 

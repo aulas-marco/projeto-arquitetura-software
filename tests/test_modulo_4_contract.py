@@ -227,6 +227,32 @@ class BlockZeroTest(unittest.TestCase):
             with self.subTest(block=name):
                 self.assertIn(question, uso)
 
+    MAPAS = {B1: "negocio", B2: "dados", B3: "aplicacoes", B4: "infraestrutura"}
+
+    def test_each_block_opens_with_its_own_map(self):
+        for name, key in self.MAPAS.items():
+            body = concept(read(name))
+            with self.subTest(page=name):
+                self.assertIn(B0, body)
+                self.assertRegex(
+                    body,
+                    rf"!\[[^\]]{{40,}}\]\(\.\./assets/images/modulo-4-b0-mapa-{key}\.svg\)\{{ \.module-diagram \}}",
+                )
+                for other in set(self.MAPAS.values()) - {key}:
+                    self.assertNotIn(f"modulo-4-b0-mapa-{other}.svg", body)
+
+    def test_each_block_repeats_its_question_verbatim(self):
+        for name, question in ROTEIRO.items():
+            with self.subTest(page=name):
+                self.assertIn(question, section(read(name), "Uso pelo arquiteto"))
+
+    def test_block_3_hierarchy_points_back_to_block_0(self):
+        text = read(B3)
+        start = text.index("### Hierarquia de serviços")
+        self.assertIn(B0, text[start:start + 1500])
+
+    def test_synthesis_chain_points_to_block_0(self):
+        self.assertIn(B0, section(read("sintese.md"), "Cadeia dos domínios"))
 
 class ExerciseRuleTest(unittest.TestCase):
     def test_exercises_do_not_ask_the_student_to_build_models(self):

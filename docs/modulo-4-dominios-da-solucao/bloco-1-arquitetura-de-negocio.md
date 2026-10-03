@@ -12,7 +12,11 @@ Este bloco inicia o detalhamento da solução por domínios e responde a uma per
 
 ## Modelos de arquitetura de negócio
 
-A Aula 3 terminou com uma decisão estrutural registrada em [ADR](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), com o estilo e os padrões que organizam a solução. Essa decisão define como a solução se organiza, e o que ela altera na organização que a recebe é o objeto da arquitetura de negócio tratada neste bloco. A Aula 4 detalha a solução em quatro domínios, na ordem negócio, dados, aplicações e infraestrutura, e cada domínio consome o que o anterior estabeleceu, de modo que a mudança localizada neste bloco orienta a escolha dos dados no bloco 2.
+<figure markdown="span">
+![Mapa do bloco 0 com quatro faixas empilhadas, negócio, dados, aplicações e infraestrutura, e o que o arquiteto decide em cada uma, com a faixa do negócio em destaque e as demais esmaecidas.](../assets/images/modulo-4-b0-mapa-negocio.svg){ .module-diagram }
+</figure>
+
+No mapa do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), este bloco trata do domínio de negócio, o primeiro dos quatro. O arquiteto recebe o mapa de capacidades, o fluxo de valor e o modelo de processo mantidos pela arquitetura corporativa e pela análise de negócio, decide em que capacidades, etapas e atividades a mudança incide e entrega ao bloco 2 as capacidades afetadas, sobre a forma estrutural registrada no [ADR](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md) da Aula 3.
 
 A **arquitetura de negócio** é definida pelo Business Architecture Guild como uma representação da organização que oferece entendimento comum sobre ela e serve para alinhar objetivos estratégicos e demandas táticas. O TOGAF descreve a mesma arquitetura como um conjunto de visões do negócio sobre capacidades, entrega de valor de ponta a ponta, informação e estrutura organizacional, com as relações entre essas visões e as estratégias, os produtos, as políticas e as partes interessadas. As duas definições atribuem ao domínio dois papéis na arquitetura de solução, o de origem da necessidade de mudança, já tratada como [direcionador de mudança](../modulo-2-requisitos-e-partes-interessadas/bloco-1-direcionadores-de-mudanca.md) na Aula 2, e o de alvo da mudança que a solução entrega.
 
@@ -144,6 +148,8 @@ A arquitetura de solução se situa num ciclo de mudança de negócio em cinco e
 A arquitetura de solução concentra seu trabalho nos estágios de definir e projetar, e os modelos de arquitetura de negócio são a principal entrada de ambos, ao lado dos [requisitos e restrições](../modulo-2-requisitos-e-partes-interessadas/bloco-3-cenarios-linha-de-base-e-restricoes.md) levantados na Aula 2.
 
 ## Uso pelo arquiteto
+
+A pergunta do arquiteto neste domínio, no roteiro do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), é a seguinte. Que capacidades, etapas do fluxo de valor e atividades a solução altera, segundo os modelos que a arquitetura de negócio já mantém?
 
 O arquiteto de solução consulta os modelos que a arquitetura de negócio já mantém para delimitar o que a solução muda, sem redesenhar a organização a cada iniciativa. O mapa de capacidades indica onde a mudança incide, o fluxo de valor indica onde o cliente percebe a mudança, e o modelo de processo indica que atividades precisam ser revistas com as áreas responsáveis. Quando um desses modelos não existe, o arquiteto registra a ausência como risco e solicita o artefato à área de negócio, sem assumir a modelagem como tarefa própria.
 

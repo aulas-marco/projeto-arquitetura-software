@@ -12,6 +12,12 @@ Este bloco identifica as aplicações e as interfaces que realizam a mudança, d
 
 ## Aplicações, interfaces e contexto
 
+<figure markdown="span">
+![Mapa do bloco 0 com quatro faixas empilhadas, negócio, dados, aplicações e infraestrutura, e o que o arquiteto decide em cada uma, com a faixa de aplicações em destaque e as demais esmaecidas.](../assets/images/modulo-4-b0-mapa-aplicacoes.svg){ .module-diagram }
+</figure>
+
+No mapa do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), este bloco trata do domínio de aplicações. O arquiteto recebe a grade dado × aplicação, produzida no [bloco 2](bloco-2-arquitetura-de-dados.md), e o portfólio de aplicações, decide que aplicações mudam, por quais interfaces e contratos elas trocam dados e onde passa a fronteira da solução, e entrega ao bloco 4 os diagramas de contexto e de contêineres e os contratos de integração.
+
 A arquitetura de aplicações é o subdomínio da arquitetura corporativa que mantém a visão do portfólio de aplicações da organização e dos serviços que elas oferecem, e que liga a arquitetura de negócio à arquitetura de dados. Aplicação é um conjunto de capacidades tecnológicas que fornece funções de negócio e gerencia ativos de dados, e componente de aplicação é a unidade que encapsula uma funcionalidade e a oferece por interfaces claramente definidas. As aplicações são o principal meio de gerir o dado ao longo do seu ciclo de vida, da aquisição ao processamento, ao armazenamento, à apresentação, ao arquivamento e à exclusão.
 
 O bloco apresenta primeiro os conceitos de aplicação e de integração, cada um ilustrado em notação livre, sem convenção formal, e reúne no fim o modelo C4, a notação que a aula adota para representar a fronteira e a decomposição da solução.
@@ -230,7 +236,7 @@ O gateway de API corresponde ao padrão [API Gateway](../modulo-3-design-e-padro
 
 ### Hierarquia de serviços
 
-As relações entre os domínios se organizam numa hierarquia de camadas, em que cada camada depende apenas da imediatamente inferior. O serviço de negócio é a interface com o cliente e é realizado por processos de negócio. O processo é apoiado por serviços de aplicação, o serviço de aplicação é realizado por componentes de aplicação, e o componente de aplicação depende de serviços de tecnologia, como armazenamento, rede e processamento. Pessoas e informação atravessam todas as camadas. A hierarquia completa a afirmação do [bloco 1](bloco-1-arquitetura-de-negocio.md), de que todo componente da solução sustenta um ou mais serviços de negócio.
+A hierarquia de serviços apresentada no [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md#a-ordem-dos-dominios) organiza as relações entre os domínios em camadas, em que cada camada depende apenas da imediatamente inferior. O serviço de negócio é a interface com o cliente e é realizado por processos de negócio. O processo é apoiado por serviços de aplicação, o serviço de aplicação é realizado por componentes de aplicação, e o componente de aplicação depende de serviços de tecnologia, como armazenamento, rede e processamento. Pessoas e informação atravessam todas as camadas. A hierarquia completa a afirmação do [bloco 1](bloco-1-arquitetura-de-negocio.md), de que todo componente da solução sustenta um ou mais serviços de negócio.
 
 A Figura 4 reúne a hierarquia de serviços, à esquerda, e as quatro camadas que governam uma integração, apresentadas acima, à direita.
 
@@ -337,6 +343,8 @@ O par de diagramas abaixo modela o sistema de internet banking do Banco ACME, pr
 A posição do mainframe fora da caixa resulta de uma decisão de escopo tomada pelo Banco ACME, que tratou o mainframe como sistema mantido por outra equipe, com o qual o internet banking apenas se comunica. O critério que decide a posição de um componente é a fronteira de responsabilidade sobre o sistema, definida pela equipe ou pela organização que responde pela evolução e pela operação do componente.
 
 ## Uso pelo arquiteto
+
+A pergunta do arquiteto neste domínio, no roteiro do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), é a seguinte. Que aplicações mudam, por quais interfaces trocam essas entidades, que contrato governa cada interface e onde passa a fronteira da solução?
 
 O arquiteto escreve o contrato de integração antes da implementação, porque o contrato permite que provedor e consumidor evoluam em separado e transforma em campo verificável a garantia que cada parte espera da outra. O dono de cada entidade, marcado na grade de dados, é a origem natural da interface que expõe essa entidade. O diagrama de contexto é a visão apresentada a quem decide escopo e relação com terceiros, e sua fronteira precisa coincidir com a declaração de escopo do primeiro ciclo.
 
