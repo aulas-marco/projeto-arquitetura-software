@@ -4,7 +4,7 @@ Material de disciplina de pós-graduação em arquitetura de soluções, conduzi
 
 ## O que o site contém
 
-O material está organizado em seis aulas, cada uma dividida em quatro blocos de apresentação conceitual, intercalados com questionários Kahoot de revisão. Na Aula 4, um bloco 0 sem exercício apresenta, antes dos quatro blocos, o que o arquiteto de solução recebe, decide e entrega em cada domínio da solução. Cada bloco expõe um conceito de arquitetura de soluções, relaciona esse conceito à prática profissional do arquiteto e propõe um exercício de aplicação, realizado fora do horário de aula, porque o tempo de cada encontro é dedicado à apresentação conceitual. O [cronograma](cronograma.md) lista as seis aulas com o tema de cada uma.
+O material está organizado em seis aulas, cada uma dividida em quatro blocos de apresentação conceitual, intercalados com questionários Kahoot de revisão. Na Aula 4, um bloco 0 sem exercício apresenta, antes dos quatro blocos, o que o arquiteto de solução recebe, decide e entrega em cada domínio da solução. Cada bloco expõe um conceito de arquitetura de soluções, relaciona esse conceito à prática profissional do arquiteto e propõe um exercício de aplicação, realizado fora do horário de aula, porque o tempo de cada encontro é dedicado à apresentação conceitual. O [cronograma](cronograma.md) lista as seis aulas com o tema, os blocos e o número do exercício de cada bloco.
 
 A seção Referência reúne o [glossário](referencia/glossario.md) de termos usados no curso e a [bibliografia](referencia/bibliografia.md) consultada na elaboração do material.
 
