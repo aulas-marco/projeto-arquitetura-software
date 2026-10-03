@@ -52,19 +52,19 @@
   <text x="105.0" y="521" text-anchor="middle" class="ds">do banco</text>
   <rect x="10" y="650" width="190" height="170" rx="10" fill="#7A8799"/>
   <text x="105.0" y="689" text-anchor="middle" class="tag">«sistema externo»</text>
-  <text x="105.0" y="711" text-anchor="middle" class="nm">Sistema</text>
-  <text x="105.0" y="736" text-anchor="middle" class="nm">Mainframe</text>
+  <text x="105.0" y="711" text-anchor="middle" class="nm">Sistema Mainframe</text>
+  <text x="105.0" y="736" text-anchor="middle" class="nm">Bancário</text>
   <text x="105.0" y="769" text-anchor="middle" class="ds">Informações</text>
-  <text x="105.0" y="791" text-anchor="middle" class="ds">centrais</text>
+  <text x="105.0" y="791" text-anchor="middle" class="ds">centrais do banco</text>
   <path d="M480 120L350 120L350 378" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
-  <text x="415" y="108" text-anchor="middle" class="lb">Acessa</text>
-  <text x="415" y="128" text-anchor="middle" class="lt">[HTTPS]</text>
+  <text x="415" y="88" text-anchor="middle" class="lb">Acessa</text>
+  <text x="415" y="108" text-anchor="middle" class="lt">[HTTPS]</text>
   <path d="M620 220L620 378" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
-  <text x="632" y="280" text-anchor="start" class="lb">Consulta saldos e</text>
-  <text x="632" y="300" text-anchor="start" class="lb">realiza pagamentos</text>
+  <text x="632" y="258" text-anchor="start" class="lb">Consulta saldos e</text>
+  <text x="632" y="278" text-anchor="start" class="lb">realiza pagamentos</text>
   <path d="M720 120L1010 120L1010 378" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
-  <text x="1022" y="280" text-anchor="start" class="lb">Consulta saldos e</text>
-  <text x="1022" y="300" text-anchor="start" class="lb">realiza pagamentos</text>
+  <text x="1022" y="258" text-anchor="start" class="lb">Consulta saldos e</text>
+  <text x="1022" y="278" text-anchor="start" class="lb">realiza pagamentos</text>
   <path d="M105 378L105 180L478 180" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
   <text x="290" y="170" text-anchor="middle" class="lb">Envia e-mails para</text>
   <path d="M450 465L558 465" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
@@ -74,8 +74,8 @@
   <text x="648" y="590" text-anchor="end" class="lb">Chama</text>
   <text x="648" y="610" text-anchor="end" class="lt">[JSON/HTTPS]</text>
   <path d="M1010 550L1010 600L720 600L720 648" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
-  <text x="865" y="590" text-anchor="middle" class="lb">Chama</text>
-  <text x="865" y="610" text-anchor="middle" class="lt">[JSON/HTTPS]</text>
+  <text x="865" y="572" text-anchor="middle" class="lb">Chama</text>
+  <text x="865" y="592" text-anchor="middle" class="lt">[JSON/HTTPS]</text>
   <path d="M760 735L898 735" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
   <text x="829" y="703" text-anchor="middle" class="lb">Lê e grava</text>
   <text x="829" y="723" text-anchor="middle" class="lt">[SQL/TCP]</text>

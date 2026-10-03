@@ -48,7 +48,7 @@ Descrição da arquitetura pretendida ao fim de um ciclo de evolução. A difere
 
 ## Artefato de linha de base
 
-Documento ou modelo já existente que descreve parte da situação atual e entra como insumo do processo de definição da arquitetura, em vez de ser produzido do zero.
+Documento ou modelo já existente que descreve parte da situação atual e entra como insumo do processo de definição da arquitetura, aproveitado na forma em que a organização o mantém.
 
 ## Fase do processo de definição da arquitetura
 
@@ -136,7 +136,7 @@ Dificuldade de trocar ou negociar uma dependência técnica ou organizacional ad
 
 ## Modelo C4
 
-Notação para representar a arquitetura de um sistema em quatro níveis de abstração progressiva, Contexto, Contêineres, Componentes e Código, cada nível com nome próprio, o modelo inteiro chamado C4 por ter quatro níveis.
+Notação para representar a arquitetura de um sistema em quatro níveis de abstração progressiva, contexto, contêineres, componentes e código, com nome que vem das iniciais dos quatro níveis em inglês, Context, Containers, Components e Code.
 
 ## Arquitetura de negócio
 
@@ -176,11 +176,15 @@ Atribuição de uma entidade de dado a um único responsável, que a grava, enqu
 
 ## Fonte de verdade
 
-Local em que uma entidade de dado é registrada e mantida com autoridade, e do qual as demais cópias derivam.
+Local em que uma entidade de dado é registrada e mantida com autoridade, e do qual as demais cópias derivam. Nesta disciplina, equivale ao [sistema de registro](#sistema-de-registro).
+
+## Sistema de registro
+
+Sistema que guarda a versão autoritativa de um dado e no qual o dado é escrito primeiro, enquanto os sistemas de dado derivado guardam cópias transformadas a partir dele. Nesta disciplina, equivale à [fonte de verdade](#fonte-de-verdade).
 
 ## Regime de consistência
 
-Garantia declarada sobre o momento em que uma cópia reflete a fonte de verdade, forte quando reflete imediatamente e eventual quando reflete dentro de um prazo declarado.
+Garantia declarada sobre o momento em que a leitura feita na fonte ou numa cópia reflete a fonte de verdade, forte quando reflete imediatamente e eventual quando reflete dentro de um prazo declarado.
 
 ## Arquitetura de aplicações
 
@@ -188,7 +192,7 @@ Subdomínio da arquitetura corporativa que mantém a visão do portfólio de apl
 
 ## Padrão técnico
 
-Especificação adotada pela organização que fixa processos, documentação, regras e parâmetros a observar, correspondente ao termo inglês *standard* e distinta do padrão arquitetural e do padrão de design, que correspondem a *pattern*.
+Conjunto de processos, documentação, regras e parâmetros a observar, fixado por organismo de normalização, por autoridade ou pela própria organização e adotado pela solução, como o sistema da nota fiscal eletrônica. Corresponde ao termo inglês *standard*, é distinto da especificação de interface, que descreve uma interface particular, e do padrão arquitetural e do padrão de design, que correspondem a *pattern*.
 
 ## Protocolo
 
@@ -240,7 +244,7 @@ Local isolado dentro de uma região de um provedor de nuvem, usado para distribu
 
 ## Diagrama de implantação
 
-Diagrama de apoio do modelo C4 que mostra como instâncias de sistemas de software e de contêineres são implantadas nos nós de infraestrutura de um único ambiente.
+Diagrama de apoio do modelo C4 que mostra como instâncias de sistemas de software e de contêineres são implantadas nos nós de implantação de um único ambiente, com nós de infraestrutura, como DNS, balanceador de carga e firewall, representados como elementos de apoio.
 
 ## Balanceador de carga
 

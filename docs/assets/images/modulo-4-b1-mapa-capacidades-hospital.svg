@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 590" role="img" aria-labelledby="title desc">
-  <title id="title">Mapa de capacidades de um hospital</title><desc id="desc">Mapa de capacidades em dois níveis de um hospital. Quatro capacidades de topo, gestão estratégica, relacionamento com o paciente, cuidado clínico e apoio, se decompõem em catorze capacidades menores coloridas como estratégicas, operacionais ou de apoio.</desc>
+  <title id="title">Mapa de capacidades de um hospital</title><desc id="desc">Mapa de capacidades em dois níveis de um hospital. Quatro capacidades de topo, gestão estratégica, relacionamento, cuidado clínico e apoio, se decompõem em catorze capacidades menores coloridas como estratégicas, operacionais ou de apoio.</desc>
   <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:30px;font-weight:700}.t{font-size:19px;font-weight:700}.q{font-size:17px;fill:#52657E}.p{font-size:17px}.e{font-size:16px;font-weight:700}.w{fill:white}.s{font-size:16px}</style></defs>
   <rect width="1200" height="590" rx="28" fill="#F2F6FB"/>
   <text x="40" y="62" class="h">Mapa de capacidades de um hospital</text>

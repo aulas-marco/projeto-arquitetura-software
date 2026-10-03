@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 960" role="img" aria-labelledby="title desc">
+  <title id="title">Diagrama de contêineres da arquitetura alvo do exercício 16</title><desc id="desc">Três pessoas no alto, professor, aluno e secretaria acadêmica. Dentro da fronteira tracejada do sistema acadêmico, três fileiras de contêineres: Portal do Professor, Aplicativo do aluno e Portal da Secretaria, depois Serviço de notas, Serviço de matrícula e Núcleo transacional COBOL, e por fim o banco do serviço de notas, o banco do serviço de matrícula e o banco Oracle existente. À direita, fora da fronteira, seis sistemas externos empilhados: provedor de identidade, assinador digital ICP-Brasil, ambiente virtual de aprendizagem, gateway de pagamento, ERP financeiro e órgão regulador. As relações seguem linhas ortogonais e estão numeradas de 1 a 15, sem rótulo de comunicação.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.tag{font-size:16px;font-style:italic;fill:#E6EEF9}.nm{font-size:20px;font-weight:700;fill:white}.tc{font-size:16px;font-style:italic;fill:#D8E9FF}.ds{font-size:17px;fill:white}.lb{font-size:16px;font-weight:700;fill:#3A4A60}.lt{font-size:16px;font-style:italic;fill:#52657E}.bd{font-size:20px;font-weight:700;fill:#16243A}.bt{font-size:16px;fill:#52657E}.h{font-size:24px;font-weight:700;fill:#16243A}</style><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0L10 5L0 10z" fill="#52657E"/></marker></defs>
+  <rect width="1200" height="960" rx="24" fill="#F2F6FB"/>
+  <text x="24" y="40" class="h">Arquitetura alvo do primeiro ciclo, nível de contêineres</text>
+  <rect x="30" y="225" width="830" height="715" rx="14" fill="none" stroke="#52657E" stroke-width="2" stroke-dasharray="10 7"/>
+  <text x="842" y="904" text-anchor="end" class="bd">Sistema acadêmico</text>
+  <text x="842" y="926" text-anchor="end" class="bt">[sistema]</text>
+  <circle cx="160.0" cy="71" r="24" fill="#16243A"/>
+  <rect x="65" y="87" width="190" height="98" rx="22" fill="#16243A"/>
+  <text x="160.0" y="124" text-anchor="middle" class="tag">«pessoa»</text>
+  <text x="160.0" y="146" text-anchor="middle" class="nm">Professor</text>
+  <circle cx="450.0" cy="71" r="24" fill="#16243A"/>
+  <rect x="355" y="87" width="190" height="98" rx="22" fill="#16243A"/>
+  <text x="450.0" y="124" text-anchor="middle" class="tag">«pessoa»</text>
+  <text x="450.0" y="146" text-anchor="middle" class="nm">Aluno</text>
+  <circle cx="740.0" cy="71" r="24" fill="#16243A"/>
+  <rect x="645" y="87" width="190" height="98" rx="22" fill="#16243A"/>
+  <text x="740.0" y="112" text-anchor="middle" class="tag">«pessoa»</text>
+  <text x="740.0" y="134" text-anchor="middle" class="nm">Secretaria</text>
+  <text x="740.0" y="159" text-anchor="middle" class="nm">acadêmica</text>
+  <rect x="60" y="255" width="200" height="115" rx="10" fill="#3A6FD8"/>
+  <text x="160.0" y="278" text-anchor="middle" class="tag">«contêiner»</text>
+  <text x="160.0" y="300" text-anchor="middle" class="nm">Portal do</text>
+  <text x="160.0" y="324" text-anchor="middle" class="nm">Professor</text>
+  <text x="160.0" y="350" text-anchor="middle" class="tc">[existente]</text>
+  <rect x="350" y="255" width="200" height="115" rx="10" fill="#3A6FD8"/>
+  <text x="450.0" y="278" text-anchor="middle" class="tag">«contêiner»</text>
+  <text x="450.0" y="300" text-anchor="middle" class="nm">Aplicativo</text>
+  <text x="450.0" y="324" text-anchor="middle" class="nm">do aluno</text>
+  <text x="450.0" y="350" text-anchor="middle" class="tc">[tecnologia a definir]</text>
+  <rect x="640" y="255" width="200" height="115" rx="10" fill="#3A6FD8"/>
+  <text x="740.0" y="278" text-anchor="middle" class="tag">«contêiner»</text>
+  <text x="740.0" y="300" text-anchor="middle" class="nm">Portal da</text>
+  <text x="740.0" y="324" text-anchor="middle" class="nm">Secretaria</text>
+  <text x="740.0" y="350" text-anchor="middle" class="tc">[existente]</text>
+  <rect x="60" y="445" width="200" height="115" rx="10" fill="#3A6FD8"/>
+  <text x="160.0" y="468" text-anchor="middle" class="tag">«contêiner»</text>
+  <text x="160.0" y="490" text-anchor="middle" class="nm">Serviço de</text>
+  <text x="160.0" y="514" text-anchor="middle" class="nm">notas</text>
+  <text x="160.0" y="540" text-anchor="middle" class="tc">[tecnologia a definir]</text>
+  <rect x="350" y="445" width="200" height="115" rx="10" fill="#3A6FD8"/>
+  <text x="450.0" y="468" text-anchor="middle" class="tag">«contêiner»</text>
+  <text x="450.0" y="490" text-anchor="middle" class="nm">Serviço de</text>
+  <text x="450.0" y="514" text-anchor="middle" class="nm">matrícula</text>
+  <text x="450.0" y="540" text-anchor="middle" class="tc">[tecnologia a definir]</text>
+  <rect x="640" y="445" width="200" height="115" rx="10" fill="#3A6FD8"/>
+  <text x="740.0" y="468" text-anchor="middle" class="tag">«contêiner»</text>
+  <text x="740.0" y="490" text-anchor="middle" class="nm">Núcleo</text>
+  <text x="740.0" y="514" text-anchor="middle" class="nm">transacional COBOL</text>
+  <text x="740.0" y="540" text-anchor="middle" class="tc">[existente]</text>
+  <path d="M60 689V781A100.0 14 0 0 0 260 781V689A100.0 14 0 0 0 60 689Z" fill="#3A6FD8" stroke="#254DB8" stroke-width="2"/>
+  <path d="M60 689A100.0 14 0 0 0 260 689" fill="none" stroke="#D8E9FF" stroke-width="2"/>
+  <text x="160.0" y="700" text-anchor="middle" class="tag">«banco de dados»</text>
+  <text x="160.0" y="722" text-anchor="middle" class="nm">Banco do serviço</text>
+  <text x="160.0" y="747" text-anchor="middle" class="nm">de notas</text>
+  <text x="160.0" y="772" text-anchor="middle" class="tc">[tecnologia a definir]</text>
+  <path d="M350 689V781A100.0 14 0 0 0 550 781V689A100.0 14 0 0 0 350 689Z" fill="#3A6FD8" stroke="#254DB8" stroke-width="2"/>
+  <path d="M350 689A100.0 14 0 0 0 550 689" fill="none" stroke="#D8E9FF" stroke-width="2"/>
+  <text x="450.0" y="700" text-anchor="middle" class="tag">«banco de dados»</text>
+  <text x="450.0" y="722" text-anchor="middle" class="nm">Banco do serviço</text>
+  <text x="450.0" y="747" text-anchor="middle" class="nm">de matrícula</text>
+  <text x="450.0" y="772" text-anchor="middle" class="tc">[tecnologia a definir]</text>
+  <path d="M640 689V781A100.0 14 0 0 0 840 781V689A100.0 14 0 0 0 640 689Z" fill="#3A6FD8" stroke="#254DB8" stroke-width="2"/>
+  <path d="M640 689A100.0 14 0 0 0 840 689" fill="none" stroke="#D8E9FF" stroke-width="2"/>
+  <text x="740.0" y="712" text-anchor="middle" class="tag">«banco de dados»</text>
+  <text x="740.0" y="734" text-anchor="middle" class="nm">Banco Oracle</text>
+  <text x="740.0" y="760" text-anchor="middle" class="tc">[existente]</text>
+  <rect x="970" y="90" width="210" height="110" rx="10" fill="#7A8799"/>
+  <text x="1075.0" y="121" text-anchor="middle" class="tag">«sistema externo»</text>
+  <text x="1075.0" y="143" text-anchor="middle" class="nm">Provedor de</text>
+  <text x="1075.0" y="168" text-anchor="middle" class="nm">identidade</text>
+  <rect x="970" y="230" width="210" height="110" rx="10" fill="#7A8799"/>
+  <text x="1075.0" y="261" text-anchor="middle" class="tag">«sistema externo»</text>
+  <text x="1075.0" y="283" text-anchor="middle" class="nm">Assinador digital</text>
+  <text x="1075.0" y="308" text-anchor="middle" class="nm">ICP-Brasil</text>
+  <rect x="970" y="370" width="210" height="110" rx="10" fill="#7A8799"/>
+  <text x="1075.0" y="401" text-anchor="middle" class="tag">«sistema externo»</text>
+  <text x="1075.0" y="423" text-anchor="middle" class="nm">Ambiente virtual</text>
+  <text x="1075.0" y="448" text-anchor="middle" class="nm">de aprendizagem</text>
+  <rect x="970" y="510" width="210" height="110" rx="10" fill="#7A8799"/>
+  <text x="1075.0" y="541" text-anchor="middle" class="tag">«sistema externo»</text>
+  <text x="1075.0" y="563" text-anchor="middle" class="nm">Gateway de</text>
+  <text x="1075.0" y="588" text-anchor="middle" class="nm">pagamento</text>
+  <rect x="970" y="650" width="210" height="110" rx="10" fill="#7A8799"/>
+  <text x="1075.0" y="681" text-anchor="middle" class="tag">«sistema externo»</text>
+  <text x="1075.0" y="703" text-anchor="middle" class="nm">ERP</text>
+  <text x="1075.0" y="728" text-anchor="middle" class="nm">financeiro</text>
+  <rect x="970" y="790" width="210" height="110" rx="10" fill="#7A8799"/>
+  <text x="1075.0" y="821" text-anchor="middle" class="tag">«sistema externo»</text>
+  <text x="1075.0" y="843" text-anchor="middle" class="nm">Órgão</text>
+  <text x="1075.0" y="868" text-anchor="middle" class="nm">regulador</text>
+  <path d="M160 185L160 253" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <path d="M450 185L450 253" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <path d="M740 185L740 253" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <path d="M450 370L450 443" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <circle cx="450" cy="405" r="15" fill="white" stroke="#52657E" stroke-width="2"/>
+  <text x="450" y="411" text-anchor="middle" class="lb" style="fill:#16243A">1</text>
+  <path d="M180 370L180 443" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <circle cx="180" cy="405" r="15" fill="white" stroke="#52657E" stroke-width="2"/>
+  <text x="180" y="411" text-anchor="middle" class="lb" style="fill:#16243A">2</text>
+  <path d="M550 485L638 485" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <circle cx="595" cy="465" r="15" fill="white" stroke="#52657E" stroke-width="2"/>
+  <text x="595" y="471" text-anchor="middle" class="lb" style="fill:#16243A">3</text>
+  <path d="M200 560L200 590L710 590L710 562" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <circle cx="420" cy="590" r="15" fill="white" stroke="#52657E" stroke-width="2"/>
+  <text x="420" y="596" text-anchor="middle" class="lb" style="fill:#16243A">4</text>
+  <path d="M740 560L740 673" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <circle cx="740" cy="640" r="15" fill="white" stroke="#52657E" stroke-width="2"/>
+  <text x="740" y="646" text-anchor="middle" class="lb" style="fill:#16243A">5</text>
+  <path d="M230 560L230 612L880 612L880 425L968 425" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <circle cx="560" cy="612" r="15" fill="white" stroke="#52657E" stroke-width="2"/>
+  <text x="560" y="618" text-anchor="middle" class="lb" style="fill:#16243A">6</text>
+  <path d="M520 560L520 634L900 634L900 565L968 565" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <circle cx="640" cy="634" r="15" fill="white" stroke="#52657E" stroke-width="2"/>
+  <text x="640" y="640" text-anchor="middle" class="lb" style="fill:#16243A">7</text>
+  <path d="M520 255L520 205L900 205L900 145L968 145" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <circle cx="640" cy="205" r="15" fill="white" stroke="#52657E" stroke-width="2"/>
+  <text x="640" y="211" text-anchor="middle" class="lb" style="fill:#16243A">8</text>
+  <path d="M840 285L968 285" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <circle cx="935" cy="285" r="15" fill="white" stroke="#52657E" stroke-width="2"/>
+  <text x="935" y="291" text-anchor="middle" class="lb" style="fill:#16243A">9</text>
+  <path d="M840 500L920 500L920 705L968 705" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <circle cx="857" cy="500" r="15" fill="white" stroke="#52657E" stroke-width="2"/>
+  <text x="857" y="506" text-anchor="middle" class="lb" style="fill:#16243A">10</text>
+  <path d="M840 540L940 540L940 845L968 845" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <circle cx="857" cy="540" r="15" fill="white" stroke="#52657E" stroke-width="2"/>
+  <text x="857" y="546" text-anchor="middle" class="lb" style="fill:#16243A">11</text>
+  <path d="M410 560L410 673" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <circle cx="410" cy="650" r="15" fill="white" stroke="#52657E" stroke-width="2"/>
+  <text x="410" y="656" text-anchor="middle" class="lb" style="fill:#16243A">12</text>
+  <path d="M120 560L120 673" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <circle cx="120" cy="650" r="15" fill="white" stroke="#52657E" stroke-width="2"/>
+  <text x="120" y="656" text-anchor="middle" class="lb" style="fill:#16243A">13</text>
+  <path d="M390 370L390 410L220 410L220 443" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <circle cx="305" cy="410" r="15" fill="white" stroke="#52657E" stroke-width="2"/>
+  <text x="305" y="416" text-anchor="middle" class="lb" style="fill:#16243A">14</text>
+  <path d="M780 370L780 443" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <circle cx="780" cy="405" r="15" fill="white" stroke="#52657E" stroke-width="2"/>
+  <text x="780" y="411" text-anchor="middle" class="lb" style="fill:#16243A">15</text>
+</svg>

@@ -10,7 +10,7 @@
   <rect x="70" y="115" width="800" height="100" rx="18" fill="#16243A"/>
   <text x="95" y="152" class="t" style="fill:white">Nível 1, contexto (Context)</text>
   <text x="95" y="182" class="q" style="fill:#D8E9FF">Sistema de software, pessoas e sistemas externos</text>
-  <text x="95" y="205" class="e" style="fill:#5FC0D1">Público: todas as partes interessadas</text>
+  <text x="95" y="205" class="e" style="fill:#5FC0D1">Público: partes interessadas não técnicas</text>
 
   <path d="M110,215 L110,250" stroke="#52657E" stroke-width="3" marker-end="url(#seta)"/>
   <text x="125" y="243" class="q">decompõe o sistema em</text>
@@ -25,14 +25,14 @@
 
   <rect x="210" y="395" width="800" height="90" rx="18" fill="#E6EEF9" stroke="#9AA9BC" stroke-width="2"/>
   <text x="235" y="430" class="t" style="fill:#52657E">Nível 3, componentes (Components)</text>
-  <text x="235" y="462" class="q">Partes internas de um contêiner e suas responsabilidades</text>
+  <text x="235" y="462" class="q">Partes internas de um contêiner. Público: desenvolvedores</text>
 
   <path d="M250,485 L250,520" stroke="#52657E" stroke-width="3" marker-end="url(#seta)"/>
   <text x="265" y="513" class="q">decompõe um componente em</text>
 
   <rect x="280" y="525" width="800" height="70" rx="18" fill="#E6EEF9" stroke="#9AA9BC" stroke-width="2"/>
   <text x="305" y="558" class="t" style="fill:#52657E">Nível 4, código (Code)</text>
-  <text x="305" y="583" class="q">Classes, funções e estruturas de dados</text>
+  <text x="305" y="583" class="q">Classes, funções e estruturas de dados. Público: desenvolvedores</text>
 
   <rect x="960" y="115" width="170" height="240" rx="18" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
   <text x="1045" y="215" text-anchor="middle" class="n">Usados</text>

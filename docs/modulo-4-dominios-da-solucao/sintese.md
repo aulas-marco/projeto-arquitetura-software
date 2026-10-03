@@ -1,6 +1,6 @@
 # Síntese da Aula 4
 
-Esta página fecha o módulo de domínios da arquitetura de solução com o que precisa permanecer depois da aula, a cadeia dos domínios construída nos quatro exercícios, uma autoavaliação e as fontes usadas nos quatro blocos.
+Esta página fecha o módulo de domínios da arquitetura de solução com o que precisa permanecer depois da aula, a cadeia dos domínios construída nos quatro exercícios, uma autoavaliação e as fontes principais da aula, e as demais constam das Fontes de cada bloco e da bibliografia.
 
 ## Checklist do que precisa permanecer
 
@@ -13,7 +13,7 @@ Esta página fecha o módulo de domínios da arquitetura de solução com o que 
 - Os seis atributos de interface e os seis campos que completam um [contrato de integração](../referencia/glossario.md#contrato-de-integracao)
 - A distinção entre padrão técnico, protocolo, especificação de interface e contrato de integração, com padrão técnico como tradução de *standard*
 - O [modelo C4](../referencia/glossario.md#modelo-c4) como notação de modelagem da aula, com o diagrama de contexto, o diagrama de contêineres, a coerência dos sistemas externos entre os dois níveis e a escolha do nível pela audiência
-- As camadas de execução, a topologia com regiões e zonas de disponibilidade e o diagrama de implantação, que liga cada instância de contêiner ao nó de infraestrutura em que executa
+- As camadas de execução, a topologia com regiões e zonas de disponibilidade e o diagrama de implantação, que liga cada instância de contêiner ao nó de implantação em que executa
 
 ## Cadeia dos domínios
 
@@ -22,7 +22,7 @@ A aula detalha uma única solução por domínios, e cada exercício consome o p
 1. O domínio de negócio localiza a mudança nas capacidades, nas etapas do fluxo de valor e nas atividades do processo, no exercício 13.
 2. O domínio de dados atribui a cada entidade que sustenta as capacidades afetadas um dono e um regime de consistência por consumidor, no exercício 14.
 3. O domínio de aplicações classifica o portfólio, especifica o contrato da integração de notas a partir do dono da entidade nota e corrige a fronteira da solução no diagrama de contexto, no exercício 15.
-4. O domínio de infraestrutura decompõe a solução em contêineres coerentes com o contexto corrigido e rotula cada relação com modo, volume e latência, no exercício 16.
+4. O domínio de infraestrutura recebe o diagrama de contêineres fornecido, coerente com o contexto corrigido, rotula cada relação com modo, volume e latência, liga as relações aos requisitos R6 e R7 e posiciona o núcleo transacional, no exercício 16.
 
 As relações rotuladas no exercício 16 são a lista de exigências que a definição tecnológica da Aula 5 recebe, e cada uma delas pode ser rastreada até uma capacidade marcada no exercício 13.
 

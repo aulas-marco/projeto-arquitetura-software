@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 540" role="img" aria-labelledby="title desc">
+  <title id="title">Diagrama de contexto em C4 do sistema de agendamento da clínica</title><desc id="desc">O paciente e a recepção da clínica, pessoas à esquerda, usam o sistema de agendamento, no centro, por HTTPS, para marcar e confirmar consultas e para gerenciar a agenda e os encaixes. O sistema consulta a elegibilidade na operadora de convênio e envia lembretes pelo serviço de mensagens, sistemas externos em cinza à direita, por HTTPS com REST. As relações seguem linhas ortogonais.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.tag{font-size:16px;font-style:italic;fill:#E6EEF9}.nm{font-size:20px;font-weight:700;fill:white}.tc{font-size:16px;font-style:italic;fill:#D8E9FF}.ds{font-size:17px;fill:white}.lb{font-size:16px;font-weight:700;fill:#3A4A60}.lt{font-size:16px;font-style:italic;fill:#52657E}.bd{font-size:20px;font-weight:700;fill:#16243A}.bt{font-size:16px;fill:#52657E}.h{font-size:24px;font-weight:700;fill:#16243A}</style><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0L10 5L0 10z" fill="#52657E"/></marker></defs>
+  <rect width="1100" height="540" rx="24" fill="#F2F6FB"/>
+  <text x="24" y="40" class="h">Sistema de agendamento, nível de contexto</text>
+  <circle cx="125.0" cy="86" r="24" fill="#16243A"/>
+  <rect x="30" y="102" width="190" height="138" rx="22" fill="#16243A"/>
+  <text x="125.0" y="138" text-anchor="middle" class="tag">«pessoa»</text>
+  <text x="125.0" y="160" text-anchor="middle" class="nm">Paciente</text>
+  <text x="125.0" y="192" text-anchor="middle" class="ds">Marca as próprias</text>
+  <text x="125.0" y="214" text-anchor="middle" class="ds">consultas</text>
+  <circle cx="125.0" cy="336" r="24" fill="#16243A"/>
+  <rect x="30" y="352" width="190" height="138" rx="22" fill="#16243A"/>
+  <text x="125.0" y="386" text-anchor="middle" class="tag">«pessoa»</text>
+  <text x="125.0" y="408" text-anchor="middle" class="nm">Recepção</text>
+  <text x="125.0" y="433" text-anchor="middle" class="nm">da clínica</text>
+  <text x="125.0" y="466" text-anchor="middle" class="ds">Gerencia a agenda</text>
+  <rect x="440" y="205" width="240" height="180" rx="10" fill="#254DB8"/>
+  <text x="560.0" y="249" text-anchor="middle" class="tag">«sistema»</text>
+  <text x="560.0" y="271" text-anchor="middle" class="nm">Sistema de</text>
+  <text x="560.0" y="296" text-anchor="middle" class="nm">agendamento</text>
+  <text x="560.0" y="329" text-anchor="middle" class="ds">Marca, confirma e</text>
+  <text x="560.0" y="351" text-anchor="middle" class="ds">remarca consultas</text>
+  <rect x="860" y="90" width="210" height="160" rx="10" fill="#7A8799"/>
+  <text x="965.0" y="124" text-anchor="middle" class="tag">«sistema externo»</text>
+  <text x="965.0" y="146" text-anchor="middle" class="nm">Operadora de</text>
+  <text x="965.0" y="171" text-anchor="middle" class="nm">convênio</text>
+  <text x="965.0" y="204" text-anchor="middle" class="ds">Verifica a cobertura</text>
+  <text x="965.0" y="226" text-anchor="middle" class="ds">do plano</text>
+  <rect x="860" y="340" width="210" height="160" rx="10" fill="#7A8799"/>
+  <text x="965.0" y="374" text-anchor="middle" class="tag">«sistema externo»</text>
+  <text x="965.0" y="396" text-anchor="middle" class="nm">Serviço de</text>
+  <text x="965.0" y="421" text-anchor="middle" class="nm">mensagens</text>
+  <text x="965.0" y="454" text-anchor="middle" class="ds">Entrega SMS e</text>
+  <text x="965.0" y="476" text-anchor="middle" class="ds">mensagens</text>
+  <path d="M220 165L390 165L390 255L438 255" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="305" y="113" text-anchor="middle" class="lb">marca e confirma</text>
+  <text x="305" y="133" text-anchor="middle" class="lb">consulta</text>
+  <text x="305" y="153" text-anchor="middle" class="lt">[HTTPS]</text>
+  <path d="M220 415L390 415L390 335L438 335" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="305" y="440" text-anchor="middle" class="lb">gerencia agenda</text>
+  <text x="305" y="460" text-anchor="middle" class="lb">e encaixes</text>
+  <text x="305" y="480" text-anchor="middle" class="lt">[HTTPS]</text>
+  <path d="M680 255L760 255L760 170L858 170" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="750" y="113" text-anchor="end" class="lb">consulta</text>
+  <text x="750" y="133" text-anchor="end" class="lb">elegibilidade</text>
+  <text x="750" y="153" text-anchor="end" class="lt">[HTTPS/REST]</text>
+  <path d="M680 335L760 335L760 420L858 420" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="750" y="445" text-anchor="end" class="lb">envia lembrete</text>
+  <text x="750" y="465" text-anchor="end" class="lt">[HTTPS/REST]</text>
+</svg>

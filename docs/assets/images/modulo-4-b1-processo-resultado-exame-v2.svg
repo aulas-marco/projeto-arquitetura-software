@@ -30,18 +30,18 @@
   <text x="655" y="347" text-anchor="middle" class="e">?</text>
   <text x="655" y="408" text-anchor="middle" class="s">Valor</text>
   <text x="655" y="426" text-anchor="middle" class="s">crítico?</text>
-  <path d="M655 295V230H748" stroke="#16243A" stroke-width="2.5" fill="none" marker-end="url(#s)"/>
-  <text x="665" y="250" class="e">sim</text>
-  <rect x="750" y="195" width="190" height="70" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
-  <text x="845" y="225" text-anchor="middle" class="s">Telefonar ao médico</text>
-  <text x="845" y="246" text-anchor="middle" class="s">responsável</text>
-  <path d="M700 340H738V375H748" stroke="#16243A" stroke-width="2.5" fill="none" marker-end="url(#s)"/>
-  <text x="704" y="370" class="e">não</text>
-  <rect x="750" y="345" width="190" height="70" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
-  <text x="845" y="375" text-anchor="middle" class="s">Anexar laudo</text>
-  <text x="845" y="396" text-anchor="middle" class="s">ao prontuário</text>
-  <path d="M940 230H965V340H942" stroke="#16243A" stroke-width="2.5" fill="none" marker-end="url(#s)"/>
-  <path d="M845 415V483" stroke="#16243A" stroke-width="2.5" fill="none" marker-end="url(#s)"/>
+  <path d="M655 295V276H748" stroke="#16243A" stroke-width="2.5" fill="none" marker-end="url(#s)"/>
+  <text x="665" y="268" class="e">sim</text>
+  <rect x="750" y="250" width="190" height="56" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="845" y="273" text-anchor="middle" class="s">Telefonar ao médico</text>
+  <text x="845" y="294" text-anchor="middle" class="s">responsável</text>
+  <path d="M700 340H725V385H748" stroke="#16243A" stroke-width="2.5" fill="none" marker-end="url(#s)"/>
+  <text x="704" y="372" class="e">não</text>
+  <rect x="750" y="350" width="190" height="70" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="845" y="380" text-anchor="middle" class="s">Anexar laudo</text>
+  <text x="845" y="401" text-anchor="middle" class="s">ao prontuário</text>
+  <path d="M940 278H965V385H942" stroke="#16243A" stroke-width="2.5" fill="none" marker-end="url(#s)"/>
+  <path d="M845 420V483" stroke="#16243A" stroke-width="2.5" fill="none" marker-end="url(#s)"/>
   <rect x="750" y="485" width="190" height="70" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
   <text x="845" y="515" text-anchor="middle" class="s">Registrar laudo e</text>
   <text x="845" y="536" text-anchor="middle" class="s">notificar médico</text>

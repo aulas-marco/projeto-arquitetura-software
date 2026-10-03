@@ -43,7 +43,7 @@ Uma camada de execução é o nível de abstração em que um bloco de construç
 - Função sem servidor é uma unidade de código executada em resposta a um evento ou a uma chamada, com servidores, capacidade, escalonamento e atualizações gerenciados pelo provedor, como no AWS Lambda e no Azure Functions (Amazon Web Services, n.d.-b).
 
 <figure markdown="span">
-![Cinco colunas comparam servidor físico, máquina virtual, contêiner, orquestrador Kubernetes e função sem servidor. Cada coluna empilha aplicação, ambiente de execução, sistema operacional, virtualização e hardware, coloridos conforme a camada fique com a equipe da solução ou com a plataforma, e uma caixa abaixo lista o que o arquiteto declara em cada caso.](../assets/images/modulo-4-b4-camadas-de-execucao.svg){ .module-diagram }
+![Cinco colunas comparam servidor físico, máquina virtual, contêiner, orquestrador Kubernetes e função sem servidor. Cada coluna empilha as camadas do modelo, da aplicação ao hardware, com os nomes próprios de cada caso, como imagem do contêiner ou plano de controle do cluster, coloridas conforme a camada fique com a equipe da solução ou com a plataforma, e uma caixa abaixo lista o que o arquiteto declara em cada caso.](../assets/images/modulo-4-b4-camadas-de-execucao.svg){ .module-diagram }
 </figure>
 
 *Figura 2 — Camadas de execução, responsável por camada e itens declarados pelo arquiteto. Fonte: material do curso, com base em Lovatt (2021, seção 2.7), The Kubernetes Authors (n.d.-a, n.d.-b) e Amazon Web Services (n.d.-b).*
@@ -64,7 +64,7 @@ A topologia de implantação é a disposição dos nós de execução e de rede 
 - VPN é um túnel cifrado que atravessa a internet pública entre o centro de dados local e o provedor, com custo de implantação menor que o da conexão dedicada e com latência que depende das condições da internet.
 
 <figure markdown="span">
-![Usuários consultam o DNS, recebem conteúdo estático de uma CDN e enviam requisições HTTPS a um balanceador de carga dentro de uma região do provedor. O balanceador distribui as requisições entre quatro réplicas do serviço em duas zonas de disponibilidade, o banco primário da zona A é replicado para a zona B, e uma conexão dedicada ou VPN liga a região a um centro de dados local com um sistema legado.](../assets/images/modulo-4-b4-topologia-de-implantacao.svg){ .module-diagram }
+![Usuários consultam o DNS, recebem conteúdo estático de uma CDN e enviam requisições HTTPS a um balanceador de carga dentro de uma região do provedor. O balanceador distribui as requisições entre as réplicas do serviço nas duas zonas de disponibilidade, o banco primário da zona A é replicado para a zona B, e uma conexão dedicada ou VPN liga a região a um centro de dados local com um sistema legado.](../assets/images/modulo-4-b4-topologia-de-implantacao.svg){ .module-diagram }
 </figure>
 
 *Figura 3 — Topologia de implantação com DNS, CDN, balanceador de carga, duas zonas de disponibilidade e conexão ao centro de dados local. Fonte: material do curso, com base em Amazon Web Services (n.d.-a, n.d.-c) e Microsoft (2026).*
@@ -77,30 +77,30 @@ Os componentes de infraestrutura invisíveis às partes interessadas de negócio
 
 ### Diagrama de implantação em C4
 
-O diagrama de implantação é o diagrama de apoio do modelo C4 que mostra como instâncias de sistemas de software e de contêineres do modelo estático são implantadas na infraestrutura de um ambiente de implantação, como produção, homologação ou desenvolvimento (Brown, n.d.). Cada contêiner do [diagrama de contêineres](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#diagrama-de-conteineres) do bloco 3 é mapeado em nós de implantação aninhados, que vão do ambiente à região do provedor, à zona de disponibilidade, ao cluster Kubernetes, à máquina virtual e ao serviço gerenciado em que a instância executa. A notação do modelo C4 e os diagramas de contexto e de contêineres estão no [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#modelo-c4), e o público do diagrama de implantação é técnico, de dentro e de fora da equipe de desenvolvimento, incluindo arquitetos de software, desenvolvedores, arquitetos de infraestrutura e pessoal de operação e suporte.
+O diagrama de implantação é o diagrama de apoio do modelo C4 que mostra como instâncias de sistemas de software e de contêineres do modelo estático são implantadas na infraestrutura de um ambiente de implantação, como produção, homologação ou desenvolvimento (Brown, n.d.). Cada contêiner do [diagrama de contêineres](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#diagrama-de-conteineres) do bloco 3 é mapeado em nós de implantação aninhados, que vão do ambiente à região do provedor, à zona de disponibilidade, ao cluster Kubernetes e à máquina virtual que serve de nó do cluster, dentro da qual executa a instância de contêiner. Um serviço gerenciado, como um banco oferecido pelo provedor, aparece como nó próprio dentro da zona de disponibilidade. A notação do modelo C4 e os diagramas de contexto e de contêineres estão no [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#modelo-c4), e o público do diagrama de implantação é técnico, de dentro e de fora da equipe de desenvolvimento, incluindo arquitetos de software, desenvolvedores, arquitetos de infraestrutura e pessoal de operação e suporte.
 
 O diagrama de implantação segue quatro regras de construção, derivadas da definição publicada no sítio oficial do modelo C4 (Brown, n.d.):
 
 1. Cada diagrama cobre um único ambiente de implantação, e a solução que tem produção, homologação e desenvolvimento recebe três diagramas, porque a quantidade de réplicas e de zonas costuma variar entre os ambientes.
-2. O nó de implantação representa o lugar onde uma instância executa e pode ser infraestrutura física, máquina virtual, contêiner Docker ou ambiente de execução, e os nós se aninham, como um ambiente de execução dentro de um contêiner Docker, dentro de uma máquina virtual, dentro de uma zona de disponibilidade.
+2. O nó de implantação representa o lugar onde uma instância executa e pode ser infraestrutura física, máquina virtual, contêiner Docker ou ambiente de execução, e os nós se aninham na mesma ordem do parágrafo anterior, do ambiente à região, à zona de disponibilidade, ao cluster Kubernetes e à máquina virtual que serve de nó do cluster, dentro da qual executa a instância de contêiner.
 3. Cada instância de contêiner corresponde a um contêiner do [diagrama de contêineres](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#diagrama-de-conteineres) e leva o mesmo nome, e um contêiner com quatro réplicas aparece como quatro instâncias sem que o diagrama de contêineres mude.
 4. Os nós de infraestrutura, como DNS, balanceador de carga e firewall, aparecem como elementos de apoio, ligados às instâncias que atendem.
 
-O contêiner do modelo C4 é uma unidade executável ou de armazenamento de dados, como uma aplicação web, um serviço ou um banco, e pode ser implantado num contêiner Docker, numa máquina virtual ou numa função sem servidor, de modo que os dois usos da palavra contêiner precisam ser distinguidos no texto que acompanha o diagrama. A Figura 4 mostra, em C4, o ambiente de produção do sistema de agendamento da Clínica Odontológica ACME, cujos contêineres aparecem no [exemplo em C4 do bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#diagrama-de-conteineres), com os nós aninhados da região até as instâncias de contêiner do painel da recepção, do serviço de agenda e do banco de agendamentos.
+O contêiner do modelo C4 é uma unidade executável ou de armazenamento de dados, como uma aplicação web, um serviço ou um banco, e pode ser implantado num contêiner Docker, numa máquina virtual ou numa função sem servidor, de modo que os dois usos da palavra contêiner precisam ser distinguidos no texto que acompanha o diagrama. A Aula 5 usa ainda um terceiro sentido, o contêiner Java EE, que é o ambiente do servidor de aplicação responsável pelo ciclo de vida de componentes web e de negócio. A Figura 4 mostra, em C4, o ambiente de produção do sistema de agendamento da Clínica Odontológica ACME, cujos contêineres aparecem no [exemplo em C4 do bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#diagrama-de-conteineres), com os nós aninhados da região até as instâncias de contêiner do painel da recepção, do serviço de agenda e do banco de agendamentos.
 
 <figure markdown="span">
-![Diagrama de implantação em C4 do ambiente de produção do sistema de agendamento da clínica. No alto, o telefone do paciente executa o aplicativo e o computador da recepção abre o painel no navegador, e os dois enviam requisições HTTPS ao balanceador de carga, depois de o aplicativo consultar o DNS. Dentro da região do provedor de nuvem, duas zonas de disponibilidade têm cada uma um cluster Kubernetes em máquina virtual Linux com instâncias do painel da recepção e do serviço de agenda, e um banco de agendamentos gerenciado, primário na zona A e réplica na zona B, ligados por replicação. O serviço de agenda chama por HTTPS a operadora de convênio e o serviço de mensagens, sistemas externos à direita.](../assets/images/modulo-4-b4-c4-implantacao-clinica.svg){ .module-diagram }
+![Diagrama de implantação em C4 do ambiente de produção do sistema de agendamento da clínica. No alto, o telefone do paciente executa o aplicativo e o computador da recepção executa o painel da recepção no navegador. O aplicativo consulta o DNS, e os dois clientes enviam requisições HTTPS ao balanceador de carga, dentro da região do provedor de nuvem. Cada uma das duas zonas de disponibilidade tem um nó do cluster Kubernetes em máquina virtual Linux com uma instância do serviço de agenda e um banco de agendamentos gerenciado, primário na zona A e réplica na zona B, ligados por replicação. As instâncias do serviço de agenda chamam por HTTPS a operadora de convênio e o serviço de mensagens, sistemas externos à direita.](../assets/images/modulo-4-b4-c4-implantacao-clinica-v2.svg){ .module-diagram }
 </figure>
 
 *Figura 4 — Diagrama de implantação em C4 do ambiente de produção da Clínica Odontológica ACME, com nós aninhados, nós de infraestrutura, instâncias de contêiner, nós de cliente e sistemas externos. Fonte: material do curso, com base em Brown (n.d.).*
 
 Os nós de cliente aparecem fora do ambiente de produção, porque o aplicativo do paciente executa no telefone de cada paciente e o painel da recepção é aberto no navegador do computador da recepção. A operadora de convênio e o serviço de mensagens permanecem como sistemas externos, com os mesmos nomes do diagrama de contexto do bloco 3, e cada instância de contêiner leva o nome do contêiner correspondente do diagrama de contêineres.
 
-As setas do diagrama de implantação repetem as interfaces do grafo da Figura 1, agora com a indicação do nó em que cada extremidade executa, e por isso o diagrama mostra quais interfaces atravessam a fronteira entre zonas, entre a região e o centro de dados local ou entre a solução e a internet. Na fase lógica, os nós recebem nomes genéricos, como máquina virtual Linux ou nó do cluster Kubernetes, e o nome do serviço do provedor só aparece depois da definição tecnológica da Aula 5.
+As setas do diagrama de implantação repetem as relações do diagrama de contêineres da clínica no bloco 3, agora com a indicação do nó em que cada extremidade executa, e por isso o diagrama mostra quais interfaces atravessam a fronteira entre zonas, entre a região e o centro de dados local ou entre a solução e a internet. Na fase lógica, os nós recebem nomes genéricos, como máquina virtual Linux ou nó do cluster Kubernetes, e o nome do serviço do provedor só aparece depois da definição tecnológica da Aula 5.
 
 ## Uso pelo arquiteto
 
-O arquiteto usa a visão de infraestrutura para converter cada contêiner do [diagrama de contêineres](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#diagrama-de-conteineres) e cada interface do grafo em exigências de execução e de comunicação que a Aula 5 recebe como entrada. Para cada contêiner, ele registra a camada de execução compatível, o número de réplicas e de zonas de disponibilidade imposto pelo requisito de disponibilidade e a capacidade necessária no pico, e para cada interface registra o modo de comunicação, o volume, a latência e se ela cruza a fronteira entre a nuvem e o centro de dados local, caso em que exige conexão dedicada ou VPN. O diagrama de implantação desse estágio usa nós genéricos, como máquina virtual, cluster de contêineres ou função sem servidor, e não nomeia provedor, região nem produto, porque a definição tecnológica da solução e o modelo técnico de referência, que fazem essa escolha, são o assunto da Aula 5.
+O arquiteto usa a visão de infraestrutura para converter cada contêiner do [diagrama de contêineres](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#diagrama-de-conteineres) e cada interface do grafo em exigências de execução e de comunicação que a Aula 5 recebe como entrada. Para cada contêiner, ele registra a camada de execução compatível, o número de réplicas e de zonas de disponibilidade imposto pelo requisito de disponibilidade e a capacidade necessária no pico, e para cada interface registra o modo de comunicação, o volume, a latência e se ela cruza a fronteira entre a nuvem e o centro de dados local, caso em que exige conexão dedicada ou VPN. O diagrama de implantação desse estágio usa nós genéricos, como máquina virtual, cluster Kubernetes ou função sem servidor, e não nomeia provedor, região nem serviço gerenciado do provedor, porque a definição tecnológica da solução e o modelo técnico de referência, que fazem essa escolha, são o assunto da Aula 5. O Kubernetes entra nesse estágio como tecnologia de orquestração genérica, oferecida por vários provedores, e o nome do serviço de Kubernetes de cada provedor é decidido na Aula 5.
 
 ## Exercício 16
 
@@ -108,46 +108,11 @@ A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sis
 
 ### Item 1: Modo, volume e latência das relações
 
-O diagrama abaixo é o diagrama de contêineres da arquitetura alvo do primeiro ciclo, coerente com o diagrama de contexto corrigido no exercício 15. Cada contêiner novo leva o rótulo tecnologia a definir na Aula 5, e as relações estão apenas numeradas, sem rótulo de comunicação.
+O diagrama abaixo é o diagrama de contêineres da arquitetura alvo do primeiro ciclo, coerente com o diagrama de contexto corrigido no exercício 15. Os contêineres novos, que são o aplicativo do aluno, o serviço de matrícula, o serviço de notas e o banco próprio de cada um desses dois serviços, levam o rótulo tecnologia a definir na Aula 5. O Portal do Professor e o Portal da Secretaria são contêineres existentes, mantidos no primeiro ciclo, e o núcleo transacional COBOL continua gravando no banco Oracle existente. As relações estão apenas numeradas, sem rótulo de comunicação, e as relações 12 a 15 ligam os serviços novos aos seus bancos, o aplicativo do aluno ao serviço de notas e o Portal da Secretaria ao núcleo.
 
-```mermaid
-graph TD
-    ALU["Aluno"]
-    PROF["Professor"]
-    SEC["Secretaria acadêmica"]
-
-    subgraph SA["Sistema acadêmico"]
-        APP["Aplicativo do aluno<br/>tecnologia a definir na Aula 5"]
-        PP["Portal do Professor<br/>tecnologia a definir na Aula 5"]
-        PS["Portal da Secretaria<br/>tecnologia a definir na Aula 5"]
-        SM["Serviço de matrícula<br/>tecnologia a definir na Aula 5"]
-        SN["Serviço de notas<br/>tecnologia a definir na Aula 5"]
-        NUC["Núcleo transacional COBOL"]
-        BD[("Banco acadêmico<br/>tecnologia a definir na Aula 5")]
-    end
-
-    AVA["Ambiente virtual de aprendizagem"]
-    ERP["ERP financeiro"]
-    IDP["Provedor de identidade"]
-    PAG["Gateway de pagamento"]
-    ASS["Assinador digital ICP-Brasil"]
-    REG["Órgão regulador"]
-
-    ALU --> APP
-    PROF --> PP
-    SEC --> PS
-    APP -->|"1"| SM
-    PP -->|"2"| SN
-    SM -->|"3"| NUC
-    SN -->|"4"| NUC
-    NUC -->|"5"| BD
-    SN -->|"6"| AVA
-    SM -->|"7"| PAG
-    APP -->|"8"| IDP
-    PS -->|"9"| ASS
-    NUC -->|"10"| ERP
-    NUC -->|"11"| REG
-```
+<figure markdown="span">
+![Diagrama de contêineres da arquitetura alvo do primeiro ciclo da ACME. No alto, professor, aluno e secretaria acadêmica. Dentro da fronteira do sistema acadêmico, o Portal do Professor e o Portal da Secretaria existentes, o aplicativo do aluno, os serviços de notas e de matrícula com banco próprio cada um e tecnologia a definir, e o núcleo transacional COBOL existente com o banco Oracle existente. À direita, fora da fronteira, provedor de identidade, assinador digital ICP-Brasil, ambiente virtual de aprendizagem, gateway de pagamento, ERP financeiro e órgão regulador. As relações estão numeradas de 1 a 15, em linhas ortogonais e sem rótulo de comunicação.](../assets/images/acme-ex16-diagrama-de-conteineres.svg){ .module-diagram }
+</figure>
 
 
 A tabela traz os volumes registrados nos dados operacionais.
@@ -177,7 +142,7 @@ Os dois requisitos abaixo, da página inicial do caso, fixam tempo de resposta e
 graph LR
     R6["R6, confirmação da matrícula em até 4 s no pico"]
     R7["R7, nota no ambiente virtual em até 10 min"]
-    REL["Relações numeradas de 1 a 11 do item 1"]
+    REL["Relações numeradas de 1 a 15 do item 1"]
     R6 -.->|"quais relações sustentam?"| REL
     R7 -.->|"quais relações sustentam?"| REL
 ```
@@ -186,7 +151,7 @@ graph LR
 
 ### Item 3: Núcleo transacional na arquitetura alvo
 
-O núcleo transacional executa sob o monitor CICS em ambiente de grande porte no centro de dados da ACME, e as restrições abaixo constam da página inicial do caso e dos dados operacionais. O diagrama de implantação parcial, na notação C4 da seção [Diagrama de implantação em C4](#diagrama-de-implantacao-em-c4), mostra onde ficam o núcleo e os dois serviços novos que o chamam.
+O núcleo transacional executa sob o monitor CICS em ambiente de grande porte no centro de dados da ACME, e as restrições abaixo constam da página inicial do caso e dos dados operacionais. A ACME detém a responsabilidade pelo núcleo e terceiriza à fábrica contratada apenas a manutenção dos programas COBOL. O diagrama de implantação parcial, na notação C4 da seção [Diagrama de implantação em C4](#diagrama-de-implantacao-em-c4), mostra onde ficam o núcleo e os dois serviços novos que o chamam.
 
 | Restrição | Origem |
 | --- | --- |
@@ -210,7 +175,7 @@ flowchart TB
     SN -->|"relação 4<br/>conexão a definir"| NUC
 ```
 
-1. Responda, em uma frase, por que o núcleo transacional COBOL permanece como contêiner na arquitetura alvo do primeiro ciclo.
+1. Responda, em uma frase, que consequência essa divisão de responsabilidade tem para a posição do núcleo transacional COBOL no diagrama de contêineres do item 1, com base no critério de fronteira de responsabilidade do [exemplo do internet banking](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#um-exemplo-completo-nos-dois-niveis) do bloco 3.
 
 ## Fontes
 

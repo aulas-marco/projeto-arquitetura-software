@@ -42,7 +42,7 @@ A interação entre as áreas ocorre pelos processos de governança. Um exemplo 
 
 ### Modelo de dados corporativo
 
-O **modelo de dados corporativo** reúne modelos de perspectivas e níveis de detalhe diferentes, que descrevem de forma consistente o entendimento da organização sobre entidades, atributos e relacionamentos. O DMBOK o organiza em quatro níveis, a visão conceitual com as áreas de assunto da organização, a visão de cada área de assunto com suas entidades e relacionamentos, o modelo lógico corporativo com entidades parcialmente atribuídas, e os modelos lógicos e físicos específicos de cada aplicação ou projeto (DAMA Rocky Mountain Chapter, 2023b). O mapeamento entre níveis permite seguir uma entidade de cima a baixo, e a mesma entidade presente em modelos do mesmo nível liga esses modelos entre si.
+O **modelo de dados corporativo** reúne modelos de perspectivas e níveis de detalhe diferentes, que descrevem de forma consistente o entendimento da organização sobre entidades, atributos e relacionamentos. O DMBOK o organiza em quatro níveis, a visão conceitual com as áreas de assunto da organização, a visão de cada área de assunto com suas entidades e relacionamentos, o modelo lógico corporativo com entidades parcialmente atribuídas, e os modelos lógicos e físicos específicos de cada aplicação ou projeto (DAMA Rocky Mountain Chapter, 2023). O mapeamento entre níveis permite seguir uma entidade de cima a baixo, e a mesma entidade presente em modelos do mesmo nível liga esses modelos entre si.
 
 A distinção entre os níveis de modelagem orienta o que o arquiteto de solução lê e o que ele decide. O modelo conceitual registra conceitos de negócio e seus relacionamentos, sem atributo técnico. O modelo lógico acrescenta atributos e chaves, ainda independente de tecnologia. O modelo físico traduz o lógico em tabelas, tipos e índices de um gerenciador de banco específico, como o PostgreSQL.
 
@@ -50,7 +50,7 @@ A distinção entre os níveis de modelagem orienta o que o arquiteto de soluç�
 ![Modelo de dados corporativo de um hospital em quatro faixas empilhadas. No nível 1, as áreas de assunto paciente, atendimento, diagnóstico e faturamento. No nível 2, as entidades da área de diagnóstico, pedido de exame, amostra, resultado e laboratório. No nível 3, a entidade resultado parcialmente atribuída. No nível 4, a tabela de resultado no PostgreSQL e o recurso FHIR DiagnosticReport. Uma chave indica que os níveis 1 a 3 entram na solução e que o nível 4 é produzido por ela.](../assets/images/modulo-4-b2-modelo-corporativo.svg){ .module-diagram }
 </figure>
 
-*Figura 1 — Modelo de dados corporativo em quatro níveis, com o recorte que entra na solução e o que a solução produz. Fonte: material do curso, com base em DAMA Rocky Mountain Chapter (2023b).*
+*Figura 1 — Modelo de dados corporativo em quatro níveis, com o recorte que entra na solução e o que a solução produz. Fonte: material do curso, com base em DAMA Rocky Mountain Chapter (2023).*
 
 A Figura 1 aplica os quatro níveis à modernização da comunicação com laboratórios do Hospital ACME, descrita no [bloco 1](bloco-1-arquitetura-de-negocio.md). A solução recebe o recorte das áreas de assunto que estão na zona de impacto, aqui a área de diagnóstico, e reaproveita as entidades que já existem, como pedido de exame e resultado. Quando a solução encontra uma entidade que parece nova, o arquiteto verifica se ela é uma especialização ou um sinônimo de entidade já modelada, como laboratório de apoio em relação a prestador de serviço, antes de propor definição nova. A solução produz o nível 4, o modelo físico da tabela de resultado no PostgreSQL e o mapeamento para o recurso *DiagnosticReport* do HL7 FHIR, e devolve ao modelo corporativo a diferença entre o estado atual e o proposto, que alimenta a análise de lacunas da Aula 6.
 
@@ -87,7 +87,7 @@ A captura de mudanças de dados, conhecida pela sigla CDC, propaga cada alteraç
 
 *Figura 3 — Fonte de verdade e cópias derivadas alimentadas por captura de mudanças e por eventos. Fonte: material do curso, com base em Kleppmann (2017) e Debezium (n.d.-a).*
 
-Cada cópia derivada precisa de um **regime de consistência** declarado, que diz quando a cópia reflete a fonte de verdade. O regime é forte quando a cópia reflete a fonte imediatamente, e eventual quando reflete dentro de um prazo declarado, por exemplo cinco minutos ou um dia. Um regime eventual sem prazo declarado não pode ser verificado, e por isso não é aceito como decisão. A Figura 4 coloca os dois regimes na mesma linha do tempo, com o resultado de exame do Hospital ACME gravado no prontuário e copiado para o painel de pendências do médico.
+Cada consumidor de uma entidade precisa de um **regime de consistência** declarado, que diz quando a leitura feita na fonte ou numa cópia reflete a fonte de verdade. O regime é forte quando a leitura reflete a fonte imediatamente, o que exige ler da própria fonte de verdade ou de cópia atualizada de forma síncrona, e eventual quando reflete dentro de um prazo declarado, por exemplo cinco minutos ou um dia. Um regime eventual sem prazo declarado não pode ser verificado, e por isso não é aceito como decisão. A Figura 4 coloca os dois regimes na mesma linha do tempo, com o resultado de exame do Hospital ACME gravado no prontuário e copiado para o painel de pendências do médico.
 
 ```mermaid
 sequenceDiagram
@@ -199,7 +199,7 @@ A grade dado × aplicação abaixo foi montada pelo material do curso a partir d
 
 | Entidade | Núcleo transacional | Portais Java | ERP financeiro | Ambiente virtual | Data warehouse |
 | --- | --- | --- | --- | --- | --- |
-| Aluno | Grava | Lê ou grava, por conector e por acesso direto ao banco, sem distribuição registrada por entidade | Não registrado | Não registrado | Recebe por lote às 02h30 |
+| Aluno | Grava | Lê ou grava, por conector e por acesso direto ao banco, sem distribuição registrada por entidade | Recebe por lote às 23h10, como pagador do lançamento | Recebe por lote às 04h00, vinculado à turma | Recebe por lote às 02h30 |
 | Matrícula | Grava | Lê ou grava, por conector e por acesso direto ao banco, sem distribuição registrada por entidade | Não registrado | Recebe por lote às 04h00 | Recebe por lote às 02h30 |
 | Nota | Grava a nota consolidada | Lê ou grava, por conector e por acesso direto ao banco, sem distribuição registrada por entidade | Não registrado | Recebe por lote às 05h10 e devolve nota de atividade às 06h15 | Recebe por lote às 02h30 |
 | Lançamento financeiro | Grava | Lê ou grava, por conector e por acesso direto ao banco, sem distribuição registrada por entidade | Recebe por lote às 23h10 e devolve baixa às 05h30 | Não registrado | Recebe por lote às 02h30 |
@@ -229,22 +229,22 @@ graph LR
     AVA -->|"06h15 notas e frequência de atividades"| ACA
 ```
 
-Dois requisitos do caso tratam de prazo.
+Dois requisitos do caso afetam o regime de consistência. O R7 define o prazo de propagação da nota até o ambiente virtual, e o R6 exige tempo de resposta do sistema de registro durante a matrícula, o que interessa à decisão de o consumidor ler a fonte com consistência forte.
 
 | Código | Declaração |
 | --- | --- |
 | R6 | O portal sustenta 5.800 sessões simultâneas na abertura da matrícula, com percentil 95 do tempo de confirmação em até 4 segundos |
 | R7 | A nota lançada pelo professor chega ao ambiente virtual de aprendizagem em até 10 minutos |
 
-1. Marque, para cada consumidor de cada entidade na grade do item 1, o regime de consistência exigido, forte ou eventual com o prazo, usando os requisitos R6 e R7 quando se aplicarem.
+1. Marque, para cada consumidor de cada entidade na grade do item 1, o regime de consistência exigido, forte ou eventual com o prazo, usando o R7 como prazo de propagação da nota e o R6 como exigência de tempo de resposta para os consumidores que leem a fonte com consistência forte durante a matrícula.
 
 ### Item 3: Estilo de dado mestre para o aluno
 
-O aluno é a entidade compartilhada da ACME. O cadastro acadêmico, com 210.000 registros, grava o aluno, e as demais aplicações recebem ou mantêm cópia dele, como mostra o diagrama.
+O aluno é a entidade compartilhada da ACME, com 38.400 alunos ativos e 214.000 egressos com dados retidos. O cadastro acadêmico grava o aluno, e as demais aplicações recebem ou mantêm cópia dele, como mostra o diagrama.
 
 ```mermaid
 graph LR
-    CAD[("Cadastro acadêmico, 210.000 registros")]
+    CAD[("Cadastro acadêmico, alunos ativos e egressos")]
     CAD -->|"04h00, aluno vinculado à turma"| AVA["Ambiente virtual, usuário do aluno"]
     CAD -->|"23h10, aluno como pagador do lançamento"| ERP["ERP financeiro, responsável financeiro"]
     CAD -->|"02h30, cópia integral"| DW["Data warehouse"]
@@ -252,7 +252,7 @@ graph LR
 ```
 
 1. Escolha o estilo de dado mestre, registro, consolidação, coexistência ou centralizado, para a entidade aluno na arquitetura alvo.
-2. Registre a escolha em ADR curto de três linhas, com o contexto, a decisão e uma consequência, no formato do [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md).
+2. Registre a escolha em três linhas, com o contexto, a decisão e uma consequência, como os campos correspondentes do ADR apresentado no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md).
 
 ### Item 4: Obrigações do dado pessoal do aluno
 
@@ -301,7 +301,7 @@ As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](
 - DAMA Denmark. (2020). *Data management body of knowledge: Overview of the DMBOK2* [Apresentação]. https://www.dama-dk.org/onewebmedia/DAMA%20DMBOK2_PDF.pdf (onze áreas de conhecimento, definição de arquitetura de dados e de dados mestres e de referência, interação pela governança)
 - DAMA International. (2024). *DAMA-DMBOK: Data management body of knowledge* (2nd ed., revised). Technics Publications. (obra de referência, consultada por meio das publicações da DAMA listadas nesta seção)
 - DAMA International. (n.d.). *DMBOK 2.0 revision*. https://www.damadmbok.org/dmbok2-revisions (panorama de dados no lugar do desenho de fluxo de dados e nove dimensões de qualidade)
-- DAMA Rocky Mountain Chapter. (2023b). *DMBoK figure 23: Enterprise data model*. https://damarmc.org/news/13270755 (quatro níveis do modelo de dados corporativo)
+- DAMA Rocky Mountain Chapter. (2023). *DMBoK figure 23: Enterprise data model*. https://damarmc.org/news/13270755 (quatro níveis do modelo de dados corporativo)
 - Databricks. (n.d.). *Medallion architecture*. https://www.databricks.com/glossary/medallion-architecture (camadas bronze, prata e ouro)
 - Debezium. (n.d.-a). *Debezium features*. https://debezium.io/documentation/reference/stable/features.html (captura de mudanças baseada em log, conectores de origem para o Kafka Connect, captura de exclusões)
 - Debezium. (n.d.-b). *Debezium connector for PostgreSQL*. https://debezium.io/documentation/reference/stable/connectors/postgresql.html (decodificação lógica do log de transações, evento por inserção, atualização e exclusão de linha, um tópico do Kafka por tabela)
@@ -309,7 +309,7 @@ As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](
 - Fowler, M. (2015). *Data lake*. https://martinfowler.com/bliki/DataLake.html (dado bruto na forma fornecida pela origem)
 - Kimball Group. (n.d.). *Dimensional modeling techniques*. https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/ (tabelas de fatos e de dimensões e esquema estrela)
 - Kleppmann, M. (2017). *Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems*. O'Reilly Media. (parte III, sistemas de registro e dado derivado)
-- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.5, arquitetura de dados corporativa e de solução, artefatos e grade de análise de impacto, generalização para reconhecer entidades existentes. O Hospital ACME é adaptado do caso Fallowdale Hospital, usado ao longo do livro, e a Produtora ACME é adaptada de um caso de produção de conteúdo audiovisual apresentado na mesma obra)
+- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.5, arquitetura de dados corporativa e de solução, artefatos e grade de análise de impacto, generalização para reconhecer entidades existentes. O Hospital ACME é inspirado no caso Fallowdale Hospital, usado ao longo do livro, e a Produtora ACME é inspirada num caso de produção de conteúdo audiovisual apresentado na mesma obra)
 - OpenLineage. (n.d.). *OpenLineage* [Repositório]. LF AI & Data Foundation. https://github.com/OpenLineage/OpenLineage (entidades run, job e dataset e implementação de referência Marquez)
 - Richardson, C. (n.d.). *Pattern: Database per service*. Microservices.io. https://microservices.io/patterns/data/database-per-service.html (dado persistente privado ao serviço e acessível apenas pela interface dele)
 - Steenbeek, I. (2017, 10 de setembro). *New vision on data lineage/flow in DAMA-DMBOK2*. Data Crossroads. https://datacrossroads.nl/2017/09/10/new-vision-on-data-lineage-flow-in-dama-dm-bok-2/ (fluxos de dados como documentação de linhagem, segundo o capítulo 4 do DMBOK2)

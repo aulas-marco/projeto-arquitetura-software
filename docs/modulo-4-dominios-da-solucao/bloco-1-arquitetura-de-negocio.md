@@ -12,7 +12,7 @@ Este bloco inicia o detalhamento da solução por domínios e responde a uma per
 
 ## Modelos de arquitetura de negócio
 
-A Aula 3 terminou com uma decisão estrutural registrada em [ADR](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), com o estilo e os padrões que organizam a solução. Essa decisão diz como a solução se organiza, mas não diz o que ela altera na organização que a recebe. A Aula 4 detalha a solução em quatro domínios, na ordem negócio, dados, aplicações e infraestrutura, e cada domínio consome o que o anterior estabeleceu, de modo que a mudança localizada neste bloco orienta a escolha dos dados no bloco 2.
+A Aula 3 terminou com uma decisão estrutural registrada em [ADR](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), com o estilo e os padrões que organizam a solução. Essa decisão define como a solução se organiza, e o que ela altera na organização que a recebe é o objeto da arquitetura de negócio tratada neste bloco. A Aula 4 detalha a solução em quatro domínios, na ordem negócio, dados, aplicações e infraestrutura, e cada domínio consome o que o anterior estabeleceu, de modo que a mudança localizada neste bloco orienta a escolha dos dados no bloco 2.
 
 A **arquitetura de negócio** é definida pelo Business Architecture Guild como uma representação da organização que oferece entendimento comum sobre ela e serve para alinhar objetivos estratégicos e demandas táticas. O TOGAF descreve a mesma arquitetura como um conjunto de visões do negócio sobre capacidades, entrega de valor de ponta a ponta, informação e estrutura organizacional, com as relações entre essas visões e as estratégias, os produtos, as políticas e as partes interessadas. As duas definições atribuem ao domínio dois papéis na arquitetura de solução, o de origem da necessidade de mudança, já tratada como [direcionador de mudança](../modulo-2-requisitos-e-partes-interessadas/bloco-1-direcionadores-de-mudanca.md) na Aula 2, e o de alvo da mudança que a solução entrega.
 
@@ -30,7 +30,7 @@ Uma resposta negativa a qualquer das quatro indica que outro método é mais ade
 A Figura 1 organiza as quatro perguntas como árvore de decisão com três saídas possíveis. Toda resposta negativa conduz a uma quinta pergunta, sobre o tamanho do problema, que separa a redução de escopo, seguida de nova aplicação das quatro perguntas, do uso de outro método.
 
 <figure markdown="span">
-![Árvore de decisão com as quatro perguntas de aplicabilidade em sequência, em que quatro respostas afirmativas levam a aplicar a arquitetura de solução e qualquer resposta negativa leva a reduzir o escopo, quando o problema é grande demais para ser modelado, ou a usar outro método nos demais casos.](../assets/images/modulo-4-b1-arvore-aplicabilidade.svg){ .module-diagram }
+![Árvore de decisão com as quatro perguntas de aplicabilidade em sequência, em que quatro respostas afirmativas levam a aplicar a arquitetura de solução e qualquer resposta negativa leva a reduzir o escopo, quando o problema é grande demais para ser modelado, ou a usar outro método nos demais casos.](../assets/images/modulo-4-b1-arvore-aplicabilidade-v2.svg){ .module-diagram }
 </figure>
 
 *Figura 1 — As quatro perguntas de aplicabilidade da arquitetura de solução e as três saídas possíveis. Fonte: material do curso, com base em Lovatt (2021).*
@@ -49,7 +49,7 @@ A arquitetura de negócio mantém modelos que o arquiteto de solução consulta 
 A Figura 2 reúne os quatro modelos com a pergunta de cada um e os situa sobre o ciclo de mudança de negócio, apresentado ao fim desta seção, com os estágios de definir e projetar destacados.
 
 <figure markdown="span">
-![Diagrama com quatro cartões, um para cada modelo de arquitetura de negócio, mapa de capacidades, fluxo de valor, decomposição funcional e modelo de processo, cada um com a pergunta que responde. Abaixo, uma faixa com os cinco estágios do ciclo de mudança de negócio, alinhar, definir, projetar, implementar e realizar, com definir e projetar destacados como os estágios em que a arquitetura de solução se concentra.](../assets/images/modulo-4-modelos-de-negocio.svg){ .module-diagram }
+![Diagrama com quatro cartões, um para cada modelo de arquitetura de negócio, mapa de capacidades, fluxo de valor, decomposição funcional e modelo de processo, cada um com a pergunta que responde. Abaixo, uma faixa com os cinco estágios do ciclo de mudança de negócio, alinhar, definir, projetar, implementar e realizar, com definir e projetar destacados como os estágios em que a arquitetura de solução se concentra, e uma nota final que lembra que todo componente da solução sustenta um ou mais serviços de negócio.](../assets/images/modulo-4-modelos-de-negocio.svg){ .module-diagram }
 </figure>
 
 *Figura 2 — Os quatro modelos de arquitetura de negócio e a pergunta de cada um, sobre o ciclo de mudança de negócio. Fonte: material do curso, com base em Lovatt (2021).*
@@ -61,7 +61,7 @@ O **mapa de capacidades** decompõe as capacidades de topo em capacidades menore
 A Figura 3 mostra um mapa de capacidades genérico de um hospital, em dois níveis. As capacidades estratégicas orientam a oferta e a qualidade do serviço, as operacionais entregam o atendimento e o cuidado ao paciente, e as de apoio sustentam as demais, como o prontuário eletrônico, o faturamento e os suprimentos.
 
 <figure markdown="span">
-![Mapa de capacidades de um hospital em dois níveis, com quatro capacidades de topo, gestão estratégica, relacionamento com o paciente, cuidado clínico e apoio, e catorze capacidades menores coloridas como estratégicas, operacionais ou de apoio.](../assets/images/modulo-4-b1-mapa-capacidades-hospital.svg){ .module-diagram }
+![Mapa de capacidades de um hospital em dois níveis, com quatro capacidades de topo, gestão estratégica, relacionamento, cuidado clínico e apoio, e catorze capacidades menores coloridas como estratégicas, operacionais ou de apoio.](../assets/images/modulo-4-b1-mapa-capacidades-hospital.svg){ .module-diagram }
 </figure>
 
 *Figura 3 — Mapa de capacidades genérico de um hospital, com a classificação de cada capacidade em estratégica, operacional ou de apoio. Fonte: material do curso.*
@@ -72,7 +72,7 @@ O Hospital ACME, hospital geral fictício usado como exemplo nesta aula, tem as 
 
 A mudança proposta moderniza a comunicação com os laboratórios de apoio. O pedido de exame passa a sair do prontuário como mensagem estruturada, o resultado volta como dado estruturado associado ao pedido e ao paciente, e o valor crítico, que é o resultado fora da faixa de segurança e exige ação imediata, gera alerta automático ao médico responsável. A troca usa o HL7 FHIR (*Fast Healthcare Interoperability Resources*), padrão de interoperabilidade em saúde mantido pela HL7 International, que define o recurso *ServiceRequest* para o pedido e o recurso *DiagnosticReport* para o laudo (HL7 International, 2023).
 
-A Figura 4 repete o mapa da Figura 3 e destaca as quatro capacidades afetadas pela mudança. A prescrição e pedido de exames muda porque o pedido sai do prontuário já estruturado, o diagnóstico laboratorial é a capacidade central da mudança, a gestão do prontuário eletrônico passa a receber o resultado como dado e não mais como anexo, e a comunicação com o paciente passa a avisar o resultado assim que ele chega. O faturamento de exames externos entraria na lista se o hospital decidisse conciliar pela mesma integração as cobranças dos laboratórios, decisão que pertence à declaração de escopo da iniciativa.
+A Figura 4 repete o mapa da Figura 3 e destaca as quatro capacidades afetadas pela mudança. A prescrição e pedido de exames muda porque o pedido sai do prontuário já estruturado, o diagnóstico laboratorial é a capacidade central da mudança, a gestão do prontuário eletrônico passa a receber o resultado como dado estruturado associado ao pedido, e a comunicação com o paciente passa a avisar o resultado assim que ele chega. O faturamento de exames externos entraria na lista se o hospital decidisse conciliar pela mesma integração as cobranças dos laboratórios, decisão que pertence à declaração de escopo da iniciativa.
 
 <figure markdown="span">
 ![O mesmo mapa de capacidades do hospital, com quatro capacidades destacadas em âmbar como afetadas pela modernização da comunicação com laboratórios, comunicação com o paciente, prescrição e pedido de exames, diagnóstico laboratorial e gestão do prontuário eletrônico, e as demais esmaecidas. Uma anotação registra o volume e a competência que a mudança exige do diagnóstico laboratorial.](../assets/images/modulo-4-b1-mapa-de-capacidades-afetadas.svg){ .module-diagram }
@@ -102,12 +102,12 @@ O fluxo de valor e o mapa de capacidades se ligam etapa a etapa. A etapa de soli
 
 ### Decomposição funcional e modelo de processo
 
-A decomposição funcional e o modelo de processo de negócio completam o conjunto. Nesta disciplina, os dois são tratados como artefatos que o arquiteto de solução lê e consulta, mantidos pela área de negócio ou pela análise de processos, e não como técnica que o arquiteto pratica. O modelo de motivação de negócio, que liga direcionadores de mudança a fins e meios, também pertence à arquitetura de negócio e foi tratado, pelo lado dos direcionadores, no [bloco 1 da Aula 2](../modulo-2-requisitos-e-partes-interessadas/bloco-1-direcionadores-de-mudanca.md).
+A decomposição funcional e o modelo de processo de negócio completam o conjunto. Nesta disciplina, os dois são tratados como artefatos que o arquiteto de solução lê e consulta, mantidos pela área de negócio ou pela análise de processos, que respondem pela elaboração deles. O modelo de motivação de negócio, que liga direcionadores de mudança a fins e meios, também pertence à arquitetura de negócio e foi tratado, pelo lado dos direcionadores, no [bloco 1 da Aula 2](../modulo-2-requisitos-e-partes-interessadas/bloco-1-direcionadores-de-mudanca.md).
 
 O modelo de processo de negócio é desenhado com frequência em BPMN (*Business Process Model and Notation*), notação padronizada pelo Object Management Group (OMG), cuja versão 2.0.2 foi publicada em janeiro de 2014 e que a própria OMG descreve como padrão de fato para diagramas de processo de negócio (Object Management Group, 2014). A notação distribui o processo em raias, uma por participante ou unidade responsável, e usa um conjunto básico de símbolos, o evento de início, a tarefa, o gateway de decisão e o evento de fim, ligados por fluxos de sequência. A Figura 6 reproduz em notação simplificada o processo atual de recebimento de resultado de exame do Hospital ACME, que detalha a etapa 5 do fluxo de valor da Figura 5.
 
 <figure markdown="span">
-![Processo de recebimento de resultado de exame em BPMN simplificado, com raias para laboratório, central de exames e prontuário eletrônico, evento de início resultado liberado, tarefas de publicar, baixar, conferir e anexar o laudo, um gateway que pergunta se há valor crítico e leva a telefonar ao médico, e o evento de fim resultado disponível.](../assets/images/modulo-4-b1-processo-resultado-exame.svg){ .module-diagram }
+![Processo de recebimento de resultado de exame em BPMN simplificado, com raias para laboratório, central de exames e prontuário eletrônico, evento de início resultado liberado, tarefas de publicar, baixar, conferir e anexar o laudo, um gateway que pergunta se há valor crítico e leva a telefonar ao médico, a tarefa de registrar o laudo e notificar o médico na raia do prontuário e o evento de fim resultado disponível.](../assets/images/modulo-4-b1-processo-resultado-exame-v2.svg){ .module-diagram }
 </figure>
 
 *Figura 6 — Processo atual de recebimento de resultado de exame do Hospital ACME em notação BPMN simplificada, com raias para laboratório, central de exames e prontuário eletrônico. Fonte: material do curso.*
@@ -149,7 +149,7 @@ O arquiteto de solução consulta os modelos que a arquitetura de negócio já m
 
 ## Exercício 13
 
-O exercício aplica os modelos deste bloco à ACME, universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. Ele parte da declaração de escopo do primeiro ciclo, produzida no [exercício 8](../modulo-2-requisitos-e-partes-interessadas/bloco-4-partes-interessadas-e-pontos-de-vista.md#exercicio-8), e de três requisitos reproduzidos da [página inicial do caso](../caso-acme/index.md), usados nos itens 1 e 2.
+O exercício aplica os modelos deste bloco à ACME, universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. Ele parte da declaração de escopo do primeiro ciclo, produzida no [exercício 8](../modulo-2-requisitos-e-partes-interessadas/bloco-4-partes-interessadas-e-pontos-de-vista.md#exercicio-8), e de três requisitos reproduzidos da [página inicial do caso](../caso-acme/index.md), usados nos itens 2 e 3.
 
 | Código | Declaração | Origem |
 | --- | --- | --- |
@@ -157,7 +157,7 @@ O exercício aplica os modelos deste bloco à ACME, universidade privada brasile
 | R7 | A nota lançada pelo professor chega ao ambiente virtual de aprendizagem em até 10 minutos | Educação a Distância |
 | R13 | O aluno consulta o resultado da solicitação de aproveitamento de disciplina pelo portal | Secretaria Acadêmica |
 
-### Item 1: capacidades acadêmicas
+### Item 1: Capacidades acadêmicas
 
 O mapa abaixo reúne dez capacidades acadêmicas da ACME, montadas pelo material do curso a partir do dossiê do caso, ainda sem classificação. A tabela seguinte descreve cada uma.
 
@@ -192,7 +192,7 @@ block-beta
 1. Classifique cada capacidade em estratégica, operacional ou de apoio.
 2. Marque as capacidades afetadas pelo primeiro ciclo, conforme a declaração de escopo do exercício 8, com uma linha de justificativa para cada marcação.
 
-### Item 2: fluxo de valor do aluno
+### Item 2: Fluxo de valor do aluno
 
 O diagrama abaixo mostra o fluxo de valor do aluno em seis etapas, e a tabela registra a situação de cada etapa na [arquitetura de linha de base](../caso-acme/linha-de-base.md).
 
@@ -220,12 +220,12 @@ flowchart TB
 | 5. Consultar a nota no ambiente virtual | Uma nota lançada às 15h00 chega ao ambiente virtual às 06h00 do dia seguinte, pela exportação das 05h10 |
 | 6. Consultar o resultado de aproveitamento | A linha de base não registra consulta desse resultado pelo portal |
 
-1. Indique as etapas em que a latência ou a restrição de acesso compromete o valor para o aluno.
-2. Para cada etapa indicada, informe qual requisito, R1, R7 ou R13, ela afeta.
+1. Indique as etapas em que a latência, a restrição de acesso ou a ausência de função compromete o valor para o aluno.
+2. Para cada etapa indicada, informe qual requisito, R1, R7 ou R13, ela afeta, ou registre que nenhum dos três se aplica.
 
-### Item 3: processo de lançamento de nota
+### Item 3: Processo de lançamento de nota
 
-O diagrama abaixo mostra as atividades do processo atual de lançamento de nota, com o responsável por cada uma em itálico.
+O diagrama abaixo mostra as atividades do processo atual de lançamento de nota, do registro pelo professor à consulta pelo aluno, com o responsável por cada uma em itálico. A nota fica disponível no ambiente virtual às 06h00 do dia seguinte ao lançamento. A atividade de retorno, desenhada com borda tracejada e separada do caminho da nota, é o lote diário das 06h15, em que o ambiente virtual devolve à ACME a nota de atividade avaliativa e a presença registradas nele.
 
 ```mermaid
 flowchart TB
@@ -235,11 +235,13 @@ flowchart TB
     end
     subgraph L2[" "]
         direction LR
-        A4["4. Importar o<br/>arquivo de notas<br/><i>Ambiente virtual<br/>de aprendizagem</i>"] --> A5["5. Devolver notas e<br/>frequência no lote das 06h15<br/><i>Ambiente virtual<br/>de aprendizagem</i>"] --> A6["6. Consultar a nota<br/><i>Aluno</i>"]
+        A4["4. Importar o arquivo<br/>de notas, nota disponível<br/>às 06h00<br/><i>Ambiente virtual<br/>de aprendizagem</i>"] --> A5["5. Consultar a nota<br/><i>Aluno</i>"]
+        AR["Retorno: devolver nota de<br/>atividade avaliativa e presença<br/>no lote das 06h15<br/><i>Ambiente virtual<br/>de aprendizagem</i>"]
     end
     L1 --> L2
     style L1 fill:none,stroke:none
     style L2 fill:none,stroke:none
+    style AR stroke-dasharray: 5 5
 ```
 
 1. Indique quais atividades mudam se a nota passar a chegar ao ambiente virtual em até 10 minutos, como pede o R7.

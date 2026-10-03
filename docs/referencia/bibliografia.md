@@ -44,7 +44,7 @@ Fontes conferidas, no formato APA 7ª edição. Referências adicionais entram s
 - DAMA Denmark. (2020). *Data management body of knowledge: Overview of the DMBOK2* [Apresentação]. https://www.dama-dk.org/onewebmedia/DAMA%20DMBOK2_PDF.pdf
 - DAMA International. (2024). *DAMA-DMBOK: Data management body of knowledge* (2nd ed., revised). Technics Publications.
 - DAMA International. (n.d.). *DMBOK 2.0 revision*. https://www.damadmbok.org/dmbok2-revisions
-- DAMA Rocky Mountain Chapter. (2023b). *DMBoK figure 23: Enterprise data model*. https://damarmc.org/news/13270755
+- DAMA Rocky Mountain Chapter. (2023). *DMBoK figure 23: Enterprise data model*. https://damarmc.org/news/13270755
 - Databricks. (n.d.). *Medallion architecture*. https://www.databricks.com/glossary/medallion-architecture
 - Fowler, M. (2015). *Data lake*. https://martinfowler.com/bliki/DataLake.html
 - Kimball Group. (n.d.). *Dimensional modeling techniques*. https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/

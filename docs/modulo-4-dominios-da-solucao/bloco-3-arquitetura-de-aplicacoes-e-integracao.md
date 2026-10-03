@@ -38,7 +38,7 @@ flowchart TB
 
 O artefato principal do domínio é o catálogo do portfólio de aplicações, que lista as aplicações em uso e planejadas, com quem as usa e como. O portfólio costuma ser um conjunto heterogêneo, adquirido ou construído em momentos diferentes da história da organização, e por isso a arquitetura de aplicações trabalha continuamente para racionalizá-lo. Para distinguir aplicações estratégicas de aplicações legadas, é frequente o uso de uma classificação em vermelho, âmbar e verde, que permite à arquitetura de solução escolher a opção mais estratégica. Nesta disciplina, verde indica aplicação estratégica a manter e evoluir, âmbar indica aplicação mantida por ora, com restrição de investimento, e vermelho indica aplicação a substituir ou a retirar.
 
-A Figura 1 aplica a classificação a um portfólio ilustrativo do Hospital ACME. O módulo de anexos de laudo em PDF, que a central de exames usa para anexar ao prontuário os laudos baixados dos portais dos laboratórios de apoio, aparece em vermelho porque a modernização descrita no [bloco 1](bloco-1-arquitetura-de-negocio.md) passa a receber o resultado como dado estruturado, integrado ao prontuário no padrão HL7 FHIR. A cor de cada aplicação foi atribuída para fins didáticos.
+A Figura 1 aplica a classificação a um portfólio ilustrativo do Hospital ACME, com cores atribuídas para fins didáticos. O módulo de anexos de laudo em PDF, que a central de exames usa para anexar ao prontuário os laudos baixados dos portais dos laboratórios de apoio, aparece em vermelho porque a modernização descrita no [bloco 1](bloco-1-arquitetura-de-negocio.md) passa a receber o resultado como dado estruturado, integrado ao prontuário no padrão HL7 FHIR.
 
 <figure markdown="span">
 ![Três colunas classificam aplicações do Hospital ACME. Em verde, prontuário eletrônico do paciente e barramento de serviços, com a ação manter e evoluir. Em âmbar, agendamento ambulatorial, com a ação manter por ora com investimento restrito. Em vermelho, módulo de anexos de laudo em PDF e planilha de priorização, com a ação substituir ou retirar. Uma linha inferior indica o uso de cada cor na nova solução.](../assets/images/modulo-4-b3-portfolio-hospital.svg){ .module-diagram }
@@ -93,7 +93,7 @@ Em português, a palavra padrão traduz dois termos ingleses distintos, e a dist
 
 Um **padrão técnico** reúne a experiência de profissionais ao longo de muitos anos e situações, e a apresenta como especificação de processos a seguir, documentação a produzir e regras e parâmetros a observar. Por ser genérico, um padrão técnico costuma conter partes que não se aplicam a uma solução específica, e por isso o arquiteto precisa recortar a parte que se aplica antes de transformá-la em requisito técnico.
 
-Um protocolo é o conjunto de regras que duas partes seguem para trocar mensagens, com formato, sequência e tratamento de erro definidos. A arquitetura de linha de base da ACME usa três protocolos, o LDAP na autenticação dos portais, o HTTPS nas chamadas ao gateway de pagamento e ao assinador digital, e um conector transacional proprietário entre os portais e o núcleo. O HTTP, base do HTTPS, tem sua semântica definida pelo RFC 9110 (Fielding et al., 2022).
+Um protocolo é o conjunto de regras que duas partes seguem para trocar mensagens, com formato, sequência e tratamento de erro definidos. Entre os protocolos da linha de base da ACME estão o LDAP na autenticação dos portais, o HTTPS nas chamadas ao gateway de pagamento e ao assinador digital, e um conector transacional proprietário entre os portais e o núcleo. O HTTP, base do HTTPS, tem sua semântica definida pelo RFC 9110 (Fielding et al., 2022).
 
 Uma especificação de interface descreve de forma verificável uma interface particular, com operações ou mensagens, esquemas e erros. Para interfaces síncronas sobre HTTP, a especificação OpenAPI define uma descrição independente de linguagem de programação, que permite a pessoas e a programas entender as capacidades de um serviço sem acesso ao código-fonte (OpenAPI Initiative, 2026). Para interfaces orientadas a mensagens, a especificação AsyncAPI descreve canais, mensagens e operações de forma independente do protocolo de transporte (AsyncAPI Initiative, n.d.). Os dois trechos abaixo descrevem, num exemplo genérico de comércio eletrônico, uma consulta síncrona de pedido e a publicação de um evento de pedido confirmado.
 
@@ -145,7 +145,7 @@ operations:
 
 A especificação depende de uma linguagem de esquema, que define a estrutura e as restrições de cada mensagem de forma que um programa consiga validá-la antes de processá-la. O JSON Schema é uma linguagem declarativa para definir a estrutura e as restrições de dados JSON, serve de base ao OpenAPI e ao AsyncAPI na descrição do corpo das mensagens e tem como versão corrente a 2020-12 (JSON Schema, n.d.). O Apache Avro é um sistema de serialização com esquemas escritos em JSON, em que o dado armazenado junto do seu esquema se torna autodescritivo (Apache Software Foundation, n.d.). Em fluxos de eventos, os esquemas Avro costumam ficar num registro de esquemas, como o Schema Registry da Confluent, que guarda as versões de cada esquema e verifica a compatibilidade da versão nova com as anteriores antes de aceitá-la (Confluent, n.d.). Os Protocol Buffers são um mecanismo neutro quanto a linguagem e plataforma para serializar dados estruturados, descritos em arquivos .proto a partir dos quais se gera código em cada linguagem, e são o formato usado por padrão no gRPC (Google, n.d.).
 
-Um **contrato de integração** é a especificação de interface somada às garantias que provedor e consumidor acordam, como a política de versão, a garantia de entrega, a idempotência e o nível de serviço. A especificação diz o que trafega, e o contrato diz também o que cada parte pode esperar da outra quando algo falha ou muda.
+Um **contrato de integração** é a especificação de interface somada às garantias que provedor e consumidor acordam, como a política de versão, a garantia de entrega, a idempotência e o nível de serviço. Os seis campos que o contrato acrescenta aos seis atributos de interface aparecem na seção [Estrutura de um contrato](#estrutura-de-um-contrato), logo abaixo do exemplo da nota fiscal eletrônica.
 
 A nota fiscal eletrônica brasileira mostra os quatro níveis separados. O padrão técnico é o próprio sistema da nota fiscal eletrônica, cujo manual de orientação do contribuinte, na versão 7.00 de novembro de 2020, fixa regras e leiautes para todas as empresas emissoras e adota o perfil de interoperabilidade WS-I Basic Profile para os serviços web. Os protocolos são o TLS 1.2 ou superior com autenticação mútua e o SOAP 1.2. A especificação é dada pelos esquemas XML das mensagens, como o esquema de envio da nota na versão 4.00, publicados no portal nacional. O nível de contrato corresponde às regras que cada serviço impõe ao emissor, como o uso obrigatório de certificado digital emitido por autoridade credenciada na ICP-Brasil, do tipo A1 ou A3, as regras de validação e os códigos de retorno, que nesse caso são fixadas pela administração tributária sem negociação com cada emissor.
 
@@ -242,14 +242,14 @@ A Figura 4 reúne a hierarquia de serviços, à esquerda, e as quatro camadas qu
 
 ### Modelo C4
 
-O [modelo C4](../referencia/glossario.md#modelo-c4) é a notação de modelagem adotada nesta aula para representar a solução em qualquer nível de detalhe e em qualquer domínio. Os diagramas anteriores deste bloco usam notação livre, escolhida para ilustrar cada conceito, e os exemplos desta seção em diante seguem a convenção do C4, que o [bloco 4](bloco-4-arquitetura-de-infraestrutura.md) usa também no diagrama de contêineres da arquitetura alvo e no diagrama de implantação.
+O [modelo C4](../referencia/glossario.md#modelo-c4) é a notação de modelagem adotada nesta aula para representar a solução em qualquer nível de detalhe e em qualquer domínio. Os diagramas anteriores deste bloco usam notação livre, escolhida para ilustrar cada conceito, e os diagramas de contexto, de contêineres e de implantação desta seção em diante seguem a convenção do C4, que o [bloco 4](bloco-4-arquitetura-de-infraestrutura.md) usa também no diagrama de contêineres da arquitetura alvo e no diagrama de implantação.
 
-O diagrama solto e o modelo arquitetural diferem pela convenção. O diagrama solto nasce de uma conversa, usa símbolos escolhidos na hora e serve àquela conversa. O modelo tem convenção declarada, define o que cada forma significa e o que cada nível de detalhe pode ou não conter, e por isso continua legível para quem não participou da conversa. A diferença prática aparece quando duas pessoas desenham o mesmo sistema, porque com convenção declarada os dois desenhos podem ser comparados, e sem ela cada autor atribui às formas um significado próprio que o leitor desconhece.
+O diagrama solto e o modelo arquitetural diferem pela convenção. O diagrama solto nasce de uma conversa, usa símbolos escolhidos na hora e serve àquela conversa. O modelo tem convenção declarada, define o que cada forma significa e o que cada nível de detalhe pode ou não conter, e por isso continua legível para quem não participou da conversa. A diferença prática aparece quando duas pessoas desenham o mesmo sistema, porque a convenção declarada permite comparar os dois desenhos forma a forma. No C4, essa convenção fixa quatro níveis de abstração e quatro tipos principais de elemento, pessoa, sistema de software, contêiner e componente.
 
 O **modelo C4**, criado por Brown (n.d.), é uma dessas convenções. Ele organiza a descrição do sistema em quatro níveis de abstração, que permitem compreensão progressiva de acordo com o público e o propósito da documentação. O nome vem das iniciais dos quatro níveis em inglês, Context, Containers, Components e Code, e cada nível tem nome próprio, de modo que o quarto nível se chama Código.
 
 <figure markdown="span">
-![Quatro faixas empilhadas e recuadas mostram a decomposição do modelo C4. O nível 1, contexto, mostra o sistema de software com pessoas e sistemas externos. O nível 2, contêineres, decompõe o sistema em aplicações, serviços e bancos de dados. O nível 3, componentes, decompõe um contêiner. O nível 4, código, decompõe um componente em classes e funções. Os níveis 1 e 2 aparecem destacados como os usados na disciplina.](../assets/images/modulo-4-b3-c4-quatro-niveis.svg){ .module-diagram }
+![Quatro faixas empilhadas e recuadas mostram a decomposição do modelo C4. O nível 1, contexto, mostra o sistema de software com pessoas e sistemas externos. O nível 2, contêineres, decompõe o sistema em aplicações, serviços e bancos de dados. O nível 3, componentes, decompõe um contêiner. O nível 4, código, decompõe um componente em classes e funções. Os níveis 1 e 2 aparecem destacados como os usados na disciplina.](../assets/images/modulo-4-b3-c4-quatro-niveis-v2.svg){ .module-diagram }
 </figure>
 
 *Figura 5 — Os quatro níveis de abstração do C4, com o público de cada nível. Fonte: material do curso, com base em Brown (n.d.).*
@@ -263,7 +263,7 @@ Cada nível responde a uma pergunta diferente e atende a um público diferente, 
 | Componentes | Como cada parte de um contêiner é estruturada? | Desenvolvedores que implementam ou mantêm o sistema |
 | Código | Como a implementação de um componente é realizada? | Desenvolvedores em nível de detalhamento máximo |
 
-Esta aula usa os dois primeiros níveis, contexto e contêineres, como notação de modelagem nos blocos seguintes, e o [bloco 4](bloco-4-arquitetura-de-infraestrutura.md) acrescenta o diagrama de implantação, um dos diagramas de apoio do modelo. Os níveis de componentes e de código existem e seguem a mesma lógica de decomposição, mas ficam fora do escopo da disciplina.
+Esta aula usa os dois primeiros níveis, contexto e contêineres, como notação de modelagem no restante deste bloco e no bloco 4, e o [bloco 4](bloco-4-arquitetura-de-infraestrutura.md) acrescenta o diagrama de implantação, um dos diagramas de apoio do modelo. Os níveis de componentes e de código existem e seguem a mesma lógica de decomposição, mas ficam fora do escopo da disciplina.
 
 Três princípios organizam o uso das abstrações. A progressividade pede começar pela visão ampla e descer ao detalhe, alinhando o nível ao público e ao propósito. A coerência pede manter as abstrações alinhadas entre os níveis, para que o que aparece como contêiner no nível 2 não reapareça como sistema externo no nível 1. O foco no propósito pede que cada diagrama tenha um objetivo claro e responda à pergunta de um grupo específico de interessados.
 
@@ -272,46 +272,30 @@ Três princípios organizam o uso das abstrações. A progressividade pede come�
 O **diagrama de contexto** fornece uma visão ampla do sistema modelado e de como ele se relaciona com os atores externos. Ele comunica os limites do sistema e as interações de alto nível, e por isso trabalha com apenas três tipos de elemento. Pessoas representam os atores humanos que interagem diretamente com o sistema, sejam usuários finais ou outras partes interessadas. Sistemas de software representam tanto o sistema sendo modelado quanto os outros sistemas com que ele se comunica. Relações demonstram como atores e sistemas externos interagem com o sistema principal, descrevendo o meio e o protocolo usados.
 
 <figure markdown="span">
-![Diagrama de contexto com três elementos, um ator Cliente marcado como pessoa, o Sistema Principal marcado como sistema, e um Serviço de API Externa marcado como sistema externo, ligados por relações rotuladas com o protocolo de cada interação.](../assets/images/modulo-4-b3-c4-contexto-generico.svg){ .module-diagram }
+![Diagrama de contexto com três elementos, a pessoa Cliente, o Sistema Principal marcado como sistema e o Sistema Externo Financeiro marcado como sistema externo, ligados por relações rotuladas com a interação e o protocolo, HTTPS e REST.](../assets/images/modulo-4-b3-c4-contexto-generico-v2.svg){ .module-diagram }
 </figure>
 
 *Figura 6 — Diagrama de contexto genérico, com os três tipos de elemento e as relações rotuladas por protocolo. Fonte: material do curso, com base em Brown (n.d.).*
 
 O roteiro para montar esse diagrama tem cinco etapas. Identifique o sistema de interesse, determinando qual sistema é o foco do modelo. Defina os atores externos, identificando as pessoas que interagem com ele. Liste os sistemas externos que trocam informação diretamente com o sistema principal. Desenhe as relações, conectando pessoas e sistemas ao sistema principal, com descrição clara da interação e do protocolo. Acrescente descrição a cada elemento, para que o diagrama seja compreensível por todos os interessados, inclusive os que não participaram do desenho.
 
-O exemplo em C4 abaixo aplica o mesmo nível ao sistema de agendamento de consultas da Clínica Odontológica ACME, escrito em Mermaid, que é a ferramenta de diagramas usada neste site.
+O exemplo em C4 abaixo aplica o mesmo nível ao sistema de agendamento de consultas da Clínica Odontológica ACME.
 
-```mermaid
-%%{init: {"flowchart": {"curve": "stepAfter", "nodeSpacing": 50, "rankSpacing": 70}}}%%
-graph TD
-    PAC["«pessoa»<br/>Paciente"]
-    REC["«pessoa»<br/>Recepção da clínica"]
-    AGE["«sistema»<br/>Sistema de agendamento<br/>da Clínica Odontológica ACME"]
-    CONV["«sistema externo»<br/>Operadora de convênio"]
-    SMS["«sistema externo»<br/>Serviço de mensagens"]
+<figure markdown="span">
+![Diagrama de contexto em C4 do sistema de agendamento da Clínica Odontológica ACME. O paciente e a recepção da clínica, pessoas à esquerda, usam o sistema de agendamento para marcar e confirmar consultas e para gerenciar a agenda e os encaixes. O sistema consulta a elegibilidade na operadora de convênio e envia lembretes pelo serviço de mensagens, sistemas externos em cinza à direita, com o protocolo de cada relação.](../assets/images/modulo-4-b3-c4-clinica-contexto.svg){ .module-diagram }
+</figure>
 
-    PAC -->|"marca e confirma consulta"| AGE
-    REC -->|"gerencia agenda e encaixes"| AGE
-    AGE -->|"consulta elegibilidade"| CONV
-    AGE -->|"envia lembrete"| SMS
-    classDef pessoa fill:#16243A,stroke:#16243A,color:#ffffff
-    classDef sistema fill:#254DB8,stroke:#254DB8,color:#ffffff
-    classDef conteiner fill:#3A6FD8,stroke:#254DB8,color:#ffffff
-    classDef externo fill:#7A8799,stroke:#52657E,color:#ffffff
-    class PAC,REC pessoa
-    class AGE sistema
-    class CONV,SMS externo
-```
+*Figura 7 — Diagrama de contexto em C4 do sistema de agendamento da Clínica Odontológica ACME, com pessoas, sistema, sistemas externos e relações rotuladas por interação e protocolo. Fonte: material do curso, com base em Brown (n.d.).*
 
 ### Diagrama de contêineres
 
 O diagrama de contêineres detalha os principais contêineres que compõem o sistema, com suas responsabilidades e com a forma como interagem entre si e com os sistemas externos. Contêineres representam as aplicações, bancos de dados ou outros serviços que compõem o sistema, cada um com responsabilidade específica e tecnologia declarada. Sistemas externos e relações continuam presentes, com o mesmo significado do nível de contexto apresentado acima.
 
 <figure markdown="span">
-![Diagrama de contêineres com o sistema principal decomposto em aplicação web, API e banco de dados, cada um com sua tecnologia, ligados entre si e ao sistema externo por relações rotuladas com protocolo.](../assets/images/modulo-4-b3-c4-conteineres-generico.svg){ .module-diagram }
+![Diagrama de contêineres com o Sistema Principal decomposto em Frontend Web em Angular, Backend de Aplicação em Spring Boot e Banco de Dados PostgreSQL, ligados entre si e ao Sistema Externo Financeiro por relações rotuladas com a interação e o protocolo.](../assets/images/modulo-4-b3-c4-conteineres-generico-v2.svg){ .module-diagram }
 </figure>
 
-*Figura 7 — Diagrama de contêineres genérico, com a decomposição interna do sistema e a tecnologia de cada contêiner. Fonte: material do curso, com base em Brown (n.d.).*
+*Figura 8 — Diagrama de contêineres genérico, com a decomposição interna do sistema e a tecnologia de cada contêiner. Fonte: material do curso, com base em Brown (n.d.).*
 
 O roteiro de montagem do diagrama de contêineres tem quatro etapas:
 
@@ -322,37 +306,11 @@ O roteiro de montagem do diagrama de contêineres tem quatro etapas:
 
 No exemplo em C4 abaixo, o mesmo sistema de agendamento da Clínica Odontológica ACME se decompõe no nível de contêineres sem que os atores e os sistemas externos mudem.
 
-```mermaid
-%%{init: {"flowchart": {"curve": "stepAfter", "nodeSpacing": 50, "rankSpacing": 70}}}%%
-graph TD
-    PAC["«pessoa»<br/>Paciente"]
-    REC["«pessoa»<br/>Recepção da clínica"]
+<figure markdown="span">
+![Diagrama de contêineres em C4 do mesmo sistema de agendamento. Dentro da fronteira tracejada, o aplicativo do paciente em Flutter e o painel da recepção em React chamam a API do serviço de agenda em Spring Boot por HTTPS com JSON, e o serviço lê e grava no banco de agendamentos PostgreSQL por SQL sobre TLS. O serviço chama por HTTPS com REST a operadora de convênio e o serviço de mensagens, que permanecem fora da fronteira como sistemas externos.](../assets/images/modulo-4-b3-c4-clinica-conteineres.svg){ .module-diagram }
+</figure>
 
-    subgraph AGE["Sistema de agendamento"]
-        APP["«contêiner»<br/>Aplicativo do paciente"]
-        WEB["«contêiner»<br/>Painel da recepção"]
-        API["«contêiner»<br/>Serviço de agenda"]
-        BD[("«contêiner»<br/>Banco de agendamentos")]
-    end
-
-    CONV["«sistema externo»<br/>Operadora de convênio"]
-    SMS["«sistema externo»<br/>Serviço de mensagens"]
-
-    PAC --> APP
-    REC --> WEB
-    APP -->|"HTTPS"| API
-    WEB -->|"HTTPS"| API
-    API --> BD
-    API -->|"HTTPS"| CONV
-    API -->|"HTTPS"| SMS
-    classDef pessoa fill:#16243A,stroke:#16243A,color:#ffffff
-    classDef sistema fill:#254DB8,stroke:#254DB8,color:#ffffff
-    classDef conteiner fill:#3A6FD8,stroke:#254DB8,color:#ffffff
-    classDef externo fill:#7A8799,stroke:#52657E,color:#ffffff
-    class PAC,REC pessoa
-    class APP,WEB,API,BD conteiner
-    class CONV,SMS externo
-```
+*Figura 9 — Diagrama de contêineres em C4 do sistema de agendamento da Clínica Odontológica ACME, com a tecnologia e a responsabilidade de cada contêiner e os mesmos sistemas externos da Figura 7. Fonte: material do curso, com base em Brown (n.d.).*
 
 O par de sistemas externos, operadora de convênio e serviço de mensagens, é o mesmo nos dois níveis. Mudar esse conjunto entre um nível e outro quebra o princípio da coerência entre níveis, e a conferência precisa ser repetida sempre que os dois diagramas forem desenhados em momentos diferentes.
 
@@ -365,18 +323,18 @@ O modelo C4 pede que cada contêiner declare sua tecnologia. Na arquitetura alvo
 O par de diagramas abaixo modela o sistema de internet banking do Banco ACME, primeiro no nível de contexto e depois no de contêineres. Ele interessa a esta disciplina por um detalhe, o sistema mainframe bancário aparece como sistema externo, fora da caixa do sistema modelado.
 
 <figure markdown="span">
-![Diagrama de contexto do sistema de internet banking, com o cliente bancário como pessoa, o sistema de internet banking como sistema modelado, e o sistema mainframe bancário e o sistema de e-mail como sistemas externos, ligados por relações rotuladas.](../assets/images/modulo-4-b3-c4-banking-contexto.svg){ .module-diagram }
+![Diagrama de contexto do sistema de internet banking, com o cliente bancário como pessoa, o sistema de internet banking como sistema modelado, e o sistema mainframe bancário e o sistema de e-mail como sistemas externos, ligados por relações rotuladas.](../assets/images/modulo-4-b3-c4-banking-contexto-v2.svg){ .module-diagram }
 </figure>
 
-*Figura 8 — Nível de contexto do sistema de internet banking, com o mainframe tratado como sistema externo. Fonte: material do curso, com base em Brown (n.d.).*
+*Figura 10 — Nível de contexto do sistema de internet banking, com o mainframe tratado como sistema externo. Fonte: material do curso, com base em Brown (n.d.).*
 
 <figure markdown="span">
-![Diagrama de contêineres do mesmo sistema de internet banking, decomposto em aplicação web, aplicação de página única, aplicativo móvel, aplicação de API e banco de dados, cada um com sua tecnologia, mantendo o mainframe e o sistema de e-mail como sistemas externos.](../assets/images/modulo-4-b3-c4-banking-conteineres.svg){ .module-diagram }
+![Diagrama de contêineres do mesmo sistema de internet banking, decomposto em aplicação web, aplicação de página única, aplicativo móvel, aplicação de API e banco de dados, cada um com sua tecnologia, mantendo o mainframe e o sistema de e-mail como sistemas externos.](../assets/images/modulo-4-b3-c4-banking-conteineres-v2.svg){ .module-diagram }
 </figure>
 
-*Figura 9 — Nível de contêineres do mesmo sistema, com a tecnologia declarada em cada contêiner e os mesmos dois sistemas externos do nível anterior. Fonte: material do curso, com base em Brown (n.d.).*
+*Figura 11 — Nível de contêineres do mesmo sistema, com a tecnologia declarada em cada contêiner e os mesmos dois sistemas externos do nível anterior. Fonte: material do curso, com base em Brown (n.d.).*
 
-A posição do mainframe fora da caixa resulta de uma decisão de escopo tomada pelo Banco ACME, que tratou o mainframe como sistema mantido por outra equipe, com o qual o internet banking apenas se comunica. O critério que decide a posição de um componente é a fronteira de responsabilidade sobre o sistema, e a idade ou a tecnologia do componente não interferem nessa decisão.
+A posição do mainframe fora da caixa resulta de uma decisão de escopo tomada pelo Banco ACME, que tratou o mainframe como sistema mantido por outra equipe, com o qual o internet banking apenas se comunica. O critério que decide a posição de um componente é a fronteira de responsabilidade sobre o sistema, definida pela equipe ou pela organização que responde pela evolução e pela operação do componente.
 
 ## Uso pelo arquiteto
 
@@ -390,11 +348,11 @@ A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sis
 
 ### Item 1: Classificação do portfólio
 
-O catálogo abaixo lista as aplicações da ACME registradas na linha de base, sem classificação.
+O catálogo abaixo lista as aplicações da ACME e os serviços externos registrados na linha de base, sem classificação.
 
 | Aplicação | Ano | Tecnologia | Observação |
 | --- | --- | --- | --- |
-| Portal do Aluno | 2007 | JSF 1.2 e EJB 2.0 | 84 telas, sem versão responsiva |
+| Portal do Aluno | 2007 | JSF 1.2 e EJB 2.0 | 84 telas, sem versão responsiva, acesso direto ao banco |
 | Portal do Professor | 2008 | JSF 1.2 e EJB 2.0 | 46 telas |
 | Portal da Secretaria | 2008 | JSF 1.2 e EJB 2.0 | 62 telas |
 | Portal do Gestor | 2009 | JSF 1.2 e EJB 2.0 | 28 telas, acesso direto ao banco |
@@ -403,13 +361,14 @@ O catálogo abaixo lista as aplicações da ACME registradas na linha de base, s
 | Ambiente virtual de aprendizagem | Não informado | Produto contratado | Permanece por decisão da Reitoria de 12/03/2026 |
 | Data warehouse institucional | Não informado | Não informado | Recebe cópia integral de 140 tabelas por lote |
 | Assinador digital ICP-Brasil | Não informado | Serviço externo | Assinatura de histórico e diploma |
+| Gateway de pagamento | Não informado | Serviço externo | Geração de boleto e cobrança em cartão, chamado pelo Portal do Aluno |
 | Diretório corporativo | Não informado | LDAP | Autenticação de todos os perfis |
 
 1. Classifique cada aplicação do catálogo em vermelho, âmbar ou verde, conforme a [classificação do portfólio](#portfolio-de-aplicacoes), com uma linha de justificativa.
 
 ### Item 2: Contrato da integração de notas
 
-O requisito R7, declarado pela Educação a Distância, determina que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. A exportação de notas consolidadas ocorre hoje em lote diário iniciado às 05h10, com 4.800 lançamentos em dia letivo comum e até 360.000 na janela de fechamento. A propagação em minutos exige o plano do ambiente virtual que oferece interfaces de programação, com acréscimo de 38% sobre o valor anual do contrato vigente. O diagrama abaixo, em notação livre, mostra o caminho atual da nota.
+O requisito R7, declarado pela Educação a Distância, determina que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. A exportação de notas consolidadas ocorre hoje em lote diário iniciado às 05h10, com 4.800 lançamentos em dia letivo comum e até 360.000 na janela de fechamento. A propagação em minutos exige o plano do ambiente virtual que oferece interfaces de programação, com acréscimo de 38% sobre o valor anual do contrato vigente. O diagrama abaixo, em notação livre, mostra o caminho atual da nota, do lançamento no Portal do Professor à carga no ambiente virtual pelo lote das 05h10.
 
 ```mermaid
 sequenceDiagram
@@ -445,15 +404,15 @@ O esqueleto do contrato da integração de notas entre a ACME e o ambiente virtu
 2. Declare se a integração é síncrona ou assíncrona e justifique o modo pelos padrões selecionados no [exercício 11](../modulo-3-design-e-padroes/bloco-3-padroes-arquiteturais-e-de-design.md#exercicio-11).
 3. Indique o que acontece quando o professor corrige uma nota já enviada.
 
-### Item 3: Erros de nível no diagrama de contexto
+### Item 3: Erros de nível ou de fronteira no diagrama de contexto
 
-O diagrama abaixo é um diagrama de contexto da arquitetura alvo do primeiro ciclo e contém dois erros de nível, conforme os níveis descritos na seção [Diagrama de contexto](#diagrama-de-contexto).
+O diagrama abaixo é um diagrama de contexto da arquitetura alvo do primeiro ciclo e contém dois erros de nível ou de fronteira, conforme os níveis descritos na seção [Diagrama de contexto](#diagrama-de-contexto).
 
 <figure markdown="span">
 ![Diagrama de contexto do primeiro ciclo da ACME com três atores no alto, aluno, professor e secretaria acadêmica, ligados ao sistema acadêmico. Dentro da fronteira tracejada do sistema acadêmico estão o elemento sistema acadêmico e o ERP financeiro. Abaixo, ligados por linhas ortogonais, seis elementos fora da fronteira, banco de dados acadêmico, ambiente virtual de aprendizagem, assinador digital ICP-Brasil, gateway de pagamento, provedor de identidade e órgão regulador.](../assets/images/acme-ex15-diagrama-de-contexto.svg){ .module-diagram }
 </figure>
 
-1. Aponte os dois erros de nível do diagrama e descreva a correção de cada um.
+1. Aponte os dois erros do diagrama e descreva a correção de cada um.
 
 O diagrama de contexto corrigido neste item é a base do diagrama de contêineres do exercício 16, no [bloco 4](bloco-4-arquitetura-de-infraestrutura.md).
 
@@ -461,7 +420,7 @@ O diagrama de contexto corrigido neste item é a base do diagrama de contêinere
 
 As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso. O trecho consultado aparece entre parênteses ao fim de cada entrada.
 
-- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.6, arquitetura de aplicações, hierarquia de serviços, catálogo do portfólio, classificação em vermelho, âmbar e verde e tipos de aplicação, seção 2.8, interfaces na arquitetura de software, seção 3.6.4, análise de interfaces, e seção 4.3.1, padrões técnicos. O Hospital ACME é adaptado do caso Fallowdale Hospital, usado ao longo do livro)
+- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.6, arquitetura de aplicações, hierarquia de serviços, catálogo do portfólio, classificação em vermelho, âmbar e verde e tipos de aplicação, seção 2.8, interfaces na arquitetura de software, seção 3.6.4, análise de interfaces, e seção 4.3.1, padrões técnicos. O Hospital ACME é inspirado no caso Fallowdale Hospital, usado ao longo do livro)
 - Fielding, R., Nottingham, M., & Reschke, J. (Eds.). (2022). *HTTP semantics* (RFC 9110). RFC Editor. https://www.rfc-editor.org/rfc/rfc9110 (semântica do HTTP)
 - OpenAPI Initiative. (2026). *OpenAPI specification* (Versão 3.2.1). https://spec.openapis.org/oas/latest.html (finalidade e estrutura da descrição de interface HTTP)
 - AsyncAPI Initiative. (n.d.). *AsyncAPI specification* (Versão 3.1.0). https://www.asyncapi.com/docs/reference/specification/latest (descrição de interfaces orientadas a mensagens, independente de protocolo)
@@ -476,6 +435,6 @@ As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](
 - Google. (n.d.). *Overview*. Protocol Buffers Documentation. https://protobuf.dev/overview/ (definição de Protocol Buffers e geração de código a partir de arquivos .proto)
 - RabbitMQ. (n.d.). *Which protocols does RabbitMQ support?* https://www.rabbitmq.com/docs/protocols (suporte a AMQP 0-9-1 e AMQP 1.0)
 - Jena, J., & Dalal, S. (2025). *The Idempotency-Key HTTP header field* (Internet-Draft draft-ietf-httpapi-idempotency-key-header-07). IETF. https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/ (finalidade do cabeçalho, respostas 409 e 422 e estado expirado do rascunho, consultado em 03/10/2026)
-- Mendes, M. (2026b). *Guias de projeto de arquitetura de software* [Material de curso, versão arquivada]. https://github.com/aulas-marco/projeto-arquitetura-software/tree/30f15cd (guias 3.1, 3.2 e 3.3, fonte dos quatro níveis, dos princípios de abstração, dos elementos dos diagramas de contexto e de contêineres, dos dois roteiros de montagem e das cinco figuras do modelo C4 reproduzidas nesta página)
+- Mendes, M. (2026b). *Guias de projeto de arquitetura de software* [Material de curso, versão arquivada]. https://github.com/aulas-marco/projeto-arquitetura-software/tree/30f15cd (guias 3.1, 3.2 e 3.3, fonte dos quatro níveis, dos princípios de abstração, dos elementos dos diagramas de contexto e de contêineres, e dos dois roteiros de montagem)
 
 **Material do curso.** O bloco usa as entradas [arquitetura de aplicações](../referencia/glossario.md#arquitetura-de-aplicacoes), [padrão técnico](../referencia/glossario.md#padrao-tecnico), [protocolo](../referencia/glossario.md#protocolo), [especificação de interface](../referencia/glossario.md#especificacao-de-interface), [contrato de integração](../referencia/glossario.md#contrato-de-integracao) e [modelo C4](../referencia/glossario.md#modelo-c4) do glossário, além do dossiê da instituição fictícia [ACME](../caso-acme/index.md).
