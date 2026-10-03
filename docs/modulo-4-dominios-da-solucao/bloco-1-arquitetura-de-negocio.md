@@ -112,7 +112,7 @@ O segundo artefato descreve o fluxo de valor do aluno, com o tempo de cada passa
 | 3. Acesso à turma no ambiente virtual | Uma matrícula confirmada às 09h00 aparece no ambiente virtual às 04h55 do dia seguinte, pela carga de turmas das 04h00 |
 | 4. Lançamento da nota pelo professor | Registrada no Portal do Professor durante o dia letivo |
 | 5. Nota visível no ambiente virtual | Uma nota lançada às 15h00 chega ao ambiente virtual às 06h00 do dia seguinte, pela exportação das 05h10 |
-| 6. Resultado de aproveitamento de disciplina | A consulta do resultado pelo portal é o pedido registrado no requisito R13 |
+| 6. Resultado de aproveitamento de disciplina | A linha de base não registra consulta desse resultado pelo portal |
 
 O terceiro artefato descreve as atividades do processo atual de lançamento de nota e o responsável por cada uma.
 

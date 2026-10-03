@@ -101,7 +101,7 @@ operations:
 
 Um **contrato de integração** é a especificação de interface somada às garantias que provedor e consumidor acordam, como a política de versão, a garantia de entrega, a idempotência e o nível de serviço. A especificação diz o que trafega, e o contrato diz também o que cada parte pode esperar da outra quando algo falha ou muda.
 
-A nota fiscal eletrônica brasileira mostra os quatro níveis separados. O padrão técnico é o próprio sistema da nota fiscal eletrônica, cujo manual de orientação do contribuinte, na versão 7.00 de novembro de 2020, fixa regras e leiautes para todas as empresas emissoras. Os protocolos são o TLS 1.2 ou superior com autenticação mútua, o padrão de serviços web do WS-I Basic Profile e o SOAP 1.2. A especificação é dada pelos esquemas XML das mensagens, como o esquema de envio da nota na versão 4.00, publicados no portal nacional. O contrato acrescenta garantias, como o uso obrigatório de certificado digital emitido por autoridade credenciada na ICP-Brasil, do tipo A1 ou A3, e as regras de validação e de retorno de cada serviço.
+A nota fiscal eletrônica brasileira mostra os quatro níveis separados. O padrão técnico é o próprio sistema da nota fiscal eletrônica, cujo manual de orientação do contribuinte, na versão 7.00 de novembro de 2020, fixa regras e leiautes para todas as empresas emissoras e adota o perfil de interoperabilidade WS-I Basic Profile para os serviços web. Os protocolos são o TLS 1.2 ou superior com autenticação mútua e o SOAP 1.2. A especificação é dada pelos esquemas XML das mensagens, como o esquema de envio da nota na versão 4.00, publicados no portal nacional. O nível de contrato corresponde às regras que cada serviço impõe ao emissor, como o uso obrigatório de certificado digital emitido por autoridade credenciada na ICP-Brasil, do tipo A1 ou A3, as regras de validação e os códigos de retorno, que nesse caso são fixadas pela administração tributária sem negociação com cada emissor.
 
 ### Estrutura de um contrato
 
@@ -253,7 +253,7 @@ graph TD
 ```
 
 1. Classifique cada aplicação do primeiro artefato em vermelho, âmbar ou verde, com uma linha de justificativa.
-2. Preencha cada campo do segundo artefato com resposta curta. Declare se a integração é síncrona ou assíncrona, use como origem o dono da entidade nota marcado no exercício 14 e indique o que acontece quando o professor corrige uma nota já enviada.
+2. Preencha cada campo do segundo artefato com resposta curta. Declare se a integração é síncrona ou assíncrona, justificando o modo pelos padrões selecionados no [exercício 11](../modulo-3-design-e-padroes/bloco-3-padroes-arquiteturais-e-de-design.md#exercicio-11), use como origem o dono da entidade nota marcado no exercício 14 e indique o que acontece quando o professor corrige uma nota já enviada.
 3. Aponte os dois erros de nível do terceiro artefato e descreva a correção de cada um.
 
 O diagrama de contexto corrigido neste exercício é a base do diagrama de contêineres do exercício 16, no [bloco 4](bloco-4-arquitetura-de-infraestrutura.md).

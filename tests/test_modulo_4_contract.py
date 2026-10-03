@@ -170,6 +170,36 @@ class ExerciseRuleTest(unittest.TestCase):
         self.assertIn("tecnologia a definir na Aula 5", ex)
 
 
+class ReviewFindingsTest(unittest.TestCase):
+    """Achados da revisao final da branch, fixados para nao regredirem."""
+
+    def test_exercise_13_value_stream_does_not_name_the_requirement(self):
+        ex = section(read(B1), "Exercício 13")
+        rows = re.findall(r"(?m)^\| [1-6]\. .*$", ex)
+        stream = [row for row in rows if "Situação" not in row and "Responsável" not in row]
+        self.assertTrue(stream)
+        for row in stream:
+            for code in ("R1", "R7", "R13"):
+                with self.subTest(row=row[:40], code=code):
+                    self.assertNotIn(code, row)
+
+    def test_exercise_14_grid_does_not_invent_access_per_entity(self):
+        ex = section(read(B2), "Exercício 14")
+        self.assertNotIn("| Lê, por conector", ex)
+        self.assertNotIn("| Lê e grava, por conector", ex)
+
+    def test_exercises_14_and_15_consume_module_3_products(self):
+        ex14 = section(read(B2), "Exercício 14")
+        ex15 = section(read(B3), "Exercício 15")
+        self.assertIn("../modulo-3-design-e-padroes/bloco-1-principios-de-design.md#exercicio-9", ex14)
+        self.assertIn("../modulo-3-design-e-padroes/bloco-3-padroes-arquiteturais-e-de-design.md#exercicio-11", ex15)
+
+    def test_nfe_example_keeps_ws_i_out_of_the_protocols(self):
+        text = read(B3)
+        protocols = re.search(r"Os protocolos são.*?\.(?= [A-Z])", text)
+        self.assertIsNotNone(protocols)
+        self.assertNotIn("WS-I", protocols.group(0))
+
 class BlockContentTest(unittest.TestCase):
     def test_block_1_presents_the_four_business_models(self):
         text = read(B1)

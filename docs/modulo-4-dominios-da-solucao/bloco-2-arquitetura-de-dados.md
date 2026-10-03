@@ -64,7 +64,7 @@ O arquiteto usa a grade dado × aplicação para localizar o impacto de mudar um
 
 Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
 
-A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. O exercício parte das capacidades marcadas como afetadas no [exercício 13](bloco-1-arquitetura-de-negocio.md#exercicio-13) e dos fatos abaixo, reproduzidos da [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. O exercício parte das capacidades marcadas como afetadas no [exercício 13](bloco-1-arquitetura-de-negocio.md#exercicio-13), das responsabilidades distribuídas no esboço lógico do [exercício 9](../modulo-3-design-e-padroes/bloco-1-principios-de-design.md#exercicio-9) e dos fatos abaixo, reproduzidos da [arquitetura de linha de base](../caso-acme/linha-de-base.md).
 
 - O banco Oracle, com 740 tabelas, é compartilhado entre o núcleo COBOL e a camada Java, sem separação de esquema por responsabilidade.
 - Existem 2.300 pontos no código Java que leem ou gravam tabelas do núcleo diretamente, contornando as transações do núcleo, e o inventário não registra a distribuição desses pontos por entidade.
@@ -83,13 +83,13 @@ O artefato fornecido é a grade dado × aplicação da linha de base, montada pe
 
 | Entidade | Núcleo transacional | Portais Java | ERP financeiro | Ambiente virtual | Data warehouse |
 | --- | --- | --- | --- | --- | --- |
-| Aluno | Grava | Lê e grava, por conector e por acesso direto ao banco | Não registrado | Não registrado | Recebe por lote às 02h30 |
-| Matrícula | Grava | Lê e grava, por conector e por acesso direto ao banco | Não registrado | Recebe por lote às 04h00 | Recebe por lote às 02h30 |
-| Nota | Grava a nota consolidada | Lê e grava, por conector e por acesso direto ao banco | Não registrado | Recebe por lote às 05h10 e devolve nota de atividade às 06h15 | Recebe por lote às 02h30 |
-| Lançamento financeiro | Grava | Lê, por conector e por acesso direto ao banco | Recebe por lote às 23h10 e devolve baixa às 05h30 | Não registrado | Recebe por lote às 02h30 |
-| Turma | Grava | Lê, por conector e por acesso direto ao banco | Não registrado | Recebe por lote às 04h00 | Recebe por lote às 02h30 |
+| Aluno | Grava | Lê ou grava, por conector e por acesso direto ao banco, sem distribuição registrada por entidade | Não registrado | Não registrado | Recebe por lote às 02h30 |
+| Matrícula | Grava | Lê ou grava, por conector e por acesso direto ao banco, sem distribuição registrada por entidade | Não registrado | Recebe por lote às 04h00 | Recebe por lote às 02h30 |
+| Nota | Grava a nota consolidada | Lê ou grava, por conector e por acesso direto ao banco, sem distribuição registrada por entidade | Não registrado | Recebe por lote às 05h10 e devolve nota de atividade às 06h15 | Recebe por lote às 02h30 |
+| Lançamento financeiro | Grava | Lê ou grava, por conector e por acesso direto ao banco, sem distribuição registrada por entidade | Recebe por lote às 23h10 e devolve baixa às 05h30 | Não registrado | Recebe por lote às 02h30 |
+| Turma | Grava | Lê ou grava, por conector e por acesso direto ao banco, sem distribuição registrada por entidade | Não registrado | Recebe por lote às 04h00 | Recebe por lote às 02h30 |
 
-1. Marque, para cada uma das cinco entidades, a aplicação que deve ser a dona na arquitetura alvo, com uma linha de justificativa.
+1. Marque, para cada uma das cinco entidades, a aplicação ou o elemento do esboço lógico do exercício 9 que deve ser o dono na arquitetura alvo, com uma linha de justificativa.
 2. Marque, para cada consumidor de cada entidade, o regime de consistência exigido, forte ou eventual com o prazo, usando os requisitos R6 e R7 da [página inicial do caso](../caso-acme/index.md) quando se aplicarem.
 3. Indique qual capacidade marcada como afetada no exercício 13 depende de cada entidade.
 4. Responda, em até três linhas, por que os 2.300 acessos diretos ao banco contrariam a propriedade do dado.
