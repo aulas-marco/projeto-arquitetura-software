@@ -63,6 +63,13 @@ def section(text: str, heading_regex: str) -> str:
 
 
 class ModuleThreeStructureTest(unittest.TestCase):
+    def test_custom_stylesheet_url_is_versioned_to_avoid_stale_layout(self):
+        config = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
+        self.assertRegex(
+            config,
+            r"(?m)^\s+- assets/stylesheets/extra\.css\?v=\d{8}-\d+$",
+        )
+
     def test_module_diagrams_stay_inside_the_content_column(self):
         css = STYLESHEET.read_text(encoding="utf-8")
         rule = re.search(
