@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 890" role="img" aria-labelledby="title desc">
+  <title id="title">Diagrama de contêineres do sistema de internet banking em C4</title><desc id="desc">O Cliente Bancário, no topo, acessa a Aplicação Web por HTTPS e consulta saldos e realiza pagamentos pela Aplicação de Página Única e pelo Aplicativo Móvel. A Aplicação Web entrega a aplicação de página única ao navegador. A aplicação de página única e o aplicativo móvel chamam a Aplicação de API por JSON sobre HTTPS, e a API lê e grava no Banco de Dados por SQL. Fora da fronteira tracejada, à esquerda, ficam o Sistema de E-mail, que a API usa para enviar e-mails ao cliente, e o Sistema Mainframe Bancário, que a API chama por XML sobre HTTPS. As relações seguem linhas ortogonais.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.tag{font-size:16px;font-style:italic;fill:#E6EEF9}.nm{font-size:20px;font-weight:700;fill:white}.tc{font-size:16px;font-style:italic;fill:#D8E9FF}.ds{font-size:17px;fill:white}.lb{font-size:16px;font-weight:700;fill:#3A4A60}.lt{font-size:16px;font-style:italic;fill:#52657E}.bd{font-size:20px;font-weight:700;fill:#16243A}.bt{font-size:16px;fill:#52657E}.h{font-size:24px;font-weight:700;fill:#16243A}</style><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0L10 5L0 10z" fill="#52657E"/></marker></defs>
+  <rect width="1200" height="890" rx="24" fill="#F2F6FB"/>
+  <text x="24" y="40" class="h">Internet banking, nível de contêineres</text>
+  <rect x="215" y="300" width="970" height="570" rx="14" fill="none" stroke="#52657E" stroke-width="2" stroke-dasharray="10 7"/>
+  <text x="1167" y="834" text-anchor="end" class="bd">Sistema de Internet Banking</text>
+  <text x="1167" y="856" text-anchor="end" class="bt">[sistema]</text>
+  <circle cx="600.0" cy="66" r="24" fill="#16243A"/>
+  <rect x="480" y="82" width="240" height="138" rx="22" fill="#16243A"/>
+  <text x="600.0" y="118" text-anchor="middle" class="tag">«pessoa»</text>
+  <text x="600.0" y="140" text-anchor="middle" class="nm">Cliente Bancário</text>
+  <text x="600.0" y="172" text-anchor="middle" class="ds">Cliente com contas</text>
+  <text x="600.0" y="194" text-anchor="middle" class="ds">pessoais</text>
+  <rect x="250" y="380" width="200" height="170" rx="10" fill="#3A6FD8"/>
+  <text x="350.0" y="420" text-anchor="middle" class="tag">«contêiner»</text>
+  <text x="350.0" y="442" text-anchor="middle" class="nm">Aplicação Web</text>
+  <text x="350.0" y="468" text-anchor="middle" class="tc">[.NET]</text>
+  <text x="350.0" y="498" text-anchor="middle" class="ds">Entrega a página</text>
+  <text x="350.0" y="520" text-anchor="middle" class="ds">única</text>
+  <rect x="560" y="380" width="200" height="170" rx="10" fill="#3A6FD8"/>
+  <text x="660.0" y="408" text-anchor="middle" class="tag">«contêiner»</text>
+  <text x="660.0" y="430" text-anchor="middle" class="nm">Aplicação de</text>
+  <text x="660.0" y="455" text-anchor="middle" class="nm">Página Única</text>
+  <text x="660.0" y="480" text-anchor="middle" class="tc">[React]</text>
+  <text x="660.0" y="510" text-anchor="middle" class="ds">Funções no</text>
+  <text x="660.0" y="532" text-anchor="middle" class="ds">navegador</text>
+  <rect x="900" y="380" width="220" height="170" rx="10" fill="#3A6FD8"/>
+  <text x="1010.0" y="420" text-anchor="middle" class="tag">«contêiner»</text>
+  <text x="1010.0" y="442" text-anchor="middle" class="nm">Aplicativo Móvel</text>
+  <text x="1010.0" y="468" text-anchor="middle" class="tc">[Flutter]</text>
+  <text x="1010.0" y="498" text-anchor="middle" class="ds">Funções no</text>
+  <text x="1010.0" y="520" text-anchor="middle" class="ds">celular</text>
+  <rect x="560" y="650" width="200" height="170" rx="10" fill="#3A6FD8"/>
+  <text x="660.0" y="690" text-anchor="middle" class="tag">«contêiner»</text>
+  <text x="660.0" y="712" text-anchor="middle" class="nm">Aplicação de API</text>
+  <text x="660.0" y="738" text-anchor="middle" class="tc">[.NET]</text>
+  <text x="660.0" y="768" text-anchor="middle" class="ds">Funções por</text>
+  <text x="660.0" y="790" text-anchor="middle" class="ds">API JSON</text>
+  <path d="M900 664V806A110.0 14 0 0 0 1120 806V664A110.0 14 0 0 0 900 664Z" fill="#3A6FD8" stroke="#254DB8" stroke-width="2"/>
+  <path d="M900 664A110.0 14 0 0 0 1120 664" fill="none" stroke="#D8E9FF" stroke-width="2"/>
+  <text x="1010.0" y="690" text-anchor="middle" class="tag">«banco de dados»</text>
+  <text x="1010.0" y="712" text-anchor="middle" class="nm">Banco de Dados</text>
+  <text x="1010.0" y="738" text-anchor="middle" class="tc">[Azure SQL]</text>
+  <text x="1010.0" y="768" text-anchor="middle" class="ds">Usuários, credenciais</text>
+  <text x="1010.0" y="790" text-anchor="middle" class="ds">e acessos</text>
+  <rect x="10" y="380" width="190" height="170" rx="10" fill="#7A8799"/>
+  <text x="105.0" y="419" text-anchor="middle" class="tag">«sistema externo»</text>
+  <text x="105.0" y="441" text-anchor="middle" class="nm">Sistema de</text>
+  <text x="105.0" y="466" text-anchor="middle" class="nm">E-mail</text>
+  <text x="105.0" y="499" text-anchor="middle" class="ds">E-mail interno</text>
+  <text x="105.0" y="521" text-anchor="middle" class="ds">do banco</text>
+  <rect x="10" y="650" width="190" height="170" rx="10" fill="#7A8799"/>
+  <text x="105.0" y="689" text-anchor="middle" class="tag">«sistema externo»</text>
+  <text x="105.0" y="711" text-anchor="middle" class="nm">Sistema</text>
+  <text x="105.0" y="736" text-anchor="middle" class="nm">Mainframe</text>
+  <text x="105.0" y="769" text-anchor="middle" class="ds">Informações</text>
+  <text x="105.0" y="791" text-anchor="middle" class="ds">centrais</text>
+  <path d="M480 120L350 120L350 378" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="415" y="108" text-anchor="middle" class="lb">Acessa</text>
+  <text x="415" y="128" text-anchor="middle" class="lt">[HTTPS]</text>
+  <path d="M620 220L620 378" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="632" y="280" text-anchor="start" class="lb">Consulta saldos e</text>
+  <text x="632" y="300" text-anchor="start" class="lb">realiza pagamentos</text>
+  <path d="M720 120L1010 120L1010 378" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="1022" y="280" text-anchor="start" class="lb">Consulta saldos e</text>
+  <text x="1022" y="300" text-anchor="start" class="lb">realiza pagamentos</text>
+  <path d="M105 378L105 180L478 180" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="290" y="170" text-anchor="middle" class="lb">Envia e-mails para</text>
+  <path d="M450 465L558 465" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="504" y="425" text-anchor="middle" class="lb">Entrega ao</text>
+  <text x="504" y="445" text-anchor="middle" class="lb">navegador</text>
+  <path d="M660 550L660 648" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="648" y="590" text-anchor="end" class="lb">Chama</text>
+  <text x="648" y="610" text-anchor="end" class="lt">[JSON/HTTPS]</text>
+  <path d="M1010 550L1010 600L720 600L720 648" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="865" y="590" text-anchor="middle" class="lb">Chama</text>
+  <text x="865" y="610" text-anchor="middle" class="lt">[JSON/HTTPS]</text>
+  <path d="M760 735L898 735" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="829" y="703" text-anchor="middle" class="lb">Lê e grava</text>
+  <text x="829" y="723" text-anchor="middle" class="lt">[SQL/TCP]</text>
+  <path d="M560 690L225 690L225 465L202 465" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="390" y="680" text-anchor="middle" class="lb">Envia e-mails usando</text>
+  <path d="M560 780L202 780" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="380" y="750" text-anchor="middle" class="lb">Chama</text>
+  <text x="380" y="770" text-anchor="middle" class="lt">[XML/HTTPS]</text>
+</svg>

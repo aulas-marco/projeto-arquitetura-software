@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 640" role="img" aria-labelledby="title desc">
+  <title id="title">Diagrama de contêineres genérico em C4</title><desc id="desc">A pessoa Cliente, à esquerda, interage por HTTPS com o Frontend Web, dentro da fronteira tracejada do Sistema Principal. O Frontend Web envia requisições ao Backend de Aplicação, que consulta e atualiza o Banco de Dados PostgreSQL por JDBC, abaixo dele, e valida transações no Sistema Externo Financeiro, fora da fronteira, por REST. As relações seguem linhas ortogonais.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.tag{font-size:16px;font-style:italic;fill:#E6EEF9}.nm{font-size:20px;font-weight:700;fill:white}.tc{font-size:16px;font-style:italic;fill:#D8E9FF}.ds{font-size:17px;fill:white}.lb{font-size:16px;font-weight:700;fill:#3A4A60}.lt{font-size:16px;font-style:italic;fill:#52657E}.bd{font-size:20px;font-weight:700;fill:#16243A}.bt{font-size:16px;fill:#52657E}.h{font-size:24px;font-weight:700;fill:#16243A}</style><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0L10 5L0 10z" fill="#52657E"/></marker></defs>
+  <rect width="1100" height="640" rx="24" fill="#F2F6FB"/>
+  <text x="24" y="40" class="h">Diagrama de contêineres</text>
+  <rect x="250" y="70" width="620" height="540" rx="14" fill="none" stroke="#52657E" stroke-width="2" stroke-dasharray="10 7"/>
+  <text x="268" y="100" class="bd">Sistema Principal</text>
+  <text x="268" y="122" class="bt">[sistema]</text>
+  <circle cx="105.0" cy="156" r="24" fill="#16243A"/>
+  <rect x="20" y="172" width="170" height="158" rx="22" fill="#16243A"/>
+  <text x="105.0" y="218" text-anchor="middle" class="tag">«pessoa»</text>
+  <text x="105.0" y="240" text-anchor="middle" class="nm">Cliente</text>
+  <text x="105.0" y="272" text-anchor="middle" class="ds">Usuário final</text>
+  <text x="105.0" y="294" text-anchor="middle" class="ds">do sistema</text>
+  <rect x="300" y="150" width="210" height="180" rx="10" fill="#3A6FD8"/>
+  <text x="405.0" y="196" text-anchor="middle" class="tag">«contêiner»</text>
+  <text x="405.0" y="218" text-anchor="middle" class="nm">Frontend Web</text>
+  <text x="405.0" y="242" text-anchor="middle" class="tc">[Angular]</text>
+  <text x="405.0" y="272" text-anchor="middle" class="ds">Interface para</text>
+  <text x="405.0" y="294" text-anchor="middle" class="ds">os usuários</text>
+  <rect x="630" y="150" width="210" height="180" rx="10" fill="#3A6FD8"/>
+  <text x="735.0" y="183" text-anchor="middle" class="tag">«contêiner»</text>
+  <text x="735.0" y="205" text-anchor="middle" class="nm">Backend de</text>
+  <text x="735.0" y="230" text-anchor="middle" class="nm">Aplicação</text>
+  <text x="735.0" y="255" text-anchor="middle" class="tc">[Spring Boot]</text>
+  <text x="735.0" y="285" text-anchor="middle" class="ds">Regras de negócio</text>
+  <text x="735.0" y="307" text-anchor="middle" class="ds">e lógica</text>
+  <path d="M630 434V566A105.0 14 0 0 0 840 566V434A105.0 14 0 0 0 630 434Z" fill="#3A6FD8" stroke="#254DB8" stroke-width="2"/>
+  <path d="M630 434A105.0 14 0 0 0 840 434" fill="none" stroke="#D8E9FF" stroke-width="2"/>
+  <text x="735.0" y="456" text-anchor="middle" class="tag">«banco de dados»</text>
+  <text x="735.0" y="478" text-anchor="middle" class="nm">Banco de Dados</text>
+  <text x="735.0" y="502" text-anchor="middle" class="tc">[PostgreSQL]</text>
+  <text x="735.0" y="532" text-anchor="middle" class="ds">Dados</text>
+  <text x="735.0" y="554" text-anchor="middle" class="ds">transacionais</text>
+  <rect x="900" y="420" width="180" height="160" rx="10" fill="#7A8799"/>
+  <text x="990.0" y="454" text-anchor="middle" class="tag">«sistema externo»</text>
+  <text x="990.0" y="476" text-anchor="middle" class="nm">Sistema Externo</text>
+  <text x="990.0" y="501" text-anchor="middle" class="nm">Financeiro</text>
+  <text x="990.0" y="534" text-anchor="middle" class="ds">Verifica e aprova</text>
+  <text x="990.0" y="556" text-anchor="middle" class="ds">transações</text>
+  <path d="M190 240L298 240" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="245" y="188" text-anchor="middle" class="lb">Interage</text>
+  <text x="245" y="208" text-anchor="middle" class="lb">com</text>
+  <text x="245" y="228" text-anchor="middle" class="lt">[HTTPS]</text>
+  <path d="M510 240L628 240" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="569" y="188" text-anchor="middle" class="lb">Requisições</text>
+  <text x="569" y="208" text-anchor="middle" class="lb">e operações</text>
+  <text x="569" y="228" text-anchor="middle" class="lt">[HTTPS]</text>
+  <path d="M735 330L735 418" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="722" y="360" text-anchor="end" class="lb">Consulta e</text>
+  <text x="722" y="380" text-anchor="end" class="lb">atualiza dados</text>
+  <text x="722" y="400" text-anchor="end" class="lt">[JDBC]</text>
+  <path d="M840 240L990 240L990 418" fill="none" stroke="#52657E" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="1000" y="290" text-anchor="start" class="lb">Valida</text>
+  <text x="1000" y="310" text-anchor="start" class="lb">transações</text>
+  <text x="1000" y="330" text-anchor="start" class="lt">[REST]</text>
+</svg>

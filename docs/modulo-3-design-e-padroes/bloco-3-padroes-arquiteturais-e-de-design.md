@@ -207,7 +207,7 @@ graph LR
 Os portais chamam o CICS por conector transacional síncrono com tempo limite de 30 s, e no incidente de 04/02/2026 sessões abandonadas mantiveram transações abertas até esgotar o limite de tarefas concorrentes, com 4h20 de indisponibilidade e 62% de erro nas tentativas de matrícula. O diagrama abaixo mostra a sequência do incidente.
 
 ```mermaid
-graph LR
+flowchart TB
     S1["Aluno abandona o navegador"] --> S2["Transação no CICS permanece aberta"]
     S2 --> S3["Tarefas concorrentes acumulam até o limite"]
     S3 --> S4["Novas chamadas dos portais esperam até 30 s"]
@@ -222,7 +222,7 @@ graph LR
 O requisito R7 exige que a nota lançada chegue ao ambiente virtual de aprendizagem em até 10 minutos, a exportação atual ocorre em lote diário iniciado às 05h10, a janela de fechamento chega a 360.000 lançamentos, e a integração por interface de programação exige o plano do ambiente virtual com acréscimo de 38% sobre o valor anual do contrato vigente. O diagrama abaixo mostra o caminho atual da nota.
 
 ```mermaid
-graph LR
+flowchart TB
     PROF["Professor lança a nota às 15h00"] --> NUC["Núcleo acadêmico grava a nota"]
     NUC --> LOTE["Lote diário de exportação, início às 05h10"]
     LOTE -->|"arquivo com até 360.000 lançamentos no fechamento"| AVA["Ambiente virtual recebe às 06h00 do dia seguinte"]

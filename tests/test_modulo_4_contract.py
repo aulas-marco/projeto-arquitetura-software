@@ -159,6 +159,30 @@ class SelfContainedTextTest(unittest.TestCase):
         self.assertIn("modulo-4-b1-mapa-de-capacidades-afetadas.svg", text)
 
 
+class DataArchitectureDepthTest(unittest.TestCase):
+    """Revisao de 03/10/2026: arquitetura de dados com base no DMBOK."""
+
+    def test_block_2_is_grounded_in_dmbok_and_lgpd(self):
+        body = concept(read(B2))
+        for term in ("DMBOK", "modelo de dados corporativo", "Dados mestres", "linhagem de dados",
+                     "contrato de dados", "LGPD", "lakehouse", "medallion"):
+            with self.subTest(term=term):
+                self.assertIn(term.lower(), body.lower())
+
+    def test_block_2_drops_the_introductory_sections(self):
+        text = read(B2)
+        for heading in ("### Dado, informação e metadado", "### Entidade, generalização e especialização"):
+            with self.subTest(heading=heading):
+                self.assertNotIn(heading, text)
+        self.assertNotIn("ISO/IEC 2382", text)
+
+    def test_exercise_14_asks_for_master_data_and_personal_data_decisions(self):
+        ex = section(read(B2), "Exercício 14")
+        for term in ("dado mestre", "LGPD", "R9", "R14", "ADR"):
+            with self.subTest(term=term):
+                self.assertIn(term, ex)
+
+
 class ExerciseRuleTest(unittest.TestCase):
     def test_exercises_do_not_ask_the_student_to_build_models(self):
         for name, (_, number, _) in BLOCKS.items():

@@ -211,7 +211,7 @@ Cenário 2, incidente de 04/02/2026
 O diagrama abaixo mostra o caminho que as duas situações percorrem no sistema atual, do Portal do Aluno ao núcleo que permanece em operação durante a transição.
 
 ```mermaid
-graph LR
+flowchart TB
     ALU["5.800 sessões simultâneas na abertura da matrícula"] --> PA["Portal do Aluno, JSF e EJB"]
     PA -->|"conector transacional síncrono, tempo limite de 30 s"| CICS["Monitor CICS, limite de tarefas concorrentes"]
     CICS --> NUC["Núcleo COBOL, regras acadêmicas"]

@@ -7,7 +7,7 @@ A aula detalha a solução cuja forma estrutural foi registrada na Aula 3, perco
 Ao final da aula, o aluno é capaz de
 
 - usar modelos de arquitetura de negócio fornecidos para localizar o que a solução muda no negócio
-- distinguir dado, informação e metadado, e atribuir a cada entidade dono, consumidores e regime de consistência
+- situar a solução no modelo de dados corporativo e nas áreas de gestão de dados do DMBOK, e atribuir a cada entidade dono, consumidores, regime de consistência e obrigações de proteção
 - classificar as aplicações do portfólio pela situação estratégica e descrever uma interface pelos seis atributos de interface
 - distinguir padrão técnico, protocolo, especificação de interface e contrato de integração
 - reconhecer o nível correto de cada elemento num diagrama de contexto e num diagrama de contêineres
@@ -39,7 +39,7 @@ A aula parte de quatro produtos das aulas anteriores. A declaração de escopo d
 
 O [bloco 1](bloco-1-arquitetura-de-negocio.md) apresenta a definição de arquitetura de negócio, as quatro perguntas que decidem a aplicabilidade da arquitetura de solução, os quatro modelos de arquitetura de negócio e o ciclo de mudança de negócio, com o exemplo do Hospital ACME e da modernização da comunicação com os laboratórios de apoio, que passam a trocar pedidos de exame e resultados por meio eletrônico, integrados ao prontuário. O exercício 13 fornece as capacidades acadêmicas, o fluxo de valor do aluno e o processo de lançamento de nota da ACME, e pede ao aluno que classifique as capacidades e localize nas etapas e nas atividades o efeito da solução.
 
-O [bloco 2](bloco-2-arquitetura-de-dados.md) trata da arquitetura de dados da solução e de sua consistência com a arquitetura corporativa, das definições de dado, informação e metadado, da grade dado × aplicação, da distinção entre fonte de verdade e cópia derivada, do regime de consistência e da propriedade do dado. O exercício 14 fornece a grade da linha de base da ACME e pede ao aluno que marque o dono de cada entidade e o regime exigido por consumidor.
+O [bloco 2](bloco-2-arquitetura-de-dados.md) trata da arquitetura de dados da solução a partir das áreas de gestão de dados do DMBOK, do modelo de dados corporativo em quatro níveis, do panorama de dados e da linhagem, da distinção entre fonte de verdade e cópia derivada, do regime de consistência, dos dados mestres, da propriedade do dado, dos requisitos de qualidade e de proteção pela LGPD e da passagem do dado operacional ao analítico. O exercício 14 fornece a grade da linha de base da ACME e pede ao aluno que decida o dono de cada entidade, o regime exigido por consumidor, o estilo de dado mestre do aluno e as obrigações do dado pessoal.
 
 O [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md) trata das aplicações e interfaces, do portfólio de aplicações, dos seis atributos de uma interface, da distinção entre padrão técnico, protocolo, especificação e contrato, da estrutura de um contrato de integração, dos estilos de integração e da hierarquia de serviços, e termina com o modelo C4, apresentado como a notação de modelagem da aula nos níveis de contexto e de contêineres. O exercício 15 pede a classificação das aplicações da ACME, o preenchimento do contrato da integração de notas e a correção de um diagrama de contexto com dois erros de nível.
 

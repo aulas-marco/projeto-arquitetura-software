@@ -82,11 +82,19 @@ O quadro abaixo traz dez artefatos do caso, alguns já existentes e outros ainda
 O diagrama abaixo mostra as oito fases do ciclo e o momento em que a instituição pediu a data de conclusão, logo após a autorização registrada em A9.
 
 ```mermaid
-flowchart LR
-    F1["Fase 1<br/>Iniciação"] --> F2["Fase 2<br/>Descoberta"] --> F3["Fase 3<br/>Definição do esboço da solução"] --> F4["Fase 4<br/>Análise"]
-    F4 --> F5["Fase 5<br/>Desenho lógico"] --> F6["Fase 6<br/>Validação"] --> F7["Fase 7<br/>Desenvolvimento do roteiro"] --> F8["Fase 8<br/>Conclusão"]
-    A9["A9, autorização para iniciar a investigação"] -.-> F1
-    PED["Pedido da data de conclusão do ciclo"] -.-> F1
+%%{init: {"flowchart": {"curve": "stepAfter"}}}%%
+flowchart TB
+    A9["A9, autorização para<br/>iniciar a investigação"] -.-> L1
+    PED["Pedido da data de<br/>conclusão do ciclo"] -.-> L1
+    subgraph L1["Fases 1 a 4"]
+        direction LR
+        F1["Fase 1<br/>Iniciação"] --> F2["Fase 2<br/>Descoberta"] --> F3["Fase 3<br/>Esboço da<br/>solução"] --> F4["Fase 4<br/>Análise"]
+    end
+    subgraph L2["Fases 5 a 8"]
+        direction LR
+        F5["Fase 5<br/>Desenho lógico"] --> F6["Fase 6<br/>Validação"] --> F7["Fase 7<br/>Roteiro"] --> F8["Fase 8<br/>Conclusão"]
+    end
+    L1 --> L2
 ```
 
 1. Explique, em até cinco linhas, por que a data de conclusão ainda não pode ser dada com precisão no momento do pedido, e indique qual fase produz a informação que a sustenta.

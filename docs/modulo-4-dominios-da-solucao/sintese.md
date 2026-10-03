@@ -6,7 +6,8 @@ Esta página fecha o módulo de domínios da arquitetura de solução com o que 
 
 - As quatro perguntas que decidem se um problema admite tratamento por arquitetura de solução, e a redução de escopo como resposta ao problema grande demais
 - Os quatro modelos de arquitetura de negócio, mapa de [capacidades](../referencia/glossario.md#capacidade), [fluxo de valor](../referencia/glossario.md#fluxo-de-valor), decomposição funcional e modelo de processo, com a pergunta que cada um responde e a regra de que o arquiteto os consulta sem modelá-los
-- A distinção entre dado, informação e metadado, e a exigência de consistência entre a arquitetura de dados da solução e a da organização
+- A exigência de consistência entre a arquitetura de dados da solução e o [modelo de dados corporativo](../referencia/glossario.md#modelo-de-dados-corporativo), do qual a solução recebe um recorte e ao qual devolve a diferença que cria
+- O estilo de [dado mestre](../referencia/glossario.md#dados-mestres) das entidades compartilhadas e as obrigações da LGPD sobre o dado pessoal, traduzidas em classificação, retenção e trilha de auditoria
 - A grade dado × aplicação, com dono, consumidores e [regime de consistência](../referencia/glossario.md#regime-de-consistencia), e o banco compartilhado como contrário da [propriedade do dado](../referencia/glossario.md#propriedade-do-dado)
 - A hierarquia que vai do serviço de negócio ao serviço de tecnologia, a classificação do portfólio em vermelho, âmbar e verde e os três tipos de aplicação
 - Os seis atributos de interface e os seis campos que completam um [contrato de integração](../referencia/glossario.md#contrato-de-integracao)

@@ -30,7 +30,7 @@ Uma resposta negativa a qualquer das quatro indica que outro método é mais ade
 A Figura 1 organiza as quatro perguntas como árvore de decisão com três saídas possíveis. Toda resposta negativa conduz a uma quinta pergunta, sobre o tamanho do problema, que separa a redução de escopo, seguida de nova aplicação das quatro perguntas, do uso de outro método.
 
 <figure markdown="span">
-![Árvore de decisão com as quatro perguntas de aplicabilidade em sequência, em que quatro respostas afirmativas levam a aplicar a arquitetura de solução e qualquer resposta negativa leva a reduzir o escopo, quando o problema é grande demais para ser modelado, ou a usar outro método nos demais casos.](../assets/images/modulo-4-b1-quatro-perguntas.svg){ .module-diagram }
+![Árvore de decisão com as quatro perguntas de aplicabilidade em sequência, em que quatro respostas afirmativas levam a aplicar a arquitetura de solução e qualquer resposta negativa leva a reduzir o escopo, quando o problema é grande demais para ser modelado, ou a usar outro método nos demais casos.](../assets/images/modulo-4-b1-arvore-aplicabilidade.svg){ .module-diagram }
 </figure>
 
 *Figura 1 — As quatro perguntas de aplicabilidade da arquitetura de solução e as três saídas possíveis. Fonte: material do curso, com base em Lovatt (2021).*
@@ -61,7 +61,7 @@ O **mapa de capacidades** decompõe as capacidades de topo em capacidades menore
 A Figura 3 mostra um mapa de capacidades genérico de um hospital, em dois níveis. As capacidades estratégicas orientam a oferta e a qualidade do serviço, as operacionais entregam o atendimento e o cuidado ao paciente, e as de apoio sustentam as demais, como o prontuário eletrônico, o faturamento e os suprimentos.
 
 <figure markdown="span">
-![Mapa de capacidades de um hospital em dois níveis, com quatro capacidades de topo, gestão estratégica, relacionamento com o paciente, cuidado clínico e apoio, e catorze capacidades menores coloridas como estratégicas, operacionais ou de apoio.](../assets/images/modulo-4-b1-mapa-de-capacidades.svg){ .module-diagram }
+![Mapa de capacidades de um hospital em dois níveis, com quatro capacidades de topo, gestão estratégica, relacionamento com o paciente, cuidado clínico e apoio, e catorze capacidades menores coloridas como estratégicas, operacionais ou de apoio.](../assets/images/modulo-4-b1-mapa-capacidades-hospital.svg){ .module-diagram }
 </figure>
 
 *Figura 3 — Mapa de capacidades genérico de um hospital, com a classificação de cada capacidade em estratégica, operacional ou de apoio. Fonte: material do curso.*
@@ -93,7 +93,7 @@ O **fluxo de valor** é o conjunto de etapas de ponta a ponta que entrega valor 
 A Figura 5 mostra o fluxo de valor do diagnóstico laboratorial do Hospital ACME, da solicitação do exame à comunicação do resultado, em seis etapas. As etapas 3, enviar o pedido, e 5, integrar o resultado, dependem hoje de trabalho manual da central de exames, e o tempo de redigitação do pedido e de anexação do laudo se soma ao prazo entre a coleta e o resultado disponível para o médico.
 
 <figure markdown="span">
-![Fluxo de valor do diagnóstico laboratorial do hospital em seis etapas nomeadas por verbos, solicitar exame, coletar amostra, enviar o pedido, analisar amostra, integrar resultado e comunicar resultado, com as etapas 3 e 5 destacadas em âmbar porque dependem hoje de redigitação no portal do laboratório e de anexação manual do laudo em PDF.](../assets/images/modulo-4-b1-fluxo-de-valor.svg){ .module-diagram }
+![Fluxo de valor do diagnóstico laboratorial do hospital em seis etapas nomeadas por verbos, solicitar exame, coletar amostra, enviar o pedido, analisar amostra, integrar resultado e comunicar resultado, com as etapas 3 e 5 destacadas em âmbar porque dependem hoje de redigitação no portal do laboratório e de anexação manual do laudo em PDF.](../assets/images/modulo-4-b1-fluxo-valor-laboratorio.svg){ .module-diagram }
 </figure>
 
 *Figura 5 — Fluxo de valor do diagnóstico laboratorial do Hospital ACME, com as etapas que dependem de trabalho manual destacadas em âmbar. Fonte: material do curso.*
@@ -163,7 +163,7 @@ O mapa abaixo reúne dez capacidades acadêmicas da ACME, montadas pelo material
 
 ```mermaid
 block-beta
-    columns 5
+    columns 2
     C1["Admissão e ingresso"]
     C2["Oferta e grade curricular"]
     C3["Matrícula em disciplinas"]
@@ -197,12 +197,18 @@ block-beta
 O diagrama abaixo mostra o fluxo de valor do aluno em seis etapas, e a tabela registra a situação de cada etapa na [arquitetura de linha de base](../caso-acme/linha-de-base.md).
 
 ```mermaid
-flowchart LR
-    E1["1. Renovar a matrícula"] --> E2["2. Confirmar a matrícula"]
-    E2 --> E3["3. Acessar a turma no ambiente virtual"]
-    E3 --> E4["4. Lançar a nota"]
-    E4 --> E5["5. Consultar a nota no ambiente virtual"]
-    E5 --> E6["6. Consultar o resultado de aproveitamento"]
+flowchart TB
+    subgraph L1[" "]
+        direction LR
+        E1["1. Renovar<br/>a matrícula"] --> E2["2. Confirmar<br/>a matrícula"] --> E3["3. Acessar a turma<br/>no ambiente virtual"]
+    end
+    subgraph L2[" "]
+        direction LR
+        E4["4. Lançar<br/>a nota"] --> E5["5. Consultar a nota<br/>no ambiente virtual"] --> E6["6. Consultar o resultado<br/>de aproveitamento"]
+    end
+    L1 --> L2
+    style L1 fill:none,stroke:none
+    style L2 fill:none,stroke:none
 ```
 
 | Etapa | Situação na linha de base |
@@ -219,27 +225,21 @@ flowchart LR
 
 ### Item 3: processo de lançamento de nota
 
-O diagrama abaixo mostra as atividades do processo atual de lançamento de nota, agrupadas pelo responsável por cada uma.
+O diagrama abaixo mostra as atividades do processo atual de lançamento de nota, com o responsável por cada uma em itálico.
 
 ```mermaid
-flowchart LR
-    subgraph P["Professor"]
-        A1["1. Registrar a nota no Portal do Professor"]
+flowchart TB
+    subgraph L1[" "]
+        direction LR
+        A1["1. Registrar a nota<br/>no Portal do Professor<br/><i>Professor</i>"] --> A2["2. Calcular média<br/>e situação<br/><i>Núcleo transacional</i>"] --> A3["3. Gerar o arquivo de<br/>notas no lote das 05h10<br/><i>Equipe de integrações<br/>e execução de lotes</i>"]
     end
-    subgraph N["Núcleo transacional"]
-        A2["2. Calcular média e situação"]
+    subgraph L2[" "]
+        direction LR
+        A4["4. Importar o<br/>arquivo de notas<br/><i>Ambiente virtual<br/>de aprendizagem</i>"] --> A5["5. Devolver notas e<br/>frequência no lote das 06h15<br/><i>Ambiente virtual<br/>de aprendizagem</i>"] --> A6["6. Consultar a nota<br/><i>Aluno</i>"]
     end
-    subgraph I["Equipe de integrações e execução de lotes"]
-        A3["3. Gerar o arquivo de notas no lote das 05h10"]
-    end
-    subgraph V["Ambiente virtual de aprendizagem"]
-        A4["4. Importar o arquivo de notas"]
-        A5["5. Devolver notas e frequência no lote das 06h15"]
-    end
-    subgraph AL["Aluno"]
-        A6["6. Consultar a nota"]
-    end
-    A1 --> A2 --> A3 --> A4 --> A5 --> A6
+    L1 --> L2
+    style L1 fill:none,stroke:none
+    style L2 fill:none,stroke:none
 ```
 
 1. Indique quais atividades mudam se a nota passar a chegar ao ambiente virtual em até 10 minutos, como pede o R7.

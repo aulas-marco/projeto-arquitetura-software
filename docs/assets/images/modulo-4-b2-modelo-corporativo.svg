@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Modelo de dados corporativo em quatro níveis</title><desc id="desc">Quatro faixas empilhadas do modelo de dados corporativo de um hospital. No nível 1, a visão conceitual com as áreas de assunto paciente, atendimento, diagnóstico e faturamento. No nível 2, a visão da área de diagnóstico com pedido de exame, amostra, resultado e laboratório. No nível 3, o modelo lógico corporativo com a entidade resultado parcialmente atribuída. No nível 4, os modelos da aplicação, com a tabela de resultado no PostgreSQL e o recurso FHIR DiagnosticReport. À direita, uma chave indica que os níveis 1 a 3 entram na solução como insumo e que o nível 4 é produzido pela solução e devolvido como diferença ao modelo corporativo.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:30px;font-weight:700}.t{font-size:19px;font-weight:700}.q{font-size:17px;fill:#52657E}.p{font-size:17px}.e{font-size:16px;font-weight:700}.w{fill:white}.s{font-size:16px}</style><marker id='s' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='8' markerHeight='8' orient='auto'><path d='M0 0L10 5L0 10z' fill='#16243A'/></marker></defs>
+  <rect width="1200" height="720" rx="28" fill="#F2F6FB"/>
+  <text x="40" y="60" class="h">Modelo de dados corporativo em quatro níveis</text>
+  <text x="40" y="88" class="q">Cada nível detalha o anterior, e o mapeamento entre níveis permite seguir uma entidade de cima a baixo.</text>
+  <rect x="40" y="115" width="820" height="115" rx="16" fill="white" stroke="#16243A" stroke-width="3"/>
+  <rect x="40" y="115" width="14" height="115" rx="7" fill="#16243A"/>
+  <text x="72" y="149" class="t">1. Visão conceitual</text>
+  <text x="72" y="173" class="q">Áreas de assunto da organização</text>
+  <rect x="72" y="185" width="150" height="34" rx="10" fill="#16243A"/>
+  <text x="147" y="208" text-anchor="middle" class="s w">Paciente</text>
+  <rect x="236" y="185" width="150" height="34" rx="10" fill="#16243A"/>
+  <text x="311" y="208" text-anchor="middle" class="s w">Atendimento</text>
+  <rect x="400" y="185" width="150" height="34" rx="10" fill="#16243A"/>
+  <text x="475" y="208" text-anchor="middle" class="s w">Diagnóstico</text>
+  <rect x="564" y="185" width="150" height="34" rx="10" fill="#16243A"/>
+  <text x="639" y="208" text-anchor="middle" class="s w">Faturamento</text>
+  <path d="M450 230V248" stroke="#16243A" stroke-width="3" marker-end="url(#s)"/>
+  <rect x="40" y="250" width="820" height="115" rx="16" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <rect x="40" y="250" width="14" height="115" rx="7" fill="#254DB8"/>
+  <text x="72" y="284" class="t">2. Visão da área de assunto</text>
+  <text x="72" y="308" class="q">Entidades e relacionamentos de Diagnóstico</text>
+  <rect x="72" y="320" width="168" height="34" rx="10" fill="#254DB8"/>
+  <text x="156" y="343" text-anchor="middle" class="s w">Pedido de exame</text>
+  <rect x="254" y="320" width="150" height="34" rx="10" fill="#254DB8"/>
+  <text x="329" y="343" text-anchor="middle" class="s w">Amostra</text>
+  <rect x="418" y="320" width="150" height="34" rx="10" fill="#254DB8"/>
+  <text x="493" y="343" text-anchor="middle" class="s w">Resultado</text>
+  <rect x="582" y="320" width="150" height="34" rx="10" fill="#254DB8"/>
+  <text x="657" y="343" text-anchor="middle" class="s w">Laboratório</text>
+  <path d="M450 365V383" stroke="#16243A" stroke-width="3" marker-end="url(#s)"/>
+  <rect x="40" y="385" width="820" height="115" rx="16" fill="white" stroke="#5FC0D1" stroke-width="3"/>
+  <rect x="40" y="385" width="14" height="115" rx="7" fill="#5FC0D1"/>
+  <text x="72" y="419" class="t">3. Modelo lógico corporativo</text>
+  <text x="72" y="443" class="q">Entidades parcialmente atribuídas</text>
+  <rect x="72" y="455" width="618" height="34" rx="10" fill="#E6EEF9"/>
+  <text x="381" y="478" text-anchor="middle" class="s">Resultado: exame, valor, unidade, faixa de referência, liberação</text>
+  <path d="M450 500V518" stroke="#16243A" stroke-width="3" marker-end="url(#s)"/>
+  <rect x="40" y="520" width="820" height="115" rx="16" fill="white" stroke="#F2B84B" stroke-width="3"/>
+  <rect x="40" y="520" width="14" height="115" rx="7" fill="#F2B84B"/>
+  <text x="72" y="554" class="t">4. Modelos da aplicação ou do projeto</text>
+  <text x="72" y="578" class="q">Lógico e físico de cada solução</text>
+  <rect x="72" y="590" width="361" height="34" rx="10" fill="#E6EEF9"/>
+  <text x="252" y="613" text-anchor="middle" class="s">Tabela resultado_exame no PostgreSQL</text>
+  <rect x="447" y="590" width="296" height="34" rx="10" fill="#E6EEF9"/>
+  <text x="595" y="613" text-anchor="middle" class="s">Recurso FHIR DiagnosticReport</text>
+  <path d="M880 115h20v385h-20" stroke="#254DB8" stroke-width="4" fill="none"/>
+  <text x="915" y="285" class="t">Entra na solução</text>
+  <text x="915" y="311" class="q">recorte das áreas de</text>
+  <text x="915" y="333" class="q">assunto na zona de impacto</text>
+  <path d="M880 520h20v100h-20" stroke="#F2B84B" stroke-width="4" fill="none"/>
+  <text x="915" y="555" class="t">Produzido pela solução</text>
+  <text x="915" y="581" class="q">e devolvido como diferença</text>
+  <text x="915" y="603" class="q">para a análise de lacunas</text>
+  <text x="40" y="690" class="q">Nomes de entidades e atributos ilustrativos.</text>
+</svg>

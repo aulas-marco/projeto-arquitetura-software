@@ -23,7 +23,7 @@ Uma interface é o ponto pelo qual um componente de aplicação oferece sua func
 O diagrama abaixo, em notação livre, mostra as interfaces da mudança apresentada no [bloco 1](bloco-1-arquitetura-de-negocio.md) para o Hospital ACME, em que o prontuário eletrônico troca pedidos de exame e resultados com o sistema de cada laboratório de apoio por meio de um serviço de integração.
 
 ```mermaid
-graph LR
+flowchart TB
     PRO["Prontuário eletrônico"]
     INT["Serviço de integração com laboratórios"]
     LAB["Sistema do laboratório de apoio"]
@@ -41,7 +41,7 @@ O artefato principal do domínio é o catálogo do portfólio de aplicações, q
 A Figura 1 aplica a classificação a um portfólio ilustrativo do Hospital ACME. O módulo de anexos de laudo em PDF, que a central de exames usa para anexar ao prontuário os laudos baixados dos portais dos laboratórios de apoio, aparece em vermelho porque a modernização descrita no [bloco 1](bloco-1-arquitetura-de-negocio.md) passa a receber o resultado como dado estruturado, integrado ao prontuário no padrão HL7 FHIR. A cor de cada aplicação foi atribuída para fins didáticos.
 
 <figure markdown="span">
-![Três colunas classificam aplicações do Hospital ACME. Em verde, prontuário eletrônico do paciente e barramento de serviços, com a ação manter e evoluir. Em âmbar, agendamento ambulatorial, com a ação manter por ora com investimento restrito. Em vermelho, módulo de anexos de laudo em PDF e planilha de priorização, com a ação substituir ou retirar. Uma linha inferior indica o uso de cada cor na nova solução.](../assets/images/modulo-4-b3-portfolio-rag.svg){ .module-diagram }
+![Três colunas classificam aplicações do Hospital ACME. Em verde, prontuário eletrônico do paciente e barramento de serviços, com a ação manter e evoluir. Em âmbar, agendamento ambulatorial, com a ação manter por ora com investimento restrito. Em vermelho, módulo de anexos de laudo em PDF e planilha de priorização, com a ação substituir ou retirar. Uma linha inferior indica o uso de cada cor na nova solução.](../assets/images/modulo-4-b3-portfolio-hospital.svg){ .module-diagram }
 </figure>
 
 *Figura 1 — Portfólio de aplicações classificado em vermelho, âmbar e verde, com a ação associada a cada cor. Fonte: material do curso, com base em Lovatt (2021, seção 2.6.1).*
@@ -271,35 +271,47 @@ Três princípios organizam o uso das abstrações. A progressividade pede come�
 
 O **diagrama de contexto** fornece uma visão ampla do sistema modelado e de como ele se relaciona com os atores externos. Ele comunica os limites do sistema e as interações de alto nível, e por isso trabalha com apenas três tipos de elemento. Pessoas representam os atores humanos que interagem diretamente com o sistema, sejam usuários finais ou outras partes interessadas. Sistemas de software representam tanto o sistema sendo modelado quanto os outros sistemas com que ele se comunica. Relações demonstram como atores e sistemas externos interagem com o sistema principal, descrevendo o meio e o protocolo usados.
 
-![Diagrama de contexto com três elementos, um ator Cliente marcado como pessoa, o Sistema Principal marcado como sistema, e um Serviço de API Externa marcado como sistema externo, ligados por relações rotuladas com o protocolo de cada interação.](../assets/images/c4-exemplo-contexto.png){ .c4-figure }
+<figure markdown="span">
+![Diagrama de contexto com três elementos, um ator Cliente marcado como pessoa, o Sistema Principal marcado como sistema, e um Serviço de API Externa marcado como sistema externo, ligados por relações rotuladas com o protocolo de cada interação.](../assets/images/modulo-4-b3-c4-contexto-generico.svg){ .module-diagram }
+</figure>
 
-*Figura 6 — Diagrama de contexto genérico, com os três tipos de elemento e as relações rotuladas por protocolo. Fonte: material base do professor.*
+*Figura 6 — Diagrama de contexto genérico, com os três tipos de elemento e as relações rotuladas por protocolo. Fonte: material do curso, com base em Brown (n.d.).*
 
 O roteiro para montar esse diagrama tem cinco etapas. Identifique o sistema de interesse, determinando qual sistema é o foco do modelo. Defina os atores externos, identificando as pessoas que interagem com ele. Liste os sistemas externos que trocam informação diretamente com o sistema principal. Desenhe as relações, conectando pessoas e sistemas ao sistema principal, com descrição clara da interação e do protocolo. Acrescente descrição a cada elemento, para que o diagrama seja compreensível por todos os interessados, inclusive os que não participaram do desenho.
 
 O exemplo em C4 abaixo aplica o mesmo nível ao sistema de agendamento de consultas da Clínica Odontológica ACME, escrito em Mermaid, que é a ferramenta de diagramas usada neste site.
 
 ```mermaid
+%%{init: {"flowchart": {"curve": "stepAfter", "nodeSpacing": 50, "rankSpacing": 70}}}%%
 graph TD
-    PAC["Paciente"]
-    REC["Recepção da clínica"]
-    AGE["Sistema de agendamento da Clínica Odontológica ACME"]
-    CONV["Operadora de convênio"]
-    SMS["Serviço de mensagens"]
+    PAC["«pessoa»<br/>Paciente"]
+    REC["«pessoa»<br/>Recepção da clínica"]
+    AGE["«sistema»<br/>Sistema de agendamento<br/>da Clínica Odontológica ACME"]
+    CONV["«sistema externo»<br/>Operadora de convênio"]
+    SMS["«sistema externo»<br/>Serviço de mensagens"]
 
     PAC -->|"marca e confirma consulta"| AGE
     REC -->|"gerencia agenda e encaixes"| AGE
-    AGE -->|"consulta elegibilidade e autorização"| CONV
-    AGE -->|"envia lembrete de consulta"| SMS
+    AGE -->|"consulta elegibilidade"| CONV
+    AGE -->|"envia lembrete"| SMS
+    classDef pessoa fill:#16243A,stroke:#16243A,color:#ffffff
+    classDef sistema fill:#254DB8,stroke:#254DB8,color:#ffffff
+    classDef conteiner fill:#3A6FD8,stroke:#254DB8,color:#ffffff
+    classDef externo fill:#7A8799,stroke:#52657E,color:#ffffff
+    class PAC,REC pessoa
+    class AGE sistema
+    class CONV,SMS externo
 ```
 
 ### Diagrama de contêineres
 
 O diagrama de contêineres detalha os principais contêineres que compõem o sistema, com suas responsabilidades e com a forma como interagem entre si e com os sistemas externos. Contêineres representam as aplicações, bancos de dados ou outros serviços que compõem o sistema, cada um com responsabilidade específica e tecnologia declarada. Sistemas externos e relações continuam presentes, com o mesmo significado do nível de contexto apresentado acima.
 
-![Diagrama de contêineres com o sistema principal decomposto em aplicação web, API e banco de dados, cada um com sua tecnologia, ligados entre si e ao sistema externo por relações rotuladas com protocolo.](../assets/images/c4-exemplo-conteineres.png){ .c4-figure }
+<figure markdown="span">
+![Diagrama de contêineres com o sistema principal decomposto em aplicação web, API e banco de dados, cada um com sua tecnologia, ligados entre si e ao sistema externo por relações rotuladas com protocolo.](../assets/images/modulo-4-b3-c4-conteineres-generico.svg){ .module-diagram }
+</figure>
 
-*Figura 7 — Diagrama de contêineres genérico, com a decomposição interna do sistema e a tecnologia de cada contêiner. Fonte: material base do professor.*
+*Figura 7 — Diagrama de contêineres genérico, com a decomposição interna do sistema e a tecnologia de cada contêiner. Fonte: material do curso, com base em Brown (n.d.).*
 
 O roteiro de montagem do diagrama de contêineres tem quatro etapas:
 
@@ -311,19 +323,20 @@ O roteiro de montagem do diagrama de contêineres tem quatro etapas:
 No exemplo em C4 abaixo, o mesmo sistema de agendamento da Clínica Odontológica ACME se decompõe no nível de contêineres sem que os atores e os sistemas externos mudem.
 
 ```mermaid
+%%{init: {"flowchart": {"curve": "stepAfter", "nodeSpacing": 50, "rankSpacing": 70}}}%%
 graph TD
-    PAC["Paciente"]
-    REC["Recepção da clínica"]
+    PAC["«pessoa»<br/>Paciente"]
+    REC["«pessoa»<br/>Recepção da clínica"]
 
-    subgraph AGE["Sistema de agendamento da Clínica Odontológica ACME"]
-        APP["Aplicativo do paciente"]
-        WEB["Painel da recepção"]
-        API["Serviço de agenda"]
-        BD[("Banco de agendamentos")]
+    subgraph AGE["Sistema de agendamento"]
+        APP["«contêiner»<br/>Aplicativo do paciente"]
+        WEB["«contêiner»<br/>Painel da recepção"]
+        API["«contêiner»<br/>Serviço de agenda"]
+        BD[("«contêiner»<br/>Banco de agendamentos")]
     end
 
-    CONV["Operadora de convênio"]
-    SMS["Serviço de mensagens"]
+    CONV["«sistema externo»<br/>Operadora de convênio"]
+    SMS["«sistema externo»<br/>Serviço de mensagens"]
 
     PAC --> APP
     REC --> WEB
@@ -332,6 +345,13 @@ graph TD
     API --> BD
     API -->|"HTTPS"| CONV
     API -->|"HTTPS"| SMS
+    classDef pessoa fill:#16243A,stroke:#16243A,color:#ffffff
+    classDef sistema fill:#254DB8,stroke:#254DB8,color:#ffffff
+    classDef conteiner fill:#3A6FD8,stroke:#254DB8,color:#ffffff
+    classDef externo fill:#7A8799,stroke:#52657E,color:#ffffff
+    class PAC,REC pessoa
+    class APP,WEB,API,BD conteiner
+    class CONV,SMS externo
 ```
 
 O par de sistemas externos, operadora de convênio e serviço de mensagens, é o mesmo nos dois níveis. Mudar esse conjunto entre um nível e outro quebra o princípio da coerência entre níveis, e a conferência precisa ser repetida sempre que os dois diagramas forem desenhados em momentos diferentes.
@@ -344,13 +364,17 @@ O modelo C4 pede que cada contêiner declare sua tecnologia. Na arquitetura alvo
 
 O par de diagramas abaixo modela o sistema de internet banking do Banco ACME, primeiro no nível de contexto e depois no de contêineres. Ele interessa a esta disciplina por um detalhe, o sistema mainframe bancário aparece como sistema externo, fora da caixa do sistema modelado.
 
-![Diagrama de contexto do sistema de internet banking, com o cliente bancário como pessoa, o sistema de internet banking como sistema modelado, e o sistema mainframe bancário e o sistema de e-mail como sistemas externos, ligados por relações rotuladas.](../assets/images/c4-banking-contexto.png){ .c4-figure }
+<figure markdown="span">
+![Diagrama de contexto do sistema de internet banking, com o cliente bancário como pessoa, o sistema de internet banking como sistema modelado, e o sistema mainframe bancário e o sistema de e-mail como sistemas externos, ligados por relações rotuladas.](../assets/images/modulo-4-b3-c4-banking-contexto.svg){ .module-diagram }
+</figure>
 
-*Figura 8 — Nível de contexto do sistema de internet banking, com o mainframe tratado como sistema externo. Fonte: material base do professor.*
+*Figura 8 — Nível de contexto do sistema de internet banking, com o mainframe tratado como sistema externo. Fonte: material do curso, com base em Brown (n.d.).*
 
-![Diagrama de contêineres do mesmo sistema de internet banking, decomposto em aplicação web, aplicação de página única, aplicativo móvel, aplicação de API e banco de dados, cada um com sua tecnologia, mantendo o mainframe e o sistema de e-mail como sistemas externos.](../assets/images/c4-banking-conteineres.png){ .c4-figure }
+<figure markdown="span">
+![Diagrama de contêineres do mesmo sistema de internet banking, decomposto em aplicação web, aplicação de página única, aplicativo móvel, aplicação de API e banco de dados, cada um com sua tecnologia, mantendo o mainframe e o sistema de e-mail como sistemas externos.](../assets/images/modulo-4-b3-c4-banking-conteineres.svg){ .module-diagram }
+</figure>
 
-*Figura 9 — Nível de contêineres do mesmo sistema, com a tecnologia declarada em cada contêiner e os mesmos dois sistemas externos do nível anterior. Fonte: material base do professor.*
+*Figura 9 — Nível de contêineres do mesmo sistema, com a tecnologia declarada em cada contêiner e os mesmos dois sistemas externos do nível anterior. Fonte: material do curso, com base em Brown (n.d.).*
 
 A posição do mainframe fora da caixa resulta de uma decisão de escopo tomada pelo Banco ACME, que tratou o mainframe como sistema mantido por outra equipe, com o qual o internet banking apenas se comunica. O critério que decide a posição de um componente é a fronteira de responsabilidade sobre o sistema, e a idade ou a tecnologia do componente não interferem nessa decisão.
 
@@ -425,35 +449,9 @@ O esqueleto do contrato da integração de notas entre a ACME e o ambiente virtu
 
 O diagrama abaixo é um diagrama de contexto da arquitetura alvo do primeiro ciclo e contém dois erros de nível, conforme os níveis descritos na seção [Diagrama de contexto](#diagrama-de-contexto).
 
-```mermaid
-graph TD
-    ALU["Aluno"]
-    PROF["Professor"]
-    SEC["Secretaria acadêmica"]
-
-    subgraph SA["Sistema acadêmico"]
-        NUC["Sistema acadêmico"]
-        ERP["ERP financeiro"]
-    end
-
-    BD[("Banco de dados acadêmico")]
-    AVA["Ambiente virtual de aprendizagem"]
-    ASS["Assinador digital ICP-Brasil"]
-    PAG["Gateway de pagamento"]
-    DIR["Provedor de identidade"]
-    REG["Órgão regulador"]
-
-    ALU -->|"renova matrícula e consulta notas"| NUC
-    PROF -->|"lança notas"| NUC
-    SEC -->|"emite documentos"| NUC
-    NUC -->|"grava e lê dados"| BD
-    NUC -->|"publica notas"| AVA
-    NUC -->|"solicita assinatura"| ASS
-    NUC -->|"gera cobrança"| PAG
-    NUC -->|"autentica usuários"| DIR
-    NUC -->|"envia censo anual"| REG
-    NUC -->|"envia lançamentos"| ERP
-```
+<figure markdown="span">
+![Diagrama de contexto do primeiro ciclo da ACME com três atores no alto, aluno, professor e secretaria acadêmica, ligados ao sistema acadêmico. Dentro da fronteira tracejada do sistema acadêmico estão o elemento sistema acadêmico e o ERP financeiro. Abaixo, ligados por linhas ortogonais, seis elementos fora da fronteira, banco de dados acadêmico, ambiente virtual de aprendizagem, assinador digital ICP-Brasil, gateway de pagamento, provedor de identidade e órgão regulador.](../assets/images/acme-ex15-diagrama-de-contexto.svg){ .module-diagram }
+</figure>
 
 1. Aponte os dois erros de nível do diagrama e descreva a correção de cada um.
 

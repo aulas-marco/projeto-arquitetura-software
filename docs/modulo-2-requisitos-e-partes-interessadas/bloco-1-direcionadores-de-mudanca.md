@@ -187,7 +187,7 @@ O primeiro quadro abaixo lista três fatos externos já registrados no dossiê d
 O diagrama abaixo dispõe em ordem cronológica os marcos que condicionam a meta de redução do custo anual de propriedade.
 
 ```mermaid
-flowchart LR
+flowchart TB
     C0["Situação atual<br/>custo anual de R$ 15,83 milhões"] --> C1["Primeiro ciclo de 12 meses<br/>orçamento de R$ 6,2 milhões"]
     C1 --> C2["31/12/2028<br/>fim do contrato de capacidade do mainframe, com piso de volume contratado"]
     C2 --> C3["Fim de 2029<br/>meta de custo anual de R$ 11,0 milhões"]

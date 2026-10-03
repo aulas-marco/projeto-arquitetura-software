@@ -89,59 +89,12 @@ O diagrama de implantação segue quatro regras de construção, derivadas da de
 O contêiner do modelo C4 é uma unidade executável ou de armazenamento de dados, como uma aplicação web, um serviço ou um banco, e pode ser implantado num contêiner Docker, numa máquina virtual ou numa função sem servidor, de modo que os dois usos da palavra contêiner precisam ser distinguidos no texto que acompanha o diagrama. A Figura 4 mostra, em C4, o ambiente de produção do sistema de agendamento da Clínica Odontológica ACME, cujos contêineres aparecem no [exemplo em C4 do bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#diagrama-de-conteineres), com os nós aninhados da região até as instâncias de contêiner do painel da recepção, do serviço de agenda e do banco de agendamentos.
 
 <figure markdown="span">
-![Diagrama de implantação em C4 do ambiente de produção do sistema de agendamento da Clínica Odontológica ACME. Um DNS e um balanceador de carga, como nós de infraestrutura, levam as requisições HTTPS a duas zonas de disponibilidade da região do provedor. Cada zona tem um nó do cluster Kubernetes em máquina virtual Linux com instâncias de contêiner do painel da recepção e do serviço de agenda, e um banco gerenciado, primário na zona A e réplica na zona B, ligados por replicação.](../assets/images/modulo-4-b4-diagrama-de-implantacao.svg){ .module-diagram }
+![Diagrama de implantação em C4 do ambiente de produção do sistema de agendamento da clínica. No alto, o telefone do paciente executa o aplicativo e o computador da recepção abre o painel no navegador, e os dois enviam requisições HTTPS ao balanceador de carga, depois de o aplicativo consultar o DNS. Dentro da região do provedor de nuvem, duas zonas de disponibilidade têm cada uma um cluster Kubernetes em máquina virtual Linux com instâncias do painel da recepção e do serviço de agenda, e um banco de agendamentos gerenciado, primário na zona A e réplica na zona B, ligados por replicação. O serviço de agenda chama por HTTPS a operadora de convênio e o serviço de mensagens, sistemas externos à direita.](../assets/images/modulo-4-b4-c4-implantacao-clinica.svg){ .module-diagram }
 </figure>
 
-*Figura 4 — Diagrama de implantação em C4 do ambiente de produção da Clínica Odontológica ACME, com nós aninhados, nós de infraestrutura e instâncias de contêiner. Fonte: material do curso, com base em Brown (n.d.).*
+*Figura 4 — Diagrama de implantação em C4 do ambiente de produção da Clínica Odontológica ACME, com nós aninhados, nós de infraestrutura, instâncias de contêiner, nós de cliente e sistemas externos. Fonte: material do curso, com base em Brown (n.d.).*
 
-A Figura 5 completa o mesmo ambiente com os nós que ficam fora da região do provedor. O aplicativo do paciente executa no telefone de cada paciente, o painel da recepção é aberto no navegador do computador da recepção, e a operadora de convênio e o serviço de mensagens permanecem como sistemas externos, com os mesmos nomes do diagrama de contexto do bloco 3.
-
-```mermaid
-graph TD
-    subgraph CEL["Nó: telefone do paciente, Android ou iOS"]
-        APP["Contêiner: aplicativo do paciente"]
-    end
-    subgraph PCR["Nó: computador da recepção, navegador web"]
-        NAV["Painel da recepção carregado no navegador"]
-    end
-    subgraph PROD["Ambiente de produção"]
-        DNS["DNS, nó de infraestrutura"]
-        subgraph REG["Nó: região do provedor de nuvem"]
-            LB["Balanceador de carga, nó de infraestrutura"]
-            subgraph ZA["Nó: zona de disponibilidade A"]
-                subgraph KA["Nó: cluster Kubernetes em máquina virtual Linux"]
-                    WA["Contêiner: painel da recepção"]
-                    SA["Contêiner: serviço de agenda"]
-                end
-                BA[("Contêiner: banco de agendamentos, primário, em serviço gerenciado")]
-            end
-            subgraph ZB["Nó: zona de disponibilidade B"]
-                subgraph KB["Nó: cluster Kubernetes em máquina virtual Linux"]
-                    WB["Contêiner: painel da recepção"]
-                    SB["Contêiner: serviço de agenda"]
-                end
-                BB[("Contêiner: banco de agendamentos, réplica, em serviço gerenciado")]
-            end
-        end
-    end
-    CONV["Operadora de convênio, sistema externo"]
-    SMS["Serviço de mensagens, sistema externo"]
-
-    APP -->|"resolve o nome"| DNS
-    APP -->|"HTTPS"| LB
-    NAV -->|"HTTPS"| LB
-    LB --> WA
-    LB --> WB
-    LB --> SA
-    LB --> SB
-    SA -->|"SQL sobre TLS"| BA
-    SB -->|"SQL sobre TLS"| BA
-    BA -->|"replicação"| BB
-    SA -->|"HTTPS"| CONV
-    SA -->|"HTTPS"| SMS
-```
-
-*Figura 5 — Diagrama de implantação em C4 com os nós de cliente e os sistemas externos da Clínica Odontológica ACME. Fonte: material do curso, com base em Brown (n.d.).*
+Os nós de cliente aparecem fora do ambiente de produção, porque o aplicativo do paciente executa no telefone de cada paciente e o painel da recepção é aberto no navegador do computador da recepção. A operadora de convênio e o serviço de mensagens permanecem como sistemas externos, com os mesmos nomes do diagrama de contexto do bloco 3, e cada instância de contêiner leva o nome do contêiner correspondente do diagrama de contêineres.
 
 As setas do diagrama de implantação repetem as interfaces do grafo da Figura 1, agora com a indicação do nó em que cada extremidade executa, e por isso o diagrama mostra quais interfaces atravessam a fronteira entre zonas, entre a região e o centro de dados local ou entre a solução e a internet. Na fase lógica, os nós recebem nomes genéricos, como máquina virtual Linux ou nó do cluster Kubernetes, e o nome do serviço do provedor só aparece depois da definição tecnológica da Aula 5.
 
@@ -242,18 +195,19 @@ O núcleo transacional executa sob o monitor CICS em ambiente de grande porte no
 | R4, a solução opera em um dos dois provedores de nuvem aprovados em 12/03/2026 | Conselho Universitário |
 
 ```mermaid
-graph TD
-    subgraph DC["Nó: centro de dados da ACME"]
-        subgraph MF["Nó: ambiente de grande porte com monitor transacional"]
-            NUC["Contêiner: núcleo transacional COBOL"]
+%%{init: {"flowchart": {"curve": "stepAfter"}}}%%
+flowchart TB
+    subgraph NV["Nó: nuvem aprovada"]
+        SM["«contêiner»<br/>Serviço de matrícula<br/>tecnologia a definir<br/>na Aula 5"]
+        SN["«contêiner»<br/>Serviço de notas<br/>tecnologia a definir<br/>na Aula 5"]
+    end
+    subgraph DC["Nó: centro de dados"]
+        subgraph MF["Nó: grande porte"]
+            NUC["«contêiner»<br/>Núcleo transacional<br/>COBOL sob CICS"]
         end
     end
-    subgraph NV["Nó: região de provedor de nuvem aprovado"]
-        SM["Contêiner: serviço de matrícula, tecnologia a definir na Aula 5"]
-        SN["Contêiner: serviço de notas, tecnologia a definir na Aula 5"]
-    end
-    SM -->|"relação 3, conexão a definir na Aula 5"| NUC
-    SN -->|"relação 4, conexão a definir na Aula 5"| NUC
+    SM -->|"relação 3<br/>conexão a definir"| NUC
+    SN -->|"relação 4<br/>conexão a definir"| NUC
 ```
 
 1. Responda, em uma frase, por que o núcleo transacional COBOL permanece como contêiner na arquitetura alvo do primeiro ciclo.

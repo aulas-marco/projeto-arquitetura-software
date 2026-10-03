@@ -37,6 +37,19 @@ Fontes conferidas, no formato APA 7ª edição. Referências adicionais entram s
 - The Open Group. (2022). *ArchiMate® 3.2 specification: Reference cards* (N221). https://www.opengroup.org/sites/default/files/docs/downloads/n221p.pdf
 - The Open Group. (2026, 27 de abril). *The Open Group announces ArchiMate® 4 specification* (C260). https://www.opengroup.org/The-Open-Group-Announces-ArchiMate%C2%AE-4-Specification
 - HL7 International. (2023). *FHIR release 5*. https://hl7.org/fhir/R5/
+- Armbrust, M., Ghodsi, A., Xin, R., & Zaharia, M. (2021). Lakehouse: A new generation of open platforms that unify data warehousing and advanced analytics. *Conference on Innovative Data Systems Research (CIDR '21)*. https://www.cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf
+- Bitol. (2026). *Open Data Contract Standard* (Versão 3.2.0). LF AI & Data Foundation. https://bitol-io.github.io/open-data-contract-standard/latest/
+- Brasil. (2018). *Lei nº 13.709, de 14 de agosto de 2018. Lei Geral de Proteção de Dados Pessoais (LGPD)*. https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm
+- Carr, A. (2026). *4 common master data management implementation styles*. Stibo Systems. https://www.stibosystems.com/blog/4-common-master-data-management-implementation-styles
+- DAMA Denmark. (2020). *Data management body of knowledge: Overview of the DMBOK2* [Apresentação]. https://www.dama-dk.org/onewebmedia/DAMA%20DMBOK2_PDF.pdf
+- DAMA International. (2024). *DAMA-DMBOK: Data management body of knowledge* (2nd ed., revised). Technics Publications.
+- DAMA International. (n.d.). *DMBOK 2.0 revision*. https://www.damadmbok.org/dmbok2-revisions
+- DAMA Rocky Mountain Chapter. (2023b). *DMBoK figure 23: Enterprise data model*. https://damarmc.org/news/13270755
+- Databricks. (n.d.). *Medallion architecture*. https://www.databricks.com/glossary/medallion-architecture
+- Fowler, M. (2015). *Data lake*. https://martinfowler.com/bliki/DataLake.html
+- Kimball Group. (n.d.). *Dimensional modeling techniques*. https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/
+- OpenLineage. (n.d.). *OpenLineage* [Repositório]. LF AI & Data Foundation. https://github.com/OpenLineage/OpenLineage
+- Steenbeek, I. (2017, 10 de setembro). *New vision on data lineage/flow in DAMA-DMBOK2*. Data Crossroads. https://datacrossroads.nl/2017/09/10/new-vision-on-data-lineage-flow-in-dama-dm-bok-2/
 - Debezium. (n.d.-a). *Debezium features*. https://debezium.io/documentation/reference/stable/features.html
 - Debezium. (n.d.-b). *Debezium connector for PostgreSQL*. https://debezium.io/documentation/reference/stable/connectors/postgresql.html
 - Richardson, C. (n.d.). *Pattern: Database per service*. Microservices.io. https://microservices.io/patterns/data/database-per-service.html

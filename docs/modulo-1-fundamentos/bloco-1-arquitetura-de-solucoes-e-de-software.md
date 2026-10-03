@@ -122,7 +122,7 @@ O quadro abaixo reproduz quatro dos cinco tipos de [componentes da solução](..
 O diagrama abaixo mostra o percurso atual da nota lançada pelo professor até o aluno, que hoje passa por um lote diário noturno. As duas decisões tratadas neste item são reproduzidas logo depois do diagrama.
 
 ```mermaid
-flowchart LR
+flowchart TB
     PROF["Professor lança a nota no portal"] --> NUC["Núcleo acadêmico registra a nota"]
     NUC -->|"lote diário noturno"| AVA["Ambiente virtual de aprendizagem"]
     AVA --> ALU["Aluno consulta a nota"]

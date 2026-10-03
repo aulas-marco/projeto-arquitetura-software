@@ -152,7 +152,23 @@ Conjunto de etapas de ponta a ponta pelo qual a organização entrega valor a um
 
 ## Arquitetura de dados
 
-Subdomínio da arquitetura corporativa que trata dos dados, dos metadados e da informação da organização, e ao qual a arquitetura de dados de cada solução precisa ser consistente.
+Estrutura geral dos dados e dos recursos relacionados a dados, tratada como parte integrante da arquitetura corporativa e definida no DMBOK como uma das onze áreas de gestão de dados, à qual a arquitetura de dados de cada solução precisa ser consistente.
+
+## Modelo de dados corporativo
+
+Conjunto de modelos que descreve de forma consistente as entidades, os atributos e os relacionamentos da organização em quatro níveis, visão conceitual das áreas de assunto, visão de cada área de assunto, modelo lógico corporativo e modelos lógicos e físicos de cada aplicação ou projeto.
+
+## Dados mestres
+
+Entidades de negócio compartilhadas por várias aplicações, como cliente, aluno ou paciente, geridas para reduzir redundância e melhorar a qualidade, por meio de um dos estilos de implementação registro, consolidação, coexistência ou centralizado.
+
+## Linhagem de dados
+
+Registro da origem de cada conjunto de dados e das transformações pelas quais ele passou, que permite rastrear um valor até a fonte que o produziu.
+
+## Contrato de dados
+
+Acordo formal entre o dono de um conjunto de dados e seus consumidores, com esquema, regras de qualidade, nível de serviço e papéis, padronizado pelo Open Data Contract Standard.
 
 ## Propriedade do dado
 

@@ -147,7 +147,7 @@ O portal da ACME registra 815 sessões simultâneas em média anual ponderada, c
 O diagrama abaixo descreve a sequência do incidente ocorrido na abertura da matrícula de 04/02/2026, quando o limite de tarefas concorrentes do monitor CICS foi atingido. O incidente durou 4h20, e a janela de matrícula foi prorrogada em 2 dias úteis.
 
 ```mermaid
-flowchart LR
+flowchart TB
     A["Aluno abandona o navegador"] --> B["Sessão da camada web mantém a transação aberta, sem tempo limite configurado"]
     B --> C["Monitor CICS atinge o limite de tarefas concorrentes"]
     C --> D["62% das tentativas de matrícula retornam erro"]

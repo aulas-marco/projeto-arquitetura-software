@@ -66,7 +66,7 @@ A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativo
 A Coordenação de Educação a Distância declarou o requisito registrado como R7 no dossiê do caso, segundo o qual a nota lançada pelo professor chega ao ambiente virtual de aprendizagem em até 10 minutos. Hoje essa propagação ocorre por lote diário noturno, o que gera reclamação de aluno a cada fechamento, como mostra o diagrama abaixo. O ambiente virtual permanece em operação e não será substituído, por decisão da Reitoria de 12/03/2026, e o plano do fornecedor que oferece interfaces de programação custa 38% a mais que o plano vigente.
 
 ```mermaid
-flowchart LR
+flowchart TB
     PROF["Professor lança a nota"] --> NUC["Núcleo acadêmico"]
     NUC -->|"lote diário noturno"| AVA["Ambiente virtual de aprendizagem"]
     AVA --> ALU["Aluno vê a nota no dia seguinte"]
