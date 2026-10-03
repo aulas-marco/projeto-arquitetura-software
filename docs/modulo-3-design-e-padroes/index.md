@@ -49,4 +49,4 @@ A [síntese](sintese.md) fecha o módulo com o checklist do que precisa permanec
 
 ## Preparação para a Aula 4
 
-A Aula 4 trata de protocolos, especificações e representação da arquitetura. O esboço lógico do exercício 9, com o estilo e os padrões registrados no ADR do exercício 12, é o objeto que aquela aula detalha em contratos de integração e em modelos C4 de contexto e de contêineres. As escolhas de produto, framework e plataforma continuam fora de escopo até a Aula 5, e o [cronograma](../cronograma.md) traz a sequência completa das seis aulas.
+A Aula 4 detalha a solução nos domínios de negócio, dados, aplicações e infraestrutura. Ela parte da declaração de escopo do exercício 8, do esboço lógico do exercício 9, dos padrões do exercício 11 e do ADR do exercício 12, e termina na representação da arquitetura alvo em modelos C4 de contexto e de contêineres. As escolhas de produto, framework e plataforma continuam fora de escopo até a Aula 5, e o [cronograma](../cronograma.md) traz a sequência completa das seis aulas.

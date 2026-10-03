@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Solução como grafo de blocos de construção</title><desc id="desc">Grafo genérico com cinco blocos de construção, BC1 a BC5, ligados por seis arestas. Cada vértice traz o próprio grau, dois com grau 3 e três com grau 2. A conta ao lado mostra que a soma dos graus, 12, dividida por 2 dá 6 interfaces. Uma aresta destacada recebe os rótulos de tipo de comunicação e de volume de tráfego.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:30px;font-weight:700}.t{font-size:22px;font-weight:700}.q{font-size:17px;fill:#52657E}.e{font-size:16px;font-weight:700}</style></defs>
+  <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
+  <text x="70" y="62" class="h">Cada interface é uma aresta a examinar</text>
+  <text x="70" y="86" class="q">Blocos de construção são vértices, interfaces são arestas, e cada aresta recebe tipo e volume.</text>
+
+  <g stroke="#254DB8" stroke-width="4">
+    <line x1="190" y1="200" x2="420" y2="170"/>
+    <line x1="190" y1="200" x2="300" y2="420"/>
+    <line x1="420" y1="170" x2="300" y2="420"/>
+    <line x1="300" y1="420" x2="560" y2="500"/>
+    <line x1="420" y1="170" x2="640" y2="300"/>
+  </g>
+  <line x1="560" y1="500" x2="640" y2="300" stroke="#F2B84B" stroke-width="8"/>
+
+  <g>
+    <circle cx="190" cy="200" r="48" fill="#16243A"/><text x="190" y="207" text-anchor="middle" class="t" style="fill:white">BC1</text>
+    <circle cx="420" cy="170" r="48" fill="#16243A"/><text x="420" y="177" text-anchor="middle" class="t" style="fill:white">BC2</text>
+    <circle cx="300" cy="420" r="48" fill="#16243A"/><text x="300" y="427" text-anchor="middle" class="t" style="fill:white">BC3</text>
+    <circle cx="560" cy="500" r="48" fill="#16243A"/><text x="560" y="507" text-anchor="middle" class="t" style="fill:white">BC4</text>
+    <circle cx="640" cy="300" r="48" fill="#16243A"/><text x="640" y="307" text-anchor="middle" class="t" style="fill:white">BC5</text>
+  </g>
+  <text x="120" y="275" class="e">grau 2</text>
+  <text x="470" y="130" class="e">grau 3</text>
+  <text x="200" y="490" class="e">grau 3</text>
+  <text x="520" y="575" class="e">grau 2</text>
+  <text x="700" y="300" class="e">grau 2</text>
+
+  <rect x="700" y="380" width="250" height="88" rx="14" fill="white" stroke="#F2B84B" stroke-width="3"/>
+  <text x="718" y="415" class="e">Tipo: assíncrono</text>
+  <text x="718" y="445" class="e">Volume: 2.000 por hora</text>
+  <path d="M700 420 L610 410" stroke="#F2B84B" stroke-width="3"/>
+
+  <rect x="820" y="140" width="310" height="200" rx="20" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="845" y="182" class="t">Contagem</text>
+  <text x="845" y="218" class="q">Soma dos graus</text>
+  <text x="845" y="243" class="e">2 + 3 + 3 + 2 + 2 = 12</text>
+  <text x="845" y="283" class="q">Interfaces</text>
+  <text x="845" y="308" class="e">12 ÷ 2 = 6</text>
+
+  <rect x="70" y="600" width="1060" height="44" rx="22" fill="#16243A"/>
+  <text x="600" y="628" text-anchor="middle" class="e" style="fill:white">O exame de cada aresta produz a exigência de comunicação que a infraestrutura atende</text>
+</svg>

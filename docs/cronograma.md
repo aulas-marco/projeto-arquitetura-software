@@ -13,11 +13,11 @@ As duas primeiras aulas enquadram o problema, com a disciplina e seu processo, d
 | 1 | Arquitetura de soluções e arquitetura de software, componentes da solução, papel do arquiteto e processo de definição da arquitetura |
 | 2 | Direcionadores de mudança, requisitos e atributos de qualidade, artefatos de linha de base, restrições e partes interessadas |
 | 3 | Princípios de design, estilos arquiteturais, padrões de design e registro de decisão arquitetural |
-| 4 | Arquitetura de aplicações, dados, infraestrutura e segurança, contratos de integração e modelagem C4 |
-| 5 | Definição tecnológica, plataforma arquitetural, frameworks e modelo técnico de referência |
+| 4 | Arquitetura de negócio, de dados, de aplicações e de infraestrutura da solução, com contrato de integração e modelagem C4 |
+| 5 | Definição tecnológica e modelo técnico de referência, plataforma arquitetural e frameworks, segurança fim a fim e ADR de plataforma |
 | 6 | Análise de lacunas, roteiro de entrega, governança, inovação e tendências |
 
-O encadeamento vai do enquadramento ao desenho, do desenho à tecnologia, e da tecnologia à entrega governada. A Aula 1 estabelece de que disciplina se trata e por qual processo ela opera. A Aula 2 reúne tudo o que entra antes de qualquer alternativa. A Aula 3 escolhe a forma estrutural e registra a escolha. A Aula 4 trata do que a solução precisa respeitar para se integrar e de como ela é representada. A Aula 5 converte o desenho lógico em tecnologia. A Aula 6 compara a situação atual com a pretendida e organiza a entrega.
+O encadeamento vai do enquadramento ao desenho, do desenho à tecnologia, e da tecnologia à entrega governada. A Aula 1 estabelece de que disciplina se trata e por qual processo ela opera. A Aula 2 reúne tudo o que entra antes de qualquer alternativa. A Aula 3 escolhe a forma estrutural e registra a escolha. A Aula 4 detalha a solução nos domínios de negócio, dados, aplicações e infraestrutura e a representa nos níveis de contexto e de contêineres do modelo C4. A Aula 5 converte o desenho lógico em tecnologia e avalia a segurança fim a fim sobre a tecnologia escolhida. A Aula 6 compara a situação atual com a pretendida e organiza a entrega.
 
 ## Blocos de cada aula
 
@@ -48,22 +48,22 @@ O encadeamento vai do enquadramento ao desenho, do desenho à tecnologia, e da t
 | 3 | Padrões de design e sua relação com padrões arquiteturais | 11 |
 | 4 | Registro de decisão arquitetural, formatos Nygard e MADR | 12 |
 
-### Aula 4, protocolos e representação
+### Aula 4, domínios da arquitetura de solução
 
 | Bloco | Tema | Exercício |
 | --- | --- | --- |
-| 1 | Arquitetura de aplicações e de dados na solução, com propriedade do dado | 13 |
-| 2 | Arquitetura de infraestrutura e segurança fim a fim | 14 |
-| 3 | Padrão, protocolo e especificação, e o contrato de integração | 15 |
-| 4 | Representação de modelos e C4, níveis de contexto e de contêineres | 16 |
+| 1 | Arquitetura de negócio da solução, capacidades, fluxo de valor e processos | 13 |
+| 2 | Arquitetura de dados da solução, com propriedade do dado | 14 |
+| 3 | Arquitetura de aplicações e integração, contrato de integração e diagrama de contexto C4 | 15 |
+| 4 | Arquitetura de infraestrutura da solução e diagrama de contêineres C4 | 16 |
 
 ### Aula 5, frameworks e tecnologias
 
 | Bloco | Tema | Exercício |
 | --- | --- | --- |
-| 1 | Definição tecnológica, do bloco de construção ao serviço de infraestrutura | 17 |
+| 1 | Definição tecnológica e modelo técnico de referência, do bloco de construção ao serviço de infraestrutura | 17 |
 | 2 | Plataforma arquitetural, frameworks e dependência de fornecedor | 18 |
-| 3 | Modelo técnico de referência e a taxonomia de serviços de plataforma | 19 |
+| 3 | Segurança fim a fim | 19 |
 | 4 | ADR de plataforma e lacunas na provisão de serviços | 20 |
 
 ### Aula 6, lacunas, roteiro e governança

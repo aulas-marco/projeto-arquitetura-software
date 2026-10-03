@@ -206,7 +206,7 @@ class ContentContractTest(unittest.TestCase):
             "modulo-1-fundamentos",
             "modulo-2-requisitos-e-partes-interessadas",
             "modulo-3-design-e-padroes",
-            "modulo-4-protocolos-e-representacao",
+            "modulo-4-dominios-da-solucao",
             "modulo-5-frameworks-e-tecnologias",
             "modulo-6-lacunas-e-governanca",
         ):

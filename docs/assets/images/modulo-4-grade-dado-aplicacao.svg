@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Grade dado por aplicação com dono e regime de consistência</title><desc id="desc">Grade genérica com as entidades cliente, pedido e fatura nas linhas e as aplicações loja virtual, logística e faturamento nas colunas. Cada célula indica se a aplicação grava, lê por interface ou recebe por evento. Uma coluna destacada indica o dono de cada entidade e outra indica o regime de consistência exigido pelos consumidores.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:30px;font-weight:700}.t{font-size:20px;font-weight:700}.q{font-size:17px;fill:#52657E}.e{font-size:17px;font-weight:700}</style></defs>
+  <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
+  <text x="70" y="62" class="h">Uma entidade, um dono, consumidores com prazo declarado</text>
+  <text x="70" y="86" class="q">A grade cruza entidades de dado com aplicações e mostra o impacto de mudar cada entidade.</text>
+
+  <rect x="70" y="115" width="1060" height="60" rx="14" fill="#16243A"/>
+  <text x="90" y="152" class="t" style="fill:white">Entidade</text>
+  <text x="300" y="152" class="t" style="fill:white">Loja virtual</text>
+  <text x="490" y="152" class="t" style="fill:white">Logística</text>
+  <text x="660" y="152" class="t" style="fill:white">Faturamento</text>
+  <text x="850" y="152" class="t" style="fill:#F2B84B">Dono</text>
+  <text x="985" y="152" class="t" style="fill:#F2B84B">Regime</text>
+
+  <rect x="70" y="190" width="1060" height="90" rx="14" fill="white" stroke="#254DB8" stroke-width="2"/>
+  <text x="90" y="242" class="t">Cliente</text>
+  <rect x="290" y="215" width="150" height="40" rx="20" fill="#254DB8"/><text x="365" y="242" text-anchor="middle" class="e" style="fill:white">Grava</text>
+  <rect x="475" y="215" width="150" height="40" rx="20" fill="#5FC0D1"/><text x="550" y="242" text-anchor="middle" class="e">Lê</text>
+  <rect x="650" y="215" width="160" height="40" rx="20" fill="#E6EEF9" stroke="#5FC0D1" stroke-width="2"/><text x="730" y="242" text-anchor="middle" class="e">Recebe evento</text>
+  <rect x="835" y="205" width="125" height="60" rx="12" fill="#F2B84B"/><text x="897" y="242" text-anchor="middle" class="e">Loja</text>
+  <text x="980" y="235" class="q">Forte na leitura</text>
+  <text x="980" y="258" class="q">5 min no evento</text>
+
+  <rect x="70" y="295" width="1060" height="90" rx="14" fill="white" stroke="#254DB8" stroke-width="2"/>
+  <text x="90" y="347" class="t">Pedido</text>
+  <rect x="290" y="320" width="150" height="40" rx="20" fill="#254DB8"/><text x="365" y="347" text-anchor="middle" class="e" style="fill:white">Grava</text>
+  <rect x="475" y="320" width="160" height="40" rx="20" fill="#E6EEF9" stroke="#5FC0D1" stroke-width="2"/><text x="555" y="347" text-anchor="middle" class="e">Recebe evento</text>
+  <rect x="650" y="320" width="160" height="40" rx="20" fill="#E6EEF9" stroke="#5FC0D1" stroke-width="2"/><text x="730" y="347" text-anchor="middle" class="e">Recebe evento</text>
+  <rect x="835" y="310" width="125" height="60" rx="12" fill="#F2B84B"/><text x="897" y="347" text-anchor="middle" class="e">Loja</text>
+  <text x="980" y="352" class="q">Eventual, 5 min</text>
+
+  <rect x="70" y="400" width="1060" height="90" rx="14" fill="white" stroke="#254DB8" stroke-width="2"/>
+  <text x="90" y="452" class="t">Fatura</text>
+  <rect x="290" y="425" width="150" height="40" rx="20" fill="#5FC0D1"/><text x="365" y="452" text-anchor="middle" class="e">Lê</text>
+  <rect x="475" y="425" width="150" height="40" rx="20" fill="#F2F6FB" stroke="#52657E" stroke-width="2"/><text x="550" y="452" text-anchor="middle" class="q">Não usa</text>
+  <rect x="650" y="425" width="160" height="40" rx="20" fill="#254DB8"/><text x="730" y="452" text-anchor="middle" class="e" style="fill:white">Grava</text>
+  <rect x="835" y="415" width="125" height="60" rx="12" fill="#F2B84B"/><text x="897" y="452" text-anchor="middle" class="e">Faturamento</text>
+  <text x="980" y="457" class="q">Forte na leitura</text>
+
+  <rect x="70" y="520" width="20" height="20" rx="4" fill="#254DB8"/><text x="100" y="537" class="q">Só o dono grava</text>
+  <rect x="300" y="520" width="20" height="20" rx="4" fill="#5FC0D1"/><text x="330" y="537" class="q">Leitura pela interface do dono</text>
+  <rect x="610" y="520" width="20" height="20" rx="4" fill="#E6EEF9" stroke="#5FC0D1" stroke-width="2"/><text x="640" y="537" class="q">Cópia derivada recebida por evento publicado pelo dono</text>
+
+  <rect x="70" y="600" width="1060" height="44" rx="22" fill="#16243A"/>
+  <text x="600" y="628" text-anchor="middle" class="e" style="fill:white">Regime eventual sem prazo declarado não pode ser verificado</text>
+</svg>

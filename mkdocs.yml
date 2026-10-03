@@ -36,9 +36,11 @@ plugins:
         modulo-2-plataforma-e-modelos/bloco-1-registro-de-decisao-arquitetural.md: modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md
         modulo-2-plataforma-e-modelos/bloco-2-plataforma-arquitetural.md: modulo-5-frameworks-e-tecnologias/bloco-2-plataforma-arquitetural.md
         modulo-2-plataforma-e-modelos/bloco-3-adr-de-plataforma.md: modulo-5-frameworks-e-tecnologias/bloco-4-adr-de-plataforma.md
-        modulo-2-plataforma-e-modelos/bloco-4-representacao-de-modelos-e-c4.md: modulo-4-protocolos-e-representacao/bloco-4-representacao-de-modelos-e-c4.md
+        modulo-2-plataforma-e-modelos/bloco-4-representacao-de-modelos-e-c4.md: modulo-4-dominios-da-solucao/bloco-3-arquitetura-de-aplicacoes-e-integracao.md
         modulo-3-aplicacao-e-servicos/index.md: modulo-3-design-e-padroes/index.md
-        modulo-4-integracao-e-dados/index.md: modulo-4-protocolos-e-representacao/index.md
+        modulo-4-integracao-e-dados/index.md: modulo-4-dominios-da-solucao/index.md
+        modulo-4-protocolos-e-representacao/index.md: modulo-4-dominios-da-solucao/index.md
+        modulo-4-protocolos-e-representacao/bloco-4-representacao-de-modelos-e-c4.md: modulo-4-dominios-da-solucao/bloco-3-arquitetura-de-aplicacoes-e-integracao.md
         modulo-5-seguranca-e-trm/index.md: modulo-5-frameworks-e-tecnologias/index.md
         modulo-6-riscos-e-provas-de-conceito/index.md: modulo-6-lacunas-e-governanca/index.md
 
@@ -86,9 +88,13 @@ nav:
       - "Bloco 3: padrões arquiteturais e de design": modulo-3-design-e-padroes/bloco-3-padroes-arquiteturais-e-de-design.md
       - "Bloco 4: registro de decisão arquitetural": modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md
       - Síntese: modulo-3-design-e-padroes/sintese.md
-  - "Aula 4, protocolos e representação":
-      - Visão geral: modulo-4-protocolos-e-representacao/index.md
-      - "Bloco 4: representação de modelos e C4": modulo-4-protocolos-e-representacao/bloco-4-representacao-de-modelos-e-c4.md
+  - "Aula 4, domínios da arquitetura de solução":
+      - Visão geral: modulo-4-dominios-da-solucao/index.md
+      - "Bloco 1: arquitetura de negócio": modulo-4-dominios-da-solucao/bloco-1-arquitetura-de-negocio.md
+      - "Bloco 2: arquitetura de dados": modulo-4-dominios-da-solucao/bloco-2-arquitetura-de-dados.md
+      - "Bloco 3: arquitetura de aplicações e integração": modulo-4-dominios-da-solucao/bloco-3-arquitetura-de-aplicacoes-e-integracao.md
+      - "Bloco 4: arquitetura de infraestrutura": modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md
+      - Síntese: modulo-4-dominios-da-solucao/sintese.md
   - "Aula 5, frameworks e tecnologias":
       - Visão geral: modulo-5-frameworks-e-tecnologias/index.md
       - "Bloco 2: plataforma arquitetural": modulo-5-frameworks-e-tecnologias/bloco-2-plataforma-arquitetural.md
