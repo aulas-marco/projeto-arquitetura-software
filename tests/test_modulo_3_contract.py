@@ -82,6 +82,17 @@ class ModuleThreeStructureTest(unittest.TestCase):
         for overflow_technique in ("100vw", "translateX", "margin-left"):
             self.assertNotIn(overflow_technique, css)
 
+    def test_figure_wrapping_a_module_diagram_takes_the_column_width(self):
+        # Material define figure com width: fit-content, e um SVG so com viewBox
+        # encolhe a figura para cerca de 300 px.
+        css = STYLESHEET.read_text(encoding="utf-8")
+        rule = re.search(
+            r"\.md-typeset figure:has\(> img\.module-diagram\)\s*\{(?P<body>[^}]*)\}",
+            css,
+        )
+        self.assertIsNotNone(rule)
+        self.assertRegex(rule.group("body"), r"width:\s*100%")
+
     def test_module_diagrams_use_legible_internal_type(self):
         for image, _ in BLOCKS.values():
             svg = (IMAGES / image).read_text(encoding="utf-8")

@@ -27,6 +27,10 @@
   white-space: nowrap;
 }
 
+.md-typeset figure:has(> img.module-diagram) {
+  width: 100%;
+}
+
 .md-typeset img.module-diagram {
   display: block;
   width: 100%;

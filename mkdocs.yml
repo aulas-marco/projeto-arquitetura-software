@@ -45,7 +45,7 @@ plugins:
         modulo-6-riscos-e-provas-de-conceito/index.md: modulo-6-lacunas-e-governanca/index.md
 
 extra_css:
-  - assets/stylesheets/extra.css?v=20260930-1
+  - assets/stylesheets/extra.css?v=20261003-1
 
 extra_javascript:
   - assets/javascripts/mermaid.mjs
