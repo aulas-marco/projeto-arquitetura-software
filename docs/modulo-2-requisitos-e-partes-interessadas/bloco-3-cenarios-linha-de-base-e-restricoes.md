@@ -12,7 +12,7 @@ Este bloco trata de como tornar um requisito de atributo de qualidade concreto o
 
 ## Conceito
 
-Um requisito de atributo de qualidade, mesmo bem formulado, ainda deixa dúvida sobre em que situação exata ele vale e sobre como equipes diferentes devem interpretá-lo. O Software Engineering Institute usa cenários para reduzir essa ambiguidade. O relatório CMU/SEI-2003-TR-016 descreve o Quality Attribute Workshop, QAW, como método conduzido com os interessados para descobrir atributos de qualidade importantes e esclarecer requisitos antes mesmo de existir uma arquitetura detalhada. No QAW, os interessados geram, consolidam, priorizam e refinam cenários que representam os requisitos de qualidade do sistema. Esse trabalho também revela suposições e conflitos que permaneceriam ocultos em expressões genéricas como rápido, seguro ou flexível.
+Um [requisito de atributo de qualidade](bloco-2-qualidade-e-tipos-de-requisito.md#conceito), definido no bloco 2 desta aula, mesmo bem formulado, ainda deixa dúvida sobre em que situação exata ele vale e sobre como equipes diferentes devem interpretá-lo. O Software Engineering Institute usa cenários para reduzir essa ambiguidade. O relatório CMU/SEI-2003-TR-016 descreve o Quality Attribute Workshop, QAW, como método conduzido com os interessados para descobrir atributos de qualidade importantes e esclarecer requisitos antes mesmo de existir uma arquitetura detalhada. No QAW, os interessados geram, consolidam, priorizam e refinam cenários que representam os requisitos de qualidade do sistema. Esse trabalho também revela suposições e conflitos que permaneceriam ocultos em expressões genéricas como rápido, seguro ou flexível.
 
 Um **cenário de atributo de qualidade** organiza essa expectativa em seis elementos.
 
@@ -37,18 +37,18 @@ Um exemplo aplicado torna a estrutura concreta antes das três variações detal
 
 *Figura 2 — Exemplo aplicado da estrutura de seis elementos a um requisito de desempenho de um serviço de catálogo. Fonte: material do curso.*
 
-O exemplo abaixo aplica a mesma estrutura a um requisito de desempenho em outro domínio, na mesma progressão de contexto e medida vista no exemplo de desempenho da plataforma de vídeo, apresentado na seção Conceito do [bloco 2](bloco-2-qualidade-e-tipos-de-requisito.md).
+O exemplo abaixo aplica a mesma estrutura a um requisito de desempenho em outro domínio, na mesma progressão de contexto e medida vista no exemplo de desempenho da plataforma de vídeo da Produtora ACME, apresentado na seção Conceito do [bloco 2](bloco-2-qualidade-e-tipos-de-requisito.md).
 
 | Elemento | Especificação |
 | --- | --- |
-| Fonte | Usuários autenticados do aplicativo de rastreamento de encomendas |
+| Fonte | Usuários autenticados do aplicativo de rastreamento de encomendas da Transportadora ACME |
 | Estímulo | Submissão de consulta de status de uma encomenda |
 | Ambiente | Pico mensal de 2.000 requisições por segundo |
 | Artefato | API de rastreamento e dependências necessárias |
 | Resposta | Validar a identidade, recuperar o status da encomenda e devolver a resposta |
 | Medida | p95 até 500 ms, p99 até 1 s, erros abaixo de 0,1% |
 
-O exemplo seguinte aplica a mesma estrutura a um requisito de modificabilidade, em um sistema de pagamentos com múltiplos adquirentes.
+O exemplo seguinte aplica a mesma estrutura a um requisito de modificabilidade, no sistema de pagamentos da Varejista ACME, que trabalha com múltiplos adquirentes.
 
 | Elemento | Especificação |
 | --- | --- |
@@ -59,7 +59,7 @@ O exemplo seguinte aplica a mesma estrutura a um requisito de modificabilidade, 
 | Resposta | Implementar e ativar a nova integração sem alterar as integrações existentes |
 | Medida | Até dez dias úteis, alterações limitadas ao adaptador, configuração e testes contratuais |
 
-O terceiro exemplo aplica a mesma estrutura a um requisito de segurança, em um domínio ainda não usado nesta aula, o portal de sinistros de uma seguradora.
+O terceiro exemplo aplica a mesma estrutura a um requisito de segurança, em um domínio ainda não usado nesta aula, o portal de sinistros da Seguradora ACME.
 
 | Elemento | Especificação |
 | --- | --- |
@@ -87,7 +87,7 @@ Um **requisito arquiteturalmente significativo**, ASR, é um requisito cuja sati
 
 Um **direcionador arquitetural** é um fator prioritário que orienta a formação ou a avaliação da arquitetura. Dependendo do método e do autor, o termo pode incluir ASRs, objetivos de negócio, restrições e preocupações críticas. No processo QAW, o SEI inclui entre os direcionadores requisitos de alto nível, preocupações de negócio ou de missão, objetivos e atributos de qualidade, e cabe aos interessados e facilitadores estabelecer consenso sobre quais são decisivos para aquele sistema. Requisito arquiteturalmente significativo e direcionador arquitetural, portanto, também não são intercambiáveis. Um objetivo de negócio como entrar em cinco países em doze meses não é, por si, um requisito de sistema já formulado, mas funciona como direcionador de requisitos de configurabilidade, localização, conformidade e escalabilidade que ainda precisam ser decompostos.
 
-A relação entre atributo de qualidade e ASR não é de equivalência. Um atributo de qualidade é uma propriedade, como desempenho ou disponibilidade. Um requisito de atributo de qualidade estabelece o comportamento esperado em relação a essa propriedade. Um ASR é um requisito que influencia materialmente a arquitetura, e essa influência não decorre do rótulo do requisito, decorre do efeito que ele produz sobre decisões estruturais. Um requisito de atributo de qualidade pode ser arquiteturalmente significativo, mas não necessariamente será, como acontece com uma consulta administrativa de baixo volume que continua sendo requisito de desempenho válido sem provocar qualquer decisão arquitetural nova. Um ASR, por sua vez, não precisa ser um requisito de atributo de qualidade. No sistema de pagamentos com múltiplos adquirentes, o requisito de escolher dinamicamente entre cinco adquirentes, considerando custo, disponibilidade, risco e regra contratual, sem duplicar cobrança durante tentativa de contingência, tem núcleo funcional. Ainda assim ele pode exigir estratégia intercambiável entre adquirentes, normalização de contrato, idempotência, gerenciamento de estado, tratamento de falha parcial, auditoria e observabilidade distribuída, o que o torna um ASR funcional. Na expansão internacional, o objetivo de disponibilizar o produto em cinco países em doze meses ainda não especifica comportamento de software, mas pode gerar ASRs de localização, configurabilidade, extensibilidade e conformidade regulatória, sem que nenhum desses ASRs seja, sozinho, um requisito de qualidade nomeado como tal. Os dois conjuntos, requisito de atributo de qualidade e ASR, se cruzam sem coincidir. Existem requisitos de qualidade que são ASR e requisitos de qualidade que não são. Existem ASR funcionais e existem ASR que são restrição. Existe também requisito funcional comum sem nenhuma significância arquitetural relevante.
+A relação entre atributo de qualidade e ASR não é de equivalência. Um atributo de qualidade é uma propriedade, como desempenho ou disponibilidade. Um requisito de atributo de qualidade estabelece o comportamento esperado em relação a essa propriedade. Um ASR é um requisito que influencia materialmente a arquitetura, e essa influência não decorre do rótulo do requisito, decorre do efeito que ele produz sobre decisões estruturais. Um requisito de atributo de qualidade pode ser arquiteturalmente significativo, mas não necessariamente será, como acontece com uma consulta administrativa de baixo volume que continua sendo requisito de desempenho válido sem provocar qualquer decisão arquitetural nova. Um ASR, por sua vez, não precisa ser um requisito de atributo de qualidade. No sistema de pagamentos da Varejista ACME, o requisito de escolher dinamicamente entre cinco adquirentes, considerando custo, disponibilidade, risco e regra contratual, sem duplicar cobrança durante tentativa de contingência, tem núcleo funcional. Ainda assim ele pode exigir estratégia intercambiável entre adquirentes, normalização de contrato, idempotência, gerenciamento de estado, tratamento de falha parcial, auditoria e observabilidade distribuída, o que o torna um ASR funcional. Na expansão internacional, o objetivo de disponibilizar o produto em cinco países em doze meses ainda não especifica comportamento de software, mas pode gerar ASRs de localização, configurabilidade, extensibilidade e conformidade regulatória, sem que nenhum desses ASRs seja, sozinho, um requisito de qualidade nomeado como tal. Os dois conjuntos, requisito de atributo de qualidade e ASR, se cruzam sem coincidir. Existem requisitos de qualidade que são ASR e requisitos de qualidade que não são. Existem ASR funcionais e existem ASR que são restrição. Existe também requisito funcional comum sem nenhuma significância arquitetural relevante.
 
 Diante de um requisito qualquer, um roteiro prático ajuda a decidir se ele deve pesar sobre a arquitetura.
 
@@ -105,7 +105,7 @@ Dois erros conceituais recorrentes merecem atenção neste ponto. O primeiro é 
 
 ### Artefatos de linha de base
 
-Cenário e julgamento de significância não são os únicos insumos da fase de descoberta. Parte do que o arquiteto precisa já existe na organização, descrita como situação atual, e recebe o nome de artefato de linha de base. Usá-los evita refazer levantamento e, mais importante, evita que a solução seja desenhada sobre uma leitura inventada do sistema existente.
+Cenário e julgamento de significância não são os únicos insumos da [fase de descoberta](../modulo-1-fundamentos/bloco-4-processo-de-definicao-da-arquitetura.md#as-oito-fases), segunda fase do processo apresentado na Aula 1. Parte do que o arquiteto precisa já existe na organização, descrita como situação atual, e recebe o nome de [artefato de linha de base](../referencia/glossario.md#artefato-de-linha-de-base). Usá-los evita refazer levantamento e, mais importante, evita que a solução seja desenhada sobre uma leitura inventada do sistema existente.
 
 Os artefatos de linha de base mais frequentes são a descrição da arquitetura atual, com componentes e integrações, o catálogo de aplicações, os modelos de processo de negócio, os modelos de dados, os contratos vigentes com fornecedores e os registros de incidente e de capacidade. Cada um deles tem data, dono e grau de confiabilidade, e parte do trabalho de descoberta é justamente estabelecer quanto de cada artefato ainda descreve a realidade.
 
@@ -125,14 +125,94 @@ O arquiteto usa o cenário e o roteiro de sete perguntas para decidir onde inves
 
 ## Exercício 7
 
-Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+A ACME é uma universidade privada brasileira fictícia cujo sistema acadêmico está em modernização. O exercício usa os dados de sazonalidade e de incidentes dos [dados operacionais](../caso-acme/dados-operacionais.md) do caso e pode partir, como orientação de continuidade e sem obrigatoriedade, da reescrita mensurável de R2 sobre disponibilidade na janela de matrícula, produzida no [exercício 6](bloco-2-qualidade-e-tipos-de-requisito.md#exercicio-6) desta mesma aula.
 
-A ACME é uma universidade privada brasileira cujo sistema acadêmico está em modernização, e cujo portal registra 815 sessões simultâneas em média anual ponderada, com pico de 5.800 sessões na abertura da matrícula, uma razão de 7,1 entre pico e média, e taxa de erro de 6,3% das requisições nesse intervalo de pico, contra 0,2% em dia letivo comum. Nessa mesma abertura, em 04/02/2026, o limite de tarefas concorrentes do monitor CICS foi atingido, porque sessões da camada web permaneciam com transação aberta após o abandono do navegador, sem tempo limite de sessão configurado. O incidente durou 4h20, 62% das tentativas de matrícula retornaram erro, 9.400 alunos não concluíram a inscrição no dia e a janela foi prorrogada em 2 dias úteis.
+### Item 1: Cenário do pico de matrícula
 
-1. Escreva dois cenários de atributo de qualidade para a ACME, no formato de seis elementos apresentado no Conceito. O primeiro cenário deve ter como estímulo o pico de sazonalidade descrito acima, e pode partir, como orientação de continuidade e sem obrigatoriedade, da reescrita mensurável de R2 sobre disponibilidade na janela de matrícula, produzida no exercício do [bloco 2](bloco-2-qualidade-e-tipos-de-requisito.md) desta mesma aula. O segundo cenário deve ter como estímulo o incidente descrito acima.
-2. Para cada um dos dois cenários, aplique o roteiro de sete perguntas apresentado no Conceito e defenda, com base nas respostas, se aquele cenário constitui um requisito arquiteturalmente significativo.
-3. Liste quatro artefatos de linha de base da ACME que você usaria para sustentar os dois cenários, indicando para cada um o dado específico que ele fornece e o que aconteceria com o cenário se esse dado estivesse desatualizado.
-4. Tome as sete restrições fechadas do caso e classifique cada uma pela origem, entre regulatória, contratual, de política interna e técnica, indicando quem teria autoridade para revê-la.
+O portal da ACME registra 815 sessões simultâneas em média anual ponderada, com pico de 5.800 sessões na abertura da matrícula, uma razão de 7,1 entre pico e média, e taxa de erro de 6,3% das requisições nesse intervalo de pico, contra 0,2% em dia letivo comum. O quadro abaixo traz um [cenário de atributo de qualidade](../referencia/glossario.md#cenario-de-atributo-de-qualidade) para esse pico, com os quatro primeiros elementos preenchidos.
+
+| Elemento | Especificação |
+| --- | --- |
+| Fonte do estímulo | Alunos veteranos e ingressantes na abertura da matrícula |
+| Estímulo | 5.800 sessões simultâneas solicitando inscrição em turmas |
+| Ambiente | Abertura da matrícula, com razão de 7,1 entre pico e média |
+| Artefato | Portal do aluno e serviço de matrícula |
+| Resposta | A completar |
+| Medida da resposta | A completar |
+
+1. Complete a resposta e a medida da resposta do cenário, de modo que a medida possa ser verificada em teste de carga.
+
+### Item 2: Cenário do incidente de 04/02/2026
+
+O diagrama abaixo descreve a sequência do incidente ocorrido na abertura da matrícula de 04/02/2026, quando o limite de tarefas concorrentes do monitor CICS foi atingido. O incidente durou 4h20, e a janela de matrícula foi prorrogada em 2 dias úteis.
+
+```mermaid
+flowchart LR
+    A["Aluno abandona o navegador"] --> B["Sessão da camada web mantém a transação aberta, sem tempo limite configurado"]
+    B --> C["Monitor CICS atinge o limite de tarefas concorrentes"]
+    C --> D["62% das tentativas de matrícula retornam erro"]
+    D --> E["9.400 alunos não concluem a inscrição no dia"]
+```
+
+| Elemento | Especificação |
+| --- | --- |
+| Fonte do estímulo | Navegadores de alunos abandonados durante a sessão de matrícula |
+| Estímulo | Acúmulo de transações abertas no núcleo sem encerramento da sessão web |
+| Ambiente | Abertura da matrícula, no pico de 5.800 sessões simultâneas |
+| Artefato | A completar |
+| Resposta | A completar |
+| Medida da resposta | A completar |
+
+1. Complete o artefato, a resposta e a medida da resposta do cenário, de modo que a repetição do incidente possa ser verificada.
+
+### Item 3: Significância arquitetural dos dois cenários
+
+O quadro abaixo reproduz o roteiro de sete perguntas apresentado na seção [Conceito](#conceito) para julgar se um requisito é [arquiteturalmente significativo](../referencia/glossario.md#requisito-arquiteturalmente-significativo), com uma coluna para cada cenário.
+
+| Pergunta do roteiro | Cenário do pico | Cenário do incidente |
+| --- | --- | --- |
+| Quais decisões mudariam, entre decomposição, interfaces, comunicação, persistência, implantação ou tecnologias? | | |
+| O alcance atravessa vários elementos, serviços e equipes? | | |
+| Há incerteza técnica, escala incomum, dependência frágil ou consequência grave de falha? | | |
+| Uma decisão tardia provocaria reconstrução substancial? | | |
+| Melhorar uma qualidade prejudica outra, como desempenho, custo ou modificabilidade? | | |
+| O requisito demanda protótipo, teste de carga, experimento ou prova de conceito? | | |
+| A exigência está ligada a objetivo de negócio prioritário para os interessados? | | |
+
+1. Marque sim ou não para cada pergunta, em cada cenário, com uma justificativa curta por célula.
+2. Defenda, em até três linhas por cenário, se cada um constitui um requisito arquiteturalmente significativo.
+
+### Item 4: Artefatos de linha de base que sustentam os cenários
+
+O quadro abaixo lista os [artefatos de linha de base](../referencia/glossario.md#artefato-de-linha-de-base) disponíveis no caso da ACME, descritos na seção [Artefatos de linha de base](#artefatos-de-linha-de-base) deste bloco.
+
+| Código | Artefato de linha de base |
+| --- | --- |
+| L1 | Inventário de componentes do sistema acadêmico, com idade e responsável |
+| L2 | Registro dos três incidentes graves dos últimos 18 meses |
+| L3 | Medição de 34 dias úteis entre pedido aprovado e entrega em produção |
+| L4 | Custo anual de propriedade de R$ 15,83 milhões |
+| L5 | Contratos de sustentação e de capacidade, com prazos em 30/09/2027 e 31/12/2028 |
+| L6 | Série de medição de sessões simultâneas e de taxa de erro do portal, com média anual e pico |
+
+1. Escolha quatro artefatos do quadro que sustentam os dois cenários e indique, para cada um, o dado específico que ele fornece.
+2. Indique, para cada um dos quatro artefatos escolhidos, o que aconteceria com o cenário se esse dado estivesse desatualizado.
+
+### Item 5: Origem das restrições fechadas
+
+O quadro abaixo reproduz as sete restrições que chegam fechadas ao caso da ACME, com o registro de quem as estabeleceu.
+
+| Restrição | Registro no caso |
+| --- | --- |
+| O sistema acadêmico não pode parar em período letivo | Pró-Reitoria de Graduação |
+| O ambiente virtual de aprendizagem e o ERP financeiro permanecem | Reitoria, 12/03/2026 |
+| Uso de apenas dois provedores de nuvem pré-aprovados | Conselho Universitário, 12/03/2026 |
+| Identidade e autorização por padrões abertos | Comitê de Segurança da Informação |
+| Dado pessoal de aluno processado em território nacional | Jurídico, parecer de 28/04/2026 |
+| Manutenção do núcleo COBOL sob contrato até 30/09/2027 | Contrato de sustentação |
+| Orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses | Reitoria |
+
+1. Classifique cada restrição pela origem, entre regulatória, contratual, de política interna e técnica, e indique quem teria autoridade para revê-la.
 
 ## Fontes
 

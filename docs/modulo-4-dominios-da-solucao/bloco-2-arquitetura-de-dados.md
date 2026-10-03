@@ -12,49 +12,49 @@ Este bloco identifica os dados que sustentam a mudança localizada no bloco 1 e 
 
 ## Dados na solução
 
-A **arquitetura de dados** é um subdomínio da arquitetura corporativa que trata dos dados, dos metadados e da informação usados na organização, e tem no modelo corporativo de dados seu artefato de visão geral (Lovatt, 2021, seção 2.5). Toda solução tem uma arquitetura de dados própria, e Lovatt exige que ela seja consistente com a arquitetura de dados da organização em que a solução vai operar, porque a inconsistência na definição ou no uso do dado produz erro em serviço de negócio ou faz a organização perder uma oportunidade.
+A **arquitetura de dados** é um subdomínio da arquitetura corporativa que trata dos dados, dos metadados e da informação usados na organização, e tem no modelo corporativo de dados seu artefato de visão geral. Toda solução tem uma arquitetura de dados própria, e essa arquitetura precisa ser consistente com a arquitetura de dados da organização em que a solução vai operar, porque a inconsistência na definição ou no uso do dado produz erro em serviço de negócio ou faz a organização perder uma oportunidade.
 
-O caso da produtora de vídeo, apresentado por Lovatt, mostra essa inconsistência. A produtora mantém o cadastro dos autores do conteúdo, funcionários ou contratados externos, e a área comercial mantém o cadastro de clientes. Alguns contratados externos também são clientes, mas as definições de cliente e de autor são diferentes e incompatíveis, de modo que a mudança de endereço informada por essa pessoa é registrada como cliente ou como autor, nunca nos dois, e a produtora passa a contatá-la com dados errados. A regra que Lovatt extrai do caso é que toda solução nova recebe como entrada os componentes relevantes da arquitetura de dados corporativa, e todo dado novo que ela cria é integrado a essa arquitetura o quanto antes, mesmo em caráter provisório.
+A Produtora ACME, empresa de produção de vídeo, ilustra essa inconsistência. A produtora mantém o cadastro dos autores do conteúdo, funcionários ou contratados externos, e a área comercial mantém o cadastro de clientes. Alguns contratados externos também são clientes, mas as definições de cliente e de autor são diferentes e incompatíveis, de modo que a mudança de endereço informada por essa pessoa é registrada como cliente ou como autor, nunca nos dois, e a produtora passa a contatá-la com dados errados. Do caso decorre a regra de que toda solução nova recebe como entrada os componentes relevantes da arquitetura de dados corporativa, e todo dado novo que ela cria é integrado a essa arquitetura o quanto antes, mesmo em caráter provisório.
 
 ### Dado, informação e metadado
 
-Lovatt adota as definições da norma ISO/IEC 2382 de vocabulário de tecnologia da informação. Dado é a representação reinterpretável de informação, em forma adequada à comunicação, à interpretação ou ao processamento. Informação é o conhecimento sobre objetos, fatos, eventos, processos ou ideias que tem significado dentro de um contexto. Metadado é a categoria intermediária, o dado sobre o dado, que reúne descrições, regras, restrições e ligações entre itens de dado. O livro trata dado, informação e metadado numa única arquitetura de dados, sem negar a diferença entre eles, porque os três estão ligados de forma estreita na prática.
+Este bloco adota as definições da norma ISO/IEC 2382 de vocabulário de tecnologia da informação. Dado é a representação reinterpretável de informação, em forma adequada à comunicação, à interpretação ou ao processamento. Informação é o conhecimento sobre objetos, fatos, eventos, processos ou ideias que tem significado dentro de um contexto. Metadado é a categoria intermediária, o dado sobre o dado, que reúne descrições, regras, restrições e ligações entre itens de dado. A arquitetura de dados trata dado, informação e metadado num único domínio, sem negar a diferença entre eles, porque os três estão ligados de forma estreita na prática.
 
-A Figura 1 aplica as três definições a um registro de consulta do Hospital Vale do Pousio, com valores fictícios. A linha gravada no banco é o dado, o dicionário de dados que dá nome, tipo e significado a cada campo é o metadado, e a frase que afirma que o paciente P-40213 faltou à consulta de cardiologia em 14/10/2026 é a informação obtida pela interpretação do dado com o metadado.
+A Figura 1 aplica as três definições a um registro de consulta do Hospital ACME, agendada pelo aplicativo do paciente, com valores fictícios. A linha gravada no banco é o dado, o dicionário de dados que dá nome, tipo e significado a cada campo é o metadado, e a frase que afirma que o paciente P-40213 faltou à consulta de cardiologia em 14/10/2026 é a informação obtida pela interpretação do dado com o metadado.
 
 <figure markdown="span">
-![Três cartões com o mesmo registro de consulta do Hospital Vale do Pousio. O dado é uma linha de valores separados por ponto e vírgula, o metadado é o dicionário de dados que descreve cada campo e a informação é a frase que diz que o paciente faltou à consulta de cardiologia.](../assets/images/modulo-4-b2-dado-informacao-metadado.svg){ .module-diagram }
+![Três cartões com o mesmo registro de consulta do Hospital ACME. O dado é uma linha de valores separados por ponto e vírgula, o metadado é o dicionário de dados que descreve cada campo e a informação é a frase que diz que o paciente faltou à consulta de cardiologia.](../assets/images/modulo-4-b2-dado-informacao-metadado.svg){ .module-diagram }
 </figure>
 
 *Figura 1 — Dado, metadado e informação num registro de consulta. Fonte: material do curso, com base em Lovatt (2021, seção 2.5).*
 
-Em banco relacional, o metadado técnico fica num catálogo mantido pelo próprio gerenciador de banco de dados. No PostgreSQL, o catálogo do sistema e o esquema information_schema, definido pelo padrão SQL, descrevem as tabelas, as colunas, os tipos e as restrições de cada base, e os dicionários e catálogos de dados corporativos acrescentam a essas descrições o significado de negócio, artefato que Lovatt (2021, seção 2.5.3) lista como insumo da solução.
+Em banco relacional, o metadado técnico fica num catálogo mantido pelo próprio gerenciador de banco de dados. No PostgreSQL, o catálogo do sistema e o esquema information_schema, definido pelo padrão SQL, descrevem as tabelas, as colunas, os tipos e as restrições de cada base, e os dicionários e catálogos de dados corporativos acrescentam a essas descrições o significado de negócio e entram na solução como insumo.
 
 ### Objetivos, atividades e artefatos
 
-Os objetivos da arquitetura de dados que se sobrepõem aos da arquitetura de solução são atender às necessidades de dado e de informação do negócio, promover o entendimento do dado na organização, garantir consistência de uso e eliminar a duplicação de definições, cumprir a legislação e a regulação aplicáveis e governar o desenvolvimento de soluções novas (Lovatt, 2021, seção 2.5.1).
+Os objetivos da arquitetura de dados que se sobrepõem aos da arquitetura de solução são atender às necessidades de dado e de informação do negócio, promover o entendimento do dado na organização, garantir consistência de uso e eliminar a duplicação de definições, cumprir a legislação e a regulação aplicáveis e governar o desenvolvimento de soluções novas.
 
-Os artefatos que entram na arquitetura de solução como insumo são os modelos e esquemas de dados, inclusive de mensagens e fluxos, as definições de dado, os dicionários e catálogos, e os projetos de bases de dados (Lovatt, 2021, seção 2.5.3). Entre eles, Lovatt destaca a grade, uma tabela que cruza entidades de dado com outros componentes, como funções de negócio ou aplicações, e que torna visível, durante a análise de impacto, quais componentes são atingidos por uma mudança em uma entidade.
+Os artefatos que entram na arquitetura de solução como insumo são os modelos e esquemas de dados, inclusive de mensagens e fluxos, as definições de dado, os dicionários e catálogos, e os projetos de bases de dados. Entre eles se destaca a grade, uma tabela que cruza entidades de dado com outros componentes, como funções de negócio ou aplicações, e que torna visível, durante a análise de impacto, quais componentes são atingidos por uma mudança em uma entidade.
 
 ### Entidade, generalização e especialização
 
-O dado é uma abstração do mundo real e guarda só os detalhes que interessam ao negócio, restritos ainda pela legislação de dados pessoais, que exige necessidade de negócio e consentimento para o tratamento. Lovatt (2021, seção 2.5.5) descreve três operações de abstração com o Hospital Vale do Pousio, que quer convidar pacientes a comparecer a consultas.
+O dado é uma abstração do mundo real e guarda só os detalhes que interessam ao negócio, restritos ainda pela legislação de dados pessoais, que exige necessidade de negócio e consentimento para o tratamento. As três operações de abstração da tabela abaixo são ilustradas com o Hospital ACME, que passa a trocar pedidos de exame e resultados com os laboratórios de apoio por meio eletrônico, integrados ao prontuário.
 
-| Operação | Definição | Exemplo no Hospital Vale do Pousio |
+| Operação | Definição | Exemplo no Hospital ACME |
 | --- | --- | --- |
-| Entidade | Modelar uma coisa do mundo real como entidade de dado | Paciente, convite, clínica, consulta e profissional de saúde |
+| Entidade | Modelar uma coisa do mundo real como entidade de dado | Paciente, pedido de exame, resultado de exame, laboratório de apoio e profissional de saúde |
 | Generalização | Reunir entidades distintas numa entidade mais abstrata | Paciente e profissional de saúde generalizados em pessoa |
 | Especialização | Modelar uma entidade mais específica quando há diferença real de estrutura ou comportamento | Profissional de saúde especializado em enfermeiro especialista e médico |
 
 A generalização tem efeito prático na solução, porque ajuda a reconhecer que uma entidade já existe na arquitetura corporativa com outro nome e pode ser reaproveitada sem receber uma definição nova.
 
-A Figura 2 representa as duas operações do Hospital Vale do Pousio num diagrama de entidades simplificado, em que a seta de ponta vazada sai da entidade específica e aponta para a mais geral. Cada entidade lista apenas os atributos que acrescenta às entidades acima dela, e esses atributos são ilustrativos, porque não constam do livro de Lovatt.
+A Figura 2 representa as duas operações do Hospital ACME num diagrama de entidades simplificado, em que a seta de ponta vazada sai da entidade específica e aponta para a mais geral. Cada entidade lista apenas os atributos que acrescenta às entidades acima dela, e esses atributos são ilustrativos.
 
 <figure markdown="span">
 ![Diagrama de entidades com pessoa no topo, paciente e profissional de saúde abaixo dela ligados por seta de generalização, e enfermeiro especialista e médico abaixo de profissional de saúde ligados por seta de especialização, cada entidade com os próprios atributos.](../assets/images/modulo-4-b2-generalizacao-especializacao.svg){ .module-diagram }
 </figure>
 
-*Figura 2 — Generalização e especialização das entidades do Hospital Vale do Pousio. Fonte: material do curso, com base em Lovatt (2021, seção 2.5.5).*
+*Figura 2 — Generalização e especialização das entidades do Hospital ACME. Fonte: material do curso, com base em Lovatt (2021, seção 2.5.5).*
 
 ### Fonte de verdade e regime de consistência
 
@@ -114,7 +114,7 @@ A **propriedade do dado** atribui cada entidade a um único responsável, que é
 
 O banco compartilhado entre aplicações contraria a propriedade do dado. Quando duas aplicações leem e gravam as mesmas tabelas, cada mudança de estrutura passa a exigir alteração coordenada em dois códigos-fonte, frequentemente mantidos por equipes distintas, e nenhuma das duas pode evoluir o modelo de dados sem a outra. O custo aparece no prazo de entrega de qualquer mudança que toque essas tabelas e na impossibilidade de extrair uma parte do sistema sem reescrever a outra.
 
-A forma técnica mais comum da propriedade do dado é a prática de um banco por serviço, em que o dado persistente de cada serviço é privado e acessível apenas pela interface desse serviço (Richardson, n.d.). Os consumidores leem pela interface ou recebem os eventos que o dono publica no Kafka, diretamente ou por captura de mudanças com o Debezium, e dependem só do contrato da interface e do evento, que o dono mantém estável enquanto altera o esquema interno.
+A forma técnica mais comum da propriedade do dado é a prática de um banco por serviço, em que o dado persistente de cada serviço é privado e acessível apenas pela interface desse serviço (Richardson, n.d.). Os consumidores leem pela interface ou recebem os eventos que o dono publica no Kafka, no estilo da [arquitetura orientada a eventos](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-orientada-a-eventos) apresentada na Aula 3, diretamente ou por captura de mudanças com o Debezium, e dependem só do contrato da interface e do evento, que o dono mantém estável enquanto altera o esquema interno.
 
 <figure markdown="span">
 ![Dois painéis. À esquerda, as aplicações de agenda e de comunicação leem e gravam as mesmas tabelas num banco único, com o acoplamento destacado no esquema. À direita, o serviço de agenda é dono da consulta, tem banco próprio, oferece interface e publica o evento consulta agendada, e o acoplamento fica restrito ao contrato.](../assets/images/modulo-4-b2-banco-compartilhado-dono.svg){ .module-diagram }
@@ -130,28 +130,15 @@ A forma técnica mais comum da propriedade do dado é a prática de um banco por
 
 ## Uso pelo arquiteto
 
-O arquiteto usa a grade dado × aplicação para localizar o impacto de mudar uma entidade e para revelar entidades sem dono declarado ou com mais de uma aplicação que as grava. A grade também prepara o bloco 3, porque o dono de cada entidade é a origem natural das interfaces que a expõem, e o regime de consistência de cada consumidor é a exigência que o contrato de integração precisa garantir.
+O arquiteto usa a grade dado × aplicação para localizar o impacto de mudar uma entidade e para revelar entidades sem dono declarado ou com mais de uma aplicação que as grava. A grade também prepara o [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md), porque o dono de cada entidade é a origem natural das interfaces que a expõem, e o regime de consistência de cada consumidor é a exigência que o [contrato de integração](../referencia/glossario.md#contrato-de-integracao) precisa garantir.
 
 ## Exercício 14
 
-Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. O exercício parte das [capacidades](../referencia/glossario.md#capacidade) marcadas como afetadas no [exercício 13](bloco-1-arquitetura-de-negocio.md#exercicio-13), das responsabilidades distribuídas no esboço lógico do [exercício 9](../modulo-3-design-e-padroes/bloco-1-principios-de-design.md#exercicio-9) e de fatos reproduzidos da [arquitetura de linha de base](../caso-acme/linha-de-base.md).
 
-A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. O exercício parte das capacidades marcadas como afetadas no [exercício 13](bloco-1-arquitetura-de-negocio.md#exercicio-13), das responsabilidades distribuídas no esboço lógico do [exercício 9](../modulo-3-design-e-padroes/bloco-1-principios-de-design.md#exercicio-9) e dos fatos abaixo, reproduzidos da [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+### Item 1: Dono de cada entidade
 
-- O banco Oracle, com 740 tabelas, é compartilhado entre o núcleo COBOL e a camada Java, sem separação de esquema por responsabilidade.
-- Existem 2.300 pontos no código Java que leem ou gravam tabelas do núcleo diretamente, contornando as transações do núcleo, e o inventário não registra a distribuição desses pontos por entidade.
-- Toda troca com o ERP financeiro e com o ambiente virtual de aprendizagem ocorre por arquivo, em lote noturno.
-
-| Lote | Horário | Sentido | Conteúdo |
-| --- | --- | --- | --- |
-| Exportação de lançamentos financeiros | 23h10 | ACME para ERP | Mensalidade, multa e desconto do dia |
-| Extração para o data warehouse | 02h30 | Oracle para data warehouse | Cópia integral de 140 tabelas |
-| Carga de turmas e matrículas | 04h00 | ACME para ambiente virtual | Turma, matrícula e vínculo docente |
-| Exportação de notas consolidadas | 05h10 | ACME para ambiente virtual | Nota consolidada e situação por disciplina |
-| Retorno de baixas de pagamento | 05h30 | ERP para ACME | Confirmação de pagamento e inadimplência |
-| Retorno de notas e frequência de atividades | 06h15 | Ambiente virtual para ACME | Nota de atividade avaliativa e presença |
-
-O artefato fornecido é a grade dado × aplicação da linha de base, montada pelo material do curso a partir desses fatos, sem a coluna de dono.
+A grade dado × aplicação abaixo foi montada pelo material do curso a partir da linha de base e cruza as cinco entidades acadêmicas com as aplicações que as gravam, leem ou recebem, sem a coluna de dono.
 
 | Entidade | Núcleo transacional | Portais Java | ERP financeiro | Ambiente virtual | Data warehouse |
 | --- | --- | --- | --- | --- | --- |
@@ -162,17 +149,74 @@ O artefato fornecido é a grade dado × aplicação da linha de base, montada pe
 | Turma | Grava | Lê ou grava, por conector e por acesso direto ao banco, sem distribuição registrada por entidade | Não registrado | Recebe por lote às 04h00 | Recebe por lote às 02h30 |
 
 1. Marque, para cada uma das cinco entidades, a aplicação ou o elemento do esboço lógico do exercício 9 que deve ser o dono na arquitetura alvo, com uma linha de justificativa.
-2. Marque, para cada consumidor de cada entidade, o regime de consistência exigido, forte ou eventual com o prazo, usando os requisitos R6 e R7 da [página inicial do caso](../caso-acme/index.md) quando se aplicarem.
-3. Indique qual capacidade marcada como afetada no exercício 13 depende de cada entidade.
-4. Responda, em até três linhas, por que os 2.300 acessos diretos ao banco contrariam a propriedade do dado.
 
 O dono marcado para a entidade nota é a origem do contrato de integração do exercício 15, no [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md).
+
+### Item 2: Regime de consistência por consumidor
+
+Toda troca com o ERP financeiro e com o ambiente virtual de aprendizagem ocorre por arquivo, em lote noturno, e o data warehouse recebe uma extração diária. A tabela lista os seis lotes da linha de base, e o diagrama mostra o sentido e o horário de cada um.
+
+| Lote | Horário | Sentido | Conteúdo |
+| --- | --- | --- | --- |
+| Exportação de lançamentos financeiros | 23h10 | ACME para ERP | Mensalidade, multa e desconto do dia |
+| Extração para o data warehouse | 02h30 | Oracle para data warehouse | Cópia integral de 140 tabelas |
+| Carga de turmas e matrículas | 04h00 | ACME para ambiente virtual | Turma, matrícula e vínculo docente |
+| Exportação de notas consolidadas | 05h10 | ACME para ambiente virtual | Nota consolidada e situação por disciplina |
+| Retorno de baixas de pagamento | 05h30 | ERP para ACME | Confirmação de pagamento e inadimplência |
+| Retorno de notas e frequência de atividades | 06h15 | Ambiente virtual para ACME | Nota de atividade avaliativa e presença |
+
+```mermaid
+graph LR
+    ACA["Sistema acadêmico da ACME"]
+    ERP["ERP financeiro"]
+    AVA["Ambiente virtual de aprendizagem"]
+    DW["Data warehouse"]
+
+    ACA -->|"23h10 lançamentos financeiros"| ERP
+    ERP -->|"05h30 baixas de pagamento"| ACA
+    ACA -->|"02h30 cópia de 140 tabelas"| DW
+    ACA -->|"04h00 turmas e matrículas"| AVA
+    ACA -->|"05h10 notas consolidadas"| AVA
+    AVA -->|"06h15 notas e frequência de atividades"| ACA
+```
+
+Dois requisitos da [página inicial do caso](../caso-acme/index.md) tratam de prazo.
+
+| Código | Declaração |
+| --- | --- |
+| R6 | O portal sustenta 5.800 sessões simultâneas na abertura da matrícula, com percentil 95 do tempo de confirmação em até 4 segundos |
+| R7 | A nota lançada pelo professor chega ao ambiente virtual de aprendizagem em até 10 minutos |
+
+1. Marque, para cada consumidor de cada entidade na grade do item 1, o regime de consistência exigido, forte ou eventual com o prazo, usando os requisitos R6 e R7 quando se aplicarem.
+
+### Item 3: Capacidade que depende de cada entidade
+
+As dez capacidades acadêmicas classificadas no exercício 13 são admissão e ingresso, oferta e grade curricular, matrícula em disciplinas, avaliação e registro de notas, controle de frequência, emissão de documentos acadêmicos, gestão de bolsas e descontos, cobrança de mensalidades, biblioteca e relação com o órgão regulador. As cinco entidades da grade são aluno, matrícula, nota, lançamento financeiro e turma.
+
+1. Indique, para cada entidade, qual capacidade marcada como afetada no exercício 13 depende dela.
+
+### Item 4: Acesso direto ao banco
+
+O banco Oracle, com 740 tabelas, é compartilhado entre o núcleo COBOL e a camada Java, sem separação de esquema por responsabilidade. Existem 2.300 pontos no código Java que leem ou gravam tabelas do núcleo diretamente, contornando as transações do núcleo, e o inventário não registra a distribuição desses pontos por entidade.
+
+```mermaid
+graph TD
+    PJ["Portais Java"]
+    NUC["Núcleo transacional"]
+    BD[("Banco Oracle com 740 tabelas")]
+
+    PJ -->|"chama por conector transacional"| NUC
+    NUC -->|"lê e grava pelas transações do núcleo"| BD
+    PJ -->|"lê e grava diretamente em 2.300 pontos do código"| BD
+```
+
+1. Responda, em até três linhas, por que os 2.300 acessos diretos ao banco contrariam a propriedade do dado.
 
 ## Fontes
 
 As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso. O trecho consultado aparece entre parênteses ao fim de cada entrada.
 
-- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.5, arquitetura de dados corporativa e de solução, definições de dado, informação e metadado, objetivos, atividades, artefatos e grade de análise de impacto, generalização e especialização. O Hospital Vale do Pousio é a versão em português do caso Fallowdale Hospital, usado ao longo do livro)
+- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.5, arquitetura de dados corporativa e de solução, definições de dado, informação e metadado, objetivos, atividades, artefatos e grade de análise de impacto, generalização e especialização. O Hospital ACME é adaptado do caso Fallowdale Hospital, usado ao longo do livro, e a Produtora ACME é adaptada de um caso de produção de conteúdo audiovisual apresentado na mesma obra)
 - Kleppmann, M. (2017). *Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems*. O'Reilly Media. (parte III, sistemas de registro e dado derivado)
 - Dehghani, Z. (2022). *Data mesh: Delivering data-driven value at scale*. O'Reilly Media. (princípio da propriedade do dado pelo domínio)
 - Debezium. (n.d.-a). *Debezium features*. https://debezium.io/documentation/reference/stable/features.html (captura de mudanças baseada em log, conectores de origem para o Kafka Connect, captura de exclusões)

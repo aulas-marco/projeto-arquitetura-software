@@ -8,7 +8,7 @@ Ao final da aula, o aluno é capaz de
 
 - usar modelos de arquitetura de negócio fornecidos para localizar o que a solução muda no negócio
 - distinguir dado, informação e metadado, e atribuir a cada entidade dono, consumidores e regime de consistência
-- classificar as aplicações do portfólio pela situação estratégica e descrever uma interface pelos seis atributos de Lovatt
+- classificar as aplicações do portfólio pela situação estratégica e descrever uma interface pelos seis atributos de interface
 - distinguir padrão técnico, protocolo, especificação de interface e contrato de integração
 - reconhecer o nível correto de cada elemento num diagrama de contexto e num diagrama de contêineres
 - relacionar cada interface entre contêineres ao modo de comunicação, ao volume e à latência que ela exige
@@ -37,13 +37,13 @@ A aula parte de quatro produtos das aulas anteriores. A declaração de escopo d
 
 ## Roteiro da aula
 
-O [bloco 1](bloco-1-arquitetura-de-negocio.md) apresenta a arquitetura de negócio pelas definições citadas por Lovatt, as quatro perguntas que decidem a aplicabilidade da arquitetura de solução, os quatro modelos de arquitetura de negócio e o ciclo de mudança de negócio, com o exemplo do Hospital Vale do Pousio. O exercício 13 fornece as capacidades acadêmicas, o fluxo de valor do aluno e o processo de lançamento de nota da ACME, e pede ao aluno que classifique as capacidades e localize nas etapas e nas atividades o efeito da solução.
+O [bloco 1](bloco-1-arquitetura-de-negocio.md) apresenta a definição de arquitetura de negócio, as quatro perguntas que decidem a aplicabilidade da arquitetura de solução, os quatro modelos de arquitetura de negócio e o ciclo de mudança de negócio, com o exemplo do Hospital ACME e da modernização da comunicação com os laboratórios de apoio, que passam a trocar pedidos de exame e resultados por meio eletrônico, integrados ao prontuário. O exercício 13 fornece as capacidades acadêmicas, o fluxo de valor do aluno e o processo de lançamento de nota da ACME, e pede ao aluno que classifique as capacidades e localize nas etapas e nas atividades o efeito da solução.
 
 O [bloco 2](bloco-2-arquitetura-de-dados.md) trata da arquitetura de dados da solução e de sua consistência com a arquitetura corporativa, das definições de dado, informação e metadado, da grade dado × aplicação, da distinção entre fonte de verdade e cópia derivada, do regime de consistência e da propriedade do dado. O exercício 14 fornece a grade da linha de base da ACME e pede ao aluno que marque o dono de cada entidade e o regime exigido por consumidor.
 
-O [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md) abre com o modelo C4, apresentado como a notação de modelagem da aula nos níveis de contexto e de contêineres, e trata em seguida do portfólio de aplicações, da hierarquia de serviços, dos seis atributos de uma interface, da distinção entre padrão técnico, protocolo, especificação e contrato, dos estilos de integração e da estrutura de um contrato de integração. O exercício 15 pede a classificação das aplicações da ACME, o preenchimento do contrato da integração de notas e a correção de um diagrama de contexto com dois erros de nível.
+O [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md) trata das aplicações e interfaces, do portfólio de aplicações, dos seis atributos de uma interface, da distinção entre padrão técnico, protocolo, especificação e contrato, da estrutura de um contrato de integração, dos estilos de integração e da hierarquia de serviços, e termina com o modelo C4, apresentado como a notação de modelagem da aula nos níveis de contexto e de contêineres. O exercício 15 pede a classificação das aplicações da ACME, o preenchimento do contrato da integração de notas e a correção de um diagrama de contexto com dois erros de nível.
 
-O [bloco 4](bloco-4-arquitetura-de-infraestrutura.md) trata da arquitetura de infraestrutura no nível lógico, da representação da solução como grafo de blocos de construção e interfaces, das camadas de execução, da topologia de implantação e do diagrama de implantação do modelo C4, sem escolha de produto, que pertence à Aula 5. O exercício 16 fornece o diagrama de contêineres da arquitetura alvo e pede ao aluno que rotule cada relação com modo de comunicação, volume e latência.
+O [bloco 4](bloco-4-arquitetura-de-infraestrutura.md) trata da arquitetura de infraestrutura no nível lógico, da representação da solução como grafo de blocos de construção e interfaces, das camadas de execução, da topologia de implantação e do diagrama de implantação do modelo C4, aplicado ao mesmo exemplo de contêineres do bloco 3, sem escolha de produto, que pertence à Aula 5. O exercício 16 fornece o diagrama de contêineres da arquitetura alvo e pede ao aluno que rotule cada relação com modo de comunicação, volume e latência.
 
 A [síntese](sintese.md) fecha o módulo com o checklist do que precisa permanecer, a cadeia dos domínios construída na aula, a autoavaliação e as fontes da aula inteira.
 

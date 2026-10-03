@@ -35,7 +35,7 @@ A tabela abaixo repete o conteúdo do infográfico em texto, para consulta e par
 | Desenvolvimento do roteiro | Desenho validado e resultado das análises | Ordenar as mudanças em sequência viável, tratando risco e prioridade das partes interessadas | Roteiro de entrega autorizado pelo patrocinador de negócio |
 | Conclusão | Roteiro autorizado | Implementar o desenho com as disciplinas de execução, com a arquitetura em papel de governança | Artefatos da solução implantada nos níveis conceitual, lógico e físico |
 
-A fase de iniciação tem custo deliberadamente baixo, porque seu produto é uma decisão e não um desenho. O que ela exige é tempo e atenção de partes interessadas seniores, e é nela que costuma ser identificado o patrocinador de negócio, o responsável último pela solução, que responde pelo sucesso dela e decide sobre a passagem de cada fase.
+A fase de iniciação tem custo deliberadamente baixo, porque seu produto é uma decisão e não um desenho. O que ela exige é tempo e atenção de [partes interessadas](bloco-3-papel-do-arquiteto-de-solucao.md#conceito) seniores, conceito definido no bloco 3, e é nela que costuma ser identificado o patrocinador de negócio, o responsável último pela solução, que responde pelo sucesso dela e decide sobre a passagem de cada fase.
 
 O termo problema, nesse processo, cobre três categorias. Problemas imediatos que a organização precisa tratar, problemas antecipados que exigem redução de risco, e oportunidades que a organização deve aproveitar. O espaço do problema delimita o escopo da investigação, e é a área do negócio que precisa ser examinada primeiro para estabelecer a causa raiz.
 
@@ -55,11 +55,11 @@ O ciclo também organiza a conversa sobre incerteza. Quando o patrocinador pergu
 
 ## Exercício 4
 
-Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 4.900 turmas por semestre e 230.400 matrículas em disciplina por semestre, cujo sistema acadêmico está em operação desde 2004 e sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro. A modernização foi autorizada pela Reitoria com orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses.
 
-A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 4.900 turmas por semestre e 230.400 matrículas em disciplina por semestre. O sistema acadêmico está em operação desde 2004 e sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro. A modernização foi autorizada pela Reitoria com orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses.
+### Item 1: Fase e papel de cada artefato
 
-A lista abaixo traz dez artefatos do caso, alguns já existentes e outros ainda por produzir.
+O quadro abaixo traz dez artefatos do caso, alguns já existentes e outros ainda por produzir. Um [artefato de linha de base](../referencia/glossario.md#artefato-de-linha-de-base) é aquele que já descreve a situação atual antes do início do processo, conforme a seção [Conceito](#conceito) deste bloco.
 
 | Código | Artefato |
 | --- | --- |
@@ -74,11 +74,22 @@ A lista abaixo traz dez artefatos do caso, alguns já existentes e outros ainda 
 | A9 | Documento que autoriza a equipe de arquitetura a iniciar a investigação, com prazo e entregáveis |
 | A10 | Conjunto de modelos da solução implantada, devolvido ao repositório de arquitetura corporativa |
 
-Responda às três perguntas abaixo.
-
 1. Associe cada um dos dez artefatos à fase do ciclo em que ele é produzido ou usado como entrada, e indique se ele é entrada, produto intermediário ou entregável.
-2. Identifique quais artefatos da lista são artefatos de linha de base, isto é, já existiam antes do início do processo.
-3. A instituição pediu a data de conclusão do ciclo logo após a autorização registrada em A9. Explique, em até cinco linhas, por que essa resposta ainda não pode ser dada com precisão, e qual fase produz a informação que a sustenta.
+2. Identifique quais artefatos do quadro são artefatos de linha de base, isto é, já existiam antes do início do processo.
+
+### Item 2: Data de conclusão do ciclo
+
+O diagrama abaixo mostra as oito fases do ciclo e o momento em que a instituição pediu a data de conclusão, logo após a autorização registrada em A9.
+
+```mermaid
+flowchart LR
+    F1["Fase 1<br/>Iniciação"] --> F2["Fase 2<br/>Descoberta"] --> F3["Fase 3<br/>Definição do esboço da solução"] --> F4["Fase 4<br/>Análise"]
+    F4 --> F5["Fase 5<br/>Desenho lógico"] --> F6["Fase 6<br/>Validação"] --> F7["Fase 7<br/>Desenvolvimento do roteiro"] --> F8["Fase 8<br/>Conclusão"]
+    A9["A9, autorização para iniciar a investigação"] -.-> F1
+    PED["Pedido da data de conclusão do ciclo"] -.-> F1
+```
+
+1. Explique, em até cinco linhas, por que a data de conclusão ainda não pode ser dada com precisão no momento do pedido, e indique qual fase produz a informação que a sustenta.
 
 ## Fontes
 

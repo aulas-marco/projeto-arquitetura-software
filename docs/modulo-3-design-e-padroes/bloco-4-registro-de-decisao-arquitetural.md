@@ -14,7 +14,7 @@ A distinção entre decisão de arquitetura de solução e decisão de arquitetu
 
 Decisões arquiteturais são aquelas que afetam a estrutura, as características não funcionais, as dependências, as interfaces ou as técnicas de construção do sistema. A definição é operacional, ela permite separar o que merece registro do que não merece sem recorrer a julgamento de importância. Escolher a fronteira entre dois módulos é decisão arquitetural, porque altera a estrutura e as interfaces, enquanto a escolha do formatador de código do projeto fica fora do registro por não afetar nenhum desses cinco aspectos.
 
-O registro de decisão ocupa um lugar preciso na cadeia desta aula. Os princípios do [bloco 1](bloco-1-principios-de-design.md) e os cenários da Aula 2 fornecem as forças que diferenciam as alternativas, a comparação de estilos do [bloco 2](bloco-2-estilos-arquiteturais.md) fornece as alternativas e a escolha, e o mapa de padrões do [bloco 3](bloco-3-padroes-arquiteturais-e-de-design.md) fornece as consequências e os custos aceitos. O ADR registra uma decisão com o seu racional, e o desenho lógico e o plano de implementação continuam sendo artefatos próprios, aos quais o registro remete sem reproduzi-los.
+O registro de decisão ocupa um lugar preciso na cadeia desta aula. Os princípios do [bloco 1](bloco-1-principios-de-design.md) e os [cenários de atributo de qualidade](../referencia/glossario.md#cenario-de-atributo-de-qualidade) da Aula 2 fornecem as forças que diferenciam as alternativas, a comparação de estilos do [bloco 2](bloco-2-estilos-arquiteturais.md) fornece as alternativas e a escolha, e o mapa de padrões do [bloco 3](bloco-3-padroes-arquiteturais-e-de-design.md) fornece as consequências e os custos aceitos. O ADR registra uma decisão com o seu racional, e o desenho lógico e o plano de implementação continuam sendo artefatos próprios, aos quais o registro remete sem reproduzi-los.
 
 ### O racional do arquiteto
 
@@ -165,27 +165,49 @@ Quando falta dado para preencher um campo, o caminho é registrar o ADR com esta
 
 ## Exercício 12
 
-Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. Este exercício pede o ADR que registra o estilo escolhido e os padrões que materializam a estratégia de modernização, no template de dez campos apresentado no Conceito acima, a partir dos produtos dos três exercícios anteriores desta aula.
 
-A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. Os três exercícios anteriores desta aula produziram as entradas do registro, os princípios priorizados e o esboço lógico do [exercício 9](bloco-1-principios-de-design.md#exercicio-9), a comparação de três estilos com o estilo recomendado do [exercício 10](bloco-2-estilos-arquiteturais.md#exercicio-10) e o mapa de problema, padrão e consequência do [exercício 11](bloco-3-padroes-arquiteturais-e-de-design.md#exercicio-11). Escreva o ADR que registra o estilo escolhido e os padrões que materializam a estratégia de modernização, no template de dez campos apresentado no Conceito acima.
+### Item 1: Origem de cada campo do registro
+
+O diagrama abaixo indica de qual exercício anterior vem o conteúdo de cada campo do ADR. Os produtos são os princípios priorizados e o esboço lógico do [exercício 9](bloco-1-principios-de-design.md#exercicio-9), a comparação de três estilos com o estilo recomendado do [exercício 10](bloco-2-estilos-arquiteturais.md#exercicio-10) e o mapa de problema, padrão e consequência do [exercício 11](bloco-3-padroes-arquiteturais-e-de-design.md#exercicio-11).
+
+```mermaid
+graph LR
+    E9["Exercício 9, princípios priorizados e esboço lógico"] --> FOR["Campo Forças"]
+    E10["Exercício 10, comparação de três estilos"] --> CTX["Campo Contexto"]
+    E10 --> FOR
+    E10 --> ALT["Campo Alternativas"]
+    E10 --> DEC["Campo Decisão"]
+    E11["Exercício 11, mapa de problema, padrão e consequência"] --> DEC
+    E11 --> CON["Campo Consequências"]
+```
+
+Escreva os cinco primeiros grupos de campos do ADR.
 
 1. título, estado e data
 2. contexto, descrevendo de forma neutra os dois cenários que motivaram a análise e delimitando o que fica fora do registro
 3. forças, derivadas dos princípios priorizados no exercício 9 e dos cenários, com medida sempre que o caso fornecer
 4. alternativas, com os dois estilos comparados e descartados no exercício 10, cada um avaliado pelas mesmas forças do item anterior
 5. decisão, com o estilo escolhido e os padrões do exercício 11, conectando a justificativa às forças listadas
-6. consequências, com ao menos uma positiva, uma negativa e uma neutra, incluindo o custo aceito de cada padrão
-7. evidências, indicando onde cada uma poderia ser reproduzida
-8. revisão, com um gatilho observável
+
+### Item 2: Consequências, evidências e revisão
 
 As quatro frases abaixo servem de modelo para os campos que costumam sair fracos.
 
-- Alternativa descartada, o estilo X atenderia a força Y, mas traria o risco Z, e foi descartado porque a evidência disponível é W, ou porque ela não existe.
-- Consequência favorável, o efeito X, observável em Y.
-- Consequência desfavorável, aceitamos o custo X enquanto a condição Y permanecer verdadeira.
-- Gatilho de revisão, se a medida X ultrapassar o valor Y na janela Z, este registro é reaberto.
+| Campo | Frase-modelo |
+| --- | --- |
+| Alternativa descartada | O estilo X atenderia a força Y, mas traria o risco Z, e foi descartado porque a evidência disponível é W, ou porque ela não existe. |
+| Consequência favorável | O efeito X, observável em Y. |
+| Consequência desfavorável | Aceitamos o custo X enquanto a condição Y permanecer verdadeira. |
+| Gatilho de revisão | Se a medida X ultrapassar o valor Y na janela Z, este registro é reaberto. |
 
-Uma alternativa listada só pelo nome não foi comparada, e um gatilho do tipo "revisar no futuro" não define quando a revisão ocorre. Se faltar dado para algum campo, registre o estado como proposta e liste os campos incompletos ao final.
+Escreva os três últimos grupos de campos do ADR, observando que uma alternativa listada só pelo nome não foi comparada e que um gatilho do tipo "revisar no futuro" não define quando a revisão ocorre.
+
+1. consequências, com ao menos uma positiva, uma negativa e uma neutra, incluindo o custo aceito de cada padrão
+2. evidências, indicando onde cada uma poderia ser reproduzida
+3. revisão, com um gatilho observável
+
+Se faltar dado para algum campo, o registro fica com o estado proposta e com a lista dos campos incompletos ao final.
 
 ## Fontes
 

@@ -1,6 +1,6 @@
 # Aula 5, frameworks, tecnologias e definição tecnológica
 
-A Aula 5 converte o desenho lógico em escolha de tecnologia. Ela vai do bloco de construção da solução ao serviço de infraestrutura que o realiza e ao modelo técnico de referência que classifica esses serviços, trata da escolha de plataforma e de frameworks, avalia a segurança fim a fim sobre a tecnologia escolhida, conforme Lovatt (2021, seção 7.7), e registra a decisão de plataforma com as lacunas de provisão.
+A Aula 5 converte o [desenho lógico](../referencia/glossario.md#desenho-logico), produzido no [bloco 1 da Aula 3](../modulo-3-design-e-padroes/bloco-1-principios-de-design.md#do-conceitual-ao-logico), em escolha de tecnologia. Ela vai do [bloco de construção da solução](../referencia/glossario.md#bloco-de-construcao-da-solucao) ao serviço de infraestrutura que o realiza e ao modelo técnico de referência que classifica esses serviços, trata da escolha de plataforma e de frameworks, avalia a segurança fim a fim sobre a tecnologia escolhida e registra a decisão de plataforma, em [ADR](../referencia/glossario.md#adr), com as lacunas de provisão.
 
 | Bloco | Tema | Exercício |
 | --- | --- | --- |

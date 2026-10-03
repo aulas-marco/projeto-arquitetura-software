@@ -148,7 +148,7 @@ Aquilo que a organização precisa conseguir fazer para entregar seus serviços 
 
 ## Fluxo de valor
 
-Conjunto de etapas de ponta a ponta pelo qual a organização entrega valor a um cliente, do primeiro contato com a organização até a realização desse valor pelo cliente.
+Conjunto de etapas de ponta a ponta pelo qual a organização entrega valor a um cliente, do primeiro contato com a organização até a realização desse valor pelo cliente, com cada etapa nomeada por um verbo seguido do objeto, como solicitar exame.
 
 ## Arquitetura de dados
 
@@ -196,7 +196,7 @@ Notação padronizada pelo Object Management Group para representar processos de
 
 ## ArchiMate
 
-Linguagem de modelagem de arquitetura corporativa mantida pela The Open Group, cuja camada de estratégia define os elementos capacidade e fluxo de valor.
+Linguagem de modelagem de arquitetura corporativa mantida pela The Open Group, vigente na versão 4, publicada em abril de 2026, e cuja camada de estratégia define os elementos capacidade e fluxo de valor.
 
 ## Captura de mudanças de dados
 

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Capacidades afetadas pela modernização da comunicação com laboratórios</title><desc id="desc">O mesmo mapa de capacidades do hospital, com quatro capacidades destacadas em âmbar como afetadas pela modernização da comunicação com laboratórios de apoio: comunicação com o paciente, prescrição e pedido de exames, diagnóstico laboratorial e gestão do prontuário eletrônico. As demais aparecem esmaecidas. Uma anotação registra o volume e a competência que a mudança exige da capacidade de diagnóstico laboratorial.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:30px;font-weight:700}.t{font-size:19px;font-weight:700}.q{font-size:17px;fill:#52657E}.p{font-size:17px}.e{font-size:16px;font-weight:700}.w{fill:white}.s{font-size:16px}</style></defs>
+  <rect width="1200" height="720" rx="28" fill="#F2F6FB"/>
+  <text x="40" y="62" class="h">Capacidades afetadas pela mudança</text>
+  <rect x="40" y="88" width="22" height="22" rx="5" fill="#254DB8"/><text x="70" y="105" class="p">Estratégica</text>
+  <rect x="209" y="88" width="22" height="22" rx="5" fill="#5FC0D1"/><text x="239" y="105" class="p">Operacional</text>
+  <rect x="378" y="88" width="22" height="22" rx="5" fill="#E6EEF9" stroke="#52657E" stroke-width="1.5"/><text x="408" y="105" class="p">De apoio</text>
+  <rect x="520" y="88" width="22" height="22" rx="5" fill="white" stroke="#F2B84B" stroke-width="5"/><text x="550" y="105" class="p">Afetada pela mudança</text>
+  <rect x="40" y="130" width="265" height="54" rx="14" fill="#16243A"/>
+  <text x="172" y="164" text-anchor="middle" class="t w">Gestão estratégica</text>
+  <g opacity="0.35"><rect x="55" y="198" width="235" height="64" rx="12" fill="#254DB8"/>
+  <text x="172" y="225" text-anchor="middle" class="p w">Planejamento da</text>
+  <text x="172" y="248" text-anchor="middle" class="p w">oferta assistencial</text></g>
+  <g opacity="0.35"><rect x="55" y="274" width="235" height="64" rx="12" fill="#254DB8"/>
+  <text x="172" y="301" text-anchor="middle" class="p w">Qualidade e segurança</text>
+  <text x="172" y="324" text-anchor="middle" class="p w">do paciente</text></g>
+  <g opacity="0.35"><rect x="55" y="350" width="235" height="64" rx="12" fill="#254DB8"/>
+  <text x="172" y="377" text-anchor="middle" class="p w">Gestão de parcerias</text>
+  <text x="172" y="400" text-anchor="middle" class="p w">e convênios</text></g>
+  <rect x="325" y="130" width="265" height="54" rx="14" fill="#16243A"/>
+  <text x="457" y="164" text-anchor="middle" class="t w">Relacionamento</text>
+  <g opacity="0.35"><rect x="340" y="198" width="235" height="64" rx="12" fill="#5FC0D1"/>
+  <text x="457" y="225" text-anchor="middle" class="p">Agendamento de</text>
+  <text x="457" y="248" text-anchor="middle" class="p">atendimentos</text></g>
+  <g opacity="0.35"><rect x="340" y="274" width="235" height="64" rx="12" fill="#5FC0D1"/>
+  <text x="457" y="301" text-anchor="middle" class="p">Admissão e</text>
+  <text x="457" y="324" text-anchor="middle" class="p">internação</text></g>
+  <g><rect x="340" y="350" width="235" height="64" rx="12" fill="#5FC0D1" stroke="#F2B84B" stroke-width="6"/>
+  <text x="457" y="377" text-anchor="middle" class="p" font-weight="700">Comunicação com</text>
+  <text x="457" y="400" text-anchor="middle" class="p" font-weight="700">o paciente</text></g>
+  <rect x="610" y="130" width="265" height="54" rx="14" fill="#16243A"/>
+  <text x="742" y="164" text-anchor="middle" class="t w">Cuidado clínico</text>
+  <g opacity="0.35"><rect x="625" y="198" width="235" height="64" rx="12" fill="#5FC0D1"/>
+  <text x="742" y="225" text-anchor="middle" class="p">Atendimento ambulatorial</text>
+  <text x="742" y="248" text-anchor="middle" class="p">e de emergência</text></g>
+  <g><rect x="625" y="274" width="235" height="64" rx="12" fill="#5FC0D1" stroke="#F2B84B" stroke-width="6"/>
+  <text x="742" y="301" text-anchor="middle" class="p" font-weight="700">Prescrição e pedido</text>
+  <text x="742" y="324" text-anchor="middle" class="p" font-weight="700">de exames</text></g>
+  <g><rect x="625" y="350" width="235" height="64" rx="12" fill="#5FC0D1" stroke="#F2B84B" stroke-width="6"/>
+  <text x="742" y="377" text-anchor="middle" class="p" font-weight="700">Diagnóstico</text>
+  <text x="742" y="400" text-anchor="middle" class="p" font-weight="700">laboratorial</text></g>
+  <g opacity="0.35"><rect x="625" y="426" width="235" height="64" rx="12" fill="#5FC0D1"/>
+  <text x="742" y="453" text-anchor="middle" class="p">Diagnóstico</text>
+  <text x="742" y="476" text-anchor="middle" class="p">por imagem</text></g>
+  <rect x="895" y="130" width="265" height="54" rx="14" fill="#16243A"/>
+  <text x="1027" y="164" text-anchor="middle" class="t w">Apoio</text>
+  <g><rect x="910" y="198" width="235" height="64" rx="12" fill="#E6EEF9" stroke="#F2B84B" stroke-width="6"/>
+  <text x="1027" y="225" text-anchor="middle" class="p" font-weight="700">Gestão do prontuário</text>
+  <text x="1027" y="248" text-anchor="middle" class="p" font-weight="700">eletrônico</text></g>
+  <g opacity="0.35"><rect x="910" y="274" width="235" height="64" rx="12" fill="#E6EEF9" stroke="#52657E" stroke-width="1.5"/>
+  <text x="1027" y="301" text-anchor="middle" class="p">Faturamento e</text>
+  <text x="1027" y="324" text-anchor="middle" class="p">contas médicas</text></g>
+  <g opacity="0.35"><rect x="910" y="350" width="235" height="64" rx="12" fill="#E6EEF9" stroke="#52657E" stroke-width="1.5"/>
+  <text x="1027" y="377" text-anchor="middle" class="p">Gestão de</text>
+  <text x="1027" y="400" text-anchor="middle" class="p">suprimentos</text></g>
+  <g opacity="0.35"><rect x="910" y="426" width="235" height="64" rx="12" fill="#E6EEF9" stroke="#52657E" stroke-width="1.5"/>
+  <text x="1027" y="453" text-anchor="middle" class="p">Gestão de</text>
+  <text x="1027" y="476" text-anchor="middle" class="p">pessoas</text></g>
+  <rect x="40" y="520" width="1120" height="150" rx="18" fill="white" stroke="#F2B84B" stroke-width="4"/>
+  <text x="65" y="556" class="t">Diagnóstico laboratorial, a capacidade central da mudança</text>
+  <text x="65" y="590" class="p"><tspan font-weight="700">Volume:</tspan> todos os pedidos enviados aos laboratórios de apoio passam a trafegar por integração,</text>
+  <text x="65" y="613" class="p">sem redigitação, o que permite atender mais pedidos com a mesma equipe.</text>
+  <text x="65" y="645" class="p"><tspan font-weight="700">Competência:</tspan> trocar pedido e resultado estruturados, rastrear a amostra e alertar valor crítico.</text>
+</svg>

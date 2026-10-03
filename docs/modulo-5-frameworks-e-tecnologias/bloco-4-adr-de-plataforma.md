@@ -10,13 +10,13 @@ Este bloco fecha o par de decisões da aula respondendo a uma pergunta que só s
 
 ## Conceito
 
-Um **ADR de plataforma** é o segundo ADR do par ensinado na disciplina, escrito no mesmo template de dez campos apresentado no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), mas aplicado a uma decisão de natureza diferente da primeira. Aquele ADR registra a escolha de um estilo arquitetural. O ADR deste bloco registra a escolha de uma das plataformas candidatas capazes de concretizar esse estilo, comparação que o [bloco 2](bloco-2-plataforma-arquitetural.md) desta aula já ensinou a montar.
+Um **ADR de plataforma** é o segundo ADR do par ensinado na disciplina, escrito no mesmo template de dez campos apresentado no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), mas aplicado a uma decisão de natureza diferente da primeira. Aquele ADR registra a escolha de um [estilo arquitetural](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md). O ADR deste bloco registra a escolha de uma das plataformas candidatas capazes de concretizar esse estilo, comparação que o [bloco 2](bloco-2-plataforma-arquitetural.md) desta aula já apresentou.
 
 O template não muda entre os dois. O conteúdo de cada campo muda, e três campos mudam de forma característica.
 
 ### O que muda no campo de forças
 
-Em um ADR de estilo, as forças são atributos de qualidade do sistema, como absorver pico de carga ou isolar falha. Em um ADR de plataforma, elas incluem esses atributos e acrescentam os sete fatores de adaptação ao contexto apresentados no Conceito do [bloco 2](bloco-2-plataforma-arquitetural.md), entre eles conhecimento técnico do time, custo de aquisição e renovação e confiabilidade dos fornecedores.
+Em um ADR de estilo, as forças são [atributos de qualidade](../referencia/glossario.md#atributo-de-qualidade) do sistema, como absorver pico de carga ou isolar falha. Em um ADR de plataforma, elas incluem esses atributos e acrescentam os sete fatores de adaptação ao contexto apresentados no Conceito do [bloco 2](bloco-2-plataforma-arquitetural.md), entre eles conhecimento técnico do time, custo de aquisição e renovação e confiabilidade dos fornecedores.
 
 A essas forças soma-se uma que só aparece na decisão de plataforma. A **dependência de fornecedor** é a dificuldade de trocar ou negociar uma dependência, técnica ou organizacional. Serviços gerenciados podem ser escolhas excelentes quando reduzem risco operacional, mas precisam ficar explícitos no ADR em seis dimensões.
 
@@ -31,13 +31,13 @@ Abstrair tudo antecipadamente para fugir dessa dependência cria uma plataforma 
 
 ### O que muda no campo de alternativas
 
-Em um ADR de plataforma, o campo de alternativas já vem pronto do bloco anterior. O quadro comparativo montado no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18), com as plataformas candidatas nas linhas e os fatores nas colunas, é exatamente o que o campo pede, cada alternativa com as forças que atende e os riscos que introduz. Transportar o quadro para o registro é o que impede que a alternativa descartada apareça só pelo nome, sem ter sido comparada de fato.
+Em um ADR de plataforma, o campo de alternativas já vem pronto do bloco anterior. O quadro comparativo preenchido no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18), com as plataformas candidatas nas linhas e os fatores nas colunas, é exatamente o que o campo pede, cada alternativa com as forças que atende e os riscos que introduz. Transportar o quadro para o registro é o que impede que a alternativa descartada apareça só pelo nome, sem ter sido comparada de fato.
 
 ### O que muda no campo de consequências
 
 Reverter uma decisão de estilo cobra custo de reestruturação de componentes, porque a fronteira entre as partes do sistema muda. Reverter uma decisão de plataforma cobra custo de treinamento e de migração de código, porque a equipe precisa aprender uma API diferente e o código escrito contra a plataforma anterior precisa ser reescrito contra a nova, mesmo quando o estilo arquitetural permanece o mesmo dos dois lados da troca.
 
-Uma seguradora que já decidiu por uma arquitetura orientada a eventos para separar emissão de apólice, análise de risco e abertura de sinistro enfrenta essa segunda decisão ao escolher entre duas plataformas de mensageria candidatas. Se ela troca de plataforma depois que os três serviços já estão em produção, o custo recai sobre o time, que precisa reaprender a API de publicação e consumo, e sobre o código de cada serviço, que precisa ser adaptado. O estilo orientado a eventos em si não muda. Uma operação de logística de última milha que decidiu por microsserviços para isolar roteamento, despacho e rastreamento enfrenta a mesma segunda decisão ao escolher entre dois orquestradores de execução, e trocar de orquestrador depois da adoção cobra da equipe de operação o aprendizado de um modelo de implantação diferente e a reescrita dos scripts de infraestrutura, novamente sem alterar a divisão em serviços que define o estilo.
+A Seguradora ACME, que já decidiu por uma [arquitetura orientada a eventos](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-orientada-a-eventos) para separar emissão de apólice, análise de risco e abertura de sinistro, enfrenta essa segunda decisão ao escolher entre duas plataformas de mensageria candidatas. Se ela troca de plataforma depois que os três serviços já estão em produção, o custo recai sobre o time, que precisa reaprender a API de publicação e consumo, e sobre o código de cada serviço, que precisa ser adaptado. O estilo orientado a eventos em si não muda. A Operadora Logística ACME, que atua em entrega de última milha e decidiu por [microsserviços](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-de-microsservicos) para isolar roteamento, despacho e rastreamento, enfrenta a mesma segunda decisão ao escolher entre dois orquestradores de execução, e trocar de orquestrador depois da adoção cobra da equipe de operação o aprendizado de um modelo de implantação diferente e a reescrita dos scripts de infraestrutura, novamente sem alterar a divisão em serviços que define o estilo.
 
 ### O par de registros
 
@@ -49,20 +49,54 @@ O arquiteto escreve este segundo registro logo depois de fechar a comparação d
 
 ## Exercício 20
 
-Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. Este exercício pede o ADR que registra a escolha de plataforma feita no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) do bloco anterior, no mesmo template de dez campos usado no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md).
 
-Escreva o ADR que registra a escolha de plataforma que você fez no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) do bloco anterior, no mesmo template de dez campos usado no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md).
+### Item 1: Encadeamento com o ADR de estilo
+
+O diagrama abaixo mostra de onde vêm as entradas deste registro e a referência cruzada que liga o par de ADRs.
+
+```mermaid
+graph LR
+    E12["ADR de estilo, Exercício 12 da Aula 3"] -->|"referência cruzada pelo título"| E20["ADR de plataforma, Exercício 20"]
+    E18["Quadro comparativo e plataforma escolhida, Exercício 18"] --> E20
+    E20 -.->|"citado no campo Revisão quando a prática se firma"| E12
+```
 
 1. título, estado e data
-2. contexto, referenciando pelo título o ADR de estilo que você escreveu no [Exercício 12](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md#exercicio-12)
-3. forças, com pelo menos três dos sete fatores de adaptação ao contexto do bloco 2, mais ao menos uma das seis dimensões de dependência de fornecedor listadas no Conceito acima
-4. alternativas, transportando o quadro comparativo que você montou no Exercício 18
-5. decisão, nomeando a plataforma escolhida e conectando a justificativa às forças
-6. consequências, com ao menos uma positiva, uma negativa e uma neutra
-7. evidências, indicando o que sustentaria a escolha e onde poderia ser reproduzido
-8. revisão, com um gatilho observável ligado à convivência com o núcleo COBOL sobre CICS
+2. contexto, referenciando pelo título o ADR de estilo escrito no [Exercício 12](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md#exercicio-12)
+3. alternativas, transportando o quadro comparativo preenchido no Exercício 18
 
-O campo de evidências é o mais difícil neste exercício, porque a ACME não tem ambiente de teste de carga, conforme registra a [arquitetura de linha de base](../caso-acme/linha-de-base.md). Nomear a evidência que você gostaria de ter, e que não existe, é resposta melhor do que inventar uma medição.
+### Item 2: Forças e dependência de fornecedor
+
+A tabela abaixo relaciona as seis dimensões de dependência de fornecedor listadas no Conceito a dados do [dossiê da ACME](../caso-acme/index.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+
+| Dimensão | Dado do caso |
+| --- | --- |
+| API proprietária | Os portais chamam o núcleo CICS por conector transacional proprietário, caminho de todas as operações acadêmicas |
+| Formato de dados | O banco Oracle 12c guarda 11 TB em 740 tabelas, compartilhadas entre o núcleo COBOL e a camada Java |
+| Identidade | O requisito R8 exige autenticação por padrões abertos de identidade, sem produto proprietário |
+| Observabilidade | O dossiê não registra ferramenta nem prática de observabilidade para o sistema acadêmico |
+| Custo de saída de dados | Dois provedores de nuvem pré-aprovados, com decisões de plataforma portáveis entre os dois |
+| Habilidades da equipe | A camada Java tem 9 pessoas sem escassez, e o núcleo COBOL tem 6 especialistas, dos quais 2 se aposentam em 2027 |
+
+1. forças, com pelo menos três dos sete fatores de adaptação ao contexto do [bloco 2](bloco-2-plataforma-arquitetural.md#quatro-caracteristicas-de-uma-plataforma-arquitetural), mais ao menos uma das seis dimensões da tabela, indicando o dado do caso que sustenta cada força
+2. decisão, nomeando a plataforma escolhida e conectando a justificativa às forças
+
+### Item 3: Consequências, evidências e revisão
+
+A tabela abaixo reúne os dados do caso que limitam as evidências disponíveis e que podem servir de base para o gatilho de revisão.
+
+| Dado | Valor |
+| --- | --- |
+| Ambientes disponíveis | Produção e homologação, sem ambiente de teste de carga |
+| Contrato de sustentação do núcleo COBOL | Exclusividade da fábrica até 30/09/2027 |
+| Contrato de capacidade de grande porte | Volume mínimo contratado até 31/12/2028 |
+
+1. consequências, com ao menos uma positiva, uma negativa e uma neutra
+2. evidências, indicando o que sustentaria a escolha e onde poderia ser reproduzido
+3. revisão, com um gatilho observável ligado à convivência com o núcleo COBOL sobre CICS
+
+O campo de evidências é o mais difícil neste exercício, porque a ACME não tem ambiente de teste de carga. Nomear a evidência que seria desejável, e que não existe, é resposta melhor do que inventar uma medição.
 
 ## Fontes
 

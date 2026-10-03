@@ -84,11 +84,11 @@ A distinção também organiza a conversa com as partes interessadas. O patrocin
 
 ## Exercício 1
 
-Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
-
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 2.150 professores e 4 campi, cujo sistema acadêmico entrou em operação em 2004 e sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro. O custo anual de propriedade do sistema é de R$ 15,83 milhões, o prazo médio entre pedido aprovado e entrega em produção é de 34 dias úteis, e a manutenção do núcleo em COBOL depende de 6 especialistas, dos quais 2 se aposentam em 2027. A instituição decidiu modernizar o sistema de forma incremental, sem substituí-lo por produto de mercado e sem reescrita em entrega única.
 
-O quadro abaixo lista nove decisões tomadas ou propostas nesse contexto.
+### Item 1: Nível de cada decisão
+
+O quadro abaixo lista nove decisões tomadas ou propostas no ciclo de modernização. O critério que separa os três níveis é o alcance do efeito da decisão, descrito na seção [Como aplicar o grão correto](#como-aplicar-o-grao-correto) deste bloco.
 
 | Código | Decisão                                                                                                                              |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
@@ -102,11 +102,38 @@ O quadro abaixo lista nove decisões tomadas ou propostas nesse contexto.
 | D8     | O histórico escolar é emitido com assinatura digital no padrão ICP-Brasil                                                            |
 | D9     | A transição ocorre por extração incremental de módulos, com o núcleo em operação durante todo o percurso                             |
 
-Responda às três perguntas abaixo.
-
 1. Classifique cada uma das nove decisões em arquitetura corporativa, arquitetura de solução ou arquitetura de software, com uma linha de justificativa por decisão.
-2. Escolha duas decisões que você classificou como de arquitetura de solução e indique, para cada uma, qual componente não tecnológico da solução ela afeta, entre pessoas, estruturas organizacionais, processos e informação.
-3. Tome a decisão D3 e explique o que aconteceria se ela fosse tomada sem que D2 tivesse sido decidida antes.
+
+### Item 2: Componentes não tecnológicos afetados
+
+O quadro abaixo reproduz quatro dos cinco tipos de [componentes da solução](../referencia/glossario.md#componentes-da-solucao), detalhados no [bloco 2](bloco-2-a-solucao-como-sistema.md#os-cinco-tipos-de-componente) desta aula, sem o tipo tecnologia.
+
+| Tipo de componente | O que abrange |
+| --- | --- |
+| Pessoas | Funcionários, clientes, parceiros, papéis, capacidades, habilidades e descrições de cargo |
+| Estruturas organizacionais | Unidades, estruturas de gestão, terceirização, organizações parceiras, metas e acordos de nível de serviço |
+| Processos | Serviços de negócio, cadeia de valor, processos, políticas, regras de negócio e procedimentos |
+| Informação | Entrada, saída, gatilho, retorno, auditoria e informação como produto |
+
+1. Escolha duas decisões que você classificou no Item 1 como de arquitetura de solução e indique, para cada uma, qual dos quatro tipos de componente do quadro ela afeta, com uma linha de justificativa.
+
+### Item 3: Dependência entre D2 e D3
+
+O diagrama abaixo mostra o percurso atual da nota lançada pelo professor até o aluno, que hoje passa por um lote diário noturno. As duas decisões tratadas neste item são reproduzidas logo depois do diagrama.
+
+```mermaid
+flowchart LR
+    PROF["Professor lança a nota no portal"] --> NUC["Núcleo acadêmico registra a nota"]
+    NUC -->|"lote diário noturno"| AVA["Ambiente virtual de aprendizagem"]
+    AVA --> ALU["Aluno consulta a nota"]
+```
+
+| Código | Decisão |
+| --- | --- |
+| D2 | A propagação de nota ao ambiente virtual de aprendizagem deixa de ser lote diário e passa a ocorrer em até 10 minutos |
+| D3 | O serviço de notas repete o envio ao ambiente virtual quando não recebe confirmação, com intervalo crescente entre tentativas |
+
+1. Explique o que aconteceria se a decisão D3 fosse tomada sem que a decisão D2 tivesse sido decidida antes, considerando o percurso mostrado no diagrama.
 
 ## Fontes
 

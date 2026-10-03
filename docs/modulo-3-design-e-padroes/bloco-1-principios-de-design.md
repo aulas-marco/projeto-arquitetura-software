@@ -26,11 +26,11 @@ Cinco conceitos aparecem juntos em qualquer discussão de desenho, e a confusão
 | Decisão | Escolha situada entre alternativas |
 | Elemento lógico | Responsabilidade ou colaboração sem compromisso prematuro com tecnologia |
 
-Uma rede de clínicas com doze unidades ilustra o encadeamento. O objetivo é reduzir de 18% para 8% a taxa de pacientes que faltam à consulta agendada. Um requisito derivado desse objetivo é que o paciente receba lembrete 48 horas antes da consulta e possa confirmar ou cancelar pela mesma mensagem. Um princípio que orienta várias decisões a partir desse requisito é que a agenda de cada unidade seja a única fonte de verdade sobre horários, de modo que nenhum canal de comunicação mantenha cópia própria da disponibilidade. Uma decisão situada é devolver o horário cancelado à agenda da unidade no mesmo instante do cancelamento. O elemento lógico resultante é um serviço de agendamento que publica os horários disponíveis e recebe as confirmações, descrito apenas pela responsabilidade que assume e pelas interfaces que oferece, sem produto de mensageria nem banco de dados escolhidos.
+A Rede de Clínicas ACME, com doze unidades, ilustra o encadeamento. O objetivo é reduzir de 18% para 8% a taxa de pacientes que faltam à consulta agendada. Um requisito derivado desse objetivo é que o paciente receba lembrete 48 horas antes da consulta e possa confirmar ou cancelar pela mesma mensagem. Um princípio que orienta várias decisões a partir desse requisito é que a agenda de cada unidade seja a única fonte de verdade sobre horários, de modo que nenhum canal de comunicação mantenha cópia própria da disponibilidade. Uma decisão situada é devolver o horário cancelado à agenda da unidade no mesmo instante do cancelamento. O elemento lógico resultante é um serviço de agendamento que publica os horários disponíveis e recebe as confirmações, descrito apenas pela responsabilidade que assume e pelas interfaces que oferece, sem produto de mensageria nem banco de dados escolhidos.
 
 ### Anatomia de um princípio
 
-Um **princípio de design** é uma regra durável, derivada de objetivos, requisitos e restrições, que orienta um conjunto de decisões de desenho e admite verificação da sua aplicação. Lovatt (2021, seção 2.2) observa que princípios, políticas e regras de negócio da arquitetura corporativa se aplicam a toda solução da organização, e que a exceção tática a essas diretrizes gera uma dívida estratégica a ser corrigida depois. Os princípios de uma solução específica ocupam o nível seguinte, porque refinam as diretrizes corporativas para o problema em análise sem contrariá-las.
+Um **princípio de design** é uma regra durável, derivada de objetivos, requisitos e restrições, que orienta um conjunto de decisões de desenho e admite verificação da sua aplicação. Princípios, políticas e regras de negócio da arquitetura corporativa se aplicam a toda solução da organização, e a exceção tática a essas diretrizes gera uma dívida estratégica a ser corrigida depois. Os princípios de uma solução específica ocupam o nível seguinte, porque refinam as diretrizes corporativas para o problema em análise sem contrariá-las.
 
 Um princípio só cumpre essa função quando traz três complementos ao nome. A motivação liga o princípio à entrada que o originou, seja um objetivo, um cenário ou uma restrição, e é o que impede sua adoção por hábito. A implicação prática declara o que muda no desenho quando o princípio é seguido, incluindo o que passa a ser proibido. A forma de verificação indica que evidência mostraria que o princípio foi respeitado, como uma revisão de dependências, um teste automatizado ou uma métrica de operação.
 
@@ -52,13 +52,13 @@ A tabela abaixo reúne nove princípios recorrentes na literatura de arquitetura
 | Segurança por desenho | Controle acrescentado depois tende a deixar lacunas | Identidade, autorização e proteção de dado são responsabilidades explícitas do desenho | Trilha de auditoria e matriz de acesso verificáveis |
 | Evolução incremental | Mudança grande em uma única entrega concentra risco | O desenho admite substituição parte a parte, com convivência entre o antigo e o novo | Entregas parciais em produção sem interrupção do serviço |
 
-Princípios entram em conflito, e a priorização faz parte do produto. No serviço municipal de licenciamento de uma prefeitura, que emite alvarás de funcionamento para cerca de 9.000 estabelecimentos por ano, a simplicidade favorece um único fluxo síncrono entre o pedido, a consulta aos cadastros da vigilância sanitária e do corpo de bombeiros e a emissão do documento. O desenho para falha, motivado pela indisponibilidade frequente do cadastro dos bombeiros, exige que o pedido seja registrado mesmo quando uma das consultas não responde, o que acrescenta estado intermediário e reprocessamento. A escolha entre os dois não é técnica em abstrato, ela depende de qual entrada tem prioridade para a prefeitura, e o registro dessa prioridade evita que a mesma discussão seja reaberta a cada decisão subsequente.
+Princípios entram em conflito, e a priorização faz parte do produto. No serviço de licenciamento da Prefeitura ACME, que emite alvarás de funcionamento para cerca de 9.000 estabelecimentos por ano, a simplicidade favorece um único fluxo síncrono entre o pedido, a consulta aos cadastros da vigilância sanitária e do corpo de bombeiros e a emissão do documento. O desenho para falha, motivado pela indisponibilidade frequente do cadastro dos bombeiros, exige que o pedido seja registrado mesmo quando uma das consultas não responde, o que acrescenta estado intermediário e reprocessamento. A escolha entre os dois não é técnica em abstrato, ela depende de qual entrada tem prioridade para a Prefeitura ACME, e o registro dessa prioridade evita que a mesma discussão seja reaberta a cada decisão subsequente.
 
 ### Do conceitual ao lógico
 
-Lovatt (2021, seções 3.5 e 3.7) descreve uma hierarquia de idealização que vai do conceitual ao lógico e deste ao físico. O **desenho conceitual** descreve a solução em termos de capacidades, responsabilidades e relações com o ambiente, em nível alto o suficiente para que as partes interessadas avaliem a abordagem sem que o desenho final fique restringido antes da análise. O **desenho lógico** descreve a solução em elementos lógicos com responsabilidades, interfaces e fluxos declarados, e Lovatt o caracteriza como lógico porque trata de componentes e de suas interações, e não da implementação física, que exige trabalho de engenharia posterior.
+O desenho de uma solução percorre uma hierarquia de idealização que vai do conceitual ao lógico e deste ao físico. O **desenho conceitual** descreve a solução em termos de capacidades, responsabilidades e relações com o ambiente, em nível alto o suficiente para que as partes interessadas avaliem a abordagem sem que o desenho final fique restringido antes da análise. O **desenho lógico** descreve a solução em elementos lógicos com responsabilidades, interfaces e fluxos declarados, e recebe o nome de lógico porque trata de componentes e de suas interações, deixando a implementação física para o trabalho de engenharia posterior.
 
-A passagem do conceitual ao lógico é uma transformação progressiva, que Lovatt (2021, seção 3.6) apoia na análise de blocos de construção e na análise de interfaces. O roteiro abaixo organiza essa transformação em cinco passos.
+A passagem do conceitual ao lógico é uma transformação progressiva, apoiada na análise de blocos de construção e na análise de interfaces. O roteiro abaixo organiza essa transformação em cinco passos.
 
 1. identificar capacidades e responsabilidades
 2. agrupar responsabilidades coesas
@@ -66,7 +66,7 @@ A passagem do conceitual ao lógico é uma transformação progressiva, que Lova
 4. aplicar restrições e princípios
 5. localizar riscos e decisões pendentes
 
-No serviço municipal de licenciamento, o primeiro passo identifica as capacidades de receber pedido, verificar exigências sanitárias, verificar exigências de segurança contra incêndio, calcular taxa, emitir alvará e notificar o requerente. O segundo passo agrupa essas capacidades em quatro elementos lógicos, atendimento ao requerente, análise de exigências, cobrança e emissão, porque as duas verificações mudam pelo mesmo motivo, que é a alteração de norma técnica. O terceiro passo declara que o atendimento entrega o pedido à análise, que a análise consulta os dois cadastros externos e devolve um parecer, e que a emissão só ocorre depois da confirmação de pagamento pela cobrança. O quarto passo aplica o princípio de desenho para falha e acrescenta à análise a responsabilidade de manter o pedido pendente quando um cadastro não responde. O quinto passo registra como risco a indisponibilidade do cadastro dos bombeiros e como decisão pendente o prazo máximo de pendência antes de o requerente ser avisado. Em nenhum dos cinco passos aparece linguagem de programação, provedor de nuvem, banco de dados ou framework, porque essas escolhas pertencem às aulas 4 e 5.
+No serviço de licenciamento da Prefeitura ACME, o primeiro passo identifica as capacidades de receber pedido, verificar exigências sanitárias, verificar exigências de segurança contra incêndio, calcular taxa, emitir alvará e notificar o requerente. O segundo passo agrupa essas capacidades em quatro elementos lógicos, atendimento ao requerente, análise de exigências, cobrança e emissão, porque as duas verificações mudam pelo mesmo motivo, que é a alteração de norma técnica. O terceiro passo declara que o atendimento entrega o pedido à análise, que a análise consulta os dois cadastros externos e devolve um parecer, e que a emissão só ocorre depois da confirmação de pagamento pela cobrança. O quarto passo aplica o princípio de desenho para falha e acrescenta à análise a responsabilidade de manter o pedido pendente quando um cadastro não responde. O quinto passo registra como risco a indisponibilidade do cadastro dos bombeiros e como decisão pendente o prazo máximo de pendência antes de o requerente ser avisado. Em nenhum dos cinco passos aparece linguagem de programação, provedor de nuvem, banco de dados ou framework, porque essas escolhas pertencem às aulas 4 e 5.
 
 <figure markdown="span">
 ![Diagrama da passagem das entradas arquiteturais ao desenho lógico. Na faixa superior, objetivo, requisito e restrição, princípio, decisão e elemento lógico aparecem ligados por setas da esquerda para a direita. Na faixa inferior, cinco etapas numeradas mostram a transformação do conceitual ao lógico, identificar responsabilidades, agrupar por coesão, declarar interfaces e fluxos, aplicar restrições e princípios, e localizar riscos e decisões pendentes.](../assets/images/modulo-3-principios-ao-desenho-logico.svg){ .module-diagram }
@@ -84,9 +84,11 @@ O arquiteto usa princípios priorizados para tomar decisões sucessivas com o me
 
 ## Exercício 9
 
-Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental, e os dados abaixo foram reproduzidos da [página inicial do caso](../caso-acme/index.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md). Os princípios priorizados e o esboço lógico deste exercício são a entrada da comparação de estilos do exercício 10, no [bloco 2](bloco-2-estilos-arquiteturais.md).
 
-A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. As quatro entradas abaixo foram reproduzidas da [página inicial do caso](../caso-acme/index.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md), com a origem de cada uma.
+### Item 1: Princípios a partir das entradas
+
+A tabela abaixo traz quatro entradas do caso, com a origem de cada uma.
 
 | Entrada | Conteúdo | Origem |
 | --- | --- | --- |
@@ -95,12 +97,44 @@ A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sis
 | Dependência do legado | Manutenção do núcleo COBOL sob contrato até 30/09/2027, com 6 especialistas, dos quais 2 se aposentam em 2027, e apenas 1 domina o módulo de matrícula | Contrato de sustentação e inventário técnico |
 | Propagação de notas | R7, a nota lançada pelo professor chega ao ambiente virtual de aprendizagem em até 10 minutos, contra a exportação atual em lote diário iniciado às 05h10 | Educação a Distância |
 
-1. Derive das quatro entradas entre três e cinco princípios de design. Para cada princípio, registre nome, motivação, implicação no desenho e evidência esperada de que o princípio foi aplicado.
-2. Priorize os princípios e justifique, com base nas entradas, qual deles prevalece quando entra em conflito com os demais.
-3. Produza um esboço lógico da solução, com os elementos lógicos e a responsabilidade de cada um, sem nomear produto, linguagem, provedor de nuvem ou framework.
-4. Marque no esboço ao menos um risco e ao menos uma decisão pendente, indicando qual princípio cada um afeta.
+1. Escolha, no repertório de nove princípios apresentado neste bloco, entre três e cinco princípios que as quatro entradas justificam. Para cada princípio escolhido, registre nome, motivação, implicação no desenho e evidência esperada de que o princípio foi aplicado, com a motivação apontando a entrada da tabela que o originou.
+2. Ordene os princípios escolhidos por prioridade e indique, com base nas entradas, qual deles prevalece quando entra em conflito com os demais.
 
-Os princípios priorizados e o esboço lógico deste exercício são a entrada da comparação de estilos do exercício 10, no [bloco 2](bloco-2-estilos-arquiteturais.md).
+### Item 2: Esboço lógico a partir das responsabilidades
+
+O diagrama abaixo resume o caminho atual da matrícula, da nota e do lançamento financeiro no sistema legado, conforme a arquitetura de linha de base.
+
+```mermaid
+graph LR
+    ALU["Aluno"] --> PA["Portal do Aluno"]
+    PROF["Professor"] --> PP["Portal do Professor"]
+    PA --> LDAP["Diretório corporativo"]
+    PP --> LDAP
+    PA --> NUC["Núcleo transacional, COBOL sobre CICS"]
+    PP --> NUC
+    NUC --> ORA[("Banco Oracle compartilhado")]
+    NUC --> LNOT["Lote diário de notas, início às 05h10"]
+    LNOT -->|"arquivo"| AVA["Ambiente virtual de aprendizagem"]
+    NUC --> LFIN["Lote de lançamentos financeiros, início às 23h10"]
+    LFIN -->|"arquivo"| ERP["ERP financeiro"]
+```
+
+A lista abaixo traz oito responsabilidades que a solução precisa cumprir, extraídas dos requisitos e da linha de base do caso.
+
+| Código | Responsabilidade |
+| --- | --- |
+| RS1 | Receber o pedido de renovação de matrícula feito pelo aluno |
+| RS2 | Aplicar a regra de prioridade de vaga na confirmação da matrícula |
+| RS3 | Registrar a nota lançada pelo professor |
+| RS4 | Entregar a nota lançada ao ambiente virtual de aprendizagem |
+| RS5 | Enviar os lançamentos financeiros do dia ao ERP financeiro |
+| RS6 | Autenticar os perfis de acesso por padrão aberto de identidade |
+| RS7 | Registrar em trilha de auditoria toda leitura de dado pessoal de aluno |
+| RS8 | Emitir histórico escolar com assinatura digital no padrão ICP-Brasil |
+
+1. Agrupe as oito responsabilidades em três a cinco elementos lógicos e dê a cada elemento um nome que descreva a responsabilidade assumida, sem nomear produto, linguagem, provedor de nuvem ou framework.
+2. Indique quais elementos permanecem atendidos pelo núcleo legado durante a transição e quais passam a elementos novos, com base nas entradas do Item 1.
+3. Marque no esboço ao menos um risco e ao menos uma decisão pendente, indicando qual princípio do Item 1 cada um afeta.
 
 ## Fontes
 

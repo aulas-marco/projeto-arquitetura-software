@@ -5,13 +5,13 @@ Esta página fecha o módulo de domínios da arquitetura de solução com o que 
 ## Checklist do que precisa permanecer
 
 - As quatro perguntas que decidem se um problema admite tratamento por arquitetura de solução, e a redução de escopo como resposta ao problema grande demais
-- Os quatro modelos de arquitetura de negócio, mapa de capacidades, fluxo de valor, decomposição funcional e modelo de processo, com a pergunta que cada um responde e a regra de que o arquiteto os consulta sem modelá-los
+- Os quatro modelos de arquitetura de negócio, mapa de [capacidades](../referencia/glossario.md#capacidade), [fluxo de valor](../referencia/glossario.md#fluxo-de-valor), decomposição funcional e modelo de processo, com a pergunta que cada um responde e a regra de que o arquiteto os consulta sem modelá-los
 - A distinção entre dado, informação e metadado, e a exigência de consistência entre a arquitetura de dados da solução e a da organização
-- A grade dado × aplicação, com dono, consumidores e regime de consistência, e o banco compartilhado como contrário da propriedade do dado
+- A grade dado × aplicação, com dono, consumidores e [regime de consistência](../referencia/glossario.md#regime-de-consistencia), e o banco compartilhado como contrário da [propriedade do dado](../referencia/glossario.md#propriedade-do-dado)
 - A hierarquia que vai do serviço de negócio ao serviço de tecnologia, a classificação do portfólio em vermelho, âmbar e verde e os três tipos de aplicação
-- Os seis atributos de interface de Lovatt e os seis campos que completam um contrato de integração
+- Os seis atributos de interface e os seis campos que completam um [contrato de integração](../referencia/glossario.md#contrato-de-integracao)
 - A distinção entre padrão técnico, protocolo, especificação de interface e contrato de integração, com padrão técnico como tradução de *standard*
-- O modelo C4 como notação de modelagem da aula, com o diagrama de contexto, o diagrama de contêineres, a coerência dos sistemas externos entre os dois níveis e a escolha do nível pela audiência
+- O [modelo C4](../referencia/glossario.md#modelo-c4) como notação de modelagem da aula, com o diagrama de contexto, o diagrama de contêineres, a coerência dos sistemas externos entre os dois níveis e a escolha do nível pela audiência
 - As camadas de execução, a topologia com regiões e zonas de disponibilidade e o diagrama de implantação, que liga cada instância de contêiner ao nó de infraestrutura em que executa
 
 ## Cadeia dos domínios
@@ -29,7 +29,7 @@ As relações rotuladas no exercício 16 são a lista de exigências que a defin
 
 As perguntas abaixo são para o aluno responder a si mesmo, sem gabarito público, como verificação de retenção antes da Aula 5.
 
-1. Dado um problema de negócio, eu aplico as quatro perguntas de Lovatt e indico se a arquitetura de solução é o método adequado.
+1. Dado um problema de negócio, eu aplico as quatro perguntas de aplicabilidade e indico se a arquitetura de solução é o método adequado.
 2. Para uma entidade de dado qualquer, eu indico a fonte de verdade, o dono e o regime de consistência de cada consumidor com prazo declarado.
 3. Eu separo, num exemplo de integração, o que é padrão técnico, o que é protocolo, o que é especificação e o que é garantia do contrato.
 4. Eu identifico num diagrama de contexto um elemento que pertence ao nível de contêineres e explico a correção.

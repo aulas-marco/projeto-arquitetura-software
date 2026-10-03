@@ -11,19 +11,19 @@ Este bloco conclui o detalhamento por domínios e responde onde a solução exec
 
 ## Infraestrutura e contêineres
 
-A **arquitetura de infraestrutura** é a arquitetura dos componentes e serviços tecnológicos que sustentam as atividades da organização, chamada de arquitetura de tecnologia no TOGAF (Lovatt, 2021, seção 2.7). Ela inclui equipamentos, sistemas operacionais, plataformas intermediárias, redes, comunicações, capacidade de processamento e padrões técnicos, e também ativos intangíveis, como contratos com fornecedores.
+A **arquitetura de infraestrutura** é a arquitetura dos componentes e serviços tecnológicos que sustentam as atividades da organização, chamada de arquitetura de tecnologia no TOGAF. Ela inclui equipamentos, sistemas operacionais, plataformas intermediárias, redes, comunicações, capacidade de processamento e padrões técnicos, e também ativos intangíveis, como contratos com fornecedores.
 
 ### Infraestrutura na solução
 
-Os objetivos da arquitetura de infraestrutura são maximizar a eficácia e a eficiência do provimento e do uso da infraestrutura, eliminar duplicação de componentes e manter a infraestrutura alinhada às necessidades operacionais do negócio, que mudam com a estratégia e com a tecnologia disponível (Lovatt, 2021, seção 2.7.1). Muitos componentes de infraestrutura são invisíveis às partes interessadas de negócio, embora sustentem requisitos não funcionais como desempenho e confiabilidade, e por isso os modelos de infraestrutura servem de base para as visões de quem tem essas preocupações.
+Os objetivos da arquitetura de infraestrutura são maximizar a eficácia e a eficiência do provimento e do uso da infraestrutura, eliminar duplicação de componentes e manter a infraestrutura alinhada às necessidades operacionais do negócio, que mudam com a estratégia e com a tecnologia disponível. Muitos componentes de infraestrutura são invisíveis às partes interessadas de negócio, embora sustentem requisitos não funcionais como desempenho e confiabilidade, e por isso os modelos de infraestrutura servem de base para as visões de quem tem essas preocupações.
 
-Os artefatos do domínio incluem o catálogo de tecnologia de infraestrutura, o modelo técnico de referência, o catálogo de padrões técnicos, a visão de configuração, a matriz entre aplicação e tecnologia e o modelo de plataforma (Lovatt, 2021, seção 2.7.2). A declaração formal da infraestrutura exigida por uma solução, chamada de definição tecnológica da solução, e o modelo técnico de referência são tratados na Aula 5. Este bloco permanece no nível lógico, com os contêineres que a solução precisa e as exigências de cada interface entre eles.
+Os artefatos do domínio incluem o catálogo de tecnologia de infraestrutura, o modelo técnico de referência, o catálogo de padrões técnicos, a visão de configuração, a matriz entre aplicação e tecnologia e o modelo de plataforma. A declaração formal da infraestrutura exigida por uma solução, chamada de definição tecnológica da solução, e o modelo técnico de referência são tratados na Aula 5. Este bloco permanece no nível lógico, com os contêineres que a solução precisa, no sentido do [diagrama de contêineres](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#diagrama-de-conteineres) do bloco 3, e as exigências de cada interface entre eles.
 
 ### A solução como grafo
 
-Lovatt (2021, seção 7.5) propõe representar a solução como um grafo, em que cada bloco de construção é um vértice e cada interface é uma aresta. O grau de um vértice é o número de arestas ligadas a ele, e a soma dos graus de todos os vértices, dividida por dois, dá o número de interfaces da solução. Registrar o número de interfaces de cada bloco de construção permite, portanto, calcular o total de interfaces que a solução precisa sustentar.
+A solução pode ser representada como um grafo, em que cada [bloco de construção](../referencia/glossario.md#bloco-de-construcao-da-solucao) é um vértice e cada interface, descrita pelos seis atributos apresentados no [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#descricao-de-uma-interface), é uma aresta. O grau de um vértice é o número de arestas ligadas a ele, e a soma dos graus de todos os vértices, dividida por dois, dá o número de interfaces da solução. Registrar o número de interfaces de cada bloco de construção permite, portanto, calcular o total de interfaces que a solução precisa sustentar.
 
-Num exemplo genérico com cinco blocos de construção, dois blocos têm grau 3 e três blocos têm grau 2. A soma dos graus é 12, e a solução tem 6 interfaces. Cada uma dessas interfaces é examinada separadamente quanto ao tipo e ao volume de tráfego que passa por ela, porque é desse exame que sai a exigência de comunicação que a infraestrutura precisa atender. Lovatt lembra que nem toda interface usa rede, já que uma passagem entre dois processos pode ser manual, mas recomenda que todas sejam examinadas para que nenhuma seja esquecida.
+Num exemplo genérico com cinco blocos de construção, dois blocos têm grau 3 e três blocos têm grau 2. A soma dos graus é 12, e a solução tem 6 interfaces. Cada uma dessas interfaces é examinada separadamente quanto ao tipo e ao volume de tráfego que passa por ela, porque é desse exame que sai a exigência de comunicação que a infraestrutura precisa atender. Nem toda interface usa rede, já que uma passagem entre dois processos pode ser manual, e mesmo assim todas as interfaces são examinadas para que nenhuma seja esquecida.
 
 <figure markdown="span">
 ![Grafo genérico com cinco blocos de construção, rotulados de BC1 a BC5, ligados por seis arestas. Cada vértice traz o próprio grau anotado, dois com grau 3 e três com grau 2, e uma conta mostra que a soma dos graus, 12, dividida por 2 dá 6 interfaces. Uma aresta destacada mostra os dois rótulos que cada interface recebe, o tipo de comunicação e o volume de tráfego.](../assets/images/modulo-4-solucao-como-grafo.svg){ .module-diagram }
@@ -73,11 +73,11 @@ O número de zonas de disponibilidade decorre da disponibilidade exigida. Com r�
 
 A redundância entre zonas também tem custo de capacidade. Se o pico de uso exige quatro réplicas do serviço, cada zona precisa sustentar as quatro réplicas sozinha para que a falha de uma zona não reduza o desempenho, o que leva a oito réplicas provisionadas ou a uma regra de escalonamento automático capaz de dobrar a capacidade da zona remanescente em poucos minutos.
 
-Lovatt (2021, seção 2.7.4) observa que muitos componentes de infraestrutura são invisíveis às partes interessadas de negócio, embora sustentem requisitos não funcionais de desempenho e confiabilidade, e a topologia é o artefato em que essa ligação aparece de modo verificável. O requisito de disponibilidade define o número de zonas e a replicação do banco, o requisito de tempo de resposta define a capacidade de cada réplica e a presença de CDN, e o requisito de integração com sistemas que permanecem no centro de dados local define a escolha entre conexão dedicada e VPN. A seleção de provedor, de região e de serviços para a ACME pertence à definição tecnológica da Aula 5.
+Os componentes de infraestrutura invisíveis às partes interessadas de negócio, citados no início do bloco, sustentam requisitos não funcionais de desempenho e confiabilidade, e a topologia é o artefato em que essa ligação aparece de modo verificável. O requisito de disponibilidade define o número de zonas e a replicação do banco, o requisito de tempo de resposta define a capacidade de cada réplica e a presença de CDN, e o requisito de integração com sistemas que permanecem no centro de dados local define a escolha entre conexão dedicada e VPN. A seleção de provedor, de região e de serviços para a ACME pertence à definição tecnológica da Aula 5.
 
-### Diagrama de implantação
+### Diagrama de implantação em C4
 
-O diagrama de implantação é o diagrama de apoio do modelo C4 que mostra como instâncias de sistemas de software e de contêineres do modelo estático são implantadas na infraestrutura de um ambiente de implantação, como produção, homologação ou desenvolvimento (Brown, n.d.). A notação do modelo C4 e os diagramas de contexto e de contêineres estão no [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#modelo-c4), e o público do diagrama de implantação é técnico, de dentro e de fora da equipe de desenvolvimento, incluindo arquitetos de software, desenvolvedores, arquitetos de infraestrutura e pessoal de operação e suporte.
+O diagrama de implantação é o diagrama de apoio do modelo C4 que mostra como instâncias de sistemas de software e de contêineres do modelo estático são implantadas na infraestrutura de um ambiente de implantação, como produção, homologação ou desenvolvimento (Brown, n.d.). Cada contêiner do [diagrama de contêineres](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#diagrama-de-conteineres) do bloco 3 é mapeado em nós de implantação aninhados, que vão do ambiente à região do provedor, à zona de disponibilidade, ao cluster Kubernetes, à máquina virtual e ao serviço gerenciado em que a instância executa. A notação do modelo C4 e os diagramas de contexto e de contêineres estão no [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#modelo-c4), e o público do diagrama de implantação é técnico, de dentro e de fora da equipe de desenvolvimento, incluindo arquitetos de software, desenvolvedores, arquitetos de infraestrutura e pessoal de operação e suporte.
 
 O diagrama de implantação segue quatro regras de construção, derivadas da definição publicada no sítio oficial do modelo C4 (Brown, n.d.):
 
@@ -86,37 +86,76 @@ O diagrama de implantação segue quatro regras de construção, derivadas da de
 3. Cada instância de contêiner corresponde a um contêiner do [diagrama de contêineres](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#diagrama-de-conteineres) e leva o mesmo nome, e um contêiner com quatro réplicas aparece como quatro instâncias sem que o diagrama de contêineres mude.
 4. Os nós de infraestrutura, como DNS, balanceador de carga e firewall, aparecem como elementos de apoio, ligados às instâncias que atendem.
 
-O contêiner do modelo C4 é uma unidade executável ou de armazenamento de dados, como uma aplicação web, um serviço ou um banco, e pode ser implantado num contêiner Docker, numa máquina virtual ou numa função sem servidor, de modo que os dois usos da palavra contêiner precisam ser distinguidos no texto que acompanha o diagrama. O exemplo abaixo mostra o ambiente de produção de um sistema genérico de agendamento, com os nós aninhados da região até as instâncias de contêiner.
+O contêiner do modelo C4 é uma unidade executável ou de armazenamento de dados, como uma aplicação web, um serviço ou um banco, e pode ser implantado num contêiner Docker, numa máquina virtual ou numa função sem servidor, de modo que os dois usos da palavra contêiner precisam ser distinguidos no texto que acompanha o diagrama. A Figura 4 mostra, em C4, o ambiente de produção do sistema de agendamento da Clínica Odontológica ACME, cujos contêineres aparecem no [exemplo em C4 do bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#diagrama-de-conteineres), com os nós aninhados da região até as instâncias de contêiner do painel da recepção, do serviço de agenda e do banco de agendamentos.
 
 <figure markdown="span">
-![Diagrama de implantação genérico do ambiente de produção. Um DNS e um balanceador de carga, como nós de infraestrutura, levam as requisições HTTPS a duas zonas de disponibilidade da região do provedor. Cada zona tem um nó do cluster Kubernetes em máquina virtual Linux com instâncias de contêiner da aplicação web e do serviço de agenda, e um banco gerenciado, primário na zona A e réplica na zona B, ligados por replicação.](../assets/images/modulo-4-b4-diagrama-de-implantacao.svg){ .module-diagram }
+![Diagrama de implantação em C4 do ambiente de produção do sistema de agendamento da Clínica Odontológica ACME. Um DNS e um balanceador de carga, como nós de infraestrutura, levam as requisições HTTPS a duas zonas de disponibilidade da região do provedor. Cada zona tem um nó do cluster Kubernetes em máquina virtual Linux com instâncias de contêiner do painel da recepção e do serviço de agenda, e um banco gerenciado, primário na zona A e réplica na zona B, ligados por replicação.](../assets/images/modulo-4-b4-diagrama-de-implantacao.svg){ .module-diagram }
 </figure>
 
-*Figura 4 — Diagrama de implantação genérico do ambiente de produção, com nós aninhados, nós de infraestrutura e instâncias de contêiner. Fonte: material do curso, com base em Brown (n.d.).*
+*Figura 4 — Diagrama de implantação em C4 do ambiente de produção da Clínica Odontológica ACME, com nós aninhados, nós de infraestrutura e instâncias de contêiner. Fonte: material do curso, com base em Brown (n.d.).*
+
+A Figura 5 completa o mesmo ambiente com os nós que ficam fora da região do provedor. O aplicativo do paciente executa no telefone de cada paciente, o painel da recepção é aberto no navegador do computador da recepção, e a operadora de convênio e o serviço de mensagens permanecem como sistemas externos, com os mesmos nomes do diagrama de contexto do bloco 3.
+
+```mermaid
+graph TD
+    subgraph CEL["Nó: telefone do paciente, Android ou iOS"]
+        APP["Contêiner: aplicativo do paciente"]
+    end
+    subgraph PCR["Nó: computador da recepção, navegador web"]
+        NAV["Painel da recepção carregado no navegador"]
+    end
+    subgraph PROD["Ambiente de produção"]
+        DNS["DNS, nó de infraestrutura"]
+        subgraph REG["Nó: região do provedor de nuvem"]
+            LB["Balanceador de carga, nó de infraestrutura"]
+            subgraph ZA["Nó: zona de disponibilidade A"]
+                subgraph KA["Nó: cluster Kubernetes em máquina virtual Linux"]
+                    WA["Contêiner: painel da recepção"]
+                    SA["Contêiner: serviço de agenda"]
+                end
+                BA[("Contêiner: banco de agendamentos, primário, em serviço gerenciado")]
+            end
+            subgraph ZB["Nó: zona de disponibilidade B"]
+                subgraph KB["Nó: cluster Kubernetes em máquina virtual Linux"]
+                    WB["Contêiner: painel da recepção"]
+                    SB["Contêiner: serviço de agenda"]
+                end
+                BB[("Contêiner: banco de agendamentos, réplica, em serviço gerenciado")]
+            end
+        end
+    end
+    CONV["Operadora de convênio, sistema externo"]
+    SMS["Serviço de mensagens, sistema externo"]
+
+    APP -->|"resolve o nome"| DNS
+    APP -->|"HTTPS"| LB
+    NAV -->|"HTTPS"| LB
+    LB --> WA
+    LB --> WB
+    LB --> SA
+    LB --> SB
+    SA -->|"SQL sobre TLS"| BA
+    SB -->|"SQL sobre TLS"| BA
+    BA -->|"replicação"| BB
+    SA -->|"HTTPS"| CONV
+    SA -->|"HTTPS"| SMS
+```
+
+*Figura 5 — Diagrama de implantação em C4 com os nós de cliente e os sistemas externos da Clínica Odontológica ACME. Fonte: material do curso, com base em Brown (n.d.).*
 
 As setas do diagrama de implantação repetem as interfaces do grafo da Figura 1, agora com a indicação do nó em que cada extremidade executa, e por isso o diagrama mostra quais interfaces atravessam a fronteira entre zonas, entre a região e o centro de dados local ou entre a solução e a internet. Na fase lógica, os nós recebem nomes genéricos, como máquina virtual Linux ou nó do cluster Kubernetes, e o nome do serviço do provedor só aparece depois da definição tecnológica da Aula 5.
 
 ## Uso pelo arquiteto
 
-O arquiteto usa a visão de infraestrutura para converter cada contêiner do diagrama de contêineres e cada interface do grafo em exigências de execução e de comunicação que a Aula 5 recebe como entrada. Para cada contêiner, ele registra a camada de execução compatível, o número de réplicas e de zonas de disponibilidade imposto pelo requisito de disponibilidade e a capacidade necessária no pico, e para cada interface registra o modo de comunicação, o volume, a latência e se ela cruza a fronteira entre a nuvem e o centro de dados local, caso em que exige conexão dedicada ou VPN. O diagrama de implantação desse estágio usa nós genéricos, como máquina virtual, cluster de contêineres ou função sem servidor, e não nomeia provedor, região nem produto, porque a definição tecnológica da solução e o modelo técnico de referência, que fazem essa escolha, são o assunto da Aula 5.
+O arquiteto usa a visão de infraestrutura para converter cada contêiner do [diagrama de contêineres](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#diagrama-de-conteineres) e cada interface do grafo em exigências de execução e de comunicação que a Aula 5 recebe como entrada. Para cada contêiner, ele registra a camada de execução compatível, o número de réplicas e de zonas de disponibilidade imposto pelo requisito de disponibilidade e a capacidade necessária no pico, e para cada interface registra o modo de comunicação, o volume, a latência e se ela cruza a fronteira entre a nuvem e o centro de dados local, caso em que exige conexão dedicada ou VPN. O diagrama de implantação desse estágio usa nós genéricos, como máquina virtual, cluster de contêineres ou função sem servidor, e não nomeia provedor, região nem produto, porque a definição tecnológica da solução e o modelo técnico de referência, que fazem essa escolha, são o assunto da Aula 5.
 
 ## Exercício 16
 
-Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. O exercício parte do diagrama de contexto corrigido no [exercício 15](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#exercicio-15) e de fatos reproduzidos dos [dados operacionais](../caso-acme/dados-operacionais.md), da [arquitetura de linha de base](../caso-acme/linha-de-base.md) e da [página inicial do caso](../caso-acme/index.md).
 
-A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. O exercício parte do diagrama de contexto corrigido no [exercício 15](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#exercicio-15) e dos fatos abaixo, reproduzidos dos [dados operacionais](../caso-acme/dados-operacionais.md), da [arquitetura de linha de base](../caso-acme/linha-de-base.md) e da [página inicial do caso](../caso-acme/index.md).
+### Item 1: Modo, volume e latência das relações
 
-| Fato | Valor |
-| --- | --- |
-| Sessões simultâneas no pico, nos 30 minutos seguintes à abertura da matrícula | 5.800 |
-| Matrículas confirmadas nesses 30 minutos | 2.400 |
-| Sessões simultâneas em dia letivo comum | 640 |
-| Lançamentos de nota exportados ao ambiente virtual em dia letivo comum | 4.800 |
-| Lançamentos de nota exportados na janela de fechamento | até 360.000 |
-| Requisito R6 | Percentil 95 do tempo de confirmação da matrícula em até 4 segundos, com 5.800 sessões simultâneas |
-| Requisito R7 | Nota lançada pelo professor no ambiente virtual em até 10 minutos |
-
-O artefato fornecido é o diagrama de contêineres da arquitetura alvo do primeiro ciclo, coerente com o diagrama de contexto corrigido no exercício 15. Cada contêiner novo leva o rótulo tecnologia a definir na Aula 5, e as relações estão apenas numeradas, sem rótulo de comunicação.
+O diagrama abaixo é o diagrama de contêineres da arquitetura alvo do primeiro ciclo, coerente com o diagrama de contexto corrigido no exercício 15. Cada contêiner novo leva o rótulo tecnologia a definir na Aula 5, e as relações estão apenas numeradas, sem rótulo de comunicação.
 
 ```mermaid
 graph TD
@@ -157,11 +196,67 @@ graph TD
     NUC -->|"11"| REG
 ```
 
-1. Rotule cada relação numerada com o modo de comunicação, síncrono ou assíncrono, e com o volume e a latência exigidos, usando os fatos da tabela quando se aplicarem e escrevendo não informado quando o dossiê não trouxer o dado.
-2. Indique quais relações sustentam diretamente os requisitos R6 e R7.
-3. Responda, em uma frase, por que o núcleo transacional COBOL permanece como contêiner na arquitetura alvo do primeiro ciclo.
 
-As relações rotuladas neste exercício são a lista de exigências de comunicação que a definição tecnológica da Aula 5 recebe como entrada.
+A tabela traz os volumes registrados nos dados operacionais.
+
+| Fato | Valor |
+| --- | --- |
+| Sessões simultâneas no pico, nos 30 minutos seguintes à abertura da matrícula | 5.800 |
+| Matrículas confirmadas nesses 30 minutos | 2.400 |
+| Sessões simultâneas em dia letivo comum | 640 |
+| Lançamentos de nota exportados ao ambiente virtual em dia letivo comum | 4.800 |
+| Lançamentos de nota exportados na janela de fechamento | até 360.000 |
+
+1. Rotule cada relação numerada com o modo de comunicação, síncrono ou assíncrono, e com o volume e a latência exigidos, usando os fatos da tabela quando se aplicarem e escrevendo não informado quando o dossiê não trouxer o dado.
+
+As relações rotuladas neste item são a lista de exigências de comunicação que a definição tecnológica da Aula 5 recebe como entrada.
+
+### Item 2: Relações ligadas aos requisitos
+
+Os dois requisitos abaixo, da página inicial do caso, fixam tempo de resposta e prazo de propagação para relações do diagrama do item 1.
+
+| Código | Declaração |
+| --- | --- |
+| R6 | Percentil 95 do tempo de confirmação da matrícula em até 4 segundos, com 5.800 sessões simultâneas |
+| R7 | Nota lançada pelo professor no ambiente virtual em até 10 minutos |
+
+```mermaid
+graph LR
+    R6["R6, confirmação da matrícula em até 4 s no pico"]
+    R7["R7, nota no ambiente virtual em até 10 min"]
+    REL["Relações numeradas de 1 a 11 do item 1"]
+    R6 -.->|"quais relações sustentam?"| REL
+    R7 -.->|"quais relações sustentam?"| REL
+```
+
+1. Indique, pelo número, quais relações do diagrama do item 1 sustentam diretamente o requisito R6 e quais sustentam o requisito R7.
+
+### Item 3: Núcleo transacional na arquitetura alvo
+
+O núcleo transacional executa sob o monitor CICS em ambiente de grande porte no centro de dados da ACME, e as restrições abaixo constam da página inicial do caso e dos dados operacionais. O diagrama de implantação parcial, na notação C4 da seção [Diagrama de implantação em C4](#diagrama-de-implantacao-em-c4), mostra onde ficam o núcleo e os dois serviços novos que o chamam.
+
+| Restrição | Origem |
+| --- | --- |
+| R10, a manutenção dos programas COBOL do núcleo permanece sob o contrato da fábrica até 30/09/2027 | Contrato de sustentação |
+| A equipe interna não pode alterar o núcleo, mesmo para expor interfaces | Contrato de sustentação |
+| R4, a solução opera em um dos dois provedores de nuvem aprovados em 12/03/2026 | Conselho Universitário |
+
+```mermaid
+graph TD
+    subgraph DC["Nó: centro de dados da ACME"]
+        subgraph MF["Nó: ambiente de grande porte com monitor transacional"]
+            NUC["Contêiner: núcleo transacional COBOL"]
+        end
+    end
+    subgraph NV["Nó: região de provedor de nuvem aprovado"]
+        SM["Contêiner: serviço de matrícula, tecnologia a definir na Aula 5"]
+        SN["Contêiner: serviço de notas, tecnologia a definir na Aula 5"]
+    end
+    SM -->|"relação 3, conexão a definir na Aula 5"| NUC
+    SN -->|"relação 4, conexão a definir na Aula 5"| NUC
+```
+
+1. Responda, em uma frase, por que o núcleo transacional COBOL permanece como contêiner na arquitetura alvo do primeiro ciclo.
 
 ## Fontes
 

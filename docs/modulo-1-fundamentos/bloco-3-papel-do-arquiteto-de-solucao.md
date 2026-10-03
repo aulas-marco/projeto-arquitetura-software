@@ -34,7 +34,7 @@ Três artefatos de entrada aparecem no início de quase todo processo. A declara
 
 ### Benefícios da abordagem
 
-A abordagem arquitetural traz sete benefícios que justificam o custo do processo. O primeiro é a **visão do todo**, porque a solução é tratada como sistema que reúne pessoas, estruturas organizacionais, processos, informação e tecnologia, e são raras as soluções bem-sucedidas que não mudam algo em cada uma dessas áreas. O segundo é o **alinhamento estratégico**, com a identificação do que é estratégico na fase de descoberta e o registro como dívida estratégica daquilo que precisou ser feito contra a estratégia por urgência. O terceiro é o **reúso**, favorecido pelo uso de modelos de componente e interface, que aumentam a chance de um componente existente ser identificado como adequado a mais de um uso.
+A abordagem arquitetural traz sete benefícios que justificam o custo do processo. O primeiro é a **visão do todo**, porque a solução é tratada como sistema que reúne os cinco tipos de componente descritos no [bloco 2](bloco-2-a-solucao-como-sistema.md#os-cinco-tipos-de-componente), pessoas, estruturas organizacionais, processos, informação e tecnologia, e são raras as soluções bem-sucedidas que não mudam algo em cada uma dessas áreas. O segundo é o **alinhamento estratégico**, com a identificação do que é estratégico na fase de descoberta e o registro como dívida estratégica daquilo que precisou ser feito contra a estratégia por urgência. O terceiro é o **reúso**, favorecido pelo uso de modelos de componente e interface, que aumentam a chance de um componente existente ser identificado como adequado a mais de um uso.
 
 O quarto é a **decisão baseada em evidência**, porque a modelagem da área do problema permite localizar a causa raiz e testar se a solução proposta de fato a resolve, em lugar de decidir por opinião. O quinto é o **custo e a perturbação mínimos**, obtidos pela comparação de alternativas por análise de lacunas, que procura a menor mudança capaz de produzir o resultado desejado, e por análise de impacto, que limita os efeitos colaterais. O sexto é a **redução de dependência**, obtida pelo encapsulamento de componentes com interfaces definidas, de modo que o interior de um componente mude sem repercussão sobre os demais. O sétimo é a **resolução precoce de conflito e de duplicação**, porque o escopo declarado e as análises de lacuna e de impacto revelam cedo quais outras iniciativas em curso tocam a mesma área.
 
@@ -46,11 +46,23 @@ A separação entre entradas, produtos intermediários e entregáveis organiza a
 
 ## Exercício 3
 
-Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 2.150 professores e 4 campi, cujo sistema acadêmico está em operação desde 2004. A instituição aprovou um ciclo de modernização de 12 meses com orçamento de R$ 6,2 milhões, mantendo o ambiente virtual de aprendizagem e o ERP financeiro em operação, e o núcleo em COBOL permanece sob contrato de sustentação de uma fábrica de software até 30/09/2027.
 
-A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 2.150 professores e 4 campi, cujo sistema acadêmico está em operação desde 2004. A instituição aprovou um ciclo de modernização de 12 meses com orçamento de R$ 6,2 milhões, mantendo o ambiente virtual de aprendizagem e o ERP financeiro em operação. O núcleo em COBOL permanece sob contrato de sustentação de uma fábrica de software até 30/09/2027.
+### Item 1: Responsável por cada tarefa
 
-A lista abaixo traz dez tarefas do ciclo de modernização.
+O diagrama abaixo situa as áreas e os sistemas envolvidos no ciclo de modernização, e o quadro seguinte lista dez tarefas desse ciclo.
+
+```mermaid
+flowchart TB
+    CICLO["Ciclo de modernização<br/>12 meses, R$ 6,2 milhões"]
+    PRG["Pró-Reitoria de Graduação"] --- CICLO
+    EAD["Coordenação de Educação a Distância"] --- CICLO
+    DTI["Diretoria de TI"] --- CICLO
+    FAB["Fábrica de software<br/>contrato até 30/09/2027"] --- CICLO
+    CICLO --- NUC["Núcleo em COBOL"]
+    CICLO --- AVA["Ambiente virtual de aprendizagem<br/>permanece em operação"]
+    CICLO --- ERP["ERP financeiro<br/>permanece em operação"]
+```
 
 | Código | Tarefa |
 | --- | --- |
@@ -65,11 +77,36 @@ A lista abaixo traz dez tarefas do ciclo de modernização.
 | T9 | Configurar o servidor de integração contínua que compila e publica o serviço extraído |
 | T10 | Verificar com a Diretoria de TI se já existe na universidade um componente de envio de mensagem que possa ser reaproveitado |
 
-Responda às três perguntas abaixo.
+1. Separe as dez tarefas em três grupos, as que cabem ao arquiteto de solução, as que cabem ao arquiteto de software ou à equipe de desenvolvimento, e as que cabem à arquitetura corporativa, usando o critério de alcance apresentado no [bloco 1](bloco-1-arquitetura-de-solucoes-e-de-software.md#como-aplicar-o-grao-correto). Justifique cada tarefa em uma linha.
 
-1. Separe as dez tarefas em três grupos, as que cabem ao arquiteto de solução, as que cabem ao arquiteto de software ou à equipe de desenvolvimento, e as que cabem à arquitetura corporativa. Justifique cada tarefa em uma linha.
-2. Para as tarefas que você atribuiu ao arquiteto de solução, indique a qual dos quatro grupos de competência cada uma recorre principalmente, entre negócio, técnico, entrega e prático.
-3. A tarefa T10 existe por causa de um dos sete benefícios da abordagem arquitetural. Identifique qual, e explique em três linhas o que a instituição perde se essa verificação não for feita antes de especificar componente novo.
+### Item 2: Grupo de competência de cada tarefa
+
+O quadro abaixo resume os quatro grupos de competência do arquiteto de solução apresentados na seção [Competências exigidas](#competencias-exigidas) deste bloco.
+
+| Grupo | O que abrange |
+| --- | --- |
+| Negócio | Estratégia da organização, modelo operacional atual e planejado, política interna, fatores comerciais e de mercado e leitura do ambiente externo |
+| Técnico | Estratégia técnica, arquitetura de infraestrutura e de tecnologia vigente e planejada, e abordagens metodológicas de desenvolvimento |
+| Entrega | Gestão de projetos, de programas e de portfólio, gestão de mudança e de configuração, e gestão de riscos |
+| Prático | Comunicação, gestão de partes interessadas, tratamento de requisitos, resolução de problemas, inovação e liderança |
+
+1. Para as tarefas que você atribuiu ao arquiteto de solução no Item 1, indique a qual dos quatro grupos de competência cada uma recorre principalmente.
+
+### Item 3: Benefício por trás da tarefa T10
+
+A tarefa T10 consiste em verificar com a Diretoria de TI se já existe na universidade um componente de envio de mensagem que possa ser reaproveitado. O quadro abaixo lista os sete benefícios da abordagem arquitetural apresentados na seção [Benefícios da abordagem](#beneficios-da-abordagem) deste bloco.
+
+| Benefício | Como ele se produz |
+| --- | --- |
+| Visão do todo | A solução é tratada como sistema que reúne pessoas, estruturas organizacionais, processos, informação e tecnologia |
+| Alinhamento estratégico | O que é estratégico é identificado na descoberta, e o que foi feito contra a estratégia é registrado como dívida estratégica |
+| Reúso | Modelos de componente e de interface aumentam a chance de um componente existente servir a mais de um uso |
+| Decisão baseada em evidência | A modelagem da área do problema localiza a causa raiz e testa se a solução proposta a resolve |
+| Custo e perturbação mínimos | Análise de lacunas e análise de impacto procuram a menor mudança capaz de produzir o resultado |
+| Redução de dependência | Componentes encapsulados com interfaces definidas mudam por dentro sem repercussão sobre os demais |
+| Resolução precoce de conflito e de duplicação | Escopo declarado e análises de lacuna e de impacto revelam cedo outras iniciativas que tocam a mesma área |
+
+1. Identifique qual dos sete benefícios justifica a existência da tarefa T10, e explique em três linhas o que a instituição perde se essa verificação não for feita antes de especificar componente novo.
 
 ## Fontes
 

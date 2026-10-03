@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
-  <title id="title">Diagrama de implantação genérico do ambiente de produção</title><desc id="desc">Ambiente de produção com um DNS e uma região de provedor de nuvem. Na região, um balanceador de carga distribui as requisições HTTPS para duas zonas de disponibilidade. Cada zona tem um nó do cluster Kubernetes em máquina virtual Linux, com instâncias de contêiner da aplicação web e do serviço de agenda, e um serviço gerenciado de banco de dados, primário na zona A e réplica na zona B, ligados por replicação.</desc>
+  <title id="title">Diagrama de implantação em C4 do sistema de agendamento de uma clínica</title><desc id="desc">Ambiente de produção com um DNS e uma região de provedor de nuvem. Na região, um balanceador de carga distribui as requisições HTTPS para duas zonas de disponibilidade. Cada zona tem um nó do cluster Kubernetes em máquina virtual Linux, com instâncias de contêiner do painel da recepção e do serviço de agenda, e um serviço gerenciado de banco de dados, primário na zona A e réplica na zona B, ligados por replicação.</desc>
   <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:26px;font-weight:700}.z{font-size:17px;font-weight:700}.q{font-size:16px;fill:#52657E}.e{font-size:16px}.w{font-size:16px;fill:#D8E9FF}.wb{font-size:17px;font-weight:700;fill:white}.r{font-size:16px;font-weight:700;fill:#254DB8}</style>
   <marker id="s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#16243A"/></marker></defs>
   <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
@@ -23,7 +23,7 @@
   <text x="530" y="198" class="q">máquina virtual Linux</text>
   <rect x="530" y="210" width="285" height="56" rx="10" fill="#254DB8"/>
   <text x="545" y="232" class="w">Instância de contêiner</text>
-  <text x="545" y="254" class="wb">Aplicação web</text>
+  <text x="545" y="254" class="wb">Painel da recepção</text>
   <rect x="530" y="278" width="285" height="56" rx="10" fill="#254DB8"/>
   <text x="545" y="300" class="w">Instância de contêiner</text>
   <text x="545" y="322" class="wb">Serviço de agenda</text>
@@ -43,7 +43,7 @@
   <text x="530" y="473" class="q">máquina virtual Linux</text>
   <rect x="530" y="485" width="285" height="56" rx="10" fill="#254DB8"/>
   <text x="545" y="507" class="w">Instância de contêiner</text>
-  <text x="545" y="529" class="wb">Aplicação web</text>
+  <text x="545" y="529" class="wb">Painel da recepção</text>
   <rect x="530" y="553" width="285" height="56" rx="10" fill="#254DB8"/>
   <text x="545" y="575" class="w">Instância de contêiner</text>
   <text x="545" y="597" class="wb">Serviço de agenda</text>

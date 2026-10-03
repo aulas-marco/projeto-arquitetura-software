@@ -11,7 +11,7 @@ Este bloco trata de quem decide sobre a solução, como essas pessoas são ident
 
 ## Conceito
 
-As partes interessadas são a ligação entre a solução e o negócio. Escolhidas corretamente, elas representam o negócio e decidem em seu nome, de modo que uma solução que as satisfaça é a solução que o negócio quer. A norma ISO/IEC/IEEE 42010 define parte interessada como o indivíduo, a equipe, a organização ou a classe desses que tem interesse em um sistema.
+As partes interessadas são a ligação entre a solução e o negócio. Escolhidas corretamente, elas representam o negócio e decidem em seu nome, de modo que uma solução que as satisfaça é a solução que o negócio quer. A norma ISO/IEC/IEEE 42010 define parte interessada como o indivíduo, a equipe, a organização ou a classe desses que tem interesse em um sistema, definição já adotada no [bloco 3 da Aula 1](../modulo-1-fundamentos/bloco-3-papel-do-arquiteto-de-solucao.md#conceito).
 
 <figure markdown="span">
 ![Infográfico sobre partes interessadas, pontos de vista e escopo. À esquerda, as partes são agrupadas entre quem patrocina e decide, usa e opera, constrói e mantém, e regula e audita. Ao centro, o interesse da parte gera uma preocupação, que orienta um ponto de vista e resulta em uma visão. À direita, o escopo pergunta o que está dentro, o que fica fora e quais interfaces atravessam a fronteira.](../assets/images/modulo-2-partes-interessadas-pontos-vista.png){ .module-diagram }
@@ -41,9 +41,9 @@ A responsabilidade pela seleção correta é dos donos do negócio e dos gestore
 
 Toda preocupação identificada é registrada em um registro de preocupações e ligada a uma ou mais partes interessadas. A equipe de arquitetura mantém esse registro, e o patrocinador responde por assegurar que as preocupações sejam levantadas e tratadas. As preocupações são atendidas por decisões de desenho, e é por isso que elas reaparecem nas reuniões de decisão.
 
-A técnica que organiza esse tratamento tem dois termos que não são sinônimos. O **ponto de vista** define três coisas, o critério de seleção que filtra o que será extraído da descrição de arquitetura, a estrutura do artefato que organiza essa informação, e as instruções de apresentação que a tornam compreensível para aquela audiência. A **visão** é o resultado concreto de aplicar um ponto de vista à descrição de arquitetura.
+A técnica que organiza esse tratamento tem dois termos que não são sinônimos, apresentados na fase de validação do [bloco 4 da Aula 1](../modulo-1-fundamentos/bloco-4-processo-de-definicao-da-arquitetura.md#as-oito-fases) e detalhados a seguir. O **ponto de vista** define três coisas, o critério de seleção que filtra o que será extraído da descrição de arquitetura, a estrutura do artefato que organiza essa informação, e as instruções de apresentação que a tornam compreensível para aquela audiência. A **visão** é o resultado concreto de aplicar um ponto de vista à descrição de arquitetura.
 
-A consequência prática aparece na validação do desenho. Aplicar o mesmo ponto de vista à arquitetura de linha de base e à arquitetura alvo produz duas visões comparáveis, e a comparação mostra o efeito da mudança sob a perspectiva daquela parte interessada, sem obrigá-la a ler o modelo inteiro.
+A consequência prática aparece na validação do desenho. Aplicar o mesmo ponto de vista à [arquitetura de linha de base](../referencia/glossario.md#arquitetura-de-linha-de-base) e à [arquitetura alvo](../referencia/glossario.md#arquitetura-alvo) produz duas visões comparáveis, e a comparação mostra o efeito da mudança sob a perspectiva daquela parte interessada, sem obrigá-la a ler o modelo inteiro.
 
 ### Pontos de vista na prática
 
@@ -92,11 +92,24 @@ Os pontos de vista servem para não travar a discussão em um modelo único. Apr
 
 ## Exercício 8
 
-Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 2.150 professores, 1.480 técnico-administrativos e 4 campi, cujo sistema acadêmico está em operação desde 2004 e é mantido por uma fábrica de software contratada, sob contrato de sustentação vigente até 30/09/2027. A declaração de escopo marcada no Item 4 é o ponto de partida do [exercício 13](../modulo-4-dominios-da-solucao/bloco-1-arquitetura-de-negocio.md#exercicio-13) da Aula 4.
 
-A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 2.150 professores, 1.480 técnico-administrativos e 4 campi. O sistema acadêmico está em operação desde 2004 e é mantido por uma fábrica de software contratada, sob contrato de sustentação vigente até 30/09/2027.
+### Item 1: Categoria de cada papel
 
-O quadro abaixo reproduz o mapa de atores do caso, com o que cada papel quer e o que teme.
+O diagrama abaixo mostra os oito papéis do mapa de atores do caso, com a área a que cada um pertence, e o quadro seguinte reproduz o que cada papel quer e o que teme.
+
+```mermaid
+flowchart LR
+    SA["Sistema acadêmico da ACME"]
+    R["Reitora<br/>Reitoria"] --- SA
+    PG["Pró-Reitora de Graduação<br/>Graduação"] --- SA
+    TI["Diretor de TI<br/>Tecnologia da Informação"] --- SA
+    FIN["Diretor Financeiro<br/>Administração e Finanças"] --- SA
+    SA --- GS["Gerente de sustentação<br/>Fábrica de software contratada"]
+    SA --- EAD["Coordenadora de Educação a Distância<br/>Educação a Distância"]
+    SA --- DPO["Encarregada de proteção de dados<br/>Jurídico"]
+    SA --- DCE["Representação discente<br/>Diretório Central dos Estudantes"]
+```
 
 | Papel | O que quer | O que teme |
 | --- | --- | --- |
@@ -109,12 +122,60 @@ O quadro abaixo reproduz o mapa de atores do caso, com o que cada papel quer e o
 | Encarregada de proteção de dados | Conformidade com a LGPD, base legal declarada e trilha de auditoria sobre dado pessoal | Transferência de dado de aluno para fora do território nacional sem amparo |
 | Representação discente | Aplicativo móvel e matrícula que não falhe na abertura | Perda de vaga em disciplina por indisponibilidade do portal |
 
-Responda às quatro perguntas abaixo.
+1. Classifique os oito papéis nas categorias de parte interessada apresentadas na seção [Categorias de parte interessada](#categorias-de-parte-interessada) deste bloco.
+2. Indique qual dos oito papéis exerce o papel de patrocinador de negócio, com justificativa.
 
-1. Classifique os oito papéis nas categorias de parte interessada apresentadas no Conceito, e indique qual deles exerce o papel de patrocinador de negócio, com justificativa.
-2. Identifique duas categorias da tabela do Conceito que não têm representante no mapa de atores da ACME, e explique que risco a ausência de cada uma introduz.
-3. Escolha três papéis e defina, para cada um, um ponto de vista adequado às suas preocupações, declarando o critério de seleção, a estrutura do artefato e a forma de apresentação.
-4. Escreva a declaração de escopo do primeiro ciclo de 12 meses, listando o que muda e o que permanece, e indicando a origem de cada exclusão.
+### Item 2: Categorias sem representante
+
+O quadro abaixo lista as nove categorias de parte interessada, com uma coluna em branco para o papel do mapa de atores que representa cada uma.
+
+| Categoria | Papel do mapa de atores que a representa |
+| --- | --- |
+| Donos do negócio e gestores seniores | |
+| Patrocinador de negócio | |
+| Usuários finais e atores de negócio | |
+| Clientes e usuários dos serviços | |
+| Arquitetura corporativa e subdomínios | |
+| Participantes do desenho | |
+| Participantes da implantação | |
+| Fornecedores de produto e serviço | |
+| Reguladores e entidades setoriais | |
+
+1. Preencha a coluna com os papéis classificados no Item 1 e identifique duas categorias que ficaram sem representante.
+2. Explique, em até três linhas por categoria, que risco a ausência de cada uma introduz no processo.
+
+### Item 3: Ponto de vista para três papéis
+
+Um [ponto de vista](../referencia/glossario.md#ponto-de-vista) declara o critério de seleção, a estrutura do artefato e a forma de apresentação, e a [visão](../referencia/glossario.md#visao) é o resultado de aplicá-lo à descrição de arquitetura. O quadro abaixo traz, na primeira linha, o exemplo do gestor descrito na seção [Pontos de vista na prática](#pontos-de-vista-na-pratica), e deixa três linhas em branco.
+
+| Papel | Preocupação principal | Critério de seleção | Estrutura do artefato | Forma de apresentação |
+| --- | --- | --- | --- | --- |
+| Gestor (exemplo) | Saber se cada preocupação chegou a uma decisão acompanhável | Origem da necessidade, requisito, elemento afetado, evidência esperada e situação da decisão | Planilha de rastreabilidade | Uma linha por preocupação, com filtro por situação |
+| | | | | |
+| | | | | |
+| | | | | |
+
+1. Escolha três papéis do mapa de atores do Item 1 e preencha uma linha do quadro para cada um, seguindo o exemplo do gestor.
+
+### Item 4: Declaração de escopo do primeiro ciclo
+
+O quadro abaixo lista dez elementos do sistema acadêmico e do seu entorno, com duas colunas em branco. A declaração de escopo registra o que muda no primeiro ciclo de 12 meses e o que permanece, e cada exclusão precisa indicar de onde veio.
+
+| Código | Elemento | Muda ou permanece | Origem da exclusão |
+| --- | --- | --- | --- |
+| E1 | Integração de notas e turmas com o ambiente virtual de aprendizagem | | |
+| E2 | Ambiente virtual de aprendizagem | | |
+| E3 | ERP financeiro | | |
+| E4 | Programas COBOL do núcleo acadêmico | | |
+| E5 | Portal do aluno, na renovação de matrícula pelo telefone celular | | |
+| E6 | Autenticação de alunos e professores por padrões abertos | | |
+| E7 | Trilha de auditoria de leitura de dado pessoal de aluno | | |
+| E8 | Contrato de capacidade do mainframe | | |
+| E9 | Região de implantação dos componentes em nuvem | | |
+| E10 | Responsabilidade pela correção de dado cadastral de aluno | | |
+
+1. Marque cada elemento como muda ou permanece no primeiro ciclo de 12 meses.
+2. Indique, para cada elemento que permanece, a origem da exclusão, entre as restrições fechadas do caso, os contratos vigentes e as decisões de governança registradas no dossiê. O quadro marcado constitui a declaração de escopo do primeiro ciclo.
 
 ## Fontes
 

@@ -1,6 +1,6 @@
 # Estilos arquiteturais e sua relação com atributo de qualidade
 
-Este bloco recebe os princípios priorizados no bloco 1 e os cenários de qualidade da Aula 2 e responde qual padrão de organização estrutural sustenta melhor essas exigências, reconhecendo o compromisso que cada estilo impõe.
+Este bloco recebe os princípios priorizados no [bloco 1](bloco-1-principios-de-design.md#repertorio-de-principios) e os cenários de qualidade do [bloco 3 da Aula 2](../modulo-2-requisitos-e-partes-interessadas/bloco-3-cenarios-linha-de-base-e-restricoes.md) e responde qual padrão de organização estrutural sustenta melhor essas exigências, reconhecendo o compromisso que cada estilo impõe.
 
 ## Antes de começar
 
@@ -18,7 +18,7 @@ A arquitetura civil ajuda a fixar a ideia. Por que faria sentido projetar uma ca
 
 *Figura 1 — Três estilos construtivos, cada um respondendo a condições diferentes de clima, terreno e uso. Fonte: ShutterStock, reproduzida do material base do professor.*
 
-A escolha de estilo está entre as decisões de maior impacto sobre a arquitetura porque ela define, de antemão, quais atributos de qualidade o sistema consegue sustentar com naturalidade e quais exigirão esforço extra ou mecanismo compensatório. Um estilo que concentra processamento em um único processo favorece consistência transacional e simplicidade operacional, mas tende a limitar a escalabilidade independente de partes do sistema com carga desigual. Um estilo que distribui processamento em unidades independentes favorece escalabilidade seletiva e implantação isolada, mas introduz consistência eventual, latência de rede e superfície maior de falha parcial. Ford e Richards (2020) descrevem essa comparação de estilos por atributo de qualidade como o instrumento central da decisão, porque nenhum estilo maximiza todos os atributos ao mesmo tempo, e a escolha declara, de forma implícita, quais atributos o arquiteto está disposto a sacrificar em favor de outros.
+A escolha de estilo está entre as decisões de maior impacto sobre a arquitetura porque ela define, de antemão, quais [atributos de qualidade](../referencia/glossario.md#atributo-de-qualidade) o sistema consegue sustentar com naturalidade e quais exigirão esforço extra ou mecanismo compensatório. Um estilo que concentra processamento em um único processo favorece consistência transacional e simplicidade operacional, mas tende a limitar a escalabilidade independente de partes do sistema com carga desigual. Um estilo que distribui processamento em unidades independentes favorece escalabilidade seletiva e implantação isolada, mas introduz consistência eventual, latência de rede e superfície maior de falha parcial. Ford e Richards (2020) descrevem essa comparação de estilos por atributo de qualidade como o instrumento central da decisão, porque nenhum estilo maximiza todos os atributos ao mesmo tempo, e a escolha declara, de forma implícita, quais atributos o arquiteto está disposto a sacrificar em favor de outros.
 
 O quadro abaixo apresenta sete estilos, os tipos de componente que cada um define, a forma de comunicação entre eles, os atributos de qualidade que cada um tende a favorecer ou a prejudicar e os princípios do repertório apresentado no [bloco 1](bloco-1-principios-de-design.md) que a estrutura do estilo tende a sustentar sem mecanismo adicional.
 
@@ -60,7 +60,7 @@ A heurística do sumidouro vem de Ford e Richards (2020). A estrutura em camadas
 
 ### Arquitetura de microsserviços
 
-A arquitetura de microsserviços resolve a limitação de escalabilidade do estilo em camadas ao custo de outra. Em uma plataforma de streaming de música, o catálogo de faixas, o motor de recomendação e o processamento de pagamento de assinatura podem ser serviços separados, cada um escalado de acordo com sua própria demanda, o motor de recomendação crescendo em época de lançamento de grandes artistas sem exigir que o serviço de pagamento cresça junto. O preço dessa independência é a ausência de uma transação única que atravesse os três serviços, o que obriga a tratar inconsistência temporária entre catálogo e recomendação como situação prevista no desenho, com prazo máximo de convergência declarado.
+A arquitetura de microsserviços resolve a limitação de escalabilidade do estilo em camadas ao custo de outra. Na Plataforma de Streaming ACME, que oferece música por assinatura, o catálogo de faixas, o motor de recomendação e o processamento de pagamento de assinatura podem ser serviços separados, cada um escalado de acordo com sua própria demanda, o motor de recomendação crescendo em época de lançamento de grandes artistas sem exigir que o serviço de pagamento cresça junto. O preço dessa independência é a ausência de uma transação única que atravesse os três serviços, o que obriga a tratar inconsistência temporária entre catálogo e recomendação como situação prevista no desenho, com prazo máximo de convergência declarado.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -74,11 +74,11 @@ A arquitetura de microsserviços resolve a limitação de escalabilidade do esti
 
 A heurística olha para o comprimento da cadeia síncrona. Quando concluir uma operação exige a resposta de vários serviços em sequência, a falha de qualquer um deles interrompe a operação inteira, e nenhum serviço consegue evoluir sem considerar o comportamento dos demais na mesma cadeia.
 
-A fronteira dos serviços tem também uma explicação organizacional. A Lei de Conway descreve que organizações produzem arquiteturas que espelham sua própria estrutura de comunicação, e uma organização dividida em equipes autônomas responsáveis por uma capacidade de negócio inteira tende a produzir serviços com a mesma fronteira dessas equipes. No exemplo da plataforma de streaming de música, a divisão em catálogo, recomendação e pagamento só se sustenta se houver equipes com essas mesmas responsabilidades, e uma divisão de serviços que contrarie a divisão de equipes tende a reintroduzir o acoplamento por coordenação entre pessoas.
+A fronteira dos serviços tem também uma explicação organizacional. A Lei de Conway descreve que organizações produzem arquiteturas que espelham sua própria estrutura de comunicação, e uma organização dividida em equipes autônomas responsáveis por uma capacidade de negócio inteira tende a produzir serviços com a mesma fronteira dessas equipes. No exemplo da Plataforma de Streaming ACME, a divisão em catálogo, recomendação e pagamento só se sustenta se houver equipes com essas mesmas responsabilidades, e uma divisão de serviços que contrarie a divisão de equipes tende a reintroduzir o acoplamento por coordenação entre pessoas.
 
 ### Arquitetura orientada a eventos
 
-A arquitetura orientada a eventos favorece situação de pico e de integração entre partes que não precisam saber umas das outras. Em um sistema de reservas de companhia aérea, o serviço de reserva publica um evento de confirmação de assento, e os serviços de emissão de bilhete, de acúmulo de milhas e de notificação ao passageiro consomem esse evento de forma independente, sem que o serviço de reserva conheça a existência deles, e o diagrama abaixo mostra os dois produtores, o barramento e os três consumidores.
+A arquitetura orientada a eventos favorece situação de pico e de integração entre partes que não precisam saber umas das outras. No sistema de reservas da Companhia Aérea ACME, o serviço de reserva publica um evento de confirmação de assento, e os serviços de emissão de bilhete, de acúmulo de milhas e de notificação ao passageiro consomem esse evento de forma independente, sem que o serviço de reserva conheça a existência deles, e o diagrama abaixo mostra os dois produtores, o barramento e os três consumidores.
 
 ```mermaid
 graph TD
@@ -108,7 +108,7 @@ O barramento absorve variação de carga entre produtor e consumidor, porque o e
 | Quando evitar | Fluxo que exige resposta imediata ao usuário com o resultado de todos os consumidores, ou regra que depende de ordem garantida entre tópicos diferentes |
 | Anti-padrão e heurística de alerta | A ausência de identificador de correlação entre eventos relacionados. Se a lógica de negócio depende de ordem garantida entre eventos de tópicos diferentes, o estilo provavelmente não é adequado para essa parte do fluxo |
 
-O barramento garante ordem apenas dentro de cada tópico. No exemplo do sistema de reservas de companhia aérea, a confirmação de assento e a aprovação de pagamento precisam carregar um identificador comum de reserva, para que os serviços de emissão de bilhete, de acúmulo de milhas e de notificação consigam correlacionar os dois eventos à mesma operação, mesmo sem garantia de que um chegue antes do outro.
+O barramento garante ordem apenas dentro de cada tópico. No exemplo do sistema de reservas da Companhia Aérea ACME, a confirmação de assento e a aprovação de pagamento precisam carregar um identificador comum de reserva, para que os serviços de emissão de bilhete, de acúmulo de milhas e de notificação consigam correlacionar os dois eventos à mesma operação, mesmo sem garantia de que um chegue antes do outro.
 
 ### Arquitetura microkernel
 
@@ -144,7 +144,7 @@ No exemplo do sistema de concessão de crédito, o vazamento apareceria se a pol
 
 ### Pipes and filters
 
-O estilo pipes and filters organiza o sistema como uma sequência de etapas de transformação. Os filtros encapsulam uma função específica, como validar, estimar ou calcular, e os pipes transportam o dado de um para o outro na forma de fluxo. Em um sistema de processamento de medições de consumo de energia, a leitura bruta do medidor passa por um filtro de validação, depois por um filtro que estima a leitura quando ela veio ausente ou implausível, depois pelo filtro que aplica a tarifa vigente e por fim pelo que gera a fatura. Mudar a regra de estimativa é trocar um filtro, e a tarifação nem fica sabendo. Ferramentas modernas de fluxo de dados derivam desse estilo, e é por isso que ele é a base de sistemas de extração, transformação e carga.
+O estilo pipes and filters organiza o sistema como uma sequência de etapas de transformação. Os filtros encapsulam uma função específica, como validar, estimar ou calcular, e os pipes transportam o dado de um para o outro na forma de fluxo. No sistema de processamento de medições de consumo da Distribuidora de Energia ACME, a leitura bruta do medidor passa por um filtro de validação, depois por um filtro que estima a leitura quando ela veio ausente ou implausível, depois pelo filtro que aplica a tarifa vigente e por fim pelo que gera a fatura. Mudar a regra de estimativa é trocar um filtro, e a tarifação nem fica sabendo. Ferramentas modernas de fluxo de dados derivam desse estilo, e é por isso que ele é a base de sistemas de extração, transformação e carga.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -160,7 +160,7 @@ No exemplo do processamento de medições, esse sinal apareceria se o filtro de 
 
 ### Arquitetura orientada a APIs
 
-A arquitetura orientada a APIs organiza o sistema em torno de contratos formais publicados. Cada capacidade é exposta por uma interface declarada e versionada, e nenhum consumidor alcança o dado de outro por caminho que não seja essa interface. As APIs costumam ser classificadas em três tipos por alcance, as internas, que ligam sistemas da própria organização, as externas, expostas a parceiros identificados, e as públicas, abertas a qualquer desenvolvedor. Em uma operadora de telecomunicações, a consulta de saldo e a recarga de crédito podem ser a mesma capacidade oferecida nos três alcances, consumida internamente pelo aplicativo próprio, externamente pela rede de varejo que vende recarga no caixa, e publicamente por quem queira construir algo sobre ela. Um gateway centraliza o que seria repetido em cada serviço, a autenticação, a autorização, a limitação de taxa e a observabilidade.
+A arquitetura orientada a APIs organiza o sistema em torno de contratos formais publicados. Cada capacidade é exposta por uma interface declarada e versionada, e nenhum consumidor alcança o dado de outro por caminho que não seja essa interface. As APIs costumam ser classificadas em três tipos por alcance, as internas, que ligam sistemas da própria organização, as externas, expostas a parceiros identificados, e as públicas, abertas a qualquer desenvolvedor. Na Operadora de Telecomunicações ACME, a consulta de saldo e a recarga de crédito podem ser a mesma capacidade oferecida nos três alcances, consumida internamente pelo aplicativo próprio, externamente pela rede de varejo que vende recarga no caixa, e publicamente por quem queira construir algo sobre ela. Um gateway centraliza o que seria repetido em cada serviço, a autenticação, a autorização, a limitação de taxa e a observabilidade.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -172,19 +172,19 @@ A arquitetura orientada a APIs organiza o sistema em torno de contratos formais 
 | Quando evitar | Integração interna única e estável, em que o custo de contrato formal e de gateway não tem retorno |
 | Anti-padrão e heurística de alerta | A mudança incompatível publicada sem nova versão. Se publicar uma alteração exige combinar a data com cada consumidor, o contrato não está desacoplando nada |
 
-No exemplo da operadora de telecomunicações, esse sinal apareceria se acrescentar um campo à resposta de consulta de saldo obrigasse a rede de varejo a atualizar o sistema de caixa no mesmo dia. Este estilo raramente aparece sozinho, porque costuma organizar a fronteira de um sistema que por dentro segue microsserviços ou camadas.
+No exemplo da Operadora de Telecomunicações ACME, esse sinal apareceria se acrescentar um campo à resposta de consulta de saldo obrigasse a rede de varejo a atualizar o sistema de caixa no mesmo dia. Este estilo raramente aparece sozinho, porque costuma organizar a fronteira de um sistema que por dentro segue microsserviços ou camadas.
 
 ## Uso pelo arquiteto
 
-O arquiteto usa essa comparação de estilo por atributo de qualidade para defender uma escolha diante de partes interessadas com prioridades diferentes, traduzindo uma preferência técnica em uma tabela de trocas explícitas. O arquiteto mostra qual atributo o estilo escolhido favorece, qual ele sacrifica, e associa cada um desses atributos ao cenário de qualidade que a organização já reconheceu como prioritário. Quando dois estilos empatam diante dos cenários, os princípios priorizados no bloco 1 funcionam como critério de desempate, o que torna a decisão auditável e reduz a chance de reabri-la sem novo dado.
+O arquiteto usa essa comparação de estilo por atributo de qualidade para defender uma escolha diante de partes interessadas com prioridades diferentes, traduzindo uma preferência técnica em uma tabela de trocas explícitas. O arquiteto mostra qual atributo o estilo escolhido favorece, qual ele sacrifica, e associa cada um desses atributos ao cenário de qualidade que a organização já reconheceu como prioritário. Quando dois estilos empatam diante dos cenários, os princípios priorizados no [bloco 1](bloco-1-principios-de-design.md#anatomia-de-um-principio) funcionam como critério de desempate, o que torna a decisão auditável e reduz a chance de reabri-la sem novo dado.
 
 ## Exercício 10
 
-Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+A ACME é uma universidade privada brasileira cujo sistema acadêmico legado sustenta um núcleo transacional em COBOL sobre o monitor CICS, uma camada web em JSF e EJB e integrações por arquivo em lote com o ERP financeiro e o ambiente virtual de aprendizagem, em processo de modernização incremental. A comparação deste exercício usa os princípios priorizados no [exercício 9](bloco-1-principios-de-design.md#exercicio-9), e o estilo recomendado aqui é a entrada da seleção de padrões do exercício 11, no [bloco 3](bloco-3-padroes-arquiteturais-e-de-design.md).
 
-A ACME é uma universidade privada brasileira cujo sistema acadêmico legado sustenta um núcleo transacional em COBOL sobre o monitor CICS, uma camada web em JSF e EJB e integrações por arquivo em lote com o ERP financeiro e o ambiente virtual de aprendizagem, em processo de modernização incremental.
+### Item 1: Adequação aos cenários de qualidade
 
-Os dois cenários abaixo já foram formulados no formato de seis elementos. Se o aluno já escreveu seus próprios cenários no [bloco 3 da Aula 2](../modulo-2-requisitos-e-partes-interessadas/bloco-3-cenarios-linha-de-base-e-restricoes.md), pode usá-los no lugar destes, que servem de versão de referência para quem ainda não os tem.
+Os dois cenários abaixo já foram formulados no formato de seis elementos apresentado no [bloco 3 da Aula 2](../modulo-2-requisitos-e-partes-interessadas/bloco-3-cenarios-linha-de-base-e-restricoes.md). Quem já escreveu os próprios cenários naquele bloco pode usá-los no lugar destes, que servem de versão de referência.
 
 Cenário 1, pico de sazonalidade
 
@@ -208,17 +208,32 @@ Cenário 2, incidente de 04/02/2026
 | Resposta | Encerrar a transação por tempo limite de sessão antes de esgotar o limite de tarefas concorrentes do CICS |
 | Medida | Indisponibilidade contida dentro dos 43 minutos tolerados por mês pelo acordo de nível de serviço, contra os 260 minutos consumidos no incidente registrado, com 62% de erro nas tentativas de matrícula e 9.400 alunos sem inscrição concluída no dia |
 
-A comparação usa também os princípios priorizados no [exercício 9](bloco-1-principios-de-design.md#exercicio-9). Quem ainda não tem esses princípios pode partir dos três enunciados de referência abaixo, formulados sem motivação nem implicação, que o aluno completa ao usá-los.
+O diagrama abaixo mostra o caminho que as duas situações percorrem no sistema atual, do Portal do Aluno ao núcleo que permanece em operação durante a transição.
 
-- A operação acadêmica continua disponível durante toda a transição.
-- Dado pessoal de aluno é tratado apenas em território nacional.
-- Responsabilidades do núcleo legado são assumidas por elementos novos uma a uma, sem substituição simultânea.
+```mermaid
+graph LR
+    ALU["5.800 sessões simultâneas na abertura da matrícula"] --> PA["Portal do Aluno, JSF e EJB"]
+    PA -->|"conector transacional síncrono, tempo limite de 30 s"| CICS["Monitor CICS, limite de tarefas concorrentes"]
+    CICS --> NUC["Núcleo COBOL, regras acadêmicas"]
+    NUC --> ORA[("Banco Oracle compartilhado")]
+    PA -->|"acesso direto às tabelas"| ORA
+```
 
-1. Escolha três dos estilos apresentados no Conceito, considerando o núcleo COBOL sobre CICS como parte que permanece em operação durante a transição.
-2. Para cada estilo, registre a adequação aos dois cenários e aos princípios priorizados, o risco introduzido pelo estilo no contexto da ACME e o mecanismo compensatório necessário para neutralizar esse risco.
-3. Recomende um dos três estilos para um contexto de modernização incremental de um sistema legado crítico, justificando a escolha pelo atributo de qualidade favorecido, pelo atributo de qualidade prejudicado e pelo princípio que desempata a comparação.
+1. Escolha três dos [sete estilos](#conceito) apresentados neste bloco, considerando o núcleo COBOL sobre CICS como parte que permanece em operação durante a transição.
+2. Para cada um dos três estilos, registre a adequação ao cenário 1 e ao cenário 2, classificando cada par de estilo e cenário como favorável, neutro ou desfavorável e indicando em uma linha o motivo.
 
-O estilo recomendado neste exercício é a entrada da seleção de padrões do exercício 11, no [bloco 3](bloco-3-padroes-arquiteturais-e-de-design.md).
+### Item 2: Princípios, risco e recomendação
+
+Quem ainda não tem os princípios do exercício 9 pode partir dos três enunciados de referência abaixo, formulados sem motivação nem implicação, que o aluno completa ao usá-los, conforme a [anatomia de um princípio](bloco-1-principios-de-design.md#anatomia-de-um-principio).
+
+| Princípio de referência | Entrada que o origina |
+| --- | --- |
+| A operação acadêmica continua disponível durante toda a transição. | Continuidade operacional |
+| Dado pessoal de aluno é tratado apenas em território nacional. | Residência de dados |
+| Responsabilidades do núcleo legado são assumidas por elementos novos uma a uma, sem substituição simultânea. | Dependência do legado |
+
+1. Para cada um dos três estilos escolhidos no Item 1, registre a adequação aos princípios priorizados, o risco introduzido pelo estilo no contexto da ACME e o mecanismo compensatório necessário para neutralizar esse risco.
+2. Recomende um dos três estilos para um contexto de modernização incremental de um sistema legado crítico, justificando a escolha pelo atributo de qualidade favorecido, pelo atributo de qualidade prejudicado e pelo princípio que desempata a comparação.
 
 ## Fontes
 

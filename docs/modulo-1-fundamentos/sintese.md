@@ -26,6 +26,6 @@ As perguntas abaixo são para o aluno responder a si mesmo, sem gabarito públic
 
 As referências seguem o formato APA, 7ª edição. A lista completa, com as fontes ainda em verificação, está na [bibliografia](../referencia/bibliografia.md) do curso.
 
-- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (livro-texto da disciplina, capítulos 1, 2 e 3, base dos quatro blocos)
+- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (capítulos 1, 2 e 3, base dos quatro blocos)
 - International Organization for Standardization/International Electrotechnical Commission/Institute of Electrical and Electronics Engineers. (2022). *Systems and software engineering — Architecture description* (ISO/IEC/IEEE 42010:2022). (origem da definição de parte interessada adotada no curso)
 - Ford, N., & Richards, M. (2020). *Fundamentals of software architecture*. O'Reilly. (papel do arquiteto)

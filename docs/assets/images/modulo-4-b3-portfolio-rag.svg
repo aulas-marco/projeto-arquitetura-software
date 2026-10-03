@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
-  <title id="title">Portfólio de aplicações classificado em vermelho, âmbar e verde</title><desc id="desc">Três colunas classificam as aplicações do Hospital Vale do Pousio. Verde reúne o prontuário do paciente e o barramento de serviços, com a ação manter e evoluir. Âmbar reúne o agendamento ambulatorial, com a ação manter por ora com investimento restrito. Vermelho reúne o sistema de cartas e a planilha de priorização, com a ação substituir ou retirar. Uma linha inferior indica o uso de cada classificação na nova solução.</desc>
+  <title id="title">Portfólio de aplicações classificado em vermelho, âmbar e verde</title><desc id="desc">Três colunas classificam as aplicações de um hospital. Verde reúne o prontuário eletrônico do paciente e o barramento de serviços, com a ação manter e evoluir. Âmbar reúne o agendamento ambulatorial, com a ação manter por ora com investimento restrito. Vermelho reúne o módulo de anexos de laudo em PDF, usado para anexar ao prontuário os laudos recebidos dos laboratórios de apoio, e a planilha de priorização, com a ação substituir ou retirar. Uma linha inferior indica o uso de cada classificação na nova solução.</desc>
   <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:30px;font-weight:700}.t{font-size:22px;font-weight:700}.n{font-size:18px;font-weight:700}.q{font-size:17px;fill:#52657E}.e{font-size:16px;font-weight:700}</style></defs>
   <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
   <text x="70" y="62" class="h">Portfólio de aplicações classificado por cor</text>
-  <text x="70" y="88" class="q">Exemplo ilustrativo do Hospital Vale do Pousio, com a ação associada a cada classificação.</text>
+  <text x="70" y="88" class="q">Exemplo ilustrativo de um hospital, com a ação associada a cada classificação.</text>
 
   <rect x="70" y="115" width="340" height="360" rx="22" fill="white" stroke="#3E8E63" stroke-width="3"/>
   <rect x="70" y="115" width="340" height="58" rx="22" fill="#3E8E63"/>
@@ -11,7 +11,7 @@
   <text x="90" y="203" class="e">Manter e evoluir</text>
   <text x="90" y="226" class="q">Primeira opção na nova solução</text>
   <rect x="90" y="250" width="300" height="80" rx="14" fill="#E6EEF9" stroke="#16243A" stroke-width="2"/>
-  <text x="110" y="284" class="n">Prontuário do paciente</text>
+  <text x="110" y="284" class="n">Prontuário eletrônico</text>
   <text x="110" y="312" class="q">aplicação de negócio</text>
   <rect x="90" y="345" width="300" height="80" rx="14" fill="#E6EEF9" stroke="#16243A" stroke-width="2"/>
   <text x="110" y="379" class="n">Barramento de serviços</text>
@@ -32,7 +32,7 @@
   <text x="810" y="203" class="e">Substituir ou retirar</text>
   <text x="810" y="226" class="q">Não usar em nova solução</text>
   <rect x="810" y="250" width="300" height="80" rx="14" fill="#E6EEF9" stroke="#16243A" stroke-width="2"/>
-  <text x="830" y="284" class="n">Sistema de cartas</text>
+  <text x="830" y="284" class="n">Anexos de laudo em PDF</text>
   <text x="830" y="312" class="q">aplicação de negócio</text>
   <rect x="810" y="345" width="300" height="80" rx="14" fill="#E6EEF9" stroke="#16243A" stroke-width="2"/>
   <text x="830" y="379" class="n">Planilha de priorização</text>
@@ -47,5 +47,5 @@
   <text x="960" y="566" text-anchor="middle" class="e">Planejar migração e retirada</text>
 
   <rect x="70" y="605" width="1060" height="44" rx="22" fill="#16243A"/>
-  <text x="600" y="633" text-anchor="middle" class="e" style="fill:white">A classificação permite à arquitetura de solução escolher a opção mais estratégica (Lovatt, 2021)</text>
+  <text x="600" y="633" text-anchor="middle" class="e" style="fill:white">A classificação permite à arquitetura de solução escolher a opção mais estratégica</text>
 </svg>

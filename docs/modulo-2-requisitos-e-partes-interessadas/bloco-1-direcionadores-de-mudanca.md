@@ -10,7 +10,7 @@ Este bloco trata do que põe uma solução em movimento, os direcionadores inter
 
 ## Conceito
 
-Direcionador é a força que faz a organização sentir pressão para mudar parte do negócio, mudança que pode ser alcançada com uma solução nova ou modificada. No início do ciclo de vida, o negócio entrega à equipe de arquitetura três coisas, a declaração do problema contida na declaração de visão da solução, qualquer documentação existente que ajude a entender a situação, e a autorização para investigar, contida no documento de iniciação da arquitetura.
+Direcionador é a força que faz a organização sentir pressão para mudar parte do negócio, mudança que pode ser alcançada com uma solução nova ou modificada. No início do ciclo de vida, o negócio entrega à equipe de arquitetura três coisas, a declaração do problema contida na declaração de visão da solução, qualquer documentação existente que ajude a entender a situação, e a autorização para investigar, contida no documento de iniciação da arquitetura. Esses dois documentos são os artefatos de entrada descritos no [bloco 3 da Aula 1](../modulo-1-fundamentos/bloco-3-papel-do-arquiteto-de-solucao.md#o-que-o-trabalho-entrega).
 
 <figure markdown="span">
 ![Infográfico sobre direcionadores de mudança. À esquerda, os direcionadores internos estratégia de negócio, estratégia de TI e análise de negócio. Ao centro, a pressão para mudar passa pela análise e orienta decisões arquiteturais. À direita, a análise do macroambiente é organizada nas seis dimensões PESTLE, política, econômica, sociocultural, tecnológica, legal e ambiental.](../assets/images/modulo-2-direcionadores-mudanca.png){ .module-diagram }
@@ -125,15 +125,75 @@ O registro dos direcionadores também protege o projeto quando a liderança muda
 
 ## Exercício 5
 
-Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, dos quais 10.200 na graduação a distância, e um sistema acadêmico em operação desde 2004 que sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro. A modernização foi autorizada com orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses, o custo anual de propriedade do sistema é de R$ 15,83 milhões, o prazo médio de entrega de uma mudança é de 34 dias úteis, e dois dos três incidentes graves dos últimos 18 meses ocorreram na janela de matrícula.
 
-A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, dos quais 10.200 na graduação a distância, e um sistema acadêmico em operação desde 2004 que sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro. A modernização foi autorizada com orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses. O custo anual de propriedade do sistema é de R$ 15,83 milhões, o prazo médio de entrega de uma mudança é de 34 dias úteis, e dois dos três incidentes graves dos últimos 18 meses ocorreram na janela de matrícula.
+### Item 1: Direcionadores reativos e antecipatórios
 
-Responda às três perguntas abaixo.
+O diagrama e o quadro abaixo reproduzem os sete [direcionadores de mudança](../referencia/glossario.md#direcionador-de-mudanca) registrados no dossiê do caso, separados entre internos e externos. A resposta a um direcionador é reativa quando ele já se tornou problema, e é antecipatória quando a organização prevê a mudança e age antes que ela produza efeito.
 
-1. Classifique os sete direcionadores listados na seção Conceito em reativos e antecipatórios, justificando cada classificação pela evidência do caso.
-2. Aplique a análise PESTLE ao caso da ACME e proponha, para cada uma das seis categorias, um fator externo plausível que possa afetar a instituição nos próximos três anos. Indique quais dos seis fatores o dossiê do caso já registra e quais são acréscimo seu.
-3. A meta de reduzir o custo anual de propriedade para R$ 11,0 milhões até o fim de 2029 convive com um contrato de capacidade de mainframe vigente até 31/12/2028, com piso de volume contratado. Explique, em até cinco linhas, o efeito dessa combinação sobre o que pode ser prometido no primeiro ciclo de 12 meses.
+```mermaid
+flowchart LR
+    subgraph INT["Direcionadores internos"]
+        I1["Custo de propriedade do sistema acadêmico"]
+        I2["Lentidão de resposta a pedido de mudança"]
+        I3["Risco de perda de competência"]
+    end
+    subgraph EXT["Direcionadores externos"]
+        E1["Exigência de proteção de dado pessoal"]
+        E2["Avaliação regulatória"]
+        E3["Expectativa do aluno"]
+        E4["Disponibilidade de nuvem contratável"]
+    end
+    INT --> MOD["Modernização do sistema acadêmico"]
+    EXT --> MOD
+```
+
+| Direcionador | Natureza | Evidência no caso |
+| --- | --- | --- |
+| Custo de propriedade do sistema acadêmico | Interno, estratégia de negócio | R$ 15,83 milhões por ano, com meta declarada de R$ 11,0 milhões até o fim de 2029 |
+| Lentidão de resposta a pedido de mudança | Interno, operação | 34 dias úteis entre pedido aprovado e entrega em produção |
+| Risco de perda de competência | Interno, pessoas | 6 especialistas em COBOL na sustentação, 2 deles com aposentadoria prevista para 2027 |
+| Exigência de proteção de dado pessoal | Externo, legislação | Parecer jurídico de 28/04/2026 exigindo processamento em território nacional |
+| Avaliação regulatória | Externo, regulação | Preocupação declarada da Reitoria com queda de nota na avaliação |
+| Expectativa do aluno | Externo, retorno de clientes | Demanda por aplicativo móvel e por matrícula que não falhe na abertura |
+| Disponibilidade de nuvem contratável | Externo, tecnologia | Dois provedores pré-aprovados pelo Conselho Universitário em 12/03/2026 |
+
+1. Classifique os sete direcionadores em reativos e antecipatórios, justificando cada classificação pela evidência do caso.
+
+### Item 2: Análise PESTLE da ACME
+
+O primeiro quadro abaixo lista três fatos externos já registrados no dossiê do caso. O segundo quadro traz as seis dimensões da [análise PESTLE](#analise-pestle) com a coluna de fator externo em branco.
+
+| Código | Fato registrado no dossiê |
+| --- | --- |
+| F1 | Parecer jurídico de 28/04/2026 exige o processamento de dado pessoal de aluno em território nacional |
+| F2 | O Conselho Universitário pré-aprovou dois provedores de nuvem em 12/03/2026 |
+| F3 | A representação discente demanda aplicativo móvel e matrícula que não falhe na abertura |
+
+| Dimensão | Pergunta orientadora | Fator externo que pode afetar a ACME |
+| --- | --- | --- |
+| Política | Que prioridades, políticas públicas ou decisões governamentais podem mudar o setor? | |
+| Econômica | Que condições de renda, crédito, inflação ou custo podem afetar demanda e operação? | |
+| Sociocultural | Que mudanças de comportamento, expectativa ou perfil demográfico influenciam o serviço? | |
+| Tecnológica | Que tecnologias emergentes, obsolescentes ou mais acessíveis alteram as possibilidades? | |
+| Legal | Que leis, normas ou decisões regulatórias criam obrigações? | |
+| Ambiental | Que condições ambientais ou compromissos de sustentabilidade afetam a operação? | |
+
+1. Associe cada um dos três fatos registrados a uma das seis dimensões e anote-o na linha correspondente do segundo quadro.
+2. Preencha as dimensões que ficaram sem fato com um fator externo plausível que possa afetar a instituição nos próximos três anos, marcando cada um desses fatores como acréscimo seu.
+
+### Item 3: Meta de custo e contrato do mainframe
+
+O diagrama abaixo dispõe em ordem cronológica os marcos que condicionam a meta de redução do custo anual de propriedade.
+
+```mermaid
+flowchart LR
+    C0["Situação atual<br/>custo anual de R$ 15,83 milhões"] --> C1["Primeiro ciclo de 12 meses<br/>orçamento de R$ 6,2 milhões"]
+    C1 --> C2["31/12/2028<br/>fim do contrato de capacidade do mainframe, com piso de volume contratado"]
+    C2 --> C3["Fim de 2029<br/>meta de custo anual de R$ 11,0 milhões"]
+```
+
+1. Explique, em até cinco linhas, o efeito da combinação entre a meta de custo e o contrato de capacidade do mainframe sobre o que pode ser prometido no primeiro ciclo de 12 meses.
 
 ## Fontes
 

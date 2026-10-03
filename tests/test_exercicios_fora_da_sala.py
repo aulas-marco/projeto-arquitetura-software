@@ -43,17 +43,34 @@ class ExercisesOutsideClassTest(unittest.TestCase):
                     rows = re.findall(r"^\| [1-4] \|.*\| (\d+) \|\s*$", text, re.MULTILINE)
                     self.assertEqual(["40", "40", "40", "40"], rows)
 
-    def test_every_exercise_section_says_it_is_done_outside_class(self):
-        for page in sorted(DOCS.glob("modulo-*/bloco-*.md")):
-            text = page.read_text(encoding="utf-8")
-            match = re.search(r"^## Exercício \d+\s*$", text, re.MULTILINE)
-            if match is None:
-                continue
-            rest = text[match.end():]
-            section = rest[: re.search(r"^## ", rest, re.MULTILINE).start()]
+    def test_exercise_sections_do_not_repeat_the_rule(self):
+        """A regra fica no indice de cada aula, e o enunciado vai direto ao caso."""
+        for page, section in exercise_sections():
             with self.subTest(page=page.name):
-                self.assertIn(MARKER, section)
+                self.assertNotIn(MARKER, section)
+                self.assertNotIn("Este exercício é realizado", section)
 
+    def test_exercises_are_split_into_self_contained_items(self):
+        for page, section in exercise_sections():
+            items = re.findall(r"(?m)^### Item \d+: \S", section)
+            with self.subTest(page=page.name):
+                self.assertGreaterEqual(len(items), 2)
+
+    def test_exercises_bring_a_visual_artifact(self):
+        for page, section in exercise_sections():
+            visuals = section.count("```mermaid") + section.count("{ .module-diagram }")
+            with self.subTest(page=page.name):
+                self.assertGreaterEqual(visuals, 1)
+
+
+def exercise_sections():
+    for page in sorted(DOCS.glob("modulo-*/bloco-*.md")):
+        text = page.read_text(encoding="utf-8")
+        match = re.search(r"^## Exercício \d+\s*$", text, re.MULTILINE)
+        if match is None:
+            continue
+        rest = text[match.end():]
+        yield page, rest[: re.search(r"^## ", rest, re.MULTILINE).start()]
 
 if __name__ == "__main__":
     unittest.main()

@@ -3,7 +3,7 @@
   <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:30px;font-weight:700}.t{font-size:20px;font-weight:700}.q{font-size:16px;fill:#52657E}.e{font-size:16px;font-weight:700}</style></defs>
   <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
   <text x="70" y="62" class="h">Onde nasce o acoplamento entre duas aplicações</text>
-  <text x="70" y="86" class="q">Mesma necessidade do Hospital Vale do Pousio, duas formas de organizar o dado.</text>
+  <text x="70" y="86" class="q">Mesma necessidade de um hospital, duas formas de organizar o dado.</text>
 
   <!-- painel esquerdo -->
   <rect x="70" y="110" width="510" height="470" rx="22" fill="white" stroke="#52657E" stroke-width="2"/>

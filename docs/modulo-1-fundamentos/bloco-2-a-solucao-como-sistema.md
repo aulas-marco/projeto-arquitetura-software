@@ -12,7 +12,7 @@ Este bloco trata do objeto sobre o qual o arquiteto de solução trabalha, a sol
 
 Uma solução atende a um problema, um risco ou uma oportunidade da organização. Com o tempo, as soluções implantadas deixam de ser reconhecíveis como tais e passam a fazer parte do tecido da instituição, de modo que uma solução nova quase sempre substitui ou modifica uma solução anterior, mesmo quando ninguém a chamou assim na época.
 
-A arquitetura de solução trata a solução como um sistema, com partes que interagem para produzir o comportamento exigido. As partes podem ser novas ou já existentes, podem ser compartilhadas com outras soluções, e interagem por interfaces nas quais informação é trocada. Essa leitura tem uma consequência direta: uma solução não é avaliada pela qualidade isolada de cada parte, e sim pelo comportamento que o conjunto produz.
+A [arquitetura de solução](bloco-1-arquitetura-de-solucoes-e-de-software.md#o-que-e-arquitetura-de-solucao), definida no bloco 1, trata a solução como um sistema, com partes que interagem para produzir o comportamento exigido. As partes podem ser novas ou já existentes, podem ser compartilhadas com outras soluções, e interagem por interfaces nas quais informação é trocada. Essa leitura tem uma consequência direta: uma solução não é avaliada pela qualidade isolada de cada parte, e sim pelo comportamento que o conjunto produz.
 
 ### Os três níveis de uma organização
 
@@ -59,17 +59,53 @@ Os três níveis servem para situar o alcance do que está sendo desenhado e par
 
 ## Exercício 2
 
-Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
-
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, dos quais 10.200 na graduação a distância, 2.150 professores e 4 campi em 3 cidades. O sistema acadêmico está em operação desde 2004 e sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro.
 
-A Coordenação de Educação a Distância declarou o seguinte requisito, registrado como R7 no dossiê do caso: a nota lançada pelo professor chega ao ambiente virtual de aprendizagem em até 10 minutos. Hoje essa propagação ocorre por lote diário noturno, o que gera reclamação de aluno a cada fechamento. O ambiente virtual permanece em operação e não será substituído, por decisão da Reitoria de 12/03/2026, e o plano contratado do fornecedor que oferece interfaces de programação custa 38% a mais que o plano vigente.
+### Item 1: Componentes da solução do R7
 
-Responda às três perguntas abaixo.
+A Coordenação de Educação a Distância declarou o requisito registrado como R7 no dossiê do caso, segundo o qual a nota lançada pelo professor chega ao ambiente virtual de aprendizagem em até 10 minutos. Hoje essa propagação ocorre por lote diário noturno, o que gera reclamação de aluno a cada fechamento, como mostra o diagrama abaixo. O ambiente virtual permanece em operação e não será substituído, por decisão da Reitoria de 12/03/2026, e o plano do fornecedor que oferece interfaces de programação custa 38% a mais que o plano vigente.
 
-1. Monte o inventário de componentes da solução que atende ao R7, com pelo menos um componente em cada um dos cinco tipos, pessoas, estruturas organizacionais, processos, informação e tecnologia.
+```mermaid
+flowchart LR
+    PROF["Professor lança a nota"] --> NUC["Núcleo acadêmico"]
+    NUC -->|"lote diário noturno"| AVA["Ambiente virtual de aprendizagem"]
+    AVA --> ALU["Aluno vê a nota no dia seguinte"]
+    EAD["Coordenação de Educação a Distância"] -.->|"R7, nota no ambiente virtual em até 10 minutos"| AVA
+```
+
+O quadro abaixo lista dez componentes candidatos da solução que atende ao R7, sem classificação.
+
+| Código | Componente candidato |
+| --- | --- |
+| C1 | Treinamento dos professores para o lançamento de nota com publicação imediata |
+| C2 | Aditivo ao contrato com o fornecedor do ambiente virtual, com a troca para o plano que oferece interfaces de programação |
+| C3 | Acordo de nível de serviço de 10 minutos entre a Diretoria de TI e a Coordenação de Educação a Distância |
+| C4 | Procedimento de correção de nota já publicada no ambiente virtual |
+| C5 | Fechamento de notas sem dependência da janela noturna de lote |
+| C6 | Registro de cada envio de nota com o horário de lançamento e o horário de confirmação pelo ambiente virtual |
+| C7 | Mensagem de nota lançada, com aluno, turma, avaliação e valor |
+| C8 | Mensageria entre o núcleo acadêmico e o ambiente virtual |
+| C9 | Serviço de notas que publica um evento a cada lançamento |
+| C10 | Responsável na Coordenação de Educação a Distância pelo acompanhamento das falhas de envio |
+
+1. Classifique cada um dos dez componentes em um dos cinco tipos de [componentes da solução](../referencia/glossario.md#componentes-da-solucao), pessoas, estruturas organizacionais, processos, informação e tecnologia, e indique se algum tipo ficou sem componente.
 2. Indique qual dos cinco tipos exige a mudança de maior impacto sobre quem trabalha na instituição, e justifique em duas linhas.
-3. Situe o requisito R7 nos três níveis, sistema de negócio, sistema de informação e sistema de TI, indicando o que pertence a cada nível. Em seguida, explique por que uma solução construída apenas no nível de sistema de TI pode não reduzir o prazo percebido pelo aluno.
+
+### Item 2: Os três níveis do R7
+
+O quadro abaixo lista seis elementos da situação atual que determinam o prazo em que a nota chega ao aluno.
+
+| Código | Elemento da situação atual |
+| --- | --- |
+| N1 | Serviço de avaliação que a universidade presta ao aluno, com o resultado publicado dentro do calendário acadêmico |
+| N2 | Calendário acadêmico que fixa a data de fechamento das notas de cada período |
+| N3 | Rotina de conferência manual das notas antes da publicação |
+| N4 | Registros de nota que circulam entre professor, coordenação de curso e Secretaria Acadêmica |
+| N5 | Portal do professor e núcleo em COBOL que calcula a situação do aluno |
+| N6 | Exportação noturna por lote das notas ao ambiente virtual de aprendizagem |
+
+1. Situe cada um dos seis elementos em um dos três níveis apresentados neste bloco, sistema de negócio, sistema de informação ou sistema de TI.
+2. Explique, em até cinco linhas, por que uma solução construída apenas no nível de sistema de TI pode não reduzir o prazo percebido pelo aluno.
 
 ## Fontes
 

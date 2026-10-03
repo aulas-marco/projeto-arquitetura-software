@@ -11,11 +11,11 @@ Este bloco responde a uma pergunta que antecede qualquer especificação de sist
 
 ## Conceito
 
-Em linguagem cotidiana, qualidade costuma significar que alguma coisa é boa. Em engenharia de software essa formulação é insuficiente, porque sistemas diferentes precisam ser bons de maneiras diferentes. Um aplicativo bancário precisa proteger dados e transações. Um sistema hospitalar precisa permanecer disponível mesmo em condições adversas, porque uma indisponibilidade de cinco minutos, tolerável em um portal institucional, pode ser inaceitável em um sistema de controle hospitalar. Segurança e disponibilidade são aspectos diferentes da qualidade, e nenhum dos dois sozinho descreve o outro. Por isso a qualidade de um sistema não deve ser tratada como uma propriedade única, ela é observada por meio de diversas características. A ISO/IEC 25010 apresenta um modelo de qualidade composto por características e subcaracterísticas, usado como referência para especificar, medir e avaliar propriedades de produtos de TIC e software.
+Em linguagem cotidiana, qualidade costuma significar que alguma coisa é boa. Em engenharia de software essa formulação é insuficiente, porque sistemas diferentes precisam ser bons de maneiras diferentes. O aplicativo do Banco ACME precisa proteger dados e transações. O sistema do Hospital ACME precisa permanecer disponível mesmo em condições adversas, porque uma indisponibilidade de cinco minutos, tolerável em um portal institucional, pode ser inaceitável no controle de leitos e de medicação de um hospital. Segurança e disponibilidade são aspectos diferentes da qualidade, e nenhum dos dois sozinho descreve o outro. Por isso a qualidade de um sistema não deve ser tratada como uma propriedade única, ela é observada por meio de diversas características. A ISO/IEC 25010 apresenta um modelo de qualidade composto por características e subcaracterísticas, usado como referência para especificar, medir e avaliar propriedades de produtos de TIC e software.
 
-Um **atributo de qualidade** é uma propriedade ou dimensão pela qual o comportamento ou a estrutura de um sistema pode ser observado e avaliado. Entre os exemplos mais comuns estão o desempenho, com que rapidez e capacidade o sistema realiza seu trabalho, a disponibilidade, por quanto tempo e em quais condições o serviço permanece acessível, a confiabilidade, com que consistência o sistema executa corretamente suas funções, a segurança, como o sistema protege informações, operações e recursos, a usabilidade, com que eficácia as pessoas conseguem utilizar o produto, e a modificabilidade, com que esforço o sistema pode ser alterado. Esses termos nomeiam aspectos da qualidade, mas ainda não dizem quanto de cada qualidade é necessário. Desempenho é um atributo, segurança também é um atributo, e nenhum dos dois, isoladamente, constitui um requisito completo. Duas organizações podem considerar o mesmo atributo relevante e, ainda assim, necessitar de comportamentos muito diferentes, como no contraste entre o portal institucional e o sistema hospitalar apresentado no parágrafo de abertura desta seção Conceito.
+Um **atributo de qualidade** é uma propriedade ou dimensão pela qual o comportamento ou a estrutura de um sistema pode ser observado e avaliado. Entre os exemplos mais comuns estão o desempenho, com que rapidez e capacidade o sistema realiza seu trabalho, a disponibilidade, por quanto tempo e em quais condições o serviço permanece acessível, a confiabilidade, com que consistência o sistema executa corretamente suas funções, a segurança, como o sistema protege informações, operações e recursos, a usabilidade, com que eficácia as pessoas conseguem utilizar o produto, e a modificabilidade, com que esforço o sistema pode ser alterado. Esses termos nomeiam aspectos da qualidade, mas ainda não dizem quanto de cada qualidade é necessário. Desempenho é um atributo, segurança também é um atributo, e nenhum dos dois, isoladamente, constitui um requisito completo. Duas organizações podem considerar o mesmo atributo relevante e, ainda assim, necessitar de comportamentos muito diferentes, como no contraste entre o portal institucional e o sistema do Hospital ACME apresentado no parágrafo de abertura desta seção Conceito.
 
-Um **requisito** expressa uma necessidade, capacidade, condição ou restrição que o sistema deve satisfazer, transformando expectativas gerais em algo que possa ser analisado, negociado, implementado e verificado. Dizer que um aplicativo bancário deve permitir consultar o saldo descreve uma capacidade funcional. Dizer que esse mesmo aplicativo deve utilizar o provedor corporativo de identidade estabelece uma restrição. Requisitos podem, portanto, tratar do que o sistema faz, das condições sob as quais opera ou dos limites que devem ser respeitados.
+Um **requisito** expressa uma necessidade, capacidade, condição ou restrição que o sistema deve satisfazer, transformando expectativas gerais em algo que possa ser analisado, negociado, implementado e verificado. Dizer que o aplicativo do Banco ACME deve permitir consultar o saldo descreve uma capacidade funcional. Dizer que esse mesmo aplicativo deve utilizar o provedor corporativo de identidade estabelece uma restrição. Requisitos podem, portanto, tratar do que o sistema faz, das condições sob as quais opera ou dos limites que devem ser respeitados.
 
 <figure markdown="span">
 ![Infográfico sobre qualidade e tipos de requisito. A função descreve o que o sistema faz, o atributo de qualidade nomeia uma propriedade relevante, o requisito verificável combina contexto, comportamento e medida, e a restrição limita alternativas. Uma faixa inferior mostra a passagem do termo vago à decisão testável em três movimentos, nomear o atributo, situar o cenário e definir a medida.](../assets/images/modulo-2-qualidade-tipos-requisito.png){ .module-diagram }
@@ -29,7 +29,7 @@ Muitos alunos aprendem inicialmente a dividir requisitos em dois grupos, os **re
 | 95% das consultas de saldo devem responder em até 500 ms | Requisito não funcional de desempenho |
 | O serviço deve permanecer disponível durante pelo menos 99,95% de cada mês | Requisito não funcional de disponibilidade |
 
-Essa divisão em dois grupos é útil como introdução, mas a expressão não funcional é muito ampla. Ela informa principalmente que o requisito não descreve uma função de negócio, sem esclarecer qual propriedade de qualidade está em jogo, em que situação ela deve ser observada ou como será medida. É comum, além disso, colocar restrições dentro do conjunto dos requisitos não funcionais. Dizer que um sistema hospitalar deve usar determinado padrão de banco de dados não descreve uma função nem uma qualidade desejada, estabelece uma escolha tecnológica obrigatória. Por essa razão requisito não funcional e requisito de atributo de qualidade não devem ser tratados como termos equivalentes, e o quadro a seguir posiciona os quatro termos que circulam nessa discussão.
+Essa divisão em dois grupos é útil como introdução, mas a expressão não funcional é muito ampla. Ela informa principalmente que o requisito não descreve uma função de negócio, sem esclarecer qual propriedade de qualidade está em jogo, em que situação ela deve ser observada ou como será medida. É comum, além disso, colocar restrições dentro do conjunto dos requisitos não funcionais. Dizer que o sistema do Hospital ACME deve usar determinado padrão de banco de dados não descreve uma função nem uma qualidade desejada, estabelece uma escolha tecnológica obrigatória. Por essa razão requisito não funcional e requisito de atributo de qualidade não devem ser tratados como termos equivalentes, e o quadro a seguir posiciona os quatro termos que circulam nessa discussão.
 
 | Termo | Papel |
 | --- | --- |
@@ -40,7 +40,7 @@ Essa divisão em dois grupos é útil como introdução, mas a expressão não f
 
 Dos quatro termos, apenas três servem para classificar. Requisito não funcional é o rótulo com que o aluno chega e com que as partes interessadas falam, e por isso precisa ser reconhecido, mas ele é ponto de partida do trabalho e não resultado dele. Dizer que um requisito é não funcional não permite testá-lo, priorizá-lo nem saber quando foi atendido. O trabalho consiste justamente em pegar o que chegou com esse rótulo e decidir o que aquilo é de fato, um requisito de atributo de qualidade, que precisa ganhar contexto, carga e medida para virar verificável, ou uma restrição, que fecha alternativas e não se negocia por medida nenhuma. É essa conversão que transforma uma expectativa vaga em instrumento de decisão.
 
-Um **requisito de atributo de qualidade** declara o comportamento esperado do sistema em relação a uma característica de qualidade, respondendo a uma pergunta mais concreta, que nível de desempenho, disponibilidade ou segurança é necessário, em determinada situação. O quadro seguinte contrasta três formulações sucessivas sobre desempenho, aplicadas a uma plataforma de vídeo.
+Um **requisito de atributo de qualidade** declara o comportamento esperado do sistema em relação a uma característica de qualidade, respondendo a uma pergunta mais concreta, que nível de desempenho, disponibilidade ou segurança é necessário, em determinada situação. O quadro seguinte contrasta três formulações sucessivas sobre desempenho, aplicadas à plataforma de vídeo da Produtora ACME.
 
 | Formulação | O que ela informa |
 | --- | --- |
@@ -48,11 +48,11 @@ Um **requisito de atributo de qualidade** declara o comportamento esperado do si
 | As consultas devem responder em até 500 ms | Há uma medida, mas não se sabe para qual carga ou parcela das consultas |
 | Durante o pico mensal de 2.000 requisições por segundo, 95% das consultas autenticadas devem responder em até 500 ms e 99% em até 1 segundo | Há contexto, carga e medidas que podem orientar análise e testes |
 
-Somente a terceira formulação fornece informação suficiente para orientar decisões com razoável precisão. O nome do atributo indica o que importa, o requisito descreve o que se espera que aconteça. O mesmo raciocínio vale para segurança. Dizer que um sistema deve ser seguro não informa quais ativos devem ser protegidos, contra quais ameaças, em qual ambiente e com que resposta. Uma formulação mais útil, aplicada a um sistema hospitalar, seria a seguinte. Quando cinco tentativas inválidas de autenticação forem realizadas para a mesma conta em até dez minutos, o serviço de identidade deverá bloquear novas tentativas por quinze minutos, registrar o evento e notificar o usuário em até um minuto. Nessa formulação existe um evento observável, uma parte afetada do sistema, uma resposta esperada e medidas de tempo.
+Somente a terceira formulação fornece informação suficiente para orientar decisões com razoável precisão. O nome do atributo indica o que importa, o requisito descreve o que se espera que aconteça. O mesmo raciocínio vale para segurança. Dizer que um sistema deve ser seguro não informa quais ativos devem ser protegidos, contra quais ameaças, em qual ambiente e com que resposta. Uma formulação mais útil, aplicada ao sistema do Hospital ACME, seria a seguinte. Quando cinco tentativas inválidas de autenticação forem realizadas para a mesma conta em até dez minutos, o serviço de identidade deverá bloquear novas tentativas por quinze minutos, registrar o evento e notificar o usuário em até um minuto. Nessa formulação existe um evento observável, uma parte afetada do sistema, uma resposta esperada e medidas de tempo.
 
 ### Doze dimensões de preocupação arquitetural
 
-A classificação acima responde a uma pergunta sobre natureza, se aquela declaração é função, qualidade ou restrição. Existe um segundo eixo, complementar, que responde a outra pergunta, sobre qual dimensão de preocupação a declaração toca. Ele não substitui o primeiro e não serve para classificar. A função dele é reduzir omissão, porque na entrevista com as partes interessadas o risco maior não é classificar errado, é não perguntar. Percorrer as doze dimensões antes de encerrar o levantamento torna explícito o que influencia a arquitetura e que ninguém levantou espontaneamente.
+A classificação acima responde a uma pergunta sobre natureza, se aquela declaração é função, qualidade ou restrição. Existe um segundo eixo, complementar, que responde a outra pergunta, sobre qual dimensão de preocupação a declaração toca. Ele não substitui o primeiro e não serve para classificar. A função dele é reduzir omissão, porque na entrevista com as [partes interessadas](../modulo-1-fundamentos/bloco-3-papel-do-arquiteto-de-solucao.md#conceito), papel definido no bloco 3 da Aula 1, o risco maior não é classificar errado, é não perguntar. Percorrer as doze dimensões antes de encerrar o levantamento torna explícito o que influencia a arquitetura e que ninguém levantou espontaneamente.
 
 | Dimensão | O que ela cobra da estrutura | Exemplo |
 | --- | --- | --- |
@@ -73,7 +73,7 @@ Três observações sobre essa lista. A primeira dimensão é a menos intuitiva,
 
 A segunda observação é que as duas últimas dimensões não aparecem nas taxonomias clássicas. Sustentabilidade operacional entrou na lista porque consumo de recurso virou custo relevante e critério de decisão de capacidade. Inteligência artificial entrou porque modelo em produção introduz um objeto que envelhece sozinho, sem que o código mude, o que exige monitoramento de desvio e atualização controlada, coisas que nenhuma dimensão anterior cobre.
 
-A terceira observação é de vocabulário e merece atenção. O material base do professor, de onde vem esta lista, a apresenta como classificação de requisitos, e duas das doze entradas são restrições, de projeto e de implementação. Este bloco não trata restrição como espécie de requisito, trata como conceito vizinho, conforme o quadro anterior. As duas leituras convivem porque os eixos fazem coisas diferentes. O primeiro eixo diz o que a declaração é, e ali restrição se separa de requisito. O segundo diz sobre o que a declaração recai, e ali restrição aparece como dimensão a cobrir na entrevista, como as outras onze, porque esquecer de perguntar sobre tecnologia homologada ou sobre separação obrigatória de camadas custa tão caro quanto esquecer de perguntar sobre desempenho.
+A terceira observação é de vocabulário e merece atenção. Na formulação original, esta lista é apresentada como classificação de requisitos, e duas das doze entradas são restrições, de projeto e de implementação. Este bloco não trata restrição como espécie de requisito, trata como conceito vizinho, conforme o quadro anterior. As duas leituras convivem porque os eixos fazem coisas diferentes. O primeiro eixo diz o que a declaração é, e ali restrição se separa de requisito. O segundo diz sobre o que a declaração recai, e ali restrição aparece como dimensão a cobrir na entrevista, como as outras onze, porque esquecer de perguntar sobre tecnologia homologada ou sobre separação obrigatória de camadas custa tão caro quanto esquecer de perguntar sobre desempenho.
 
 ## Uso pelo arquiteto
 
@@ -83,9 +83,19 @@ As doze dimensões entram em outro momento do trabalho. Elas não servem para ro
 
 ## Exercício 6
 
-Este exercício é realizado fora do horário de aula, como atividade de aplicação do conceito apresentado neste bloco ao caso da instituição fictícia ACME.
+A ACME, universidade privada brasileira fictícia cujo sistema acadêmico está em modernização, levantou as declarações usadas neste exercício em entrevistas com as [partes interessadas](../referencia/glossario.md#parte-interessada), sem depuração editorial, e a lista completa, com a origem de cada declaração, está na [página inicial do caso](../caso-acme/index.md).
 
-A ACME, universidade privada brasileira cujo sistema acadêmico está em modernização, levantou os requisitos abaixo em entrevistas com as partes interessadas, sem depuração editorial.
+### Item 1: Categoria de cada declaração
+
+O diagrama abaixo mostra as três categorias de trabalho em que uma declaração recebida é classificada, e o quadro seguinte reproduz oito declarações do caso.
+
+```mermaid
+flowchart LR
+    NF["Rótulo de chegada<br/>requisito não funcional"] -.-> D["Declaração recebida na entrevista"]
+    D --> RF["Requisito funcional"]
+    D --> RAQ["Requisito de atributo de qualidade"]
+    D --> RES["Restrição"]
+```
 
 | Código | Declaração |
 | --- | --- |
@@ -98,8 +108,20 @@ A ACME, universidade privada brasileira cujo sistema acadêmico está em moderni
 | R11 | O sistema precisa ser moderno e escalável |
 | R13 | O aluno consulta o resultado da solicitação de aproveitamento de disciplina pelo portal |
 
-1. Classifique cada uma das oito declarações em uma das três categorias de trabalho, requisito funcional, requisito de atributo de qualidade ou restrição, justificando em uma frase. Nenhuma delas deve ser classificada como requisito não funcional, porque esse rótulo é o ponto de partida do trabalho e não o resultado dele. Para as que forem requisito de atributo de qualidade, indique se estão bem ou mal formuladas.
-2. Escolha dois requisitos de atributo de qualidade mal formulados e reescreva cada um em forma mensurável, seguindo o padrão de contexto, carga e medida usado no exemplo de desempenho da plataforma de vídeo, apresentado na seção Conceito acima. Se alguma parte da declaração original não puder ser reescrita por não nomear atributo algum, diga isso em vez de inventar uma medida.
+1. Classifique cada uma das oito declarações em uma das três categorias de trabalho, requisito funcional, requisito de atributo de qualidade ou restrição, justificando em uma frase. Nenhuma delas deve ser classificada como requisito não funcional, porque esse rótulo é o ponto de partida do trabalho e não o resultado dele.
+2. Para as declarações classificadas como requisito de atributo de qualidade, indique se estão bem ou mal formuladas.
+
+### Item 2: Reescrita mensurável
+
+O quadro abaixo traz, na segunda coluna, o exemplo de desempenho da plataforma de vídeo da Produtora ACME apresentado na seção [Conceito](#conceito), decomposto em contexto, carga e medida. As duas últimas colunas ficam em branco para os requisitos escolhidos. Como dado de apoio, o portal da ACME registra 815 sessões simultâneas em média anual ponderada e pico de 5.800 sessões na abertura da matrícula.
+
+| Elemento | Exemplo da Produtora ACME | Primeiro requisito escolhido | Segundo requisito escolhido |
+| --- | --- | --- | --- |
+| Contexto | Pico mensal de uso da plataforma, com consultas autenticadas | | |
+| Carga | 2.000 requisições por segundo | | |
+| Medida | 95% das consultas em até 500 ms e 99% em até 1 segundo | | |
+
+1. Escolha dois requisitos de atributo de qualidade que você marcou como mal formulados no Item 1 e preencha o contexto, a carga e a medida de cada um no quadro. Se alguma parte da declaração original não puder ser reescrita por não nomear atributo algum, registre isso na célula correspondente e deixe a medida sem valor.
 
 ## Fontes
 

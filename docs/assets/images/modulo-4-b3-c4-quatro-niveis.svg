@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Os quatro níveis de abstração do modelo C4</title><desc id="desc">Quatro faixas empilhadas, cada uma recuada em relação à anterior, mostram a decomposição do modelo C4. O nível 1, contexto, mostra o sistema de software com as pessoas e os sistemas externos. O nível 2, contêineres, decompõe o sistema em aplicações, serviços e bancos de dados. O nível 3, componentes, decompõe um contêiner em partes internas. O nível 4, código, decompõe um componente em classes e funções. Cada faixa indica o público do nível. Os níveis 1 e 2 aparecem destacados como os usados na disciplina, e os níveis 3 e 4 aparecem em cinza como fora do escopo.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:30px;font-weight:700}.t{font-size:22px;font-weight:700}.n{font-size:18px;font-weight:700}.q{font-size:17px;fill:#52657E}.e{font-size:16px;font-weight:700}</style>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#52657E"/></marker>
+  </defs>
+  <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
+  <text x="70" y="62" class="h">Os quatro níveis do modelo C4</text>
+  <text x="70" y="88" class="q">Cada nível decompõe um elemento do nível anterior e atende a um público próprio.</text>
+
+  <rect x="70" y="115" width="800" height="100" rx="18" fill="#16243A"/>
+  <text x="95" y="152" class="t" style="fill:white">Nível 1, contexto (Context)</text>
+  <text x="95" y="182" class="q" style="fill:#D8E9FF">Sistema de software, pessoas e sistemas externos</text>
+  <text x="95" y="205" class="e" style="fill:#5FC0D1">Público: todas as partes interessadas</text>
+
+  <path d="M110,215 L110,250" stroke="#52657E" stroke-width="3" marker-end="url(#seta)"/>
+  <text x="125" y="243" class="q">decompõe o sistema em</text>
+
+  <rect x="140" y="255" width="800" height="100" rx="18" fill="#254DB8"/>
+  <text x="165" y="292" class="t" style="fill:white">Nível 2, contêineres (Containers)</text>
+  <text x="165" y="322" class="q" style="fill:#D8E9FF">Aplicações, serviços e bancos de dados, com tecnologia</text>
+  <text x="165" y="345" class="e" style="fill:#5FC0D1">Público: arquitetos e desenvolvedores</text>
+
+  <path d="M180,355 L180,390" stroke="#52657E" stroke-width="3" marker-end="url(#seta)"/>
+  <text x="195" y="383" class="q">decompõe um contêiner em</text>
+
+  <rect x="210" y="395" width="800" height="90" rx="18" fill="#E6EEF9" stroke="#9AA9BC" stroke-width="2"/>
+  <text x="235" y="430" class="t" style="fill:#52657E">Nível 3, componentes (Components)</text>
+  <text x="235" y="462" class="q">Partes internas de um contêiner e suas responsabilidades</text>
+
+  <path d="M250,485 L250,520" stroke="#52657E" stroke-width="3" marker-end="url(#seta)"/>
+  <text x="265" y="513" class="q">decompõe um componente em</text>
+
+  <rect x="280" y="525" width="800" height="70" rx="18" fill="#E6EEF9" stroke="#9AA9BC" stroke-width="2"/>
+  <text x="305" y="558" class="t" style="fill:#52657E">Nível 4, código (Code)</text>
+  <text x="305" y="583" class="q">Classes, funções e estruturas de dados</text>
+
+  <rect x="960" y="115" width="170" height="240" rx="18" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="1045" y="215" text-anchor="middle" class="n">Usados</text>
+  <text x="1045" y="240" text-anchor="middle" class="n">nesta</text>
+  <text x="1045" y="265" text-anchor="middle" class="n">disciplina</text>
+
+  <rect x="70" y="615" width="1060" height="44" rx="22" fill="#16243A"/>
+  <text x="600" y="643" text-anchor="middle" class="e" style="fill:white">Níveis 3 e 4 seguem a mesma lógica de decomposição e ficam fora do escopo da disciplina</text>
+</svg>

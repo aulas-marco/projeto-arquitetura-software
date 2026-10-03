@@ -46,7 +46,7 @@ def section(text: str, heading_regex: str) -> str:
 
 
 def without_sources(text: str) -> str:
-    fontes = re.search(r"^## Fontes\s*$", text, re.MULTILINE)
+    fontes = re.search(r"^## Fontes( da aula)?\s*$", text, re.MULTILINE)
     return text[: fontes.start()] if fontes else text
 
 
@@ -122,10 +122,41 @@ class ModuleFourStructureTest(unittest.TestCase):
     def test_case_names_are_in_portuguese(self):
         for name in (B1, B2, B3):
             with self.subTest(page=name):
-                self.assertIn("Hospital Vale do Pousio", read(name))
+                self.assertIn("Hospital ACME", read(name))
         for page in MODULE.glob("*.md"):
             with self.subTest(page=page.name):
                 self.assertNotIn("Fallowdale", without_sources(page.read_text(encoding="utf-8")))
+
+
+class SelfContainedTextTest(unittest.TestCase):
+    """Revisao de 03/10/2026: texto autocontido, autor so na referencia."""
+
+    def test_block_bodies_do_not_narrate_the_textbook(self):
+        for page in sorted(DOCS.glob("modulo-*/*.md")):
+            body = without_sources(page.read_text(encoding="utf-8"))
+            prose = "\n".join(line for line in body.splitlines()
+                              if not line.startswith("*Figura"))
+            with self.subTest(page=page.name):
+                self.assertNotIn("Lovatt", prose)
+                self.assertNotIn("livro-texto", prose)
+
+    def test_cases_are_named_acme_and_drop_the_old_names(self):
+        for page in sorted(DOCS.rglob("*.md")):
+            if "superpowers" in page.parts:
+                continue
+            text = page.read_text(encoding="utf-8")
+            with self.subTest(page=page.name):
+                self.assertNotIn("Vale do Pousio", text)
+                self.assertNotIn("produtora de vídeo", text)
+
+    def test_archimate_is_presented_in_version_4(self):
+        self.assertIn("ArchiMate 4", read(B1))
+
+    def test_hospital_case_is_the_laboratory_change_without_letters(self):
+        text = without_sources(read(B1))
+        self.assertIn("laboratório", text)
+        self.assertNotIn("carta", text)
+        self.assertIn("modulo-4-b1-mapa-de-capacidades-afetadas.svg", text)
 
 
 class ExerciseRuleTest(unittest.TestCase):
