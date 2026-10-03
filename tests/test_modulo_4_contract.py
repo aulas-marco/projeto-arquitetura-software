@@ -254,6 +254,20 @@ class BlockZeroTest(unittest.TestCase):
     def test_synthesis_chain_points_to_block_0(self):
         self.assertIn(B0, section(read("sintese.md"), "Cadeia dos domínios"))
 
+    def test_index_schedule_and_route_include_block_0(self):
+        text = read("index.md")
+        self.assertRegex(text, r"(?m)^\| 19h25–19h35 \| Bloco 0, os quatro domínios numa só solução \| 10 \|\s*$")
+        self.assertIn(B0, section(text, "Roteiro da aula"))
+
+    def test_schedule_page_lists_block_0(self):
+        text = (DOCS / "cronograma.md").read_text(encoding="utf-8")
+        aula4 = re.search(r"### Aula 4.*?(?=### Aula 5)", text, re.DOTALL).group(0)
+        self.assertRegex(aula4, r"(?m)^\| 0 \| ")
+
+    def test_glossary_defines_the_backbone(self):
+        text = (DOCS / "referencia" / "glossario.md").read_text(encoding="utf-8")
+        self.assertRegex(text, r"(?m)^## Espinha dorsal dos domínios\s*$")
+
 class ExerciseRuleTest(unittest.TestCase):
     def test_exercises_do_not_ask_the_student_to_build_models(self):
         for name, (_, number, _) in BLOCKS.items():

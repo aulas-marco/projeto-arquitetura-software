@@ -33,9 +33,11 @@ class ExercisesOutsideClassTest(unittest.TestCase):
                 if "## Grade de tempo" not in text:
                     continue
                 if "| Horário | Atividade |" in text:
-                    # Grade com Kahoot, adotada a partir da Aula 3: 130 minutos de blocos.
-                    rows = re.findall(r"^\| [\dh–]+ \| Bloco [1-4],.*\| (\d+) \|\s*$", text, re.MULTILINE)
-                    self.assertEqual(4, len(rows))
+                    # Grade com Kahoot, adotada a partir da Aula 3: 130 minutos de blocos,
+                    # contando o bloco 0 quando a aula tem abertura conceitual.
+                    rows = re.findall(r"^\| [\dh–]+ \| Bloco [0-4],.*\| (\d+) \|\s*$", text, re.MULTILINE)
+                    has_zero = re.search(r"^\| [\dh–]+ \| Bloco 0,", text, re.MULTILINE) is not None
+                    self.assertEqual(5 if has_zero else 4, len(rows))
                     self.assertEqual(130, sum(int(r) for r in rows))
                     self.assertEqual(3, len(re.findall(r"^\| [\dh–]+ \| Kahoot", text, re.MULTILINE)))
                 else:

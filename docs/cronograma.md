@@ -52,6 +52,7 @@ O encadeamento vai do enquadramento ao desenho, do desenho à tecnologia, e da t
 
 | Bloco | Tema | Exercício |
 | --- | --- | --- |
+| 0 | Os quatro domínios numa só solução, com o que o arquiteto recebe, decide e entrega | Sem exercício |
 | 1 | Arquitetura de negócio da solução, capacidades, fluxo de valor e processos | 13 |
 | 2 | Arquitetura de dados da solução, com propriedade do dado | 14 |
 | 3 | Arquitetura de aplicações e integração, contrato de integração e modelo C4 | 15 |

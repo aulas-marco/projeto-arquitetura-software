@@ -6,6 +6,10 @@ Este glossário reúne os termos usados nas páginas de conceito do curso, com a
 
 Disciplina responsável pela produção e pela gestão do plano de uma solução completa, que atende a uma necessidade, um problema ou uma oportunidade de negócio e se integra ao negócio em alinhamento com a estratégia, minimizando impactos negativos. O plano descreve a estrutura e o comportamento da solução em alto nível, antes da escolha dos produtos que a realizam.
 
+## Espinha dorsal dos domínios
+
+Modelo apresentado no bloco 0 da Aula 4 que mostra, para os domínios de negócio, dados, aplicações e infraestrutura, o que o arquiteto de solução recebe, decide e entrega, e como a entrega de cada domínio se torna a entrada do domínio seguinte.
+
 ## Arquiteto de solução
 
 Profissional que conduz a definição de uma solução inteira, investiga o problema, levanta as partes interessadas, compara alternativas e responde pela integridade do desenho até a entrega. Decide sobre os cinco tipos de componente da solução, não apenas sobre software.
