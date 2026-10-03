@@ -473,6 +473,62 @@ class ContentContractTest(unittest.TestCase):
         finally:
             allowed.unlink()
 
+    def test_validator_allows_block_zero_without_exercise(self):
+        allowed = DOCS / "modulo-1-fundamentos" / "bloco-0-teste-sem-exercicio.md"
+        allowed.write_text(
+            "# Bloco teste\n\n"
+            "## Antes de começar\n\nTexto.\n\n"
+            "## Conceito\n\nTexto.\n\n"
+            "## Uso pelo arquiteto\n\nTexto.\n\n"
+            "## Fontes\n\nTexto.\n",
+            encoding="utf-8",
+        )
+        try:
+            result = subprocess.run(
+                ["python3", "scripts/validate_content.py"],
+                cwd=ROOT, text=True, capture_output=True,
+            )
+            self.assertNotIn("bloco-0-teste-sem-exercicio", result.stdout)
+        finally:
+            allowed.unlink()
+
+    def test_validator_still_requires_other_sections_in_block_zero(self):
+        offender = DOCS / "modulo-1-fundamentos" / "bloco-0-teste-sem-uso.md"
+        offender.write_text(
+            "# Bloco teste\n\n"
+            "## Antes de começar\n\nTexto.\n\n"
+            "## Conceito\n\nTexto.\n\n"
+            "## Fontes\n\nTexto.\n",
+            encoding="utf-8",
+        )
+        try:
+            result = subprocess.run(
+                ["python3", "scripts/validate_content.py"],
+                cwd=ROOT, text=True, capture_output=True,
+            )
+            self.assertIn("bloco-0-teste-sem-uso.md: falta a secao Uso pelo arquiteto", result.stdout)
+        finally:
+            offender.unlink()
+
+    def test_validator_still_requires_exercise_in_block_one(self):
+        offender = DOCS / "modulo-1-fundamentos" / "bloco-1-teste-sem-exercicio.md"
+        offender.write_text(
+            "# Bloco teste\n\n"
+            "## Antes de começar\n\nTexto.\n\n"
+            "## Conceito\n\nTexto.\n\n"
+            "## Uso pelo arquiteto\n\nTexto.\n\n"
+            "## Fontes\n\nTexto.\n",
+            encoding="utf-8",
+        )
+        try:
+            result = subprocess.run(
+                ["python3", "scripts/validate_content.py"],
+                cwd=ROOT, text=True, capture_output=True,
+            )
+            self.assertIn("bloco-1-teste-sem-exercicio.md: falta a secao Exercício", result.stdout)
+        finally:
+            offender.unlink()
+
     def test_validator_catches_block_page_sections_out_of_order(self):
         offender = DOCS / "modulo-1-fundamentos" / "bloco-teste-fora-de-ordem.md"
         offender.write_text(

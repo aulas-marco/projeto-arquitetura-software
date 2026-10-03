@@ -185,12 +185,17 @@ def check_block_anatomy(path: Path, text: str) -> list[str]:
     """Paginas de bloco precisam das cinco secoes nomeadas, na ordem.
 
     "Exercicio" e caso especial: o cabecalho precisa trazer um numero
-    inteiro (## Exercicio N), nao apenas o nome da secao.
+    inteiro (## Exercicio N), nao apenas o nome da secao. A pagina de
+    bloco 0 (bloco-0-*) e a abertura conceitual da aula e nao tem
+    exercicio, por isso so ela e dispensada dessa secao.
     """
     if not path.name.startswith("bloco-"):
         return []
+    sections = BLOCK_SECTIONS
+    if path.name.startswith("bloco-0-"):
+        sections = tuple(s for s in BLOCK_SECTIONS if s != "Exercício")
     positions = []
-    for section in BLOCK_SECTIONS:
+    for section in sections:
         if section == "Exercício":
             match = re.search(r"^##\s+Exerc[ií]cio\s+\d+\s*$", text, re.MULTILINE)
         elif section == CONCEPT_SECTION:
