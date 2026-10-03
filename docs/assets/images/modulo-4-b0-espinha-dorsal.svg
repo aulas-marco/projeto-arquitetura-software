@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">O que o arquiteto de solução recebe, decide e entrega em cada domínio</title><desc id="desc">Quatro camadas empilhadas, negócio, dados, aplicações e infraestrutura, entre uma faixa de entrada, estilo e padrões registrados em ADR na Aula 3, e uma faixa de saída, definição tecnológica na Aula 5. Cada camada traz a pergunta que o arquiteto responde e três colunas, recebe, decide e entrega, com a coluna decide em destaque. Setas ortogonais ligam a coluna entrega de cada camada à coluna recebe da camada seguinte. À esquerda, a hierarquia de serviços acompanha as camadas, do serviço de negócio e processo à informação que sustenta os serviços, ao serviço de aplicação e componente e ao serviço de tecnologia.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:28px;font-weight:700}.d{font-size:20px;font-weight:700}.q{font-size:17px;font-style:italic;fill:#52657E}.c{font-size:16px}.ch{font-size:17px;font-weight:700;fill:#52657E}.w{fill:white}.b{font-size:18px;font-weight:700}.ax{font-size:16px;fill:#16243A}.axh{font-size:17px;font-weight:700;fill:#254DB8}</style><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#52657E"/></marker></defs>
+  <rect width="1200" height="900" rx="24" fill="#F2F6FB"/>
+  <text x="24" y="40" class="h">O trabalho do arquiteto nos quatro domínios</text>
+  <rect x="190" y="58" width="990" height="42" rx="21" fill="#16243A"/>
+  <text x="685" y="85" text-anchor="middle" class="b w">Aula 3: estilo e padrões registrados em ADR</text>
+  <text x="350" y="130" text-anchor="middle" class="ch">Recebe</text>
+  <text x="680" y="130" text-anchor="middle" class="ch">Decide</text>
+  <text x="1010" y="130" text-anchor="middle" class="ch">Entrega</text>
+  <text x="90" y="130" text-anchor="middle" class="axh">Hierarquia</text>
+  <text x="90" y="150" text-anchor="middle" class="axh">de serviços</text>
+  <rect x="190" y="160" width="990" height="150" rx="14" fill="white" stroke="#9AA9BC" stroke-width="2"/>
+  <text x="206" y="188" class="d">Negócio</text>
+  <text x="520" y="188" class="q">Onde a mudança incide no negócio?</text>
+  <rect x="206" y="208" width="290" height="86" rx="10" fill="#F2F6FB" stroke="#9AA9BC" stroke-width="2"/>
+  <text x="351.0" y="246" text-anchor="middle" class="c">Mapa de capacidades, fluxo</text>
+  <text x="351.0" y="268" text-anchor="middle" class="c">de valor e modelo de processo</text>
+  <rect x="520" y="208" width="320" height="86" rx="10" fill="#FFF1D6" stroke="#F2B84B" stroke-width="2"/>
+  <text x="680.0" y="246" text-anchor="middle" class="c">Onde a mudança incide nas</text>
+  <text x="680.0" y="268" text-anchor="middle" class="c">capacidades, etapas e atividades</text>
+  <rect x="864" y="208" width="300" height="86" rx="10" fill="#F2F6FB" stroke="#9AA9BC" stroke-width="2"/>
+  <text x="1014.0" y="246" text-anchor="middle" class="c">Capacidades, etapas e</text>
+  <text x="1014.0" y="268" text-anchor="middle" class="c">atividades afetadas</text>
+  <rect x="20" y="190" width="140" height="90" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="90" y="231" text-anchor="middle" class="ax">Serviço de negócio</text>
+  <text x="90" y="251" text-anchor="middle" class="ax">e processo</text>
+  <path d="M90 280V358" stroke="#254DB8" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+  <rect x="190" y="330" width="990" height="150" rx="14" fill="white" stroke="#9AA9BC" stroke-width="2"/>
+  <text x="206" y="358" class="d">Dados</text>
+  <text x="520" y="358" class="q">A quem pertence cada dado e com que atraso cada cópia o reflete?</text>
+  <rect x="206" y="378" width="290" height="86" rx="10" fill="#F2F6FB" stroke="#9AA9BC" stroke-width="2"/>
+  <text x="351.0" y="416" text-anchor="middle" class="c">Capacidades afetadas e</text>
+  <text x="351.0" y="438" text-anchor="middle" class="c">modelo de dados corporativo</text>
+  <rect x="520" y="378" width="320" height="86" rx="10" fill="#FFF1D6" stroke="#F2B84B" stroke-width="2"/>
+  <text x="680.0" y="416" text-anchor="middle" class="c">Dono, fonte de verdade, regime</text>
+  <text x="680.0" y="438" text-anchor="middle" class="c">de consistência e obrigações</text>
+  <rect x="864" y="378" width="300" height="86" rx="10" fill="#F2F6FB" stroke="#9AA9BC" stroke-width="2"/>
+  <text x="1014.0" y="427" text-anchor="middle" class="c">Grade dado × aplicação</text>
+  <rect x="20" y="360" width="140" height="90" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="90" y="401" text-anchor="middle" class="ax">Informação que</text>
+  <text x="90" y="421" text-anchor="middle" class="ax">sustenta os serviços</text>
+  <path d="M90 450V528" stroke="#254DB8" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+  <rect x="190" y="500" width="990" height="150" rx="14" fill="white" stroke="#9AA9BC" stroke-width="2"/>
+  <text x="206" y="528" class="d">Aplicações</text>
+  <text x="520" y="528" class="q">Que aplicações mudam e como trocam dados?</text>
+  <rect x="206" y="548" width="290" height="86" rx="10" fill="#F2F6FB" stroke="#9AA9BC" stroke-width="2"/>
+  <text x="351.0" y="586" text-anchor="middle" class="c">Grade dado × aplicação e</text>
+  <text x="351.0" y="608" text-anchor="middle" class="c">portfólio de aplicações</text>
+  <rect x="520" y="548" width="320" height="86" rx="10" fill="#FFF1D6" stroke="#F2B84B" stroke-width="2"/>
+  <text x="680.0" y="586" text-anchor="middle" class="c">Aplicações que mudam, interfaces,</text>
+  <text x="680.0" y="608" text-anchor="middle" class="c">contratos e fronteira</text>
+  <rect x="864" y="548" width="300" height="86" rx="10" fill="#F2F6FB" stroke="#9AA9BC" stroke-width="2"/>
+  <text x="1014.0" y="586" text-anchor="middle" class="c">Diagramas de contexto e de</text>
+  <text x="1014.0" y="608" text-anchor="middle" class="c">contêineres e contratos</text>
+  <rect x="20" y="530" width="140" height="90" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="90" y="571" text-anchor="middle" class="ax">Serviço de aplicação</text>
+  <text x="90" y="591" text-anchor="middle" class="ax">e componente</text>
+  <path d="M90 620V698" stroke="#254DB8" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+  <rect x="190" y="670" width="990" height="150" rx="14" fill="white" stroke="#9AA9BC" stroke-width="2"/>
+  <text x="206" y="698" class="d">Infraestrutura</text>
+  <text x="520" y="698" class="q">Onde cada contêiner executa e com que exigências?</text>
+  <rect x="206" y="718" width="290" height="86" rx="10" fill="#F2F6FB" stroke="#9AA9BC" stroke-width="2"/>
+  <text x="351.0" y="767" text-anchor="middle" class="c">Contêineres e relações</text>
+  <rect x="520" y="718" width="320" height="86" rx="10" fill="#FFF1D6" stroke="#F2B84B" stroke-width="2"/>
+  <text x="680.0" y="756" text-anchor="middle" class="c">Modo, volume e latência, camada</text>
+  <text x="680.0" y="778" text-anchor="middle" class="c">de execução e topologia</text>
+  <rect x="864" y="718" width="300" height="86" rx="10" fill="#F2F6FB" stroke="#9AA9BC" stroke-width="2"/>
+  <text x="1014.0" y="756" text-anchor="middle" class="c">Diagrama de implantação e</text>
+  <text x="1014.0" y="778" text-anchor="middle" class="c">exigências para a Aula 5</text>
+  <rect x="20" y="700" width="140" height="90" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="90" y="741" text-anchor="middle" class="ax">Serviço de</text>
+  <text x="90" y="761" text-anchor="middle" class="ax">tecnologia</text>
+  <path d="M450 100V206" stroke="#52657E" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+  <path d="M1014 294V320H450V376" stroke="#52657E" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+  <path d="M1014 464V490H450V546" stroke="#52657E" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+  <path d="M1014 634V660H450V716" stroke="#52657E" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+  <path d="M1014 804V838" stroke="#52657E" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+  <rect x="190" y="840" width="990" height="42" rx="21" fill="#16243A"/>
+  <text x="685" y="867" text-anchor="middle" class="b w">Aula 5: definição tecnológica</text>
+</svg>

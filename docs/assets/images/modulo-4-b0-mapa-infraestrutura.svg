@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">Mapa do bloco 0 com o domínio de infraestrutura em destaque</title><desc id="desc">Quatro faixas empilhadas com os domínios negócio, dados, aplicações e infraestrutura e o que o arquiteto decide em cada um. A faixa do domínio de infraestrutura aparece em destaque e as demais aparecem esmaecidas.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:28px;font-weight:700}.d{font-size:20px;font-weight:700}.q{font-size:17px;font-style:italic;fill:#52657E}.c{font-size:16px}.ch{font-size:17px;font-weight:700;fill:#52657E}.w{fill:white}.b{font-size:18px;font-weight:700}.ax{font-size:16px;fill:#16243A}.axh{font-size:17px;font-weight:700;fill:#254DB8}</style></defs>
+  <rect width="1200" height="300" rx="20" fill="#F2F6FB"/>
+  <g opacity="0.45"><rect x="20" y="20" width="1160" height="56" rx="12" fill="white" stroke="#9AA9BC" stroke-width="2"/>
+  <text x="44" y="56" class="d">Negócio</text>
+  <text x="260" y="56" class="c" style="font-size:19px">Decide: Onde a mudança incide nas capacidades, etapas e atividades</text></g>
+  <g opacity="0.45"><rect x="20" y="86" width="1160" height="56" rx="12" fill="white" stroke="#9AA9BC" stroke-width="2"/>
+  <text x="44" y="122" class="d">Dados</text>
+  <text x="260" y="122" class="c" style="font-size:19px">Decide: Dono, fonte de verdade, regime de consistência e obrigações</text></g>
+  <g opacity="0.45"><rect x="20" y="152" width="1160" height="56" rx="12" fill="white" stroke="#9AA9BC" stroke-width="2"/>
+  <text x="44" y="188" class="d">Aplicações</text>
+  <text x="260" y="188" class="c" style="font-size:19px">Decide: Aplicações que mudam, interfaces, contratos e fronteira</text></g>
+  <g><rect x="20" y="218" width="1160" height="56" rx="12" fill="#FFF1D6" stroke="#F2B84B" stroke-width="4"/>
+  <text x="44" y="254" class="d">Infraestrutura</text>
+  <text x="260" y="254" class="c" style="font-size:19px">Decide: Modo, volume e latência, camada de execução e topologia</text></g>
+</svg>
