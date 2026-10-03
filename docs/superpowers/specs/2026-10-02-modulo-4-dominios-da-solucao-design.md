@@ -284,3 +284,15 @@ O módulo estará concluído quando:
 | Artefato fornecido entregar a resposta | Fornecer artefatos sem classificação, sem dono, sem rótulo e com os erros presentes |
 | Fonte complementar não verificável | Retirar a fonte e apresentar o conceito como convenção do curso |
 | Links quebrados pela renomeação da pasta | Redirecionar todas as URLs antigas e rodar `mkdocs build --strict` |
+
+## 17. Revisão de 03/10/2026
+
+O professor revisou o módulo publicado e fixou três mudanças, aprovadas na mesma data.
+
+| Mudança | Decisão |
+| --- | --- |
+| Modelo C4 | O C4 é apresentado uma única vez, na abertura do bloco 3, como notação de modelagem da aula em qualquer nível, e deixa de ser conteúdo do bloco de infraestrutura. O bloco 4 usa o diagrama de implantação, diagrama de apoio do C4 conferido em c4model.com/diagrams/deployment. O bloco 2 não usa notação C4, porque ela só é apresentada no bloco 3 |
+| Figuras | Cada conceito central recebe figura ou esquema, com mínimo de 3 visuais no bloco 1, 4 no bloco 2, 5 no bloco 3 e 3 no bloco 4, em SVG para esquemas e Mermaid para sequências e fluxos |
+| Tecnologia | Cada bloco traz exemplos tecnológicos concretos dos conceitos, como BPMN e ArchiMate no negócio, PostgreSQL, Redis, Debezium e Kafka nos dados, gRPC, GraphQL, RabbitMQ, JSON Schema e Idempotency-Key na integração, e máquina virtual, Kubernetes, balanceador de carga e zonas de disponibilidade na infraestrutura, sem escolha de produto para a ACME, que permanece na Aula 5 |
+
+O defeito de exibição das figuras SVG, que ocupavam cerca de 300 px da coluna, foi corrigido no CSS do site em 03/10/2026 e não depende desta revisão de conteúdo.

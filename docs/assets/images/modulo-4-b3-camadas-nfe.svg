@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Camadas da integração com a nota fiscal eletrônica</title><desc id="desc">Quatro camadas empilhadas da base ao topo mostram a integração com a nota fiscal eletrônica brasileira. Na base, o padrão técnico, o sistema NF-e com o manual de orientação do contribuinte versão 7.00 e o perfil WS-I Basic Profile. Acima, os protocolos TLS 1.2 ou superior com autenticação mútua e SOAP 1.2. Acima, a especificação por esquemas XML XSD, como o esquema de envio da nota na versão 4.00. No topo, as regras impostas pelo serviço, como certificado digital ICP-Brasil do tipo A1 ou A3, regras de validação e códigos de retorno.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:30px;font-weight:700}.t{font-size:22px;font-weight:700}.q{font-size:17px;fill:#52657E}.e{font-size:18px;font-weight:700}</style></defs>
+  <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
+  <text x="70" y="62" class="h">As quatro camadas na nota fiscal eletrônica</text>
+  <text x="70" y="88" class="q">Cada camada se apoia na camada abaixo dela, do padrão técnico às regras impostas pelo serviço.</text>
+
+  <rect x="70" y="115" width="1060" height="105" rx="20" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <rect x="70" y="115" width="300" height="105" rx="20" fill="#16243A"/>
+  <text x="220" y="160" text-anchor="middle" class="t" style="fill:white">Contrato</text>
+  <text x="220" y="188" text-anchor="middle" class="q" style="fill:#D8E9FF">regras impostas pelo serviço</text>
+  <text x="400" y="155" class="e">Certificado digital ICP-Brasil, tipo A1 ou A3</text>
+  <text x="400" y="185" class="q">Regras de validação e códigos de retorno do serviço</text>
+  <text x="400" y="207" class="q">Fixados pela administração tributária, sem negociação com o emissor</text>
+
+  <rect x="70" y="235" width="1060" height="105" rx="20" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <rect x="70" y="235" width="300" height="105" rx="20" fill="#254DB8"/>
+  <text x="220" y="280" text-anchor="middle" class="t" style="fill:white">Especificação</text>
+  <text x="220" y="308" text-anchor="middle" class="q" style="fill:#D8E9FF">esquemas das mensagens</text>
+  <text x="400" y="275" class="e">Esquemas XML (XSD) publicados no portal nacional</text>
+  <text x="400" y="305" class="q">Exemplo: esquema de envio da nota, versão 4.00</text>
+
+  <rect x="70" y="355" width="1060" height="105" rx="20" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <rect x="70" y="355" width="300" height="105" rx="20" fill="#5FC0D1"/>
+  <text x="220" y="400" text-anchor="middle" class="t">Protocolo</text>
+  <text x="220" y="428" text-anchor="middle" class="q" style="fill:#16243A">regras de troca</text>
+  <text x="400" y="395" class="e">TLS 1.2 ou superior, com autenticação mútua</text>
+  <text x="400" y="425" class="e">SOAP 1.2 nos serviços web</text>
+
+  <rect x="70" y="475" width="1060" height="105" rx="20" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <rect x="70" y="475" width="300" height="105" rx="20" fill="#F2B84B"/>
+  <text x="220" y="520" text-anchor="middle" class="t">Padrão técnico</text>
+  <text x="220" y="548" text-anchor="middle" class="q" style="fill:#16243A">especificação adotada</text>
+  <text x="400" y="515" class="e">Sistema NF-e, manual de orientação do contribuinte 7.00</text>
+  <text x="400" y="545" class="q">Perfil de interoperabilidade WS-I Basic Profile para os serviços web</text>
+
+  <rect x="70" y="605" width="1060" height="44" rx="22" fill="#16243A"/>
+  <text x="600" y="633" text-anchor="middle" class="e" style="fill:white">Fonte dos dados: manual de orientação do contribuinte, versão 7.00 (2020)</text>
+</svg>

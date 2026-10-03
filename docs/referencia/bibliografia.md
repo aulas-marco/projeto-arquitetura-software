@@ -33,6 +33,26 @@ Fontes conferidas, no formato APA 7ª edição. Referências adicionais entram s
 - OpenAPI Initiative. (2026). *OpenAPI specification* (Versão 3.2.1). https://spec.openapis.org/oas/latest.html
 - AsyncAPI Initiative. (n.d.). *AsyncAPI specification* (Versão 3.1.0). https://www.asyncapi.com/docs/reference/specification/latest
 - *Sistema Nota Fiscal Eletrônica: Manual de orientação do contribuinte, visão geral* (Versão 7.00). (2020). https://www.confaz.fazenda.gov.br/legislacao/arquivo-manuais/moc7-visao-geral.pdf
+- Object Management Group. (2014). *Business process model and notation (BPMN)* (Versão 2.0.2, formal/13-12-09). https://www.omg.org/spec/BPMN/2.0.2
+- The Open Group. (2022). *ArchiMate® 3.2 specification: Reference cards* (N221). https://www.opengroup.org/sites/default/files/docs/downloads/n221p.pdf
+- Debezium. (n.d.-a). *Debezium features*. https://debezium.io/documentation/reference/stable/features.html
+- Debezium. (n.d.-b). *Debezium connector for PostgreSQL*. https://debezium.io/documentation/reference/stable/connectors/postgresql.html
+- Richardson, C. (n.d.). *Pattern: Database per service*. Microservices.io. https://microservices.io/patterns/data/database-per-service.html
+- gRPC Authors. (n.d.-a). *Introduction to gRPC*. https://grpc.io/docs/what-is-grpc/introduction/
+- gRPC Authors. (n.d.-b). *FAQ*. https://grpc.io/docs/what-is-grpc/faq/
+- GraphQL Foundation. (n.d.). *Learn GraphQL*. https://graphql.org/learn/
+- JSON Schema. (n.d.). *What is JSON Schema?* https://json-schema.org/overview/what-is-jsonschema
+- Apache Software Foundation. (n.d.). *Apache Avro documentation*. https://avro.apache.org/docs/
+- Confluent. (n.d.). *Schema Registry for Confluent Platform*. https://docs.confluent.io/platform/current/schema-registry/index.html
+- Google. (n.d.). *Overview*. Protocol Buffers Documentation. https://protobuf.dev/overview/
+- RabbitMQ. (n.d.). *Which protocols does RabbitMQ support?* https://www.rabbitmq.com/docs/protocols
+- Jena, J., & Dalal, S. (2025). *The Idempotency-Key HTTP header field* (Internet-Draft draft-ietf-httpapi-idempotency-key-header-07). IETF. https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/
+- Amazon Web Services. (n.d.-a). *Regions and zones*. Amazon EC2 User Guide. https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html
+- Amazon Web Services. (n.d.-b). *What is AWS Lambda?* AWS Lambda Developer Guide. https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
+- Amazon Web Services. (n.d.-c). *What is Direct Connect?* AWS Direct Connect User Guide. https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html
+- Microsoft. (2026). *Azure ExpressRoute overview: Connect over a private connection*. Microsoft Learn. https://learn.microsoft.com/en-us/azure/expressroute/expressroute-introduction
+- The Kubernetes Authors. (n.d.-a). *Nodes*. Kubernetes Documentation. https://kubernetes.io/docs/concepts/architecture/nodes/
+- The Kubernetes Authors. (n.d.-b). *Pods*. Kubernetes Documentation. https://kubernetes.io/docs/concepts/workloads/pods/
 
 As referências ainda não confirmadas (o número de características da ISO/IEC 25010:2023, o DOI do relatório do SEI e a coletânea de 2016 do Quality Attribute Workshop) ficam fora da lista até serem conferidas.
 

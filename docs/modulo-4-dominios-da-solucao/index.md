@@ -25,7 +25,7 @@ A aula ocorre das 19h00 às 22h30, com intervalo das 20h30 às 20h45, e o tempo 
 | 19h58–20h30 | Bloco 2, arquitetura de dados da solução | 32 |
 | 20h30–20h45 | Intervalo | 15 |
 | 20h45–20h55 | Kahoot dos blocos 1 e 2 | 10 |
-| 20h55–21h28 | Bloco 3, arquitetura de aplicações e integração | 33 |
+| 20h55–21h28 | Bloco 3, modelagem C4, aplicações e integração | 33 |
 | 21h28–22h00 | Bloco 4, arquitetura de infraestrutura da solução | 32 |
 | 22h00–22h10 | Kahoot dos blocos 3 e 4 | 10 |
 
@@ -41,9 +41,9 @@ O [bloco 1](bloco-1-arquitetura-de-negocio.md) apresenta a arquitetura de negóc
 
 O [bloco 2](bloco-2-arquitetura-de-dados.md) trata da arquitetura de dados da solução e de sua consistência com a arquitetura corporativa, das definições de dado, informação e metadado, da grade dado × aplicação, da distinção entre fonte de verdade e cópia derivada, do regime de consistência e da propriedade do dado. O exercício 14 fornece a grade da linha de base da ACME e pede ao aluno que marque o dono de cada entidade e o regime exigido por consumidor.
 
-O [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md) trata do portfólio de aplicações, da hierarquia de serviços, dos seis atributos de uma interface, da distinção entre padrão técnico, protocolo, especificação e contrato, da estrutura de um contrato de integração e do diagrama de contexto C4. O exercício 15 pede a classificação das aplicações da ACME, o preenchimento do contrato da integração de notas e a correção de um diagrama de contexto com dois erros de nível.
+O [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md) abre com o modelo C4, apresentado como a notação de modelagem da aula nos níveis de contexto e de contêineres, e trata em seguida do portfólio de aplicações, da hierarquia de serviços, dos seis atributos de uma interface, da distinção entre padrão técnico, protocolo, especificação e contrato, dos estilos de integração e da estrutura de um contrato de integração. O exercício 15 pede a classificação das aplicações da ACME, o preenchimento do contrato da integração de notas e a correção de um diagrama de contexto com dois erros de nível.
 
-O [bloco 4](bloco-4-arquitetura-de-infraestrutura.md) trata da arquitetura de infraestrutura no nível lógico, da representação da solução como grafo de blocos de construção e interfaces, e do diagrama de contêineres C4, com a convenção de rotular a tecnologia como a definir na Aula 5. O exercício 16 fornece o diagrama de contêineres da arquitetura alvo e pede ao aluno que rotule cada relação com modo de comunicação, volume e latência.
+O [bloco 4](bloco-4-arquitetura-de-infraestrutura.md) trata da arquitetura de infraestrutura no nível lógico, da representação da solução como grafo de blocos de construção e interfaces, das camadas de execução, da topologia de implantação e do diagrama de implantação do modelo C4, sem escolha de produto, que pertence à Aula 5. O exercício 16 fornece o diagrama de contêineres da arquitetura alvo e pede ao aluno que rotule cada relação com modo de comunicação, volume e latência.
 
 A [síntese](sintese.md) fecha o módulo com o checklist do que precisa permanecer, a cadeia dos domínios construída na aula, a autoavaliação e as fontes da aula inteira.
 

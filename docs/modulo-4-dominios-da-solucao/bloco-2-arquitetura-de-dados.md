@@ -20,6 +20,16 @@ O caso da produtora de vídeo, apresentado por Lovatt, mostra essa inconsistênc
 
 Lovatt adota as definições da norma ISO/IEC 2382 de vocabulário de tecnologia da informação. Dado é a representação reinterpretável de informação, em forma adequada à comunicação, à interpretação ou ao processamento. Informação é o conhecimento sobre objetos, fatos, eventos, processos ou ideias que tem significado dentro de um contexto. Metadado é a categoria intermediária, o dado sobre o dado, que reúne descrições, regras, restrições e ligações entre itens de dado. O livro trata dado, informação e metadado numa única arquitetura de dados, sem negar a diferença entre eles, porque os três estão ligados de forma estreita na prática.
 
+A Figura 1 aplica as três definições a um registro de consulta do Hospital Vale do Pousio, com valores fictícios. A linha gravada no banco é o dado, o dicionário de dados que dá nome, tipo e significado a cada campo é o metadado, e a frase que afirma que o paciente P-40213 faltou à consulta de cardiologia em 14/10/2026 é a informação obtida pela interpretação do dado com o metadado.
+
+<figure markdown="span">
+![Três cartões com o mesmo registro de consulta do Hospital Vale do Pousio. O dado é uma linha de valores separados por ponto e vírgula, o metadado é o dicionário de dados que descreve cada campo e a informação é a frase que diz que o paciente faltou à consulta de cardiologia.](../assets/images/modulo-4-b2-dado-informacao-metadado.svg){ .module-diagram }
+</figure>
+
+*Figura 1 — Dado, metadado e informação num registro de consulta. Fonte: material do curso, com base em Lovatt (2021, seção 2.5).*
+
+Em banco relacional, o metadado técnico fica num catálogo mantido pelo próprio gerenciador de banco de dados. No PostgreSQL, o catálogo do sistema e o esquema information_schema, definido pelo padrão SQL, descrevem as tabelas, as colunas, os tipos e as restrições de cada base, e os dicionários e catálogos de dados corporativos acrescentam a essas descrições o significado de negócio, artefato que Lovatt (2021, seção 2.5.3) lista como insumo da solução.
+
 ### Objetivos, atividades e artefatos
 
 Os objetivos da arquitetura de dados que se sobrepõem aos da arquitetura de solução são atender às necessidades de dado e de informação do negócio, promover o entendimento do dado na organização, garantir consistência de uso e eliminar a duplicação de definições, cumprir a legislação e a regulação aplicáveis e governar o desenvolvimento de soluções novas (Lovatt, 2021, seção 2.5.1).
@@ -36,13 +46,67 @@ O dado é uma abstração do mundo real e guarda só os detalhes que interessam 
 | Generalização | Reunir entidades distintas numa entidade mais abstrata | Paciente e profissional de saúde generalizados em pessoa |
 | Especialização | Modelar uma entidade mais específica quando há diferença real de estrutura ou comportamento | Profissional de saúde especializado em enfermeiro especialista e médico |
 
-A generalização tem efeito prático na solução, porque ajuda a reconhecer que uma entidade já existe na arquitetura corporativa com outro nome e pode ser reaproveitada, em vez de ser definida de novo.
+A generalização tem efeito prático na solução, porque ajuda a reconhecer que uma entidade já existe na arquitetura corporativa com outro nome e pode ser reaproveitada sem receber uma definição nova.
+
+A Figura 2 representa as duas operações do Hospital Vale do Pousio num diagrama de entidades simplificado, em que a seta de ponta vazada sai da entidade específica e aponta para a mais geral. Cada entidade lista apenas os atributos que acrescenta às entidades acima dela, e esses atributos são ilustrativos, porque não constam do livro de Lovatt.
+
+<figure markdown="span">
+![Diagrama de entidades com pessoa no topo, paciente e profissional de saúde abaixo dela ligados por seta de generalização, e enfermeiro especialista e médico abaixo de profissional de saúde ligados por seta de especialização, cada entidade com os próprios atributos.](../assets/images/modulo-4-b2-generalizacao-especializacao.svg){ .module-diagram }
+</figure>
+
+*Figura 2 — Generalização e especialização das entidades do Hospital Vale do Pousio. Fonte: material do curso, com base em Lovatt (2021, seção 2.5.5).*
 
 ### Fonte de verdade e regime de consistência
 
 Kleppmann (2017) distingue dois tipos de sistema que guardam dado. O sistema de registro guarda a versão autoritativa do dado, e é nele que o dado é escrito primeiro. O sistema de dado derivado guarda dado transformado ou processado a partir do sistema de registro, como um cache, um índice de busca ou uma base analítica, e pode ser reconstruído a partir da origem. Nesta disciplina, o termo **fonte de verdade** designa o lugar em que a entidade é registrada com autoridade, e toda outra ocorrência da entidade é cópia derivada.
 
+O sistema de registro costuma ser um banco relacional com transação ACID, sigla de atomicidade, consistência, isolamento e durabilidade, como o PostgreSQL ou o Oracle. A transação confirmada fica visível para as leituras seguintes no mesmo banco, e o gerenciador anota cada mudança confirmada num log de transações, que no PostgreSQL se chama write-ahead log.
+
+As cópias derivadas mais comuns cumprem papéis distintos, e cada uma é alimentada a partir do sistema de registro.
+
+- A réplica de leitura é uma cópia do próprio banco, alimentada pelo log de transações do servidor primário, que atende consultas e reduz a carga sobre ele.
+- O cache, como o Redis, guarda em memória o resultado de leituras frequentes para reduzir o tempo de resposta e o número de acessos ao sistema de registro.
+- O índice de busca, como o OpenSearch ou o Elasticsearch, reorganiza o dado para consultas por texto livre e por combinações de filtros que o banco relacional atende com lentidão.
+- O data warehouse, como o BigQuery, o Snowflake ou o Redshift, guarda o dado em armazenamento colunar para consultas analíticas sobre grande volume histórico.
+
+A captura de mudanças de dados, conhecida pela sigla CDC, propaga cada alteração confirmada no sistema de registro para as cópias. O Debezium é um conjunto de conectores de origem para o Kafka Connect que lê o log de transações do banco, no PostgreSQL por meio da decodificação lógica do write-ahead log, e emite um evento para cada inserção, atualização e exclusão de linha (Debezium, n.d.-a, n.d.-b). Por padrão, os eventos de cada tabela vão para um tópico próprio do Apache Kafka, o barramento de eventos que retém as mensagens em ordem dentro de cada partição e permite que cada consumidor leia no próprio ritmo.
+
+<figure markdown="span">
+![Fluxo em que a aplicação grava em transação no PostgreSQL, sistema de registro, que alimenta uma réplica de leitura. O Debezium lê o log de transações e publica eventos no Apache Kafka, de onde o cache Redis, o índice OpenSearch e o data warehouse recebem as mudanças, cada um com regime eventual e prazo declarado.](../assets/images/modulo-4-b2-fonte-de-verdade-copias.svg){ .module-diagram }
+</figure>
+
+*Figura 3 — Fonte de verdade e cópias derivadas alimentadas por captura de mudanças e por eventos. Fonte: material do curso, com base em Kleppmann (2017) e Debezium (n.d.-a).*
+
+Os produtos citados neste bloco são exemplos de cada categoria, e a escolha de banco, cache, índice, barramento e data warehouse para a ACME pertence à Aula 5.
+
 Cada cópia derivada precisa de um **regime de consistência** declarado, que diz quando a cópia reflete a fonte de verdade. O regime é forte quando a cópia reflete a fonte imediatamente, e eventual quando reflete dentro de um prazo declarado, por exemplo cinco minutos ou um dia. Um regime eventual sem prazo declarado não pode ser verificado, e por isso não é aceito como decisão.
+
+A Figura 4 coloca os dois regimes na mesma linha do tempo. A leitura feita no sistema de registro depois da confirmação da transação devolve o valor novo, enquanto a leitura feita na cópia derivada pode devolver o valor anterior até que o evento propagado pela captura de mudanças chegue, dentro do prazo declarado de cinco minutos do exemplo.
+
+```mermaid
+sequenceDiagram
+    participant AP as Aplicação de agenda
+    participant SR as Sistema de registro
+    participant CD as Cópia derivada
+    rect rgb(216, 233, 255)
+    Note over AP,SR: Consistência forte
+    AP->>SR: 1. grava remarcação da consulta em transação
+    SR-->>AP: 2. transação confirmada
+    AP->>SR: 3. lê a consulta
+    SR-->>AP: 4. devolve o horário novo
+    end
+    rect rgb(255, 244, 221)
+    Note over AP,CD: Consistência eventual com prazo de cinco minutos
+    AP->>CD: 5. lê a consulta logo após a confirmação
+    CD-->>AP: 6. devolve o horário anterior, dentro do prazo
+    SR-)CD: 7. evento de mudança chega pela captura de mudanças
+    Note over CD: cópia atualizada antes do fim do prazo
+    AP->>CD: 8. lê a consulta de novo
+    CD-->>AP: 9. devolve o horário novo
+    end
+```
+
+*Figura 4 — Consistência forte e consistência eventual com prazo declarado. Fonte: material do curso, com base em Kleppmann (2017).*
 
 ### Propriedade do dado
 
@@ -50,11 +114,19 @@ A **propriedade do dado** atribui cada entidade a um único responsável, que é
 
 O banco compartilhado entre aplicações contraria a propriedade do dado. Quando duas aplicações leem e gravam as mesmas tabelas, cada mudança de estrutura passa a exigir alteração coordenada em dois códigos-fonte, frequentemente mantidos por equipes distintas, e nenhuma das duas pode evoluir o modelo de dados sem a outra. O custo aparece no prazo de entrega de qualquer mudança que toque essas tabelas e na impossibilidade de extrair uma parte do sistema sem reescrever a outra.
 
+A forma técnica mais comum da propriedade do dado é a prática de um banco por serviço, em que o dado persistente de cada serviço é privado e acessível apenas pela interface desse serviço (Richardson, n.d.). Os consumidores leem pela interface ou recebem os eventos que o dono publica no Kafka, diretamente ou por captura de mudanças com o Debezium, e dependem só do contrato da interface e do evento, que o dono mantém estável enquanto altera o esquema interno.
+
+<figure markdown="span">
+![Dois painéis. À esquerda, as aplicações de agenda e de comunicação leem e gravam as mesmas tabelas num banco único, com o acoplamento destacado no esquema. À direita, o serviço de agenda é dono da consulta, tem banco próprio, oferece interface e publica o evento consulta agendada, e o acoplamento fica restrito ao contrato.](../assets/images/modulo-4-b2-banco-compartilhado-dono.svg){ .module-diagram }
+</figure>
+
+*Figura 5 — Banco compartilhado comparado com um dono por entidade. Fonte: material do curso, com base em Richardson (n.d.) e Dehghani (2022).*
+
 <figure markdown="span">
 ![Grade genérica que cruza três entidades, cliente, pedido e fatura, com três aplicações, loja virtual, logística e faturamento. Cada célula indica se a aplicação grava, lê por interface ou recebe por evento. Uma coluna destacada indica o dono de cada entidade e outra coluna indica o regime de consistência de cada consumidor, forte ou eventual com prazo de cinco minutos.](../assets/images/modulo-4-grade-dado-aplicacao.svg){ .module-diagram }
 </figure>
 
-*Figura 1 — Grade dado × aplicação com dono, consumidores e regime de consistência. Fonte: material do curso, com base em Lovatt (2021, seção 2.5.3).*
+*Figura 6 — Grade dado × aplicação com dono, consumidores e regime de consistência. Fonte: material do curso, com base em Lovatt (2021, seção 2.5.3).*
 
 ## Uso pelo arquiteto
 
@@ -103,5 +175,8 @@ As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](
 - Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.5, arquitetura de dados corporativa e de solução, definições de dado, informação e metadado, objetivos, atividades, artefatos e grade de análise de impacto, generalização e especialização. O Hospital Vale do Pousio é a versão em português do caso Fallowdale Hospital, usado ao longo do livro)
 - Kleppmann, M. (2017). *Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems*. O'Reilly Media. (parte III, sistemas de registro e dado derivado)
 - Dehghani, Z. (2022). *Data mesh: Delivering data-driven value at scale*. O'Reilly Media. (princípio da propriedade do dado pelo domínio)
+- Debezium. (n.d.-a). *Debezium features*. https://debezium.io/documentation/reference/stable/features.html (captura de mudanças baseada em log, conectores de origem para o Kafka Connect, captura de exclusões)
+- Debezium. (n.d.-b). *Debezium connector for PostgreSQL*. https://debezium.io/documentation/reference/stable/connectors/postgresql.html (decodificação lógica do log de transações, evento por inserção, atualização e exclusão de linha, um tópico do Kafka por tabela)
+- Richardson, C. (n.d.). *Pattern: Database per service*. Microservices.io. https://microservices.io/patterns/data/database-per-service.html (dado persistente privado ao serviço e acessível apenas pela interface dele)
 
 **Material do curso.** O bloco usa as entradas [arquitetura de dados](../referencia/glossario.md#arquitetura-de-dados), [propriedade do dado](../referencia/glossario.md#propriedade-do-dado), [fonte de verdade](../referencia/glossario.md#fonte-de-verdade) e [regime de consistência](../referencia/glossario.md#regime-de-consistencia) do glossário, além do dossiê da instituição fictícia [ACME](../caso-acme/index.md) e da sua [arquitetura de linha de base](../caso-acme/linha-de-base.md).

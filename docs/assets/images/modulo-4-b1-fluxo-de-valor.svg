@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Fluxo de valor do paciente do Hospital Vale do Pousio</title><desc id="desc">Seis etapas em duas linhas, do pedido de consulta à consulta realizada. As etapas 4, aviso por carta impressa, e 5, confirmação ou remarcação pelo paciente, aparecem em âmbar, com notas sobre o atraso causado pela impressão, postagem e entrega da carta e pela resposta sem canal imediato.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:30px;font-weight:700}.t{font-size:20px;font-weight:700}.q{font-size:17px;fill:#52657E}.e{font-size:16px;font-weight:700}</style>
+  <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#16243A"/></marker></defs>
+  <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
+  <text x="70" y="62" class="h">Fluxo de valor do paciente</text>
+  <text x="70" y="86" class="q">Do pedido de consulta à consulta realizada, com as etapas em que a carta impressa atrasa o valor.</text>
+
+  <g>
+    <rect x="70" y="130" width="300" height="110" rx="18" fill="white" stroke="#254DB8" stroke-width="3"/>
+    <text x="95" y="172" class="t">1. Pedido de consulta</text>
+    <text x="95" y="205" class="q">O paciente solicita</text>
+    <text x="95" y="226" class="q">atendimento ao hospital</text>
+    <rect x="450" y="130" width="300" height="110" rx="18" fill="white" stroke="#254DB8" stroke-width="3"/>
+    <text x="475" y="172" class="t">2. Lista de espera</text>
+    <text x="475" y="205" class="q">O pedido aguarda vaga</text>
+    <text x="475" y="226" class="q">na clínica indicada</text>
+    <rect x="830" y="130" width="300" height="110" rx="18" fill="white" stroke="#254DB8" stroke-width="3"/>
+    <text x="855" y="172" class="t">3. Agendamento</text>
+    <text x="855" y="205" class="q">O ambulatório reserva</text>
+    <text x="855" y="226" class="q">data, horário e clínica</text>
+  </g>
+  <path d="M370 185H444" stroke="#16243A" stroke-width="3" marker-end="url(#seta)"/>
+  <path d="M750 185H824" stroke="#16243A" stroke-width="3" marker-end="url(#seta)"/>
+  <path d="M980 240V290H220V330" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#seta)"/>
+
+  <g>
+    <rect x="70" y="335" width="300" height="110" rx="18" fill="#F2B84B" stroke="#16243A" stroke-width="2"/>
+    <text x="95" y="377" class="t">4. Aviso por carta</text>
+    <text x="95" y="410" class="e">Carta impressa enviada</text>
+    <text x="95" y="431" class="e">ao endereço do paciente</text>
+    <rect x="450" y="335" width="300" height="110" rx="18" fill="#F2B84B" stroke="#16243A" stroke-width="2"/>
+    <text x="475" y="377" class="t">5. Confirmação</text>
+    <text x="475" y="410" class="e">Paciente confirma ou pede</text>
+    <text x="475" y="431" class="e">remarcação por telefone</text>
+    <rect x="830" y="335" width="300" height="110" rx="18" fill="#16243A"/>
+    <text x="855" y="377" class="t" style="fill:white">6. Consulta realizada</text>
+    <text x="855" y="410" class="q" style="fill:#D8E9FF">O valor se realiza para</text>
+    <text x="855" y="431" class="q" style="fill:#D8E9FF">o paciente</text>
+  </g>
+  <path d="M370 390H444" stroke="#16243A" stroke-width="3" marker-end="url(#seta)"/>
+  <path d="M750 390H824" stroke="#16243A" stroke-width="3" marker-end="url(#seta)"/>
+
+  <rect x="70" y="480" width="300" height="88" rx="14" fill="white" stroke="#F2B84B" stroke-width="3" stroke-dasharray="8 6"/>
+  <text x="90" y="515" class="e">Atraso: impressão, postagem</text>
+  <text x="90" y="542" class="e">e entrega da carta</text>
+  <rect x="450" y="480" width="300" height="88" rx="14" fill="white" stroke="#F2B84B" stroke-width="3" stroke-dasharray="8 6"/>
+  <text x="470" y="515" class="e">Atraso: resposta sem canal</text>
+  <text x="470" y="542" class="e">imediato no ambulatório</text>
+  <path d="M220 445V478M600 445V478" stroke="#F2B84B" stroke-width="3" stroke-dasharray="6 5"/>
+
+  <rect x="70" y="600" width="1060" height="44" rx="22" fill="#16243A"/>
+  <text x="600" y="628" text-anchor="middle" class="e" style="fill:white">A solução de comunicação incide nas etapas 4 e 5, onde o valor espera pela carta</text>
+</svg>

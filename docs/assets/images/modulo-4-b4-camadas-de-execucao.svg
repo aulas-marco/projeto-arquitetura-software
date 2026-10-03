@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Camadas de execução e responsabilidade por camada</title><desc id="desc">Cinco colunas comparam servidor físico, máquina virtual, contêiner, orquestrador Kubernetes e função sem servidor. Cada coluna empilha as camadas aplicação, ambiente de execução, sistema operacional, virtualização e hardware, coloridas conforme quem as gerencia, a equipe da solução ou a plataforma. Abaixo de cada coluna, uma caixa lista o que o arquiteto declara naquela camada, da capacidade do servidor até o código, o gatilho e o tempo máximo da função.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:30px;font-weight:700}.t{font-size:20px;font-weight:700}.n{font-size:18px;font-weight:700}.q{font-size:17px;fill:#52657E}.e{font-size:16px}.b{font-size:16px;font-weight:700}</style></defs>
+  <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
+  <text x="50" y="56" class="h">Camadas de execução de um bloco de construção</text>
+  <text x="50" y="84" class="q">Quanto mais à direita, menos camadas ficam sob gestão da equipe da solução e mais ficam com a plataforma.</text>
+  <rect x="50" y="104" width="208" height="92" rx="16" fill="#254DB8"/>
+  <text x="154" y="132" text-anchor="middle" class="n" style="fill:white">Servidor físico</text>
+  <text x="154" y="158" text-anchor="middle" class="e" style="fill:white">Equipamento</text>
+  <text x="154" y="180" text-anchor="middle" class="e" style="fill:white">dedicado</text>
+  <rect x="50" y="206" width="208" height="42" rx="10" fill="#F2B84B" stroke="#16243A" stroke-width="1.5"/>
+  <text x="154" y="233" text-anchor="middle" class="e">Aplicação</text>
+  <rect x="50" y="254" width="208" height="42" rx="10" fill="#F2B84B" stroke="#16243A" stroke-width="1.5"/>
+  <text x="154" y="281" text-anchor="middle" class="e">Ambiente de execução</text>
+  <rect x="50" y="302" width="208" height="42" rx="10" fill="#F2B84B" stroke="#16243A" stroke-width="1.5"/>
+  <text x="154" y="329" text-anchor="middle" class="e">Sistema operacional</text>
+  <rect x="50" y="350" width="208" height="42" rx="10" fill="white" stroke="#52657E" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="154" y="377" text-anchor="middle" class="e" style="fill:#52657E">Sem virtualização</text>
+  <rect x="50" y="398" width="208" height="42" rx="10" fill="#D8E9FF" stroke="#16243A" stroke-width="1.5"/>
+  <text x="154" y="425" text-anchor="middle" class="e">Hardware dedicado</text>
+  <rect x="50" y="490" width="208" height="96" rx="14" fill="white" stroke="#254DB8" stroke-width="2.5"/>
+  <text x="154" y="517" text-anchor="middle" class="e">CPU, memória, disco</text>
+  <text x="154" y="543" text-anchor="middle" class="e">sistema operacional</text>
+  <text x="154" y="569" text-anchor="middle" class="e">local de instalação</text>
+  <rect x="272" y="104" width="208" height="92" rx="16" fill="#254DB8"/>
+  <text x="376" y="132" text-anchor="middle" class="n" style="fill:white">Máquina virtual</text>
+  <text x="376" y="158" text-anchor="middle" class="e" style="fill:white">VMware, KVM,</text>
+  <text x="376" y="180" text-anchor="middle" class="e" style="fill:white">Amazon EC2</text>
+  <rect x="272" y="206" width="208" height="42" rx="10" fill="#F2B84B" stroke="#16243A" stroke-width="1.5"/>
+  <text x="376" y="233" text-anchor="middle" class="e">Aplicação</text>
+  <rect x="272" y="254" width="208" height="42" rx="10" fill="#F2B84B" stroke="#16243A" stroke-width="1.5"/>
+  <text x="376" y="281" text-anchor="middle" class="e">Ambiente de execução</text>
+  <rect x="272" y="302" width="208" height="42" rx="10" fill="#F2B84B" stroke="#16243A" stroke-width="1.5"/>
+  <text x="376" y="329" text-anchor="middle" class="e">Sistema operacional</text>
+  <rect x="272" y="350" width="208" height="42" rx="10" fill="#D8E9FF" stroke="#16243A" stroke-width="1.5"/>
+  <text x="376" y="377" text-anchor="middle" class="e">Hipervisor</text>
+  <rect x="272" y="398" width="208" height="42" rx="10" fill="#D8E9FF" stroke="#16243A" stroke-width="1.5"/>
+  <text x="376" y="425" text-anchor="middle" class="e">Hardware</text>
+  <rect x="272" y="490" width="208" height="96" rx="14" fill="white" stroke="#254DB8" stroke-width="2.5"/>
+  <text x="376" y="517" text-anchor="middle" class="e">Tamanho da máquina</text>
+  <text x="376" y="543" text-anchor="middle" class="e">imagem do sistema</text>
+  <text x="376" y="569" text-anchor="middle" class="e">disco e rede</text>
+  <rect x="494" y="104" width="208" height="92" rx="16" fill="#254DB8"/>
+  <text x="598" y="132" text-anchor="middle" class="n" style="fill:white">Contêiner</text>
+  <text x="598" y="158" text-anchor="middle" class="e" style="fill:white">Docker Engine,</text>
+  <text x="598" y="180" text-anchor="middle" class="e" style="fill:white">Podman</text>
+  <rect x="494" y="206" width="208" height="42" rx="10" fill="#F2B84B" stroke="#16243A" stroke-width="1.5"/>
+  <text x="598" y="233" text-anchor="middle" class="e">Aplicação</text>
+  <rect x="494" y="254" width="208" height="42" rx="10" fill="#F2B84B" stroke="#16243A" stroke-width="1.5"/>
+  <text x="598" y="281" text-anchor="middle" class="e">Imagem do contêiner</text>
+  <rect x="494" y="302" width="208" height="42" rx="10" fill="#D8E9FF" stroke="#16243A" stroke-width="1.5"/>
+  <text x="598" y="329" text-anchor="middle" class="e">SO do hospedeiro</text>
+  <rect x="494" y="350" width="208" height="42" rx="10" fill="#D8E9FF" stroke="#16243A" stroke-width="1.5"/>
+  <text x="598" y="377" text-anchor="middle" class="e">Virtualização</text>
+  <rect x="494" y="398" width="208" height="42" rx="10" fill="#D8E9FF" stroke="#16243A" stroke-width="1.5"/>
+  <text x="598" y="425" text-anchor="middle" class="e">Hardware</text>
+  <rect x="494" y="490" width="208" height="96" rx="14" fill="white" stroke="#254DB8" stroke-width="2.5"/>
+  <text x="598" y="517" text-anchor="middle" class="e">Imagem e portas</text>
+  <text x="598" y="543" text-anchor="middle" class="e">variáveis de ambiente</text>
+  <text x="598" y="569" text-anchor="middle" class="e">limites de recursos</text>
+  <rect x="716" y="104" width="208" height="92" rx="16" fill="#254DB8"/>
+  <text x="820" y="132" text-anchor="middle" class="n" style="fill:white">Orquestrador</text>
+  <text x="820" y="158" text-anchor="middle" class="e" style="fill:white">Kubernetes:</text>
+  <text x="820" y="180" text-anchor="middle" class="e" style="fill:white">pod, nó, cluster</text>
+  <rect x="716" y="206" width="208" height="42" rx="10" fill="#F2B84B" stroke="#16243A" stroke-width="1.5"/>
+  <text x="820" y="233" text-anchor="middle" class="e">Aplicação</text>
+  <rect x="716" y="254" width="208" height="42" rx="10" fill="#F2B84B" stroke="#16243A" stroke-width="1.5"/>
+  <text x="820" y="281" text-anchor="middle" class="e">Imagem do contêiner</text>
+  <rect x="716" y="302" width="208" height="42" rx="10" fill="#D8E9FF" stroke="#16243A" stroke-width="1.5"/>
+  <text x="820" y="329" text-anchor="middle" class="e">Nós do cluster</text>
+  <rect x="716" y="350" width="208" height="42" rx="10" fill="#D8E9FF" stroke="#16243A" stroke-width="1.5"/>
+  <text x="820" y="377" text-anchor="middle" class="e">Plano de controle</text>
+  <rect x="716" y="398" width="208" height="42" rx="10" fill="#D8E9FF" stroke="#16243A" stroke-width="1.5"/>
+  <text x="820" y="425" text-anchor="middle" class="e">Hardware</text>
+  <rect x="716" y="490" width="208" height="96" rx="14" fill="white" stroke="#254DB8" stroke-width="2.5"/>
+  <text x="820" y="517" text-anchor="middle" class="e">Réplicas do pod</text>
+  <text x="820" y="543" text-anchor="middle" class="e">recursos por pod</text>
+  <text x="820" y="569" text-anchor="middle" class="e">sondas de saúde</text>
+  <rect x="938" y="104" width="208" height="92" rx="16" fill="#254DB8"/>
+  <text x="1042" y="132" text-anchor="middle" class="n" style="fill:white">Função sem servidor</text>
+  <text x="1042" y="158" text-anchor="middle" class="e" style="fill:white">AWS Lambda,</text>
+  <text x="1042" y="180" text-anchor="middle" class="e" style="fill:white">Azure Functions</text>
+  <rect x="938" y="206" width="208" height="42" rx="10" fill="#F2B84B" stroke="#16243A" stroke-width="1.5"/>
+  <text x="1042" y="233" text-anchor="middle" class="e">Código da função</text>
+  <rect x="938" y="254" width="208" height="42" rx="10" fill="#D8E9FF" stroke="#16243A" stroke-width="1.5"/>
+  <text x="1042" y="281" text-anchor="middle" class="e">Ambiente de execução</text>
+  <rect x="938" y="302" width="208" height="42" rx="10" fill="#D8E9FF" stroke="#16243A" stroke-width="1.5"/>
+  <text x="1042" y="329" text-anchor="middle" class="e">Sistema operacional</text>
+  <rect x="938" y="350" width="208" height="42" rx="10" fill="#D8E9FF" stroke="#16243A" stroke-width="1.5"/>
+  <text x="1042" y="377" text-anchor="middle" class="e">Virtualização</text>
+  <rect x="938" y="398" width="208" height="42" rx="10" fill="#D8E9FF" stroke="#16243A" stroke-width="1.5"/>
+  <text x="1042" y="425" text-anchor="middle" class="e">Hardware</text>
+  <rect x="938" y="490" width="208" height="96" rx="14" fill="white" stroke="#254DB8" stroke-width="2.5"/>
+  <text x="1042" y="517" text-anchor="middle" class="e">Código e gatilho</text>
+  <text x="1042" y="543" text-anchor="middle" class="e">memória reservada</text>
+  <text x="1042" y="569" text-anchor="middle" class="e">tempo máximo</text>
+  <text x="50" y="476" class="t">O que o arquiteto declara</text>
+  <rect x="50" y="612" width="30" height="24" rx="6" fill="#F2B84B" stroke="#16243A" stroke-width="1.5"/>
+  <text x="90" y="630" class="b">Equipe da solução</text>
+  <rect x="290" y="612" width="30" height="24" rx="6" fill="#D8E9FF" stroke="#16243A" stroke-width="1.5"/>
+  <text x="330" y="630" class="b">Plataforma: operação local ou provedor de nuvem</text>
+  <rect x="790" y="612" width="30" height="24" rx="6" fill="white" stroke="#52657E" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="830" y="630" class="b">Camada inexistente</text>
+</svg>

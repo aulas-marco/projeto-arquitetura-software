@@ -25,7 +25,15 @@ Lovatt (2021, seção 2.3) lembra que a arquitetura de solução trabalha reduzi
 3. O modelo exibe o problema?
 4. O modelo pode ser alterado para tratar o problema?
 
-Uma resposta negativa a qualquer das quatro indica que outro método é mais adequado. Quando o problema é grande demais para ser modelado de uma vez, a alternativa recomendada é reduzir o escopo, por exemplo a uma linha de produtos, a uma região ou a um grupo delimitado de unidades organizacionais. Quando o problema é simples demais para ser chamado de sistema, o ciclo completo de arquitetura acrescenta complexidade sem revelar causa, e só algumas técnicas isoladas continuam úteis.
+Uma resposta negativa a qualquer das quatro indica que outro método é mais adequado. Quando o problema é grande demais para ser modelado de uma vez, a alternativa recomendada é reduzir o escopo, por exemplo a uma linha de produtos, a uma região ou a um grupo delimitado de unidades organizacionais. Para o problema complexo que não se reduz a um modelo, Lovatt cita como alternativa comum a mudança feita a partir da intuição dos envolvidos, avaliada depois de um período de observação do efeito. Quando o problema é simples demais para ser chamado de sistema, o ciclo completo de arquitetura acrescenta complexidade sem revelar causa, e só algumas técnicas isoladas continuam úteis.
+
+A Figura 1 organiza as quatro perguntas como árvore de decisão com três saídas possíveis. Toda resposta negativa conduz a uma quinta pergunta, sobre o tamanho do problema, que separa a redução de escopo, seguida de nova aplicação das quatro perguntas, do uso de outro método.
+
+<figure markdown="span">
+![Árvore de decisão com as quatro perguntas de Lovatt em sequência, em que quatro respostas afirmativas levam a aplicar a arquitetura de solução e qualquer resposta negativa leva a reduzir o escopo, quando o problema é grande demais para ser modelado, ou a usar outro método nos demais casos.](../assets/images/modulo-4-b1-quatro-perguntas.svg){ .module-diagram }
+</figure>
+
+*Figura 1 — As quatro perguntas de aplicabilidade da arquitetura de solução e as três saídas possíveis. Fonte: material do curso, com base em Lovatt (2021, seção 2.3).*
 
 ### Quatro modelos
 
@@ -38,17 +46,62 @@ A arquitetura de negócio mantém modelos que o arquiteto de solução consulta 
 | Decomposição funcional | Que unidade realiza cada função? | As unidades organizacionais afetadas |
 | Modelo de processo de negócio | Que atividades compõem o trabalho e quem as executa? | As atividades que mudam, desaparecem ou passam a ser automatizadas |
 
-O **mapa de capacidades** decompõe as capacidades de topo em capacidades menores. Uma **capacidade** é aquilo que a organização precisa conseguir fazer para entregar seus serviços e executar sua estratégia, e pode ainda não existir, constando apenas do plano. Cada capacidade tem dois atributos adicionais, o volume, que é quanto se entrega em paralelo, e a competência, que é o nível de habilidade exigido, e é habilitada por recursos como pessoas, unidades organizacionais, tecnologia e conhecimento especializado. O mapa classifica as capacidades em estratégicas, operacionais e de apoio, e outras classificações, como maturidade ou núcleo e periferia, também são usadas.
-
-O **fluxo de valor** é o conjunto de etapas de ponta a ponta que entrega valor a um cliente, do primeiro contato com a organização até a realização desse valor. A técnica tem origem na produção enxuta, que procura eliminar as etapas que não acrescentam valor suficiente, e Lovatt observa que ela combina bem com a arquitetura de solução porque as duas analisam o problema em termos de estrutura e de comportamento.
-
-A decomposição funcional e o modelo de processo de negócio completam o conjunto. Nesta disciplina, os dois são tratados como artefatos que o arquiteto de solução lê e consulta, mantidos pela área de negócio ou pela análise de processos, e não como técnica que o arquiteto pratica. O modelo de motivação de negócio, que liga direcionadores de mudança a fins e meios, também consta da lista de Lovatt e foi tratado, pelo lado dos direcionadores, no [bloco 1 da Aula 2](../modulo-2-requisitos-e-partes-interessadas/bloco-1-direcionadores-de-mudanca.md).
+A Figura 2 reúne os quatro modelos com a pergunta de cada um e os situa sobre o ciclo de mudança de negócio, apresentado ao fim desta seção, com os estágios de definir e projetar destacados.
 
 <figure markdown="span">
 ![Diagrama com quatro cartões, um para cada modelo de arquitetura de negócio, mapa de capacidades, fluxo de valor, decomposição funcional e modelo de processo, cada um com a pergunta que responde. Abaixo, uma faixa com os cinco estágios do ciclo de mudança de negócio, alinhar, definir, projetar, implementar e realizar, com definir e projetar destacados como os estágios em que a arquitetura de solução se concentra.](../assets/images/modulo-4-modelos-de-negocio.svg){ .module-diagram }
 </figure>
 
-*Figura 1 — Os quatro modelos de arquitetura de negócio e a pergunta de cada um, sobre o ciclo de mudança de negócio. Fonte: material do curso, com base em Lovatt (2021, seções 2.3.1 e 2.3.2).*
+*Figura 2 — Os quatro modelos de arquitetura de negócio e a pergunta de cada um, sobre o ciclo de mudança de negócio. Fonte: material do curso, com base em Lovatt (2021, seções 2.3.1 e 2.3.2).*
+
+### Mapa de capacidades
+
+O **mapa de capacidades** decompõe as capacidades de topo em capacidades menores. Uma **capacidade** é aquilo que a organização precisa conseguir fazer para entregar seus serviços e executar sua estratégia, e pode ainda não existir, constando apenas do plano. Cada capacidade tem dois atributos adicionais, o volume, que é quanto se entrega em paralelo, e a competência, que é o nível de habilidade exigido, e é habilitada por recursos como pessoas, unidades organizacionais, tecnologia e conhecimento especializado. O mapa classifica as capacidades em estratégicas, operacionais e de apoio, e outras classificações, como maturidade ou núcleo e periferia, também são usadas.
+
+A Figura 3 aplica o mapa, em dois níveis, ao Hospital Vale do Pousio, caso detalhado adiante neste bloco. Lovatt cita a capacidade de comunicação com pacientes e, entre os processos afetados, a marcação de consulta e a gestão da lista de espera, de modo que as demais capacidades da figura e a classificação de cada uma em estratégica, operacional ou de apoio são ilustração do material do curso. A anotação de volume e de competência na capacidade afetada traduz o plano do hospital, que amplia a quantidade de comunicações e acrescenta canais e pontualidade, como o lembrete enviado na véspera da consulta.
+
+<figure markdown="span">
+![Mapa de capacidades do Hospital Vale do Pousio em dois níveis, com quatro capacidades de topo, gestão estratégica, atendimento ao paciente, cuidado clínico e apoio, e as capacidades menores coloridas como estratégicas, operacionais ou de apoio. A comunicação com pacientes aparece marcada como afetada pela solução, com anotação de volume e de competência.](../assets/images/modulo-4-b1-mapa-de-capacidades.svg){ .module-diagram }
+</figure>
+
+*Figura 3 — Mapa de capacidades do Hospital Vale do Pousio, com a capacidade afetada pela solução e seus atributos de volume e competência. Fonte: material do curso, com base em Lovatt (2021, seções 2.3.1 e 2.4), com capacidades ilustrativas além da comunicação com pacientes.*
+
+Em repositórios de arquitetura corporativa, o mapa de capacidades e o fluxo de valor podem ser registrados em ArchiMate, linguagem de modelagem de arquitetura corporativa mantida pela The Open Group. A versão 3.2 da linguagem define, na camada de estratégia, o elemento capacidade (*capability*), descrito como uma habilidade que um elemento de estrutura ativa, como uma organização, uma pessoa ou um sistema, possui, e o elemento fluxo de valor (*value stream*), descrito como uma sequência de atividades que cria um resultado global para um cliente, uma parte interessada ou um usuário final (The Open Group, 2022). A ferramenta de código aberto Archi é um exemplo de editor que cria e mantém modelos nessa linguagem.
+
+### Fluxo de valor
+
+O **fluxo de valor** é o conjunto de etapas de ponta a ponta que entrega valor a um cliente, do primeiro contato com a organização até a realização desse valor. A técnica tem origem na produção enxuta, que procura eliminar as etapas que não acrescentam valor suficiente, e Lovatt observa que ela combina bem com a arquitetura de solução porque as duas analisam o problema em termos de estrutura e de comportamento.
+
+A Figura 4 mostra o fluxo de valor do paciente do hospital, do pedido de consulta à consulta realizada, em seis etapas montadas pelo material do curso a partir do caso. As etapas de aviso ao paciente e de confirmação ou remarcação dependem hoje da carta impressa pela sala de correspondência, e o tempo de impressão, postagem e entrega dessa carta se soma ao intervalo entre o agendamento e a consulta nas etapas 4 e 5.
+
+<figure markdown="span">
+![Fluxo de valor do paciente do Hospital Vale do Pousio em seis etapas, do pedido de consulta à consulta realizada, com as etapas 4, aviso por carta impressa, e 5, confirmação ou remarcação por telefone, destacadas em âmbar e acompanhadas de notas sobre o atraso que cada uma causa.](../assets/images/modulo-4-b1-fluxo-de-valor.svg){ .module-diagram }
+</figure>
+
+*Figura 4 — Fluxo de valor do paciente do Hospital Vale do Pousio, com as etapas em que a comunicação por carta atrasa o valor destacadas em âmbar. Fonte: material do curso, com base no caso de Lovatt (2021, seções 2.3.1 e 2.4), com etapas ilustrativas.*
+
+### Decomposição funcional e modelo de processo
+
+A decomposição funcional e o modelo de processo de negócio completam o conjunto. Nesta disciplina, os dois são tratados como artefatos que o arquiteto de solução lê e consulta, mantidos pela área de negócio ou pela análise de processos, e não como técnica que o arquiteto pratica. O modelo de motivação de negócio, que liga direcionadores de mudança a fins e meios, também consta da lista de Lovatt e foi tratado, pelo lado dos direcionadores, no [bloco 1 da Aula 2](../modulo-2-requisitos-e-partes-interessadas/bloco-1-direcionadores-de-mudanca.md).
+
+O modelo de processo de negócio é desenhado com frequência em BPMN (*Business Process Model and Notation*), notação padronizada pelo Object Management Group (OMG), cuja versão 2.0.2 foi publicada em janeiro de 2014 e que a própria OMG descreve como padrão de fato para diagramas de processo de negócio (Object Management Group, 2014). A notação distribui o processo em raias, uma por participante ou unidade responsável, e usa um conjunto básico de símbolos, o evento de início, a tarefa, o gateway de decisão e o evento de fim, ligados por fluxos de sequência. A Figura 5 reproduz em notação simplificada o processo de remarcação de consulta do hospital, que Lovatt lista entre os processos afetados, com as atividades detalhadas pelo material do curso.
+
+<figure markdown="span">
+![Processo de remarcação de consulta em BPMN simplificado, com raias para paciente, ambulatório e sistema de agendamento, evento de início, tarefas, um gateway que pergunta se há vaga compatível e dois eventos de fim, consulta remarcada e paciente em lista de espera.](../assets/images/modulo-4-b1-processo-remarcacao.svg){ .module-diagram }
+</figure>
+
+*Figura 5 — Processo de remarcação de consulta do Hospital Vale do Pousio em notação BPMN simplificada, com raias para paciente, ambulatório e sistema de agendamento. Fonte: material do curso, com base no caso de Lovatt (2021, seção 2.4.3), com atividades ilustrativas.*
+
+O arquiteto de solução lê um modelo de processo como esse em quatro passos:
+
+1. Identificar as raias, que indicam os papéis e as unidades envolvidos, e confrontá-las com a decomposição funcional da organização.
+2. Localizar as tarefas que dependem de comunicação com o paciente, aqui o telefonema do paciente e a emissão da carta de confirmação, que são as candidatas a mudança.
+3. Examinar cada gateway e a regra de negócio que o governa, como o critério de vaga compatível, porque essa regra entra na solução como requisito.
+4. Marcar as tarefas da raia do sistema, que indicam as interfaces com o sistema de agendamento tratadas no bloco 3.
+
+Nesse processo, a solução de comunicação do hospital pode substituir a carta da tarefa de confirmação por uma mensagem enviada pelo próprio sistema de agendamento, o que reduz o trabalho do ambulatório e da sala de correspondência, as duas unidades citadas por Lovatt (2021, seção 2.4.2).
+
+Nesta disciplina, o arquiteto de solução obtém esses modelos do repositório de arquitetura corporativa da organização ou da área de análise de processos, sem desenhá-los. Ferramentas como o Camunda Modeler e o Bizagi Modeler editam diagramas BPMN e permitem exportá-los no formato XML de intercâmbio definido pela especificação, o que permite abrir o mesmo modelo em ferramentas diferentes, e o Archi cumpre papel equivalente para os modelos ArchiMate. A escolha de ferramenta ou de produto para a ACME não é objeto deste bloco e pertence à Aula 5.
 
 ### O exemplo do Hospital Vale do Pousio
 
@@ -136,5 +189,7 @@ As capacidades marcadas como afetadas neste exercício são a entrada da grade d
 As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso. O trecho consultado aparece entre parênteses ao fim de cada entrada.
 
 - Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.3, arquitetura de negócio, quatro perguntas de aplicabilidade, modelos de arquitetura de negócio e ciclo de mudança de negócio, e seção 2.4, componentes de negócio da solução. O Hospital Vale do Pousio é a versão em português do caso Fallowdale Hospital, usado ao longo do livro)
+- Object Management Group. (2014). *Business process model and notation (BPMN)* (Versão 2.0.2, formal/13-12-09). https://www.omg.org/spec/BPMN/2.0.2 (finalidade da notação, versão vigente e data de publicação)
+- The Open Group. (2022). *ArchiMate® 3.2 specification: Reference cards* (N221). https://www.opengroup.org/sites/default/files/docs/downloads/n221p.pdf (definições dos elementos de estratégia *capability* e *value stream*)
 
 **Material do curso.** O bloco usa as entradas [arquitetura de negócio](../referencia/glossario.md#arquitetura-de-negocio), [capacidade](../referencia/glossario.md#capacidade) e [fluxo de valor](../referencia/glossario.md#fluxo-de-valor) do glossário, além do dossiê da instituição fictícia [ACME](../caso-acme/index.md) e da sua [arquitetura de linha de base](../caso-acme/linha-de-base.md).

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Quatro perguntas de aplicabilidade da arquitetura de solução</title><desc id="desc">Árvore de decisão com as quatro perguntas de Lovatt em sequência: a área do problema é um sistema, o sistema pode ser modelado, o modelo exibe o problema e o modelo pode ser alterado para tratar o problema. Quatro respostas afirmativas levam a aplicar a arquitetura de solução. Qualquer resposta negativa leva à pergunta sobre o tamanho do problema: se ele for grande demais, a saída é reduzir o escopo e refazer as perguntas, e nos demais casos a saída é usar outro método.</desc>
+  <defs>
+    <style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:30px;font-weight:700}.t{font-size:22px;font-weight:700}.q{font-size:17px;fill:#52657E}.p{font-size:18px}.e{font-size:16px;font-weight:700}.w{fill:white}</style>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#16243A"/></marker>
+  </defs>
+  <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
+  <text x="40" y="62" class="h">Quando a arquitetura de solução se aplica</text>
+  <text x="40" y="88" class="q">As quatro perguntas são feitas em sequência, e uma única resposta negativa interrompe a sequência.</text>
+
+  <rect x="40" y="130" width="200" height="120" rx="18" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <text x="140" y="172" text-anchor="middle" class="p">1. A área do</text>
+  <text x="140" y="196" text-anchor="middle" class="p">problema é</text>
+  <text x="140" y="220" text-anchor="middle" class="p">um sistema?</text>
+
+  <rect x="280" y="130" width="200" height="120" rx="18" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <text x="380" y="172" text-anchor="middle" class="p">2. O sistema</text>
+  <text x="380" y="196" text-anchor="middle" class="p">pode ser</text>
+  <text x="380" y="220" text-anchor="middle" class="p">modelado?</text>
+
+  <rect x="520" y="130" width="200" height="120" rx="18" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <text x="620" y="172" text-anchor="middle" class="p">3. O modelo</text>
+  <text x="620" y="196" text-anchor="middle" class="p">exibe o</text>
+  <text x="620" y="220" text-anchor="middle" class="p">problema?</text>
+
+  <rect x="760" y="130" width="200" height="120" rx="18" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <text x="860" y="172" text-anchor="middle" class="p">4. O modelo pode</text>
+  <text x="860" y="196" text-anchor="middle" class="p">ser alterado para</text>
+  <text x="860" y="220" text-anchor="middle" class="p">tratar o problema?</text>
+
+  <rect x="1000" y="130" width="160" height="120" rx="18" fill="#254DB8"/>
+  <text x="1080" y="172" text-anchor="middle" class="e w">Aplicar</text>
+  <text x="1080" y="196" text-anchor="middle" class="e w">arquitetura</text>
+  <text x="1080" y="220" text-anchor="middle" class="e w">de solução</text>
+
+  <g stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#seta)">
+    <path d="M240 190h36"/><path d="M480 190h36"/><path d="M720 190h36"/><path d="M960 190h36"/>
+  </g>
+  <text x="258" y="178" text-anchor="middle" class="e">sim</text>
+  <text x="498" y="178" text-anchor="middle" class="e">sim</text>
+  <text x="738" y="178" text-anchor="middle" class="e">sim</text>
+  <text x="978" y="178" text-anchor="middle" class="e">sim</text>
+
+  <g stroke="#16243A" stroke-width="3" fill="none">
+    <path d="M140 250v50M380 250v50M620 250v50M860 250v50M140 300h720"/>
+    <path d="M500 300v38" marker-end="url(#seta)"/>
+  </g>
+  <text x="150" y="282" class="e">não</text>
+  <text x="390" y="282" class="e">não</text>
+  <text x="630" y="282" class="e">não</text>
+  <text x="870" y="282" class="e">não</text>
+
+  <rect x="320" y="342" width="360" height="90" rx="18" fill="#E6EEF9" stroke="#16243A" stroke-width="2"/>
+  <text x="500" y="380" text-anchor="middle" class="p">O problema é grande demais</text>
+  <text x="500" y="406" text-anchor="middle" class="p">para ser modelado de uma vez?</text>
+
+  <g stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#seta)">
+    <path d="M400 432v20H220v26"/>
+    <path d="M600 432v20h265v26"/>
+  </g>
+  <text x="300" y="446" class="e">sim</text>
+  <text x="700" y="446" class="e">não</text>
+
+  <rect x="40" y="482" width="400" height="130" rx="18" fill="#F2B84B" stroke="#16243A" stroke-width="2"/>
+  <text x="240" y="520" text-anchor="middle" class="t">Reduzir o escopo</text>
+  <text x="240" y="550" text-anchor="middle" class="p">a uma linha de produtos, a uma região</text>
+  <text x="240" y="574" text-anchor="middle" class="p">ou a um grupo de unidades, e refazer</text>
+  <text x="240" y="598" text-anchor="middle" class="p">as quatro perguntas</text>
+
+  <path d="M40 547H20V190h16" stroke="#16243A" stroke-width="3" stroke-dasharray="8 6" fill="none" marker-end="url(#seta)"/>
+
+  <rect x="570" y="482" width="590" height="130" rx="18" fill="white" stroke="#16243A" stroke-width="2"/>
+  <text x="865" y="520" text-anchor="middle" class="t">Usar outro método</text>
+  <text x="590" y="552" class="p">Complexo demais: mudança por intuição dos envolvidos</text>
+  <text x="590" y="576" class="p">e observação do efeito depois de um período.</text>
+  <text x="590" y="600" class="p">Simples demais: só técnicas isoladas, sem o ciclo inteiro.</text>
+
+  <text x="40" y="650" class="q">Fonte: material do curso, com base em Lovatt (2021, seção 2.3).</text>
+</svg>

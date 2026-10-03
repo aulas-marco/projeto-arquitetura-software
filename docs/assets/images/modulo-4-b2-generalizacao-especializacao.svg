@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Generalização e especialização de entidades no Hospital Vale do Pousio</title><desc id="desc">Diagrama de entidades simplificado. No topo, a entidade pessoa, com nome, data de nascimento e contato. Abaixo, paciente e profissional de saúde apontam para pessoa com seta de ponta vazada, indicando generalização. Abaixo de profissional de saúde, enfermeiro especialista e médico apontam para ele, indicando especialização. Cada entidade lista os atributos próprios, e as setas laterais indicam o sentido da generalização, para cima, e da especialização, para baixo.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:30px;font-weight:700}.t{font-size:20px;font-weight:700}.q{font-size:17px;fill:#52657E}.e{font-size:17px;font-weight:700}.a{font-size:16px}</style></defs>
+  <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
+  <text x="70" y="62" class="h">Pessoa, paciente e profissional de saúde</text>
+  <text x="70" y="86" class="q">A seta de ponta vazada aponta para a entidade mais geral.</text>
+
+  <!-- Pessoa -->
+  <rect x="470" y="110" width="260" height="120" rx="14" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <rect x="470" y="110" width="260" height="40" rx="14" fill="#254DB8"/>
+  <text x="600" y="138" text-anchor="middle" class="t" style="fill:white">Pessoa</text>
+  <text x="488" y="174" class="a">nome</text>
+  <text x="488" y="196" class="a">data de nascimento</text>
+  <text x="488" y="218" class="a">contato</text>
+
+  <!-- Paciente -->
+  <rect x="230" y="300" width="280" height="110" rx="14" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <rect x="230" y="300" width="280" height="40" rx="14" fill="#5FC0D1"/>
+  <text x="370" y="328" text-anchor="middle" class="t">Paciente</text>
+  <text x="248" y="364" class="a">número do prontuário</text>
+  <text x="248" y="388" class="a">consentimento de contato</text>
+
+  <!-- Profissional -->
+  <rect x="690" y="300" width="280" height="110" rx="14" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <rect x="690" y="300" width="280" height="40" rx="14" fill="#5FC0D1"/>
+  <text x="830" y="328" text-anchor="middle" class="t">Profissional de saúde</text>
+  <text x="708" y="364" class="a">registro profissional</text>
+  <text x="708" y="388" class="a">clínica de atuação</text>
+
+  <!-- Especializações -->
+  <rect x="520" y="490" width="280" height="100" rx="14" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <rect x="520" y="490" width="280" height="40" rx="14" fill="#F2B84B"/>
+  <text x="660" y="518" text-anchor="middle" class="t">Enfermeiro especialista</text>
+  <text x="538" y="556" class="a">área de enfermagem</text>
+  <text x="538" y="578" class="a">protocolos que conduz</text>
+
+  <rect x="830" y="490" width="280" height="100" rx="14" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <rect x="830" y="490" width="280" height="40" rx="14" fill="#F2B84B"/>
+  <text x="970" y="518" text-anchor="middle" class="t">Médico</text>
+  <text x="848" y="556" class="a">especialidade médica</text>
+  <text x="848" y="578" class="a">agenda de consultas</text>
+
+  <!-- linhas de generalização: paciente e profissional para pessoa -->
+  <path d="M370 300v-35h460v35M600 265v-15" stroke="#16243A" stroke-width="3" fill="none"/>
+  <path d="M600 232l-13 20h26z" fill="white" stroke="#16243A" stroke-width="3"/>
+  <!-- enfermeiro e médico para profissional -->
+  <path d="M660 490v-35h310v35M830 455v-25" stroke="#16243A" stroke-width="3" fill="none"/>
+  <path d="M830 412l-13 20h26z" fill="white" stroke="#16243A" stroke-width="3"/>
+
+  <!-- legenda lateral -->
+  <path d="M100 400v-230" stroke="#254DB8" stroke-width="4"/>
+  <path d="M100 160l-11 18h22z" fill="#254DB8"/>
+  <text x="125" y="190" class="e" style="fill:#254DB8">Generalização</text>
+  <text x="125" y="214" class="q">reúne o que é comum</text>
+  <text x="125" y="238" class="q">a várias entidades</text>
+  <path d="M100 440v140" stroke="#F2B84B" stroke-width="4"/>
+  <path d="M100 590l-11 -18h22z" fill="#F2B84B"/>
+  <text x="125" y="470" class="e">Especialização</text>
+  <text x="125" y="494" class="q">só quando há diferença</text>
+  <text x="125" y="518" class="q">real de estrutura ou</text>
+  <text x="125" y="542" class="q">de comportamento</text>
+
+  <rect x="70" y="612" width="1060" height="40" rx="20" fill="#16243A"/>
+  <text x="600" y="638" text-anchor="middle" class="e" style="fill:white">Enfermeiro especialista e médico continuam sendo profissionais de saúde e pessoas</text>
+</svg>

@@ -54,8 +54,8 @@ O encadeamento vai do enquadramento ao desenho, do desenho à tecnologia, e da t
 | --- | --- | --- |
 | 1 | Arquitetura de negócio da solução, capacidades, fluxo de valor e processos | 13 |
 | 2 | Arquitetura de dados da solução, com propriedade do dado | 14 |
-| 3 | Arquitetura de aplicações e integração, contrato de integração e diagrama de contexto C4 | 15 |
-| 4 | Arquitetura de infraestrutura da solução e diagrama de contêineres C4 | 16 |
+| 3 | Modelagem C4, arquitetura de aplicações e integração, e contrato de integração | 15 |
+| 4 | Arquitetura de infraestrutura da solução, topologia e diagrama de implantação | 16 |
 
 ### Aula 5, frameworks e tecnologias
 

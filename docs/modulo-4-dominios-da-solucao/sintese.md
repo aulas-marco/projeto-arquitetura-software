@@ -11,7 +11,8 @@ Esta página fecha o módulo de domínios da arquitetura de solução com o que 
 - A hierarquia que vai do serviço de negócio ao serviço de tecnologia, a classificação do portfólio em vermelho, âmbar e verde e os três tipos de aplicação
 - Os seis atributos de interface de Lovatt e os seis campos que completam um contrato de integração
 - A distinção entre padrão técnico, protocolo, especificação de interface e contrato de integração, com padrão técnico como tradução de *standard*
-- O diagrama de contexto e o diagrama de contêineres, a coerência dos sistemas externos entre os dois níveis e a escolha do nível pela audiência
+- O modelo C4 como notação de modelagem da aula, com o diagrama de contexto, o diagrama de contêineres, a coerência dos sistemas externos entre os dois níveis e a escolha do nível pela audiência
+- As camadas de execução, a topologia com regiões e zonas de disponibilidade e o diagrama de implantação, que liga cada instância de contêiner ao nó de infraestrutura em que executa
 
 ## Cadeia dos domínios
 

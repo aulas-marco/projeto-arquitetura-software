@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Fonte de verdade e cópias derivadas com regime de consistência</title><desc id="desc">Uma aplicação grava a consulta em transação no PostgreSQL, que é o sistema de registro e a fonte de verdade, com consistência forte para quem lê dele. Uma réplica de leitura recebe o log com atraso de replicação. O Debezium lê o log de transações do PostgreSQL e publica eventos de mudança num tópico do Apache Kafka. Três cópias derivadas consomem o tópico, cada uma com regime eventual e prazo ilustrativo: cache Redis em até 5 segundos, índice de busca OpenSearch em até 1 minuto e data warehouse BigQuery ou Snowflake em até 1 hora.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:30px;font-weight:700}.t{font-size:20px;font-weight:700}.q{font-size:16px;fill:#52657E}.e{font-size:16px;font-weight:700}</style></defs>
+  <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
+  <text x="70" y="62" class="h">Uma fonte de verdade, várias cópias com prazo declarado</text>
+  <text x="70" y="86" class="q">Prazos ilustrativos. Cada cópia pode ser reconstruída a partir da fonte.</text>
+
+  <!-- aplicação -->
+  <rect x="70" y="120" width="240" height="64" rx="16" fill="#E6EEF9" stroke="#16243A" stroke-width="2"/>
+  <text x="190" y="158" text-anchor="middle" class="t">Aplicação de agenda</text>
+  <path d="M190 186v52" stroke="#16243A" stroke-width="3"/>
+  <path d="M190 246l-8 -12h16z" fill="#16243A"/>
+  <text x="202" y="222" class="q">grava em transação</text>
+
+  <!-- PostgreSQL -->
+  <rect x="70" y="250" width="240" height="170" rx="18" fill="#254DB8"/>
+  <text x="190" y="284" text-anchor="middle" class="e" style="fill:white">Sistema de registro</text>
+  <text x="190" y="314" text-anchor="middle" class="t" style="fill:white">PostgreSQL</text>
+  <text x="190" y="342" text-anchor="middle" class="e" style="fill:#D8E9FF">fonte de verdade</text>
+  <rect x="92" y="358" width="196" height="44" rx="10" fill="#D8E9FF"/>
+  <text x="190" y="386" text-anchor="middle" class="e">Forte: lê o que gravou</text>
+
+  <!-- réplica -->
+  <path d="M190 422v40" stroke="#16243A" stroke-width="3"/>
+  <path d="M190 470l-8 -12h16z" fill="#16243A"/>
+  <rect x="70" y="474" width="240" height="96" rx="16" fill="white" stroke="#254DB8" stroke-width="2"/>
+  <text x="190" y="502" text-anchor="middle" class="t">Réplica de leitura</text>
+  <text x="190" y="528" text-anchor="middle" class="q">recebe o log do primário</text>
+  <text x="190" y="552" text-anchor="middle" class="e">Eventual: segundos</text>
+
+  <!-- Debezium -->
+  <path d="M312 335h48" stroke="#16243A" stroke-width="3"/>
+  <path d="M368 335l-12 -8v16z" fill="#16243A"/>
+  <rect x="370" y="280" width="200" height="110" rx="16" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <text x="470" y="312" text-anchor="middle" class="t">Debezium</text>
+  <text x="470" y="338" text-anchor="middle" class="q">lê o log de transações</text>
+  <text x="470" y="362" text-anchor="middle" class="q">e emite cada mudança</text>
+  <text x="340" y="440" class="e" style="fill:#254DB8">Captura de mudanças (CDC)</text>
+
+  <!-- Kafka -->
+  <path d="M572 335h44" stroke="#16243A" stroke-width="3"/>
+  <path d="M624 335l-12 -8v16z" fill="#16243A"/>
+  <rect x="626" y="260" width="190" height="150" rx="16" fill="#16243A"/>
+  <text x="721" y="296" text-anchor="middle" class="t" style="fill:white">Apache Kafka</text>
+  <text x="721" y="324" text-anchor="middle" class="q" style="fill:#D8E9FF">tópico de eventos</text>
+  <rect x="648" y="342" width="146" height="40" rx="8" fill="#5FC0D1"/>
+  <text x="721" y="368" text-anchor="middle" class="e">consulta</text>
+
+  <!-- ramos -->
+  <path d="M818 335h22v-165h28M840 335h28M840 335v165h28" stroke="#16243A" stroke-width="3" fill="none"/>
+  <path d="M876 170l-10 -7v14zM876 335l-10 -7v14zM876 500l-10 -7v14z" fill="#16243A"/>
+
+  <!-- cópias -->
+  <rect x="878" y="118" width="252" height="104" rx="16" fill="white" stroke="#254DB8" stroke-width="2"/>
+  <text x="896" y="148" class="t">Cache</text>
+  <text x="896" y="172" class="q">Redis, leitura rápida</text>
+  <rect x="896" y="182" width="216" height="30" rx="8" fill="#F2B84B"/>
+  <text x="1004" y="203" text-anchor="middle" class="e">Eventual: até 5 s</text>
+
+  <rect x="878" y="283" width="252" height="104" rx="16" fill="white" stroke="#254DB8" stroke-width="2"/>
+  <text x="896" y="313" class="t">Índice de busca</text>
+  <text x="896" y="337" class="q">OpenSearch, texto livre</text>
+  <rect x="896" y="347" width="216" height="30" rx="8" fill="#F2B84B"/>
+  <text x="1004" y="368" text-anchor="middle" class="e">Eventual: até 1 min</text>
+
+  <rect x="878" y="448" width="252" height="104" rx="16" fill="white" stroke="#254DB8" stroke-width="2"/>
+  <text x="896" y="478" class="t">Data warehouse</text>
+  <text x="896" y="502" class="q">BigQuery ou Snowflake</text>
+  <rect x="896" y="512" width="216" height="30" rx="8" fill="#F2B84B"/>
+  <text x="1004" y="533" text-anchor="middle" class="e">Eventual: até 1 h</text>
+
+  <rect x="70" y="600" width="1060" height="44" rx="22" fill="#16243A"/>
+  <text x="600" y="628" text-anchor="middle" class="e" style="fill:white">Só o sistema de registro aceita gravação da entidade. As cópias apenas leem.</text>
+</svg>

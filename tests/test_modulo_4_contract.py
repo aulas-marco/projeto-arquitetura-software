@@ -200,6 +200,67 @@ class ReviewFindingsTest(unittest.TestCase):
         self.assertIsNotNone(protocols)
         self.assertNotIn("WS-I", protocols.group(0))
 
+
+def concept(text: str) -> str:
+    """Trecho entre Antes de comecar e Uso pelo arquiteto."""
+    start = re.search(r"^## Antes de começar\s*$", text, re.MULTILINE)
+    end = re.search(r"^## Uso pelo arquiteto\s*$", text, re.MULTILINE)
+    return text[start.end(): end.start()] if start and end else ""
+
+
+class RevisionFiguresAndTechnologyTest(unittest.TestCase):
+    """Revisao de 03/10/2026: mais figuras, tecnologia e C4 como notacao."""
+
+    MIN_VISUALS = {B1: 3, B2: 4, B3: 5, B4: 3}
+
+    TECHNOLOGY = {
+        B1: ("BPMN", "ArchiMate"),
+        B2: ("PostgreSQL", "Redis", "Debezium", "Kafka", "data warehouse"),
+        B3: ("gRPC", "GraphQL", "RabbitMQ", "JSON Schema", "Idempotency-Key", "gateway de API"),
+        B4: ("Kubernetes", "zonas de disponibilidade", "balanceador de carga", "máquina virtual"),
+    }
+
+    def test_each_block_explains_concepts_with_several_visuals(self):
+        for name, minimum in self.MIN_VISUALS.items():
+            body = concept(read(name))
+            count = body.count("{ .module-diagram }") + body.count("```mermaid")
+            with self.subTest(page=name):
+                self.assertGreaterEqual(count, minimum)
+
+    def test_blocks_ground_concepts_in_technology(self):
+        for name, terms in self.TECHNOLOGY.items():
+            body = concept(read(name))
+            for term in terms:
+                with self.subTest(page=name, term=term):
+                    self.assertIn(term, body)
+
+    def test_c4_is_explained_once_in_block_3(self):
+        b3, b4 = read(B3), read(B4)
+        for heading in ("### Modelo C4", "### Diagrama de contexto", "### Diagrama de contêineres"):
+            with self.subTest(heading=heading):
+                self.assertIn(heading, b3)
+                self.assertNotIn(heading, b4)
+        self.assertNotIn("| Contexto | O que o sistema faz?", b4)
+        self.assertIn("diagrama de implantação", b4.lower())
+
+    def test_all_module_4_visuals_are_accessible_legible_and_generic(self):
+        for svg_path in sorted(IMAGES.glob("modulo-4-*.svg")):
+            svg = svg_path.read_text(encoding="utf-8")
+            sizes = [int(size) for size in re.findall(r"font-size:(\d+)px", svg)]
+            with self.subTest(image=svg_path.name):
+                self.assertRegex(svg, r"<title[^>]*>[^<]{5,}</title>")
+                self.assertRegex(svg, r"<desc[^>]*>[^<]{20,}</desc>")
+                self.assertTrue(sizes)
+                self.assertGreaterEqual(min(sizes), 16)
+                for term in FORBIDDEN_IN_VISUALS:
+                    self.assertNotIn(term, svg)
+
+    def test_every_module_4_visual_is_used_by_a_page(self):
+        pages = "".join(page.read_text(encoding="utf-8") for page in MODULE.glob("*.md"))
+        for svg_path in sorted(IMAGES.glob("modulo-4-*.svg")):
+            with self.subTest(image=svg_path.name):
+                self.assertIn(svg_path.name, pages)
+
 class BlockContentTest(unittest.TestCase):
     def test_block_1_presents_the_four_business_models(self):
         text = read(B1)
@@ -229,7 +290,7 @@ class BlockContentTest(unittest.TestCase):
 
     def test_block_4_treats_the_solution_as_a_graph_and_keeps_containers(self):
         text = read(B4)
-        for term in ("grafo", "Diagrama de contêineres", "tecnologia a definir na Aula 5"):
+        for term in ("grafo", "diagrama de contêineres", "tecnologia a definir na Aula 5"):
             with self.subTest(term=term):
                 self.assertIn(term, text)
 

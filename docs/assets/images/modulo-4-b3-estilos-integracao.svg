@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Mapa dos estilos de integração</title><desc id="desc">Sete estilos de integração posicionados em duas faixas. Na faixa síncrona, da esquerda para a direita, gRPC com HTTP/2 e Protocol Buffers para chamadas internas de baixa latência, REST sobre HTTP com JSON para APIs públicas e de parceiros, e GraphQL para telas que agregam dados de várias fontes. Na faixa assíncrona, webhooks para avisar parceiros externos, mensageria AMQP com RabbitMQ para filas de tarefas, streaming de eventos com Apache Kafka para fluxos com retenção e reprocessamento, e transferência de arquivo por SFTP em lote para cargas periódicas de grande volume. O eixo horizontal vai do maior para o menor acoplamento entre emissor e receptor.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:30px;font-weight:700}.t{font-size:20px;font-weight:700}.m{font-size:20px;font-weight:700;fill:#254DB8}.q{font-size:16px;fill:#52657E}.e{font-size:16px;font-weight:700}</style>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#16243A"/></marker></defs>
+  <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
+  <text x="70" y="62" class="h">Estilos de integração por modo e acoplamento</text>
+  <text x="70" y="88" class="q">Posição aproximada, com o caso de uso típico de cada estilo.</text>
+
+  <text x="210" y="122" class="e">maior acoplamento</text>
+  <text x="1130" y="122" text-anchor="end" class="e">menor acoplamento</text>
+  <path d="M395 116H940" stroke="#16243A" stroke-width="3" marker-end="url(#a)"/>
+
+  <rect x="70" y="135" width="1060" height="205" rx="20" fill="#E6EEF9"/>
+  <text x="140" y="245" text-anchor="middle" class="m">Síncrono</text>
+  <rect x="70" y="355" width="1060" height="205" rx="20" fill="#D8E9FF"/>
+  <text x="140" y="465" text-anchor="middle" class="m">Assíncrono</text>
+
+  <g>
+    <rect x="215" y="152" width="215" height="170" rx="16" fill="white" stroke="#254DB8" stroke-width="3"/>
+    <text x="232" y="184" class="t">gRPC</text>
+    <text x="232" y="210" class="e">HTTP/2 e Protobuf</text>
+    <text x="232" y="245" class="q">Chamada entre</text>
+    <text x="232" y="267" class="q">serviços internos</text>
+    <text x="232" y="289" class="q">com baixa latência</text>
+  </g>
+  <g>
+    <rect x="450" y="152" width="215" height="170" rx="16" fill="white" stroke="#254DB8" stroke-width="3"/>
+    <text x="467" y="184" class="t">REST</text>
+    <text x="467" y="210" class="e">HTTP com JSON</text>
+    <text x="467" y="245" class="q">API pública ou de</text>
+    <text x="467" y="267" class="q">parceiros, consulta</text>
+    <text x="467" y="289" class="q">e comando</text>
+  </g>
+  <g>
+    <rect x="685" y="152" width="215" height="170" rx="16" fill="white" stroke="#254DB8" stroke-width="3"/>
+    <text x="702" y="184" class="t">GraphQL</text>
+    <text x="702" y="210" class="e">consulta tipada</text>
+    <text x="702" y="245" class="q">Tela que agrega</text>
+    <text x="702" y="267" class="q">dados de várias</text>
+    <text x="702" y="289" class="q">fontes numa consulta</text>
+  </g>
+  <g>
+    <rect x="920" y="152" width="195" height="170" rx="16" fill="none" stroke="#52657E" stroke-width="2" stroke-dasharray="8 6"/>
+    <text x="1017" y="225" text-anchor="middle" class="q">O consumidor</text>
+    <text x="1017" y="247" text-anchor="middle" class="q">espera a resposta</text>
+    <text x="1017" y="269" text-anchor="middle" class="q">do provedor</text>
+  </g>
+
+  <g>
+    <rect x="215" y="372" width="215" height="170" rx="16" fill="white" stroke="#16243A" stroke-width="3"/>
+    <text x="232" y="404" class="t">Webhooks</text>
+    <text x="232" y="430" class="e">HTTP POST de aviso</text>
+    <text x="232" y="465" class="q">Aviso a parceiro</text>
+    <text x="232" y="487" class="q">externo quando um</text>
+    <text x="232" y="509" class="q">evento ocorre</text>
+  </g>
+  <g>
+    <rect x="450" y="372" width="215" height="170" rx="16" fill="white" stroke="#16243A" stroke-width="3"/>
+    <text x="467" y="404" class="t">Mensageria</text>
+    <text x="467" y="430" class="e">AMQP, RabbitMQ</text>
+    <text x="467" y="465" class="q">Fila de tarefas e</text>
+    <text x="467" y="487" class="q">comandos entre</text>
+    <text x="467" y="509" class="q">aplicações</text>
+  </g>
+  <g>
+    <rect x="685" y="372" width="215" height="170" rx="16" fill="white" stroke="#16243A" stroke-width="3"/>
+    <text x="702" y="404" class="t">Streaming</text>
+    <text x="702" y="430" class="e">Apache Kafka</text>
+    <text x="702" y="465" class="q">Fluxo de eventos</text>
+    <text x="702" y="487" class="q">com retenção e</text>
+    <text x="702" y="509" class="q">reprocessamento</text>
+  </g>
+  <g>
+    <rect x="920" y="372" width="195" height="170" rx="16" fill="white" stroke="#16243A" stroke-width="3"/>
+    <text x="937" y="404" class="t">Arquivo</text>
+    <text x="937" y="430" class="e">SFTP, em lote</text>
+    <text x="937" y="465" class="q">Carga periódica</text>
+    <text x="937" y="487" class="q">de grande volume</text>
+    <text x="937" y="509" class="q">em arquivo</text>
+  </g>
+
+  <rect x="70" y="595" width="1060" height="54" rx="22" fill="#16243A"/>
+  <text x="600" y="628" text-anchor="middle" class="e" style="fill:white">Acoplamento: quanto o receptor precisa estar disponível e conhecer o emissor no momento da troca</text>
+</svg>

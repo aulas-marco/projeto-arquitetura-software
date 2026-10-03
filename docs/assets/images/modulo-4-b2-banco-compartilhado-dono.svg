@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Banco compartilhado comparado com um dono por entidade</title><desc id="desc">Dois painéis lado a lado. À esquerda, as aplicações de agenda e de comunicação com pacientes leem e gravam as mesmas tabelas de consulta e paciente num banco compartilhado, e o acoplamento nasce no esquema das tabelas, destacado em âmbar. À direita, o serviço de agenda é o único dono da consulta e grava no próprio banco, oferece uma interface de consulta e publica o evento consulta agendada num barramento. O serviço de comunicação mantém banco próprio, lê pela interface e recebe o evento, e o acoplamento fica restrito ao contrato da interface e do evento, também destacado em âmbar.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:30px;font-weight:700}.t{font-size:20px;font-weight:700}.q{font-size:16px;fill:#52657E}.e{font-size:16px;font-weight:700}</style></defs>
+  <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
+  <text x="70" y="62" class="h">Onde nasce o acoplamento entre duas aplicações</text>
+  <text x="70" y="86" class="q">Mesma necessidade do Hospital Vale do Pousio, duas formas de organizar o dado.</text>
+
+  <!-- painel esquerdo -->
+  <rect x="70" y="110" width="510" height="470" rx="22" fill="white" stroke="#52657E" stroke-width="2"/>
+  <text x="325" y="146" text-anchor="middle" class="t">Banco compartilhado</text>
+  <rect x="100" y="175" width="200" height="70" rx="14" fill="#E6EEF9" stroke="#16243A" stroke-width="2"/>
+  <text x="200" y="207" text-anchor="middle" class="e">Aplicação</text>
+  <text x="200" y="229" text-anchor="middle" class="e">de agenda</text>
+  <rect x="350" y="175" width="200" height="70" rx="14" fill="#E6EEF9" stroke="#16243A" stroke-width="2"/>
+  <text x="450" y="207" text-anchor="middle" class="e">Aplicação de</text>
+  <text x="450" y="229" text-anchor="middle" class="e">comunicação</text>
+  <path d="M200 247v68M450 247v68" stroke="#16243A" stroke-width="3"/>
+  <path d="M200 323l-8 -12h16zM450 323l-8 -12h16z" fill="#16243A"/>
+  <text x="212" y="285" class="q">lê e grava</text>
+  <text x="462" y="285" class="q">lê e grava</text>
+  <rect x="120" y="325" width="410" height="130" rx="16" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="325" y="355" text-anchor="middle" class="t">Banco único</text>
+  <rect x="140" y="372" width="370" height="64" rx="10" fill="#F2B84B"/>
+  <text x="325" y="398" text-anchor="middle" class="e">tabelas paciente e consulta</text>
+  <text x="325" y="422" text-anchor="middle" class="e">acoplamento no esquema</text>
+  <text x="95" y="495" class="q">Mudar uma coluna exige alterar e</text>
+  <text x="95" y="519" class="q">implantar as duas aplicações juntas.</text>
+  <text x="95" y="551" class="e">Ninguém responde sozinho pela consulta.</text>
+
+  <!-- painel direito -->
+  <rect x="620" y="110" width="510" height="470" rx="22" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <text x="875" y="146" text-anchor="middle" class="t">Um dono por entidade</text>
+  <rect x="645" y="175" width="180" height="88" rx="14" fill="#254DB8"/>
+  <text x="735" y="205" text-anchor="middle" class="e" style="fill:white">Serviço de agenda</text>
+  <text x="735" y="229" text-anchor="middle" class="q" style="fill:#D8E9FF">dono da consulta</text>
+  <text x="735" y="251" text-anchor="middle" class="q" style="fill:#D8E9FF">único que grava</text>
+  <rect x="925" y="175" width="180" height="88" rx="14" fill="#E6EEF9" stroke="#16243A" stroke-width="2"/>
+  <text x="1015" y="205" text-anchor="middle" class="e">Serviço de</text>
+  <text x="1015" y="229" text-anchor="middle" class="e">comunicação</text>
+  <text x="1015" y="251" text-anchor="middle" class="q">consumidor</text>
+
+  <rect x="827" y="190" width="50" height="30" rx="6" fill="#F2B84B" stroke="#16243A" stroke-width="2"/>
+  <text x="852" y="211" text-anchor="middle" class="e">API</text>
+  <path d="M923 205h-34" stroke="#16243A" stroke-width="3"/>
+  <path d="M881 205l12 -8v16z" fill="#16243A"/>
+
+  <path d="M735 265v40M1015 265v40" stroke="#16243A" stroke-width="3"/>
+  <path d="M735 313l-8 -12h16zM1015 313l-8 -12h16z" fill="#16243A"/>
+  <rect x="670" y="315" width="130" height="56" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="735" y="339" text-anchor="middle" class="e">Banco da</text>
+  <text x="735" y="360" text-anchor="middle" class="e">agenda</text>
+  <rect x="950" y="315" width="130" height="56" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="1015" y="339" text-anchor="middle" class="e">Banco da</text>
+  <text x="1015" y="360" text-anchor="middle" class="e">comunicação</text>
+  <text x="875" y="300" text-anchor="middle" class="q">lê pela</text>
+  <text x="875" y="322" text-anchor="middle" class="q">interface</text>
+
+  <path d="M656 265v133" stroke="#254DB8" stroke-width="3" fill="none" stroke-dasharray="7 5"/>
+  <text x="664" y="392" class="q">publica</text>
+  <path d="M1094 398v-120" stroke="#254DB8" stroke-width="3" fill="none" stroke-dasharray="7 5"/>
+  <path d="M1094 266l-8 12h16z" fill="#254DB8"/>
+  <text x="1086" y="392" text-anchor="end" class="q">recebe</text>
+  <rect x="645" y="400" width="460" height="56" rx="12" fill="#16243A"/>
+  <text x="875" y="434" text-anchor="middle" class="e" style="fill:white">Barramento de eventos: consulta agendada</text>
+  <text x="645" y="495" class="q">O esquema interno muda sem aviso ao</text>
+  <text x="645" y="519" class="q">consumidor, desde que o contrato se mantenha.</text>
+  <rect x="645" y="532" width="460" height="32" rx="8" fill="#F2B84B"/>
+  <text x="875" y="554" text-anchor="middle" class="e">acoplamento restrito à interface e ao evento</text>
+
+  <rect x="70" y="608" width="1060" height="40" rx="20" fill="#16243A"/>
+  <text x="600" y="634" text-anchor="middle" class="e" style="fill:white">Prática conhecida como banco por serviço: cada dono guarda o próprio dado</text>
+</svg>

@@ -189,3 +189,43 @@ Especificação de interface somada às garantias acordadas entre provedor e con
 ## Arquitetura de infraestrutura
 
 Arquitetura dos componentes e serviços tecnológicos que sustentam as atividades da organização, como equipamentos, redes, plataformas e capacidade de processamento, chamada de arquitetura de tecnologia no TOGAF.
+
+## BPMN
+
+Notação padronizada pelo Object Management Group para representar processos de negócio em raias, com eventos, tarefas, gateways e fluxos de sequência, na versão 2.0.2 publicada em 2014.
+
+## ArchiMate
+
+Linguagem de modelagem de arquitetura corporativa mantida pela The Open Group, cuja camada de estratégia define os elementos capacidade e fluxo de valor.
+
+## Captura de mudanças de dados
+
+Técnica que lê as alterações confirmadas no sistema de registro, em geral pelo log de transações do banco, e as propaga como eventos para as cópias derivadas, como faz o Debezium.
+
+## Banco por serviço
+
+Prática em que o dado persistente de cada serviço é privado e acessível apenas pela interface desse serviço, como forma de aplicar a propriedade do dado.
+
+## Linguagem de esquema
+
+Notação que define a estrutura e as restrições de uma mensagem para permitir validá-la por programa, como JSON Schema, Avro e Protocol Buffers.
+
+## Gateway de API
+
+Componente que recebe as chamadas antes do provedor e aplica num ponto único autenticação, limite de taxa e roteamento entre versões da interface.
+
+## Estilo de integração
+
+Combinação de modo de comunicação, protocolo e formato usada numa interface, como REST, gRPC, GraphQL, mensageria, streaming de eventos, webhook ou transferência de arquivo.
+
+## Zona de disponibilidade
+
+Local isolado dentro de uma região de um provedor de nuvem, usado para distribuir réplicas de modo que a falha de um único local não interrompa a aplicação.
+
+## Diagrama de implantação
+
+Diagrama de apoio do modelo C4 que mostra como instâncias de sistemas de software e de contêineres são implantadas nos nós de infraestrutura de um único ambiente.
+
+## Balanceador de carga
+
+Componente que distribui requisições entre as réplicas de um serviço e retira da distribuição as réplicas que falham na verificação de saúde.
