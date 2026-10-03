@@ -90,6 +90,7 @@ nav:
       - Síntese: modulo-3-design-e-padroes/sintese.md
   - "Aula 4, domínios da arquitetura de solução":
       - Visão geral: modulo-4-dominios-da-solucao/index.md
+      - "Bloco 0: os quatro domínios numa só solução": modulo-4-dominios-da-solucao/bloco-0-espinha-dorsal-dos-dominios.md
       - "Bloco 1: arquitetura de negócio": modulo-4-dominios-da-solucao/bloco-1-arquitetura-de-negocio.md
       - "Bloco 2: arquitetura de dados": modulo-4-dominios-da-solucao/bloco-2-arquitetura-de-dados.md
       - "Bloco 3: arquitetura de aplicações e integração": modulo-4-dominios-da-solucao/bloco-3-arquitetura-de-aplicacoes-e-integracao.md

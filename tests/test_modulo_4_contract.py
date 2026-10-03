@@ -22,6 +22,15 @@ BLOCKS = {
     B4: ("modulo-4-solucao-como-grafo.svg", 16, ("2.7", "7.5")),
 }
 
+B0 = "bloco-0-espinha-dorsal-dos-dominios.md"
+
+ROTEIRO = {
+    B1: "Que capacidades, etapas do fluxo de valor e atividades a solução altera, segundo os modelos que a arquitetura de negócio já mantém?",
+    B2: "Que entidades sustentam as capacidades afetadas, quem é o dono de cada uma, onde fica a fonte de verdade, com que regime cada cópia a reflete e que obrigações o dado carrega?",
+    B3: "Que aplicações mudam, por quais interfaces trocam essas entidades, que contrato governa cada interface e onde passa a fronteira da solução?",
+    B4: "Em que nó cada contêiner executa, com que modo, volume e latência cada relação opera e o que fica como exigência para a definição tecnológica?",
+}
+
 INTERFACE_ATTRIBUTES = (
     "Origem", "Destino", "Gatilho", "Itens trocados", "Sequência",
     "Pré e pós-condições",
@@ -181,6 +190,42 @@ class DataArchitectureDepthTest(unittest.TestCase):
         for term in ("dado mestre", "LGPD", "R9", "R14", "ADR"):
             with self.subTest(term=term):
                 self.assertIn(term, ex)
+
+
+class BlockZeroTest(unittest.TestCase):
+    """Bloco 0 de 03/10/2026: o trabalho do arquiteto nos quatro dominios."""
+
+    def test_page_exists_and_is_in_nav(self):
+        self.assertTrue((MODULE / B0).is_file())
+        nav = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
+        self.assertIn(f"modulo-4-dominios-da-solucao/{B0}", nav)
+        self.assertLess(nav.index(f"modulo-4-dominios-da-solucao/{B0}"),
+                        nav.index(f"modulo-4-dominios-da-solucao/{B1}"))
+
+    def test_page_is_conceptual_and_has_no_exercise(self):
+        text = read(B0)
+        self.assertNotRegex(text, r"(?m)^## Exerc[ií]cio")
+        for term in ("ACME", "Hospital", "Clínica", "COBOL", "matrícula"):
+            with self.subTest(term=term):
+                self.assertNotIn(term, text)
+
+    def test_page_covers_the_four_domains_and_the_three_columns(self):
+        body = without_sources(read(B0)).lower()
+        for term in ("negócio", "dados", "aplicações", "infraestrutura", "recebe", "decide", "entrega"):
+            with self.subTest(term=term):
+                self.assertIn(term, body)
+
+    def test_page_shows_the_central_figure(self):
+        self.assertRegex(
+            read(B0),
+            r"!\[[^\]]{40,}\]\(\.\./assets/images/modulo-4-b0-espinha-dorsal\.svg\)\{ \.module-diagram \}",
+        )
+
+    def test_page_lists_the_four_questions(self):
+        uso = section(read(B0), "Uso pelo arquiteto")
+        for name, question in ROTEIRO.items():
+            with self.subTest(block=name):
+                self.assertIn(question, uso)
 
 
 class ExerciseRuleTest(unittest.TestCase):
