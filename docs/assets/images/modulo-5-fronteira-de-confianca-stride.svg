@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" role="img" aria-labelledby="title desc">
+  <title id="title">Fronteira de confiança e as seis categorias STRIDE</title>
+  <desc id="desc">À esquerda, um bloco chamado cliente, em zona de menor confiança. À direita, um bloco chamado serviço, em zona de maior confiança. Entre os dois, uma linha vertical tracejada rotulada fronteira de confiança, atravessada por seis setas numeradas que vão do cliente ao serviço. Abaixo, a legenda associa cada número a uma categoria: 1 falsificação de identidade, 2 adulteração, 3 repúdio, 4 divulgação de informação, 5 negação de serviço e 6 elevação de privilégio.</desc>
+  <defs>
+    <marker id="seta" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#16243A"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="680" rx="28" fill="#F2F6FB"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" fill="#16243A">
+    <rect x="32" y="24" width="936" height="64" rx="14" fill="#16243A"/>
+    <text x="500" y="65" text-anchor="middle" style="font-size:24px;font-weight:700" fill="#FFFFFF">Uma fronteira de confiança, seis categorias de ameaça</text>
+
+    <text x="190" y="116" text-anchor="middle" style="font-size:20px" fill="#3E4F66">menor confiança</text>
+    <rect x="60" y="126" width="260" height="254" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <text x="190" y="261" text-anchor="middle" style="font-size:24px;font-weight:700">Cliente</text>
+
+    <text x="810" y="116" text-anchor="middle" style="font-size:20px" fill="#3E4F66">maior confiança</text>
+    <rect x="680" y="126" width="260" height="254" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <text x="810" y="261" text-anchor="middle" style="font-size:24px;font-weight:700">Serviço</text>
+
+    <line x1="500" y1="100" x2="500" y2="400" stroke="#B3362B" stroke-width="4" stroke-dasharray="14 10"/>
+    <text x="500" y="430" text-anchor="middle" style="font-size:20px;font-weight:700" fill="#8A2A21">fronteira de confiança</text>
+
+    <line x1="320" y1="148" x2="670" y2="148" stroke="#16243A" stroke-width="3" marker-end="url(#seta)"/>
+    <circle cx="420" cy="148" r="18" fill="#B3362B"/>
+    <text x="420" y="155" text-anchor="middle" style="font-size:20px;font-weight:700" fill="#FFFFFF">1</text>
+    <line x1="320" y1="190" x2="670" y2="190" stroke="#16243A" stroke-width="3" marker-end="url(#seta)"/>
+    <circle cx="420" cy="190" r="18" fill="#B3362B"/>
+    <text x="420" y="197" text-anchor="middle" style="font-size:20px;font-weight:700" fill="#FFFFFF">2</text>
+    <line x1="320" y1="232" x2="670" y2="232" stroke="#16243A" stroke-width="3" marker-end="url(#seta)"/>
+    <circle cx="420" cy="232" r="18" fill="#B3362B"/>
+    <text x="420" y="239" text-anchor="middle" style="font-size:20px;font-weight:700" fill="#FFFFFF">3</text>
+    <line x1="320" y1="274" x2="670" y2="274" stroke="#16243A" stroke-width="3" marker-end="url(#seta)"/>
+    <circle cx="420" cy="274" r="18" fill="#B3362B"/>
+    <text x="420" y="281" text-anchor="middle" style="font-size:20px;font-weight:700" fill="#FFFFFF">4</text>
+    <line x1="320" y1="316" x2="670" y2="316" stroke="#16243A" stroke-width="3" marker-end="url(#seta)"/>
+    <circle cx="420" cy="316" r="18" fill="#B3362B"/>
+    <text x="420" y="323" text-anchor="middle" style="font-size:20px;font-weight:700" fill="#FFFFFF">5</text>
+    <line x1="320" y1="358" x2="670" y2="358" stroke="#16243A" stroke-width="3" marker-end="url(#seta)"/>
+    <circle cx="420" cy="358" r="18" fill="#B3362B"/>
+    <text x="420" y="365" text-anchor="middle" style="font-size:20px;font-weight:700" fill="#FFFFFF">6</text>
+
+    <rect x="32" y="456" width="936" height="196" rx="14" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="64" y="506" style="font-size:22px"><tspan font-weight="700">1</tspan> falsificação de identidade</text>
+    <text x="64" y="564" style="font-size:22px"><tspan font-weight="700">2</tspan> adulteração</text>
+    <text x="64" y="622" style="font-size:22px"><tspan font-weight="700">3</tspan> repúdio</text>
+    <text x="520" y="506" style="font-size:22px"><tspan font-weight="700">4</tspan> divulgação de informação</text>
+    <text x="520" y="564" style="font-size:22px"><tspan font-weight="700">5</tspan> negação de serviço</text>
+    <text x="520" y="622" style="font-size:22px"><tspan font-weight="700">6</tspan> elevação de privilégio</text>
+  </g>
+</svg>

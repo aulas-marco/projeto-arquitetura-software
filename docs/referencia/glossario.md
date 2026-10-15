@@ -273,3 +273,27 @@ Fundação do ambiente em nuvem, preparada antes da primeira carga de trabalho, 
 ## Infraestrutura como código
 
 Descrição da infraestrutura em arquivos declarativos, versionados e revisados como o código da aplicação, de modo que o ambiente possa ser recriado a partir da descrição.
+
+## Autoridade de design de segurança
+
+Grupo que decide sobre os aspectos de segurança de todas as soluções da organização e que avalia cada desenho por dois testes, a conformidade com as diretivas de segurança adotadas e o teste de vulnerabilidade contra catálogos de ameaças e de fraquezas conhecidas.
+
+## Dado pessoal sensível
+
+Dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político, dado referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa natural, nos termos do art. 5º, II, da Lei Geral de Proteção de Dados Pessoais, Lei nº 13.709/2018.
+
+## Fronteira de confiança
+
+Linha que separa partes de uma solução que operam sob níveis diferentes de confiança, na qual os dados e as chamadas que a atravessam precisam ser autenticados, validados e protegidos.
+
+## Grade de permissões
+
+Tabela que cruza entidades, que podem ser pessoas, papéis ou sistemas, com recursos ou tarefas, e indica em cada interseção o tipo de acesso permitido, como leitura ou gravação, e as condições para concedê-lo.
+
+## Menor privilégio
+
+Princípio segundo o qual cada entidade recebe acesso ao conjunto mínimo de recursos, com o menor nível de privilégio, que ainda permite executar as atividades de negócio que lhe cabem.
+
+## STRIDE
+
+Classificação de ameaças em seis categorias, falsificação de identidade, adulteração, repúdio, divulgação de informação, negação de serviço e elevação de privilégio, cada uma associada a uma propriedade de segurança violada e usada para examinar cada fronteira de confiança de uma solução.
