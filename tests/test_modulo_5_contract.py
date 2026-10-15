@@ -29,6 +29,9 @@ CRITERIA = ("aderência ao requisito", "maturidade", "suporte",
 STRIDE = ("falsificação de identidade", "adulteração", "repúdio",
           "divulgação de informação", "negação de serviço", "elevação de privilégio")
 
+# Numero de itens `### Item N:` e blocos mermaid minimos de cada exercicio publicado.
+EXERCISE_ITEMS = {17: 3, 18: 3, 19: 3, 20: 4}
+
 GAP_TYPES = ("nova", "substituição", "modificação", "remoção")
 
 FORBIDDEN_IN_VISUALS = ("ACME", "COBOL", "CICS", "Oracle", "matrícula", "Matrícula")
@@ -321,13 +324,20 @@ class BlockFourTest(unittest.TestCase):
             with self.subTest(item=number):
                 self.assertTrue(item(ex, number))
         item4 = item(ex, 4)
+        rows = [l for l in item4.splitlines() if l.startswith("| ")]
+        data_rows = rows[2:]
+        self.assertEqual(6, len(data_rows))
+        situations = [row.split("|")[2] for row in data_rows]
+        self.assertTrue(all(situation.strip() for situation in situations))
+        for fact in ("LDAP", "05h10", "2.300", "04/02/2026"):
+            with self.subTest(fact=fact):
+                self.assertTrue(any(fact in situation for situation in situations))
+        for gap in GAP_TYPES:
+            with self.subTest(gap=gap):
+                self.assertFalse(any(gap in row.lower() for row in data_rows))
         for fact in ("diretório corporativo", "extração noturna", "integração por arquivos"):
             with self.subTest(fact=fact):
                 self.assertIn(fact, item4)
-        for gap in GAP_TYPES:
-            with self.subTest(gap=gap):
-                rows = [l for l in item4.splitlines() if l.startswith("| ")]
-                self.assertFalse(any(gap in row.lower() for row in rows[2:]))
 
 
 class ExerciseRuleTest(unittest.TestCase):
@@ -338,10 +348,37 @@ class ExerciseRuleTest(unittest.TestCase):
                 with self.subTest(page=name, verb=verb):
                     self.assertNotIn(verb, ex)
 
+    def test_each_exercise_has_a_diagram_and_all_numbered_items(self):
+        for name, (_, number, _) in BLOCKS.items():
+            ex = section(read(name), f"Exercício {number}")
+            expected = EXERCISE_ITEMS[number]
+            headings = re.findall(r"(?m)^### Item (\d+): \S.*$", ex)
+            with self.subTest(page=name, check="diagram"):
+                self.assertGreaterEqual(ex.count("```mermaid"), 1)
+            with self.subTest(page=name, check="item count"):
+                self.assertGreaterEqual(len(headings), expected)
+            for position in range(1, expected + 1):
+                with self.subTest(page=name, item=position):
+                    self.assertIn(str(position), headings)
+                    self.assertTrue(item(ex, position).strip())
+
     def test_exercise_chain_links_are_present(self):
         self.assertIn(f"{B1}#exercicio-17", read(B2))
         self.assertIn(f"{B1}#exercicio-17", section(read(B4), "Exercício 20"))
         self.assertIn(f"{B3}#exercicio-19", section(read(B4), "Exercício 20"))
+
+
+class SelfContainedTextTest(unittest.TestCase):
+    """Secao 12 do spec: o autor so aparece em Fontes, salvo na legenda de figura."""
+
+    def test_block_bodies_do_not_narrate_the_textbook(self):
+        for name in ("index.md", *BLOCKS, "sintese.md"):
+            body = without_sources(read(name))
+            prose = "\n".join(line for line in body.splitlines()
+                              if not line.startswith("*Figura"))
+            with self.subTest(page=name):
+                self.assertNotIn("Lovatt", prose)
+                self.assertNotIn("livro-texto", prose)
 
 
 class CourseIntegrationTest(unittest.TestCase):
