@@ -253,3 +253,15 @@ Diagrama de apoio do modelo C4 que mostra como instâncias de sistemas de softwa
 ## Balanceador de carga
 
 Componente que distribui requisições entre as réplicas de um serviço e retira da distribuição as réplicas que falham na verificação de saúde.
+
+## Definição tecnológica da solução
+
+Avaliação da infraestrutura necessária para sustentar a arquitetura de solução proposta, que lista os serviços e os componentes de infraestrutura exigidos, as áreas da infraestrutura atual que mudam e o custo, o prazo e os recursos dessa mudança.
+
+## Lacuna de provisão
+
+Requisito de serviço de infraestrutura da solução que não encontra correspondente no catálogo de infraestrutura e que pode exigir um serviço novo, a substituição, a modificação ou a remoção de um serviço existente.
+
+## Modelo técnico de referência
+
+Catálogo que organiza, por camada arquitetural e categoria tecnológica, os padrões, os protocolos e os produtos aprovados, proibidos ou em avaliação na organização, e que serve de lista de partida para a escolha de tecnologia de cada solução. Também conhecido pela sigla TRM, do inglês Technical Reference Model.
