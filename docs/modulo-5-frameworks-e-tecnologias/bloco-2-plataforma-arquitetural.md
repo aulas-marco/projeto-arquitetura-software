@@ -17,13 +17,13 @@ A plataforma não escolhe o estilo, ela o executa. Por isso essa decisão vem de
 
 ### Quatro características de uma plataforma arquitetural
 
-A primeira é a **instanciação de estilos arquiteturais**. Toda plataforma está baseada em um ou mais estilos. O Java EE implementa a [arquitetura em camadas](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-em-camadas) para sistemas web. O Spring Boot com Spring Cloud concretiza a [arquitetura de microsserviços](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-de-microsservicos). O Event Store e o Apache Kafka dão suporte à [arquitetura orientada a eventos](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-orientada-a-eventos).
+A primeira é a instanciação de estilos arquiteturais, porque toda plataforma está baseada em um ou mais estilos. O Java EE implementa a [arquitetura em camadas](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-em-camadas) para sistemas web, o Spring Boot com Spring Cloud concretiza a [arquitetura de microsserviços](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-de-microsservicos), e o Event Store e o Apache Kafka dão suporte à [arquitetura orientada a eventos](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-orientada-a-eventos).
 
-A segunda é a **composição multidimensional**. Uma plataforma não é monolítica, ela reúne quatro tipos de peça. Frameworks base definem o núcleo funcional e estrutural, como o Spring Framework ou o ASP.NET Core. Ferramentas de integração cuidam da comunicação e da orquestração, como o RabbitMQ ou o gRPC. Ferramentas de monitoramento e manutenção acompanham a execução, como o Prometheus e o Grafana. Bibliotecas complementares resolvem necessidades pontuais, como o Axios para acesso HTTP e o Zod para validação de dados.
+A segunda é a composição multidimensional, pois uma plataforma não é monolítica e reúne quatro tipos de peça. Frameworks base definem o núcleo funcional e estrutural, como o Spring Framework ou o ASP.NET Core, e ferramentas de integração cuidam da comunicação e da orquestração, como o RabbitMQ ou o gRPC. Ferramentas de monitoramento e manutenção acompanham a execução, como o Prometheus e o Grafana, e bibliotecas complementares resolvem necessidades pontuais, como o Axios para acesso HTTP e o Zod para validação de dados.
 
-A terceira é o **alinhamento com práticas de engenharia**. A plataforma promove testabilidade, com ferramentas como o Jest e o JUnit, automação, com integração contínua e esteiras de implantação, e escalabilidade e manutenção, com orquestração de execução em Kubernetes ou Service Fabric.
+A terceira é o alinhamento com práticas de engenharia. A plataforma promove testabilidade, com ferramentas como o Jest e o JUnit, automação, com integração contínua e esteiras de implantação, e escalabilidade e manutenção, com orquestração de execução em Kubernetes ou Service Fabric.
 
-A quarta é a **adaptação ao contexto**. Plataformas não são universais. Elas são selecionadas e configuradas a partir de um racional arquitetural, apresentado no Conceito do [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), e a comparação entre plataformas candidatas usa os seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao), que são aderência ao requisito, maturidade, suporte, custo total de propriedade, competência da equipe e portabilidade. Uma plataforma tecnicamente superior que ninguém no time sabe operar tem custo real maior do que o preço de licença sugere, e é o critério de competência da equipe que captura isso.
+A quarta é a adaptação ao contexto, porque plataformas não são universais e são selecionadas e configuradas a partir de um racional arquitetural, apresentado no Conceito do [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), e a comparação entre plataformas candidatas usa os seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao), que são aderência ao requisito, maturidade, suporte, custo total de propriedade, competência da equipe e portabilidade. Uma plataforma tecnicamente superior que ninguém no time sabe operar tem custo real maior do que o preço de licença sugere, e é o critério de competência da equipe que captura isso.
 
 ### Exemplos de plataforma por estilo
 
@@ -37,7 +37,7 @@ Entre as peças, o Servlet é a base de tudo no contêiner web, a interface de p
 
 ![Plataforma Java EE e Jakarta EE. À esquerda, navegador e cliente móvel acessam por HTTPS e REST. No centro, um servidor de aplicação Java reúne três contêineres, o web com JSF, Servlet e JAX-RS, o de negócio com CDI, EJB e Bean Validation, e o de integração com JMS, conector JCA e agendador. Abaixo, JPA e Hibernate persistem em PostgreSQL e Oracle. À direita, mensageria Kafka ou ActiveMQ e sistemas externos de ERP, CRM e legado. Na base, serviços transversais de segurança, transações, observabilidade e configuração.](../assets/images/plataforma-java-ee.png)
 
-*Plataforma Java EE e Jakarta EE. Os três contêineres são a divisão estrutural que o estilo em camadas impõe, e a faixa de serviços transversais na base é o que nenhum framework isolado entrega. Fonte: material base do professor.*
+*Plataforma Java EE e Jakarta EE, em que os três contêineres são a divisão estrutural que o estilo em camadas impõe e a faixa de serviços transversais na base é o que nenhum framework isolado entrega. Fonte: material base do professor.*
 
 Esta é a plataforma da camada web da ACME, descrita na [arquitetura de linha de base](../caso-acme/linha-de-base.md) como JSF e EJB sobre servidor de aplicação fora de suporte desde 2018.
 
@@ -49,7 +49,7 @@ A peça que define essa plataforma é o grupo de autoescalonamento, que cria e d
 
 ![Arquitetura web sobre serviços da AWS, com Route 53 e CloudFront na borda, recursos estáticos em S3, duas camadas de balanceamento elástico sobre grupos de autoescalonamento de instâncias EC2 distribuídos em duas zonas de disponibilidade, e banco RDS principal replicado entre zonas.](../assets/images/plataforma-web-aws.png)
 
-*Plataforma web elástica sobre serviços da AWS. As duas colunas cinza são as zonas de disponibilidade, e as setas amarelas horizontais são os grupos de autoescalonamento que atravessam as duas. Fonte: material base do professor.*
+*Plataforma web elástica sobre serviços da AWS, em que as duas colunas cinza são as zonas de disponibilidade e as setas amarelas horizontais são os grupos de autoescalonamento que atravessam as duas. Fonte: material base do professor.*
 
 #### Plataforma de microsserviços
 
@@ -59,7 +59,7 @@ Entre as peças, o Kubernetes é o orquestrador que decide em qual máquina cada
 
 ![Plataforma de microsserviços. À esquerda, clientes web, móvel e usuários entram por HTTP e HTTPS num gateway de API com NGINX Ingress. No centro, um agrupamento Kubernetes com camada de serviço e três pods em contêineres Docker, um serviço de catálogo em Java, um de pedidos em .NET e um de pagamentos em Node.js, apoiados por Redis, PostgreSQL e um barramento Kafka. À direita, observabilidade com Prometheus para métricas, Grafana para painéis e OpenTelemetry para rastros. Na base, a esteira de integração e entrega, do código ao GitHub Actions, ao registro de contêineres e à implantação no Kubernetes.](../assets/images/plataforma-microsservicos.png)
 
-*Plataforma de microsserviços. Os três serviços usam linguagens diferentes, o que o estilo permite e a plataforma precisa sustentar, e a esteira na base mostra que a implantação independente é parte da plataforma. Fonte: material base do professor.*
+*Plataforma de microsserviços, em que os três serviços usam linguagens diferentes, o que o estilo permite e a plataforma precisa sustentar, e a esteira na base mostra que a implantação independente é parte da plataforma. Fonte: material base do professor.*
 
 Na variante Java dessa pilha, o Spring Boot é o framework base de cada serviço, o Spring Cloud Config centraliza a configuração fora do código, o Eureka permite que um serviço descubra o endereço do outro sem endereço fixo, o Spring Cloud Gateway faz o papel do gateway de API, o Keycloak cuida de autenticação e autorização, o Elastic Stack concentra os registros de todos os serviços em um lugar só, e o WireMock simula as APIs externas durante o teste.
 
@@ -71,7 +71,7 @@ Entre as peças, o fluxo de eventos é o centro da plataforma, e o que o disting
 
 ![Arquitetura de streaming sobre serviços da AWS, com fluxo de dados em tempo real chegando ao Amazon Kinesis, que despacha para bucket S3, para funções Lambda com persistência em DynamoDB, e para aplicações Kinesis executando em instâncias EC2.](../assets/images/plataforma-streaming-aws.png)
 
-*Plataforma orientada a eventos sobre serviços da AWS. Um mesmo fluxo alimenta três destinos diferentes ao mesmo tempo, que é a propriedade que o estilo busca. Fonte: material base do professor.*
+*Plataforma orientada a eventos sobre serviços da AWS, em que um mesmo fluxo alimenta três destinos diferentes ao mesmo tempo, que é a propriedade que o estilo busca. Fonte: material base do professor.*
 
 Na pilha aberta equivalente, o Apache Kafka é o fluxo, o Kafka Streams o processamento contínuo, o Event Store o armazenamento de eventos, o Apache Camel o mediador de integração, o Kong API Gateway a publicação externa e o Confluent Control Center o monitoramento do fluxo.
 
@@ -93,7 +93,7 @@ Os pilares são cinco, e a Figura 1 os apresenta sobre uma base comum de infraes
 1. As contas, na AWS, ou assinaturas, na Azure, separam os ambientes de desenvolvimento, homologação e produção, de modo que a credencial usada por um desenvolvedor em desenvolvimento deixe de alcançar os dados de produção e que um erro de teste fique contido na conta onde ocorreu.
 2. A segmentação de rede segue a topologia hub-spoke, em que uma rede central compartilhada se liga a redes privadas dedicadas a cada carga de trabalho, com apenas o ponto de entrada, como o gateway de APIs ou o balanceador de carga, em sub-rede pública, e com serviços de retaguarda e bancos de dados em sub-redes privadas. Quando parte da solução permanece num centro de dados próprio, a rede central concentra também a ligação com ele, por enlace dedicado ou por VPN.
 3. A identidade centralizada reúne num só lugar o controle de quem da equipe acessa cada conta e com qual perfil, o que facilita a auditoria das operações sensíveis.
-4. As políticas de conformidade automatizadas, que na AWS são as políticas de controle de serviço do AWS Organizations e na Azure são o Azure Policy, aplicam as regras da organização a todo recurso criado, como a recusa de um recurso fora da região permitida ou sem as etiquetas obrigatórias.
+4. As políticas de conformidade automatizadas são aplicadas de forma automática a todas as contas e recusam o recurso que viole as regras da organização, como o recurso criado fora da região permitida ou sem as etiquetas obrigatórias.
 5. O monitoramento com faturamento consolidado permite acompanhar no mesmo lugar o comportamento e o custo de todos os ambientes.
 
 Os dois primeiros pilares, ambientes separados e rede segmentada, também funcionam como controles de segurança, e o [bloco 3](bloco-3-seguranca-fim-a-fim.md) os trata nesse papel.
@@ -114,7 +114,7 @@ Região, zonas de disponibilidade e camadas de execução já foram tratadas no 
 
 Assim como o estilo arquitetural é a maior decisão que um arquiteto toma em um projeto, a plataforma arquitetural é a maior decisão tecnológica do projeto. Por consequência, ela precisa ser justificada e registrada em um ADR próprio, escrito no [bloco 4](bloco-4-adr-de-plataforma.md) desta aula, e a zona de pouso que recebe a plataforma é registrada na mesma decisão.
 
-O arquiteto documenta a comparação antes de decidir, em um **quadro comparativo** que lista as plataformas candidatas nas linhas e os seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao) nas colunas, com uma nota curta em cada célula. Esse quadro entra no ADR de plataforma como evidência de que a escolha considerou alternativas reais, não apenas a plataforma mais familiar ao time, o que faz a decisão resistir a questionamento meses depois.
+O arquiteto documenta a comparação antes de decidir, em um quadro comparativo que lista as plataformas candidatas nas linhas e os seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao) nas colunas, com uma nota curta em cada célula. Esse quadro entra no ADR de plataforma como evidência de que a escolha considerou alternativas reais, não apenas a plataforma mais familiar ao time, o que faz a decisão resistir a questionamento meses depois.
 
 ## Exercício 18
 
@@ -207,9 +207,8 @@ A tabela a seguir lista seis recursos da conta de produção com as etiquetas qu
 | Bucket de trilha de auditoria | projeto, ambiente, centro de custo |
 
 1. Associe cada elemento do diagrama ao pilar da zona de pouso, entre os cinco da Figura 1, que ele realiza.
-2. Indique, para cada recurso da tabela, a etiqueta obrigatória que falta, ou registre que as quatro estão presentes.
+2. Indique as etiquetas obrigatórias que faltam em cada recurso da tabela, ou indique que não falta nenhuma.
 3. Responda em uma linha qual requisito justifica a existência da conta de segurança e registros.
-4. Indique qual dos requisitos R4 e R14 leva a descrever os pilares com uma ferramenta de infraestrutura como código portável entre provedores, e qual deles justifica uma política que recuse recursos fora da região nacional.
 
 ## Fontes
 
@@ -222,4 +221,4 @@ As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](
 - Amazon Web Services. (n.d.-e). *Landing Zone Accelerator on AWS: Solution overview*. Landing Zone Accelerator on AWS Implementation Guide. Acesso em 15 de outubro de 2026. https://docs.aws.amazon.com/solutions/latest/landing-zone-accelerator-on-aws/solution-overview.html
 - Microsoft. (2025). *What is an Azure landing zone?* Cloud Adoption Framework, Microsoft Learn. Acesso em 15 de outubro de 2026. https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/
 
-**Material do curso.** Glossário, entradas [plataforma arquitetural](../referencia/glossario.md#plataforma-arquitetural), [racional arquitetural](../referencia/glossario.md#racional-arquitetural), [zona de pouso](../referencia/glossario.md#zona-de-pouso) e [infraestrutura como código](../referencia/glossario.md#infraestrutura-como-codigo). Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md). A estrutura dos cinco pilares, as quatro etiquetas obrigatórias e a figura 1 são convenções do curso.
+**Material do curso.** Glossário, entradas [plataforma arquitetural](../referencia/glossario.md#plataforma-arquitetural), [racional arquitetural](../referencia/glossario.md#racional-arquitetural), [zona de pouso](../referencia/glossario.md#zona-de-pouso) e [infraestrutura como código](../referencia/glossario.md#infraestrutura-como-codigo). Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md), sendo a estrutura dos cinco pilares, as quatro etiquetas obrigatórias e a figura 1 convenções do curso.
