@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" role="img" aria-labelledby="title desc">
+  <title id="title">Três sinais de observabilidade sobre as camadas</title>
+  <desc id="desc">Três sinais, o registro estruturado de eventos, as métricas e o rastreamento, atravessam todas as camadas da plataforma. O OpenTelemetry, padrão aberto de coleta de métricas e rastros, recebe as métricas e o rastreamento.</desc>
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#254DB8"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="640" rx="28" fill="#F2F6FB"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" fill="#16243A">
+    <text x="24" y="46" style="font-size:26px;font-weight:700">Três sinais atravessam todas as camadas</text>
+
+    <rect x="24" y="80" width="300" height="120" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <text x="174" y="128" text-anchor="middle" style="font-size:24px;font-weight:700">Registro estruturado</text>
+    <text x="174" y="160" text-anchor="middle" style="font-size:24px;font-weight:700">de eventos</text>
+    <rect x="350" y="80" width="300" height="120" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <text x="500" y="152" text-anchor="middle" style="font-size:24px;font-weight:700">Métricas</text>
+    <rect x="676" y="80" width="300" height="120" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <text x="826" y="152" text-anchor="middle" style="font-size:24px;font-weight:700">Rastreamento</text>
+
+    <g stroke="#254DB8" stroke-width="4" fill="none">
+      <line x1="174" y1="200" x2="174" y2="388" marker-end="url(#seta)"/>
+      <line x1="500" y1="200" x2="500" y2="248" marker-end="url(#seta)"/>
+      <line x1="826" y1="200" x2="826" y2="248" marker-end="url(#seta)"/>
+      <line x1="663" y1="332" x2="663" y2="388" marker-end="url(#seta)"/>
+    </g>
+
+    <rect x="350" y="254" width="626" height="78" rx="14" fill="#5FC0D1" stroke="#254DB8" stroke-width="3"/>
+    <text x="663" y="288" text-anchor="middle" style="font-size:24px;font-weight:700">OpenTelemetry</text>
+    <text x="663" y="318" text-anchor="middle" style="font-size:21px">padrão aberto de coleta de métricas e rastros</text>
+
+    <rect x="24" y="394" width="952" height="82" rx="14" fill="#16243A"/>
+    <text x="500" y="445" text-anchor="middle" style="font-size:25px;font-weight:700" fill="#FFFFFF">Todas as camadas da plataforma</text>
+
+    <rect x="24" y="504" width="952" height="104" rx="14" fill="#FFF7E6" stroke="#F2B84B" stroke-width="4"/>
+    <text x="48" y="545" style="font-size:21px">Com vários serviços, deixa de existir um registro único onde olhar.</text>
+    <text x="48" y="583" style="font-size:21px">O rastreamento responde em que trecho do caminho o tempo foi gasto.</text>
+  </g>
+</svg>

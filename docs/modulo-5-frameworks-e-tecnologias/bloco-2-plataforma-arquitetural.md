@@ -17,6 +17,12 @@ A plataforma não escolhe o estilo, ela o executa. Por isso essa decisão vem de
 
 ### Quatro características de uma plataforma arquitetural
 
+<figure markdown="span">
+![Plataforma arquitetural ao centro, ligada a quatro módulos. Os módulos são a instanciação de estilos arquiteturais, a composição multidimensional, o alinhamento com práticas de engenharia e a adaptação ao contexto.](../assets/images/modulo-5-quatro-caracteristicas-plataforma.svg){ .module-diagram }
+</figure>
+
+*Figura 1 — As quatro características de uma plataforma arquitetural. Fonte: material do curso.*
+
 A primeira é a instanciação de estilos arquiteturais, porque toda plataforma está baseada em um ou mais estilos. O Java EE implementa a [arquitetura em camadas](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-em-camadas) para sistemas web, o Spring Boot com Spring Cloud concretiza a [arquitetura de microsserviços](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-de-microsservicos), e o Event Store e o Apache Kafka dão suporte à [arquitetura orientada a eventos](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-orientada-a-eventos).
 
 A segunda é a composição multidimensional, pois uma plataforma não é monolítica e reúne quatro tipos de peça. Frameworks base definem o núcleo funcional e estrutural, como o Spring Framework ou o ASP.NET Core, e ferramentas de integração cuidam da comunicação e da orquestração, como o RabbitMQ ou o gRPC. Ferramentas de monitoramento e manutenção acompanham a execução, como o Prometheus e o Grafana, e bibliotecas complementares resolvem necessidades pontuais, como o Axios para acesso HTTP e o Zod para validação de dados.
@@ -82,13 +88,13 @@ A plataforma escolhida precisa de um ambiente que a receba, e esse ambiente é a
 
 Os provedores oferecem estruturas oficiais para essa fundação. Na AWS, o AWS Control Tower configura e governa um ambiente de várias contas conforme práticas prescritivas, e o Landing Zone Accelerator on AWS, solução de código aberto construída sobre o AWS CDK, complementa o Control Tower em cargas altamente reguladas. Na Azure, a Azure landing zone é uma arquitetura para governar, proteger e escalar um ambiente de várias assinaturas, composta por uma landing zone de plataforma, com recursos centralizados, e por landing zones de carga de trabalho. O detalhe de configuração de cada estrutura fica na documentação do provedor, e este bloco trata dos pilares que elas têm em comum.
 
-Os pilares são cinco, e a Figura 1 os apresenta sobre uma base comum de infraestrutura como código e etiquetas.
+Os pilares são cinco, e a Figura 2 os apresenta sobre uma base comum de infraestrutura como código e etiquetas.
 
 <figure markdown="span">
 ![Cinco colunas numeradas sobre uma base comum. As colunas são contas ou assinaturas por ambiente, rede em topologia hub-spoke, identidade centralizada, políticas automatizadas e monitoramento com faturamento consolidado. Sob as colunas, a base comum indica infraestrutura como código e etiquetas de projeto, ambiente, time e centro de custo.](../assets/images/modulo-5-pilares-zona-de-pouso.svg){ .module-diagram }
 </figure>
 
-*Figura 1 — Os cinco pilares da zona de pouso sobre uma base comum. Fonte: material do curso, com base na documentação de zona de pouso da AWS e da Azure.*
+*Figura 2 — Os cinco pilares da zona de pouso sobre uma base comum. Fonte: material do curso, com base na documentação de zona de pouso da AWS e da Azure.*
 
 1. As contas, na AWS, ou assinaturas, na Azure, separam os ambientes de desenvolvimento, homologação e produção, de modo que a credencial usada por um desenvolvedor em desenvolvimento deixe de alcançar os dados de produção e que um erro de teste fique contido na conta onde ocorreu.
 2. A segmentação de rede segue a topologia hub-spoke, em que uma rede central compartilhada se liga a redes privadas dedicadas a cada carga de trabalho, com apenas o ponto de entrada, como o gateway de APIs ou o balanceador de carga, em sub-rede pública, e com serviços de retaguarda e bancos de dados em sub-redes privadas. Quando parte da solução permanece num centro de dados próprio, a rede central concentra também a ligação com ele, por enlace dedicado ou por VPN.
@@ -100,13 +106,29 @@ Os dois primeiros pilares, ambientes separados e rede segmentada, também funcio
 
 #### Infraestrutura como código e etiquetas
 
-A **[infraestrutura como código](../referencia/glossario.md#infraestrutura-como-codigo)** descreve a infraestrutura em arquivos declarativos, versionados e revisados como o código da aplicação. Com essa descrição, o ambiente pode ser recriado a partir dos arquivos, cada mudança de rede, de política ou de capacidade passa a ter autor, data e revisão no histórico, e os três ambientes podem ser criados da mesma descrição com parâmetros diferentes, o que reduz a diferença entre homologação e produção. A descrição declarativa também reduz a [dependência de fornecedor](../referencia/glossario.md#dependencia-de-fornecedor), e uma ferramenta portável entre provedores, como o Terraform, mantém uma só base de código quando a organização opera em mais de uma nuvem.
+A **[infraestrutura como código](../referencia/glossario.md#infraestrutura-como-codigo)** descreve a infraestrutura em arquivos declarativos, versionados e revisados como o código da aplicação.
+
+<figure markdown="span">
+![Fluxo da infraestrutura como código. Arquivos declarativos, versionados e revisados criam os ambientes de desenvolvimento, homologação e produção a partir da mesma descrição, e o código aplica as quatro etiquetas obrigatórias: projeto, ambiente, time e centro de custo.](../assets/images/modulo-5-iac-e-etiquetas.svg){ .module-diagram }
+</figure>
+
+*Figura 3 — Da descrição declarativa ao ambiente criado, com as quatro etiquetas obrigatórias. Fonte: material do curso.*
+
+Com essa descrição, o ambiente pode ser recriado a partir dos arquivos, cada mudança de rede, de política ou de capacidade passa a ter autor, data e revisão no histórico, e os três ambientes podem ser criados da mesma descrição com parâmetros diferentes, o que reduz a diferença entre homologação e produção. A descrição declarativa também reduz a [dependência de fornecedor](../referencia/glossario.md#dependencia-de-fornecedor), e uma ferramenta portável entre provedores, como o Terraform, mantém uma só base de código quando a organização opera em mais de uma nuvem.
 
 As etiquetas obrigatórias são quatro, projeto, ambiente, time e centro de custo. Aplicadas pelo código e exigidas por uma política que recusa recurso sem etiqueta, elas permitem responder quanto custa o ambiente de produção de um serviço e quanto uma equipe consome em homologação.
 
 #### Observabilidade como camada transversal
 
-A observabilidade define como a equipe sabe o que acontece na solução, e por isso atravessa todas as camadas da plataforma. Ela se organiza em três sinais, o registro estruturado de eventos, as métricas e o rastreamento, e o OpenTelemetry é o padrão aberto de coleta de métricas e rastros. Quando a solução se divide em vários serviços, deixa de existir um registro único onde olhar, e o rastreamento que atravessa os serviços é a forma de responder em que trecho do caminho o tempo foi gasto.
+A observabilidade define como a equipe sabe o que acontece na solução, e por isso atravessa todas as camadas da plataforma.
+
+<figure markdown="span">
+![Três sinais de observabilidade sobre as camadas da plataforma. O registro estruturado de eventos, as métricas e o rastreamento atravessam todas as camadas, e o OpenTelemetry, padrão aberto de coleta de métricas e rastros, recebe as métricas e o rastreamento.](../assets/images/modulo-5-tres-sinais-observabilidade.svg){ .module-diagram }
+</figure>
+
+*Figura 4 — Os três sinais de observabilidade sobre as camadas da plataforma, com o OpenTelemetry na coleta. Fonte: material do curso.*
+
+Ela se organiza em três sinais, o registro estruturado de eventos, as métricas e o rastreamento, e o OpenTelemetry é o padrão aberto de coleta de métricas e rastros. Quando a solução se divide em vários serviços, deixa de existir um registro único onde olhar, e o rastreamento que atravessa os serviços é a forma de responder em que trecho do caminho o tempo foi gasto.
 
 Região, zonas de disponibilidade e camadas de execução já foram tratadas no [bloco 4 da Aula 4](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md), e este bloco não as repete.
 
@@ -206,7 +228,7 @@ A tabela a seguir lista seis recursos da conta de produção com as etiquetas qu
 | Fila de eventos de notas | projeto, ambiente |
 | Bucket de trilha de auditoria | projeto, ambiente, centro de custo |
 
-1. Associe cada elemento do diagrama ao pilar da zona de pouso, entre os cinco da Figura 1, que ele realiza.
+1. Associe cada elemento do diagrama ao pilar da zona de pouso, entre os cinco da Figura 2, que ele realiza.
 2. Indique as etiquetas obrigatórias que faltam em cada recurso da tabela, ou indique que não falta nenhuma.
 3. Responda em uma linha qual requisito justifica a existência da conta de segurança e registros.
 

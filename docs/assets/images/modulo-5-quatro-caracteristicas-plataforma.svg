@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 690" role="img" aria-labelledby="title desc">
+  <title id="title">Quatro características de uma plataforma arquitetural</title>
+  <desc id="desc">A plataforma arquitetural ao centro, ligada a quatro módulos: instanciação de estilos arquiteturais, composição multidimensional, alinhamento com práticas de engenharia e adaptação ao contexto.</desc>
+  <rect width="1000" height="690" rx="28" fill="#F2F6FB"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" fill="#16243A">
+    <text x="24" y="46" style="font-size:26px;font-weight:700">Quatro características de uma plataforma</text>
+    <g stroke="#254DB8" stroke-width="4">
+      <line x1="500" y1="380" x2="224" y2="220"/>
+      <line x1="500" y1="380" x2="776" y2="220"/>
+      <line x1="500" y1="380" x2="224" y2="540"/>
+      <line x1="500" y1="380" x2="776" y2="540"/>
+    </g>
+    <circle cx="500" cy="380" r="76" fill="#5FC0D1" stroke="#254DB8" stroke-width="4"/>
+    <text x="500" y="375" text-anchor="middle" style="font-size:22px;font-weight:700">Plataforma</text>
+    <text x="500" y="403" text-anchor="middle" style="font-size:22px;font-weight:700">arquitetural</text>
+
+    <rect x="24" y="84" width="400" height="272" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <path d="M24,100 a16,16 0 0 1 16,-16 h368 a16,16 0 0 1 16,16 v76 h-400 z" fill="#16243A"/>
+    <text x="48" y="124" style="font-size:25px;font-weight:700" fill="#FFFFFF">Instanciação de estilos</text>
+    <text x="48" y="156" style="font-size:25px;font-weight:700" fill="#FFFFFF">arquiteturais</text>
+    <text x="48" y="222" style="font-size:22px">Toda plataforma está</text>
+    <text x="48" y="252" style="font-size:22px">baseada em um ou mais</text>
+    <text x="48" y="282" style="font-size:22px">estilos</text>
+
+    <rect x="576" y="84" width="400" height="272" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <path d="M576,100 a16,16 0 0 1 16,-16 h368 a16,16 0 0 1 16,16 v76 h-400 z" fill="#16243A"/>
+    <text x="600" y="124" style="font-size:25px;font-weight:700" fill="#FFFFFF">Composição</text>
+    <text x="600" y="156" style="font-size:25px;font-weight:700" fill="#FFFFFF">multidimensional</text>
+    <text x="600" y="214" style="font-size:22px">Frameworks base,</text>
+    <text x="600" y="244" style="font-size:22px">integração, monitoramento</text>
+    <text x="600" y="274" style="font-size:22px">e manutenção, bibliotecas</text>
+    <text x="600" y="304" style="font-size:22px">complementares</text>
+
+    <rect x="24" y="404" width="400" height="272" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <path d="M24,420 a16,16 0 0 1 16,-16 h368 a16,16 0 0 1 16,16 v76 h-400 z" fill="#16243A"/>
+    <text x="48" y="444" style="font-size:25px;font-weight:700" fill="#FFFFFF">Alinhamento com práticas</text>
+    <text x="48" y="476" style="font-size:25px;font-weight:700" fill="#FFFFFF">de engenharia</text>
+    <text x="48" y="542" style="font-size:22px">Testabilidade, automação,</text>
+    <text x="48" y="572" style="font-size:22px">escalabilidade e</text>
+    <text x="48" y="602" style="font-size:22px">manutenção</text>
+
+    <rect x="576" y="404" width="400" height="272" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <path d="M576,420 a16,16 0 0 1 16,-16 h368 a16,16 0 0 1 16,16 v76 h-400 z" fill="#16243A"/>
+    <text x="600" y="444" style="font-size:25px;font-weight:700" fill="#FFFFFF">Adaptação</text>
+    <text x="600" y="476" style="font-size:25px;font-weight:700" fill="#FFFFFF">ao contexto</text>
+    <text x="600" y="542" style="font-size:22px">Selecionadas e configuradas</text>
+    <text x="600" y="572" style="font-size:22px">a partir de um racional</text>
+    <text x="600" y="602" style="font-size:22px">arquitetural</text>
+  </g>
+</svg>
