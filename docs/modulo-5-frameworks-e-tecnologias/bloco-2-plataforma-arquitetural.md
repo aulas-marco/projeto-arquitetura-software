@@ -106,29 +106,25 @@ Os dois primeiros pilares, ambientes separados e rede segmentada, também funcio
 
 #### Infraestrutura como código e etiquetas
 
-A **[infraestrutura como código](../referencia/glossario.md#infraestrutura-como-codigo)** descreve a infraestrutura em arquivos declarativos, versionados e revisados como o código da aplicação.
+A **[infraestrutura como código](../referencia/glossario.md#infraestrutura-como-codigo)** descreve a infraestrutura em arquivos declarativos, versionados e revisados como o código da aplicação. Com essa descrição, o ambiente pode ser recriado a partir dos arquivos, cada mudança de rede, de política ou de capacidade passa a ter autor, data e revisão no histórico, e os três ambientes podem ser criados da mesma descrição com parâmetros diferentes, o que reduz a diferença entre homologação e produção. A descrição declarativa também reduz a [dependência de fornecedor](../referencia/glossario.md#dependencia-de-fornecedor), e uma ferramenta portável entre provedores, como o Terraform, mantém uma só base de código quando a organização opera em mais de uma nuvem.
 
 <figure markdown="span">
-![Fluxo da infraestrutura como código. Arquivos declarativos, versionados e revisados criam os ambientes de desenvolvimento, homologação e produção a partir da mesma descrição, e o código aplica as quatro etiquetas obrigatórias: projeto, ambiente, time e centro de custo.](../assets/images/modulo-5-iac-e-etiquetas.svg){ .module-diagram }
+![Fluxo da infraestrutura como código. Arquivos declarativos, versionados e revisados permitem recriar os ambientes de desenvolvimento, homologação e produção a partir da mesma descrição, e o código aplica as quatro etiquetas obrigatórias: projeto, ambiente, time e centro de custo.](../assets/images/modulo-5-iac-e-etiquetas.svg){ .module-diagram }
 </figure>
 
-*Figura 3 — Da descrição declarativa ao ambiente criado, com as quatro etiquetas obrigatórias. Fonte: material do curso.*
-
-Com essa descrição, o ambiente pode ser recriado a partir dos arquivos, cada mudança de rede, de política ou de capacidade passa a ter autor, data e revisão no histórico, e os três ambientes podem ser criados da mesma descrição com parâmetros diferentes, o que reduz a diferença entre homologação e produção. A descrição declarativa também reduz a [dependência de fornecedor](../referencia/glossario.md#dependencia-de-fornecedor), e uma ferramenta portável entre provedores, como o Terraform, mantém uma só base de código quando a organização opera em mais de uma nuvem.
+*Figura 3 — Da descrição declarativa ao ambiente recriado, com as quatro etiquetas obrigatórias. Fonte: material do curso.*
 
 As etiquetas obrigatórias são quatro, projeto, ambiente, time e centro de custo. Aplicadas pelo código e exigidas por uma política que recusa recurso sem etiqueta, elas permitem responder quanto custa o ambiente de produção de um serviço e quanto uma equipe consome em homologação.
 
 #### Observabilidade como camada transversal
 
-A observabilidade define como a equipe sabe o que acontece na solução, e por isso atravessa todas as camadas da plataforma.
+A observabilidade define como a equipe sabe o que acontece na solução, e por isso atravessa todas as camadas da plataforma. Ela se organiza em três sinais, o registro estruturado de eventos, as métricas e o rastreamento, e o OpenTelemetry é o padrão aberto de coleta de métricas e rastros. Quando a solução se divide em vários serviços, deixa de existir um registro único onde olhar, e o rastreamento que atravessa os serviços é a forma de responder em que trecho do caminho o tempo foi gasto.
 
 <figure markdown="span">
-![Três sinais de observabilidade sobre as camadas da plataforma. O registro estruturado de eventos, as métricas e o rastreamento atravessam todas as camadas, e o OpenTelemetry, padrão aberto de coleta de métricas e rastros, recebe as métricas e o rastreamento.](../assets/images/modulo-5-tres-sinais-observabilidade.svg){ .module-diagram }
+![Três sinais de observabilidade sobre as camadas da plataforma. O registro estruturado de eventos, as métricas e o rastreamento são os três sinais, o OpenTelemetry é o padrão aberto de coleta de métricas e rastros, e a observabilidade atravessa todas as camadas da plataforma.](../assets/images/modulo-5-tres-sinais-observabilidade.svg){ .module-diagram }
 </figure>
 
 *Figura 4 — Os três sinais de observabilidade sobre as camadas da plataforma, com o OpenTelemetry na coleta. Fonte: material do curso.*
-
-Ela se organiza em três sinais, o registro estruturado de eventos, as métricas e o rastreamento, e o OpenTelemetry é o padrão aberto de coleta de métricas e rastros. Quando a solução se divide em vários serviços, deixa de existir um registro único onde olhar, e o rastreamento que atravessa os serviços é a forma de responder em que trecho do caminho o tempo foi gasto.
 
 Região, zonas de disponibilidade e camadas de execução já foram tratadas no [bloco 4 da Aula 4](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md), e este bloco não as repete.
 

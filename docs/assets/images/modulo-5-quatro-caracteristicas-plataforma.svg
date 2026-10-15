@@ -26,18 +26,19 @@
     <path d="M576,100 a16,16 0 0 1 16,-16 h368 a16,16 0 0 1 16,16 v76 h-400 z" fill="#16243A"/>
     <text x="600" y="124" style="font-size:25px;font-weight:700" fill="#FFFFFF">Composição</text>
     <text x="600" y="156" style="font-size:25px;font-weight:700" fill="#FFFFFF">multidimensional</text>
-    <text x="600" y="214" style="font-size:22px">Frameworks base,</text>
-    <text x="600" y="244" style="font-size:22px">integração, monitoramento</text>
-    <text x="600" y="274" style="font-size:22px">e manutenção, bibliotecas</text>
-    <text x="600" y="304" style="font-size:22px">complementares</text>
+    <text x="600" y="208" style="font-size:22px">Frameworks base,</text>
+    <text x="600" y="237" style="font-size:22px">Ferramentas de integração,</text>
+    <text x="600" y="266" style="font-size:22px">Ferramentas de monitoramento</text>
+    <text x="600" y="295" style="font-size:22px">e manutenção,</text>
+    <text x="600" y="324" style="font-size:22px">bibliotecas complementares</text>
 
     <rect x="24" y="404" width="400" height="272" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
     <path d="M24,420 a16,16 0 0 1 16,-16 h368 a16,16 0 0 1 16,16 v76 h-400 z" fill="#16243A"/>
     <text x="48" y="444" style="font-size:25px;font-weight:700" fill="#FFFFFF">Alinhamento com práticas</text>
     <text x="48" y="476" style="font-size:25px;font-weight:700" fill="#FFFFFF">de engenharia</text>
-    <text x="48" y="542" style="font-size:22px">Testabilidade, automação,</text>
-    <text x="48" y="572" style="font-size:22px">escalabilidade e</text>
-    <text x="48" y="602" style="font-size:22px">manutenção</text>
+    <text x="48" y="542" style="font-size:22px">Testabilidade,</text>
+    <text x="48" y="572" style="font-size:22px">automação,</text>
+    <text x="48" y="602" style="font-size:22px">e escalabilidade e manutenção</text>
 
     <rect x="576" y="404" width="400" height="272" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
     <path d="M576,420 a16,16 0 0 1 16,-16 h368 a16,16 0 0 1 16,16 v76 h-400 z" fill="#16243A"/>
