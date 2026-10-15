@@ -108,7 +108,7 @@ O exemplo conceitual é o serviço de identidade do Hospital ACME, com requisito
 
 - **Item 1, contêineres e categorias:** o enunciado traz um recorte do modelo técnico de referência da ACME com seis linhas, identidade, exposição de serviços, mensageria, infraestrutura como código, observabilidade e banco de serviço novo, e a lista dos contêineres do exercício 16. O aluno associa cada contêiner a uma categoria e ao padrão correspondente.
 - **Item 2, tecnologias da linha de base:** o enunciado traz seis tecnologias, JSF 1.2 e EJB 2.0, Oracle 12c, acesso direto ao banco, COBOL sob CICS, diretório corporativo e arquivo posicional sem versão, com o dado de [linha de base](../../caso-acme/linha-de-base.md) de cada uma. O aluno classifica cada tecnologia em verde, âmbar ou vermelho e justifica em uma linha.
-- **Item 3, matriz de seleção:** o enunciado traz a matriz do provedor de identidade com três alternativas e seis critérios, com a maior parte das células em branco. O aluno preenche três células com o dado do caso e indica a alternativa que a restrição de padrão aberto elimina.
+- **Item 3, matriz de seleção:** o enunciado traz os requisitos e as restrições do caso e a matriz do provedor de identidade com três alternativas, com as células de aderência ao requisito e de portabilidade em branco para preenchimento e, numa terceira tabela, os outros quatro critérios com o dado que o caso não traz. O aluno preenche as células de aderência e de portabilidade com o dado do caso, indica o dado que falta em cada um dos outros quatro critérios e explica como uma restrição, R8 ou R14, elimina uma alternativa.
 
 ## 7. Bloco 2, plataforma arquitetural (revisão)
 
@@ -169,7 +169,7 @@ O aluno registra a decisão de plataforma em ADR encadeado ao ADR de estilo, ava
 
 ### 9.3 Exercício 20
 
-Mantêm-se os itens 1 a 3. O item 4 é novo. O enunciado traz seis requisitos de serviço da ACME, entre eles provedor de identidade, mensageria, banco de serviço novo, diretório corporativo e extração noturna. O aluno classifica cada requisito num dos quatro tipos de lacuna e indica qual deles tende a reduzir o custo recorrente.
+Mantêm-se os itens 1 a 3. O item 4 é novo. O enunciado traz, em tabela, seis itens da definição tecnológica considerada, provedor de identidade com OpenID Connect, troca de notas em até 10 minutos, autenticação dos portais, acesso ao núcleo por camada anticorrupção, capacidade para 5.800 sessões e observabilidade de ponta a ponta, cada um com a situação na linha de base. A tabela traz a premissa de que esses requisitos não vêm do dossiê. O aluno classifica cada item num dos quatro tipos de lacuna, justificando com o dado da coluna de situação, e indica qual deles tende a reduzir o custo recorrente.
 
 ## 10. Índice, síntese e páginas de apoio
 
@@ -202,7 +202,7 @@ O arquivo `tests/test_modulo_5_contract.py` segue o modelo de `tests/test_modulo
 - o formato `### Item N:` em cada exercício e a numeração dos exercícios 17 a 20
 - a presença de ao menos um visual em cada exercício
 
-A suíte completa, o validador `scripts/validate_content.py --all` e `mkdocs build --strict` passam antes de cada commit.
+A suíte completa, o validador `scripts/validate_content.py` e `mkdocs build --strict` passam antes de cada commit.
 
 ## 13. Fora da conferência automática
 
