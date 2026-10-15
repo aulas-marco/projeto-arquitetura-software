@@ -45,7 +45,7 @@ O [bloco 3](bloco-3-seguranca-fim-a-fim.md), Segurança fim a fim, trata a segur
 
 O [bloco 4](bloco-4-adr-de-plataforma.md) apresenta o ADR de plataforma como segundo registro do par iniciado na Aula 3, as seis dimensões de dependência de fornecedor, a classificação das lacunas de provisão em quatro tipos e a validação da definição tecnológica com as partes interessadas. O exercício 20 pede, em quatro itens, o encadeamento do ADR com o ADR de estilo, as forças e a dependência de fornecedor, as consequências, as evidências e o gatilho de revisão, e a classificação de seis itens da definição tecnológica considerada como lacuna nova, substituição, modificação ou remoção.
 
-A [síntese](sintese.md) fecha o módulo com o checklist do que precisa permanecer, a cadeia dos exercícios 16 a 20, a autoavaliação e as fontes principais da aula, e as demais constam das Fontes de cada bloco e da bibliografia.
+A [síntese](sintese.md) fecha o módulo com o checklist do que precisa permanecer, a cadeia dos exercícios 16 a 20, a autoavaliação e a lista das referências citadas nos quatro blocos.
 
 ## Preparação para a Aula 6
 

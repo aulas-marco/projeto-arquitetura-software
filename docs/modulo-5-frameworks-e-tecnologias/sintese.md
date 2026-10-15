@@ -1,6 +1,6 @@
 # Síntese da Aula 5
 
-Esta página fecha o módulo de frameworks e tecnologias com o que precisa permanecer depois da aula, a cadeia da definição tecnológica construída nos exercícios 16 a 20, uma autoavaliação e as fontes principais da aula, e as demais constam das Fontes de cada bloco e da bibliografia.
+Esta página fecha o módulo de frameworks e tecnologias com o que precisa permanecer depois da aula, a cadeia da definição tecnológica construída nos exercícios 16 a 20, uma autoavaliação e a lista das referências citadas nos quatro blocos.
 
 ## Checklist do que precisa permanecer
 
