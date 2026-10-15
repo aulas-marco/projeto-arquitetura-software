@@ -134,6 +134,19 @@ class ModuleFiveStructureTest(unittest.TestCase):
                         r"\{ \.module-diagram \}",
                     )
 
+    def test_visuals_appear_in_the_order_of_blocks(self):
+        for name, (images, _, _) in BLOCKS.items():
+            appearing = re.findall(
+                r"!\[[^\]]*\]\(\.\./assets/images/(modulo-5-[\w-]+\.svg)\)", read(name))
+            with self.subTest(page=name):
+                self.assertEqual(appearing, list(images))
+
+    def test_figure_captions_are_numbered_in_order_without_gaps(self):
+        for name, (images, _, _) in BLOCKS.items():
+            numbers = [int(n) for n in re.findall(r"(?m)^\*Figura (\d+) ", read(name))]
+            with self.subTest(page=name):
+                self.assertEqual(numbers, list(range(1, len(images) + 1)))
+
     def test_visuals_are_accessible_legible_and_generic(self):
         svgs = sorted(IMAGES.glob("modulo-5-*.svg"))
         self.assertEqual(sum(len(images) for images, _, _ in BLOCKS.values()), len(svgs))
@@ -144,7 +157,15 @@ class ModuleFiveStructureTest(unittest.TestCase):
                 self.assertRegex(svg, r"<title[^>]*>[^<]{5,}</title>")
                 self.assertRegex(svg, r"<desc[^>]*>[^<]{20,}</desc>")
                 self.assertTrue(sizes)
-                self.assertGreaterEqual(min(sizes), 16)
+                self.assertGreaterEqual(min(sizes), 20)
+                self.assertRegex(svg, r'<svg[^>]*role="img"')
+                self.assertRegex(svg, r'<svg[^>]*aria-labelledby="[^"]+"')
+                view_box = re.search(r'viewBox="0 0 (\d+) \d+"', svg)
+                self.assertIsNotNone(view_box)
+                self.assertLessEqual(int(view_box.group(1)), 1000)
+                labelled = re.search(r'aria-labelledby="([^"]+)"', svg).group(1).split()
+                for ident in labelled:
+                    self.assertIn(f'id="{ident}"', svg)
                 for term in FORBIDDEN_IN_VISUALS:
                     self.assertNotIn(term, svg)
 
