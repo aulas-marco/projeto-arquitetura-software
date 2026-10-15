@@ -21,6 +21,12 @@ A **definição tecnológica da solução** é a etapa que faz essa conversão e
 
 Antes de comparar produtos, o arquiteto registra as restrições tecnológicas, no sentido de [restrição](../modulo-2-requisitos-e-partes-interessadas/bloco-3-cenarios-linha-de-base-e-restricoes.md#restricoes-ao-desenho) apresentado no bloco 3 da Aula 2, como decisão tomada fora do processo de projeto que limita as alternativas sem ser negociável pelo arquiteto. A lista abaixo traz os sete tipos de restrição tecnológica que a definição tecnológica examina.
 
+<figure markdown="span">
+![Sete caixas numeradas à esquerda, uma para cada restrição tecnológica, de tecnologias aprovadas a competências da equipe, ligadas por uma barra comum a um funil que estreita as opções de produto. Do funil saem as opções que restam, que seguem para a comparação pelos seis critérios.](../assets/images/modulo-5-sete-restricoes.svg){ .module-diagram }
+</figure>
+
+*Figura 1 — As sete restrições tecnológicas reduzem as opções de produto antes da comparação pelos seis critérios. Fonte: material do curso, com base em Lovatt (2021, seção 7.3).*
+
 1. Tecnologias aprovadas ou preferidas, registradas numa lista ou num modelo mantido pela organização, limitam os componentes de infraestrutura que a solução pode usar.
 2. Padrões técnicos adotados pela arquitetura de infraestrutura obrigam a solução a aderir a eles, como uma norma de gestão de energia ou um protocolo de identidade obrigatório.
 3. O orçamento fixa o limite de gasto em tecnologia e a prioridade de uso do dinheiro, e com isso restringe as mudanças de infraestrutura que a solução pode exigir.
@@ -41,13 +47,19 @@ Quando um requisito de serviço não encontra correspondente no catálogo, o mod
 ![Cinco caixas empilhadas e ligadas por setas descendentes, do bloco de construção da solução ao requisito do bloco, ao requisito de serviço de infraestrutura com nível de serviço declarado, ao serviço de infraestrutura do catálogo e ao componente de infraestrutura. Da caixa do requisito de serviço sai uma seta lateral tracejada para a caixa da lacuna de provisão, usada quando não há serviço no catálogo.](../assets/images/modulo-5-bloco-ao-componente.svg){ .module-diagram }
 </figure>
 
-*Figura 1 — Do bloco de construção ao componente de infraestrutura, com a saída para lacuna de provisão. Fonte: material do curso, com base em Lovatt (2021, seção 7.4, figura 7.1).*
+*Figura 2 — Do bloco de construção ao componente de infraestrutura, com a saída para lacuna de provisão. Fonte: material do curso, com base em Lovatt (2021, seção 7.4, figura 7.1).*
 
 ### O modelo técnico de referência
 
-O artefato que organiza as opções disponíveis para a cadeia da Figura 1 é o **modelo técnico de referência**, conhecido pela sigla TRM, do inglês Technical Reference Model, que a arquitetura de infraestrutura mantém como taxonomia da terminologia, dos componentes e da organização conceitual da infraestrutura. Na definição operacional adotada pelo curso, o modelo técnico de referência cataloga, por camada arquitetural e por categoria tecnológica, quais padrões, protocolos e produtos estão aprovados, quais estão proibidos e quais estão em avaliação. Uma lista de tecnologias aprovadas limita a quantidade de tecnologias diferentes em uso e assegura que cada uma passou por avaliação e por teste antes de ser adotada, de modo que a escolha do provedor de identidade ou do banco de um serviço novo parte de uma lista que a organização já avaliou.
+O artefato que organiza as opções disponíveis para a cadeia da Figura 2 é o **modelo técnico de referência**, conhecido pela sigla TRM, do inglês Technical Reference Model, que a arquitetura de infraestrutura mantém como taxonomia da terminologia, dos componentes e da organização conceitual da infraestrutura. Na definição operacional adotada pelo curso, o modelo técnico de referência cataloga, por camada arquitetural e por categoria tecnológica, quais padrões, protocolos e produtos estão aprovados, quais estão proibidos e quais estão em avaliação. Uma lista de tecnologias aprovadas limita a quantidade de tecnologias diferentes em uso e assegura que cada uma passou por avaliação e por teste antes de ser adotada, de modo que a escolha do provedor de identidade ou do banco de um serviço novo parte de uma lista que a organização já avaliou.
 
 O modelo técnico de referência e o blueprint lógico da solução são artefatos distintos, e a tabela abaixo compara os dois em quatro dimensões.
+
+<figure markdown="span">
+![Dois painéis lado a lado, o do blueprint lógico e o do modelo técnico de referência, cada um com pergunta central, conteúdo, organização e público principal. Uma faixa abaixo dos painéis registra que o blueprint pode existir sem o modelo técnico, mas o modelo sem o blueprint fica sem lugar de aplicação.](../assets/images/modulo-5-blueprint-e-trm.svg){ .module-diagram }
+</figure>
+
+*Figura 3 — O blueprint lógico e o modelo técnico de referência comparados em quatro dimensões. Fonte: material do curso.*
 
 | Dimensão | Blueprint lógico | Modelo técnico de referência |
 | --- | --- | --- |
@@ -75,11 +87,17 @@ A classificação em três cores é um mecanismo separado da tabela de cinco col
 ![Tabela do modelo técnico de referência com as cinco colunas camada, categoria, padrão ou protocolo, exemplos aprovados e exemplos não aprovados, e uma linha genérica de identidade e acesso na camada de segurança transversal. Abaixo, num quadro separado da tabela, o quadro de classificação de cada tecnologia mostra verde, tecnologia preferida, âmbar, uso com aprovação, e vermelho, proibida em projeto novo, com a indicação de que a seção de tecnologias descontinuadas reúne as vermelhas, e um rodapé lembra que a adoção fora da lista aprovada exige ADR.](../assets/images/modulo-5-trm-cinco-colunas-v3.svg){ .module-diagram }
 </figure>
 
-*Figura 2 — O modelo técnico de referência em cinco colunas e, à parte da tabela, a classificação de cada tecnologia em verde, âmbar e vermelho, com as vermelhas reunidas na seção de tecnologias descontinuadas. Fonte: material do curso, com base em Lovatt (2021, seção 7.3).*
+*Figura 4 — O modelo técnico de referência em cinco colunas e, à parte da tabela, a classificação de cada tecnologia em verde, âmbar e vermelho, com as vermelhas reunidas na seção de tecnologias descontinuadas. Fonte: material do curso, com base em Lovatt (2021, seção 7.3).*
 
 ### Seis critérios de seleção
 
 A escolha entre os exemplos aprovados de uma mesma linha do modelo técnico de referência é feita em cada projeto, com os seis critérios de seleção definidos na lista abaixo.
+
+<figure markdown="span">
+![Seis cartões em duas fileiras de três, cada um com o nome de um critério de seleção e a pergunta que ele responde: aderência ao requisito, maturidade, suporte, custo total de propriedade, competência da equipe e portabilidade.](../assets/images/modulo-5-seis-criterios.svg){ .module-diagram }
+</figure>
+
+*Figura 5 — Os seis critérios de seleção e a pergunta que cada um responde. Fonte: material do curso.*
 
 1. A aderência ao requisito verifica se a alternativa atende aos requisitos funcionais e não funcionais registrados para o bloco, com o nível de serviço declarado.
 2. A maturidade avalia há quanto tempo a tecnologia está em uso em produção e quão estável é a sua interface entre versões.

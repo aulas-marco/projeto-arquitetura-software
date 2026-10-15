@@ -15,7 +15,9 @@ B3 = "bloco-3-seguranca-fim-a-fim.md"
 B4 = "bloco-4-adr-de-plataforma.md"
 
 BLOCKS = {
-    B1: (("modulo-5-bloco-ao-componente.svg", "modulo-5-trm-cinco-colunas-v3.svg"),
+    B1: (("modulo-5-sete-restricoes.svg", "modulo-5-bloco-ao-componente.svg",
+          "modulo-5-blueprint-e-trm.svg", "modulo-5-trm-cinco-colunas-v3.svg",
+          "modulo-5-seis-criterios.svg"),
          17, ("2.7.2", "7.1", "7.4")),
     B2: (("modulo-5-pilares-zona-de-pouso.svg",), 18, ("7.5",)),
     B3: (("modulo-5-fronteira-de-confianca-stride.svg",
@@ -125,7 +127,7 @@ class ModuleFiveStructureTest(unittest.TestCase):
 
     def test_visuals_are_accessible_legible_and_generic(self):
         svgs = sorted(IMAGES.glob("modulo-5-*.svg"))
-        self.assertEqual(6, len(svgs))
+        self.assertEqual(sum(len(images) for images, _, _ in BLOCKS.values()), len(svgs))
         for svg_path in svgs:
             svg = svg_path.read_text(encoding="utf-8")
             sizes = [int(size) for size in re.findall(r"font-size:(\d+)px", svg)]

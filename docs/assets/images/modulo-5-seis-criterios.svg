@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" role="img" aria-labelledby="title desc">
+  <title id="title">Seis critérios, seis perguntas</title>
+  <desc id="desc">Seis cartões em duas fileiras de três, cada um com o nome de um critério de seleção e a pergunta que ele responde: aderência ao requisito, maturidade, suporte, custo total de propriedade, competência da equipe e portabilidade.</desc>
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#254DB8"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="680" rx="28" fill="#F2F6FB"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" fill="#16243A">
+    <text x="24" y="46" style="font-size:26px;font-weight:700">Cada critério responde a uma pergunta</text>
+    <rect x="24" y="80" width="306" height="276" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <path d="M24,96 a16,16 0 0 1 16,-16 h274 a16,16 0 0 1 16,16 v94 h-306 z" fill="#16243A"/>
+    <circle cx="64" cy="130" r="22" fill="#5FC0D1"/>
+    <text x="64" y="139" text-anchor="middle" style="font-size:24px;font-weight:700">1</text>
+    <text x="102" y="126" style="font-size:25px;font-weight:700" fill="#FFFFFF">Aderência</text>
+    <text x="102" y="158" style="font-size:25px;font-weight:700" fill="#FFFFFF">ao requisito</text>
+    <text x="48" y="230" style="font-size:20px;font-weight:700" fill="#254DB8">Pergunta</text>
+    <text x="48" y="266" style="font-size:22px">O produto atende ao</text>
+    <text x="48" y="296" style="font-size:22px">requisito com o nível</text>
+    <text x="48" y="326" style="font-size:22px">de serviço declarado?</text>
+    <rect x="350" y="80" width="306" height="276" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <path d="M350,96 a16,16 0 0 1 16,-16 h274 a16,16 0 0 1 16,16 v94 h-306 z" fill="#16243A"/>
+    <circle cx="390" cy="130" r="22" fill="#5FC0D1"/>
+    <text x="390" y="139" text-anchor="middle" style="font-size:24px;font-weight:700">2</text>
+    <text x="428" y="138" style="font-size:25px;font-weight:700" fill="#FFFFFF">Maturidade</text>
+    <text x="374" y="230" style="font-size:20px;font-weight:700" fill="#254DB8">Pergunta</text>
+    <text x="374" y="266" style="font-size:22px">Há quanto tempo</text>
+    <text x="374" y="296" style="font-size:22px">está em produção e a</text>
+    <text x="374" y="326" style="font-size:22px">interface é estável?</text>
+    <rect x="676" y="80" width="306" height="276" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <path d="M676,96 a16,16 0 0 1 16,-16 h274 a16,16 0 0 1 16,16 v94 h-306 z" fill="#16243A"/>
+    <circle cx="716" cy="130" r="22" fill="#5FC0D1"/>
+    <text x="716" y="139" text-anchor="middle" style="font-size:24px;font-weight:700">3</text>
+    <text x="754" y="138" style="font-size:25px;font-weight:700" fill="#FFFFFF">Suporte</text>
+    <text x="700" y="230" style="font-size:20px;font-weight:700" fill="#254DB8">Pergunta</text>
+    <text x="700" y="266" style="font-size:22px">Quem responde</text>
+    <text x="700" y="296" style="font-size:22px">quando a tecnologia</text>
+    <text x="700" y="326" style="font-size:22px">falha?</text>
+    <rect x="24" y="376" width="306" height="276" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <path d="M24,392 a16,16 0 0 1 16,-16 h274 a16,16 0 0 1 16,16 v94 h-306 z" fill="#16243A"/>
+    <circle cx="64" cy="426" r="22" fill="#5FC0D1"/>
+    <text x="64" y="435" text-anchor="middle" style="font-size:24px;font-weight:700">4</text>
+    <text x="102" y="422" style="font-size:25px;font-weight:700" fill="#FFFFFF">Custo total</text>
+    <text x="102" y="454" style="font-size:25px;font-weight:700" fill="#FFFFFF">de propriedade</text>
+    <text x="48" y="526" style="font-size:20px;font-weight:700" fill="#254DB8">Pergunta</text>
+    <text x="48" y="562" style="font-size:22px">Quanto custa operar</text>
+    <text x="48" y="592" style="font-size:22px">e sair?</text>
+    <rect x="350" y="376" width="306" height="276" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <path d="M350,392 a16,16 0 0 1 16,-16 h274 a16,16 0 0 1 16,16 v94 h-306 z" fill="#16243A"/>
+    <circle cx="390" cy="426" r="22" fill="#5FC0D1"/>
+    <text x="390" y="435" text-anchor="middle" style="font-size:24px;font-weight:700">5</text>
+    <text x="428" y="422" style="font-size:25px;font-weight:700" fill="#FFFFFF">Competência</text>
+    <text x="428" y="454" style="font-size:25px;font-weight:700" fill="#FFFFFF">da equipe</text>
+    <text x="374" y="526" style="font-size:20px;font-weight:700" fill="#254DB8">Pergunta</text>
+    <text x="374" y="562" style="font-size:22px">Alguém sabe operar</text>
+    <text x="374" y="592" style="font-size:22px">a plataforma?</text>
+    <rect x="676" y="376" width="306" height="276" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <path d="M676,392 a16,16 0 0 1 16,-16 h274 a16,16 0 0 1 16,16 v94 h-306 z" fill="#16243A"/>
+    <circle cx="716" cy="426" r="22" fill="#5FC0D1"/>
+    <text x="716" y="435" text-anchor="middle" style="font-size:24px;font-weight:700">6</text>
+    <text x="754" y="434" style="font-size:25px;font-weight:700" fill="#FFFFFF">Portabilidade</text>
+    <text x="700" y="526" style="font-size:20px;font-weight:700" fill="#254DB8">Pergunta</text>
+    <text x="700" y="562" style="font-size:22px">Quanto custa levar</text>
+    <text x="700" y="592" style="font-size:22px">para outro ambiente?</text>
+  </g>
+</svg>

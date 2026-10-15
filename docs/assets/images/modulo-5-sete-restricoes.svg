@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" role="img" aria-labelledby="title desc">
+  <title id="title">Sete restrições reduzem as opções antes da comparação</title>
+  <desc id="desc">Sete caixas à esquerda, uma para cada restrição tecnológica: tecnologias aprovadas, padrões técnicos, orçamento, prazo, contratos vigentes, geografia e competências da equipe. Setas levam as sete a um funil que estreita as opções de produto, e do funil saem as opções que restam, que seguem para a comparação pelos seis critérios de seleção.</desc>
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#254DB8"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="640" rx="28" fill="#F2F6FB"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" fill="#16243A">
+    <text x="24" y="46" style="font-size:26px;font-weight:700">Sete restrições, uma lista que encolhe</text>
+    <rect x="24" y="84" width="430" height="62" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="62" cy="115" r="19" fill="#254DB8"/>
+    <text x="62" y="123" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#FFFFFF">1</text>
+    <text x="94" y="124" style="font-size:23px;font-weight:700">Tecnologias aprovadas</text>
+    <line x1="454" y1="115" x2="498" y2="115" stroke="#254DB8" stroke-width="3"/>
+    <rect x="24" y="160" width="430" height="62" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="62" cy="191" r="19" fill="#254DB8"/>
+    <text x="62" y="199" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#FFFFFF">2</text>
+    <text x="94" y="200" style="font-size:23px;font-weight:700">Padrões técnicos</text>
+    <line x1="454" y1="191" x2="498" y2="191" stroke="#254DB8" stroke-width="3"/>
+    <rect x="24" y="236" width="430" height="62" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="62" cy="267" r="19" fill="#254DB8"/>
+    <text x="62" y="275" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#FFFFFF">3</text>
+    <text x="94" y="276" style="font-size:23px;font-weight:700">Orçamento</text>
+    <line x1="454" y1="267" x2="498" y2="267" stroke="#254DB8" stroke-width="3"/>
+    <rect x="24" y="312" width="430" height="62" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="62" cy="343" r="19" fill="#254DB8"/>
+    <text x="62" y="351" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#FFFFFF">4</text>
+    <text x="94" y="352" style="font-size:23px;font-weight:700">Prazo</text>
+    <line x1="454" y1="343" x2="498" y2="343" stroke="#254DB8" stroke-width="3"/>
+    <rect x="24" y="388" width="430" height="62" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="62" cy="419" r="19" fill="#254DB8"/>
+    <text x="62" y="427" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#FFFFFF">5</text>
+    <text x="94" y="428" style="font-size:23px;font-weight:700">Contratos vigentes</text>
+    <line x1="454" y1="419" x2="498" y2="419" stroke="#254DB8" stroke-width="3"/>
+    <rect x="24" y="464" width="430" height="62" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="62" cy="495" r="19" fill="#254DB8"/>
+    <text x="62" y="503" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#FFFFFF">6</text>
+    <text x="94" y="504" style="font-size:23px;font-weight:700">Geografia</text>
+    <line x1="454" y1="495" x2="498" y2="495" stroke="#254DB8" stroke-width="3"/>
+    <rect x="24" y="540" width="430" height="62" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="62" cy="571" r="19" fill="#254DB8"/>
+    <text x="62" y="579" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#FFFFFF">7</text>
+    <text x="94" y="580" style="font-size:23px;font-weight:700">Competências da equipe</text>
+    <line x1="454" y1="571" x2="498" y2="571" stroke="#254DB8" stroke-width="3"/>
+    <line x1="498" y1="115" x2="498" y2="571" stroke="#254DB8" stroke-width="4"/>
+    <line x1="498" y1="305" x2="624" y2="305" stroke="#254DB8" stroke-width="4" marker-end="url(#seta)"/>
+    <polygon points="512,84 976,84 828,356 660,356" fill="#DCE6F5" stroke="#254DB8" stroke-width="3"/>
+    <text x="744" y="136" text-anchor="middle" style="font-size:24px;font-weight:700">Opções de produto</text>
+    <text x="744" y="168" text-anchor="middle" style="font-size:21px" fill="#3E4F66">de todos os fornecedores</text>
+    <text x="744" y="214" text-anchor="middle" style="font-size:21px" fill="#3E4F66">cada restrição</text>
+    <text x="744" y="242" text-anchor="middle" style="font-size:21px" fill="#3E4F66">elimina alternativas</text>
+    <line x1="744" y1="356" x2="744" y2="396" stroke="#254DB8" stroke-width="4" marker-end="url(#seta)"/>
+    <rect x="530" y="400" width="430" height="92" rx="14" fill="#5FC0D1"/>
+    <text x="745" y="438" text-anchor="middle" style="font-size:25px;font-weight:700">Opções que restam</text>
+    <text x="745" y="472" text-anchor="middle" style="font-size:21px">sem nota em nenhum critério</text>
+    <line x1="744" y1="492" x2="744" y2="530" stroke="#254DB8" stroke-width="4" marker-end="url(#seta)"/>
+    <rect x="530" y="534" width="430" height="92" rx="14" fill="#16243A"/>
+    <text x="745" y="572" text-anchor="middle" style="font-size:25px;font-weight:700" fill="#FFFFFF">Comparação</text>
+    <text x="745" y="606" text-anchor="middle" style="font-size:21px" fill="#DCE6F5">pelos seis critérios</text>
+  </g>
+</svg>
