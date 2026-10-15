@@ -48,13 +48,12 @@
     <line x1="498" y1="305" x2="624" y2="305" stroke="#254DB8" stroke-width="4" marker-end="url(#seta)"/>
     <polygon points="512,84 976,84 828,356 660,356" fill="#DCE6F5" stroke="#254DB8" stroke-width="3"/>
     <text x="744" y="136" text-anchor="middle" style="font-size:24px;font-weight:700">Opções de produto</text>
-    <text x="744" y="168" text-anchor="middle" style="font-size:21px" fill="#3E4F66">de todos os fornecedores</text>
     <text x="744" y="214" text-anchor="middle" style="font-size:21px" fill="#3E4F66">cada restrição</text>
     <text x="744" y="242" text-anchor="middle" style="font-size:21px" fill="#3E4F66">elimina alternativas</text>
     <line x1="744" y1="356" x2="744" y2="396" stroke="#254DB8" stroke-width="4" marker-end="url(#seta)"/>
     <rect x="530" y="400" width="430" height="92" rx="14" fill="#5FC0D1"/>
     <text x="745" y="438" text-anchor="middle" style="font-size:25px;font-weight:700">Opções que restam</text>
-    <text x="745" y="472" text-anchor="middle" style="font-size:21px">sem nota em nenhum critério</text>
+    <text x="745" y="472" text-anchor="middle" style="font-size:21px">ainda sem nota em nenhum critério</text>
     <line x1="744" y1="492" x2="744" y2="530" stroke="#254DB8" stroke-width="4" marker-end="url(#seta)"/>
     <rect x="530" y="534" width="430" height="92" rx="14" fill="#16243A"/>
     <text x="745" y="572" text-anchor="middle" style="font-size:25px;font-weight:700" fill="#FFFFFF">Comparação</text>

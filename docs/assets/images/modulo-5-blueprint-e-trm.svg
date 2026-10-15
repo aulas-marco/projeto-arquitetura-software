@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 730" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" role="img" aria-labelledby="title desc">
   <title id="title">Blueprint lógico e modelo técnico de referência</title>
   <desc id="desc">Dois painéis lado a lado comparam o blueprint lógico e o modelo técnico de referência em quatro dimensões: pergunta central, conteúdo, organização e público principal. Uma faixa inferior registra que o blueprint pode existir sem o modelo técnico, mas o modelo sem o blueprint fica sem lugar de aplicação.</desc>
   <defs>
@@ -6,9 +6,9 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#254DB8"/>
     </marker>
   </defs>
-  <rect width="1000" height="730" rx="28" fill="#F2F6FB"/>
+  <rect width="1000" height="800" rx="28" fill="#F2F6FB"/>
   <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" fill="#16243A">
-    <rect x="24" y="24" width="460" height="558" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <rect x="24" y="24" width="460" height="628" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
     <path d="M24,40 a16,16 0 0 1 16,-16 h428 a16,16 0 0 1 16,16 v54 h-460 z" fill="#254DB8"/>
     <text x="254" y="70" text-anchor="middle" style="font-size:24px;font-weight:700" fill="#FFFFFF">Blueprint lógico</text>
     <text x="48" y="136" style="font-size:20px;font-weight:700" fill="#254DB8">Pergunta central</text>
@@ -16,17 +16,19 @@
     <text x="48" y="196" style="font-size:21px">está organizada</text>
     <line x1="44" y1="214" x2="464" y2="214" stroke="#DCE6F5" stroke-width="2"/>
     <text x="48" y="246" style="font-size:20px;font-weight:700" fill="#254DB8">Conteúdo</text>
-    <text x="48" y="278" style="font-size:21px">Domínios, fluxos e contratos,</text>
-    <text x="48" y="306" style="font-size:21px">sem produto nem infraestrutura</text>
-    <line x1="44" y1="324" x2="464" y2="324" stroke="#DCE6F5" stroke-width="2"/>
-    <text x="48" y="356" style="font-size:20px;font-weight:700" fill="#254DB8">Organização</text>
-    <text x="48" y="388" style="font-size:21px">Por domínio e por bloco</text>
-    <text x="48" y="416" style="font-size:21px">de construção</text>
-    <line x1="44" y1="434" x2="464" y2="434" stroke="#DCE6F5" stroke-width="2"/>
-    <text x="48" y="466" style="font-size:20px;font-weight:700" fill="#254DB8">Público principal</text>
-    <text x="48" y="498" style="font-size:21px">Arquiteto de solução e equipes</text>
-    <text x="48" y="526" style="font-size:21px">de desenvolvimento</text>
-    <rect x="516" y="24" width="460" height="558" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <text x="48" y="278" style="font-size:21px">Domínios, responsabilidades,</text>
+    <text x="48" y="306" style="font-size:21px">fluxos, contratos e regras de</text>
+    <text x="48" y="334" style="font-size:21px">dependência, sem produto nem</text>
+    <text x="48" y="362" style="font-size:21px">infraestrutura</text>
+    <line x1="44" y1="380" x2="464" y2="380" stroke="#DCE6F5" stroke-width="2"/>
+    <text x="48" y="412" style="font-size:20px;font-weight:700" fill="#254DB8">Organização</text>
+    <text x="48" y="444" style="font-size:21px">Por domínio e por bloco</text>
+    <text x="48" y="472" style="font-size:21px">de construção</text>
+    <line x1="44" y1="490" x2="464" y2="490" stroke="#DCE6F5" stroke-width="2"/>
+    <text x="48" y="522" style="font-size:20px;font-weight:700" fill="#254DB8">Público principal</text>
+    <text x="48" y="554" style="font-size:21px">Arquiteto de solução e equipes</text>
+    <text x="48" y="582" style="font-size:21px">de desenvolvimento</text>
+    <rect x="516" y="24" width="460" height="628" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
     <path d="M516,40 a16,16 0 0 1 16,-16 h428 a16,16 0 0 1 16,16 v54 h-460 z" fill="#5FC0D1"/>
     <text x="746" y="70" text-anchor="middle" style="font-size:24px;font-weight:700" fill="#16243A">Modelo técnico de referência</text>
     <text x="540" y="136" style="font-size:20px;font-weight:700" fill="#254DB8">Pergunta central</text>
@@ -35,18 +37,19 @@
     <line x1="536" y1="214" x2="956" y2="214" stroke="#DCE6F5" stroke-width="2"/>
     <text x="540" y="246" style="font-size:20px;font-weight:700" fill="#254DB8">Conteúdo</text>
     <text x="540" y="278" style="font-size:21px">Camadas, categorias, padrões,</text>
-    <text x="540" y="306" style="font-size:21px">produtos aprovados e proibidos</text>
-    <line x1="536" y1="324" x2="956" y2="324" stroke="#DCE6F5" stroke-width="2"/>
-    <text x="540" y="356" style="font-size:20px;font-weight:700" fill="#254DB8">Organização</text>
-    <text x="540" y="388" style="font-size:21px">Por camada arquitetural e por</text>
-    <text x="540" y="416" style="font-size:21px">categoria tecnológica</text>
-    <line x1="536" y1="434" x2="956" y2="434" stroke="#DCE6F5" stroke-width="2"/>
-    <text x="540" y="466" style="font-size:20px;font-weight:700" fill="#254DB8">Público principal</text>
-    <text x="540" y="498" style="font-size:21px">Comitê de arquitetura,</text>
-    <text x="540" y="526" style="font-size:21px">equipe de plataforma e equipes</text>
-    <text x="540" y="554" style="font-size:21px">que escolhem a tecnologia</text>
-    <rect x="24" y="610" width="952" height="96" rx="14" fill="#FFF7E6" stroke="#F2B84B" stroke-width="4"/>
-    <text x="500" y="649" text-anchor="middle" style="font-size:22px;font-weight:700">O blueprint pode existir sem o modelo técnico,</text>
-    <text x="500" y="683" text-anchor="middle" style="font-size:21px" fill="#3E4F66">mas o modelo sem o blueprint fica sem lugar de aplicação</text>
+    <text x="540" y="306" style="font-size:21px">produtos aprovados e proibidos,</text>
+    <text x="540" y="334" style="font-size:21px">sem fluxo de negócio</text>
+    <line x1="536" y1="380" x2="956" y2="380" stroke="#DCE6F5" stroke-width="2"/>
+    <text x="540" y="412" style="font-size:20px;font-weight:700" fill="#254DB8">Organização</text>
+    <text x="540" y="444" style="font-size:21px">Por camada arquitetural e por</text>
+    <text x="540" y="472" style="font-size:21px">categoria tecnológica</text>
+    <line x1="536" y1="490" x2="956" y2="490" stroke="#DCE6F5" stroke-width="2"/>
+    <text x="540" y="522" style="font-size:20px;font-weight:700" fill="#254DB8">Público principal</text>
+    <text x="540" y="554" style="font-size:21px">Comitê de arquitetura,</text>
+    <text x="540" y="582" style="font-size:21px">equipe de plataforma e equipes</text>
+    <text x="540" y="610" style="font-size:21px">que escolhem a tecnologia</text>
+    <rect x="24" y="680" width="952" height="96" rx="14" fill="#FFF7E6" stroke="#F2B84B" stroke-width="4"/>
+    <text x="500" y="719" text-anchor="middle" style="font-size:22px;font-weight:700">O blueprint pode existir sem o modelo técnico,</text>
+    <text x="500" y="753" text-anchor="middle" style="font-size:21px" fill="#3E4F66">mas o modelo sem o blueprint fica sem lugar de aplicação</text>
   </g>
 </svg>

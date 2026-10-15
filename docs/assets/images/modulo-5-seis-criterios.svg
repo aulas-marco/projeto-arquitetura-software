@@ -44,8 +44,9 @@
     <text x="102" y="422" style="font-size:25px;font-weight:700" fill="#FFFFFF">Custo total</text>
     <text x="102" y="454" style="font-size:25px;font-weight:700" fill="#FFFFFF">de propriedade</text>
     <text x="48" y="526" style="font-size:20px;font-weight:700" fill="#254DB8">Pergunta</text>
-    <text x="48" y="562" style="font-size:22px">Quanto custa operar</text>
-    <text x="48" y="592" style="font-size:22px">e sair?</text>
+    <text x="48" y="562" style="font-size:22px">Quanto custa a solução,</text>
+    <text x="48" y="592" style="font-size:22px">do desenho à manutenção</text>
+    <text x="48" y="622" style="font-size:22px">e à saída?</text>
     <rect x="350" y="376" width="306" height="276" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
     <path d="M350,392 a16,16 0 0 1 16,-16 h274 a16,16 0 0 1 16,16 v94 h-306 z" fill="#16243A"/>
     <circle cx="390" cy="426" r="22" fill="#5FC0D1"/>
@@ -61,7 +62,8 @@
     <text x="716" y="435" text-anchor="middle" style="font-size:24px;font-weight:700">6</text>
     <text x="754" y="434" style="font-size:25px;font-weight:700" fill="#FFFFFF">Portabilidade</text>
     <text x="700" y="526" style="font-size:20px;font-weight:700" fill="#254DB8">Pergunta</text>
-    <text x="700" y="562" style="font-size:22px">Quanto custa levar</text>
-    <text x="700" y="592" style="font-size:22px">para outro ambiente?</text>
+    <text x="700" y="562" style="font-size:22px">Qual o esforço de levar</text>
+    <text x="700" y="592" style="font-size:22px">a solução para outro</text>
+    <text x="700" y="622" style="font-size:22px">ambiente de execução?</text>
   </g>
 </svg>
