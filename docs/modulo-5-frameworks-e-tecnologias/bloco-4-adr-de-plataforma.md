@@ -31,7 +31,7 @@ Abstrair tudo antecipadamente para fugir dessa dependência cria uma plataforma 
 
 ### O que muda no campo de alternativas
 
-Em um ADR de plataforma, o campo de alternativas já vem pronto do bloco anterior. O quadro comparativo preenchido no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18), com as plataformas candidatas nas linhas e os seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao) nas colunas, é exatamente o que o campo pede, cada alternativa com as forças que atende e os riscos que introduz. Transportar o quadro para o registro garante que a plataforma descartada seja avaliada pelos mesmos critérios da escolhida, e não apareça só pelo nome.
+Em um ADR de plataforma, o campo de alternativas já vem pronto do bloco anterior. O quadro comparativo preenchido no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18), com as plataformas candidatas nas linhas e os seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao) nas colunas, é exatamente o que o campo pede, cada alternativa com as forças que atende e os riscos que introduz. Transportar o quadro para o registro garante que a plataforma descartada seja avaliada pelos mesmos critérios da escolhida, com as forças e os riscos registrados para cada uma.
 
 ### O que muda no campo de consequências
 
@@ -60,7 +60,7 @@ Quando a definição tecnológica está completa, o arquiteto compara os serviç
 
 *Figura 1 — Os quatro tipos de lacuna na provisão de serviços de infraestrutura. Fonte: material do curso, com base em Lovatt (2021, seção 7.8).*
 
-Cada lacuna recebe uma estimativa de tamanho, custo, recurso e tempo, porque toda mudança exige esforço e, em geral, algum desembolso. Uma troca de serviço pode reduzir o custo recorrente depois de custar para ser executada, já que o serviço novo pode operar com mais eficiência, e é frequente que a justificativa de uma solução seja reduzir o custo de operação, o que raramente se alcança sem investir antes em mudança. Quando o custo total fica acima do esperado, o arquiteto revê a tecnologia de infraestrutura, o desenho da solução, o escopo e a escala ou as oportunidades de linha de base incluídas. As lacunas confirmadas entram no [roteiro de entrega](../modulo-6-lacunas-e-governanca/index.md) da Aula 6, onde a análise de lacunas é tratada como método próprio.
+Cada lacuna recebe uma estimativa de tamanho, custo, recurso e tempo, porque toda mudança exige esforço e, em geral, algum desembolso. Uma troca de serviço pode reduzir o custo recorrente depois de custar para ser executada, já que o serviço novo pode operar com mais eficiência. A justificativa de algumas soluções é justamente reduzir o custo de operação, e esse resultado raramente se alcança sem investir antes em mudança. Quando o custo total fica acima do esperado, o arquiteto revê a tecnologia de infraestrutura, o desenho da solução, o escopo e a escala ou as oportunidades de linha de base incluídas. As lacunas confirmadas entram no [roteiro de entrega](../modulo-6-lacunas-e-governanca/index.md) da Aula 6, onde a análise de lacunas é tratada como método próprio.
 
 ### Validação da definição tecnológica
 
@@ -96,6 +96,7 @@ graph LR
 1. título, estado e data
 2. contexto, referenciando pelo título o ADR de estilo escrito no [Exercício 12](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md#exercicio-12)
 3. alternativas, transportando o quadro comparativo preenchido no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18), que aplica o método dos seis critérios do [Exercício 17](bloco-1-definicao-tecnologica-e-trm.md#exercicio-17)
+
 ### Item 2: Forças e dependência de fornecedor
 
 A tabela abaixo relaciona as seis dimensões de dependência de fornecedor listadas no Conceito a dados do [dossiê da ACME](../caso-acme/index.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md).
@@ -130,30 +131,25 @@ O campo de evidências é o mais difícil neste exercício, porque a ACME não t
 
 ### Item 4: Lacunas de provisão
 
-O dossiê não traz um catálogo de infraestrutura formal, e por isso a [arquitetura de linha de base](../caso-acme/linha-de-base.md) faz o papel de catálogo neste exercício. O diagrama abaixo mostra os serviços que ela registra e a definição tecnológica da arquitetura alvo com a qual serão comparados.
+Os itens da tabela abaixo vêm da definição tecnológica considerada neste exercício, montada com o bloco 1 e os exercícios 16 a 19, e não do dossiê, e a manutenção do diretório corporativo atrás do provedor de identidade faz parte dessa definição. A coluna de situação traz apenas o que a [arquitetura de linha de base](../caso-acme/linha-de-base.md) registra, e a linha de base faz o papel de catálogo de infraestrutura neste exercício, porque o dossiê não traz um catálogo formal.
 
 ```mermaid
-graph LR
-    DC["Data center próprio"] --> DEF["Definição tecnológica<br/>da arquitetura alvo"]
-    BD["Núcleo e banco compartilhado"] --> DEF
-    DIR["Diretório corporativo"] --> DEF
-    EXT["Extração noturna por arquivo"] --> DEF
-    AUS["Sem mensageria e sem<br/>provedor de identidade"] -.->|"comparados"| DEF
+graph TB
+    CAT["Catálogo atual (linha de base)<br/>data center próprio<br/>núcleo e banco compartilhado<br/>diretório corporativo por LDAP<br/>cargas com extração noturna por arquivo<br/>sem mensageria"]
+    DEF["Definição tecnológica considerada<br/>provedor de identidade<br/>troca de notas em 10 minutos<br/>autenticação dos portais<br/>camada anticorrupção<br/>5.800 sessões simultâneas<br/>observabilidade de ponta a ponta"]
 ```
 
-A tabela abaixo lista seis requisitos de serviço considerados neste exercício e o que a linha de base e os [dados operacionais](../caso-acme/dados-operacionais.md) registram sobre cada um no catálogo atual. Adota-se a premissa de que o diretório corporativo permanece em uso até que o último portal migre, e a extração noturna por arquivo corresponde aos lotes de integração descritos na linha de base.
-
-| Requisito de serviço | Situação no catálogo atual |
+| Item da definição tecnológica considerada | Situação no catálogo atual (linha de base) |
 | --- | --- |
-| Provedor de identidade com OpenID Connect | O catálogo registra apenas o diretório corporativo, acessado por LDAP de forma síncrona, com tempo limite de 10 s |
-| Mensageria com tópico e contrato AsyncAPI | O catálogo não registra mensageria, e a troca entre sistemas ocorre por arquivo em lote noturno |
-| Banco de serviço em região nacional | O catálogo registra apenas o banco compartilhado entre o núcleo e a camada web, com 740 tabelas e 11 TB |
-| Diretório corporativo | Autentica todos os perfis dos portais por LDAP |
-| Extração noturna por arquivo para o data warehouse e o ambiente virtual | Lote das 02h30 com cópia integral de 140 tabelas para o data warehouse, e cargas por arquivo às 04h00 e às 05h10 para o ambiente virtual |
-| Observabilidade de ponta a ponta | Nenhuma ferramenta registrada para o sistema acadêmico |
+| Provedor de identidade com OpenID Connect, padrão que o R8 exige | Existe só o diretório corporativo, acessado por LDAP de forma síncrona, com tempo limite de 10 s, e ele autentica todos os perfis |
+| Troca de notas com o ambiente virtual de aprendizagem em até 10 minutos, como pede o R7 | Lote das 05h10 por arquivo posicional, e o incidente de 09/07/2026 deixou 61.400 lançamentos de nota fora do ambiente virtual, com reprocessamento manual |
+| Autenticação dos perfis dos portais existentes, Professor e Secretaria, pelo provedor de identidade, com o diretório corporativo mantido atrás dele | O diretório autentica hoje todos os perfis por LDAP, sem provedor de identidade |
+| Todo acesso ao núcleo por camada anticorrupção, sem acesso direto da camada Java ao banco | O código Java tem 2.300 pontos de acesso direto ao banco, fora do núcleo |
+| Capacidade para 5.800 sessões simultâneas na abertura da matrícula, como pede o R6 | A camada web e o monitor CICS atendem hoje a abertura da matrícula, e em 04/02/2026 o limite de tarefas concorrentes do CICS foi atingido, com 62% das tentativas de matrícula retornando erro |
+| Observabilidade de ponta a ponta, com rastreamento entre os componentes | O dossiê não registra ferramenta de observabilidade para o sistema acadêmico |
 
-1. classificar cada um dos seis requisitos como lacuna nova, substituição, modificação ou remoção, justificando a classificação com o dado da coluna de situação do catálogo atual
-2. indicar qual dos seis requisitos tende a reduzir o custo recorrente depois de executado, com uma linha de justificativa apoiada em um dado dos [dados operacionais](../caso-acme/dados-operacionais.md)
+1. classificar cada um dos seis itens como lacuna nova, substituição, modificação ou remoção, justificando a classificação com o dado da coluna de situação
+2. indicar qual dos seis itens, uma vez atendido, tende a reduzir custo recorrente já registrado nos [dados operacionais](../caso-acme/dados-operacionais.md), e citar o dado
 
 ## Fontes
 
