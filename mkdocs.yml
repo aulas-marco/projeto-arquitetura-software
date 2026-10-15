@@ -98,8 +98,11 @@ nav:
       - Síntese: modulo-4-dominios-da-solucao/sintese.md
   - "Aula 5, frameworks e tecnologias":
       - Visão geral: modulo-5-frameworks-e-tecnologias/index.md
+      - "Bloco 1: definição tecnológica e modelo técnico de referência": modulo-5-frameworks-e-tecnologias/bloco-1-definicao-tecnologica-e-trm.md
       - "Bloco 2: plataforma arquitetural": modulo-5-frameworks-e-tecnologias/bloco-2-plataforma-arquitetural.md
-      - "Bloco 4: ADR de plataforma": modulo-5-frameworks-e-tecnologias/bloco-4-adr-de-plataforma.md
+      - "Bloco 3: segurança fim a fim": modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-fim-a-fim.md
+      - "Bloco 4: ADR de plataforma e lacunas": modulo-5-frameworks-e-tecnologias/bloco-4-adr-de-plataforma.md
+      - Síntese: modulo-5-frameworks-e-tecnologias/sintese.md
   - "Aula 6, lacunas, roteiro e governança":
       - Visão geral: modulo-6-lacunas-e-governanca/index.md
   - Caso ACME:
