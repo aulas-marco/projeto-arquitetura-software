@@ -131,17 +131,17 @@ O campo de evidências é o mais difícil neste exercício, porque a ACME não t
 
 ### Item 4: Lacunas de provisão
 
-Os itens da tabela abaixo vêm da definição tecnológica considerada neste exercício, montada com o bloco 1 e os exercícios 16 a 19, e não do dossiê, e a manutenção do diretório corporativo atrás do provedor de identidade faz parte dessa definição. A coluna de situação traz apenas o que a [arquitetura de linha de base](../caso-acme/linha-de-base.md) registra, e a linha de base faz o papel de catálogo de infraestrutura neste exercício, porque o dossiê não traz um catálogo formal.
+Os itens da tabela abaixo vêm da definição tecnológica considerada neste exercício, montada com o bloco 1 e os exercícios 16 a 19, e não do dossiê. A manutenção do diretório corporativo atrás do provedor de identidade faz parte dessa definição. A coluna de situação traz apenas o que a [arquitetura de linha de base](../caso-acme/linha-de-base.md) registra, e a linha de base faz o papel de catálogo de infraestrutura neste exercício, porque o dossiê não traz um catálogo formal.
 
 ```mermaid
 graph TB
-    CAT["Catálogo atual (linha de base)<br/>data center próprio<br/>núcleo e banco compartilhado<br/>diretório corporativo por LDAP<br/>cargas com extração noturna por arquivo<br/>sem mensageria"]
+    CAT["Catálogo atual (linha de base)<br/>data center próprio<br/>núcleo e banco compartilhado<br/>diretório corporativo por LDAP<br/>cargas com extração noturna por arquivo<br/>integração por arquivos"]
     DEF["Definição tecnológica considerada<br/>provedor de identidade<br/>troca de notas em 10 minutos<br/>autenticação dos portais<br/>camada anticorrupção<br/>5.800 sessões simultâneas<br/>observabilidade de ponta a ponta"]
 ```
 
 | Item da definição tecnológica considerada | Situação no catálogo atual (linha de base) |
 | --- | --- |
-| Provedor de identidade com OpenID Connect, padrão que o R8 exige | Existe só o diretório corporativo, acessado por LDAP de forma síncrona, com tempo limite de 10 s, e ele autentica todos os perfis |
+| Provedor de identidade com OpenID Connect, padrão aberto de identidade, como pede o R8 | Existe só o diretório corporativo, acessado por LDAP de forma síncrona, com tempo limite de 10 s, e ele autentica todos os perfis |
 | Troca de notas com o ambiente virtual de aprendizagem em até 10 minutos, como pede o R7 | Lote das 05h10 por arquivo posicional, e o incidente de 09/07/2026 deixou 61.400 lançamentos de nota fora do ambiente virtual, com reprocessamento manual |
 | Autenticação dos perfis dos portais existentes, Professor e Secretaria, pelo provedor de identidade, com o diretório corporativo mantido atrás dele | O diretório autentica hoje todos os perfis por LDAP, sem provedor de identidade |
 | Todo acesso ao núcleo por camada anticorrupção, sem acesso direto da camada Java ao banco | O código Java tem 2.300 pontos de acesso direto ao banco, fora do núcleo |

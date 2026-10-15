@@ -321,7 +321,7 @@ class BlockFourTest(unittest.TestCase):
             with self.subTest(item=number):
                 self.assertTrue(item(ex, number))
         item4 = item(ex, 4)
-        for fact in ("diretório corporativo", "extração noturna", "mensageria"):
+        for fact in ("diretório corporativo", "extração noturna", "integração por arquivos"):
             with self.subTest(fact=fact):
                 self.assertIn(fact, item4)
         for gap in GAP_TYPES:

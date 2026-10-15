@@ -186,7 +186,7 @@ A grade abaixo, em que três células concedem privilégio além do necessário,
 
 ### Item 3: Ameaças na fronteira do aplicativo do aluno
 
-A fronteira de confiança deste item é a considerada neste exercício, entre o aplicativo do aluno, instalado no telefone, e o serviço de matrícula, que o R1 e o R6 obrigam a se comunicar, conforme os contêineres do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16), e a execução do serviço de matrícula na conta de produção da zona de pouso do [exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) é suposição do exercício. A tabela reproduz da [página inicial do caso](../caso-acme/index.md) os requisitos citados neste item.
+A fronteira de confiança deste item é a considerada neste exercício, entre o aplicativo do aluno, instalado no telefone, e o serviço de matrícula, que o R1 e o R6 obrigam a se comunicar, conforme os contêineres do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16). A execução do serviço de matrícula na conta de produção da zona de pouso do [exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) é suposição do exercício. A tabela reproduz da [página inicial do caso](../caso-acme/index.md) os requisitos R1, R6 e R8, que este item cita.
 
 | Código | Declaração | Origem |
 | --- | --- | --- |
