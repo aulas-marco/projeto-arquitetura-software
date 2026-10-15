@@ -63,7 +63,7 @@ O encadeamento vai do enquadramento ao desenho, do desenho à tecnologia, e da t
 | Bloco | Tema | Exercício |
 | --- | --- | --- |
 | 1 | Definição tecnológica e modelo técnico de referência, do bloco de construção ao serviço de infraestrutura | 17 |
-| 2 | Plataforma arquitetural, frameworks e dependência de fornecedor | 18 |
+| 2 | Plataforma arquitetural, frameworks, zona de pouso e dependência de fornecedor | 18 |
 | 3 | Segurança fim a fim | 19 |
 | 4 | ADR de plataforma e lacunas na provisão de serviços | 20 |
 
