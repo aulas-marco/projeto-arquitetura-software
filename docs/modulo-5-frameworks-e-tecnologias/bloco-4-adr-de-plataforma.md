@@ -1,4 +1,4 @@
-# ADR de plataforma
+# ADR de plataforma e lacunas
 
 Este bloco fecha o par de decisões da aula respondendo a uma pergunta que só se coloca depois do bloco anterior, como registrar a escolha de plataforma feita ali, de um jeito que sobreviva à saída de quem a tomou.
 
@@ -7,6 +7,7 @@ Este bloco fecha o par de decisões da aula respondendo a uma pergunta que só s
 - [ADR](../referencia/glossario.md#adr)
 - [Plataforma arquitetural](../referencia/glossario.md#plataforma-arquitetural)
 - [Dependência de fornecedor](../referencia/glossario.md#dependencia-de-fornecedor)
+- [Lacuna de provisão](../referencia/glossario.md#lacuna-de-provisao)
 
 ## Conceito
 

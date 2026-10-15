@@ -98,7 +98,7 @@ A Figura 2 aplica as seis categorias a uma única fronteira, com cada seta numer
 Como a avaliação de segurança é um campo especializado, as organizações reúnem cada vez mais uma **autoridade de design de segurança**, grupo que decide sobre os aspectos de segurança de todas as soluções e recebe boa parte da responsabilidade por assegurar a segurança de ponta a ponta. Ela aplica dois testes ao desenho de cada solução e entrega uma avaliação com recomendações, que a equipe de solução e a equipe de arquitetura de infraestrutura executam.
 
 1. A conformidade com as diretivas audita o desenho contra os princípios, as políticas e os padrões de segurança adotados pela organização, como a ISO/IEC 27001, cuja edição de 2022 especifica os requisitos para estabelecer, implementar, manter e melhorar continuamente um sistema de gestão de segurança da informação.
-2. O teste de vulnerabilidade simula ameaças e atividades maliciosas para testar a resistência da solução, com apoio de catálogos públicos, como o OWASP Top 10, lista das dez categorias de risco mais críticas em aplicações web, cuja edição de 2021 é usada neste bloco, e o CWE, lista de fraquezas de software e de hardware mantida pela MITRE que serve de linguagem comum para descrever falhas de segurança.
+2. O teste de vulnerabilidade simula ameaças e atividades maliciosas para testar a resistência da solução, com apoio de catálogos públicos, como a lista OWASP Top 10, cuja edição de 2021 é usada neste bloco, e o CWE, lista de fraquezas de software e de hardware mantida pela MITRE que serve de linguagem comum para descrever falhas de segurança.
 
 A participação dos papéis nessa atividade pode ser registrada numa matriz RACI, que indica para cada papel se ele é responsável pela execução (R), se responde pelo resultado e o aprova (A), se é consultado (C) ou se é informado (I). A distribuição abaixo é a adotada pelo curso para a atividade de assegurar a segurança de ponta a ponta.
 
@@ -110,9 +110,9 @@ A participação dos papéis nessa atividade pode ser registrada numa matriz RAC
 
 ### O exemplo do Hospital ACME
 
-O Hospital ACME, hospital geral fictício já usado nos blocos anteriores, criou um portal em que o paciente informa suas preferências de contato, como canal e horário. Para associar a preferência ao registro correto, o paciente fornece credenciais que o portal cruza com os dados demográficos do hospital, e esses dados demográficos estão classificados como dado pessoal, com nível alto de confidencialidade.
+O Hospital ACME, hospital geral fictício usado no bloco 1, criou um portal em que o paciente informa suas preferências de contato, como canal e horário. Para associar a preferência ao registro correto, o paciente fornece credenciais que o portal cruza com os dados demográficos do hospital, e esses dados demográficos estão classificados como dado pessoal, com nível alto de confidencialidade.
 
-A autoridade de design de segurança avaliou essa parte do desenho no teste de conformidade e registrou os achados da lista abaixo, todos derivados de políticas do hospital alinhadas à ISO/IEC 27001.
+A autoridade de design de segurança avaliou essa parte do desenho no teste de conformidade e registrou os achados da lista abaixo, todos derivados de políticas do hospital.
 
 1. O acesso a qualquer ativo, informação ou sistema, segue um processo definido de concessão.
 2. O segredo de autenticação, como a senha, é controlado por um processo formal de gestão.
