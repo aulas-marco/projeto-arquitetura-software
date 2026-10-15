@@ -12,13 +12,14 @@
     <text x="48" y="396" style="font-size:25px;font-weight:700">ADR de plataforma</text>
     <rect x="520" y="365" width="150" height="42" rx="10" fill="#FFF7E6" stroke="#F2B84B" stroke-width="3"/>
     <text x="595" y="394" text-anchor="middle" style="font-size:22px;font-weight:700">Contexto</text>
-    <line x1="123" y1="196" x2="123" y2="334" stroke="#254DB8" stroke-width="4"/>
+    <line x1="123" y1="178" x2="123" y2="334" stroke="#254DB8" stroke-width="4"/>
     <polygon points="113,332 133,332 123,346" fill="#254DB8"/>
-    <line x1="595" y1="346" x2="595" y2="208" stroke="#254DB8" stroke-width="4"/>
+    <line x1="595" y1="365" x2="595" y2="208" stroke="#254DB8" stroke-width="4"/>
     <polygon points="585,210 605,210 595,196" fill="#254DB8"/>
-    <text x="150" y="244" style="font-size:21px">Quando a prática se firma,</text>
-    <text x="150" y="274" style="font-size:21px">cita, no campo de revisão, o</text>
-    <text x="150" y="304" style="font-size:21px">ADR de plataforma que veio depois</text>
+    <text x="150" y="232" style="font-size:21px">Quando a prática se firma, o ADR de</text>
+    <text x="150" y="262" style="font-size:21px">estilo passa a citar, no campo de</text>
+    <text x="150" y="292" style="font-size:21px">revisão, o ADR de plataforma que</text>
+    <text x="150" y="322" style="font-size:21px">veio depois</text>
     <text x="622" y="244" style="font-size:21px">Referência cruzada ao título do</text>
     <text x="622" y="274" style="font-size:21px">ADR de estilo, no campo de</text>
     <text x="622" y="304" style="font-size:21px">contexto</text>
