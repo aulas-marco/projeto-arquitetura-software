@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 675" role="img" aria-labelledby="title desc">
   <title id="title">Do bloco de construção ao componente de infraestrutura</title>
   <desc id="desc">Cinco caixas empilhadas e ligadas por setas descendentes: bloco de construção da solução, requisito do bloco, requisito de serviço de infraestrutura com nível de serviço declarado, serviço de infraestrutura do catálogo e componente de infraestrutura. Da caixa do requisito de serviço sai uma seta lateral para uma caixa tracejada, que indica que o requisito sem serviço no catálogo gera uma lacuna de provisão, do tipo serviço novo, substituição, modificação ou remoção.</desc>
   <defs>
@@ -9,50 +9,53 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#B7791F"/>
     </marker>
   </defs>
-  <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
+  <rect width="1000" height="675" rx="28" fill="#F2F6FB"/>
   <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" fill="#16243A">
 
-    <rect x="40" y="30" width="640" height="94" rx="14" fill="#16243A"/>
-    <text x="360" y="70" text-anchor="middle" style="font-size:25px;font-weight:700" fill="#FFFFFF">Bloco de construção da solução</text>
-    <text x="360" y="104" text-anchor="middle" style="font-size:21px" fill="#DCE6F5">capacidade lógica, ainda sem produto</text>
+    <rect x="24" y="30" width="566" height="94" rx="14" fill="#16243A"/>
+    <text x="307" y="70" text-anchor="middle" style="font-size:25px;font-weight:700" fill="#FFFFFF">Bloco de construção da solução</text>
+    <text x="307" y="104" text-anchor="middle" style="font-size:21px" fill="#DCE6F5">capacidade lógica, ainda sem produto</text>
 
-    <line x1="360" y1="124" x2="360" y2="150" stroke="#254DB8" stroke-width="4" marker-end="url(#seta)"/>
+    <line x1="307" y1="124" x2="307" y2="150" stroke="#254DB8" stroke-width="4" marker-end="url(#seta)"/>
 
-    <rect x="40" y="154" width="640" height="94" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
-    <text x="360" y="194" text-anchor="middle" style="font-size:25px;font-weight:700">Requisito do bloco</text>
-    <text x="360" y="228" text-anchor="middle" style="font-size:21px" fill="#3E4F66">funcional ou não funcional</text>
+    <rect x="24" y="154" width="566" height="94" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <text x="307" y="194" text-anchor="middle" style="font-size:25px;font-weight:700">Requisito do bloco</text>
+    <text x="307" y="228" text-anchor="middle" style="font-size:21px" fill="#3E4F66">funcional ou não funcional</text>
 
-    <line x1="360" y1="248" x2="360" y2="274" stroke="#254DB8" stroke-width="4" marker-end="url(#seta)"/>
+    <line x1="307" y1="248" x2="307" y2="274" stroke="#254DB8" stroke-width="4" marker-end="url(#seta)"/>
 
-    <rect x="40" y="278" width="640" height="94" rx="14" fill="#FFFFFF" stroke="#F2B84B" stroke-width="5"/>
-    <text x="360" y="318" text-anchor="middle" style="font-size:25px;font-weight:700">Requisito de serviço de infraestrutura</text>
-    <text x="360" y="352" text-anchor="middle" style="font-size:21px" fill="#3E4F66">com nível de serviço declarado</text>
+    <rect x="24" y="278" width="566" height="94" rx="14" fill="#FFFFFF" stroke="#F2B84B" stroke-width="5"/>
+    <text x="307" y="318" text-anchor="middle" style="font-size:24px;font-weight:700">Requisito de serviço de infraestrutura</text>
+    <text x="307" y="352" text-anchor="middle" style="font-size:21px" fill="#3E4F66">com nível de serviço declarado</text>
 
-    <line x1="360" y1="372" x2="360" y2="398" stroke="#254DB8" stroke-width="4" marker-end="url(#seta)"/>
-    <text x="378" y="393" style="font-size:20px" fill="#254DB8">há serviço no catálogo</text>
+    <line x1="307" y1="372" x2="307" y2="398" stroke="#254DB8" stroke-width="4" marker-end="url(#seta)"/>
+    <text x="325" y="393" style="font-size:20px" fill="#254DB8">há serviço no catálogo</text>
 
-    <rect x="40" y="402" width="640" height="94" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
-    <text x="360" y="442" text-anchor="middle" style="font-size:25px;font-weight:700">Serviço de infraestrutura</text>
-    <text x="360" y="476" text-anchor="middle" style="font-size:21px" fill="#3E4F66">existente ou planejado no catálogo</text>
+    <rect x="24" y="402" width="566" height="94" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <text x="307" y="442" text-anchor="middle" style="font-size:25px;font-weight:700">Serviço de infraestrutura</text>
+    <text x="307" y="476" text-anchor="middle" style="font-size:21px" fill="#3E4F66">existente ou planejado no catálogo</text>
 
-    <line x1="360" y1="496" x2="360" y2="522" stroke="#254DB8" stroke-width="4" marker-end="url(#seta)"/>
+    <line x1="307" y1="496" x2="307" y2="522" stroke="#254DB8" stroke-width="4" marker-end="url(#seta)"/>
 
-    <rect x="40" y="526" width="640" height="94" rx="14" fill="#5FC0D1"/>
-    <text x="360" y="566" text-anchor="middle" style="font-size:25px;font-weight:700">Componente de infraestrutura</text>
-    <text x="360" y="600" text-anchor="middle" style="font-size:21px">produto ou equipamento que entrega o serviço</text>
+    <rect x="24" y="526" width="566" height="94" rx="14" fill="#5FC0D1"/>
+    <text x="307" y="566" text-anchor="middle" style="font-size:25px;font-weight:700">Componente de infraestrutura</text>
+    <text x="307" y="600" text-anchor="middle" style="font-size:21px">produto ou equipamento que entrega o serviço</text>
 
-    <line x1="680" y1="325" x2="776" y2="325" stroke="#B7791F" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#seta-lacuna)"/>
-    <text x="728" y="311" text-anchor="middle" style="font-size:20px" fill="#8A5A12">sem</text>
-    <text x="728" y="351" text-anchor="middle" style="font-size:20px" fill="#8A5A12">serviço</text>
+    <line x1="590" y1="325" x2="686" y2="325" stroke="#B7791F" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#seta-lacuna)"/>
+    <text x="638" y="311" text-anchor="middle" style="font-size:20px" fill="#8A5A12">sem</text>
+    <text x="638" y="351" text-anchor="middle" style="font-size:20px" fill="#8A5A12">serviço</text>
 
-    <rect x="780" y="240" width="390" height="170" rx="14" fill="#FFF7E6" stroke="#B7791F" stroke-width="3" stroke-dasharray="12 8"/>
-    <text x="975" y="282" text-anchor="middle" style="font-size:24px;font-weight:700">Sem serviço</text>
-    <text x="975" y="312" text-anchor="middle" style="font-size:24px;font-weight:700">no catálogo: lacuna</text>
-    <text x="975" y="350" text-anchor="middle" style="font-size:20px" fill="#3E4F66">serviço novo, substituição,</text>
-    <text x="975" y="378" text-anchor="middle" style="font-size:20px" fill="#3E4F66">modificação ou remoção</text>
+    <rect x="690" y="196" width="286" height="258" rx="14" fill="#FFF7E6" stroke="#B7791F" stroke-width="3" stroke-dasharray="12 8"/>
+    <text x="833" y="236" text-anchor="middle" style="font-size:24px;font-weight:700">Sem serviço</text>
+    <text x="833" y="266" text-anchor="middle" style="font-size:24px;font-weight:700">no catálogo:</text>
+    <text x="833" y="296" text-anchor="middle" style="font-size:24px;font-weight:700">lacuna de provisão</text>
+    <text x="833" y="336" text-anchor="middle" style="font-size:21px" fill="#3E4F66">serviço novo,</text>
+    <text x="833" y="364" text-anchor="middle" style="font-size:21px" fill="#3E4F66">substituição,</text>
+    <text x="833" y="392" text-anchor="middle" style="font-size:21px" fill="#3E4F66">modificação</text>
+    <text x="833" y="420" text-anchor="middle" style="font-size:21px" fill="#3E4F66">ou remoção</text>
 
-    <text x="780" y="460" style="font-size:20px" fill="#3E4F66">A lacuna entra no custo</text>
-    <text x="780" y="488" style="font-size:20px" fill="#3E4F66">da solução e no roteiro</text>
-    <text x="780" y="516" style="font-size:20px" fill="#3E4F66">de entrega.</text>
+    <text x="690" y="500" style="font-size:21px" fill="#3E4F66">A lacuna entra no custo</text>
+    <text x="690" y="528" style="font-size:21px" fill="#3E4F66">da solução e no roteiro</text>
+    <text x="690" y="556" style="font-size:21px" fill="#3E4F66">de entrega.</text>
   </g>
 </svg>

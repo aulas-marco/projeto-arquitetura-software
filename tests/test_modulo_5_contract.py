@@ -15,7 +15,7 @@ B3 = "bloco-3-seguranca-fim-a-fim.md"
 B4 = "bloco-4-adr-de-plataforma.md"
 
 BLOCKS = {
-    B1: (("modulo-5-bloco-ao-componente.svg", "modulo-5-trm-cinco-colunas.svg"),
+    B1: (("modulo-5-bloco-ao-componente.svg", "modulo-5-trm-cinco-colunas-v2.svg"),
          17, ("2.7.2", "7.1", "7.4")),
     B2: (("modulo-5-pilares-zona-de-pouso.svg",), 18, ("7.5",)),
     B3: (("modulo-5-fronteira-de-confianca-stride.svg",

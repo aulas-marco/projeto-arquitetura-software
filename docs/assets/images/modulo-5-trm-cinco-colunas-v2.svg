@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Modelo técnico de referência em cinco colunas e classificação à parte</title>
+  <desc id="desc">No alto, a tabela do modelo técnico de referência com as cinco colunas camada, categoria, padrão ou protocolo, exemplos aprovados e exemplos não aprovados, e uma linha genérica de exemplo para identidade e acesso na camada de segurança transversal. Abaixo, num quadro separado da tabela, a seção de tecnologias descontinuadas mostra a classificação em três cores: verde indica tecnologia preferida e primeira escolha, âmbar indica uso permitido com aprovação e vermelho indica tecnologia proibida em projeto novo, que no legado só permanece sob plano de migração. Um rodapé lembra que a adoção fora dos exemplos aprovados exige ADR com a justificativa do desvio.</desc>
+  <rect width="1200" height="675" rx="28" fill="#F2F6FB"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" fill="#16243A">
+
+    <text x="40" y="46" style="font-size:24px;font-weight:700">Tabela do modelo técnico de referência</text>
+
+    <rect x="40" y="62" width="216" height="80" rx="10" fill="#16243A"/>
+    <text x="148" y="111" text-anchor="middle" style="font-size:24px;font-weight:700" fill="#FFFFFF">Camada</text>
+    <rect x="266" y="62" width="216" height="80" rx="10" fill="#16243A"/>
+    <text x="374" y="111" text-anchor="middle" style="font-size:24px;font-weight:700" fill="#FFFFFF">Categoria</text>
+    <rect x="492" y="62" width="216" height="80" rx="10" fill="#16243A"/>
+    <text x="600" y="96" text-anchor="middle" style="font-size:24px;font-weight:700" fill="#FFFFFF">Padrão ou</text>
+    <text x="600" y="126" text-anchor="middle" style="font-size:24px;font-weight:700" fill="#FFFFFF">protocolo</text>
+    <rect x="718" y="62" width="216" height="80" rx="10" fill="#16243A"/>
+    <text x="826" y="96" text-anchor="middle" style="font-size:24px;font-weight:700" fill="#FFFFFF">Exemplos</text>
+    <text x="826" y="126" text-anchor="middle" style="font-size:24px;font-weight:700" fill="#FFFFFF">aprovados</text>
+    <rect x="944" y="62" width="216" height="80" rx="10" fill="#16243A"/>
+    <text x="1052" y="96" text-anchor="middle" style="font-size:24px;font-weight:700" fill="#FFFFFF">Exemplos</text>
+    <text x="1052" y="126" text-anchor="middle" style="font-size:24px;font-weight:700" fill="#FFFFFF">não aprovados</text>
+
+    <rect x="40" y="152" width="216" height="90" rx="10" fill="#FFFFFF" stroke="#254DB8" stroke-width="2"/>
+    <text x="148" y="191" text-anchor="middle" style="font-size:21px">Segurança</text>
+    <text x="148" y="219" text-anchor="middle" style="font-size:21px">transversal</text>
+    <rect x="266" y="152" width="216" height="90" rx="10" fill="#FFFFFF" stroke="#254DB8" stroke-width="2"/>
+    <text x="374" y="191" text-anchor="middle" style="font-size:21px">Identidade</text>
+    <text x="374" y="219" text-anchor="middle" style="font-size:21px">e acesso</text>
+    <rect x="492" y="152" width="216" height="90" rx="10" fill="#FFFFFF" stroke="#254DB8" stroke-width="2"/>
+    <text x="600" y="191" text-anchor="middle" style="font-size:21px">Protocolo aberto</text>
+    <text x="600" y="219" text-anchor="middle" style="font-size:21px">obrigatório</text>
+    <rect x="718" y="152" width="216" height="90" rx="10" fill="#FFFFFF" stroke="#254DB8" stroke-width="2"/>
+    <text x="826" y="191" text-anchor="middle" style="font-size:21px">Atendem</text>
+    <text x="826" y="219" text-anchor="middle" style="font-size:21px">ao padrão</text>
+    <rect x="944" y="152" width="216" height="90" rx="10" fill="#FFFFFF" stroke="#254DB8" stroke-width="2"/>
+    <text x="1052" y="191" text-anchor="middle" style="font-size:21px">Excluídos, com</text>
+    <text x="1052" y="219" text-anchor="middle" style="font-size:21px">justificativa</text>
+
+    <rect x="40" y="266" width="1120" height="318" rx="16" fill="#FFFFFF" stroke="#16243A" stroke-width="2" stroke-dasharray="10 6"/>
+    <text x="64" y="304" style="font-size:24px;font-weight:700">Seção de tecnologias descontinuadas, à parte da tabela</text>
+
+    <rect x="64" y="320" width="1072" height="76" rx="12" fill="#FFFFFF" stroke="#2F8F5B" stroke-width="3"/>
+    <rect x="64" y="320" width="180" height="76" rx="12" fill="#2F8F5B"/>
+    <text x="154" y="367" text-anchor="middle" style="font-size:26px;font-weight:700" fill="#FFFFFF">Verde</text>
+    <text x="268" y="367" style="font-size:22px">Preferida, primeira escolha em projeto novo.</text>
+
+    <rect x="64" y="406" width="1072" height="76" rx="12" fill="#FFFFFF" stroke="#F2B84B" stroke-width="3"/>
+    <rect x="64" y="406" width="180" height="76" rx="12" fill="#F2B84B"/>
+    <text x="154" y="453" text-anchor="middle" style="font-size:26px;font-weight:700">Âmbar</text>
+    <text x="268" y="453" style="font-size:22px">Uso permitido mediante aprovação da arquitetura.</text>
+
+    <rect x="64" y="492" width="1072" height="76" rx="12" fill="#FFFFFF" stroke="#C0453A" stroke-width="3"/>
+    <rect x="64" y="492" width="180" height="76" rx="12" fill="#C0453A"/>
+    <text x="154" y="539" text-anchor="middle" style="font-size:26px;font-weight:700" fill="#FFFFFF">Vermelho</text>
+    <text x="268" y="525" style="font-size:22px">Proibida em projeto novo, a remover na primeira oportunidade.</text>
+    <text x="268" y="555" style="font-size:20px" fill="#3E4F66">No legado, só permanece sob plano de migração documentado.</text>
+
+    <rect x="40" y="600" width="1120" height="56" rx="12" fill="#16243A"/>
+    <text x="600" y="636" text-anchor="middle" style="font-size:22px" fill="#FFFFFF">Adoção fora dos exemplos aprovados exige ADR com a justificativa do desvio.</text>
+  </g>
+</svg>
