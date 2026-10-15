@@ -170,7 +170,7 @@ A tabela indica o módulo do núcleo, conforme a [arquitetura de linha de base](
 
 ### Item 2: Grade de permissões
 
-A grade abaixo, em que três células concedem privilégio além do necessário, foi proposta para a arquitetura alvo, com os perfis e os serviços nas linhas e três recursos nas colunas. L indica leitura, E indica gravação e o traço indica nenhum acesso, e a condição aparece depois da vírgula, como em somente a própria.
+A grade abaixo, em que três células concedem privilégio além do necessário, foi proposta para a arquitetura alvo, com os perfis e os serviços nas linhas e três recursos nas colunas. L indica leitura, E indica gravação e o traço indica nenhum acesso, e a condição aparece depois da vírgula, como em somente a própria. No sistema atual, o ambiente virtual de aprendizagem recebe a nota consolidada por exportação e devolve apenas nota de atividade, recurso que não consta desta grade.
 
 | Perfil ou serviço | Nota consolidada | Matrícula | Histórico escolar |
 | --- | --- | --- | --- |
@@ -186,7 +186,7 @@ A grade abaixo, em que três células concedem privilégio além do necessário,
 
 ### Item 3: Ameaças na fronteira do aplicativo do aluno
 
-A fronteira de confiança deste item é a considerada neste exercício, entre o aplicativo do aluno, instalado no telefone, e o serviço de matrícula, que o R1 e o R6 obrigam a se comunicar, conforme os contêineres do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16). A execução do serviço de matrícula na conta de produção da zona de pouso do [exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) é suposição do exercício. A tabela reproduz da [página inicial do caso](../caso-acme/index.md) os requisitos R1, R6 e R8, que este item cita.
+A fronteira de confiança deste item é a relação 1 do diagrama do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16), entre o aplicativo do aluno, instalado no telefone, e o serviço de matrícula, que o R1 e o R6 exigem. A execução do serviço de matrícula na conta de produção da zona de pouso do [exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) é suposição do exercício. A tabela reproduz da [página inicial do caso](../caso-acme/index.md) os requisitos R1, R6 e R8, que este item cita.
 
 | Código | Declaração | Origem |
 | --- | --- | --- |

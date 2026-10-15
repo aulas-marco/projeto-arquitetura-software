@@ -150,7 +150,7 @@ graph LR
 
 ### Item 2: Tecnologias da linha de base
 
-A tabela reúne seis tecnologias da arquitetura de linha de base da ACME, cada uma com o dado registrado no dossiê do caso.
+A tabela reúne seis tecnologias da arquitetura de linha de base da ACME, cada uma com o dado registrado no dossiê do caso. O recorte do modelo técnico de referência do item 1 é a segunda fonte da classificação, ao lado do dado da tabela.
 
 | Tecnologia | Dado da linha de base |
 | --- | --- |
@@ -161,12 +161,12 @@ A tabela reúne seis tecnologias da arquitetura de linha de base da ACME, cada u
 | Diretório corporativo | Autenticação de todos os perfis pelos portais, por LDAP síncrono com tempo limite de 10 s |
 | Arquivo posicional sem versão | Mudança de layout no lote de exportação de notas que causou o incidente de 09/07/2026, com 61.400 lançamentos de nota que não chegaram ao ambiente virtual de aprendizagem |
 
-1. Classifique cada tecnologia da tabela em verde, âmbar ou vermelho, conforme a classificação apresentada na seção [Estrutura em cinco colunas](#estrutura-em-cinco-colunas), e justifique cada classificação em uma linha com base no dado da tabela.
+1. Classifique cada tecnologia da tabela em verde, âmbar ou vermelho, conforme a classificação apresentada na seção [Estrutura em cinco colunas](#estrutura-em-cinco-colunas), e justifique cada classificação em uma linha com base no dado da tabela e no recorte do modelo técnico do item 1.
 2. Entre as tecnologias que classificou em vermelho, indique as que continuam em uso no sistema atual e, por isso, só podem permanecer sob plano de migração documentado, com uma linha de justificativa para cada uma.
 
 ### Item 3: Matriz de seleção do provedor de identidade
 
-A primeira tabela reproduz os requisitos e a restrição do caso que pesam na escolha do provedor de identidade, com a origem de cada um. A segunda tabela é a parte da matriz de avaliação que o caso permite preencher, com as células de aderência ao requisito e de portabilidade em branco para as três alternativas.
+A primeira tabela reproduz os requisitos e a restrição do caso que pesam na escolha do provedor de identidade, com a origem de cada um. Neste exercício, o R8 é lido como exigência de protocolo aberto de identidade, o OpenID Connect, e não como proibição de produto que o implemente. A segunda tabela é a parte da matriz de avaliação que o caso permite preencher, com as células de aderência ao requisito e de portabilidade em branco para as três alternativas.
 
 | Código | Requisito ou restrição | Origem |
 | --- | --- | --- |
