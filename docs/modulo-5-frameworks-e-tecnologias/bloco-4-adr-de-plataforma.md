@@ -16,7 +16,7 @@ O template não muda entre os dois. O conteúdo de cada campo muda, e três camp
 
 ### O que muda no campo de forças
 
-Em um ADR de estilo, as forças são [atributos de qualidade](../referencia/glossario.md#atributo-de-qualidade) do sistema, como absorver pico de carga ou isolar falha. Em um ADR de plataforma, elas incluem esses atributos e acrescentam os sete fatores de adaptação ao contexto apresentados no Conceito do [bloco 2](bloco-2-plataforma-arquitetural.md), entre eles conhecimento técnico do time, custo de aquisição e renovação e confiabilidade dos fornecedores.
+Em um ADR de estilo, as forças são [atributos de qualidade](../referencia/glossario.md#atributo-de-qualidade) do sistema, como absorver pico de carga ou isolar falha. Em um ADR de plataforma, elas incluem esses atributos e acrescentam os seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao), entre eles competência da equipe, custo total de propriedade e maturidade da tecnologia.
 
 A essas forças soma-se uma que só aparece na decisão de plataforma. A **dependência de fornecedor** é a dificuldade de trocar ou negociar uma dependência, técnica ou organizacional. Serviços gerenciados podem ser escolhas excelentes quando reduzem risco operacional, mas precisam ficar explícitos no ADR em seis dimensões.
 
@@ -31,7 +31,7 @@ Abstrair tudo antecipadamente para fugir dessa dependência cria uma plataforma 
 
 ### O que muda no campo de alternativas
 
-Em um ADR de plataforma, o campo de alternativas já vem pronto do bloco anterior. O quadro comparativo preenchido no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18), com as plataformas candidatas nas linhas e os fatores nas colunas, é exatamente o que o campo pede, cada alternativa com as forças que atende e os riscos que introduz. Transportar o quadro para o registro é o que impede que a alternativa descartada apareça só pelo nome, sem ter sido comparada de fato.
+Em um ADR de plataforma, o campo de alternativas já vem pronto do bloco anterior. O quadro comparativo preenchido no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18), com as plataformas candidatas nas linhas e os seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao) nas colunas, é exatamente o que o campo pede, cada alternativa com as forças que atende e os riscos que introduz. Transportar o quadro para o registro garante que a plataforma descartada seja avaliada pelos mesmos critérios da escolhida, e não apareça só pelo nome.
 
 ### O que muda no campo de consequências
 
@@ -43,9 +43,38 @@ A Seguradora ACME, que já decidiu por uma [arquitetura orientada a eventos](../
 
 Os dois ADRs não vivem isolados um do outro. O ADR de plataforma faz uma **referência cruzada** ao título do ADR de estilo no seu campo de contexto, porque a plataforma só faz sentido como resposta a um estilo já fixado, e um leitor que chega ao ADR de plataforma sem ter lido o ADR de estilo precisa encontrar esse encadeamento no próprio texto. Quando a prática se firma, o ADR de estilo passa a citar, no campo de revisão, o ADR de plataforma que veio depois, fechando o par nos dois sentidos.
 
+### Lacunas na provisão de serviços
+
+Quando a definição tecnológica está completa, o arquiteto compara os serviços que ela exige com o **catálogo de infraestrutura**, a lista dos serviços que a organização já provê, e registra tudo o que impede ou atrapalha a implantação da solução. O resultado é um **relatório de lacunas**, em que cada item é uma lacuna de provisão classificada em um dos quatro tipos da tabela abaixo, e a mesma classificação vale para as lacunas que a [autoridade de design de segurança](bloco-3-seguranca-fim-a-fim.md) aponta no bloco anterior.
+
+| Tipo | Descrição |
+| --- | --- |
+| Nova | O serviço ainda não é provido pela organização |
+| Substituição | Um serviço existente é trocado por outro |
+| Modificação | O serviço existe e precisa de reconfiguração, ampliação ou extensão a outra região |
+| Remoção | O serviço deixa de ser necessário |
+
+<figure markdown="span">
+![Quatro cartões em linha, um para cada tipo de lacuna, cada um com o catálogo de serviços antes e depois da mudança. Na lacuna nova, o serviço S2 é acrescentado. Na substituição, o S1 dá lugar ao S2. Na modificação, o S1 permanece com outra configuração. Na remoção, o S2 deixa o catálogo. Uma faixa inferior indica que cada mudança recebe tamanho, custo, recurso e tempo.](../assets/images/modulo-5-tipos-de-lacuna.svg){ .module-diagram }
+</figure>
+
+*Figura 1 — Os quatro tipos de lacuna na provisão de serviços de infraestrutura. Fonte: material do curso, com base em Lovatt (2021, seção 7.8).*
+
+Cada lacuna recebe uma estimativa de tamanho, custo, recurso e tempo, porque toda mudança exige esforço e, em geral, algum desembolso. Uma troca de serviço pode reduzir o custo recorrente depois de custar para ser executada, já que o serviço novo pode operar com mais eficiência, e é frequente que a justificativa de uma solução seja reduzir o custo de operação, o que raramente se alcança sem investir antes em mudança. Quando o custo total fica acima do esperado, o arquiteto revê a tecnologia de infraestrutura, o desenho da solução, o escopo e a escala ou as oportunidades de linha de base incluídas. As lacunas confirmadas entram no [roteiro de entrega](../modulo-6-lacunas-e-governanca/index.md) da Aula 6, onde a análise de lacunas é tratada como método próprio.
+
+### Validação da definição tecnológica
+
+Concluída a definição, a equipe de arquitetura de solução e a função de infraestrutura conduzem em conjunto a validação com as partes interessadas, que recebem o material por meio eletrônico e depois participam de uma oficina de discussão. As partes interessadas podem exigir revisão da definição, e a oficina cobre cinco pontos.
+
+1. percurso da definição tecnológica com todas as partes presentes ou representadas
+2. mudanças e revisões feitas no desenho da solução
+3. custos de infraestrutura e economias associadas à solução
+4. compromissos assumidos nas escolhas de infraestrutura
+5. preocupações levantadas, tratadas na oficina ou em investigação posterior
+
 ## Uso pelo arquiteto
 
-O arquiteto escreve este segundo registro logo depois de fechar a comparação de plataformas, no mesmo momento em que as candidatas descartadas e o critério que as eliminou ainda estão claros. O campo de evidências é o que mais se beneficia desse momento, porque é quando ainda existem o teste de carga, a prova de conceito ou a medição que sustentaram a escolha, e é trivial anotar onde cada um pode ser reproduzido. Meses depois, essa informação já se perdeu, e o registro fica com uma justificativa que ninguém consegue verificar.
+O arquiteto escreve este segundo registro logo depois de fechar a comparação de plataformas, no mesmo momento em que as candidatas descartadas e o critério que as eliminou ainda estão claros. O campo de evidências é o que mais se beneficia desse momento, porque é quando ainda existem o teste de carga, a prova de conceito ou a medição que sustentaram a escolha, e é trivial anotar onde cada um pode ser reproduzido. Meses depois, essa informação já se perdeu, e o registro fica com uma justificativa que ninguém consegue verificar. O relatório de lacunas produzido na mesma ocasião alimenta o custo da solução e o roteiro de entrega, e cada lacuna listada leva ao ADR o custo estimado de tornar a plataforma escolhida utilizável.
 
 ## Exercício 20
 
@@ -58,14 +87,15 @@ O diagrama abaixo mostra de onde vêm as entradas deste registro e a referência
 ```mermaid
 graph LR
     E12["ADR de estilo, Exercício 12 da Aula 3"] -->|"referência cruzada pelo título"| E20["ADR de plataforma, Exercício 20"]
-    E18["Quadro comparativo e plataforma escolhida, Exercício 18"] --> E20
+    E18["Quadro comparativo e plataforma escolhida, Exercício 18"] -->|"alternativas"| E20
+    E17["Seis critérios de seleção, Exercício 17"] -->|"método dos seis critérios"| E20
+    E19["Segurança fim a fim, Exercício 19"] -->|"entrada de consequências"| E20
     E20 -.->|"citado no campo Revisão quando a prática se firma"| E12
 ```
 
 1. título, estado e data
 2. contexto, referenciando pelo título o ADR de estilo escrito no [Exercício 12](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md#exercicio-12)
-3. alternativas, transportando o quadro comparativo preenchido no Exercício 18
-
+3. alternativas, transportando o quadro comparativo preenchido no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18), que aplica o método dos seis critérios do [Exercício 17](bloco-1-definicao-tecnologica-e-trm.md#exercicio-17)
 ### Item 2: Forças e dependência de fornecedor
 
 A tabela abaixo relaciona as seis dimensões de dependência de fornecedor listadas no Conceito a dados do [dossiê da ACME](../caso-acme/index.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md).
@@ -79,7 +109,7 @@ A tabela abaixo relaciona as seis dimensões de dependência de fornecedor lista
 | Custo de saída de dados | Dois provedores de nuvem pré-aprovados, com decisões de plataforma portáveis entre os dois |
 | Habilidades da equipe | A camada Java tem 9 pessoas sem escassez, e o núcleo COBOL tem 6 especialistas, dos quais 2 se aposentam em 2027 |
 
-1. forças, com pelo menos três dos sete fatores de adaptação ao contexto do [bloco 2](bloco-2-plataforma-arquitetural.md#quatro-caracteristicas-de-uma-plataforma-arquitetural), mais ao menos uma das seis dimensões da tabela, indicando o dado do caso que sustenta cada força
+1. forças, com pelo menos três dos seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao), mais ao menos uma das seis dimensões da tabela, indicando o dado do caso que sustenta cada força
 2. decisão, nomeando a plataforma escolhida e conectando a justificativa às forças
 
 ### Item 3: Consequências, evidências e revisão
@@ -92,18 +122,46 @@ A tabela abaixo reúne os dados do caso que limitam as evidências disponíveis 
 | Contrato de sustentação do núcleo COBOL | Exclusividade da fábrica até 30/09/2027 |
 | Contrato de capacidade de grande porte | Volume mínimo contratado até 31/12/2028 |
 
-1. consequências, com ao menos uma positiva, uma negativa e uma neutra
+1. consequências, com ao menos uma positiva, uma negativa e uma neutra, levando em conta os achados de segurança do [Exercício 19](bloco-3-seguranca-fim-a-fim.md#exercicio-19)
 2. evidências, indicando o que sustentaria a escolha e onde poderia ser reproduzido
 3. revisão, com um gatilho observável ligado à convivência com o núcleo COBOL sobre CICS
 
 O campo de evidências é o mais difícil neste exercício, porque a ACME não tem ambiente de teste de carga. Nomear a evidência que seria desejável, e que não existe, é resposta melhor do que inventar uma medição.
+
+### Item 4: Lacunas de provisão
+
+O dossiê não traz um catálogo de infraestrutura formal, e por isso a [arquitetura de linha de base](../caso-acme/linha-de-base.md) faz o papel de catálogo neste exercício. O diagrama abaixo mostra os serviços que ela registra e a definição tecnológica da arquitetura alvo com a qual serão comparados.
+
+```mermaid
+graph LR
+    DC["Data center próprio"] --> DEF["Definição tecnológica<br/>da arquitetura alvo"]
+    BD["Núcleo e banco compartilhado"] --> DEF
+    DIR["Diretório corporativo"] --> DEF
+    EXT["Extração noturna por arquivo"] --> DEF
+    AUS["Sem mensageria e sem<br/>provedor de identidade"] -.->|"comparados"| DEF
+```
+
+A tabela abaixo lista seis requisitos de serviço considerados neste exercício e o que a linha de base e os [dados operacionais](../caso-acme/dados-operacionais.md) registram sobre cada um no catálogo atual. Adota-se a premissa de que o diretório corporativo permanece em uso até que o último portal migre, e a extração noturna por arquivo corresponde aos lotes de integração descritos na linha de base.
+
+| Requisito de serviço | Situação no catálogo atual |
+| --- | --- |
+| Provedor de identidade com OpenID Connect | O catálogo registra apenas o diretório corporativo, acessado por LDAP de forma síncrona, com tempo limite de 10 s |
+| Mensageria com tópico e contrato AsyncAPI | O catálogo não registra mensageria, e a troca entre sistemas ocorre por arquivo em lote noturno |
+| Banco de serviço em região nacional | O catálogo registra apenas o banco compartilhado entre o núcleo e a camada web, com 740 tabelas e 11 TB |
+| Diretório corporativo | Autentica todos os perfis dos portais por LDAP |
+| Extração noturna por arquivo para o data warehouse e o ambiente virtual | Lote das 02h30 com cópia integral de 140 tabelas para o data warehouse, e cargas por arquivo às 04h00 e às 05h10 para o ambiente virtual |
+| Observabilidade de ponta a ponta | Nenhuma ferramenta registrada para o sistema acadêmico |
+
+1. classificar cada um dos seis requisitos como lacuna nova, substituição, modificação ou remoção, justificando a classificação com o dado da coluna de situação do catálogo atual
+2. indicar qual dos seis requisitos tende a reduzir o custo recorrente depois de executado, com uma linha de justificativa apoiada em um dado dos [dados operacionais](../caso-acme/dados-operacionais.md)
 
 ## Fontes
 
 As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso. O trecho consultado aparece entre parênteses ao fim de cada entrada.
 
 - Mendes, M. (2026a). *Arquitetura de software* [Material de curso]. https://marco-mendes.github.io/arquitetura-software/ ([template de ADR](https://marco-mendes.github.io/arquitetura-software/referencia/template-adr/) de dez campos e a seção [custo e lock-in](https://marco-mendes.github.io/arquitetura-software/modulo-6-nuvem/padroes-e-decisoes/), fonte da definição de dependência de fornecedor e das seis dimensões)
+- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 7.8, lacunas na provisão de serviços de infraestrutura e os quatro tipos de lacuna, e seção 7.9, validação da definição tecnológica com as partes interessadas)
 - Nygard, M. (2011, 15 de novembro). *Documenting architecture decisions*. Cognitect Blog. https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions (formato de cinco partes)
 - MADR. (2024). *Markdown Architectural Decision Records* (Versão 4.0.0). https://adr.github.io/madr/ (campos do formato MADR)
 
-**Material do curso.** Glossário, entradas [ADR](../referencia/glossario.md#adr), [plataforma arquitetural](../referencia/glossario.md#plataforma-arquitetural) e [dependência de fornecedor](../referencia/glossario.md#dependencia-de-fornecedor). Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+**Material do curso.** O glossário traz as entradas [ADR](../referencia/glossario.md#adr), [plataforma arquitetural](../referencia/glossario.md#plataforma-arquitetural), [dependência de fornecedor](../referencia/glossario.md#dependencia-de-fornecedor) e [lacuna de provisão](../referencia/glossario.md#lacuna-de-provisao), e o dossiê da instituição fictícia [ACME](../caso-acme/index.md) fornece a [arquitetura de linha de base](../caso-acme/linha-de-base.md) e os [dados operacionais](../caso-acme/dados-operacionais.md).

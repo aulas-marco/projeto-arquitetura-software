@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" role="img" aria-labelledby="title desc">
+  <title id="title">Os quatro tipos de lacuna na provisão de serviços de infraestrutura</title>
+  <desc id="desc">Quatro cartões em linha, cada um com o catálogo de serviços antes e depois da mudança. Nova: um serviço S2 é acrescentado ao catálogo. Substituição: o serviço S1 dá lugar ao serviço S2 e o S3 permanece. Modificação: o serviço S1 permanece no catálogo com configuração, capacidade ou região alteradas. Remoção: o serviço S2 deixa o catálogo e o S1 permanece. Uma faixa inferior indica que cada mudança recebe tamanho, custo, recurso e tempo.</desc>
+  <rect width="1000" height="460" rx="28" fill="#F2F6FB"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" fill="#16243A">
+    <rect x="36" y="24" width="220" height="320" rx="14" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <rect x="36" y="24" width="220" height="60" rx="14" fill="#254DB8"/>
+    <text x="146" y="62" text-anchor="middle" style="font-size:24px;font-weight:700" fill="#FFFFFF">Nova</text>
+    <text x="66" y="122" style="font-size:20px;font-weight:700">Antes</text>
+    <rect x="66" y="136" width="60" height="60" rx="8" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="96" y="175" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#16243A">S1</text>
+    <rect x="166" y="136" width="60" height="60" rx="8" fill="none" stroke="#9FB3D1" stroke-width="2" stroke-dasharray="6 5"/>
+    <text x="66" y="250" style="font-size:20px;font-weight:700">Depois</text>
+    <rect x="66" y="264" width="60" height="60" rx="8" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="96" y="303" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#16243A">S1</text>
+    <rect x="166" y="264" width="60" height="60" rx="8" fill="#E3F2E6" stroke="#2E7D45" stroke-width="2"/>
+    <text x="196" y="303" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#1F5C33">S2</text>
+    <rect x="272" y="24" width="220" height="320" rx="14" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <rect x="272" y="24" width="220" height="60" rx="14" fill="#254DB8"/>
+    <text x="382" y="62" text-anchor="middle" style="font-size:24px;font-weight:700" fill="#FFFFFF">Substituição</text>
+    <text x="302" y="122" style="font-size:20px;font-weight:700">Antes</text>
+    <rect x="302" y="136" width="60" height="60" rx="8" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="332" y="175" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#16243A">S1</text>
+    <rect x="402" y="136" width="60" height="60" rx="8" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="432" y="175" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#16243A">S3</text>
+    <text x="302" y="250" style="font-size:20px;font-weight:700">Depois</text>
+    <rect x="302" y="264" width="60" height="60" rx="8" fill="#FFF1D6" stroke="#B7791F" stroke-width="2"/>
+    <text x="332" y="303" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#7A4B0A">S2</text>
+    <rect x="402" y="264" width="60" height="60" rx="8" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="432" y="303" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#16243A">S3</text>
+    <rect x="508" y="24" width="220" height="320" rx="14" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <rect x="508" y="24" width="220" height="60" rx="14" fill="#254DB8"/>
+    <text x="618" y="62" text-anchor="middle" style="font-size:24px;font-weight:700" fill="#FFFFFF">Modificação</text>
+    <text x="538" y="122" style="font-size:20px;font-weight:700">Antes</text>
+    <rect x="538" y="136" width="60" height="60" rx="8" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="568" y="175" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#16243A">S1</text>
+    <rect x="638" y="136" width="60" height="60" rx="8" fill="none" stroke="#9FB3D1" stroke-width="2" stroke-dasharray="6 5"/>
+    <text x="538" y="250" style="font-size:20px;font-weight:700">Depois</text>
+    <rect x="538" y="264" width="60" height="60" rx="8" fill="#DCE6F5" stroke="#254DB8" stroke-width="4"/>
+    <text x="568" y="303" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#254DB8">S1</text>
+    <rect x="638" y="264" width="60" height="60" rx="8" fill="none" stroke="#9FB3D1" stroke-width="2" stroke-dasharray="6 5"/>
+    <rect x="744" y="24" width="220" height="320" rx="14" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <rect x="744" y="24" width="220" height="60" rx="14" fill="#254DB8"/>
+    <text x="854" y="62" text-anchor="middle" style="font-size:24px;font-weight:700" fill="#FFFFFF">Remoção</text>
+    <text x="774" y="122" style="font-size:20px;font-weight:700">Antes</text>
+    <rect x="774" y="136" width="60" height="60" rx="8" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="804" y="175" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#16243A">S1</text>
+    <rect x="874" y="136" width="60" height="60" rx="8" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="904" y="175" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#16243A">S2</text>
+    <text x="774" y="250" style="font-size:20px;font-weight:700">Depois</text>
+    <rect x="774" y="264" width="60" height="60" rx="8" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="804" y="303" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#16243A">S1</text>
+    <rect x="874" y="264" width="60" height="60" rx="8" fill="none" stroke="#9FB3D1" stroke-width="2" stroke-dasharray="6 5"/>
+    <rect x="36" y="364" width="928" height="72" rx="14" fill="#16243A"/>
+    <text x="500" y="408" text-anchor="middle" style="font-size:24px;font-weight:700" fill="#FFFFFF">Tamanho, custo, recurso e tempo de cada mudança</text>
+  </g>
+</svg>
