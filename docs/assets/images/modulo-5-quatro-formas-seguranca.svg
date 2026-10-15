@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 836" role="img" aria-labelledby="title desc">
+  <title id="title">Quatro formas de especificar segurança</title>
+  <desc id="desc">Quatro cartões: requisito funcional, requisito não funcional, diretiva corporativa e padrão técnico. Cada cartão traz o que a forma especifica e um exemplo curto.</desc>
+  <rect width="1000" height="836" rx="28" fill="#F2F6FB"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" fill="#16243A">
+    <text x="24" y="46" style="font-size:26px;font-weight:700">Quatro formas de especificar segurança</text>
+
+    <rect x="24" y="84" width="470" height="352" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <path d="M24,100 a16,16 0 0 1 16,-16 h438 a16,16 0 0 1 16,16 v44 h-470 z" fill="#16243A"/>
+    <text x="48" y="124" style="font-size:25px;font-weight:700" fill="#FFFFFF">Requisito funcional</text>
+    <text x="48" y="176" style="font-size:21px;font-weight:700" fill="#254DB8">O que especifica</text>
+    <text x="48" y="206" style="font-size:21px">Controle que faz parte da</text>
+    <text x="48" y="236" style="font-size:21px">funcionalidade, como acesso por</text>
+    <text x="48" y="266" style="font-size:21px">papel, regra de negócio que impede</text>
+    <text x="48" y="296" style="font-size:21px">atividade indevida ou auditoria</text>
+    <rect x="40" y="320" width="438" height="98" rx="12" fill="#FFF7E6" stroke="#F2B84B" stroke-width="3"/>
+    <text x="56" y="348" style="font-size:21px;font-weight:700" fill="#254DB8">Exemplo</text>
+    <text x="56" y="376" style="font-size:21px">Somente o perfil de secretaria</text>
+    <text x="56" y="404" style="font-size:21px">acadêmica emite histórico escolar</text>
+
+    <rect x="506" y="84" width="470" height="352" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <path d="M506,100 a16,16 0 0 1 16,-16 h438 a16,16 0 0 1 16,16 v44 h-470 z" fill="#16243A"/>
+    <text x="530" y="124" style="font-size:25px;font-weight:700" fill="#FFFFFF">Requisito não funcional</text>
+    <text x="530" y="176" style="font-size:21px;font-weight:700" fill="#254DB8">O que especifica</text>
+    <text x="530" y="206" style="font-size:21px">Medida que impede ataque e</text>
+    <text x="530" y="236" style="font-size:21px">tentativa de desviar a solução da</text>
+    <text x="530" y="266" style="font-size:21px">finalidade</text>
+    <rect x="522" y="320" width="438" height="98" rx="12" fill="#FFF7E6" stroke="#F2B84B" stroke-width="3"/>
+    <text x="538" y="348" style="font-size:21px;font-weight:700" fill="#254DB8">Exemplo</text>
+    <text x="538" y="376" style="font-size:21px">Toda transmissão de dado pessoal</text>
+    <text x="538" y="404" style="font-size:21px">é cifrada</text>
+
+    <rect x="24" y="460" width="470" height="352" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <path d="M24,476 a16,16 0 0 1 16,-16 h438 a16,16 0 0 1 16,16 v44 h-470 z" fill="#16243A"/>
+    <text x="48" y="500" style="font-size:25px;font-weight:700" fill="#FFFFFF">Diretiva corporativa</text>
+    <text x="48" y="552" style="font-size:21px;font-weight:700" fill="#254DB8">O que especifica</text>
+    <text x="48" y="582" style="font-size:21px">Princípio ou política que define como</text>
+    <text x="48" y="612" style="font-size:21px">a segurança se aplica numa área da</text>
+    <text x="48" y="642" style="font-size:21px">organização</text>
+    <rect x="40" y="696" width="438" height="98" rx="12" fill="#FFF7E6" stroke="#F2B84B" stroke-width="3"/>
+    <text x="56" y="724" style="font-size:21px;font-weight:700" fill="#254DB8">Exemplo</text>
+    <text x="56" y="752" style="font-size:21px">Todo acesso a dado é registrado e</text>
+    <text x="56" y="780" style="font-size:21px">fica disponível para auditoria</text>
+
+    <rect x="506" y="460" width="470" height="352" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <path d="M506,476 a16,16 0 0 1 16,-16 h438 a16,16 0 0 1 16,16 v44 h-470 z" fill="#16243A"/>
+    <text x="530" y="500" style="font-size:25px;font-weight:700" fill="#FFFFFF">Padrão técnico</text>
+    <text x="530" y="552" style="font-size:21px;font-weight:700" fill="#254DB8">O que especifica</text>
+    <text x="530" y="582" style="font-size:21px">Especificação adotada pela</text>
+    <text x="530" y="612" style="font-size:21px">organização que garante tipo e nível</text>
+    <text x="530" y="642" style="font-size:21px">de comportamento de segurança</text>
+    <rect x="522" y="696" width="438" height="98" rx="12" fill="#FFF7E6" stroke="#F2B84B" stroke-width="3"/>
+    <text x="538" y="724" style="font-size:21px;font-weight:700" fill="#254DB8">Exemplo</text>
+    <text x="538" y="752" style="font-size:21px">Autenticação por OpenID Connect em</text>
+    <text x="538" y="780" style="font-size:21px">toda aplicação exposta ao usuário</text>
+  </g>
+</svg>

@@ -31,6 +31,12 @@ A arquitetura de segurança é o domínio que incorpora o desenho de segurança 
 
 Numa solução, a segurança chega ao desenho por quatro caminhos diferentes, e a tabela abaixo traz um exemplo de cada um. Os dois primeiros seguem a distinção entre requisito funcional e requisito não funcional apresentada no [bloco 2 da Aula 2](../modulo-2-requisitos-e-partes-interessadas/bloco-2-qualidade-e-tipos-de-requisito.md), e o último usa padrão técnico no sentido definido no [bloco 3 da Aula 4](../modulo-4-dominios-da-solucao/bloco-3-arquitetura-de-aplicacoes-e-integracao.md#padrao-tecnico-protocolo-especificacao-e-contrato), como especificação adotada pela organização e reconhecida fora dela.
 
+<figure markdown="span">
+![Quatro cartões com as formas de especificar segurança: requisito funcional, requisito não funcional, diretiva corporativa e padrão técnico. Cada cartão traz o que a forma especifica e um exemplo curto.](../assets/images/modulo-5-quatro-formas-seguranca.svg){ .module-diagram }
+</figure>
+
+*Figura 1 — As quatro formas de especificar segurança, com o que cada uma especifica e um exemplo. Fonte: material do curso.*
+
 | Forma | O que especifica | Exemplo |
 | --- | --- | --- |
 | Requisito funcional | Controle que faz parte da funcionalidade, como acesso por papel, regra de negócio que impede atividade indevida ou auditoria | Somente o perfil de secretaria acadêmica emite histórico escolar |
@@ -52,19 +58,25 @@ A base legal é a hipótese que autoriza o tratamento do dado pessoal, e o art. 
 
 O controle de acesso é a parte da segurança que admite especificação precisa, porque declara quais pessoas e sistemas podem executar cada tarefa e acessar cada recurso. Na forma mais simples, essa especificação é uma grade de permissões, uma tabela que cruza recursos ou tarefas num eixo com entidades no outro, e a entidade pode ser uma pessoa, um grupo, um papel ou um sistema. Toda entidade ausente da grade para um recurso fica impedida de acessá-lo, e cada interseção preenchida indica o tipo de acesso permitido, leitura ou gravação, e a condição que precisa ser satisfeita para que o acesso ocorra, como acessar somente o próprio registro.
 
-A grade recebe ainda o nível de segurança de cada recurso, baixo, médio ou alto, atribuído pela gravidade de uma violação. Esse nível é um requisito não funcional e orienta os especialistas de segurança e de infraestrutura na escolha da proteção, e a Figura 1 mostra uma grade genérica com três entidades, três recursos e o nível de cada recurso.
+A grade recebe ainda o nível de segurança de cada recurso, baixo, médio ou alto, atribuído pela gravidade de uma violação. Esse nível é um requisito não funcional e orienta os especialistas de segurança e de infraestrutura na escolha da proteção, e a Figura 2 mostra uma grade genérica com três entidades, três recursos e o nível de cada recurso.
 
 <figure markdown="span">
 ![Tabela com três recursos nas linhas, catálogo, pedido e configuração, e três entidades nas colunas, usuário final, serviço de aplicação e administrador. Cada célula indica L para leitura, E para gravação ou traço para nenhum acesso, e a célula do usuário final no pedido tem a condição de acessar somente o próprio pedido. A última coluna atribui nível de segurança baixo ao catálogo, alto ao pedido e médio à configuração.](../assets/images/modulo-5-grade-de-permissoes.svg){ .module-diagram }
 </figure>
 
-*Figura 1 — Grade de permissões com tipo de acesso e nível de segurança. Fonte: material do curso, com base em Lovatt (2021, seção 4.6.7).*
+*Figura 2 — Grade de permissões com tipo de acesso e nível de segurança. Fonte: material do curso, com base em Lovatt (2021, seção 4.6.7).*
 
-O princípio que orienta o preenchimento da grade é o **menor privilégio**, segundo o qual cada entidade recebe o conjunto mínimo de recursos, com o menor nível de privilégio, que ainda permite executar as atividades de negócio que lhe cabem. Na prática, a leitura é concedida a quem precisa consultar, a gravação fica reservada a quem não consegue concluir a tarefa sem ela, e a condição restringe o alcance do acesso, como na célula do usuário final da Figura 1, que lê e grava somente o próprio pedido.
+O princípio que orienta o preenchimento da grade é o **menor privilégio**, segundo o qual cada entidade recebe o conjunto mínimo de recursos, com o menor nível de privilégio, que ainda permite executar as atividades de negócio que lhe cabem. Na prática, a leitura é concedida a quem precisa consultar, a gravação fica reservada a quem não consegue concluir a tarefa sem ela, e a condição restringe o alcance do acesso, como na célula do usuário final da Figura 2, que lê e grava somente o próprio pedido.
 
 ### Controles da zona de pouso
 
 Três pilares da zona de pouso apresentada no [bloco 2](bloco-2-plataforma-arquitetural.md#zona-de-pouso-a-fundacao-da-plataforma) funcionam também como controles de segurança, e a avaliação de ponta a ponta confere se a solução os usa. A lista abaixo descreve o papel de segurança de cada um.
+
+<figure markdown="span">
+![Três fronteiras criadas pelos ambientes separados em contas ou assinaturas distintas: a fronteira de permissão, a fronteira de conformidade e a fronteira de efeito, cada uma com sua função. Abaixo, dois cartões: a sub-rede privada, que abriga os serviços de retaguarda e os bancos de dados, e a identidade centralizada por padrão aberto.](../assets/images/modulo-5-tres-fronteiras-zona-de-pouso.svg){ .module-diagram }
+</figure>
+
+*Figura 3 — As três fronteiras dos ambientes separados, a sub-rede privada e a identidade centralizada. Fonte: material do curso.*
 
 1. Os ambientes separados em contas ou assinaturas distintas criam três fronteiras. A fronteira de permissão impede que a credencial de desenvolvimento alcance os dados de produção, a fronteira de conformidade permite aplicar políticas diferentes a cada ambiente e restringir a produção a poucos perfis, e a fronteira de efeito mantém um erro de teste contido na conta onde ocorreu.
 2. A sub-rede privada abriga os serviços de retaguarda e os bancos de dados, que nunca ficam expostos diretamente à internet, e a sub-rede pública contém apenas o ponto de entrada, como o gateway de APIs ou o balanceador de carga.
@@ -85,17 +97,23 @@ A modelagem de ameaças examina cada fronteira com o **STRIDE**, uma classifica�
 | Negação de serviço | Disponibilidade | Limite de taxa por cliente e reserva de capacidade |
 | Elevação de privilégio | Autorização | Autorização por papel verificada no próprio serviço |
 
-A Figura 2 aplica as seis categorias a uma única fronteira, com cada seta numerada representando uma forma de ataque à mesma travessia entre cliente e serviço.
+A Figura 4 aplica as seis categorias a uma única fronteira, com cada seta numerada representando uma forma de ataque à mesma travessia entre cliente e serviço.
 
 <figure markdown="span">
 ![À esquerda, um bloco chamado cliente, em zona de menor confiança. À direita, um bloco chamado serviço, em zona de maior confiança. Entre os dois, uma linha vertical tracejada rotulada fronteira de confiança, atravessada por seis setas numeradas. Abaixo, a legenda associa cada número a uma categoria, falsificação de identidade, adulteração, repúdio, divulgação de informação, negação de serviço e elevação de privilégio.](../assets/images/modulo-5-fronteira-de-confianca-stride.svg){ .module-diagram }
 </figure>
 
-*Figura 2 — Uma fronteira de confiança e as seis categorias STRIDE aplicadas a ela. Fonte: material do curso, com base em Shostack (2014).*
+*Figura 4 — Uma fronteira de confiança e as seis categorias STRIDE aplicadas a ela. Fonte: material do curso, com base em Shostack (2014).*
 
 ### Autoridade de design de segurança
 
 Como a avaliação de segurança é um campo especializado, as organizações reúnem cada vez mais uma **autoridade de design de segurança**, grupo que decide sobre os aspectos de segurança de todas as soluções e recebe boa parte da responsabilidade por assegurar a segurança de ponta a ponta. Ela aplica dois testes ao desenho de cada solução e entrega uma avaliação com recomendações, que a equipe de solução e a equipe de arquitetura de infraestrutura executam.
+
+<figure markdown="span">
+![Fluxo da autoridade de design de segurança. O desenho da solução é a entrada, a conformidade com as diretivas e o teste de vulnerabilidade são os dois testes, e a avaliação com recomendações é a saída. Abaixo, três cartões da matriz RACI: a autoridade de design de segurança com R e A, o arquiteto de solução com C e R pela revisão e o arquiteto de infraestrutura com C e R pelas mudanças.](../assets/images/modulo-5-autoridade-seguranca.svg){ .module-diagram }
+</figure>
+
+*Figura 5 — Do desenho da solução à avaliação com recomendações, com os três papéis da matriz RACI. Fonte: material do curso, com base em Lovatt (2021, seção 7.7).*
 
 1. A conformidade com as diretivas audita o desenho contra os princípios, as políticas e os padrões de segurança adotados pela organização, como a ISO/IEC 27001, cuja edição de 2022 especifica os requisitos para estabelecer, implementar, manter e melhorar continuamente um sistema de gestão de segurança da informação.
 2. O teste de vulnerabilidade simula ameaças e atividades maliciosas para testar a resistência da solução, com apoio de catálogos públicos, como a lista OWASP Top 10, cuja edição de 2021 é usada neste bloco, e o CWE, lista de fraquezas de software e de hardware mantida pela MITRE que serve de linguagem comum para descrever falhas de segurança.

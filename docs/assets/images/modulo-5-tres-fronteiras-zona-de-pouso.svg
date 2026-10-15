@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" role="img" aria-labelledby="title desc">
+  <title id="title">Controles de segurança da zona de pouso</title>
+  <desc id="desc">Os ambientes separados em contas ou assinaturas distintas criam três fronteiras: permissão, conformidade e efeito. Abaixo, a sub-rede privada e a identidade centralizada por padrão aberto.</desc>
+  <rect width="1000" height="800" rx="28" fill="#F2F6FB"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" fill="#16243A">
+    <text x="24" y="46" style="font-size:26px;font-weight:700">Controles da zona de pouso</text>
+
+    <rect x="24" y="76" width="952" height="374" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <text x="48" y="112" style="font-size:22px;font-weight:700">Os ambientes separados em contas ou assinaturas</text>
+    <text x="48" y="142" style="font-size:22px;font-weight:700">distintas criam três fronteiras</text>
+
+    <rect x="44" y="164" width="292" height="266" rx="14" fill="#F2F6FB" stroke="#254DB8" stroke-width="3"/>
+    <path d="M44,178 a14,14 0 0 1 14,-14 h264 a14,14 0 0 1 14,14 v62 h-292 z" fill="#254DB8"/>
+    <text x="60" y="194" style="font-size:22px;font-weight:700" fill="#FFFFFF">Fronteira</text>
+    <text x="60" y="224" style="font-size:22px;font-weight:700" fill="#FFFFFF">de permissão</text>
+    <text x="60" y="274" style="font-size:21px">impede que a credencial</text>
+    <text x="60" y="304" style="font-size:21px">de desenvolvimento</text>
+    <text x="60" y="334" style="font-size:21px">alcance os dados</text>
+    <text x="60" y="364" style="font-size:21px">de produção</text>
+
+    <rect x="354" y="164" width="292" height="266" rx="14" fill="#F2F6FB" stroke="#254DB8" stroke-width="3"/>
+    <path d="M354,178 a14,14 0 0 1 14,-14 h264 a14,14 0 0 1 14,14 v62 h-292 z" fill="#254DB8"/>
+    <text x="370" y="194" style="font-size:22px;font-weight:700" fill="#FFFFFF">Fronteira</text>
+    <text x="370" y="224" style="font-size:22px;font-weight:700" fill="#FFFFFF">de conformidade</text>
+    <text x="370" y="274" style="font-size:21px">permite aplicar políticas</text>
+    <text x="370" y="304" style="font-size:21px">diferentes a cada</text>
+    <text x="370" y="334" style="font-size:21px">ambiente e restringir a</text>
+    <text x="370" y="364" style="font-size:21px">produção a poucos perfis</text>
+
+    <rect x="664" y="164" width="292" height="266" rx="14" fill="#F2F6FB" stroke="#254DB8" stroke-width="3"/>
+    <path d="M664,178 a14,14 0 0 1 14,-14 h264 a14,14 0 0 1 14,14 v62 h-292 z" fill="#254DB8"/>
+    <text x="680" y="194" style="font-size:22px;font-weight:700" fill="#FFFFFF">Fronteira</text>
+    <text x="680" y="224" style="font-size:22px;font-weight:700" fill="#FFFFFF">de efeito</text>
+    <text x="680" y="274" style="font-size:21px">mantém um erro de teste</text>
+    <text x="680" y="304" style="font-size:21px">contido na conta</text>
+    <text x="680" y="334" style="font-size:21px">onde ocorreu</text>
+
+    <rect x="24" y="474" width="464" height="300" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <path d="M24,490 a16,16 0 0 1 16,-16 h432 a16,16 0 0 1 16,16 v68 h-464 z" fill="#16243A"/>
+    <text x="48" y="524" style="font-size:25px;font-weight:700" fill="#FFFFFF">Sub-rede privada</text>
+    <text x="48" y="604" style="font-size:21px">abriga os serviços de retaguarda e os</text>
+    <text x="48" y="634" style="font-size:21px">bancos de dados, que nunca ficam</text>
+    <text x="48" y="664" style="font-size:21px">expostos diretamente à internet, e a</text>
+    <text x="48" y="694" style="font-size:21px">sub-rede pública contém apenas o</text>
+    <text x="48" y="724" style="font-size:21px">ponto de entrada, como o gateway de</text>
+    <text x="48" y="754" style="font-size:21px">APIs ou o balanceador de carga</text>
+
+    <rect x="512" y="474" width="464" height="300" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <path d="M512,490 a16,16 0 0 1 16,-16 h432 a16,16 0 0 1 16,16 v68 h-464 z" fill="#16243A"/>
+    <text x="536" y="509" style="font-size:25px;font-weight:700" fill="#FFFFFF">Identidade centralizada</text>
+    <text x="536" y="541" style="font-size:25px;font-weight:700" fill="#FFFFFF">por padrão aberto</text>
+    <text x="536" y="604" style="font-size:21px">reúne num só lugar o controle de quem</text>
+    <text x="536" y="634" style="font-size:21px">acessa cada conta e com qual perfil, o</text>
+    <text x="536" y="664" style="font-size:21px">que permite auditar as operações</text>
+    <text x="536" y="694" style="font-size:21px">sensíveis e trocar o provedor sem</text>
+    <text x="536" y="724" style="font-size:21px">alterar as aplicações clientes</text>
+  </g>
+</svg>

@@ -23,8 +23,11 @@ BLOCKS = {
           "modulo-5-pilares-zona-de-pouso.svg",
           "modulo-5-iac-e-etiquetas.svg",
           "modulo-5-tres-sinais-observabilidade.svg"), 18, ("7.5",)),
-    B3: (("modulo-5-fronteira-de-confianca-stride.svg",
-          "modulo-5-grade-de-permissoes.svg"), 19, ("2.9", "4.6.7", "7.7")),
+    B3: (("modulo-5-quatro-formas-seguranca.svg",
+          "modulo-5-grade-de-permissoes.svg",
+          "modulo-5-tres-fronteiras-zona-de-pouso.svg",
+          "modulo-5-fronteira-de-confianca-stride.svg",
+          "modulo-5-autoridade-seguranca.svg"), 19, ("2.9", "4.6.7", "7.7")),
     B4: (("modulo-5-tipos-de-lacuna.svg",), 20, ("7.8", "7.9")),
 }
 
