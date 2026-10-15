@@ -43,7 +43,7 @@ VERIFIED_SOURCES = (
     "CWE",
     "ISO/IEC 27001",
     "AWS Control Tower",
-    "Azure landing zones",
+    "Azure landing zone",
 )
 
 GLOSSARY_HEADINGS = (

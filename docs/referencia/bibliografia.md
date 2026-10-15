@@ -4,6 +4,7 @@ Fontes conferidas, no formato APA 7ª edição. Referências adicionais entram s
 
 - International Organization for Standardization/International Electrotechnical Commission/Institute of Electrical and Electronics Engineers. (2022). *Systems and software engineering — Architecture description* (ISO/IEC/IEEE 42010:2022).
 - International Organization for Standardization. (2023). *Systems and software engineering — Systems and software quality requirements and evaluation (SQuaRE) — Product quality model* (ISO/IEC 25010:2023).
+- International Organization for Standardization/International Electrotechnical Commission. (2022). *Information security, cybersecurity and privacy protection — Information security management systems — Requirements* (ISO/IEC 27001:2022). https://webstore.iec.ch/publication/79694
 - Barbacci, M., Ellison, R., Lattanze, A., Stafford, J., Weinstock, C., & Wood, W. (2003). *Quality attribute workshops (QAWs), third edition* (CMU/SEI-2003-TR-016). Software Engineering Institute, Carnegie Mellon University.
 - Bass, L., Clements, P., & Kazman, R. (2021). *Software architecture in practice* (4th ed.). Addison-Wesley.
 - Ford, N., & Richards, M. (2020). *Fundamentals of software architecture*. O'Reilly.
@@ -53,6 +54,7 @@ Fontes conferidas, no formato APA 7ª edição. Referências adicionais entram s
 - Debezium. (n.d.-a). *Debezium features*. https://debezium.io/documentation/reference/stable/features.html
 - Debezium. (n.d.-b). *Debezium connector for PostgreSQL*. https://debezium.io/documentation/reference/stable/connectors/postgresql.html
 - Richardson, C. (n.d.). *Pattern: Database per service*. Microservices.io. https://microservices.io/patterns/data/database-per-service.html
+- Shostack, A. (2014). *Threat modeling: Designing for security*. Wiley. https://shostack.org/books/threat-modeling-book
 - gRPC Authors. (n.d.-a). *Introduction to gRPC*. https://grpc.io/docs/what-is-grpc/introduction/
 - gRPC Authors. (n.d.-b). *FAQ*. https://grpc.io/docs/what-is-grpc/faq/
 - GraphQL Foundation. (n.d.). *Learn GraphQL*. https://graphql.org/learn/
@@ -65,7 +67,12 @@ Fontes conferidas, no formato APA 7ª edição. Referências adicionais entram s
 - Amazon Web Services. (n.d.-a). *Regions and zones*. Amazon EC2 User Guide. https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html
 - Amazon Web Services. (n.d.-b). *What is AWS Lambda?* AWS Lambda Developer Guide. https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
 - Amazon Web Services. (n.d.-c). *What is Direct Connect?* AWS Direct Connect User Guide. https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html
+- Amazon Web Services. (n.d.-d). *What is AWS Control Tower?* AWS Control Tower User Guide. https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html
+- Amazon Web Services. (n.d.-e). *Landing Zone Accelerator on AWS: Solution overview*. Landing Zone Accelerator on AWS Implementation Guide. https://docs.aws.amazon.com/solutions/latest/landing-zone-accelerator-on-aws/solution-overview.html
+- Microsoft. (2025). *What is an Azure landing zone?* Cloud Adoption Framework, Microsoft Learn. Acesso em 15 de outubro de 2026. https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/
 - Microsoft. (2026). *Azure ExpressRoute overview: Connect over a private connection*. Microsoft Learn. https://learn.microsoft.com/en-us/azure/expressroute/expressroute-introduction
+- MITRE Corporation. (n.d.). *Common Weakness Enumeration (CWE)*. Acesso em 15 de outubro de 2026. https://cwe.mitre.org/
+- OWASP Foundation. (2021). *OWASP Top 10:2021*. Acesso em 15 de outubro de 2026. https://top10.owasp.org/2021
 - The Kubernetes Authors. (n.d.-a). *Nodes*. Kubernetes Documentation. https://kubernetes.io/docs/concepts/architecture/nodes/
 - The Kubernetes Authors. (n.d.-b). *Pods*. Kubernetes Documentation. https://kubernetes.io/docs/concepts/workloads/pods/
 
