@@ -28,7 +28,10 @@ BLOCKS = {
           "modulo-5-tres-fronteiras-zona-de-pouso.svg",
           "modulo-5-fronteira-de-confianca-stride.svg",
           "modulo-5-autoridade-seguranca.svg"), 19, ("2.9", "4.6.7", "7.7")),
-    B4: (("modulo-5-tipos-de-lacuna.svg",), 20, ("7.8", "7.9")),
+    B4: (("modulo-5-campos-do-adr.svg",
+          "modulo-5-seis-dimensoes-fornecedor.svg",
+          "modulo-5-par-de-adrs.svg",
+          "modulo-5-tipos-de-lacuna.svg"), 20, ("7.8", "7.9")),
 }
 
 CRITERIA = ("aderência ao requisito", "maturidade", "suporte",

@@ -15,6 +15,12 @@ Um **ADR de plataforma** é o segundo ADR do par ensinado na disciplina, escrito
 
 O template não muda entre os dois. O conteúdo de cada campo muda, e três campos mudam de forma característica.
 
+<figure markdown="span">
+![Lista dos dez campos do template de ADR, título, estado, data, contexto, forças, alternativas, decisão, consequências, evidências e revisão, com forças, alternativas e consequências em destaque por mudarem de forma característica.](../assets/images/modulo-5-campos-do-adr.svg){ .module-diagram }
+</figure>
+
+*Figura 1 — Os dez campos do template de ADR, com os três que mudam de forma característica no ADR de plataforma. Fonte: material do curso, com base em Mendes (2026a).*
+
 ### O que muda no campo de forças
 
 Em um ADR de estilo, as forças são [atributos de qualidade](../referencia/glossario.md#atributo-de-qualidade) do sistema, como absorver pico de carga ou isolar falha. Em um ADR de plataforma, elas incluem esses atributos e acrescentam os seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao), entre eles competência da equipe, custo total de propriedade e maturidade da tecnologia.
@@ -27,6 +33,12 @@ A essas forças soma-se uma que só aparece na decisão de plataforma. A **depen
 4. observabilidade
 5. custo de saída de dados
 6. habilidades da equipe
+
+<figure markdown="span">
+![Seis cartões numerados com as dimensões da dependência de fornecedor que precisam ficar explícitas no ADR, API proprietária, formato de dados, identidade, observabilidade, custo de saída de dados e habilidades da equipe, sob a definição de dependência de fornecedor.](../assets/images/modulo-5-seis-dimensoes-fornecedor.svg){ .module-diagram }
+</figure>
+
+*Figura 2 — As seis dimensões de dependência de fornecedor que o ADR de plataforma torna explícitas. Fonte: material do curso, com base em Mendes (2026a).*
 
 Abstrair tudo antecipadamente para fugir dessa dependência cria uma plataforma paralela, que é um custo novo. O caminho é preferir contratos de domínio, exportação testada, infraestrutura declarativa e uma condição mensurável de saída. A dependência de fornecedor é aceitável quando o benefício específico é conhecido e a decisão é revisável.
 
@@ -44,6 +56,12 @@ A Seguradora ACME, que já decidiu por uma [arquitetura orientada a eventos](../
 
 Os dois ADRs não vivem isolados um do outro. O ADR de plataforma faz uma **referência cruzada** ao título do ADR de estilo no seu campo de contexto, porque a plataforma só faz sentido como resposta a um estilo já fixado, e um leitor que chega ao ADR de plataforma sem ter lido o ADR de estilo precisa encontrar esse encadeamento no próprio texto. Quando a prática se firma, o ADR de estilo passa a citar, no campo de revisão, o ADR de plataforma que veio depois, fechando o par nos dois sentidos.
 
+<figure markdown="span">
+![Dois quadros, o ADR de estilo acima e o ADR de plataforma abaixo. Uma seta sobe do campo de contexto do ADR de plataforma ao ADR de estilo, com a referência cruzada ao título, e uma seta desce do campo de revisão do ADR de estilo ao ADR de plataforma, com a citação feita quando a prática se firma.](../assets/images/modulo-5-par-de-adrs.svg){ .module-diagram }
+</figure>
+
+*Figura 3 — O par de registros, com a referência cruzada no campo de contexto e a citação no campo de revisão. Fonte: material do curso, com base em Mendes (2026a).*
+
 ### Lacunas na provisão de serviços
 
 Quando a definição tecnológica está completa, o arquiteto compara os serviços que ela exige com o **catálogo de infraestrutura**, a lista dos serviços que a organização já provê, e registra tudo o que impede ou atrapalha a implantação da solução. O resultado é um **relatório de lacunas**, em que cada item é uma lacuna de provisão classificada em um dos quatro tipos da tabela abaixo, e a mesma classificação vale para as lacunas que a [autoridade de design de segurança](bloco-3-seguranca-fim-a-fim.md) aponta no bloco anterior.
@@ -59,7 +77,7 @@ Quando a definição tecnológica está completa, o arquiteto compara os serviç
 ![Quatro cartões em linha, um para cada tipo de lacuna, cada um com o catálogo de serviços antes e depois da mudança. Na lacuna nova, o serviço S2 é acrescentado. Na substituição, o S1 dá lugar ao S2. Na modificação, o S1 permanece com outra configuração. Na remoção, o S2 deixa o catálogo. Uma faixa inferior indica que cada mudança recebe tamanho, custo, recurso e tempo.](../assets/images/modulo-5-tipos-de-lacuna.svg){ .module-diagram }
 </figure>
 
-*Figura 1 — Os quatro tipos de lacuna na provisão de serviços de infraestrutura. Fonte: material do curso, com base em Lovatt (2021, seção 7.8).*
+*Figura 4 — Os quatro tipos de lacuna na provisão de serviços de infraestrutura. Fonte: material do curso, com base em Lovatt (2021, seção 7.8).*
 
 Cada lacuna recebe uma estimativa de tamanho, custo, recurso e tempo, porque toda mudança exige esforço e, em geral, algum desembolso. Uma troca de serviço pode reduzir o custo recorrente depois de custar para ser executada, já que o serviço novo pode operar com mais eficiência. A justificativa de algumas soluções é justamente reduzir o custo de operação, e esse resultado raramente se alcança sem investir antes em mudança. Quando o custo total fica acima do esperado, o arquiteto revê a tecnologia de infraestrutura, o desenho da solução, o escopo e a escala ou as oportunidades de linha de base incluídas. As lacunas confirmadas entram no [roteiro de entrega](../modulo-6-lacunas-e-governanca/index.md) da Aula 6, onde a análise de lacunas é tratada como método próprio.
 

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 562" role="img" aria-labelledby="title desc">
+  <title id="title">Seis dimensões da dependência de fornecedor</title>
+  <desc id="desc">A dependência de fornecedor, definida como a dificuldade de trocar ou negociar uma dependência, técnica ou organizacional, e as seis dimensões que precisam ficar explícitas no ADR: API proprietária, formato de dados, identidade, observabilidade, custo de saída de dados e habilidades da equipe.</desc>
+  <rect width="1000" height="562" rx="28" fill="#F2F6FB"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" fill="#16243A">
+    <text x="24" y="46" style="font-size:26px;font-weight:700">Decisão de plataforma</text>
+    <rect x="24" y="76" width="952" height="138" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <path d="M24,92 a16,16 0 0 1 16,-16 h920 a16,16 0 0 1 16,16 v36 h-952 z" fill="#16243A"/>
+    <text x="48" y="110" style="font-size:25px;font-weight:700" fill="#FFFFFF">Dependência de fornecedor</text>
+    <text x="48" y="168" style="font-size:22px">Dificuldade de trocar ou negociar uma dependência,</text>
+    <text x="48" y="198" style="font-size:22px">técnica ou organizacional</text>
+    <text x="24" y="262" style="font-size:22px;font-weight:700" fill="#254DB8">Seis dimensões que precisam ficar explícitas no ADR</text>
+    <rect x="24" y="286" width="292" height="112" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="64" cy="342" r="22" fill="#254DB8"/>
+    <text x="64" y="350" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#FFFFFF">1</text>
+    <text x="100" y="350" style="font-size:22px;font-weight:700">API proprietária</text>
+    <rect x="354" y="286" width="292" height="112" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="394" cy="342" r="22" fill="#254DB8"/>
+    <text x="394" y="350" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#FFFFFF">2</text>
+    <text x="430" y="335" style="font-size:22px;font-weight:700">Formato</text>
+    <text x="430" y="365" style="font-size:22px;font-weight:700">de dados</text>
+    <rect x="684" y="286" width="292" height="112" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="724" cy="342" r="22" fill="#254DB8"/>
+    <text x="724" y="350" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#FFFFFF">3</text>
+    <text x="760" y="350" style="font-size:22px;font-weight:700">Identidade</text>
+    <rect x="24" y="422" width="292" height="112" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="64" cy="478" r="22" fill="#254DB8"/>
+    <text x="64" y="486" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#FFFFFF">4</text>
+    <text x="100" y="486" style="font-size:22px;font-weight:700">Observabilidade</text>
+    <rect x="354" y="422" width="292" height="112" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="394" cy="478" r="22" fill="#254DB8"/>
+    <text x="394" y="486" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#FFFFFF">5</text>
+    <text x="430" y="471" style="font-size:22px;font-weight:700">Custo de saída</text>
+    <text x="430" y="501" style="font-size:22px;font-weight:700">de dados</text>
+    <rect x="684" y="422" width="292" height="112" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="724" cy="478" r="22" fill="#254DB8"/>
+    <text x="724" y="486" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#FFFFFF">6</text>
+    <text x="760" y="471" style="font-size:22px;font-weight:700">Habilidades</text>
+    <text x="760" y="501" style="font-size:22px;font-weight:700">da equipe</text>
+  </g>
+</svg>
