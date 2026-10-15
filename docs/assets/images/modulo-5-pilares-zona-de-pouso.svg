@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-labelledby="title desc">
+  <title id="title">Os cinco pilares da zona de pouso</title>
+  <desc id="desc">Cinco colunas numeradas sobre uma base comum. As colunas são contas ou assinaturas por ambiente, rede em topologia hub-spoke, identidade centralizada, políticas automatizadas e monitoramento com faturamento consolidado. Sob as cinco colunas, uma base comum indica infraestrutura como código e etiquetas de projeto, ambiente, time e centro de custo.</desc>
+  <rect width="1000" height="560" rx="28" fill="#F2F6FB"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" fill="#16243A">
+    <rect x="32" y="24" width="936" height="64" rx="14" fill="#16243A"/>
+    <text x="500" y="65" text-anchor="middle" style="font-size:24px;font-weight:700" fill="#FFFFFF">Zona de pouso: fundação anterior à primeira carga</text>
+    <rect x="32" y="108" width="180" height="300" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="122" cy="142" r="20" fill="#254DB8"/>
+    <text x="122" y="150" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#FFFFFF">1</text>
+    <text x="122" y="198" text-anchor="middle" style="font-size:20px;font-weight:700">Contas por</text>
+    <text x="122" y="226" text-anchor="middle" style="font-size:20px;font-weight:700">ambiente</text>
+    <text x="122" y="286" text-anchor="middle" style="font-size:20px" fill="#3E4F66">desenvolvimento</text>
+    <text x="122" y="320" text-anchor="middle" style="font-size:20px" fill="#3E4F66">homologação</text>
+    <text x="122" y="354" text-anchor="middle" style="font-size:20px" fill="#3E4F66">produção</text>
+    <rect x="221" y="108" width="180" height="300" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="311" cy="142" r="20" fill="#254DB8"/>
+    <text x="311" y="150" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#FFFFFF">2</text>
+    <text x="311" y="198" text-anchor="middle" style="font-size:20px;font-weight:700">Rede</text>
+    <text x="311" y="226" text-anchor="middle" style="font-size:20px;font-weight:700">hub-spoke</text>
+    <text x="311" y="286" text-anchor="middle" style="font-size:20px" fill="#3E4F66">rede central</text>
+    <text x="311" y="320" text-anchor="middle" style="font-size:20px" fill="#3E4F66">redes por carga</text>
+    <text x="311" y="354" text-anchor="middle" style="font-size:20px" fill="#3E4F66">de trabalho</text>
+    <rect x="410" y="108" width="180" height="300" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="500" cy="142" r="20" fill="#254DB8"/>
+    <text x="500" y="150" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#FFFFFF">3</text>
+    <text x="500" y="198" text-anchor="middle" style="font-size:20px;font-weight:700">Identidade</text>
+    <text x="500" y="226" text-anchor="middle" style="font-size:20px;font-weight:700">centralizada</text>
+    <text x="500" y="286" text-anchor="middle" style="font-size:20px" fill="#3E4F66">quem acessa</text>
+    <text x="500" y="320" text-anchor="middle" style="font-size:20px" fill="#3E4F66">cada conta</text>
+    <text x="500" y="354" text-anchor="middle" style="font-size:20px" fill="#3E4F66">e com que perfil</text>
+    <rect x="599" y="108" width="180" height="300" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="689" cy="142" r="20" fill="#254DB8"/>
+    <text x="689" y="150" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#FFFFFF">4</text>
+    <text x="689" y="198" text-anchor="middle" style="font-size:20px;font-weight:700">Políticas</text>
+    <text x="689" y="226" text-anchor="middle" style="font-size:20px;font-weight:700">automatizadas</text>
+    <text x="689" y="286" text-anchor="middle" style="font-size:20px" fill="#3E4F66">regra aplicada</text>
+    <text x="689" y="320" text-anchor="middle" style="font-size:20px" fill="#3E4F66">a todo recurso</text>
+    <text x="689" y="354" text-anchor="middle" style="font-size:20px" fill="#3E4F66">criado</text>
+    <rect x="788" y="108" width="180" height="300" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="878" cy="142" r="20" fill="#254DB8"/>
+    <text x="878" y="150" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#FFFFFF">5</text>
+    <text x="878" y="198" text-anchor="middle" style="font-size:20px;font-weight:700">Monitoramento</text>
+    <text x="878" y="226" text-anchor="middle" style="font-size:20px;font-weight:700">e faturamento</text>
+    <text x="878" y="286" text-anchor="middle" style="font-size:20px" fill="#3E4F66">um só lugar</text>
+    <text x="878" y="320" text-anchor="middle" style="font-size:20px" fill="#3E4F66">para o estado</text>
+    <text x="878" y="354" text-anchor="middle" style="font-size:20px" fill="#3E4F66">e o custo</text>
+    <rect x="32" y="428" width="936" height="108" rx="14" fill="#5FC0D1"/>
+    <text x="500" y="474" text-anchor="middle" style="font-size:26px;font-weight:700">Infraestrutura como código e etiquetas</text>
+    <text x="500" y="512" text-anchor="middle" style="font-size:21px">projeto, ambiente, time e centro de custo</text>
+  </g>
+</svg>

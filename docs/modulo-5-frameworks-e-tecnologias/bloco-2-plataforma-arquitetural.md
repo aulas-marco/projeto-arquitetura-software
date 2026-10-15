@@ -1,11 +1,13 @@
 # Plataforma arquitetural
 
-Este bloco dá sequência à aula respondendo a uma pergunta que só faz sentido depois do estilo já decidido, qual conjunto de tecnologias concretiza esse estilo na prática de desenvolvimento e operação.
+Este bloco responde a duas perguntas que só fazem sentido depois do estilo já decidido, qual conjunto de tecnologias concretiza esse estilo na prática de desenvolvimento e operação e sobre qual fundação em nuvem esse conjunto executa.
 
 ## Antes de começar
 
 - [Plataforma arquitetural](../referencia/glossario.md#plataforma-arquitetural)
 - [Racional arquitetural](../referencia/glossario.md#racional-arquitetural)
+- [Zona de pouso](../referencia/glossario.md#zona-de-pouso)
+- [Infraestrutura como código](../referencia/glossario.md#infraestrutura-como-codigo)
 
 ## Conceito
 
@@ -21,25 +23,11 @@ A segunda é a **composição multidimensional**. Uma plataforma não é monolí
 
 A terceira é o **alinhamento com práticas de engenharia**. A plataforma promove testabilidade, com ferramentas como o Jest e o JUnit, automação, com integração contínua e esteiras de implantação, e escalabilidade e manutenção, com orquestração de execução em Kubernetes ou Service Fabric.
 
-A quarta é a **adaptação ao contexto**. Plataformas não são universais. Elas são selecionadas e configuradas a partir de um racional arquitetural, apresentado no Conceito do [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), que leva em conta sete fatores.
-
-1. atendimento aos requisitos funcionais
-2. atendimento aos requisitos não funcionais, como escalabilidade e tolerância a falhas
-3. atendimento integral aos requisitos arquiteturais
-4. conhecimento técnico do time
-5. custos de aquisição e de renovação de ferramentas
-6. facilidade de uso
-7. confiabilidade dos fornecedores
-
-Esses sete fatores são os critérios de comparação entre plataformas candidatas. Uma plataforma tecnicamente superior que ninguém no time sabe operar tem custo real maior do que o preço de licença sugere, e é o quarto fator que captura isso.
+A quarta é a **adaptação ao contexto**. Plataformas não são universais. Elas são selecionadas e configuradas a partir de um racional arquitetural, apresentado no Conceito do [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), e a comparação entre plataformas candidatas usa os seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao), que são aderência ao requisito, maturidade, suporte, custo total de propriedade, competência da equipe e portabilidade. Uma plataforma tecnicamente superior que ninguém no time sabe operar tem custo real maior do que o preço de licença sugere, e é o critério de competência da equipe que captura isso.
 
 ### Exemplos de plataforma por estilo
 
-Os exemplos abaixo são ilustrações de composição, não recomendações de uso. Cada um começa pelo estilo que materializa e pela função da plataforma, ou seja, o caminho que o trabalho percorre de ponta a ponta dentro dela, e só então nomeia as peças principais e o que cada uma faz. Ler na ordem inversa, da lista de ferramentas para a função, é o erro que faz uma plataforma parecer um amontoado de nomes.
-
-Sete dos exemplos vêm acompanhados de desenho. Quatro deles usam a convenção de diagrama de plataforma, que mostra a pilha inteira com os serviços transversais na base, e três usam a convenção de diagrama de infraestrutura do fornecedor, em que o nome do produto aparece em amarelo.
-
-Esta é a seção mais longa da aula e serve como catálogo de consulta. Em sala, percorremos dois ou três exemplos, escolhidos conforme os estilos que a turma defendeu no exercício da Aula 3, e os demais ficam para leitura posterior e para apoiar o Exercício 18.
+Os quatro exemplos abaixo ilustram a composição de plataformas para estilos da Aula 3 e não constituem recomendação de uso. Cada um começa pelo estilo que materializa e pela função da plataforma, ou seja, o caminho que o trabalho percorre de ponta a ponta dentro dela, e só então nomeia as peças principais e o que cada uma faz. Todos vêm acompanhados de desenho, que segue a convenção de diagrama de plataforma, com os serviços transversais na base, ou a convenção de infraestrutura do fornecedor, em que o nome do produto aparece em amarelo. A leitura da função para a lista de ferramentas evita que a plataforma pareça um amontoado de nomes.
 
 #### Plataforma Java EE e Jakarta EE
 
@@ -53,18 +41,6 @@ Entre as peças, o Servlet é a base de tudo no contêiner web, a interface de p
 
 Esta é a plataforma da camada web da ACME, descrita na [arquitetura de linha de base](../caso-acme/linha-de-base.md) como JSF e EJB sobre servidor de aplicação fora de suporte desde 2018.
 
-#### Plataforma .NET
-
-Materializa o mesmo [estilo em camadas](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-em-camadas), com a camada de domínio isolada no centro. O tráfego entra por um ponto único de borda, que resolve o endereço e encaminha, passa por uma camada de gestão de API, que aplica política de acesso, cota e versão antes de o pedido tocar a aplicação, e só então alcança a plataforma de aplicação. Ali convivem quatro modelos de execução para públicos diferentes, todos apoiados na mesma camada de domínio, o que garante que a regra de negócio não seja reescrita a cada canal. A persistência vai para três repositórios com propósitos distintos, e o que é assíncrono sai por um intermediário de mensagens. O empacotamento em contêiner e a orquestração ficam abaixo da aplicação, e os serviços transversais de identidade, telemetria e entrega atravessam tudo.
-
-Entre as peças, o ASP.NET Core é o framework que atende requisição web e de API. O serviço de trabalho executa processamento em segundo plano, fora do ciclo da requisição, para tarefas longas ou agendadas. O gRPC é o canal de chamada entre serviços, com contrato declarado e formato binário, mais eficiente do que REST quando as duas pontas são internas. O Blazor executa código C# no próprio navegador, o que dispensa uma segunda linguagem na interface. O Entity Framework Core é o mapeador objeto-relacional, com migrações geradas a partir do código. Do lado de fora, o SQL Server guarda o dado relacional, o Cosmos DB o dado sem esquema fixo e o Redis o dado de acesso muito frequente em memória. A observabilidade vem do OpenTelemetry, que é o padrão aberto de coleta de métricas e rastros, e do Application Insights, que os apresenta.
-
-![Plataforma .NET. À esquerda, navegador, aplicativo móvel e API de parceiro entram por Azure Front Door e gestão de API. No centro, a plataforma de aplicação .NET com ASP.NET Core, serviço de trabalho, serviço gRPC e Blazor sobre uma camada de domínio e Entity Framework Core. À direita, repositórios de dados com SQL Server, Cosmos DB e Redis, e mensageria com Azure Service Bus ou RabbitMQ. Abaixo, empacotamento em Docker e orquestração em AKS Kubernetes. Na base, serviços transversais de plataforma, Microsoft Entra ID, OpenTelemetry, Application Insights e a esteira de integração e entrega.](../assets/images/plataforma-dotnet.png)
-
-*Plataforma .NET. É a mesma forma estrutural da plataforma Java EE acima, com outro conjunto de ferramentas, e esse par é a demonstração de que um estilo admite mais de uma plataforma candidata. Fonte: material base do professor.*
-
-Em variantes dessa mesma pilha aparecem ainda o Razor Pages para páginas renderizadas no servidor, o MediatR para separar comando de consulta, o Identity Server com OAuth2 e OpenID Connect para autenticação delegada, o Autofac para injeção de dependências, o Swashbuckle para gerar documentação OpenAPI a partir do código, e xUnit com FluentAssertions para teste.
-
 #### Plataforma web elástica em nuvem
 
 Materializa um [estilo em camadas](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-em-camadas) distribuído entre zonas de disponibilidade, que são instalações fisicamente separadas dentro da mesma região. A função aqui é sobreviver à perda de uma zona inteira sem interrupção perceptível, e absorver variação de carga sem intervenção manual. O nome do domínio é resolvido por um serviço de DNS gerenciado. O conteúdo estático sai de uma rede de distribuição apoiada em armazenamento de objetos, o que tira esse tráfego de cima dos servidores. O pedido dinâmico cai num balanceador, que distribui entre máquinas virtuais organizadas em grupos de autoescalonamento, replicados nas duas zonas. Há dois níveis desses grupos, um para a camada web e outro para a de aplicação, e o banco fica em serviço gerenciado com réplica na segunda zona.
@@ -74,12 +50,6 @@ A peça que define essa plataforma é o grupo de autoescalonamento, que cria e d
 ![Arquitetura web sobre serviços da AWS, com Route 53 e CloudFront na borda, recursos estáticos em S3, duas camadas de balanceamento elástico sobre grupos de autoescalonamento de instâncias EC2 distribuídos em duas zonas de disponibilidade, e banco RDS principal replicado entre zonas.](../assets/images/plataforma-web-aws.png)
 
 *Plataforma web elástica sobre serviços da AWS. As duas colunas cinza são as zonas de disponibilidade, e as setas amarelas horizontais são os grupos de autoescalonamento que atravessam as duas. Fonte: material base do professor.*
-
-#### Plataforma de serviços gerenciados em nuvem
-
-Materializa um estilo de serviços escaláveis em que a organização entrega ao provedor a operação da infraestrutura e fica com a lógica. A função é reduzir o trabalho de sustentação, trocando servidor administrado por serviço contratado, ao custo de aumentar a dependência do fornecedor. O processamento de dados roda em serviço gerenciado que executa o mesmo código em lote ou em fluxo contínuo. O dado estruturado vai para um armazém analítico que escala separadamente do processamento, e o não estruturado para armazenamento de objetos. A comunicação entre serviços passa por mensageria gerenciada, e o que precisa de controle fino de execução roda em contêineres orquestrados.
-
-Entre as peças, o Apache Beam é o modelo de programação que permite escrever a transformação uma vez e executá-la em lote ou em fluxo, e o Dataflow é o serviço que a executa sem que alguém administre o agrupamento. O BigQuery separa armazenamento de processamento, o que permite consultar volume grande pagando pelo que foi lido. O Cloud Pub/Sub desacopla quem publica de quem consome. O Google Kubernetes Engine orquestra contêineres com escalonamento automático e suporte nativo ao Istio, que cuida de tráfego e segurança entre serviços. O Terraform descreve toda essa infraestrutura como código versionado, de modo que o ambiente possa ser recriado, e o Identity-Aware Proxy controla o acesso pela identidade de quem pede, sem depender do endereço de rede de origem.
 
 #### Plataforma de microsserviços
 
@@ -105,47 +75,46 @@ Entre as peças, o fluxo de eventos é o centro da plataforma, e o que o disting
 
 Na pilha aberta equivalente, o Apache Kafka é o fluxo, o Kafka Streams o processamento contínuo, o Event Store o armazenamento de eventos, o Apache Camel o mediador de integração, o Kong API Gateway a publicação externa e o Confluent Control Center o monitoramento do fluxo.
 
-#### Plataforma serverless orientada a eventos
 
-Materializa o mesmo [estilo orientado a eventos](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-orientada-a-eventos), com uma diferença de custo e de operação. Aqui não há servidor administrado nem contêiner em execução contínua. A função só existe enquanto processa, e o provedor a instancia quando um evento chega e a descarta quando termina, o que faz o custo acompanhar o volume de uso. A contrapartida é que a função precisa ser curta, sem estado guardado entre invocações, e que a primeira execução depois de um período ocioso é mais lenta.
+### Zona de pouso, a fundação da plataforma
 
-Entre as peças, a função sob demanda é a unidade de execução. A fila desacopla e garante que o evento não se perca se a função falhar. O orquestrador de fluxos coordena várias funções em sequência com estado e repetição, porque a função isolada não sabe o que veio antes. O gateway de API transforma a função em endereço HTTP público. O armazenamento de objetos aqui é também produtor de eventos, já que criar ou modificar um arquivo dispara processamento. A observabilidade depende de rastreamento distribuído, porque uma requisição pode atravessar muitas funções curtas, e o ambiente de simulação local é o que torna esse tipo de plataforma testável sem custo de nuvem.
+A plataforma escolhida precisa de um ambiente que a receba, e esse ambiente é a **[zona de pouso](../referencia/glossario.md#zona-de-pouso)**, do inglês *landing zone*, a fundação do ambiente em nuvem preparada antes da primeira carga de trabalho. Ela organiza contas, rede, identidade, políticas e monitoramento para que cada solução futura chegue a um ambiente já definido e herde os padrões de segurança, governança e operação da organização. A zona de pouso é o lugar onde a carga executa, e a [infraestrutura em nuvem](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md) descrita na Aula 4 fornece as camadas de execução e a topologia sobre as quais ela se apoia.
 
-#### Plataforma de data lake
+Os provedores oferecem estruturas oficiais para essa fundação. Na AWS, o AWS Control Tower configura e governa um ambiente de várias contas conforme práticas prescritivas, e o Landing Zone Accelerator on AWS, solução de código aberto construída sobre o AWS CDK, complementa o Control Tower em cargas altamente reguladas. Na Azure, a Azure landing zone é uma arquitetura para governar, proteger e escalar um ambiente de várias assinaturas, composta por uma landing zone de plataforma, com recursos centralizados, e por landing zones de carga de trabalho. O detalhe de configuração de cada estrutura fica na documentação do provedor, e este bloco trata dos pilares que elas têm em comum.
 
-Materializa o estilo de pipelines de processamento de dados, variante do estilo [pipes and filters](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#pipes-and-filters). A função é receber dado de muitas origens, com formatos e ritmos diferentes, e levá-lo por refinamentos sucessivos até ficar consumível por quem decide. O dado entra por três caminhos, fluxo contínuo para o que é gerado o tempo todo, chamada de API para o que vem de sistema de terceiro, e lote para o que chega em arquivo. Depois de ingerido, ele atravessa três zonas de armazenamento. A zona bruta guarda o dado como chegou, sem transformação, o que permite reprocessar tudo se a regra mudar. A zona curada guarda o dado limpo, com esquema conhecido e duplicidade resolvida. A zona analítica guarda o dado já agregado no formato que a pergunta de negócio espera. O processamento é que move o dado de uma zona para a seguinte, e a governança vale sobre as três ao mesmo tempo.
+Os pilares são cinco, e a Figura 1 os apresenta sobre uma base comum de infraestrutura como código e etiquetas.
 
-Entre as peças, o armazenamento de objetos é a base, porque é barato por volume e separa o custo de guardar do custo de processar. O Spark é o motor de processamento distribuído que executa a transformação pesada. O dbt organiza a transformação da zona curada para a analítica como código versionado e testado. O catálogo de dados é o que permite alguém descobrir qual conjunto existe e o que cada coluna significa, sem o qual o data lake vira depósito. A qualidade de dados aplica regras de validação na entrada, e o controle de acesso governa quem lê o quê, que é o que separa um data lake de uma pasta compartilhada grande.
+<figure markdown="span">
+![Cinco colunas numeradas sobre uma base comum. As colunas são contas ou assinaturas por ambiente, rede em topologia hub-spoke, identidade centralizada, políticas automatizadas e monitoramento com faturamento consolidado. Sob as colunas, a base comum indica infraestrutura como código e etiquetas de projeto, ambiente, time e centro de custo.](../assets/images/modulo-5-pilares-zona-de-pouso.svg){ .module-diagram }
+</figure>
 
-![Plataforma de data lake. À esquerda, fontes de dados de ERP, CRM, IoT, SaaS, arquivos e fluxos de eventos. Em seguida, ingestão por Kafka ou Kinesis, por API e em lote. No centro, armazenamento de objetos dividido em três zonas, bruta, curada e analítica. Acima, governança com catálogo de dados, qualidade de dados e controle de acesso. Abaixo, processamento com Spark, ETL e ELT e dbt. À direita, consumidores, análise SQL com Athena ou Trino, painéis em Power BI, aprendizado de máquina com SageMaker e aplicações.](../assets/images/plataforma-data-lake.png)
+*Figura 1 — Os cinco pilares da zona de pouso sobre uma base comum. Fonte: material do curso, com base na documentação de zona de pouso da AWS e da Azure.*
 
-*Plataforma de data lake. As três zonas são a restrição estrutural do estilo, e a faixa de governança no topo é o que distingue um data lake de um depósito de arquivos. Fonte: material base do professor.*
+1. As contas, na AWS, ou assinaturas, na Azure, separam os ambientes de desenvolvimento, homologação e produção, de modo que a credencial usada por um desenvolvedor em desenvolvimento deixe de alcançar os dados de produção e que um erro de teste fique contido na conta onde ocorreu.
+2. A segmentação de rede segue a topologia hub-spoke, em que uma rede central compartilhada se liga a redes privadas dedicadas a cada carga de trabalho, com apenas o ponto de entrada, como o gateway de APIs ou o balanceador de carga, em sub-rede pública, e com serviços de retaguarda e bancos de dados em sub-redes privadas. Quando parte da solução permanece num centro de dados próprio, a rede central concentra também a ligação com ele, por enlace dedicado ou por VPN.
+3. A identidade centralizada reúne num só lugar o controle de quem da equipe acessa cada conta e com qual perfil, o que facilita a auditoria das operações sensíveis.
+4. As políticas de conformidade automatizadas, que na AWS são as políticas de controle de serviço do AWS Organizations e na Azure são o Azure Policy, aplicam as regras da organização a todo recurso criado, como a recusa de um recurso fora da região permitida ou sem as etiquetas obrigatórias.
+5. O monitoramento com faturamento consolidado permite acompanhar no mesmo lugar o comportamento e o custo de todos os ambientes.
 
-Numa pilha aberta e menor, o Apache NiFi orquestra os fluxos de ingestão com interface gráfica e controle de prioridade, o Apache Beam descreve a transformação de forma independente do motor que a executa, o Great Expectations declara as expectativas de qualidade como teste do dado, e o NiFi Registry versiona a definição dos próprios fluxos, o que os torna auditáveis.
+Os dois primeiros pilares, ambientes separados e rede segmentada, também funcionam como controles de segurança, e o [bloco 3](bloco-3-seguranca-fim-a-fim.md) os trata nesse papel.
 
-#### Plataforma de internet das coisas
+#### Infraestrutura como código e etiquetas
 
-Materializa um estilo de coleta distribuída com processamento central. A função é receber dado de muitos dispositivos pequenos, com conectividade instável e pouca capacidade, e entregá-lo a uma aplicação que os comanda de volta. Os dispositivos não falam HTTP com o servidor. Eles publicam em um protocolo leve de publicação e assinatura, desenhado para rede ruim e mensagem curta, sobre um canal cifrado, e cada dispositivo se autentica por certificado próprio, e não por senha compartilhada. Um serviço de nuvem faz a ponte entre esse mundo e a aplicação, que roda com a mesma elasticidade e redundância entre zonas das plataformas web. O usuário comanda pelo celular, e o comando percorre o caminho inverso até o dispositivo.
+A **[infraestrutura como código](../referencia/glossario.md#infraestrutura-como-codigo)** descreve a infraestrutura em arquivos declarativos, versionados e revisados como o código da aplicação. Com essa descrição, o ambiente pode ser recriado a partir dos arquivos, cada mudança de rede, de política ou de capacidade passa a ter autor, data e revisão no histórico, e os três ambientes podem ser criados da mesma descrição com parâmetros diferentes, o que reduz a diferença entre homologação e produção. A descrição declarativa também reduz a [dependência de fornecedor](../referencia/glossario.md#dependencia-de-fornecedor), e uma ferramenta portável entre provedores, como o Terraform, mantém uma só base de código quando a organização opera em mais de uma nuvem.
 
-A peça que define essa plataforma é o protocolo MQTT, que troca mensagens por tópico, permite que um dispositivo publique sem saber quem vai ler e sobrevive a queda de conexão. O certificado por dispositivo é o que torna possível revogar o acesso de um aparelho comprometido sem afetar os demais, e é a decisão de segurança mais importante desse tipo de plataforma.
+As etiquetas obrigatórias são quatro, projeto, ambiente, time e centro de custo. Aplicadas pelo código e exigidas por uma política que recusa recurso sem etiqueta, elas permitem responder quanto custa o ambiente de produção de um serviço e quanto uma equipe consome em homologação.
 
-![Plataforma de automação residencial, com dispositivos conectados em cômodos da casa falando MQTT sobre SSL com o Amazon IoT, e aplicação em instâncias EC2 distribuídas em duas zonas de disponibilidade atrás de balanceador elástico, acessada por telefone celular via Route 53.](../assets/images/plataforma-iot-residencial.png)
+#### Observabilidade como camada transversal
 
-*Plataforma de automação residencial. O cadeado e o selo sobre a linha de MQTT são a cifragem e o certificado por dispositivo, que é o ponto de controle de segurança dessa plataforma. Fonte: material base do professor.*
+A observabilidade define como a equipe sabe o que acontece na solução, e por isso atravessa todas as camadas da plataforma. Ela se organiza em três sinais, o registro estruturado de eventos, as métricas e o rastreamento, e o OpenTelemetry é o padrão aberto de coleta de métricas e rastros. Quando a solução se divide em vários serviços, deixa de existir um registro único onde olhar, e o rastreamento que atravessa os serviços é a forma de responder em que trecho do caminho o tempo foi gasto.
 
-#### Plataformas de camada de interface
-
-As duas pilhas abaixo não materializam um estilo de sistema inteiro, elas organizam a camada de interface de um sistema cujo estilo já foi decidido em outro lugar. A função de ambas é a mesma, manter a tela sincronizada com o dado sem que o desenvolvedor escreva o código dessa sincronia a cada campo, e resolver de forma padronizada os problemas recorrentes de interface, navegação entre telas, validação de formulário, chamada ao servidor, tradução e teste.
-
-Na pilha móvel com React Native, o Zustand guarda o estado compartilhado entre telas em um lugar só, o React Navigation controla a pilha de telas e o botão de voltar, o Zod declara o formato esperado do dado e valida a entrada contra ele, o TanStack Query cuida do dado que vem do servidor, incluindo cache, nova tentativa e invalidação, e o MMKV guarda dado local com leitura rápida. Na pilha web de página única com Vue.js, o Pinia faz o papel do repositório de estado, o Vue Router a navegação, o Vuetify entrega componentes visuais prontos, o Axios faz a chamada HTTP e o Vite empacota o código para o navegador.
-
-A pilha móvel segue o *Model-View-ViewModel*, e aqui cabe uma ressalva de vocabulário. Boa parte da literatura, e o próprio material base desta disciplina, lista MVC e MVVM entre os estilos arquiteturais. Esta disciplina os trata como padrão de organização da camada de interface, e não como estilo, porque a definição adotada no [bloco 2 da Aula 3](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md) exige que o estilo descreva a forma estrutural do sistema inteiro, não a organização interna de uma camada. É escolha de recorte desta disciplina, não erro da literatura, e vale conhecer as duas leituras porque você vai encontrar ambas em texto profissional.
+Região, zonas de disponibilidade e camadas de execução já foram tratadas no [bloco 4 da Aula 4](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md), e este bloco não as repete.
 
 ## Uso pelo arquiteto
 
-Assim como o estilo arquitetural é a maior decisão que um arquiteto toma em um projeto, a plataforma arquitetural é a maior decisão tecnológica do projeto. Por consequência, ela precisa ser justificada e registrada em um ADR próprio, escrito no [bloco 4](bloco-4-adr-de-plataforma.md) desta aula.
+Assim como o estilo arquitetural é a maior decisão que um arquiteto toma em um projeto, a plataforma arquitetural é a maior decisão tecnológica do projeto. Por consequência, ela precisa ser justificada e registrada em um ADR próprio, escrito no [bloco 4](bloco-4-adr-de-plataforma.md) desta aula, e a zona de pouso que recebe a plataforma é registrada na mesma decisão.
 
-O arquiteto documenta a comparação antes de decidir, em um **quadro comparativo** que lista as plataformas candidatas nas linhas e os sete fatores de adaptação ao contexto nas colunas, com uma nota curta em cada célula. Esse quadro entra no ADR de plataforma como evidência de que a escolha considerou alternativas reais, não apenas a plataforma mais familiar ao time, o que faz a decisão resistir a questionamento meses depois.
+O arquiteto documenta a comparação antes de decidir, em um **quadro comparativo** que lista as plataformas candidatas nas linhas e os seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao) nas colunas, com uma nota curta em cada célula. Esse quadro entra no ADR de plataforma como evidência de que a escolha considerou alternativas reais, não apenas a plataforma mais familiar ao time, o que faz a decisão resistir a questionamento meses depois.
 
 ## Exercício 18
 
@@ -168,25 +137,89 @@ graph LR
 1. Indique, entre os exemplos de plataforma por estilo apresentados no Conceito, duas plataformas candidatas capazes de concretizar o estilo recomendado no exercício 10.
 2. Para cada plataforma candidata, liste as ferramentas concretas que a compõem, no nível de detalhe dos exemplos do Conceito.
 
-### Item 2: Quadro comparativo pelos fatores de contexto
+### Item 2: Quadro comparativo pelos seis critérios
 
-A tabela abaixo reúne dados do [dossiê da ACME](../caso-acme/index.md) e da linha de base que pesam em quatro dos sete fatores de adaptação ao contexto listados no Conceito.
+A tabela abaixo reúne dados do [dossiê da ACME](../caso-acme/index.md) e da linha de base para os seis critérios de seleção apresentados no [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao). O quadro preenchido neste item é o que alimenta o campo de alternativas do ADR de plataforma do exercício 20, no [bloco 4](bloco-4-adr-de-plataforma.md).
 
-| Fator | Dado do caso |
+| Critério | Dado do caso |
 | --- | --- |
-| Atendimento aos requisitos não funcionais | R6, o portal sustenta 5.800 sessões simultâneas na abertura da matrícula, com percentil 95 do tempo de confirmação em até 4 segundos |
-| Atendimento integral aos requisitos arquiteturais | Dois provedores de nuvem pré-aprovados pelo Conselho Universitário em 12/03/2026, com decisões de plataforma portáveis entre os dois, e autenticação por padrões abertos de identidade |
-| Conhecimento técnico do time | Camada web em Java sustentada por 9 pessoas, 6 internas e 3 da fábrica, sem escassez, mas sem experiência em JSF 1.2 nos contratados desde 2021 |
-| Custos de aquisição e de renovação de ferramentas | Orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses, e licenciamento Oracle que obriga a licenciar todos os núcleos físicos de qualquer ambiente virtualizado |
+| Aderência ao requisito | R6, o portal sustenta 5.800 sessões simultâneas na abertura da matrícula, com percentil 95 do tempo de confirmação em até 4 segundos, e R4, a solução opera em um dos dois provedores de nuvem aprovados em 12/03/2026 |
+| Maturidade | O dossiê não registra dado sobre a maturidade das plataformas candidatas |
+| Suporte | O dossiê não registra dado sobre o suporte das plataformas candidatas |
+| Custo total de propriedade | Orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses, e licenciamento Oracle que obriga a licenciar todos os núcleos físicos de qualquer ambiente virtualizado |
+| Competência da equipe | Camada web em Java sustentada por 9 pessoas, 6 internas e 3 da fábrica, sem escassez, mas sem experiência em JSF 1.2 nos contratados desde 2021 |
+| Portabilidade | Dois provedores de nuvem pré-aprovados pelo Conselho Universitário em 12/03/2026, com decisões de plataforma portáveis entre os dois, e autenticação por padrões abertos de identidade |
 
-1. Para cada um dos quatro fatores, marque qual das duas plataformas candidatas do Item 1 atende melhor, ou se as duas empatam, e registre o motivo em uma linha com base no dado do caso.
-2. Escolha uma das duas plataformas e justifique a escolha considerando a restrição de convivência com o legado mostrada no diagrama do Item 1.
+1. Para cada um dos quatro critérios com dado do caso, marque qual das duas plataformas candidatas do Item 1 atende melhor, ou se as duas empatam, e registre o motivo em uma linha com base no dado.
+2. Para os critérios maturidade e suporte, escreva uma frase que diga qual dado falta e quem poderia fornecê-lo, sem atribuir valor às plataformas, conforme o Item 3 do [exercício 17](bloco-1-definicao-tecnologica-e-trm.md#exercicio-17).
+3. Escolha uma das duas plataformas e justifique a escolha considerando a restrição de convivência com o legado mostrada no diagrama do Item 1.
+
+### Item 3: Zona de pouso da solução
+
+O diagrama abaixo descreve a zona de pouso proposta para a solução nova da ACME, com a organização na nuvem, as cinco contas, a ligação híbrida ao centro de dados onde permanecem o núcleo COBOL e o Oracle, e os recursos da conta de produção.
+
+```mermaid
+graph LR
+    ORG["Organização<br/>da ACME<br/>na nuvem"]
+    REG["Regras aplicadas<br/>a todas as contas"]
+    ACE["Acesso da equipe<br/>por perfil, com<br/>credencial única"]
+    CUS["Consulta de custo<br/>por projeto, ambiente,<br/>time e centro de custo"]
+    DEV["Conta de<br/>desenvolvimento"]
+    HOM["Conta de<br/>homologação"]
+    PRD["Conta de<br/>produção"]
+    NET["Conta de<br/>rede central"]
+    SEC["Conta de segurança<br/>e registros"]
+    RED["Rede da produção:<br/>gateway em sub-rede pública,<br/>serviços e bancos<br/>em sub-redes privadas"]
+    REC["Recursos da produção,<br/>listados na<br/>tabela abaixo"]
+    CD["Centro de dados da ACME<br/>núcleo COBOL sob CICS<br/>e banco Oracle"]
+    ORG --> REG
+    ORG --> ACE
+    ORG --> CUS
+    ORG --> DEV
+    ORG --> HOM
+    ORG --> PRD
+    ORG --> NET
+    ORG --> SEC
+    NET ---|"ligação híbrida"| CD
+    NET --> RED
+    PRD --> RED
+    PRD --> REC
+    PRD -.->|"envia os registros"| SEC
+```
+
+Os três requisitos do [dossiê](../caso-acme/index.md) que orientam o desenho são os seguintes.
+
+| Código | Requisito | Origem |
+| --- | --- | --- |
+| R4 | A solução opera em um dos dois provedores de nuvem aprovados em 12/03/2026 | Conselho Universitário |
+| R14 | Nenhum dado pessoal de aluno é processado fora do território nacional | Jurídico, parecer de 28/04/2026 |
+| R9 | Toda leitura de dado pessoal de aluno é registrada em trilha de auditoria, com retenção de 5 anos | Encarregada de proteção de dados |
+
+A tabela a seguir lista seis recursos da conta de produção com as etiquetas que cada um traz. Os valores das etiquetas são ilustrativos e não constam do dossiê.
+
+| Recurso | Etiquetas que o recurso traz |
+| --- | --- |
+| Serviço de matrícula | projeto, ambiente, time |
+| Banco do serviço de matrícula | projeto, time, centro de custo |
+| Gateway de APIs | ambiente, time, centro de custo |
+| Serviço de notas | projeto, ambiente, time, centro de custo |
+| Fila de eventos de notas | projeto, ambiente |
+| Bucket de trilha de auditoria | projeto, ambiente, centro de custo |
+
+1. Associe cada elemento do diagrama ao pilar da zona de pouso, entre os cinco da Figura 1, que ele realiza.
+2. Indique, para cada recurso da tabela, a etiqueta obrigatória que falta, ou registre que as quatro estão presentes.
+3. Responda em uma linha qual requisito justifica a existência da conta de segurança e registros.
+4. Indique qual dos requisitos R4 e R14 leva a descrever os pilares com uma ferramenta de infraestrutura como código portável entre provedores, e qual deles justifica uma política que recuse recursos fora da região nacional.
 
 ## Fontes
 
 As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso. O trecho consultado aparece entre parênteses ao fim de cada entrada.
 
-- Mendes, M. (2026b). *Guias de projeto de arquitetura de software* [Material de curso, versão arquivada]. https://github.com/aulas-marco/projeto-arquitetura-software/tree/30f15cd (guia 2.2, fonte da definição, das quatro características, dos sete fatores de adaptação ao contexto, dos oito exemplos de plataforma por estilo e das representações visuais reproduzidas nesta página)
+- Mendes, M. (2026b). *Guias de projeto de arquitetura de software* [Material de curso, versão arquivada]. https://github.com/aulas-marco/projeto-arquitetura-software/tree/30f15cd (guia 2.2, fonte da definição, das quatro características e dos exemplos de plataforma por estilo e das representações visuais reproduzidas nesta página)
 - Ford, N., & Richards, M. (2020). *Fundamentals of software architecture*. O'Reilly. (comparação por atributo de qualidade, aplicada aqui a plataformas)
+- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 7.5, definição da infraestrutura de rede, em que cada interface entre componentes recebe o serviço de rede que a sustenta, base da segmentação de rede e da ligação híbrida da zona de pouso)
+- Amazon Web Services. (n.d.-d). *What is AWS Control Tower?* AWS Control Tower User Guide. Acesso em 15 de outubro de 2026. https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html
+- Amazon Web Services. (n.d.-e). *Landing Zone Accelerator on AWS: Solution overview*. Landing Zone Accelerator on AWS Implementation Guide. Acesso em 15 de outubro de 2026. https://docs.aws.amazon.com/solutions/latest/landing-zone-accelerator-on-aws/solution-overview.html
+- Microsoft. (2025). *What is an Azure landing zone?* Cloud Adoption Framework, Microsoft Learn. Acesso em 15 de outubro de 2026. https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/
 
-**Material do curso.** Glossário, entradas [plataforma arquitetural](../referencia/glossario.md#plataforma-arquitetural) e [racional arquitetural](../referencia/glossario.md#racional-arquitetural). Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+**Material do curso.** Glossário, entradas [plataforma arquitetural](../referencia/glossario.md#plataforma-arquitetural), [racional arquitetural](../referencia/glossario.md#racional-arquitetural), [zona de pouso](../referencia/glossario.md#zona-de-pouso) e [infraestrutura como código](../referencia/glossario.md#infraestrutura-como-codigo). Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md). A estrutura dos cinco pilares, as quatro etiquetas obrigatórias e a figura 1 são convenções do curso.

@@ -265,3 +265,11 @@ Requisito de serviço de infraestrutura da solução que não encontra correspon
 ## Modelo técnico de referência
 
 Catálogo que organiza, por camada arquitetural e categoria tecnológica, os padrões, os protocolos e os produtos aprovados, proibidos ou em avaliação na organização, e que serve de lista de partida para a escolha de tecnologia de cada solução. Também conhecido pela sigla TRM, do inglês Technical Reference Model.
+
+## Zona de pouso
+
+Fundação do ambiente em nuvem, preparada antes da primeira carga de trabalho, que organiza contas, rede, identidade, políticas e monitoramento para que as soluções futuras herdem padrões de segurança, governança e operação.
+
+## Infraestrutura como código
+
+Descrição da infraestrutura em arquivos declarativos, versionados e revisados como o código da aplicação, de modo que o ambiente possa ser recriado a partir da descrição.
