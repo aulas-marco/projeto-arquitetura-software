@@ -21,7 +21,7 @@ A plataforma não escolhe o estilo, ela o executa. Por isso essa decisão vem de
 ![Plataforma arquitetural ao centro, ligada a quatro módulos. Os módulos são a instanciação de estilos arquiteturais, a composição multidimensional, o alinhamento com práticas de engenharia e a adaptação ao contexto.](../assets/images/modulo-5-quatro-caracteristicas-plataforma.svg){ .module-diagram }
 </figure>
 
-*Figura 1 — As quatro características de uma plataforma arquitetural. Fonte: material do curso.*
+*Figura 1 — As quatro características de uma plataforma arquitetural. Fonte: material do curso, com base em Mendes (2026b).*
 
 A primeira é a instanciação de estilos arquiteturais, porque toda plataforma está baseada em um ou mais estilos. O Java EE implementa a [arquitetura em camadas](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-em-camadas) para sistemas web, o Spring Boot com Spring Cloud concretiza a [arquitetura de microsserviços](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-de-microsservicos), e o Event Store e o Apache Kafka dão suporte à [arquitetura orientada a eventos](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-orientada-a-eventos).
 
@@ -239,4 +239,4 @@ As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](
 - Amazon Web Services. (n.d.-e). *Landing Zone Accelerator on AWS: Solution overview*. Landing Zone Accelerator on AWS Implementation Guide. Acesso em 15 de outubro de 2026. https://docs.aws.amazon.com/solutions/latest/landing-zone-accelerator-on-aws/solution-overview.html
 - Microsoft. (2025). *What is an Azure landing zone?* Cloud Adoption Framework, Microsoft Learn. Acesso em 15 de outubro de 2026. https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/
 
-**Material do curso.** Glossário, entradas [plataforma arquitetural](../referencia/glossario.md#plataforma-arquitetural), [racional arquitetural](../referencia/glossario.md#racional-arquitetural), [zona de pouso](../referencia/glossario.md#zona-de-pouso) e [infraestrutura como código](../referencia/glossario.md#infraestrutura-como-codigo). Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md), sendo a estrutura dos cinco pilares, as quatro etiquetas obrigatórias e a figura 1 convenções do curso.
+**Material do curso.** Glossário, entradas [plataforma arquitetural](../referencia/glossario.md#plataforma-arquitetural), [racional arquitetural](../referencia/glossario.md#racional-arquitetural), [zona de pouso](../referencia/glossario.md#zona-de-pouso) e [infraestrutura como código](../referencia/glossario.md#infraestrutura-como-codigo). Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md), sendo a estrutura dos cinco pilares, as quatro etiquetas obrigatórias e a figura 2 convenções do curso.
