@@ -166,7 +166,7 @@ A tabela reúne seis tecnologias da arquitetura de linha de base da ACME, cada u
 
 ### Item 3: Matriz de seleção do provedor de identidade
 
-A primeira tabela reproduz os requisitos do caso que pesam na escolha do provedor de identidade, com a origem de cada um. A segunda tabela descreve as três alternativas avaliadas, e a terceira é a matriz de avaliação com as células em branco.
+A primeira tabela reproduz os requisitos do caso que pesam na escolha do provedor de identidade, com a origem de cada um, e as duas tabelas seguintes formam a matriz de avaliação das três alternativas, dividida em dois grupos de três critérios, com as células em branco.
 
 | Código | Requisito | Origem |
 | --- | --- | --- |
@@ -175,21 +175,20 @@ A primeira tabela reproduz os requisitos do caso que pesam na escolha do provedo
 | R12 | A disponibilidade na janela de matrícula é de 99,9%, o que corresponde a 43 minutos de indisponibilidade tolerada por mês | Pró-Reitoria de Graduação, página inicial do caso e dados operacionais |
 | R14 | Nenhum dado pessoal de aluno é processado fora do território nacional | Jurídico, parecer de 28/04/2026 |
 
-| Alternativa | Descrição | Protocolos oferecidos aos canais na oferta avaliada |
-| --- | --- | --- |
-| A | Produto instalado e operado pela equipe da ACME na nuvem aprovada | OpenID Connect, OAuth 2.0 e SAML 2.0 |
-| B | Serviço de identidade contratado de terceiro | OpenID Connect, OAuth 2.0 e SAML 2.0 |
-| C | Serviço gerenciado de identidade de um dos dois provedores de nuvem aprovados | Biblioteca de autenticação proprietária do provedor, sem OpenID Connect para o aplicativo do aluno |
+| Alternativa | Aderência ao requisito | Maturidade | Suporte |
+| --- | --- | --- | --- |
+| A, instalado e operado pela equipe |  |  |  |
+| B, serviço de terceiro |  |  |  |
+| C, gerenciado da nuvem |  |  |  |
 
-| Alternativa | Aderência ao requisito | Maturidade | Suporte | Custo total de propriedade | Competência da equipe | Portabilidade |
-| --- | --- | --- | --- | --- | --- | --- |
-| A, instalado e operado pela equipe | | | | | | |
-| B, serviço de terceiro | | | | | | |
-| C, gerenciado da nuvem | | | | | | |
+| Alternativa | Custo total de propriedade | Competência da equipe | Portabilidade |
+| --- | --- | --- | --- |
+| A, instalado e operado pela equipe |  |  |  |
+| B, serviço de terceiro |  |  |  |
+| C, gerenciado da nuvem |  |  |  |
 
 1. Preencha a célula de aderência ao requisito de cada alternativa com o dado do caso que a sustenta, citando o código do requisito.
-2. Indique a alternativa que a restrição de padrão aberto do R8 elimina antes da comparação.
-3. Responda, em uma linha, qual dado do contrato do fornecedor falta para avaliar o R14 nos dois serviços externos.
+2. Escolha uma das restrições R8 ou R14, explique como ela elimina uma alternativa antes da comparação e indique que documento do fornecedor comprova o atendimento.
 
 ## Fontes
 
