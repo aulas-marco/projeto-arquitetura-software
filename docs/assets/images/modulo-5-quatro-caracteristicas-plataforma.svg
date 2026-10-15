@@ -27,8 +27,8 @@
     <text x="600" y="124" style="font-size:25px;font-weight:700" fill="#FFFFFF">Composição</text>
     <text x="600" y="156" style="font-size:25px;font-weight:700" fill="#FFFFFF">multidimensional</text>
     <text x="600" y="208" style="font-size:22px">Frameworks base,</text>
-    <text x="600" y="237" style="font-size:22px">Ferramentas de integração,</text>
-    <text x="600" y="266" style="font-size:22px">Ferramentas de monitoramento</text>
+    <text x="600" y="237" style="font-size:22px">ferramentas de integração,</text>
+    <text x="600" y="266" style="font-size:22px">ferramentas de monitoramento</text>
     <text x="600" y="295" style="font-size:22px">e manutenção,</text>
     <text x="600" y="324" style="font-size:22px">bibliotecas complementares</text>
 
@@ -37,7 +37,7 @@
     <text x="48" y="444" style="font-size:25px;font-weight:700" fill="#FFFFFF">Alinhamento com práticas</text>
     <text x="48" y="476" style="font-size:25px;font-weight:700" fill="#FFFFFF">de engenharia</text>
     <text x="48" y="542" style="font-size:22px">Testabilidade,</text>
-    <text x="48" y="572" style="font-size:22px">automação,</text>
+    <text x="48" y="572" style="font-size:22px">automação</text>
     <text x="48" y="602" style="font-size:22px">e escalabilidade e manutenção</text>
 
     <rect x="576" y="404" width="400" height="272" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>

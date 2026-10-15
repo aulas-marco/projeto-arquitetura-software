@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" role="img" aria-labelledby="title desc">
-  <title id="title">Seis critérios, seis perguntas</title>
+  <title id="title">Seis critérios de seleção e a pergunta de cada um</title>
   <desc id="desc">Seis cartões em duas fileiras de três, cada um com o nome de um critério de seleção e a pergunta que ele responde: aderência ao requisito, maturidade, suporte, custo total de propriedade, competência da equipe e portabilidade.</desc>
   <defs>
     <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
@@ -62,8 +62,9 @@
     <text x="716" y="435" text-anchor="middle" style="font-size:24px;font-weight:700">6</text>
     <text x="754" y="434" style="font-size:25px;font-weight:700" fill="#FFFFFF">Portabilidade</text>
     <text x="700" y="526" style="font-size:20px;font-weight:700" fill="#254DB8">Pergunta</text>
-    <text x="700" y="562" style="font-size:22px">Qual o esforço de levar</text>
-    <text x="700" y="592" style="font-size:22px">a solução para outro</text>
-    <text x="700" y="622" style="font-size:22px">ambiente de execução?</text>
+    <text x="700" y="556" style="font-size:22px">Qual o esforço de levar</text>
+    <text x="700" y="584" style="font-size:22px">a solução para outro</text>
+    <text x="700" y="612" style="font-size:22px">ambiente de execução ou</text>
+    <text x="700" y="640" style="font-size:22px">para outro fornecedor?</text>
   </g>
 </svg>

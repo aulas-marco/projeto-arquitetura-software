@@ -56,7 +56,7 @@ O artefato que organiza as opções disponíveis para a cadeia da Figura 2 é o 
 O modelo técnico de referência e o blueprint lógico da solução são artefatos distintos, e a tabela abaixo compara os dois em quatro dimensões.
 
 <figure markdown="span">
-![Dois painéis lado a lado, o do blueprint lógico e o do modelo técnico de referência, cada um com pergunta central, conteúdo, organização e público principal. Uma faixa abaixo dos painéis registra que o blueprint pode existir sem o modelo técnico, mas o modelo sem o blueprint fica sem lugar de aplicação.](../assets/images/modulo-5-blueprint-e-trm.svg){ .module-diagram }
+![Dois painéis lado a lado, o do blueprint lógico e o do modelo técnico de referência, cada um com pergunta central, conteúdo, organização e público principal. Uma faixa abaixo dos painéis registra a dependência assimétrica entre os dois artefatos.](../assets/images/modulo-5-blueprint-e-trm.svg){ .module-diagram }
 </figure>
 
 *Figura 3 — O blueprint lógico e o modelo técnico de referência comparados em quatro dimensões. Fonte: material do curso.*

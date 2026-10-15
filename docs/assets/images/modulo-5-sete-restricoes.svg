@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" role="img" aria-labelledby="title desc">
   <title id="title">Sete restrições reduzem as opções antes da comparação</title>
-  <desc id="desc">Sete caixas à esquerda, uma para cada restrição tecnológica: tecnologias aprovadas, padrões técnicos, orçamento, prazo, contratos vigentes, geografia e competências da equipe. Setas levam as sete a um funil que estreita as opções de produto, e do funil saem as opções que restam, que seguem para a comparação pelos seis critérios de seleção.</desc>
+  <desc id="desc">Sete caixas à esquerda, uma para cada restrição tecnológica: tecnologias aprovadas, padrões técnicos, orçamento, prazo, contratos vigentes, geografia e competências da equipe. Linhas partem de cada caixa até uma barra comum, e uma seta leva a barra a um funil que estreita as opções de produto, e do funil saem as opções que restam, que seguem para a comparação pelos seis critérios de seleção.</desc>
   <defs>
     <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#254DB8"/>
@@ -8,7 +8,7 @@
   </defs>
   <rect width="1000" height="640" rx="28" fill="#F2F6FB"/>
   <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" fill="#16243A">
-    <text x="24" y="46" style="font-size:26px;font-weight:700">Sete restrições, uma lista que encolhe</text>
+    <text x="24" y="46" style="font-size:26px;font-weight:700">As restrições reduzem o conjunto de opções</text>
     <rect x="24" y="84" width="430" height="62" rx="14" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
     <circle cx="62" cy="115" r="19" fill="#254DB8"/>
     <text x="62" y="123" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#FFFFFF">1</text>
