@@ -159,7 +159,7 @@ A tabela indica o módulo do núcleo, conforme a [arquitetura de linha de base](
 | --- | --- |
 | Nota | Avaliação e notas |
 | Histórico escolar | Histórico e documentos |
-| CPF | Cadastro acadêmico, que registra o aluno |
+| CPF | Ativo considerado neste exercício, sem módulo registrado no dossiê |
 | Dados socioeconômicos de bolsa | Bolsas e descontos |
 | Laudo de necessidade educacional específica | O dossiê não registra o módulo |
 | Oferta de turmas | Oferta e grade curricular |
@@ -171,16 +171,6 @@ A tabela indica o módulo do núcleo, conforme a [arquitetura de linha de base](
 ### Item 2: Grade de permissões
 
 A grade abaixo, em que três células concedem privilégio além do necessário, foi proposta para a arquitetura alvo, com os perfis e os serviços nas linhas e três recursos nas colunas. L indica leitura, E indica gravação e o traço indica nenhum acesso, e a condição aparece depois da vírgula, como em somente a própria.
-
-```mermaid
-graph LR
-    AL["Aluno"] --> R["Recursos:<br/>nota consolidada,<br/>matrícula,<br/>histórico escolar"]
-    PR["Professor"] --> R
-    SE["Secretaria acadêmica"] --> R
-    SN["Serviço de notas"] --> R
-    SM["Serviço de matrícula"] --> R
-    AV["Ambiente virtual<br/>de aprendizagem"] --> R
-```
 
 | Perfil ou serviço | Nota consolidada | Matrícula | Histórico escolar |
 | --- | --- | --- | --- |
@@ -196,7 +186,13 @@ graph LR
 
 ### Item 3: Ameaças na fronteira do aplicativo do aluno
 
-O diagrama recorta do exercício 16 a relação entre o aplicativo do aluno, instalado no telefone, e o serviço de matrícula, que executa na conta de produção da zona de pouso do exercício 18. A fronteira de confiança fica entre o telefone do aluno e a nuvem da ACME.
+A fronteira de confiança deste item é a considerada neste exercício, entre o aplicativo do aluno, instalado no telefone, e o serviço de matrícula, que o R1 e o R6 obrigam a se comunicar, conforme os contêineres do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16), e a execução do serviço de matrícula na conta de produção da zona de pouso do [exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) é suposição do exercício. A tabela reproduz da [página inicial do caso](../caso-acme/index.md) os requisitos citados neste item.
+
+| Código | Declaração | Origem |
+| --- | --- | --- |
+| R1 | O aluno deve renovar a matrícula pelo telefone celular, sem acesso ao portal em computador | Representação discente |
+| R6 | O portal sustenta 5.800 sessões simultâneas na abertura da matrícula, com percentil 95 do tempo de confirmação em até 4 segundos | Diretoria de TI |
+| R8 | A autenticação usa padrões abertos de identidade, sem produto proprietário | Comitê de Segurança da Informação |
 
 ```mermaid
 graph LR
@@ -227,7 +223,7 @@ Os controles disponíveis são os seis da lista abaixo.
 - (b) Autorização por papel verificada no serviço de matrícula.
 - (c) Criptografia em trânsito e em repouso.
 - (d) Autenticação forte por OpenID Connect, conforme o R8.
-- (e) Registro de auditoria imutável, com autor e horário de cada pedido.
+- (e) Registro de auditoria imutável, com autor e horário de cada acesso.
 - (f) Assinatura e verificação de integridade da mensagem.
 
 1. Classifique cada ameaça, de T1 a T6, numa das seis categorias STRIDE.
@@ -240,7 +236,7 @@ As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](
 
 - Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.9, arquitetura de segurança, objetivos, diretivas e ativos, seção 4.6.7, segurança como requisito e grade de permissões, e seção 7.7, segurança de ponta a ponta, autoridade de design de segurança e caso do Fallowdale Hospital, aqui vertido como Hospital ACME. O livro cita a ISO/IEC 27001 na edição de 2013 e numera as vulnerabilidades do caso como A1 e A10, numeração da edição de 2017 do OWASP Top 10, e esta página usa a edição de 2022 da norma e a numeração de 2021 do OWASP, A01, A03 e A09)
 - Brasil. (2018). *Lei nº 13.709, de 14 de agosto de 2018. Lei Geral de Proteção de Dados Pessoais (LGPD)*. https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm (art. 5º, I e II, art. 7º e art. 33, I e V, lidos no texto atualizado da base de legislação da Câmara dos Deputados)
-- Shostack, A. (2014). *Threat modeling: Designing for security*. Wiley. Acesso em 15 de outubro de 2026. https://shostack.org/books/threat-modeling-book (categorias STRIDE e propriedade violada por cada uma, conforme https://shostack.org/resources/threat-modeling)
+- Shostack, A. (2014). *Threat modeling: Designing for security*. Acesso em 15 de outubro de 2026. https://shostack.org/books/threat-modeling-book (categorias STRIDE e propriedade violada por cada uma, conforme https://shostack.org/resources/threat-modeling)
 - OWASP Foundation. (2021). *OWASP Top 10:2021*. Acesso em 15 de outubro de 2026. https://top10.owasp.org/2021 (A01:2021, A03:2021 e A09:2021)
 - MITRE Corporation. (n.d.). *Common Weakness Enumeration (CWE)*. Acesso em 15 de outubro de 2026. https://cwe.mitre.org/ (definição do CWE na página de perguntas frequentes)
 - International Organization for Standardization/International Electrotechnical Commission. (2022). *Information security, cybersecurity and privacy protection — Information security management systems — Requirements* (ISO/IEC 27001:2022). Acesso em 15 de outubro de 2026. https://webstore.iec.ch/publication/79694 (escopo da norma)

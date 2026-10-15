@@ -54,7 +54,7 @@ Fontes conferidas, no formato APA 7ª edição. Referências adicionais entram s
 - Debezium. (n.d.-a). *Debezium features*. https://debezium.io/documentation/reference/stable/features.html
 - Debezium. (n.d.-b). *Debezium connector for PostgreSQL*. https://debezium.io/documentation/reference/stable/connectors/postgresql.html
 - Richardson, C. (n.d.). *Pattern: Database per service*. Microservices.io. https://microservices.io/patterns/data/database-per-service.html
-- Shostack, A. (2014). *Threat modeling: Designing for security*. Wiley. Acesso em 15 de outubro de 2026. https://shostack.org/books/threat-modeling-book
+- Shostack, A. (2014). *Threat modeling: Designing for security*. Acesso em 15 de outubro de 2026. https://shostack.org/books/threat-modeling-book
 - gRPC Authors. (n.d.-a). *Introduction to gRPC*. https://grpc.io/docs/what-is-grpc/introduction/
 - gRPC Authors. (n.d.-b). *FAQ*. https://grpc.io/docs/what-is-grpc/faq/
 - GraphQL Foundation. (n.d.). *Learn GraphQL*. https://graphql.org/learn/
