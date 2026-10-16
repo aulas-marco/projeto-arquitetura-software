@@ -317,3 +317,32 @@ Elemento que faz parte da arquitetura de um sistema e interessa a quem a analisa
 ## Caderno arquitetural
 
 Documento em que a arquitetura da solução da ACME vai sendo registrada ao longo do curso, em dez seções mais um resumo, do contexto ao roteiro e à governança, de modo que quem chegar depois ao projeto entenda o que foi decidido e por quê. Cada exercício preenche uma parte dele. O [template](../caderno/template.md) mostra o caderno vazio, e a seção Gabaritos mostra o caderno preenchido a cada exercício.
+
+## Análise de lacunas
+
+Comparação entre a arquitetura de linha de base, que é a situação atual, e a arquitetura alvo, que é a situação pretendida, para listar o que falta construir, trocar ou mudar. Cada lacuna é técnica quando se fecha com tecnologia e organizacional quando se fecha com pessoas, processos ou contratos.
+
+## Governança de arquitetura
+
+Conjunto de regras, papéis e rotinas que mantém a execução de um projeto alinhada com a arquitetura desenhada. Define quem aprova um desvio, em que momento a obra é revista e como as decisões ficam registradas.
+
+## Desvio arquitetural
+
+Diferença entre o que a equipe constrói e o que a arquitetura decidiu, em geral sob pressão de prazo ou de custo. Um desvio aceito de propósito vira dívida técnica e precisa de registro, de responsável e de data para ser corrigido.
+
+## Onda de entrega
+
+Etapa do roteiro de entrega que reúne as entregas de uma mesma fase da mudança e termina quando o critério de conclusão da onda é cumprido. A ordem das ondas segue as dependências técnicas e os prazos dos contratos.
+
+## Função de aptidão
+
+Teste automático que confere, a cada mudança do sistema, se uma regra da arquitetura continua sendo cumprida, como a proibição de um componente novo acessar o banco do núcleo. Avisa a equipe quando uma decisão deixa de valer.
+
+## Ciclo ADM
+
+Método de desenvolvimento de arquitetura do TOGAF, organizado em uma fase preliminar, oito fases de A a H e a gestão de requisitos no centro. As fases E, F, G e H tratam das oportunidades e soluções, do planejamento da migração, da governança da implementação e da gestão da mudança, e são as fases em que o arquiteto de solução governa a mudança. ADM é a sigla do inglês Architecture Development Method.
+
+## Saída plausível e errada
+
+Resultado produzido por um modelo de linguagem com estrutura completa e texto correto, mas com conteúdo falso, como um número de carga já superado. É o risco central do uso de IA no trabalho do arquiteto, porque a aparência de acerto dificulta a conferência.
+

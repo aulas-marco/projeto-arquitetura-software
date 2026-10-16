@@ -95,8 +95,9 @@ class Modulo6Test(unittest.TestCase):
         pagina = (DOCS / M6 / "index.md").read_text(encoding="utf-8")
         grade = pagina[pagina.index("## Grade de tempo"):]
         grade = grade[: grade.index("\n## ", 5)] if "\n## " in grade[5:] else grade
-        self.assertEqual(1, grade.count("Kahoot"))
-        self.assertLess(grade.index("Intervalo"), grade.index("Kahoot"))
+        linhas = [l for l in grade.splitlines() if l.startswith("| ") and "Kahoot" in l]
+        self.assertEqual(1, len(linhas))
+        self.assertLess(grade.index("Intervalo"), grade.index(linhas[0]))
 
     def test_sintese_aponta_para_os_gabaritos(self):
         pagina = (DOCS / M6 / "sintese.md").read_text(encoding="utf-8")

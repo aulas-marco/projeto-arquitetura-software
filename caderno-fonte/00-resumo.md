@@ -92,3 +92,27 @@ modo: substitui
 **Como está o trabalho.** A tecnologia, a plataforma, a segurança dos dados e o registro da plataforma estão decididos como proposta. Restam as pendências da seção 10, entre elas o ensaio de carga com 5.800 sessões e a data dos dois registros.
 <!--/gabarito-->
 <!--/ex-->
+
+<!--ex n=24 titulo="Resumo final do caderno"-->
+<!--campos-->
+- **O problema:** conte a situação da ACME e por que ela exige mudança, com os números do caso.
+- **A pergunta:** escreva a pergunta que o projeto responde.
+- **A decisão:** diga a decisão central do projeto e o estado dela, proposta ou aceita.
+- **O que mais pesa no desenho:** diga qual exigência mais pesa, escrevendo o conteúdo e a medida antes do código.
+- **Consequências:** diga o que a decisão custa à ACME, com ao menos uma consequência para a equipe.
+- **Como está o trabalho:** diga o que está decidido, o que está proposto e o que falta, incluindo o roteiro em ondas e a conferência final.
+<!--/campos-->
+<!--gabarito-->
+**O problema.** A ACME é uma universidade privada com 38.400 alunos ativos e um sistema acadêmico em operação desde 2004, com núcleo em COBOL, que custa R$ 15,83 milhões por ano e leva 34 dias úteis para colocar uma mudança em produção. A situação se agrava porque, dos 6 especialistas em COBOL que o sustentam, 2 se aposentam em 2027.
+
+**A pergunta.** Diante desse quadro, o projeto pergunta como evoluir o sistema acadêmico de forma segura e incremental, com o núcleo em operação durante a transição e respeitando os contratos já assumidos.
+
+**A decisão.** A ACME adota duas decisões, ambas em estado de proposta. A primeira, o ADR 001, coloca uma fila entre o portal e o núcleo COBOL na entrada da matrícula. A segunda, o ADR de plataforma, escolhe a plataforma de microsserviços na variante Java, com o Kafka como barramento de eventos. A entrega segue em três ondas: primeiro a base de acesso (zona de pouso, logon único, gateway de APIs, camada anticorrupção e portal básico do aluno), depois a matrícula digital com o aplicativo móvel e, por último, a migração das regras de negócio do COBOL, que só começa depois de 30/09/2027. O primeiro ciclo de 12 meses cobre as duas primeiras ondas, dentro do orçamento de R$ 6,2 milhões.
+
+**O que mais pesa no desenho.** A matrícula e a nota. Na abertura, o Portal do Aluno precisa sustentar 5.800 sessões simultâneas, com o tempo de confirmação em até 4 segundos para 95% das requisições (o requisito R6 do dossiê), e a nota lançada pelo professor precisa chegar ao ambiente virtual de aprendizagem em até 10 minutos (o R7). Um limite legal acompanha os dois: nenhum dado pessoal de aluno pode ser processado fora do território nacional, e a região escolhida para a nuvem fica no Brasil.
+
+**Consequências.** A confirmação da matrícula deixa de ser imediata para o aluno, porque o pedido entra na fila e o núcleo o processa depois. A equipe Java precisa aprender Kafka e Kubernetes, e a ACME passa a monitorar mais peças em produção. Para a obra não se afastar do desenho, testes automáticos avisam quando uma decisão deixa de ser cumprida, e todo uso de IA no projeto passa por verificação em três etapas e fica registrado no ADR.
+
+**Como está o trabalho.** O caderno tem as onze seções preenchidas, e a conferência de rastreabilidade apontou três lacunas: uma decisão sem requisito de origem, um requisito de custo sem decisão e uma pendência sem responsável. As duas decisões continuam propostas, e as pendências da seção 10 dizem quem resolve cada ponto e quando.
+<!--/gabarito-->
+<!--/ex-->

@@ -24,7 +24,8 @@ class InventarioTest(unittest.TestCase):
     def test_lista_os_vinte_exercicios_e_o_glossario_inteiro(self):
         linhas = self.inv.inventariar(ROOT / "docs")
         exercicios = [l for l in linhas if l[0] == "exercício"]
-        self.assertEqual(20, len(exercicios))
+        # Uma linha por página de bloco com exercício: 20 das Aulas 1 a 5 e 3 da Aula 6.
+        self.assertEqual(23, len(exercicios))
         termos = [l for l in linhas if l[0] == "termo"]
         glossario = (ROOT / "docs/referencia/glossario.md").read_text(encoding="utf-8")
         self.assertEqual(glossario.count("\n## "), len(termos))

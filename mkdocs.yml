@@ -107,8 +107,12 @@ nav:
       - "Bloco 3: segurança fim a fim": modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-fim-a-fim.md
       - "Bloco 4: ADR de plataforma e lacunas": modulo-5-frameworks-e-tecnologias/bloco-4-adr-de-plataforma.md
       - Síntese: modulo-5-frameworks-e-tecnologias/sintese.md
-  - "Aula 6, lacunas, roteiro e governança":
+  - "Aula 6, governança, aceleradores de IA e apresentação do caderno":
       - Visão geral: modulo-6-governanca-ia-e-caderno/index.md
+      - "Bloco 1: governança da mudança": modulo-6-governanca-ia-e-caderno/bloco-1-governanca-da-mudanca.md
+      - "Bloco 2: aceleradores de IA": modulo-6-governanca-ia-e-caderno/bloco-2-aceleradores-de-ia.md
+      - "Bloco 3: apresentação do caderno arquitetural": modulo-6-governanca-ia-e-caderno/bloco-3-apresentacao-do-caderno.md
+      - Síntese: modulo-6-governanca-ia-e-caderno/sintese.md
   - Caso ACME:
       - Visão e contexto: caso-acme/index.md
       - Arquitetura de linha de base: caso-acme/linha-de-base.md
@@ -140,6 +144,10 @@ nav:
       - "Exercício 18": gabaritos/gabarito-exercicio-18.md
       - "Exercício 19": gabaritos/gabarito-exercicio-19.md
       - "Exercício 20": gabaritos/gabarito-exercicio-20.md
+      - "Exercício 21": gabaritos/gabarito-exercicio-21.md
+      - "Exercício 22": gabaritos/gabarito-exercicio-22.md
+      - "Exercício 23": gabaritos/gabarito-exercicio-23.md
+      - "Exercício 24": gabaritos/gabarito-exercicio-24.md
   - Referência:
       - Glossário: referencia/glossario.md
       - Bibliografia: referencia/bibliografia.md

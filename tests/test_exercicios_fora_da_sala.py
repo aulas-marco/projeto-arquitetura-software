@@ -37,6 +37,12 @@ class ExercisesOutsideClassTest(unittest.TestCase):
                     # contando o bloco 0 quando a aula tem abertura conceitual.
                     rows = re.findall(r"^\| [\dh–]+ \| Bloco [0-4],.*\| (\d+) \|\s*$", text, re.MULTILINE)
                     has_zero = re.search(r"^\| [\dh–]+ \| Bloco 0,", text, re.MULTILINE) is not None
+                    if module.name.startswith("modulo-6"):
+                        # Aula 6: três blocos, governança na primeira metade e um único Kahoot depois do intervalo.
+                        self.assertEqual(3, len(rows))
+                        self.assertEqual(140, sum(int(r) for r in rows))
+                        self.assertEqual(1, len(re.findall(r"^\| [\dh–]+ \| Kahoot", text, re.MULTILINE)))
+                        continue
                     self.assertEqual(5 if has_zero else 4, len(rows))
                     self.assertEqual(130, sum(int(r) for r in rows))
                     self.assertEqual(3, len(re.findall(r"^\| [\dh–]+ \| Kahoot", text, re.MULTILINE)))
@@ -60,7 +66,10 @@ class ExercisesOutsideClassTest(unittest.TestCase):
 
     def test_exercises_bring_a_visual_artifact(self):
         for page, section in exercise_sections():
+            # O artefato visual é um diagrama ou, nos exercícios que fornecem tabelas de itens, uma tabela.
             visuals = section.count("```mermaid") + section.count("{ .module-diagram }")
+            if page.parent.name.startswith("modulo-6"):
+                visuals += section.count("\n| --- |")
             with self.subTest(page=page.name):
                 self.assertGreaterEqual(visuals, 1)
 

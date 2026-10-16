@@ -24,3 +24,7 @@ O caderno arquitetural é o documento em que a arquitetura da solução da ACME 
 | Exercício 18, Plataforma arquitetural | [Gabarito 18](gabarito-exercicio-18.md) |
 | Exercício 19, Segurança fim a fim | [Gabarito 19](gabarito-exercicio-19.md) |
 | Exercício 20, ADR de plataforma e lacunas | [Gabarito 20](gabarito-exercicio-20.md) |
+| Exercício 21, Governança da mudança | [Gabarito 21](gabarito-exercicio-21.md) |
+| Exercício 22, Governança da mudança | [Gabarito 22](gabarito-exercicio-22.md) |
+| Exercício 23, Aceleradores de IA | [Gabarito 23](gabarito-exercicio-23.md) |
+| Exercício 24, Apresentação do caderno arquitetural | [Gabarito 24](gabarito-exercicio-24.md) |

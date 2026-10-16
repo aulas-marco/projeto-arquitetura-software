@@ -208,6 +208,17 @@ Você escreve:
 - **Dado que o artefato fornece:** diga qual informação do artefato aparece no cenário.
 - **Efeito de um dado desatualizado:** diga o que aconteceria com o cenário se esse dado estivesse desatualizado.
 
+### 4.2 Lacunas por domínio e tipo
+
+Esta parte é preenchida no exercício 21.
+
+Você escreve:
+
+- **Domínio da lacuna:** para cada uma das oito lacunas do enunciado, escolha um dos sete domínios do relatório de lacunas.
+- **Tipo da lacuna:** diga se a lacuna é técnica ou organizacional.
+- **Justificativa da classificação:** cite, em uma frase, o dado do caso que sustenta o tipo escolhido.
+- **Forma de fechar a lacuna organizacional:** para cada lacuna organizacional, diga se ela pede capacitação, mudança de processo ou decisão de contrato.
+
 </details>
 
 {{/folha}}
@@ -476,9 +487,42 @@ Você escreve:
 | --- | --- |
 | Para que serve | Uma boa solução falha quando é entregue na ordem errada ou sem acompanhamento. Esta seção define a ordem das entregas e a forma de vigiar a arquitetura, para que a obra não se afaste do desenho. |
 | Pergunta que responde | Em que ordem as lacunas serão fechadas, e como evitar que a obra se afaste do que foi desenhado? |
-| O que você escreve | Você divide o roteiro em ondas, que são etapas de entrega, e dá a cada uma as suas entregas e o critério para considerá-la concluída. Depois descreve a rotina de revisão da arquitetura, os testes automáticos que avisam quando uma decisão deixa de ser cumprida e o registro dos atalhos aceitos, que se chama dívida técnica. |
+| O que você escreve | Você divide o roteiro em ondas, que são etapas de entrega, e dá a cada uma as suas entregas e o critério para considerá-la concluída. Depois descreve a rotina de revisão da arquitetura, os testes automáticos que avisam quando uma decisão deixa de ser cumprida e o registro dos atalhos aceitos, que se chama dívida técnica. Por fim, você registra as regras de uso de IA no projeto, isto é, como cada saída de modelo é verificada e como a assistência é anotada no registro de decisão. |
 | Vem de onde | Da seção 4, porque as lacunas confirmadas são a matéria das ondas. |
 | Quando se preenche | Você preenche esta seção na Aula 6, nos exercícios 21, 22 e 23. |
+
+### 9.1 Ordem das ondas e critério de conclusão
+
+Esta parte é preenchida no exercício 21.
+
+Você escreve:
+
+- **Ordem das ondas:** coloque as três entregas do enunciado na ordem das ondas 1, 2 e 3.
+- **Justificativa pelo critério de conclusão:** para cada onda, escreva em uma frase a dependência ou o critério de conclusão que justifica a posição.
+- **Entrega que depende do fim da exclusividade da fábrica:** diga qual das três entregas só pode alterar o núcleo depois de 30/09/2027.
+- **Ondas do primeiro ciclo:** diga quais ondas formam o primeiro ciclo de 12 meses e que orçamento elas respeitam.
+
+### 9.2 Desvio, mecanismos de governança e quem decide
+
+Esta parte é preenchida no exercício 22.
+
+Você escreve:
+
+- **Mecanismo contra o desvio:** associe cada uma das cinco situações do enunciado a um dos cinco mecanismos e diga o que o mecanismo faz nela.
+- **Quem decide:** para cada pedido do enunciado, diga o tipo da decisão e quem a aprova.
+- **Regra que vira função de aptidão:** marque quais das quatro regras podem ser verificadas por um teste automático e diga quando o teste roda.
+- **Decisão protegida pela função de aptidão:** para cada regra marcada, diga qual decisão registrada ela protege.
+
+### 9.3 Verificação de uma saída de IA e registro da assistência
+
+Esta parte é preenchida no exercício 23.
+
+Você escreve:
+
+- **Verificação de rastreabilidade:** diga, para cada afirmação do contexto gerado, se ela tem origem em dado vigente e corrija a que não tem, citando a fonte.
+- **Consequência omitida:** escreva as consequências negativas que o rascunho não traz, com o dado do enunciado que as comprova.
+- **Decisão que volta à autoridade:** corrija o estado e a data do registro e diga quem decide.
+- **Registro da assistência de IA:** escreva a ferramenta, as partes rascunhadas, o prompt e a versão, as verificações aplicadas e o revisor.
 
 </details>
 
