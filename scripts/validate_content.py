@@ -25,7 +25,7 @@ MODULES = (
 )
 
 # Secoes do site que nao sao modulos de aula, mas que --module aceita filtrar
-EXTRA_SECTIONS = ("caso-acme", "referencia")
+EXTRA_SECTIONS = ("caso-acme", "referencia", "caderno", "gabaritos")
 
 # A secao de conceito aceita titulo livre, para que cada bloco possa nomear
 # o proprio assunto. As demais sao verificadas pelo nome exato.
@@ -38,6 +38,13 @@ BLOCK_SECTIONS = (
     "Exercício",
     "Fontes",
 )
+
+# Seção que liga o bloco ao caderno arquitetural. Os blocos listados em
+# CADERNO_BLOCKS já a exigem, e as partes 2 a 6 da migração acrescentam os
+# arquivos de cada módulo. Em qualquer bloco, quando existe, a seção precisa
+# estar entre "Uso pelo arquiteto" e "Exercício".
+CADERNO_SECTION = "No caderno arquitetural"
+CADERNO_BLOCKS: set[str] = set()
 
 FORBIDDEN_MARKERS = ("TODO", "TBD", "PLACEHOLDER", "PREENCHER")
 
@@ -171,7 +178,7 @@ def _find_concept_section(text: str) -> re.Match | None:
     abertura = re.search(r"^##\s+Antes de começar", text, re.MULTILINE)
     if abertura is None:
         return None
-    nomeadas = ("Uso pelo arquiteto", "Exercício", "Exercicio", "Fontes")
+    nomeadas = ("Uso pelo arquiteto", "Exercício", "Exercicio", "Fontes", CADERNO_SECTION)
     for titulo in re.finditer(r"^##\s+(.+?)\s*$", text, re.MULTILINE):
         if titulo.start() <= abertura.start():
             continue
@@ -194,6 +201,10 @@ def check_block_anatomy(path: Path, text: str) -> list[str]:
     sections = BLOCK_SECTIONS
     if path.name.startswith("bloco-0-"):
         sections = tuple(s for s in BLOCK_SECTIONS if s != "Exercício")
+    tem_caderno = re.search(rf"^##\s+{re.escape(CADERNO_SECTION)}\s*$", text, re.MULTILINE)
+    if (path.name in CADERNO_BLOCKS or tem_caderno) and "Exercício" in sections:
+        indice = sections.index("Exercício")
+        sections = sections[:indice] + (CADERNO_SECTION,) + sections[indice:]
     positions = []
     for section in sections:
         if section == "Exercício":
