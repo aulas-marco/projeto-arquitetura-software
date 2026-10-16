@@ -8,6 +8,9 @@ Ao longo do curso, a arquitetura da solução da ACME vai sendo registrada num �
 
 ## A solução em uma página
 
+<details class="caderno-secao" markdown="1">
+<summary>Ver para que serve e o que vai nesta seção. Clique para abrir</summary>
+
 | Campo | Conteúdo |
 | --- | --- |
 | Para que serve | Quem decide sobre o projeto da ACME raramente lê o caderno inteiro e, mesmo assim, precisa apoiá-lo ou questioná-lo depois de poucos minutos de leitura. Por isso este resumo de uma página reúne o essencial, e a decisão pode ser tomada sem percorrer as outras seções. |
@@ -16,11 +19,16 @@ Ao longo do curso, a arquitetura da solução da ACME vai sendo registrada num �
 | Vem de onde | O resumo não traz informação nova, porque retoma em poucas linhas o que as outras seções já registram, e por isso ele é escrito depois delas. |
 | Quando se preenche | Ao fim de cada aula você reescreve o resumo, nos exercícios 4, 8, 12, 16, 20 e 24, e cada versão substitui a anterior. |
 
+</details>
+
 {{/folha}}
 
 {{folha:1}}
 
 ## 1. Contexto
+
+<details class="caderno-secao" markdown="1">
+<summary>Ver para que serve e o que vai nesta seção. Clique para abrir</summary>
 
 | Campo | Conteúdo |
 | --- | --- |
@@ -76,11 +84,16 @@ Você escreve:
 - **Seção do caderno:** escreva em que seção do caderno o resultado do artefato fica registrado, consultando o template.
 - **Dado do caso:** as premissas e as exclusões do escopo já vêm prontas, propostas pelo curso para você confirmar na descoberta.
 
+</details>
+
 {{/folha}}
 
 {{folha:2}}
 
 ## 2. Partes interessadas
+
+<details class="caderno-secao" markdown="1">
+<summary>Ver para que serve e o que vai nesta seção. Clique para abrir</summary>
 
 | Campo | Conteúdo |
 | --- | --- |
@@ -106,11 +119,16 @@ Você escreve:
 - **Muda ou permanece:** para cada um dos dez elementos da declaração de escopo, diga se ele muda ou fica como está nos 12 meses do primeiro ciclo.
 - **Origem da exclusão:** para cada elemento que permanece, diga qual restrição, contrato ou decisão de governança o manteve fora da mudança.
 
+</details>
+
 {{/folha}}
 
 {{folha:3}}
 
 ## 3. Requisitos
+
+<details class="caderno-secao" markdown="1">
+<summary>Ver para que serve e o que vai nesta seção. Clique para abrir</summary>
 
 | Campo | Conteúdo |
 | --- | --- |
@@ -161,11 +179,16 @@ Você escreve:
 - **Origem da restrição:** classifique cada uma das sete restrições do caso em regulatória, contratual, de política interna ou técnica.
 - **Quem pode rever a restrição:** diga quem tem autoridade para mudar a restrição.
 
+</details>
+
 {{/folha}}
 
 {{folha:4}}
 
 ## 4. Linha de base e lacunas
+
+<details class="caderno-secao" markdown="1">
+<summary>Ver para que serve e o que vai nesta seção. Clique para abrir</summary>
 
 | Campo | Conteúdo |
 | --- | --- |
@@ -185,11 +208,16 @@ Você escreve:
 - **Dado que o artefato fornece:** diga qual informação do artefato aparece no cenário.
 - **Efeito de um dado desatualizado:** diga o que aconteceria com o cenário se esse dado estivesse desatualizado.
 
+</details>
+
 {{/folha}}
 
 {{folha:5}}
 
 ## 5. Contexto do sistema (C4, nível 1)
+
+<details class="caderno-secao" markdown="1">
+<summary>Ver para que serve e o que vai nesta seção. Clique para abrir</summary>
 
 | Campo | Conteúdo |
 | --- | --- |
@@ -213,11 +241,16 @@ Você escreve:
 - **Erros do diagrama:** aponte os dois erros de nível ou de fronteira que o diagrama de contexto do enunciado contém.
 - **Correção de cada erro:** para cada erro, diga qual elemento está errado e onde ele deve ficar no diagrama.
 
+</details>
+
 {{/folha}}
 
 {{folha:6}}
 
 ## 6. Princípios
+
+<details class="caderno-secao" markdown="1">
+<summary>Ver para que serve e o que vai nesta seção. Clique para abrir</summary>
 
 | Campo | Conteúdo |
 | --- | --- |
@@ -243,11 +276,16 @@ Você escreve:
 - **Risco:** aponte ao menos uma coisa que pode dar errado no esboço e o princípio que ela ameaça.
 - **Decisão pendente:** aponte ao menos uma escolha que ainda não pode ser feita e o princípio que ela afeta.
 
+</details>
+
 {{/folha}}
 
 {{folha:7}}
 
 ## 7. Decisões
+
+<details class="caderno-secao" markdown="1">
+<summary>Ver para que serve e o que vai nesta seção. Clique para abrir</summary>
 
 | Campo | Conteúdo |
 | --- | --- |
@@ -344,11 +382,16 @@ Você escreve:
 - **Relações do R7:** indique, pelo número, as relações que fazem parte do caminho da nota até o ambiente virtual em até 10 minutos (requisito R7).
 - **Posição do núcleo transacional:** diga se o núcleo COBOL fica dentro ou fora da fronteira da solução, e por quê.
 
+</details>
+
 {{/folha}}
 
 {{folha:8}}
 
 ## 8. Tecnologia e plataforma
+
+<details class="caderno-secao" markdown="1">
+<summary>Ver para que serve e o que vai nesta seção. Clique para abrir</summary>
 
 | Campo | Conteúdo |
 | --- | --- |
@@ -418,11 +461,16 @@ Você escreve:
 - **Tipo da lacuna de provisão:** classifique cada um dos seis itens da definição tecnológica como lacuna nova, substituição, modificação ou remoção, com o dado da coluna de situação.
 - **Lacuna que reduz custo recorrente:** indique qual item reduz custo recorrente já registrado nos dados operacionais e cite o dado.
 
+</details>
+
 {{/folha}}
 
 {{folha:9}}
 
 ## 9. Roteiro e governança
+
+<details class="caderno-secao" markdown="1">
+<summary>Ver para que serve e o que vai nesta seção. Clique para abrir</summary>
 
 | Campo | Conteúdo |
 | --- | --- |
@@ -432,11 +480,16 @@ Você escreve:
 | Vem de onde | Da seção 4, porque as lacunas confirmadas são a matéria das ondas. |
 | Quando se preenche | Você preenche esta seção na Aula 6, nos exercícios 22 e 23. |
 
+</details>
+
 {{/folha}}
 
 {{folha:10}}
 
 ## 10. O que ainda falta decidir
+
+<details class="caderno-secao" markdown="1">
+<summary>Ver para que serve e o que vai nesta seção. Clique para abrir</summary>
 
 | Campo | Conteúdo |
 | --- | --- |
@@ -445,5 +498,7 @@ Você escreve:
 | O que você escreve | Você monta uma tabela com cada pendência, quem decide e quando ela deve ser resolvida. Na versão final entra também a avaliação de uma tendência tecnológica e do efeito que ela teria sobre a solução. |
 | Vem de onde | De todas as seções, porque toda premissa ainda não confirmada passa a ser uma pendência. |
 | Quando se preenche | Ao fim de cada aula você atualiza a lista, nos exercícios 4, 8, 12, 16, 20 e 24, e cada versão substitui a anterior. |
+
+</details>
 
 {{/folha}}

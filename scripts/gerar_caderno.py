@@ -140,14 +140,17 @@ def _pagina(n: int, docs: Path) -> str | None:
 def render_template(secoes: list[Secao]) -> str:
     partes = ["# Template do caderno arquitetural", "", INTRO_TEMPLATE, "", "{{trilha:todas}}", ""]
     for secao in secoes:
-        partes += [f"{{{{folha:{secao.numero}}}}}", "", _cabecalho(secao), "", secao.orientacao, ""]
+        partes += [f"{{{{folha:{secao.numero}}}}}", "", _cabecalho(secao), "",
+                   '<details class="caderno-secao" markdown="1">',
+                   "<summary>Ver para que serve e o que vai nesta seção. Clique para abrir</summary>", "",
+                   secao.orientacao, ""]
         if secao.modo == "acumula":
             for i, fragmento in enumerate(secao.fragmentos, start=1):
                 partes += [f"### {secao.numero}.{i} {fragmento.titulo}", "",
                            f"Esta parte é preenchida no exercício {fragmento.n}.", ""]
                 if fragmento.campos:
                     partes += ["Você escreve:", "", fragmento.campos, ""]
-        partes += ["{{/folha}}", ""]
+        partes += ["</details>", "", "{{/folha}}", ""]
     return "\n".join(partes).rstrip() + "\n"
 
 
