@@ -8,7 +8,7 @@ modo: substitui
 | --- | --- |
 | Para que serve | Nem tudo está decidido, e tratar como certo o que ainda é dúvida leva a decisões frágeis. Esta seção lista o que ainda falta e diz quem pode resolver cada ponto. |
 | Pergunta que responde | O que ainda impede o projeto de seguir, e quem resolve? |
-| O que você escreve | Você monta uma tabela com cada pendência, quem decide e quando ela deve ser resolvida. Na versão final entra também a avaliação de uma tendência tecnológica e do efeito que ela teria sobre a solução. |
+| O que você escreve | Você monta uma tabela com cada pendência, quem decide e quando ela deve ser resolvida. Na versão final, escrita no exercício 24, entra também a conferência do caderno completo, que aponta as decisões sem requisito de origem, os requisitos sem decisão e as pendências sem responsável. |
 | Vem de onde | De todas as seções, porque toda premissa ainda não confirmada passa a ser uma pendência. |
 | Quando se preenche | Ao fim de cada aula você atualiza a lista, nos exercícios 4, 8, 12, 16, 20 e 24, e cada versão substitui a anterior. |
 <!--/orientacao-->

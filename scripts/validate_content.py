@@ -21,7 +21,7 @@ MODULES = (
     "modulo-3-design-e-padroes",
     "modulo-4-dominios-da-solucao",
     "modulo-5-frameworks-e-tecnologias",
-    "modulo-6-lacunas-e-governanca",
+    "modulo-6-governanca-ia-e-caderno",
 )
 
 # Secoes do site que nao sao modulos de aula, mas que --module aceita filtrar
@@ -65,6 +65,9 @@ CADERNO_BLOCKS: set[str] = {
     "bloco-2-plataforma-arquitetural.md",
     "bloco-3-seguranca-fim-a-fim.md",
     "bloco-4-adr-de-plataforma.md",
+    "bloco-1-governanca-da-mudanca.md",
+    "bloco-2-aceleradores-de-ia.md",
+    "bloco-3-apresentacao-do-caderno.md",
 }
 
 FORBIDDEN_MARKERS = ("TODO", "TBD", "PLACEHOLDER", "PREENCHER")

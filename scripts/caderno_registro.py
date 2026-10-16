@@ -28,7 +28,7 @@ PLANO = {
     9: (6,), 10: (7,), 11: (7,), 12: (7,),
     13: (7,), 14: (7,), 15: (5,), 16: (7,),
     17: (8,), 18: (8,), 19: (8,), 20: (8,),
-    21: (4,), 22: (9,), 23: (9,), 24: (),
+    21: (4, 9), 22: (9,), 23: (9,), 24: (),
 }
 
 # Exercício -> (aula, página do bloco relativa a docs/, título do bloco).
@@ -54,10 +54,10 @@ EXERCICIOS = {
     18: (5, "modulo-5-frameworks-e-tecnologias/bloco-2-plataforma-arquitetural.md", "Plataforma arquitetural"),
     19: (5, "modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-fim-a-fim.md", "Segurança fim a fim"),
     20: (5, "modulo-5-frameworks-e-tecnologias/bloco-4-adr-de-plataforma.md", "ADR de plataforma e lacunas"),
-    21: (6, "modulo-6-lacunas-e-governanca/bloco-1-analise-de-lacunas.md", "Análise de lacunas"),
-    22: (6, "modulo-6-lacunas-e-governanca/bloco-2-roteiro-de-entrega.md", "Roteiro de entrega"),
-    23: (6, "modulo-6-lacunas-e-governanca/bloco-3-governanca.md", "Governança"),
-    24: (6, "modulo-6-lacunas-e-governanca/bloco-4-inovacao-e-tendencias.md", "Inovação e tendências"),
+    21: (6, "modulo-6-governanca-ia-e-caderno/bloco-1-governanca-da-mudanca.md", "Governança da mudança"),
+    22: (6, "modulo-6-governanca-ia-e-caderno/bloco-1-governanca-da-mudanca.md", "Governança da mudança"),
+    23: (6, "modulo-6-governanca-ia-e-caderno/bloco-2-aceleradores-de-ia.md", "Aceleradores de IA"),
+    24: (6, "modulo-6-governanca-ia-e-caderno/bloco-3-apresentacao-do-caderno.md", "Apresentação do caderno arquitetural"),
 }
 
 CODIGOS = ("D", "PR", "RT", "R", "RD", "CQ", "L", "P", "DD", "DL", "B", "I", "ADR", "C", "LG", "FA", "CP", "N", "T", "A")

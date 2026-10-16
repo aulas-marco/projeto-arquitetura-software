@@ -45,7 +45,7 @@ plugins:
         modulo-4-protocolos-e-representacao/index.md: modulo-4-dominios-da-solucao/index.md
         modulo-4-protocolos-e-representacao/bloco-4-representacao-de-modelos-e-c4.md: modulo-4-dominios-da-solucao/bloco-3-arquitetura-de-aplicacoes-e-integracao.md
         modulo-5-seguranca-e-trm/index.md: modulo-5-frameworks-e-tecnologias/index.md
-        modulo-6-riscos-e-provas-de-conceito/index.md: modulo-6-lacunas-e-governanca/index.md
+        modulo-6-riscos-e-provas-de-conceito/index.md: modulo-6-governanca-ia-e-caderno/index.md
 
 extra_css:
   - assets/stylesheets/extra.css?v=20261016-4
@@ -108,7 +108,7 @@ nav:
       - "Bloco 4: ADR de plataforma e lacunas": modulo-5-frameworks-e-tecnologias/bloco-4-adr-de-plataforma.md
       - Síntese: modulo-5-frameworks-e-tecnologias/sintese.md
   - "Aula 6, lacunas, roteiro e governança":
-      - Visão geral: modulo-6-lacunas-e-governanca/index.md
+      - Visão geral: modulo-6-governanca-ia-e-caderno/index.md
   - Caso ACME:
       - Visão e contexto: caso-acme/index.md
       - Arquitetura de linha de base: caso-acme/linha-de-base.md

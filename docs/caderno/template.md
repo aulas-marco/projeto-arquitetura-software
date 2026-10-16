@@ -478,7 +478,7 @@ Você escreve:
 | Pergunta que responde | Em que ordem as lacunas serão fechadas, e como evitar que a obra se afaste do que foi desenhado? |
 | O que você escreve | Você divide o roteiro em ondas, que são etapas de entrega, e dá a cada uma as suas entregas e o critério para considerá-la concluída. Depois descreve a rotina de revisão da arquitetura, os testes automáticos que avisam quando uma decisão deixa de ser cumprida e o registro dos atalhos aceitos, que se chama dívida técnica. |
 | Vem de onde | Da seção 4, porque as lacunas confirmadas são a matéria das ondas. |
-| Quando se preenche | Você preenche esta seção na Aula 6, nos exercícios 22 e 23. |
+| Quando se preenche | Você preenche esta seção na Aula 6, nos exercícios 21, 22 e 23. |
 
 </details>
 
@@ -495,7 +495,7 @@ Você escreve:
 | --- | --- |
 | Para que serve | Nem tudo está decidido, e tratar como certo o que ainda é dúvida leva a decisões frágeis. Esta seção lista o que ainda falta e diz quem pode resolver cada ponto. |
 | Pergunta que responde | O que ainda impede o projeto de seguir, e quem resolve? |
-| O que você escreve | Você monta uma tabela com cada pendência, quem decide e quando ela deve ser resolvida. Na versão final entra também a avaliação de uma tendência tecnológica e do efeito que ela teria sobre a solução. |
+| O que você escreve | Você monta uma tabela com cada pendência, quem decide e quando ela deve ser resolvida. Na versão final, escrita no exercício 24, entra também a conferência do caderno completo, que aponta as decisões sem requisito de origem, os requisitos sem decisão e as pendências sem responsável. |
 | Vem de onde | De todas as seções, porque toda premissa ainda não confirmada passa a ser uma pendência. |
 | Quando se preenche | Ao fim de cada aula você atualiza a lista, nos exercícios 4, 8, 12, 16, 20 e 24, e cada versão substitui a anterior. |
 

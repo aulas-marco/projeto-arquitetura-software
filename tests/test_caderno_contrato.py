@@ -88,13 +88,15 @@ class ContratoDoCadernoTest(unittest.TestCase):
     def test_todo_campo_da_ficha_de_um_bloco_existe_no_template(self):
         """Spec 6.3: o campo que cada ficha lista existe nos campos da fonte do mesmo exercício."""
         validador = carregar("validate_content")
-        por_arquivo = {Path(arquivo).name: n for n, (_, arquivo, _) in self.reg.EXERCICIOS.items()}
+        por_arquivo = {}
+        for n, (_, arquivo, _) in self.reg.EXERCICIOS.items():
+            por_arquivo.setdefault(Path(arquivo).name, set()).add(n)
         for nome in sorted(validador.CADERNO_BLOCKS):
             n = por_arquivo[nome]
             pagina = next((DOCS).glob(f"modulo-*/{nome}")).read_text(encoding="utf-8")
             fichas = re.findall(r"\{\{ficha:.*?\{\{/ficha\}\}", pagina, re.DOTALL)
             campos_da_fonte = " ".join(
-                f.campos for secao in self.secoes for f in secao.fragmentos if f.n == n
+                f.campos for secao in self.secoes for f in secao.fragmentos if f.n in n
             ).casefold()
             with self.subTest(bloco=nome):
                 self.assertGreaterEqual(len(fichas), 1)

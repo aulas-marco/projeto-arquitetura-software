@@ -348,7 +348,7 @@ class BlockFourTest(unittest.TestCase):
                      *GAP_TYPES):
             with self.subTest(term=term):
                 self.assertIn(term, body)
-        self.assertIn("../modulo-6-lacunas-e-governanca/index.md", concept(read(B4)))
+        self.assertIn("../modulo-6-governanca-ia-e-caderno/index.md", concept(read(B4)))
 
     def test_exercise_20_keeps_items_1_to_3_and_adds_item_4(self):
         ex = section(read(B4), "Exercício 20")

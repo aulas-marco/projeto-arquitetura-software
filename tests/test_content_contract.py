@@ -208,7 +208,7 @@ class ContentContractTest(unittest.TestCase):
             "modulo-3-design-e-padroes",
             "modulo-4-dominios-da-solucao",
             "modulo-5-frameworks-e-tecnologias",
-            "modulo-6-lacunas-e-governanca",
+            "modulo-6-governanca-ia-e-caderno",
         ):
             self.assertIn(f'"{slug}"', text, slug)
 
@@ -606,7 +606,7 @@ class ContentContractTest(unittest.TestCase):
             allowed.unlink()
 
     def test_validator_catches_missing_module_index(self):
-        index_path = DOCS / "modulo-6-lacunas-e-governanca" / "index.md"
+        index_path = DOCS / "modulo-6-governanca-ia-e-caderno" / "index.md"
         backup_path = index_path.with_name("index.md.bak")
         index_path.rename(backup_path)
         try:
@@ -616,7 +616,7 @@ class ContentContractTest(unittest.TestCase):
             )
             self.assertEqual(1, result.returncode)
             self.assertIn(
-                "docs/modulo-6-lacunas-e-governanca/index.md ausente", result.stdout
+                "docs/modulo-6-governanca-ia-e-caderno/index.md ausente", result.stdout
             )
         finally:
             backup_path.rename(index_path)

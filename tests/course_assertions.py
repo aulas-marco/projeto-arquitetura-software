@@ -9,7 +9,7 @@ MODULES = (
     "modulo-3-design-e-padroes",
     "modulo-4-dominios-da-solucao",
     "modulo-5-frameworks-e-tecnologias",
-    "modulo-6-lacunas-e-governanca",
+    "modulo-6-governanca-ia-e-caderno",
 )
 
 BLOCK_PAGES = (
