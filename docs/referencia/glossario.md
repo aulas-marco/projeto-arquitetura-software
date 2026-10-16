@@ -334,7 +334,7 @@ Diferença entre o que a equipe constrói e o que a arquitetura decidiu, em gera
 
 Etapa do roteiro de entrega que reúne as entregas de uma mesma fase da mudança e termina quando o critério de conclusão da onda é cumprido. A ordem das ondas segue as dependências técnicas e os prazos dos contratos.
 
-## Função de aptidão
+## Função de adequação
 
 Teste automático que confere, a cada mudança do sistema, se uma regra da arquitetura continua sendo cumprida, como a proibição de um componente novo acessar o banco do núcleo. Avisa a equipe quando uma decisão deixa de valer.
 

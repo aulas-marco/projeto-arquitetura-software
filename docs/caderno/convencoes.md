@@ -23,7 +23,7 @@ Cada código é a inicial do item seguida de um número, na ordem em que o item 
 | ADR | Um registro de decisão arquitetural: texto curto com o contexto, as alternativas e as consequências de uma escolha | 7 e 8 |
 | C | Um controle de segurança | 8 |
 | LG | Uma ligação entre duas partes executáveis da solução, com protocolo e contrato | 7 |
-| FA | Uma função de aptidão: teste automático que avisa quando uma decisão deixa de ser cumprida | 9 |
+| FA | Uma função de adequação: teste automático que avisa quando uma decisão deixa de ser cumprida | 9 |
 | CP | Um candidato a componente da solução, classificado por tipo | 1 |
 | N | Um elemento da situação atual, lido nos três níveis de sistema | 1 |
 | T | Uma tarefa do ciclo de modernização, atribuída a um papel | 1 |

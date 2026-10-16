@@ -510,8 +510,8 @@ Você escreve:
 
 - **Mecanismo contra o desvio:** associe cada uma das cinco situações do enunciado a um dos cinco mecanismos e diga o que o mecanismo faz nela.
 - **Quem decide:** para cada pedido do enunciado, diga o tipo da decisão e quem a aprova.
-- **Regra que vira função de aptidão:** marque quais das quatro regras podem ser verificadas por um teste automático e diga quando o teste roda.
-- **Decisão protegida pela função de aptidão:** para cada regra marcada, diga qual decisão registrada ela protege.
+- **Regra que vira função de adequação:** marque quais das quatro regras podem ser verificadas por um teste automático e diga quando o teste roda.
+- **Decisão protegida pela função de adequação:** para cada regra marcada, diga qual decisão registrada ela protege.
 
 ### 9.3 Verificação de uma saída de IA e registro da assistência
 

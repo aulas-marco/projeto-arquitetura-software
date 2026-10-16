@@ -89,7 +89,7 @@ Cinco **mecanismos de governança** contêm o desvio, cada um em um momento do c
 
 | Mecanismo | O que define | Como contém o desvio na ACME |
 | --- | --- | --- |
-| Função de aptidão | Um teste automático que confere uma regra da arquitetura a cada mudança | Reprova na esteira a conexão de um serviço novo ao banco do núcleo, antes da implantação |
+| Função de adequação | Um teste automático que confere uma regra da arquitetura a cada mudança | Reprova na esteira a conexão de um serviço novo ao banco do núcleo, antes da implantação |
 | ADR versionado junto ao código | Onde os registros de decisão ficam, como são versionados e quando são revisados | Guarda no repositório a decisão de acessar o núcleo pela camada anticorrupção, com o contexto e as consequências |
 | Processo de proposta e aprovação | Como uma decisão nova é proposta, revisada e aprovada, no formato de pedido de comentários | Obriga quem quer o acesso direto a abrir uma proposta que cita o ADR afetado |
 | Conselho de revisão de arquitetura | Quem participa, com que frequência se reúne e quais decisões examina | Examina a proposta em data fixa, uma delas 30 dias antes de cada janela de matrícula |
@@ -109,13 +109,114 @@ Cada tipo de decisão tem um responsável e um aprovador definidos, e a tabela t
 
 O conselho faz o papel de **autoridade de desenho**, o grupo que recebe as decisões que excedem o que foi especificado às equipes de entrega. O que muda a arquitetura vai à arquitetura de solução, o que afeta um requisito ou uma restrição de negócio vai ao patrocinador, e o que afeta a operação vai aos gestores das áreas de negócio, como a Pró-Reitoria de Graduação, a Secretaria Acadêmica e a Coordenação de Educação a Distância. Uma decisão aprovada pelo conselho ainda precisa da autorização do patrocinador antes de alterar os planos de projeto.
 
-### Funções de aptidão e governança leve
+### Funções de adequação e governança leve
 
-As reuniões do conselho dependem de pessoas, e por isso a ACME acrescenta uma verificação automática. Uma **função de aptidão** é um teste automático que avisa quando uma decisão deixa de ser cumprida, porque confere a cada mudança se uma propriedade da arquitetura continua válida no código. Cada função protege uma decisão já tomada e registrada. A ACME tem duas funções de exemplo: a primeira verifica, a cada mudança, que nenhum componente novo acessa o banco do núcleo e protege a decisão da camada anticorrupção. A segunda roda um teste de carga com 5.800 sessões no ambiente de teste de carga antes de cada janela de matrícula, confere se 95% das confirmações ficam em até 4 segundos e protege o requisito do pico de matrícula, o R6.
+As reuniões do conselho dependem de pessoas, e por isso a ACME acrescenta uma verificação automática. Uma **função de adequação** é um teste automático que avisa quando uma decisão deixa de ser cumprida, porque confere a cada mudança se uma propriedade da arquitetura continua válida no código. Cada função protege uma decisão já tomada e registrada. A ACME tem duas funções de exemplo: a primeira verifica, a cada mudança, que nenhum componente novo acessa o banco do núcleo e protege a decisão da camada anticorrupção. A segunda roda um teste de carga com 5.800 sessões no ambiente de teste de carga antes de cada janela de matrícula, confere se 95% das confirmações ficam em até 4 segundos e protege o requisito do pico de matrícula, o R6.
 
-Quando uma função de aptidão reprova, a mudança volta à equipe ou segue para o conselho, que pode recusá-la ou aceitá-la como desvio. O desvio aceito entra no registro de **dívida técnica**, o conjunto dos atalhos aceitos, com risco, prazo e onda de correção. Um item do registro inicial da ACME é o Portal do Professor em JSF, tecnologia em vermelho no modelo técnico de referência, que só será corrigido quando o serviço de notas assumir o lançamento.
+Quando uma função de adequação reprova, a mudança volta à equipe ou segue para o conselho, que pode recusá-la ou aceitá-la como desvio. O desvio aceito entra no registro de **dívida técnica**, o conjunto dos atalhos aceitos, com risco, prazo e onda de correção. Um item do registro inicial da ACME é o Portal do Professor em JSF, tecnologia em vermelho no modelo técnico de referência, que só será corrigido quando o serviço de notas assumir o lançamento.
 
-A governança precisa ser leve, porque reuniões longas e pesadas criam resistência nas equipes. Na governança leve, a verificação acontece em pontos curtos e frequentes, as decisões ficam registradas em ADR junto ao código e o conselho se ocupa apenas das decisões que mudam a estrutura da solução. As funções de aptidão ajudam nisso porque aliviam as reuniões, já que a esteira barra o que for claramente contrário a uma decisão e o conselho recebe só o que exige julgamento.
+A governança precisa ser leve, porque reuniões longas e pesadas criam resistência nas equipes. Na governança leve, a verificação acontece em pontos curtos e frequentes, as decisões ficam registradas em ADR junto ao código e o conselho se ocupa apenas das decisões que mudam a estrutura da solução. As funções de adequação ajudam nisso porque aliviam as reuniões, já que a esteira barra o que for claramente contrário a uma decisão e o conselho recebe só o que exige julgamento.
+
+### Três exemplos de função de adequação em código
+
+Uma função de adequação é um programa pequeno, e três exemplos mostram como ela se escreve para propriedades diferentes. Os códigos abaixo são exemplos de forma, escritos para a ACME. Os nomes de endereço e de classe são inventados, e cada equipe os troca pelos do seu projeto. O que importa é o desenho de cada teste: ele roda sozinho na esteira de entrega, tem um critério numérico ou lógico claro e reprova a mudança que quebra a decisão que protege.
+
+O primeiro exemplo trata da usabilidade, medida pela acessibilidade segundo as diretrizes WCAG, as regras internacionais para que pessoas com deficiência consigam usar uma página. A ACME ainda não tem esse requisito no dossiê. Se a Reitoria o incluísse, a decisão registrada seria que a tela de matrícula atende ao nível AA do WCAG 2.1, e o teste abaixo, escrito com Playwright e a biblioteca axe-core, reprova a mudança que deixar a tela fora desse nível.
+
+```ts
+import { test, expect } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+
+test('a tela de matrícula atende ao WCAG 2.1 nível AA', async ({ page }) => {
+  await page.goto('https://portal.acme.example/matricula');
+
+  const resultado = await new AxeBuilder({ page })
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+    .analyze();
+
+  expect(resultado.violations).toEqual([]);
+});
+```
+
+O segundo exemplo trata da performance e é a segunda função citada acima. Ele protege o requisito do pico de matrícula, o R6, que pede 5.800 sessões simultâneas com 95% das confirmações em até 4 segundos e erro abaixo da meta de 1%. O script usa a ferramenta k6, que termina com falha quando um limite declarado em `thresholds` é violado, e a esteira interpreta essa falha como reprovação.
+
+```js
+import http from 'k6/http';
+import { check } from 'k6';
+
+export const options = {
+  scenarios: {
+    abertura_da_matricula: {
+      executor: 'ramping-vus',
+      stages: [
+        { duration: '2m', target: 5800 },
+        { duration: '5m', target: 5800 },
+      ],
+    },
+  },
+  thresholds: {
+    http_req_duration: ['p(95)<4000'],
+    http_req_failed: ['rate<0.01'],
+  },
+};
+
+export default function () {
+  const resposta = http.post(
+    'https://matricula.acme.example/api/confirmacoes',
+    JSON.stringify({ aluno: 'A1', disciplina: 'D1' }),
+    { headers: { 'Content-Type': 'application/json' } },
+  );
+  check(resposta, { 'pedido aceito': (r) => r.status === 202 });
+}
+```
+
+O terceiro exemplo trata da tolerância a falhas e protege a decisão de enviar a nota de forma assíncrona, para que o professor continue lançando notas quando o ambiente virtual de aprendizagem estiver fora do ar. O teste derruba o ambiente virtual de mentira, lança uma nota e confere que ela não se perdeu e chega quando o ambiente volta. Para o exemplo ficar completo, o código traz também um serviço de notas mínimo, com a nota guardada em uma lista de pendentes, no papel que o padrão Transactional Outbox cumpre no serviço real.
+
+```python
+class AmbienteVirtualFalso:
+    def __init__(self):
+        self.disponivel = True
+        self.recebidas = []
+
+    def publicar(self, nota):
+        if not self.disponivel:
+            raise ConnectionError("ambiente virtual fora do ar")
+        self.recebidas.append(nota)
+
+
+class ServicoDeNotas:
+    def __init__(self, ambiente):
+        self.ambiente = ambiente
+        self.pendentes = []
+
+    def lancar(self, aluno, avaliacao, valor):
+        nota = (aluno, avaliacao, valor)
+        try:
+            self.ambiente.publicar(nota)
+        except ConnectionError:
+            self.pendentes.append(nota)  # a nota fica guardada e o professor segue trabalhando
+
+    def reenviar_pendentes(self):
+        for nota in list(self.pendentes):
+            self.ambiente.publicar(nota)
+            self.pendentes.remove(nota)
+
+
+def test_nota_nao_se_perde_com_o_ambiente_virtual_fora_do_ar():
+    ambiente = AmbienteVirtualFalso()
+    servico = ServicoDeNotas(ambiente)
+
+    ambiente.disponivel = False
+    servico.lancar("A1", "P1", 8.5)
+    assert len(servico.pendentes) == 1
+
+    ambiente.disponivel = True
+    servico.reenviar_pendentes()
+    assert servico.pendentes == []
+    assert ambiente.recebidas == [("A1", "P1", 8.5)]
+```
+
+Nos três casos a função de adequação fica no mesmo repositório do código e roda a cada mudança ou a cada janela de matrícula, e o resultado vai para quem decide: a equipe corrige o que reprova, ou o conselho aceita o desvio e o registra na dívida técnica.
 
 ## Uso pelo arquiteto
 
@@ -175,18 +276,18 @@ Na execução, o arquiteto consulta os mecanismos de governança a cada pedido d
 
 **Para que serve.** Um roteiro bem ordenado ainda falha se a obra se afasta do desenho, e a seção 9 do caderno guarda também a forma de vigiar a arquitetura durante a execução. Ela registra qual mecanismo contém cada tipo de desvio, quem decide em cada caso e quais regras da arquitetura um teste automático pode conferir, para que a equipe saiba a quem recorrer sob pressão de prazo.
 
-**O que você faz neste exercício.** O enunciado traz cinco situações de desvio, numeradas de S1 a S5, quatro pedidos de decisão, numerados de P1 a P4, e quatro regras da arquitetura, numeradas de V1 a V4. No item 1 você associa cada situação ao mecanismo que a contém, no item 2 diz quem decide cada pedido e no item 3 marca as regras que podem virar função de aptidão e a decisão que cada uma protege.
+**O que você faz neste exercício.** O enunciado traz cinco situações de desvio, numeradas de S1 a S5, quatro pedidos de decisão, numerados de P1 a P4, e quatro regras da arquitetura, numeradas de V1 a V4. No item 1 você associa cada situação ao mecanismo que a contém, no item 2 diz quem decide cada pedido e no item 3 marca as regras que podem virar função de adequação e a decisão que cada uma protege.
 
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
 | Mecanismo contra o desvio | Associe cada situação a um dos cinco mecanismos e diga o que ele faz nela | 1 |
 | Quem decide | Diga o tipo de cada pedido e quem o aprova | 2 |
-| Regra que vira função de aptidão | Marque as regras que um teste automático pode conferir e diga quando o teste roda | 3 |
-| Decisão protegida pela função de aptidão | Diga qual decisão registrada cada regra marcada protege | 3 |
+| Regra que vira função de adequação | Marque as regras que um teste automático pode conferir e diga quando o teste roda | 3 |
+| Decisão protegida pela função de adequação | Diga qual decisão registrada cada regra marcada protege | 3 |
 
 **O que você já tem.** O roteiro em ondas do exercício 21 e os ADRs das seções 7 e 8, que são as decisões que a governança protege.
 
-**Quando está pronto.** As cinco situações têm mecanismo, os quatro pedidos têm tipo e aprovador, e cada regra marcada como função de aptidão tem a decisão que protege.
+**Quando está pronto.** As cinco situações têm mecanismo, os quatro pedidos têm tipo e aprovador, e cada regra marcada como função de adequação tem a decisão que protege.
 
 [Ver esta seção no template](../caderno/template.md#9-roteiro-e-governanca){ .caderno-botao }
 [Ver o gabarito do exercício 22](../gabaritos/gabarito-exercicio-22.md){ .caderno-botao }
@@ -249,7 +350,7 @@ Suas respostas viram os campos Ordem das ondas, Justificativa pelo critério de 
 
 ## Exercício 22
 
-Uma obra bem ordenada ainda pode se afastar do desenho, e este exercício trata de como a ACME contém esse afastamento. O aluno recebe situações de desvio, pedidos de decisão e regras da arquitetura, todos tirados do caso, e usa os mecanismos de governança do Conceito para associar cada situação ao mecanismo certo, dizer quem decide cada pedido e separar as regras que um teste automático consegue conferir. O exercício tem três itens, e os mecanismos são a função de aptidão, o ADR versionado junto ao código, o processo de proposta e aprovação, o conselho de revisão e a gestão de dívida técnica.
+Uma obra bem ordenada ainda pode se afastar do desenho, e este exercício trata de como a ACME contém esse afastamento. O aluno recebe situações de desvio, pedidos de decisão e regras da arquitetura, todos tirados do caso, e usa os mecanismos de governança do Conceito para associar cada situação ao mecanismo certo, dizer quem decide cada pedido e separar as regras que um teste automático consegue conferir. O exercício tem três itens, e os mecanismos são a função de adequação, o ADR versionado junto ao código, o processo de proposta e aprovação, o conselho de revisão e a gestão de dívida técnica.
 
 ### Item 1: Mecanismo de cada situação de desvio
 
@@ -292,9 +393,9 @@ Contido o desvio, alguém precisa decidir o que fazer com o pedido de exceção,
 
 Suas respostas viram o campo Quem decide, na seção 9 do caderno.
 
-### Item 3: Regras que viram função de aptidão
+### Item 3: Regras que viram função de adequação
 
-A função de aptidão é um teste automático que avisa quando uma decisão deixa de ser cumprida, e ela só funciona quando uma regra é objetiva o bastante para um programa conferir. O arquiteto da ACME precisa separar essas regras das que dependem de julgamento humano, porque as primeiras ficam na esteira e as outras vão ao conselho. O enunciado traz quatro regras da arquitetura, numeradas de V1 a V4, como a que impede um serviço novo de abrir conexão com o banco do núcleo. Para cada uma você diz se pode virar função de aptidão e, nesse caso, em que momento o teste roda e qual decisão registrada ele protege.
+A função de adequação é um teste automático que avisa quando uma decisão deixa de ser cumprida, e ela só funciona quando uma regra é objetiva o bastante para um programa conferir. O arquiteto da ACME precisa separar essas regras das que dependem de julgamento humano, porque as primeiras ficam na esteira e as outras vão ao conselho. O enunciado traz quatro regras da arquitetura, numeradas de V1 a V4, como a que impede um serviço novo de abrir conexão com o banco do núcleo. Para cada uma você diz se pode virar função de adequação e, nesse caso, em que momento o teste roda e qual decisão registrada ele protege.
 
 | Regra | Texto |
 | --- | --- |
@@ -306,7 +407,7 @@ A função de aptidão é um teste automático que avisa quando uma decisão dei
 1. Marque as regras que um teste automático pode conferir e diga quando cada teste roda.
 2. Para cada regra marcada, diga qual decisão registrada ela protege.
 
-Suas respostas viram os campos Regra que vira função de aptidão e Decisão protegida pela função de aptidão, na seção 9 do caderno.
+Suas respostas viram os campos Regra que vira função de adequação e Decisão protegida pela função de adequação, na seção 9 do caderno.
 
 ## Fontes
 

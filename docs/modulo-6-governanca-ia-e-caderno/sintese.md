@@ -8,7 +8,7 @@ Depois de quatro exercícios encadeados, o aluno fecha o caderno arquitetural da
 - O ciclo ADM do TOGAF e as fases E, F, G e H, em que o arquiteto de solução escolhe entre soluções, ordena a migração, vigia a implementação e gere a mudança
 - O roteiro de entrega em ondas, com a ordem justificada pela dependência técnica, o critério de conclusão de cada onda e o calendário preso aos contratos, como o da fábrica de software até 30/09/2027
 - O desvio arquitetural sob pressão de prazo, os cinco mecanismos de governança contra ele e a definição de quem decide cada tipo de pedido
-- As funções de aptidão, testes automáticos que avisam quando uma decisão deixa de ser cumprida, e a governança leve, que só interrompe a obra quando uma regra é violada
+- As funções de adequação, testes automáticos que avisam quando uma decisão deixa de ser cumprida, e a governança leve, que só interrompe a obra quando uma regra é violada
 - O modelo de linguagem como redator e como crítico, as tarefas que exigem julgamento do arquiteto e a saída plausível e errada como risco central do uso de IA
 - A verificação em três etapas, rastreabilidade até a fonte, checagem contra a restrição e revisão por par, a classificação do conteúdo antes de entrar em um prompt e o registro da assistência no ADR
 - A regra de rastreabilidade do caderno: toda decisão cita o requisito ou a restrição que a motivou, todo requisito cita a decisão que o atende e toda pendência tem responsável e prazo
@@ -19,7 +19,7 @@ Depois de quatro exercícios encadeados, o aluno fecha o caderno arquitetural da
 A aula fecha o caderno por uma cadeia de quatro produtos, e cada exercício consome o produto do anterior.
 
 1. A linha de base e as lacunas de provisão, recebidas das Aulas 2 e 5, dão ao [exercício 21](bloco-1-governanca-da-mudanca.md#exercicio-21) as lacunas a classificar e as entregas a ordenar em ondas.
-2. O [exercício 22](bloco-1-governanca-da-mudanca.md#exercicio-22) protege o roteiro em ondas com os mecanismos de governança, a decisão sobre quem aprova cada pedido e as regras que viram função de aptidão.
+2. O [exercício 22](bloco-1-governanca-da-mudanca.md#exercicio-22) protege o roteiro em ondas com os mecanismos de governança, a decisão sobre quem aprova cada pedido e as regras que viram função de adequação.
 3. O [exercício 23](bloco-2-aceleradores-de-ia.md#exercicio-23) usa o registro de decisão sobre a fila na matrícula, o ADR 001 da Aula 3, para verificar uma saída de IA e registra a assistência, que passa a ser regra de uso de IA no projeto.
 4. O [exercício 24](bloco-3-apresentacao-do-caderno.md#exercicio-24) confere o caderno inteiro pela regra de rastreabilidade e escreve as versões finais do resumo e das pendências.
 

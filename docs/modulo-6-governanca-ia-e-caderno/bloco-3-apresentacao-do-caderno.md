@@ -67,7 +67,7 @@ Para mostrar o encadeamento, o professor acompanha na aula um único pedido da A
 | Contêiner | O serviço de matrícula e as relações 1, 3, 5 e 8 do diagrama de contêineres formam o caminho da confirmação | 7 |
 | Tecnologia | A plataforma de microsserviços na variante Java, com barramento de eventos, concretiza a fila | 8 |
 | Onda | O critério de conclusão da segunda onda exige a matrícula digital operando numa janela real, com o desempenho do R6 medido em produção | 9 |
-| Controle | Uma função de aptidão, teste automático que avisa quando uma decisão deixa de ser cumprida, roda o teste de carga com 5.800 sessões antes de cada janela de matrícula, a função de aptidão FA2 do caderno | 9 |
+| Controle | Uma função de adequação, teste automático que avisa quando uma decisão deixa de ser cumprida, roda o teste de carga com 5.800 sessões antes de cada janela de matrícula, a função de adequação FA2 do caderno | 9 |
 
 A leitura em sentido inverso serve a quem propõe uma mudança. Se alguém sugerir ao conselho de revisão, apresentado no [bloco 1](bloco-1-governanca-da-mudanca.md), que a fila seja retirada para reduzir a latência, o arquiteto parte do teste de carga, passa pela decisão que o teste protege, pelo contêiner, pela lacuna e pelo cenário, e chega à Diretoria de TI, que declarou o pedido. Em cada parada ele encontra o que a proposta coloca em risco e quem precisa ser consultado antes da votação.
 

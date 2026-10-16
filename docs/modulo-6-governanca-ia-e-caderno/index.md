@@ -35,7 +35,7 @@ A aula parte do caderno que a Aula 5 deixou pronto: as seções 1 a 8 preenchida
 
 ## Roteiro da aula
 
-A primeira dúvida da ACME é quanto a obra distancia o sistema de hoje do sistema desenhado e em que ordem fechar essa distância, e o [bloco 1](bloco-1-governanca-da-mudanca.md), Governança da mudança, responde a ela com a análise de lacunas, o ciclo ADM do TOGAF e as fases em que o arquiteto de solução governa a mudança, o roteiro em ondas com o critério de conclusão de cada uma, o desvio arquitetural sob pressão de prazo, os cinco mecanismos de governança, as funções de aptidão e a governança leve. No exercício 21, o aluno classifica oito lacunas, define como fechar as organizacionais e ordena três entregas em ondas. No exercício 22, associa cinco situações de desvio aos mecanismos, indica quem decide quatro pedidos e separa as regras que viram função de aptidão.
+A primeira dúvida da ACME é quanto a obra distancia o sistema de hoje do sistema desenhado e em que ordem fechar essa distância, e o [bloco 1](bloco-1-governanca-da-mudanca.md), Governança da mudança, responde a ela com a análise de lacunas, o ciclo ADM do TOGAF e as fases em que o arquiteto de solução governa a mudança, o roteiro em ondas com o critério de conclusão de cada uma, o desvio arquitetural sob pressão de prazo, os cinco mecanismos de governança, as funções de adequação e a governança leve. No exercício 21, o aluno classifica oito lacunas, define como fechar as organizacionais e ordena três entregas em ondas. No exercício 22, associa cinco situações de desvio aos mecanismos, indica quem decide quatro pedidos e separa as regras que viram função de adequação.
 
 A produção dos artefatos consome tempo do arquiteto, e o [bloco 2](bloco-2-aceleradores-de-ia.md), Aceleradores de IA, mostra onde um modelo de linguagem ajuda e onde ele erra com aparência de acerto. O bloco apresenta o modelo como redator e como crítico, as tarefas que exigem julgamento do arquiteto, a saída plausível e errada, a verificação em três etapas, o cuidado com dado confidencial em prompt e o registro da assistência no ADR. O exercício 23 entrega um rascunho de registro de decisão arquitetural (ADR) gerado por IA com erros plantados, e o aluno verifica o texto, aponta a consequência omitida, corrige o que pertence à autoridade e escreve o registro da assistência.
 
@@ -52,7 +52,7 @@ Ao fim da Aula 5, o caderno da ACME dizia o que construir, com que tecnologia e 
 | Bloco | Exercício | O que entra no caderno | Gabarito |
 | --- | --- | --- | --- |
 | 1 | 21 | A classificação de oito lacunas por domínio e tipo, a forma de fechar as organizacionais e a ordem das três ondas com o critério de conclusão | [Gabarito 21](../gabaritos/gabarito-exercicio-21.md) |
-| 1 | 22 | O mecanismo contra cada situação de desvio, quem decide cada pedido e as regras que viram função de aptidão | [Gabarito 22](../gabaritos/gabarito-exercicio-22.md) |
+| 1 | 22 | O mecanismo contra cada situação de desvio, quem decide cada pedido e as regras que viram função de adequação | [Gabarito 22](../gabaritos/gabarito-exercicio-22.md) |
 | 2 | 23 | A verificação do rascunho de ADR gerado por IA, a consequência omitida, a correção do estado e da data e o registro da assistência | [Gabarito 23](../gabaritos/gabarito-exercicio-23.md) |
 | 3 | 24 | A conferência de rastreabilidade, o resumo final de uma página e a lista final de pendências | [Gabarito 24](../gabaritos/gabarito-exercicio-24.md) |
 

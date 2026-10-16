@@ -44,8 +44,8 @@ Duas perguntas de calendário completam a resposta. A primeira trata da entrega 
 <!--campos-->
 - **Mecanismo contra o desvio:** associe cada uma das cinco situações do enunciado a um dos cinco mecanismos e diga o que o mecanismo faz nela.
 - **Quem decide:** para cada pedido do enunciado, diga o tipo da decisão e quem a aprova.
-- **Regra que vira função de aptidão:** marque quais das quatro regras podem ser verificadas por um teste automático e diga quando o teste roda.
-- **Decisão protegida pela função de aptidão:** para cada regra marcada, diga qual decisão registrada ela protege.
+- **Regra que vira função de adequação:** marque quais das quatro regras podem ser verificadas por um teste automático e diga quando o teste roda.
+- **Decisão protegida pela função de adequação:** para cada regra marcada, diga qual decisão registrada ela protege.
 <!--/campos-->
 <!--gabarito-->
 #### Mecanismo contra cada situação de desvio
@@ -54,7 +54,7 @@ Cada situação de desvio da ACME pede o mecanismo de governança que a contém 
 
 | Situação | Mecanismo | O que ele faz na situação |
 | --- | --- | --- |
-| A esteira interrompe a conexão direta com o banco do núcleo (S1) | Função de aptidão | Reprova a mudança na esteira de integração antes da implantação, sem depender de revisão humana |
+| A esteira interrompe a conexão direta com o banco do núcleo (S1) | Função de adequação | Reprova a mudança na esteira de integração antes da implantação, sem depender de revisão humana |
 | A equipe escreve um pedido que cita o registro afetado (S2) | Processo de proposta e aprovação | Define como a decisão nova é proposta, revisada e aprovada, no formato de pedido de comentários |
 | A arquiteta recém-chegada encontra no repositório o motivo da regra (S3) | ADR versionado junto ao código | Guarda a decisão em um registro de decisão de arquitetura (ADR), com contexto e consequências, de modo que a resposta não dependa de quem decidiu |
 | O grupo examina as propostas 30 dias antes da janela de matrícula (S4) | Conselho de revisão | Reúne os decisores em datas fixas e examina as decisões que mudam a estrutura da solução |
@@ -71,11 +71,11 @@ Os quatro pedidos do enunciado pertencem a tipos de decisão diferentes, e cada 
 | Contratar o plano superior do ambiente virtual, 38% mais caro por ano (P3) | Contrato com fornecedor ou acréscimo de custo | Diretor Financeiro, com o material preparado pelo arquiteto de solução |
 | Prioridades diferentes da Graduação e da Educação a Distância (P4) | Prioridade de atributo de qualidade em conflito | Patrocinador |
 
-#### Regras que viram função de aptidão
+#### Regras que viram função de adequação
 
-Uma regra só vira função de aptidão quando um programa consegue conferi-la sozinho, e as outras seguem para a revisão humana. Das quatro regras do enunciado, duas viram teste automático.
+Uma regra só vira função de adequação quando um programa consegue conferi-la sozinho, e as outras seguem para a revisão humana. Das quatro regras do enunciado, duas viram teste automático.
 
-| Regra | Vira função de aptidão | Decisão protegida e momento em que roda |
+| Regra | Vira função de adequação | Decisão protegida e momento em que roda |
 | --- | --- | --- |
 | Nenhum serviço novo abre conexão com o banco do núcleo (V1) | Sim | Protege a decisão de acessar o núcleo pela camada anticorrupção e roda a cada mudança |
 | Percentil 95 da confirmação em até 4 segundos com 5.800 sessões (V2) | Sim | Protege o cenário de qualidade da matrícula, o requisito R6, e roda no ambiente de teste de carga antes de cada janela de matrícula |
