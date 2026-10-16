@@ -180,6 +180,34 @@ No exemplo da Operadora de Telecomunicações ACME, esse sinal apareceria se acr
 
 O arquiteto usa essa comparação de estilo por atributo de qualidade para defender uma escolha diante de partes interessadas com prioridades diferentes, traduzindo uma preferência técnica em uma tabela de trocas explícitas. O arquiteto mostra qual atributo o estilo escolhido favorece, qual ele sacrifica, e associa cada um desses atributos ao cenário de qualidade que a organização já reconheceu como prioritário. Quando dois estilos empatam diante dos cenários, os princípios priorizados no [bloco 1](bloco-1-principios-de-design.md#anatomia-de-um-principio) funcionam como critério de desempate, o que torna a decisão auditável e reduz a chance de reabri-la sem novo dado.
 
+## No caderno arquitetural
+
+{{ficha:7:3}}
+
+**Para que serve.** Na abertura da matrícula, a ACME chega a 5.800 sessões simultâneas e o núcleo não aguenta, e em 04/02/2026 isso deixou a matrícula fora do ar por 4h20. A forma de organizar o sistema, que se chama estilo arquitetural, muda o que a solução aguenta e o que ela sacrifica, e por isso a escolha precisa de justificativa. A seção 7 do caderno guarda essa justificativa, para que quem ler o caderno meses depois entenda por que o estilo foi escolhido e o que se aceitou perder.
+
+**O que você faz neste exercício.** O enunciado traz os dois cenários da Aula 2, o pico de matrícula e o incidente de 04/02/2026, e três princípios de referência, como manter a operação disponível durante toda a transição. Você escolhe três dos sete estilos da aula e verifica como cada um se comporta nos dois cenários, porque um estilo que ajuda no pico pode não ajudar no incidente. Em seguida aponta o risco de cada estilo e o recurso que o compensa, e recomenda um deles, e a comparação entra na seção 7 do caderno.
+
+| Campo do caderno | Como preencher | Item |
+| --- | --- | --- |
+| Estilo | Escolha três dos sete estilos da aula e escreva o nome de cada um | 1 |
+| Adequação ao cenário 1 | Para cada estilo, diga se é favorável, neutro ou desfavorável ao pico de matrícula, com o motivo em uma linha | 1 |
+| Adequação ao cenário 2 | Faça o mesmo para o incidente de 04/02/2026 | 1 |
+| Adequação aos princípios | Diga quais princípios o estilo sustenta e quais ele contraria | 2 |
+| Risco do estilo | Descreva o que o estilo traz de problema para a ACME | 2 |
+| Mecanismo compensatório | Diga o recurso que se acrescenta ao desenho para neutralizar o risco | 2 |
+| Estilo recomendado | Escolha um dos três estilos | 2 |
+| Justificativa da recomendação | Explique a escolha pelo atributo de qualidade favorecido, pelo prejudicado e pelo princípio que desempata | 2 |
+
+**O que você já tem.** Os cenários de qualidade da seção 3 e os princípios priorizados da seção 6, que o exercício 9 produziu.
+
+**Quando está pronto.** Os três estilos têm as seis classificações, o risco e o mecanismo compensatório, e um deles está recomendado com a justificativa completa.
+
+[Ver esta seção no template](../caderno/template.md#7-decisoes){ .caderno-botao }
+[Ver o gabarito do exercício 10](../gabaritos/gabarito-exercicio-10.md){ .caderno-botao }
+
+{{/ficha}}
+
 ## Exercício 10
 
 Este exercício treina a comparação de estilos arquiteturais diante de exigências reais do caso, para que a recomendação de um estilo tenha justificativa. O aluno escolhe três dos sete estilos do bloco, verifica como cada um se comporta nos dois cenários de qualidade e à luz dos princípios, e recomenda um deles. A ACME é uma universidade privada brasileira cujo sistema acadêmico legado tem um núcleo transacional em COBOL sobre o monitor CICS (o programa que executa as transações do núcleo), uma camada web em Java, construída com as tecnologias JSF (telas web) e EJB (regras de negócio executadas no servidor), e integrações por arquivo em lote com o ERP financeiro e o ambiente virtual de aprendizagem, tudo em modernização incremental. A comparação usa os princípios priorizados no [exercício 9](bloco-1-principios-de-design.md#exercicio-9), e o estilo recomendado aqui é a entrada da seleção de padrões do exercício 11, no [bloco 3](bloco-3-padroes-arquiteturais-e-de-design.md). O exercício tem dois itens, e cada um produz uma tabela de comparação, a do item 1 com as classificações por cenário e a do item 2 com a análise por princípio e a recomendação.
@@ -224,6 +252,8 @@ flowchart TB
 1. Escolha três dos [sete estilos](#conceito) apresentados neste bloco, considerando o núcleo COBOL sobre CICS como parte que permanece em operação durante a transição.
 2. Para cada um dos três estilos, registre a adequação ao cenário 1 e ao cenário 2, classificando cada par de estilo e cenário como favorável, neutro ou desfavorável e indicando em uma linha o motivo. O produto é uma tabela com seis classificações, duas para cada estilo escolhido.
 
+Suas respostas viram os campos Estilo, Adequação ao cenário 1 e Adequação ao cenário 2, na seção 7 do caderno.
+
 ### Item 2: Princípios, risco e recomendação
 
 Este item verifica se cada estilo escolhido respeita os princípios de design e qual risco ele traz para a ACME. Quem ainda não tem os princípios do exercício 9 pode partir dos três enunciados de referência abaixo, formulados sem motivação nem implicação, que o aluno completa ao usá-los, conforme a [anatomia de um princípio](bloco-1-principios-de-design.md#anatomia-de-um-principio).
@@ -236,6 +266,8 @@ Este item verifica se cada estilo escolhido respeita os princípios de design e 
 
 1. Para cada um dos três estilos escolhidos no Item 1, registre a adequação aos princípios priorizados, o risco introduzido pelo estilo no contexto da ACME e o mecanismo compensatório, que é o recurso que se acrescenta ao desenho para neutralizar esse risco.
 2. Recomende um dos três estilos para um contexto de modernização incremental de um sistema legado crítico, justificando a escolha pelo atributo de qualidade favorecido, pelo atributo de qualidade prejudicado e pelo princípio que desempata a comparação.
+
+Suas respostas viram os campos Adequação aos princípios, Risco do estilo, Mecanismo compensatório, Estilo recomendado e Justificativa da recomendação, na seção 7 do caderno.
 
 ## Fontes
 

@@ -28,7 +28,7 @@ Este é o caderno da ACME depois do exercício 4. Ele reúne o que os exercício
 
 #### Instituição e pergunta central
 
-Estes são os dados do caso que abrem o caderno. Eles já vêm preenchidos, porque não são resposta do exercício.
+Todo caderno começa por quem é a ACME e por qual problema ela quer resolver. Esses dados vêm do dossiê do caso e já aparecem preenchidos no seu caderno, porque o exercício não pede que você os produza.
 
 | Dimensão | Valor |
 | --- | --- |
@@ -41,11 +41,11 @@ Estes são os dados do caso que abrem o caderno. Eles já vêm preenchidos, porq
 | Equipe do núcleo | 6 especialistas em COBOL, 2 deles com aposentadoria prevista para 2027 |
 | Orçamento do primeiro ciclo | R$ 6,2 milhões em 12 meses |
 
-A pergunta central é como evoluir o sistema acadêmico de forma segura e incremental, mantendo o núcleo em operação durante a transição. Em 12/03/2026, a Reitoria descartou duas respostas: a substituição integral por produto de mercado, que exigiria migrar os históricos de 214.000 egressos, e a reescrita em entrega única, porque nenhuma janela do calendário acadêmico comporta a virada de todos os módulos.
+O problema do projeto cabe numa pergunta: como evoluir o sistema acadêmico de forma segura e incremental, mantendo o núcleo em operação durante a transição? Em 12/03/2026, a Reitoria já descartou duas respostas. Uma é a substituição integral por um produto de mercado, que exigiria migrar os históricos de 214.000 egressos. A outra é a reescrita em uma única entrega, porque nenhuma janela do calendário acadêmico comporta a virada de todos os módulos de uma vez.
 
 #### Restrições que chegam fechadas
 
-Restrição é uma decisão tomada por outra pessoa ou área, que o arquiteto precisa aceitar. As sete abaixo já chegam prontas ao projeto.
+Antes de desenhar qualquer coisa, o arquiteto descobre o que não pode mudar. São as restrições: decisões que outras pessoas ou áreas da ACME já tomaram e que o projeto precisa aceitar como estão. As sete abaixo chegam prontas, e cada uma diz quem a tomou e o que ela impõe à arquitetura.
 
 | Código | Restrição | Origem | Consequência para a arquitetura |
 | --- | --- | --- | --- |
@@ -59,7 +59,7 @@ Restrição é uma decisão tomada por outra pessoa ou área, que o arquiteto pr
 
 #### Decisões por nível de arquitetura
 
-A tabela reúne as nove decisões que a ACME já tomou ou propôs. Para classificar cada uma, pergunte até onde o efeito da decisão chega. Se ela muda só o funcionamento interno de um componente de software, é de arquitetura de software. Se muda um processo, um papel, a responsabilidade por um dado ou a relação com um fornecedor, é de arquitetura de solução. Se vale para iniciativas que ainda nem existem, é de arquitetura corporativa.
+A tabela traz as nove decisões que a ACME já tomou ou propôs, cada uma com o nível de arquitetura a que pertence. Para chegar a esse nível, ajuda perguntar até onde o efeito da decisão alcança. Quando ela mexe só no funcionamento interno de um componente de software, é uma decisão de arquitetura de software. Quando muda um processo, um papel, a responsabilidade por um dado ou a relação com um fornecedor, é de arquitetura de solução. E quando vale também para iniciativas que ainda nem existem, é de arquitetura corporativa.
 
 | Código | Decisão | Nível | Justificativa |
 | --- | --- | --- | --- |
@@ -73,13 +73,13 @@ A tabela reúne as nove decisões que a ACME já tomou ou propôs. Para classifi
 | D8 | O histórico escolar é emitido com assinatura digital no padrão ICP-Brasil | Solução | Muda o procedimento de emissão do histórico e depende de certificado de terceiro, mas não vale para iniciativas futuras |
 | D9 | A transição ocorre por extração incremental de módulos, com o núcleo em operação | Solução | Afeta o contrato de sustentação, o calendário acadêmico e a rotina das equipes |
 
-As decisões D1, D4 e D7 reproduzem as restrições fechadas RT4, RT5 e RT6. As decisões D2, D3, D5, D6, D8 e D9 estão **propostas** e dependem de validação com as partes interessadas.
+As decisões da tabela não têm todas o mesmo estado. D1, D4 e D7 apenas repetem restrições que chegaram prontas (RT4, RT5 e RT6). As outras seis, D2, D3, D5, D6, D8 e D9, estão **propostas**: ainda dependem de validação com as partes interessadas.
 
 #### Componente da solução afetado
 
-Nas decisões de solução, a tabela mostra quais componentes da solução são atingidos além da tecnologia (pessoas, estruturas organizacionais, processos e informação).
+Uma decisão de solução quase nunca é só técnica. A tabela a seguir mostra, para cada uma delas, que componentes da solução ela atinge além da tecnologia (pessoas, estruturas organizacionais, processos e informação).
 
-| Código | Tipo de componente da solução | Efeito |
+| Código | Tipo do componente da solução | Efeito |
 | --- | --- | --- |
 | D2 | Processos | O fechamento de notas deixa de depender da janela noturna de lote |
 | D5 | Estruturas organizacionais | A correção de dado cadastral sai da equipe de sustentação, terceirizada, e passa à Secretaria Acadêmica |
@@ -89,32 +89,32 @@ Nas decisões de solução, a tabela mostra quais componentes da solução são 
 
 #### Dependência entre decisões
 
-A decisão D3 depende da D2. Sem a D2, o reenvio seria desenhado para um percurso em lote noturno, em que cada nova tentativa só acontece na janela seguinte. Nesse percurso, o intervalo crescente entre tentativas não tem prazo de propagação que o justifique, e a nota continua chegando ao aluno no dia seguinte.
+A D3 só faz sentido depois da D2. Imagine decidir o reenvio com intervalo crescente quando a nota ainda segue por um lote noturno: cada nova tentativa só aconteceria na janela seguinte, e esperar mais entre as tentativas não aproximaria a nota do aluno, que continuaria chegando no dia seguinte. Só depois que a D2 fixa o prazo de 10 minutos o intervalo entre as tentativas passa a ter o que o justifique.
 
-### 1.2 Componentes da solução do R7
+### 1.2 Os componentes da solução, num exemplo da ACME
 
-#### Componentes da solução do R7
+#### Um exemplo da ACME: a nota que precisa chegar em 10 minutos
 
-O R7 pede que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. Dez candidatos a componente da solução atendem a esse pedido, e juntos eles ocupam os cinco tipos (pessoas, estruturas organizacionais, processos, informação e tecnologia).
+Para ver como uma solução se divide em componentes da solução (pessoas, áreas, processos, informação e tecnologia), vale um exemplo concreto da ACME. A Coordenação de Educação a Distância quer que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. Hoje a nota só chega no dia seguinte, em um envio noturno, e a cada fechamento algum aluno reclama. No dossiê, esse pedido tem o código R7. Para atendê-lo, a ACME listou dez candidatos a componente da solução, e eles se distribuem pelos cinco tipos (pessoas, estruturas organizacionais, processos, informação e tecnologia), dois em cada um.
 
-| Código | Componente da solução | Tipo |
+| Código | Tipo do componente da solução | Componente da solução |
 | --- | --- | --- |
-| CP1 | Treinamento dos professores para publicação imediata da nota | Pessoas |
-| CP2 | Aditivo ao contrato do ambiente virtual, com troca para o plano que oferece interfaces de programação | Estruturas organizacionais |
-| CP3 | Acordo de nível de serviço de 10 minutos entre a Diretoria de TI e a Coordenação de Educação a Distância | Estruturas organizacionais |
-| CP4 | Procedimento de correção de nota já publicada | Processos |
-| CP5 | Fechamento de notas sem dependência da janela noturna de lote | Processos |
-| CP6 | Registro de cada envio, com horário de lançamento e de confirmação | Informação |
-| CP7 | Mensagem de nota lançada, com aluno, turma, avaliação e valor | Informação |
-| CP8 | Mensageria entre o núcleo acadêmico e o ambiente virtual | Tecnologia |
-| CP9 | Serviço de notas que publica um evento a cada lançamento | Tecnologia |
-| CP10 | Responsável na Coordenação de Educação a Distância pelas falhas de envio | Pessoas |
+| CP1 | Pessoas | Treinamento dos professores para publicação imediata da nota |
+| CP2 | Estruturas organizacionais | Aditivo ao contrato do ambiente virtual, com troca para o plano que oferece interfaces de programação |
+| CP3 | Estruturas organizacionais | Acordo de nível de serviço de 10 minutos entre a Diretoria de TI e a Coordenação de Educação a Distância |
+| CP4 | Processos | Procedimento de correção de nota já publicada |
+| CP5 | Processos | Fechamento de notas sem dependência da janela noturna de lote |
+| CP6 | Informação | Registro de cada envio, com horário de lançamento e de confirmação |
+| CP7 | Informação | Mensagem de nota lançada, com aluno, turma, avaliação e valor |
+| CP8 | Tecnologia | Mensageria entre o núcleo acadêmico e o ambiente virtual |
+| CP9 | Tecnologia | Serviço de notas que publica um evento a cada lançamento |
+| CP10 | Pessoas | Responsável na Coordenação de Educação a Distância pelas falhas de envio |
 
-Nenhum tipo ficou sem componente da solução. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o CP4 e o CP5 mudam a rotina de fechamento e de correção de nota de professores, coordenações e Secretaria. Só a mudança de tecnologia não altera o prazo que o aluno percebe.
+Nenhum dos cinco tipos ficou vazio, e isso é bom sinal: a solução não depende só de tecnologia. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o CP4 e o CP5 mexem na rotina de fechamento e de correção de nota de professores, coordenações e Secretaria. Trocar apenas a tecnologia não altera o prazo que o aluno percebe.
 
-#### Os três níveis do R7
+#### Os fatos da situação atual, em três níveis
 
-Cada elemento da situação atual pertence a um destes três níveis: o negócio, a informação ou a TI.
+Os seis fatos sobre a situação atual podem ser lidos em três níveis, do mais amplo ao mais técnico: o negócio, a informação e a TI.
 
 | Código | Elemento da situação atual | Nível |
 | --- | --- | --- |
@@ -125,13 +125,13 @@ Cada elemento da situação atual pertence a um destes três níveis: o negócio
 | N5 | Portal do professor e núcleo COBOL que calcula a situação do aluno | Sistema de TI |
 | N6 | Exportação noturna por lote ao ambiente virtual | Sistema de TI |
 
-Uma solução só no nível de sistema de TI troca o lote noturno por envio em minutos, mas deixa intactos o calendário de fechamento e a conferência manual, que decidem quando a nota está pronta para publicar. Por isso o aluno continua vendo a nota no prazo do fechamento.
+Imagine uma solução que atue só no nível de sistema de TI. Ela troca o lote noturno por um envio em minutos, mas deixa intactos o calendário de fechamento e a conferência manual, que são os que decidem quando a nota está pronta para publicar. O aluno continua vendo a nota no prazo do fechamento.
 
 ### 1.3 Papéis e responsabilidades do ciclo
 
 #### Responsável por cada tarefa
 
-O critério é o mesmo da classificação das decisões: até onde o efeito da tarefa chega.
+Para dividir as tarefas, vale a mesma pergunta usada nas decisões: até onde o efeito da tarefa chega?
 
 | Código | Tarefa | Responsável | Grupo de competência | Justificativa |
 | --- | --- | --- | --- | --- |
@@ -146,11 +146,11 @@ O critério é o mesmo da classificação das decisões: até onde o efeito da t
 | T9 | Configurar o servidor de integração contínua | Arquiteto de software | | É configuração de ferramenta da equipe de desenvolvimento |
 | T10 | Verificar se já existe componente de software de envio de mensagem reaproveitável | Arquiteto de solução | Técnico | Exige conhecer a tecnologia vigente antes de especificar componente de software novo |
 
-Seis tarefas cabem ao arquiteto de solução, três ao arquiteto de software ou à equipe de desenvolvimento e uma à arquitetura corporativa. As seis tarefas do arquiteto de solução usam os quatro grupos de competência.
+No total, seis tarefas cabem ao arquiteto de solução, três ao arquiteto de software ou à equipe de desenvolvimento e uma à arquitetura corporativa. Repare que as seis tarefas do arquiteto de solução usam os quatro grupos de competência, o que mostra o quanto o papel exige de habilidades diferentes.
 
 #### Benefício por trás da tarefa T10
 
-A tarefa T10 se justifica pelo benefício do **reúso**: consultar o catálogo de aplicações e a arquitetura de software mostra se já existe um componente de software que serve ao novo uso. Sem essa verificação, a ACME especificaria e construiria um segundo componente de software de envio de mensagem, pagaria a duplicação de manutenção e de integração e perderia o custo e a perturbação mínimos que a análise de lacunas busca.
+A tarefa T10 se justifica pelo benefício do **reúso**. Antes de especificar algo novo, o arquiteto consulta o catálogo de aplicações e a arquitetura de software para saber se já existe um componente de software que sirva ao novo uso. Sem essa verificação, a ACME acabaria construindo um segundo componente de envio de mensagem, pagaria duas vezes pela manutenção e pela integração e faria uma mudança maior do que o necessário.
 
 ### 1.4 Artefatos nas fases do processo, premissas e escopo
 
@@ -158,7 +158,7 @@ A tarefa T10 se justifica pelo benefício do **reúso**: consultar o catálogo d
 
 #### Artefatos nas fases do processo
 
-Para dar um papel a cada artefato, use o critério do bloco 3. Entrada é o artefato que a fase recebe. Produto intermediário é a saída que alimenta uma fase seguinte. Entregável é a saída que o patrocinador recebe como resultado do trabalho do arquiteto. O documento de iniciação conta como entrada, e a comparação de alternativas é o caso de negócio levado ao Conselho, por isso é entregável da análise.
+Para dar um papel a cada artefato, ajuda pensar no caminho que ele faz. Alguns já existem quando a fase começa, como o mapa de atores, e a fase só os recebe e usa: são as entradas. Outros nascem no meio do trabalho e servem de matéria-prima para a fase seguinte, como o catálogo de blocos de construção e interfaces: são os produtos intermediários. E há os que o arquiteto entrega ao patrocinador como resultado do seu trabalho, como o modelo único de componentes da solução: são os entregáveis. Dois casos pedem um pouco mais de cuidado. O documento que autoriza a equipe a investigar conta como entrada, porque é com ele em mãos que a equipe começa. E a comparação das duas alternativas é o caso de negócio que o Conselho Universitário recebe para decidir, por isso é um entregável da fase de análise.
 
 | Código | Artefato | Fase | Papel | Linha de base | Seção do caderno |
 | --- | --- | --- | --- | --- | --- |
@@ -173,11 +173,11 @@ Para dar um papel a cada artefato, use o critério do bloco 3. Entrada é o arte
 | A9 | Documento que autoriza a equipe a iniciar a investigação | 1. Iniciação | Entrada | Não | 1 |
 | A10 | Modelos da solução implantada, devolvidos ao repositório | 8. Conclusão | Entregável | Não | Todas |
 
-Os artefatos de linha de base são A1, A2 e A4, porque já descreviam parte da situação atual antes de o processo começar. O pedido da data de conclusão chega depois do A9, ainda na iniciação, e a data só pode ser dada com precisão depois da fase 7, em que saem as estimativas de prazo e de custo. Até lá, o caderno registra a data como pendência na seção 10.
+Três artefatos já existiam antes de o processo começar e descrevem parte da situação atual: A1, A2 e A4. Eles formam a linha de base. Quanto à data de conclusão, o pedido chega logo depois do A9, ainda na iniciação, mas a data só pode ser dada com precisão depois da fase 7, quando saem as estimativas de prazo e de custo. Até lá, o caderno registra a data como pendência na seção 10.
 
 #### Premissas
 
-As premissas e as exclusões a seguir são dados do caso. O curso as propõe para você confirmar na fase de descoberta, e elas não fazem parte da resposta do exercício.
+As premissas e as exclusões a seguir também são dados do caso. O curso as propõe para você confirmar na fase de descoberta, e por isso elas não fazem parte da resposta do exercício.
 
 | Código | Premissa | Se for falsa | Como verificar |
 | --- | --- | --- | --- |

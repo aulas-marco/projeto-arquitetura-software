@@ -163,6 +163,36 @@ O arquiteto escreve o ADR no momento da decisão, porque é nesse momento que as
 
 Quando falta dado para preencher um campo, o caminho é registrar o ADR com estado proposta e listar ao final os campos que ficaram incompletos. Um registro incompleto que declara as próprias lacunas continua utilizável, enquanto um registro preenchido com dado inventado leva as decisões seguintes a partir de premissas que ninguém verificou.
 
+## No caderno arquitetural
+
+{{ficha:7:3}}
+
+**Para que serve.** Daqui a alguns meses, uma pessoa nova na equipe da ACME vai perguntar por que o sistema usa eventos na entrada da matrícula, e ninguém mais vai lembrar da conversa. O registro de decisão arquitetural, o ADR, existe para responder a essa pergunta, porque guarda o contexto da decisão, as alternativas pesadas e as consequências aceitas. Na seção 7 do caderno, ele reúne num único texto o estilo e os padrões escolhidos nesta aula, para que outra pessoa consiga revisá-los.
+
+**O que você faz neste exercício.** O enunciado não traz dado novo, porque o ADR é montado com o que você já produziu: os princípios e o esboço lógico do exercício 9, a comparação de estilos do exercício 10 e o mapa de padrões do exercício 11. Você escreve os dez campos do modelo da aula, de Título a Revisão, ligando cada um ao exercício de onde vem o conteúdo. Se faltar dado para algum campo, o registro fica com o estado proposta e lista no fim os campos incompletos, porque um dado inventado levaria as decisões seguintes a partir de premissas que ninguém verificou.
+
+| Campo do caderno | Como preencher | Item |
+| --- | --- | --- |
+| Título | Escreva a sigla ADR, o número do registro e a decisão em uma frase | 1 |
+| Estado | Diga se o registro é proposta, aceito, substituído ou rejeitado | 1 |
+| Data | Escreva a data da decisão, ou "a definir" com o responsável | 1 |
+| Contexto | Descreva de forma neutra os dois cenários que motivaram a análise e diga o que fica fora do registro | 1 |
+| Forças | Liste o que diferencia as alternativas, ligando cada força a um princípio ou cenário, com a medida quando o caso a traz | 1 |
+| Alternativas | Compare, pelas mesmas forças, os estilos que você descartou no exercício 10 | 1 |
+| Decisão | Diga o estilo escolhido e os padrões do exercício 11, ligando a justificativa às forças | 1 |
+| Consequências | Escreva ao menos uma consequência positiva, uma negativa e uma neutra, com o custo de cada padrão | 2 |
+| Evidências | Diga o que sustenta a decisão e onde cada evidência pode ser reproduzida | 2 |
+| Revisão | Escreva um gatilho que dá para observar, com valor e prazo | 2 |
+
+**O que você já tem.** Os princípios e o esboço lógico da seção 6, a comparação de estilos e o mapa de padrões da seção 7.
+
+**Quando está pronto.** Os dez campos estão preenchidos na ordem do modelo, e o que faltou saber aparece na lista de campos incompletos.
+
+[Ver esta seção no template](../caderno/template.md#7-decisoes){ .caderno-botao }
+[Ver o gabarito do exercício 12](../gabaritos/gabarito-exercicio-12.md){ .caderno-botao }
+
+{{/ficha}}
+
 ## Exercício 12
 
 Este exercício reúne em um único registro as escolhas feitas nos exercícios 9 a 11, para que a decisão possa ser entendida e revisada por quem não participou dela. A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. O aluno escreve o ADR que registra o estilo escolhido e os padrões que sustentam a estratégia de modernização, no template de dez campos apresentado no Conceito acima, a partir dos produtos dos três exercícios anteriores desta aula, a saber, os princípios e o esboço lógico, a comparação de estilos e o mapa de padrões. O exercício tem dois itens. O item 1 cobre os sete primeiros campos, e o item 2 cobre os três últimos. O produto final é um único documento em Markdown, com os dez campos na ordem do template.
@@ -190,6 +220,8 @@ O item cobre sete campos do ADR, reunidos em cinco grupos, e o aluno escreve cad
 4. alternativas, com os dois estilos comparados e descartados no exercício 10, cada um avaliado pelas mesmas forças do item anterior
 5. decisão, com o estilo escolhido e os padrões do exercício 11, conectando a justificativa às forças listadas
 
+Suas respostas viram os campos Título, Estado, Data, Contexto, Forças, Alternativas e Decisão, na seção 7 do caderno.
+
 ### Item 2: Consequências, evidências e revisão
 
 Os campos de consequências, alternativas e revisão costumam sair fracos quando o autor não sabe como redigi-los. As quatro frases abaixo servem de modelo, e as letras X, Y, Z e W são lacunas que o aluno substitui por dados da própria decisão, como o nome do estilo descartado, a força afetada e a medida observada.
@@ -208,6 +240,8 @@ Escreva os três últimos grupos de campos do ADR, observando que uma alternativ
 3. revisão, com um gatilho observável
 
 Se faltar dado para algum campo, o registro fica com o estado proposta e com a lista dos campos incompletos ao final.
+
+Suas respostas viram os campos Consequências, Evidências e Revisão, na seção 7 do caderno.
 
 ## Fontes
 

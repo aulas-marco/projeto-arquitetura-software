@@ -82,6 +82,35 @@ Na ACME, universidade privada brasileira fictícia usada como caso da disciplina
 
 O arquiteto usa princípios priorizados para tomar decisões sucessivas com o mesmo critério, sem reabrir a cada escolha a discussão sobre o que a solução deve privilegiar. Os mesmos princípios servem para revisar um desenho proposto por outra equipe, porque a pergunta a responder é se o desenho respeita as regras acordadas e a evidência declarada. O esboço lógico produzido a partir deles é o objeto sobre o qual o estilo arquitetural do bloco 2 e os padrões do bloco 3 serão escolhidos.
 
+## No caderno arquitetural
+
+{{ficha:6}}
+
+**Para que serve.** Antes de decidir qualquer coisa sobre o sistema acadêmico, o arquiteto da ACME precisa de regras que valham para todas as decisões seguintes. Sem elas, cada proposta nova reabre a discussão do zero, e alguém acaba sugerindo mexer no núcleo, que só a fábrica de software pode alterar até 30/09/2027. Por isso a seção 6 do caderno guarda esses princípios e um primeiro esboço lógico, que mostra como a solução se divide em partes, e uma proposta que quebre um princípio pode ser recusada com base no que está escrito.
+
+**O que você faz neste exercício.** O enunciado traz quatro exigências do caso, como a de que o sistema acadêmico não pare em período letivo, e oito responsabilidades que a solução precisa cumprir, numeradas de RS1 a RS8, como receber o pedido de renovação de matrícula (RS1) e entregar a nota ao ambiente virtual de aprendizagem (RS4). Primeiro você escolhe de três a cinco princípios do repertório de nove da aula, porque cada exigência pede uma regra, e ordena os princípios por prioridade para saber qual vence num conflito. Depois agrupa as oito responsabilidades em elementos lógicos e marca um risco e uma decisão pendente, e tudo isso entra na seção 6 do caderno.
+
+| Campo do caderno | Como preencher | Item |
+| --- | --- | --- |
+| Princípio | Escolha, no repertório de nove da aula, de três a cinco princípios que as quatro exigências justificam e escreva o nome de cada um | 1 |
+| Motivação | Diga qual das quatro exigências originou o princípio | 1 |
+| Implicação no desenho | Descreva o que muda na solução quando o princípio é seguido e o que passa a ser proibido | 1 |
+| Evidência esperada | Diga o que se poderia medir ou conferir para provar que o princípio foi aplicado | 1 |
+| Prioridade | Numere os princípios do mais importante ao menos importante e explique qual vence quando dois entram em conflito | 1 |
+| Elemento lógico | Agrupe RS1 a RS8 em três a cinco elementos e dê a cada um um nome que diga o que ele faz, sem citar produto, linguagem ou provedor | 2 |
+| Situação do elemento | Diga se o elemento continua atendido pelo núcleo legado durante a transição ou se passa a ser um elemento novo | 2 |
+| Risco | Aponte ao menos uma coisa que pode dar errado no esboço e o princípio que ela ameaça | 2 |
+| Decisão pendente | Aponte ao menos uma escolha que ainda não pode ser feita e o princípio que ela afeta | 2 |
+
+**O que você já tem.** As restrições da seção 1 e os requisitos e cenários da seção 3, de onde saem as quatro exigências do enunciado.
+
+**Quando está pronto.** Os princípios têm motivação, implicação e evidência, estão em ordem de prioridade, e as oito responsabilidades estão distribuídas em elementos lógicos com situação, ao menos um risco e ao menos uma decisão pendente.
+
+[Ver esta seção no template](../caderno/template.md#6-principios){ .caderno-botao }
+[Ver o gabarito do exercício 9](../gabaritos/gabarito-exercicio-09.md){ .caderno-botao }
+
+{{/ficha}}
+
 ## Exercício 9
 
 Este exercício treina a passagem das exigências do caso ACME aos princípios de design e destes a um primeiro desenho lógico. Sem essa passagem, a escolha do estilo arquitetural no exercício seguinte não teria critério. A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental, isto é, por troca gradual de partes, sem parar o sistema. Os dados abaixo foram reproduzidos da [página inicial do caso](../caso-acme/index.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md), e o aluno não precisa consultá-las para resolver. O exercício tem dois itens. No item 1, o aluno produz a tabela de princípios priorizados. No item 2, produz o esboço lógico, uma lista de elementos com as responsabilidades de cada um. Os dois produtos são a entrada da comparação de estilos do exercício 10, no [bloco 2](bloco-2-estilos-arquiteturais.md).
@@ -99,6 +128,8 @@ Um princípio de design só tem utilidade quando nasce de uma exigência concret
 
 1. Escolha, no repertório de nove princípios apresentado neste bloco, entre três e cinco princípios que as quatro entradas justificam. Para cada princípio escolhido, registre quatro informações, o nome, a motivação, a implicação no desenho e a evidência esperada de que o princípio foi aplicado, como no exemplo da Rede de Clínicas ACME mostrado acima. A motivação deve apontar a entrada da tabela que originou o princípio.
 2. Ordene os princípios escolhidos por prioridade e indique, com base nas entradas, qual deles prevalece quando entra em conflito com os demais. Registre a ordem na mesma tabela de princípios.
+
+Suas respostas viram os campos Princípio, Motivação, Implicação no desenho, Evidência esperada e Prioridade, na seção 6 do caderno.
 
 ### Item 2: Esboço lógico a partir das responsabilidades
 
@@ -135,6 +166,8 @@ A tabela abaixo traz oito responsabilidades, numeradas de RS1 a RS8, extraídas 
 1. Agrupe as oito responsabilidades em três a cinco elementos lógicos e dê a cada elemento um nome que descreva a responsabilidade assumida, sem nomear produto, linguagem, provedor de nuvem ou framework. Registre o esboço como uma lista de elementos, cada um com os códigos RS que reúne.
 2. Indique quais elementos permanecem atendidos pelo núcleo legado durante a transição e quais passam a elementos novos, com base nas entradas do Item 1.
 3. Marque no esboço ao menos um risco, que é algo que pode dar errado, e ao menos uma decisão pendente, que é uma escolha que ainda não pode ser feita, indicando qual princípio do Item 1 cada um afeta.
+
+Suas respostas viram os campos Elemento lógico, Situação do elemento, Risco e Decisão pendente, na seção 6 do caderno.
 
 ## Fontes
 

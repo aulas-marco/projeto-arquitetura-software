@@ -49,6 +49,22 @@ CADERNO_BLOCKS: set[str] = {
     "bloco-2-a-solucao-como-sistema.md",
     "bloco-3-papel-do-arquiteto-de-solucao.md",
     "bloco-4-processo-de-definicao-da-arquitetura.md",
+    "bloco-1-direcionadores-de-mudanca.md",
+    "bloco-2-qualidade-e-tipos-de-requisito.md",
+    "bloco-3-cenarios-linha-de-base-e-restricoes.md",
+    "bloco-4-partes-interessadas-e-pontos-de-vista.md",
+    "bloco-1-principios-de-design.md",
+    "bloco-2-estilos-arquiteturais.md",
+    "bloco-3-padroes-arquiteturais-e-de-design.md",
+    "bloco-4-registro-de-decisao-arquitetural.md",
+    "bloco-1-arquitetura-de-negocio.md",
+    "bloco-2-arquitetura-de-dados.md",
+    "bloco-3-arquitetura-de-aplicacoes-e-integracao.md",
+    "bloco-4-arquitetura-de-infraestrutura.md",
+    "bloco-1-definicao-tecnologica-e-trm.md",
+    "bloco-2-plataforma-arquitetural.md",
+    "bloco-3-seguranca-fim-a-fim.md",
+    "bloco-4-adr-de-plataforma.md",
 }
 
 FORBIDDEN_MARKERS = ("TODO", "TBD", "PLACEHOLDER", "PREENCHER")

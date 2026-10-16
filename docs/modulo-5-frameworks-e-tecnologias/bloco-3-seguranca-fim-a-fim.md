@@ -145,6 +145,34 @@ O arquiteto leva à autoridade de design de segurança um desenho que já traz o
 
 A recomendação da autoridade retorna à equipe de solução como revisão de desenho, e cada recomendação aceita altera um artefato concreto, como uma célula da grade de permissões, um controle na fronteira ou uma mudança de infraestrutura. A recomendação que exige serviço de infraestrutura ausente do catálogo gera uma lacuna de provisão, classificada no [bloco 4](bloco-4-adr-de-plataforma.md) desta aula.
 
+## No caderno arquitetural
+
+{{ficha:8}}
+
+**Para que serve.** O sistema novo vai guardar a nota, o histórico escolar e o CPF de 38.400 alunos, e a lei brasileira trata esses dados de formas diferentes. Antes de decidir como proteger cada um, o arquiteto precisa saber quão sensível ele é, quem tem direito de lê-lo ou gravá-lo e que ataques a solução pode sofrer no ponto em que o aluno se conecta. Por isso o caderno guarda essas três respostas na seção 8, e quem revisa a segurança as lê para encontrar onde o desenho pode falhar, enquanto a equipe as usa para escolher os controles.
+
+**O que você faz neste exercício.** O enunciado traz seis ativos de dado, de A1 a A6, como a nota (A1) e o CPF (A3), uma grade de permissões com seis perfis e três recursos e seis ameaças, de T1 a T6, com seis controles identificados pelas letras de (a) a (f). Você classifica cada dado pela LGPD e dá a ele um nível de confidencialidade, porque o grau de proteção depende disso, e depois aponta e corrige as três células da grade que dão acesso maior que o necessário. Por fim associa cada ameaça a uma categoria do STRIDE e ao controle que a trata, e indica qual controle também atende ao requisito R9, de trilha de auditoria.
+
+| Campo do caderno | Como preencher | Item |
+| --- | --- | --- |
+| Classificação LGPD do ativo | Classifique cada um dos seis ativos em não pessoal, pessoal ou pessoal sensível, conforme o art. 5º da LGPD | 1 |
+| Nível de confidencialidade | Atribua nível baixo, médio ou alto a cada ativo e justifique em uma linha o nível do ativo pessoal sensível | 1 |
+| Ativos restritos pelo R14 | Diga quais ativos não podem ser processados fora do território nacional e qual sistema externo recebe hoje um deles | 1 |
+| Células que violam o menor privilégio | Aponte as três células da grade de permissões que dão acesso maior que o necessário, com o perfil e o recurso | 2 |
+| Acesso correto | Escreva o acesso correto de cada uma das três células, com a condição quando houver | 2 |
+| Categoria STRIDE da ameaça | Classifique cada ameaça, de T1 a T6, em uma das seis categorias do STRIDE | 3 |
+| Controle da ameaça | Associe a cada ameaça a letra do controle que a trata | 3 |
+| Controle que também atende ao R9 | Indique qual dos seis controles também atende ao requisito de trilha de auditoria | 3 |
+
+**O que você já tem.** A zona de pouso do exercício 18 e os requisitos R9 e R14 da seção 3, que o exercício cita para justificar a trilha de auditoria e a região dos dados.
+
+**Quando está pronto.** Os seis ativos têm classificação e nível, as três células da grade estão corrigidas e as seis ameaças têm categoria e controle, com o controle do R9 indicado.
+
+[Ver esta seção no template](../caderno/template.md#8-tecnologia-e-plataforma){ .caderno-botao }
+[Ver o gabarito do exercício 19](../gabaritos/gabarito-exercicio-19.md){ .caderno-botao }
+
+{{/ficha}}
+
 ## Exercício 19
 
 A ACME é a universidade privada brasileira com 38.400 alunos ativos cujo sistema acadêmico passa por modernização incremental, com o núcleo transacional, o conjunto de programas que executa as operações acadêmicas, mantido em operação durante a transição. Como o sistema novo vai guardar nota, histórico escolar, CPF e outros dados dos alunos, o exercício verifica se a solução protege esses dados. Para isso, parte do diagrama de contêineres do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16), que mostra as partes executáveis da solução, e da zona de pouso do [exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18).
@@ -198,6 +226,8 @@ A tabela indica o módulo do núcleo, conforme a [arquitetura de linha de base](
 2. Atribua a cada ativo um nível de confidencialidade baixo, médio ou alto, conforme o dano que a divulgação indevida do dado causaria, e justifique em uma linha o nível do ativo pessoal sensível.
 3. Responda em uma linha quais ativos a restrição R14 impede de serem processados fora do território nacional e qual sistema externo do diagrama do exercício 16 recebe hoje, pelos lotes noturnos descritos na linha de base, um desses ativos.
 
+Suas respostas viram os campos Classificação LGPD do ativo, Nível de confidencialidade e Ativos restritos pelo R14, na seção 8 do caderno.
+
 ### Item 2: Grade de permissões
 
 O objetivo deste item é encontrar acessos maiores do que o necessário numa grade de permissões já preenchida, porque cada acesso excedente é uma porta aberta a erro e a abuso. O princípio do menor privilégio diz que cada perfil ou serviço recebe apenas o acesso que a tarefa dele exige. A grade abaixo foi proposta para a arquitetura alvo, a solução nova, e três de suas células concedem privilégio além do necessário. As linhas trazem seis perfis e serviços, como Aluno e Serviço de notas, e as colunas trazem três recursos, a nota consolidada, a matrícula e o histórico escolar. L indica leitura, E indica gravação e o traço indica nenhum acesso, e a condição aparece depois da vírgula, como em somente a própria. No sistema atual, o ambiente virtual de aprendizagem recebe a nota consolidada por exportação e devolve apenas nota de atividade, recurso que não consta desta grade.
@@ -213,6 +243,8 @@ O objetivo deste item é encontrar acessos maiores do que o necessário numa gra
 
 1. Aponte as três células da grade que violam o princípio do menor privilégio, dizendo para cada uma o perfil e o recurso.
 2. Indique o acesso correto de cada uma das três células, com a condição quando houver, usando as letras L e E e o traço.
+
+Suas respostas viram os campos Células que violam o menor privilégio e Acesso correto, na seção 8 do caderno.
 
 ### Item 3: Ameaças na fronteira do aplicativo do aluno
 
@@ -259,6 +291,8 @@ Os controles disponíveis são os seis da lista abaixo.
 1. Classifique cada ameaça, de T1 a T6, numa das seis categorias STRIDE.
 2. Associe a cada ameaça a letra do controle que a trata.
 3. Indique qual dos seis controles também atende ao requisito R9.
+
+Suas respostas viram os campos Categoria STRIDE da ameaça, Controle da ameaça e Controle que também atende ao R9, na seção 8 do caderno.
 
 ## Fontes
 

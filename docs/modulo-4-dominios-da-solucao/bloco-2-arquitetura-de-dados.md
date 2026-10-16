@@ -197,6 +197,35 @@ A pergunta do arquiteto neste domínio, no roteiro do [bloco 0](bloco-0-espinha-
 
 O arquiteto recebe da arquitetura de dados corporativa o recorte do modelo corporativo na zona de impacto e usa a grade dado × aplicação para localizar o impacto de mudar uma entidade e para revelar entidades sem dono declarado ou com mais de uma aplicação que as grava. Para cada entidade, ele registra o dono, a fonte de verdade, o estilo de dado mestre quando a entidade é compartilhada, o regime de consistência de cada consumidor e as obrigações de qualidade e de proteção, e devolve ao modelo corporativo a diferença que a solução cria. O dono de cada entidade é a origem natural das interfaces que a expõem no [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md), e o regime de consistência de cada consumidor é a exigência que o [contrato de integração](../referencia/glossario.md#contrato-de-integracao) precisa garantir.
 
+## No caderno arquitetural
+
+{{ficha:7:4}}
+
+**Para que serve.** Na seção 7 do caderno, as decisões sobre dados dizem quem responde por cada informação da universidade e quanto atraso cada cópia pode ter. Sem elas, duas aplicações gravam a mesma tabela, ninguém sabe qual versão vale, e o aluno descobre o problema quando a nota ou o endereço aparecem diferentes em dois sistemas. Registrar o dono, o prazo e as obrigações de cada entidade permite que o bloco seguinte desenhe interfaces que garantem o que o caderno promete.
+
+**O que você faz neste exercício.** O enunciado traz cinco entidades acadêmicas, aluno, matrícula, nota, lançamento financeiro e turma, numa grade que mostra quais aplicações as gravam ou as recebem. Em cinco itens você escolhe o dono de cada entidade, o prazo de cada cópia, o estilo do cadastro único do aluno e as obrigações da LGPD sobre os dados dele, e explica por que o acesso direto ao banco é um problema. As respostas entram no caderno na parte Dados: dono, consistência e proteção.
+
+| Campo do caderno | Como preencher | Item |
+| --- | --- | --- |
+| Dono da entidade | Marque, para cada uma das cinco entidades, a aplicação ou o elemento do esboço lógico do exercício 9 que passa a ser o único autorizado a gravá-la | 1 |
+| Justificativa do dono | Escreva uma linha por entidade, citando a capacidade afetada do exercício 13 que ela sustenta | 1 |
+| Regime de consistência | Para cada consumidor de cada entidade, diga se a leitura precisa refletir a gravação na hora (forte) ou dentro de um prazo (eventual, com o prazo escrito) | 2 |
+| Estilo de dado mestre do aluno | Escolha entre registro, consolidação, coexistência e centralizado para o cadastro único do aluno | 3 |
+| Registro da escolha do dado mestre | Escreva em três linhas o contexto, a decisão e uma consequência da escolha | 3 |
+| Classificação dos atributos | Diga, para cada um dos seis atributos do aluno, se é dado pessoal ou dado pessoal sensível | 4 |
+| Destino com excesso de dado | Indique o destino que recebe mais atributos do que a finalidade exige | 4 |
+| Hipótese de conservação e origem do R14 | Diga qual hipótese do art. 16 da LGPD autoriza guardar o histórico dos egressos e se o R14 vem da lei ou de decisão da instituição | 4 |
+| Motivo contra o acesso direto ao banco | Explique em até três linhas por que os 2.300 acessos diretos contrariam a propriedade do dado | 5 |
+
+**O que você já tem.** As capacidades afetadas do exercício 13, o esboço lógico do exercício 9 e os requisitos R6, R7, R9 e R14, reproduzidos no enunciado.
+
+**Quando está pronto.** As cinco entidades têm dono e justificativa, cada consumidor tem regime com prazo, o aluno tem estilo de dado mestre com o registro de três linhas, os seis atributos estão classificados e o motivo contra o acesso direto ao banco está escrito.
+
+[Ver esta seção no template](../caderno/template.md#7-decisoes){ .caderno-botao }
+[Ver o gabarito do exercício 14](../gabaritos/gabarito-exercicio-14.md){ .caderno-botao }
+
+{{/ficha}}
+
 ## Exercício 14
 
 O exercício 14 aplica à ACME as decisões de dados deste bloco. A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos e sistema acadêmico em operação desde 2004. O enunciado traz cinco entidades acadêmicas, que são aluno, matrícula, nota, lançamento financeiro e turma, numa grade que cruza cada uma com as aplicações que a gravam, leem ou recebem. Cada um dos cinco itens pede uma decisão sobre essas entidades, do dono ao tratamento do dado pessoal. As decisões servem para que, na arquitetura alvo, que é a forma que a solução terá ao fim do primeiro ciclo, cada dado tenha um responsável claro e cada cópia tenha um atraso aceito, antes de o bloco 3 definir as interfaces.
@@ -217,6 +246,8 @@ Dono de uma entidade é a aplicação ou o elemento com autorização exclusiva 
 
 1. Marque, para cada uma das cinco entidades, a aplicação ou o elemento do esboço lógico do exercício 9 que deve ser o dono na arquitetura alvo.
 2. Justifique cada marcação em uma linha, citando a capacidade afetada do exercício 13 que a entidade sustenta.
+
+Suas respostas viram os campos Dono da entidade e Justificativa do dono, na seção 7 do caderno.
 
 O dono marcado para a entidade nota é a origem do contrato de integração do exercício 15, no [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md), em que esse dono passa a ser a aplicação que envia a nota ao ambiente virtual.
 
@@ -248,6 +279,8 @@ Dois requisitos do caso, reproduzidos na tabela abaixo, afetam o regime de consi
 
 1. Marque, para cada consumidor de cada entidade na grade do item 1, o regime de consistência exigido, forte ou eventual com o prazo, usando o R7 como prazo de propagação da nota e o R6 como exigência de tempo de resposta para os consumidores que leem a fonte com consistência forte durante a matrícula. Registre o resultado numa tabela com as mesmas linhas e colunas da grade.
 
+Sua resposta vira o campo Regime de consistência, na seção 7 do caderno.
+
 ### Item 3: Estilo de dado mestre para o aluno
 
 Dados mestres são as entidades compartilhadas por várias aplicações, e o estilo de dado mestre define onde a escrita ocorre e qual papel o repositório central tem, conforme a tabela de quatro estilos da seção Dados mestres e de referência. Este item escolhe o estilo para manter um cadastro único de aluno entre as aplicações. O aluno é a entidade compartilhada da ACME, com 38.400 alunos ativos e 214.000 egressos, que são ex-alunos cujos dados a instituição ainda retém. O cadastro acadêmico grava o aluno, e as demais aplicações recebem ou mantêm cópia dele, como mostra o diagrama. A seta tracejada indica uma relação prevista na arquitetura alvo, a do aplicativo do aluno, que atualiza endereço e telefone e ainda não existe.
@@ -263,6 +296,8 @@ graph LR
 
 1. Escolha o estilo de dado mestre, registro, consolidação, coexistência ou centralizado, para a entidade aluno na arquitetura alvo.
 2. Registre a escolha em três linhas, com o contexto, a decisão e uma consequência, como os campos correspondentes do ADR, o registro de decisão arquitetural apresentado no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md).
+
+Suas respostas viram os campos Estilo de dado mestre do aluno e Registro da escolha do dado mestre, na seção 7 do caderno.
 
 ### Item 4: Obrigações do dado pessoal do aluno
 
@@ -283,6 +318,8 @@ O caso também registra dois requisitos sobre o dado pessoal. O R9, declarado pe
 2. Indique um destino que recebe atributo além do necessário para a finalidade, conforme o princípio da necessidade, segundo o qual o tratamento se limita ao mínimo necessário (art. 6º, III).
 3. Indique qual hipótese do art. 16 da LGPD autoriza a ACME a conservar os históricos de egressos e se o R14 decorre da LGPD ou de decisão da instituição.
 
+Suas respostas viram os campos Classificação dos atributos, Destino com excesso de dado e Hipótese de conservação e origem do R14, na seção 7 do caderno.
+
 ### Item 5: Acesso direto ao banco
 
 Este item pede que o aluno explique, com um caso real, o problema do banco compartilhado descrito na seção sobre propriedade do dado, segundo a qual cada entidade tem um único responsável autorizado a gravá-la. O banco Oracle, com 740 tabelas, é compartilhado entre o núcleo COBOL e a camada Java, que reúne os quatro portais web, sem separação de esquema por responsabilidade. O caminho normal dos portais é chamar as transações do núcleo, que o monitor CICS recebe e processa e nas quais ficam as regras acadêmicas. Em 2.300 pontos do código Java, porém, os portais leem ou gravam as tabelas do núcleo diretamente, contornando essas transações, e o inventário não registra a distribuição desses pontos por entidade.
@@ -299,6 +336,8 @@ graph TD
 ```
 
 1. Responda, em até três linhas, por que os 2.300 acessos diretos ao banco contrariam a propriedade do dado.
+
+Sua resposta vira o campo Motivo contra o acesso direto ao banco, na seção 7 do caderno.
 
 ## Fontes
 

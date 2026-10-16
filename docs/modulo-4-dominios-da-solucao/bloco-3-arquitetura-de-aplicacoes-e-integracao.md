@@ -350,6 +350,33 @@ O arquiteto escreve o contrato de integração antes da implementação, porque 
 
 O arquiteto escolhe o nível do diagrama pela audiência e pela decisão em pauta. Diante de uma parte interessada de negócio, que decide sobre escopo e sobre relação com terceiros, o diagrama de contexto é suficiente, porque nenhuma decisão sobre estrutura interna será tomada naquela reunião. Diante da equipe técnica, que precisa saber onde um requisito será implementado, o diagrama de contêineres é o nível mínimo útil, e o rótulo de cada relação com tipo, volume e latência transforma o diagrama na lista de exigências que a definição tecnológica da Aula 5 precisa atender.
 
+## No caderno arquitetural
+
+{{ficha:5}}
+
+**Para que serve.** A seção 5 do caderno mostra num só desenho o que está dentro da solução, quem a usa e com que outros sistemas ela conversa. Quem decide escopo e contratos com terceiros lê esse desenho em um minuto, e por isso a fronteira precisa estar no lugar certo. Antes de chegar ao desenho, o arquiteto decide o que fazer com cada aplicação existente e como a nota chega ao ambiente virtual, porque essas escolhas definem quem fica dentro e quem fica fora.
+
+**O que você faz neste exercício.** O enunciado traz onze aplicações da ACME, como os quatro portais Java e o núcleo COBOL, o esqueleto de um contrato com doze campos para a integração de notas e um diagrama de contexto que tem dois erros. Você dá uma cor a cada aplicação, preenche o contrato, explica o que acontece quando o professor corrige uma nota já enviada e corrige o diagrama. As respostas entram no caderno na parte Portfólio, contrato de notas e diagrama de contexto.
+
+| Campo do caderno | Como preencher | Item |
+| --- | --- | --- |
+| Classificação da aplicação | Diga se cada uma das onze aplicações é verde (manter e evoluir), âmbar (manter por ora, com investimento restrito) ou vermelha (substituir ou retirar) | 1 |
+| Justificativa da classificação | Escreva uma linha com o fato do caso que levou à cor, como o ano da aplicação, a tecnologia ou a decisão da Reitoria de mantê-la | 1 |
+| Contrato de integração de notas | Preencha, com resposta curta, os doze campos do contrato que leva a nota ao ambiente virtual, de Origem até Nível de serviço | 2 |
+| Modo de comunicação | Diga se a integração é síncrona ou assíncrona e justifique pelos padrões escolhidos no exercício 11 | 2 |
+| Nota corrigida | Explique o que acontece quando o professor corrige uma nota que já foi enviada ao ambiente virtual | 2 |
+| Erros do diagrama | Aponte os dois erros de nível ou de fronteira que o diagrama de contexto do enunciado contém | 3 |
+| Correção de cada erro | Para cada erro, diga qual elemento está errado e onde ele deve ficar no diagrama | 3 |
+
+**O que você já tem.** O dono da entidade nota, marcado no exercício 14, que é a origem do contrato, e os padrões do exercício 11, que justificam o modo de comunicação.
+
+**Quando está pronto.** As onze aplicações têm cor e justificativa, os doze campos do contrato estão preenchidos com o modo declarado e o tratamento da nota corrigida, e os dois erros do diagrama estão apontados e corrigidos.
+
+[Ver esta seção no template](../caderno/template.md#5-contexto-do-sistema-c4-nivel-1){ .caderno-botao }
+[Ver o gabarito do exercício 15](../gabaritos/gabarito-exercicio-15.md){ .caderno-botao }
+
+{{/ficha}}
+
 ## Exercício 15
 
 O exercício 15 aplica à ACME os três assuntos deste bloco, e cada assunto é um item. A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. O item 1 decide o destino de cada aplicação do portfólio, classificada em vermelho, âmbar ou verde. O item 2 preenche o contrato da integração que leva a nota do sistema da ACME ao ambiente virtual de aprendizagem, a plataforma de ensino a distância. O item 3 corrige um diagrama de contexto, que desenha a fronteira da solução. Os três itens servem para praticar as decisões de aplicações antes de o bloco 4 transformar o desenho em exigências de infraestrutura.
@@ -375,6 +402,8 @@ Este item decide que destino cada aplicação deve ter na modernização, segund
 | Diretório corporativo | Não informado | LDAP | Autenticação de todos os perfis |
 
 1. Classifique cada aplicação do catálogo em vermelho, âmbar ou verde, conforme a [classificação do portfólio](#portfolio-de-aplicacoes), com uma linha de justificativa.
+
+Suas respostas viram os campos Classificação da aplicação e Justificativa da classificação, na seção 5 do caderno.
 
 ### Item 2: Contrato da integração de notas
 
@@ -414,6 +443,8 @@ O esqueleto do contrato da integração de notas entre a ACME e o ambiente virtu
 2. Declare se a integração é síncrona, em que o consumidor espera a resposta, ou assíncrona, em que o provedor publica e o consumidor processa depois, e justifique o modo pelos padrões que o aluno selecionou no [exercício 11](../modulo-3-design-e-padroes/bloco-3-padroes-arquiteturais-e-de-design.md#exercicio-11) para a coexistência com o sistema antigo, a proteção contra falha de integração e a publicação confiável de mudança.
 3. Indique o que acontece quando o professor corrige uma nota já enviada.
 
+Suas respostas viram os campos Contrato de integração de notas, Modo de comunicação e Nota corrigida, na seção 5 do caderno.
+
 ### Item 3: Erros de nível ou de fronteira no diagrama de contexto
 
 Este item treina a conferência de um diagrama de contexto, o primeiro nível do C4, que mostra o sistema como uma caixa única, com as pessoas que o usam e os sistemas externos com que ele se comunica. Dois critérios orientam a conferência. O primeiro é o nível: o contexto mostra só pessoas e sistemas e deixa de fora o que fica dentro de um sistema, como aplicações e bancos de dados. O segundo é a fronteira, a linha tracejada que separa o que fica dentro dela, que a ACME evolui e opera, do que fica fora, que outra equipe ou fornecedor mantém. O enunciado traz um diagrama de contexto da arquitetura alvo do primeiro ciclo, com três pessoas, aluno, professor e secretaria acadêmica, ligadas ao sistema acadêmico, e com os demais elementos ligados a ele. O diagrama contém dois erros de nível ou de fronteira, conforme os níveis descritos na seção [Diagrama de contexto](#diagrama-de-contexto).
@@ -423,6 +454,8 @@ Este item treina a conferência de um diagrama de contexto, o primeiro nível do
 </figure>
 
 1. Aponte os dois erros do diagrama e descreva a correção de cada um, indicando o elemento afetado.
+
+Suas respostas viram os campos Erros do diagrama e Correção de cada erro, na seção 5 do caderno.
 
 O diagrama de contexto corrigido neste item é a base do diagrama de contêineres do exercício 16, no [bloco 4](bloco-4-arquitetura-de-infraestrutura.md).
 

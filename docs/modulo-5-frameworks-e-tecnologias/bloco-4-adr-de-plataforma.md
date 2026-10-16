@@ -95,6 +95,36 @@ Concluída a definição, a equipe de arquitetura de solução e a função de i
 
 O arquiteto escreve este segundo registro logo depois de fechar a comparação de plataformas, no mesmo momento em que as candidatas descartadas e o critério que as eliminou ainda estão claros. O campo de evidências é o que mais se beneficia desse momento, porque é quando ainda existem o teste de carga, a prova de conceito ou a medição que sustentaram a escolha, e é trivial anotar onde cada um pode ser reproduzido. Meses depois, essa informação já se perdeu, e o registro fica com uma justificativa que ninguém consegue verificar. O relatório de lacunas produzido na mesma ocasião alimenta o custo da solução e o roteiro de entrega, e cada lacuna listada leva ao ADR o custo estimado de tornar a plataforma escolhida utilizável.
 
+## No caderno arquitetural
+
+{{ficha:8}}
+
+**Para que serve.** Quando o primeiro ciclo estiver em andamento, alguém vai perguntar por que a ACME escolheu aquela plataforma, e a equipe que decidiu talvez já não esteja lá. O ADR de plataforma, que é o registro de decisão arquitetural da escolha, guarda o contexto, as alternativas e as consequências para que a resposta continue disponível. A seção 8 fecha também com as lacunas de provisão, que são os serviços de infraestrutura exigidos pela solução e que a ACME ainda não oferece, porque cada lacuna vira custo e entra no roteiro de entrega da Aula 6.
+
+**O que você faz neste exercício.** Você escreve o ADR aproveitando o que já produziu: a escolha de estilo do exercício 12, o quadro de plataformas do exercício 18 com os critérios do exercício 17 e os achados de segurança do exercício 19. Os itens 1 a 3 preenchem assim os dez campos do registro. No item 4 o enunciado traz seis itens da definição tecnológica, como o provedor de identidade com OpenID Connect e a observabilidade de ponta a ponta, cada um com a situação atual da ACME, e você diz se cada um é lacuna nova, substituição, modificação ou remoção e qual deles reduz um custo recorrente.
+
+| Campo do caderno | Como preencher | Item |
+| --- | --- | --- |
+| Título, estado e data | Escreva o título do ADR, o estado (proposto) e a data do registro | 1 |
+| Contexto | Descreva a situação que levou à decisão, citando pelo título o ADR de estilo do exercício 12 | 1 |
+| Alternativas | Transporte o quadro comparativo do exercício 18, com as plataformas avaliadas pelos seis critérios do exercício 17 | 1 |
+| Forças | Liste as pressões que pesam na escolha, com pelo menos três critérios de seleção e uma dimensão de dependência de fornecedor, cada uma com o dado do caso | 2 |
+| Decisão | Nomeie a plataforma escolhida e ligue a justificativa às forças | 2 |
+| Consequências | Escreva ao menos uma consequência positiva, uma negativa e uma neutra, considerando os achados de segurança do exercício 19 | 3 |
+| Evidências | Diga o que sustentaria a escolha e onde poderia ser reproduzido, nomeando a evidência desejável que não existe | 3 |
+| Revisão | Escreva um gatilho observável, ligado à convivência com o núcleo COBOL sobre CICS, que indique a hora de reavaliar a plataforma | 3 |
+| Tipo da lacuna de provisão | Classifique cada um dos seis itens da definição tecnológica como lacuna nova, substituição, modificação ou remoção, com o dado da coluna de situação | 4 |
+| Lacuna que reduz custo recorrente | Indique qual item reduz custo recorrente já registrado nos dados operacionais e cite o dado | 4 |
+
+**O que você já tem.** O ADR de estilo da seção 7, o quadro de plataformas do exercício 18, os seis critérios do exercício 17 e os controles do exercício 19.
+
+**Quando está pronto.** Os dez campos do ADR estão preenchidos, com ao menos três consequências, uma evidência nomeada e um gatilho observável, e os seis itens da definição tecnológica têm tipo de lacuna e justificativa.
+
+[Ver esta seção no template](../caderno/template.md#8-tecnologia-e-plataforma){ .caderno-botao }
+[Ver o gabarito do exercício 20](../gabaritos/gabarito-exercicio-20.md){ .caderno-botao }
+
+{{/ficha}}
+
 ## Exercício 20
 
 A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, isto é, o sistema é trocado por partes, usada como caso desta disciplina. Na Aula 3, o aluno registrou em um ADR a escolha do estilo arquitetural, e no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) do bloco anterior escolheu a plataforma que concretiza esse estilo. Este exercício pede o ADR que registra a escolha de plataforma, no mesmo template de dez campos usado no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md): título, estado, data, contexto, forças, alternativas, decisão, consequências, evidências e revisão. O registro serve para que a decisão possa ser entendida e revista no futuro por quem não participou dela.
@@ -118,6 +148,8 @@ graph LR
 2. Escreva o contexto, citando pelo título o ADR de estilo escrito no [Exercício 12](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md#exercicio-12).
 3. Escreva as alternativas, transportando o quadro comparativo preenchido no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18), que aplica o método dos seis critérios do [Exercício 17](bloco-1-definicao-tecnologica-e-trm.md#exercicio-17).
 
+Suas respostas viram os campos Título, estado e data, Contexto e Alternativas, na seção 8 do caderno.
+
 ### Item 2: Forças e dependência de fornecedor
 
 Este item preenche os campos de forças e de decisão, mostrando o que pesa na escolha e quanto a plataforma prende a ACME a um fornecedor. As forças são as pressões que empurram a decisão, como um requisito, uma restrição ou a competência da equipe, e a decisão é a plataforma escolhida com a justificativa. A tabela abaixo relaciona as seis dimensões de dependência de fornecedor listadas no Conceito a dados do [dossiê da ACME](../caso-acme/index.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md).
@@ -134,6 +166,8 @@ Este item preenche os campos de forças e de decisão, mostrando o que pesa na e
 1. Escreva as forças, usando pelo menos três dos seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao) e ao menos uma das seis dimensões da tabela, e indique o dado do caso que sustenta cada força.
 2. Escreva a decisão, nomeando a plataforma escolhida e ligando a justificativa às forças.
 
+Suas respostas viram os campos Forças e Decisão, na seção 8 do caderno.
+
 ### Item 3: Consequências, evidências e revisão
 
 Este item preenche os campos que olham para o futuro da decisão: as consequências, que são o que a decisão provoca, as evidências, que são o que a sustenta, e a revisão, que é a condição para reavaliá-la. A tabela abaixo reúne os dados do caso que limitam as evidências disponíveis e que podem servir de base para o gatilho de revisão.
@@ -149,6 +183,8 @@ Este item preenche os campos que olham para o futuro da decisão: as consequênc
 3. Escreva a revisão, com um gatilho observável ligado à convivência com o núcleo COBOL sobre CICS, ou seja, um fato que a equipe consiga verificar e que indique a hora de reavaliar a plataforma.
 
 O campo de evidências é o mais difícil neste exercício, porque a ACME não tem ambiente de teste de carga. Nomear a evidência que seria desejável, e que não existe, é resposta melhor do que inventar uma medição.
+
+Suas respostas viram os campos Consequências, Evidências e Revisão, na seção 8 do caderno.
 
 ### Item 4: Lacunas de provisão
 
@@ -171,6 +207,8 @@ graph TB
 
 1. Classifique cada um dos seis itens como lacuna nova, substituição, modificação ou remoção, conforme os quatro tipos da tabela do Conceito, e justifique a classificação com o dado da coluna de situação.
 2. Indique qual dos seis itens, uma vez atendido, tende a reduzir custo recorrente já registrado nos [dados operacionais](../caso-acme/dados-operacionais.md), e cite o dado.
+
+Suas respostas viram os campos Tipo da lacuna de provisão e Lacuna que reduz custo recorrente, na seção 8 do caderno.
 
 ## Fontes
 

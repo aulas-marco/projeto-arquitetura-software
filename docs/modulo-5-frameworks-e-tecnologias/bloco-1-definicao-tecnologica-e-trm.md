@@ -126,6 +126,33 @@ Se o catálogo do hospital não tiver um serviço de gestão de identidade e ace
 
 O arquiteto parte do modelo técnico de referência publicado pela organização, localiza a linha que corresponde a cada requisito de serviço de infraestrutura e registra as restrições que eliminam alternativas antes de somar qualquer anotação na matriz de avaliação. A matriz preenchida, com o dado que sustenta cada célula e com a eliminação declarada, segue para o campo de alternativas do ADR de seleção. A lista de exemplos aprovados é o ponto de partida da escolha, que só se conclui quando o ADR registra a alternativa escolhida, as alternativas descartadas e o gatilho de revisão.
 
+## No caderno arquitetural
+
+{{ficha:8}}
+
+**Para que serve.** A ACME precisa de um serviço de matrícula que aguente 5.800 sessões simultâneas, mas o desenho da Aula 4 deixou todos os contêineres novos com a etiqueta tecnologia a definir. Se cada equipe escolher o produto que já conhece, a universidade termina com padrões diferentes em cada serviço e com tecnologias antigas copiadas para o sistema novo. Por isso a seção 8 do caderno começa pelo que a ACME já aprovou e pelo que quer abandonar, e só depois compara as opções de um produto, de modo que quem ler o caderno meses depois encontre o motivo de cada escolha.
+
+**O que você faz neste exercício.** O enunciado reúne o que é preciso para esse primeiro passo: as oito caixas do desenho de contêineres do exercício 16, que são as partes executáveis da solução, como o serviço de matrícula e o banco do serviço de notas, um recorte de seis linhas do modelo técnico de referência da ACME, seis tecnologias que a universidade já usa, como o COBOL sob CICS e o banco Oracle 12c, e três formas de obter um provedor de identidade, chamadas A, B e C. Você liga cada contêiner à linha do modelo que vale para ele, porque é essa linha que diz o padrão a seguir, depois classifica cada tecnologia atual em verde, âmbar ou vermelho para mostrar o que fica e o que sai, e por fim começa a comparar as três formas com o dado que o caso traz, já que o restante ainda precisa ser levantado.
+
+| Campo do caderno | Como preencher | Item |
+| --- | --- | --- |
+| Linha do modelo e padrão obrigatório | Para o provedor de identidade, o serviço de matrícula, o banco do serviço de notas e o evento de nota, diga qual linha do modelo técnico vale e qual padrão ela exige | 1 |
+| Linhas válidas para todos os contêineres | Indique as duas linhas do recorte que valem para qualquer contêiner novo, qualquer que seja a função dele, e explique em uma frase | 1 |
+| Classificação da tecnologia | Classifique cada tecnologia da linha de base em verde, âmbar ou vermelho e justifique em uma linha com o dado da tabela | 2 |
+| Tecnologias sob plano de migração | Entre as vermelhas, diga quais continuam em uso hoje e só podem ficar enquanto houver plano de migração documentado | 2 |
+| Aderência e portabilidade das alternativas | Para cada forma de obter o provedor de identidade (A, B e C), escreva o dado do caso que sustenta a aderência ao requisito e a portabilidade, citando o código do requisito ou da restrição | 3 |
+| Dado que falta por critério | Para maturidade, suporte, custo total de propriedade e competência da equipe, diga qual informação o caso não traz e precisa ser levantada | 3 |
+| Alternativa eliminada pela restrição | Escolha o R8 ou o R14, diga qual alternativa a restrição elimina antes da comparação e qual documento do fornecedor comprova o atendimento | 3 |
+
+**O que você já tem.** O diagrama de contêineres do exercício 16, com os contêineres novos ainda marcados como tecnologia a definir, e os requisitos e restrições registrados nas seções 1 e 3.
+
+**Quando está pronto.** Os quatro contêineres têm linha e padrão, as seis tecnologias têm cor e justificativa, as três alternativas têm aderência e portabilidade com o código de origem e cada critério sem dado diz o que falta.
+
+[Ver esta seção no template](../caderno/template.md#8-tecnologia-e-plataforma){ .caderno-botao }
+[Ver o gabarito do exercício 17](../gabaritos/gabarito-exercicio-17.md){ .caderno-botao }
+
+{{/ficha}}
+
 ## Exercício 17
 
 A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico passa por modernização incremental, isto é, é trocado por partes. O núcleo transacional, que é o conjunto de programas em COBOL que executa as operações acadêmicas, como a matrícula e o lançamento de notas, continua em operação sob o monitor CICS durante toda a transição. O monitor CICS é o programa que recebe e processa cada transação desse núcleo.
@@ -168,6 +195,8 @@ graph LR
 1. Para cada um dos quatro elementos a seguir, indique a linha do recorte que se aplica e o padrão ou protocolo obrigatório dessa linha: o provedor de identidade, o serviço de matrícula, o banco do serviço de notas e a comunicação por evento do serviço de notas com o ambiente virtual de aprendizagem, que o R7 exige.
 2. Entre as seis linhas do recorte, indique as duas cujo padrão vale para todos os contêineres novos, qualquer que seja a função do serviço, e justifique a escolha em uma frase.
 
+Suas respostas viram os campos Linha do modelo e padrão obrigatório e Linhas válidas para todos os contêineres, na seção 8 do caderno.
+
 ### Item 2: Tecnologias da linha de base
 
 O objetivo deste item é decidir quais tecnologias já em uso na ACME podem continuar, quais exigem aprovação e quais devem ser abandonadas, para que o plano de modernização saiba o que manter e o que substituir. A linha de base é a descrição do sistema acadêmico como ele funciona hoje. A tabela reúne seis tecnologias da arquitetura de linha de base da ACME, como o COBOL sob CICS e o banco Oracle 12c, cada uma com o dado registrado no dossiê do caso. O recorte do modelo técnico de referência do item 1 é a segunda fonte da classificação, ao lado do dado da tabela. As três cores têm o sentido apresentado na seção Estrutura em cinco colunas: verde é a tecnologia preferida, âmbar é o uso permitido mediante aprovação e vermelho é a tecnologia proibida em projeto novo.
@@ -183,6 +212,8 @@ O objetivo deste item é decidir quais tecnologias já em uso na ACME podem cont
 
 1. Classifique cada uma das seis tecnologias da tabela em verde, âmbar ou vermelho, conforme a classificação apresentada na seção [Estrutura em cinco colunas](#estrutura-em-cinco-colunas), e justifique cada classificação em uma linha com base no dado da tabela e no recorte do modelo técnico do item 1.
 2. Entre as tecnologias que classificou em vermelho, indique as que continuam em uso no sistema atual e, por isso, só podem permanecer sob plano de migração documentado, com uma linha de justificativa para cada uma.
+
+Suas respostas viram os campos Classificação da tecnologia e Tecnologias sob plano de migração, na seção 8 do caderno.
 
 ### Item 3: Matriz de seleção do provedor de identidade
 
@@ -214,6 +245,8 @@ A terceira tabela lista os quatro critérios restantes dos seis, para os quais o
 1. Preencha as três células de aderência ao requisito e as três de portabilidade com o dado do caso que as sustenta, citando o código do requisito ou a restrição de origem.
 2. Para cada um dos quatro critérios da terceira tabela, escreva uma frase que diga qual dado o caso não traz e precisaria ser levantado com o fornecedor ou com a equipe, sem atribuir valor às alternativas.
 3. Escolha uma das duas restrições, R8, que exige padrões abertos de identidade, ou R14, que proíbe processar dado pessoal de aluno fora do território nacional. Explique como ela elimina uma das alternativas A, B ou C antes da comparação e indique que documento do fornecedor comprova o atendimento.
+
+Suas respostas viram os campos Aderência e portabilidade das alternativas, Dado que falta por critério e Alternativa eliminada pela restrição, na seção 8 do caderno.
 
 ## Fontes
 

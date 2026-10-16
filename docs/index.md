@@ -22,7 +22,7 @@ Todos os exercícios usam o mesmo caso: a ACME, uma universidade fictícia que p
 
 Um caderno arquitetural é o documento em que o arquiteto registra, num só lugar, o que decidiu sobre uma solução e por quê. Neste curso, você monta o caderno da ACME aos poucos, e cada exercício preenche um pedaço dele. Ao fim das seis aulas, os 24 exercícios formam um único documento, com a arquitetura completa da solução.
 
-A [Aula 1](modulo-1-fundamentos/index.md#o-fio-condutor-do-curso-o-caderno-arquitetural) explica o que é o caderno e para que serve cada uma das suas seções. Para acompanhar o trabalho, há três páginas. O [template](caderno/template.md) mostra o caderno ainda vazio, com o que vai em cada seção. O [mapa](caderno/mapa.md) diz qual exercício preenche cada parte. A seção Gabaritos mostra o caderno completo até o exercício 4, o último da Aula 1, e os demais gabaritos entram à medida que os módulos seguintes forem publicados.
+A [Aula 1](modulo-1-fundamentos/index.md#o-fio-condutor-do-curso-o-caderno-arquitetural) explica o que é o caderno e para que serve cada uma das suas seções. Para acompanhar o trabalho, há três páginas. O [template](caderno/template.md) mostra o caderno ainda vazio, com o que vai em cada seção. O [mapa](caderno/mapa.md) diz qual exercício preenche cada parte. A seção Gabaritos traz, para cada exercício, o caderno preenchido até aquele ponto. Já estão publicados os gabaritos dos exercícios 1 a 20, das Aulas 1 a 5, e os das Aulas seguintes entram quando os módulos forem publicados.
 
 ## Avaliação
 

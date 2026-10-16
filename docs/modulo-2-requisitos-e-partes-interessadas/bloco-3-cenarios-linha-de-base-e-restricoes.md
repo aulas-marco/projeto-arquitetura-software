@@ -125,6 +125,56 @@ Sete restrições chegam fechadas ao caso da ACME, entre elas a impossibilidade 
 
 O arquiteto usa o cenário e o roteiro de sete perguntas para decidir onde investir esforço de design, dentro de um conjunto de requisitos que nunca recebe atenção equivalente. Cenários bem formados tornam comparável o que antes era apenas uma lista de rótulos de atributo, e o roteiro filtra, entre os cenários escritos, quais realmente pesam sobre decisão estrutural, risco ou custo de mudança tardia. O resultado orienta a prioridade de análise antes de qualquer proposta de solução, evitando que o esforço de arquitetura se disperse sobre requisito que a implementação convencional já resolve.
 
+## No caderno arquitetural
+
+{{ficha:3}}
+
+**Para que serve.** Escrever que a matrícula não pode cair não diz o que testar. O cenário de qualidade resolve isso contando uma situação em seis partes: quem provoca, o que provoca, em que ambiente, que parte do sistema é afetada, o que o sistema faz e como se mede o resultado. A seção 3 do caderno guarda os cenários da ACME, e o arquiteto registra ali também quais deles pesam sobre a estrutura da solução e de onde vêm as restrições que já chegam decididas, porque isso mostra onde concentrar o esforço de desenho.
+
+**O que você faz neste exercício.** O enunciado traz dois cenários pela metade, um sobre o pico de 5.800 sessões na abertura da matrícula e outro sobre o incidente de 04/02/2026, em que o monitor CICS esgotou o limite de tarefas. Você completa a resposta e a medida de cada um, aplica a eles um roteiro de sete perguntas para dizer se pesam sobre a arquitetura e classifica as sete restrições do caso pela origem, como o parecer jurídico de 28/04/2026. O que você escreve entra no caderno como os cenários, a análise de significância e a tabela de restrições.
+
+| Campo do caderno | Como preencher | Item |
+| --- | --- | --- |
+| Resposta do cenário do pico | Escreva o que o sistema faz quando chegam as 5.800 sessões simultâneas da abertura da matrícula | 1 |
+| Medida do cenário do pico | Escreva o valor que permite verificar a resposta em teste de carga | 1 |
+| Artefato do cenário do incidente | Diga qual parte do sistema sofre o efeito das transações abertas que se acumulam | 2 |
+| Resposta do cenário do incidente | Escreva o que o sistema faz para o incidente não se repetir | 2 |
+| Medida do cenário do incidente | Escreva o valor que permite verificar que o incidente não se repete | 2 |
+| Respostas ao roteiro de significância | Marque sim ou não para cada uma das sete perguntas, em cada cenário, com uma justificativa curta | 3 |
+| Conclusão sobre significância | Diga, em até três linhas por cenário, se ele é um requisito arquiteturalmente significativo | 3 |
+| Origem da restrição | Classifique cada restrição em regulatória, contratual, de política interna ou técnica | 5 |
+| Quem pode rever a restrição | Diga quem tem autoridade para mudar a restrição | 5 |
+
+**O que você já tem.** A reescrita do R2 feita no exercício 6, que pode servir de ponto de partida para o cenário do pico, e as restrições RT1 a RT7 da seção 1, que o item 5 volta a examinar sob outro ângulo, o da origem.
+
+**Quando está pronto.** Os dois cenários têm os seis elementos e uma medida que dá para verificar em teste, as sete perguntas têm sim ou não com justificativa, e as sete restrições têm origem e quem pode revê-las.
+
+[Ver esta seção no template](../caderno/template.md#3-requisitos){ .caderno-botao }
+[Ver o gabarito do exercício 7](../gabaritos/gabarito-exercicio-07.md){ .caderno-botao }
+
+{{/ficha}}
+
+{{ficha:4:2}}
+
+**Para que serve.** Um cenário só convence se os números que ele cita forem verdadeiros. As 5.800 sessões do pico e os 260 minutos do incidente vêm de medições e registros que já existiam antes do projeto e que formam a linha de base, a descrição do sistema como ele é hoje. A seção 4 do caderno guarda essa descrição, e este exercício a começa pelos documentos de que os cenários dependem, porque, se um deles estiver desatualizado, o cenário também estará.
+
+**O que você faz neste exercício.** O enunciado lista seis artefatos de linha de base, numerados de L1 a L6, como o inventário de componentes (L1) e a série de medição de sessões simultâneas do portal (L6). Você escolhe quatro que sustentam os dois cenários, diz que dado cada um fornece e o que aconteceria com o cenário se esse dado estivesse desatualizado. As lacunas, que comparam o sistema atual com o desenhado, ficam para a Aula 6.
+
+| Campo do caderno | Como preencher | Item |
+| --- | --- | --- |
+| Artefato de linha de base | Escolha quatro dos seis artefatos que sustentam os dois cenários de qualidade | 4 |
+| Dado que o artefato fornece | Diga qual informação do artefato aparece no cenário | 4 |
+| Efeito de um dado desatualizado | Diga o que aconteceria com o cenário se esse dado estivesse desatualizado | 4 |
+
+**O que você já tem.** Os dois cenários completos da ficha anterior, que mostram quais números precisam de apoio em um documento.
+
+**Quando está pronto.** Quatro artefatos estão escolhidos, cada um com o dado que fornece e o efeito de esse dado estar desatualizado.
+
+[Ver esta seção no template](../caderno/template.md#4-linha-de-base-e-lacunas){ .caderno-botao }
+[Ver o gabarito do exercício 7](../gabaritos/gabarito-exercicio-07.md){ .caderno-botao }
+
+{{/ficha}}
+
 ## Exercício 7
 
 Este exercício aplica ao caso da ACME os conceitos do bloco. Escrever um cenário completo, julgar se ele pesa sobre a arquitetura e reconhecer o que já existe e o que já está decidido permite ao arquiteto saber onde concentrar o esforço de desenho antes de propor qualquer solução. O exercício tem cinco itens. Nos dois primeiros, o aluno completa dois cenários de qualidade, um sobre o pico de matrícula e outro sobre o incidente de 04/02/2026. No terceiro, julga se os dois pesam sobre a arquitetura. No quarto, identifica os artefatos de linha de base que sustentam os cenários, e no quinto classifica as sete restrições do caso pela origem.
@@ -145,6 +195,8 @@ O portal da ACME registra 815 sessões simultâneas em média anual ponderada, c
 | Medida da resposta | A completar |
 
 1. Complete a linha Resposta e a linha Medida da resposta do quadro, de modo que a medida possa ser verificada em teste de carga, que simula o número de sessões simultâneas e mede o resultado.
+
+Suas respostas viram os campos Resposta do cenário do pico e Medida do cenário do pico, na seção 3 do caderno.
 
 ### Item 2: Cenário do incidente de 04/02/2026
 
@@ -169,6 +221,8 @@ flowchart TB
 
 1. Complete as linhas Artefato, Resposta e Medida da resposta do quadro, de modo que se possa verificar que o incidente não se repete. O artefato é a parte do sistema que sofre o efeito do estímulo.
 
+Suas respostas viram os campos Artefato, Resposta e Medida do cenário do incidente, na seção 3 do caderno.
+
 ### Item 3: Significância arquitetural dos dois cenários
 
 Um requisito é [arquiteturalmente significativo](../referencia/glossario.md#requisito-arquiteturalmente-significativo) quando atendê-lo exige decisões que mudam a estrutura da solução, e o julgamento ajuda a decidir quais cenários merecem análise de arquitetura. O quadro abaixo reproduz o roteiro de sete perguntas apresentado na seção [Conceito](#conceito) para esse julgamento, com uma coluna para cada um dos dois cenários dos itens 1 e 2.
@@ -186,6 +240,8 @@ Um requisito é [arquiteturalmente significativo](../referencia/glossario.md#req
 1. Marque sim ou não para cada pergunta, em cada cenário, com uma justificativa curta por célula.
 2. Defenda, em até três linhas por cenário, se cada um constitui um requisito arquiteturalmente significativo.
 
+Suas respostas viram os campos Respostas ao roteiro de significância e Conclusão sobre significância, na seção 3 do caderno.
+
 ### Item 4: Artefatos de linha de base que sustentam os cenários
 
 Um [artefato de linha de base](../referencia/glossario.md#artefato-de-linha-de-base) é um documento ou medição já existente que descreve o sistema atual, e os cenários só são confiáveis se os dados que os sustentam estiverem corretos. O quadro abaixo lista seis artefatos disponíveis no caso da ACME, numerados de L1 a L6. Dois deles são o inventário de componentes, L1, e a série de medição de sessões simultâneas do portal, L6. A seção [Artefatos de linha de base](#artefatos-de-linha-de-base) deste bloco descreve o conceito.
@@ -202,6 +258,8 @@ Um [artefato de linha de base](../referencia/glossario.md#artefato-de-linha-de-b
 1. Escolha quatro artefatos do quadro que sustentam os dois cenários e indique, para cada um, o dado específico que ele fornece.
 2. Indique, para cada um dos quatro artefatos escolhidos, o que aconteceria com o cenário se esse dado estivesse desatualizado.
 
+Suas respostas viram os campos Artefato de linha de base, Dado que o artefato fornece e Efeito de um dado desatualizado, na seção 4 do caderno.
+
 ### Item 5: Origem das restrições fechadas
 
 Uma restrição é uma decisão tomada fora do projeto, e saber de onde ela vem mostra quem poderia revê-la. O quadro abaixo reproduz as sete restrições que chegam fechadas ao caso da ACME, com o registro de quem as estabeleceu. Duas delas são o uso de apenas dois provedores de nuvem, decidido pelo Conselho Universitário, e a manutenção do núcleo COBOL sob contrato até 30/09/2027.
@@ -217,6 +275,8 @@ Uma restrição é uma decisão tomada fora do projeto, e saber de onde ela vem 
 | Orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses | Reitoria |
 
 1. Classifique cada uma das sete restrições pela origem, entre regulatória, contratual, de política interna e técnica, e indique quem teria autoridade para revê-la. Registre os dois resultados ao lado de cada restrição.
+
+Suas respostas viram os campos Origem da restrição e Quem pode rever a restrição, na seção 3 do caderno.
 
 ## Fontes
 

@@ -110,6 +110,31 @@ A pergunta do arquiteto neste domínio, no roteiro do [bloco 0](bloco-0-espinha-
 
 O arquiteto usa a visão de infraestrutura para converter cada contêiner do [diagrama de contêineres](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#diagrama-de-conteineres) e cada interface do grafo em exigências de execução e de comunicação que a Aula 5 recebe como entrada. Para cada contêiner, ele registra a camada de execução compatível, o número de réplicas e de zonas de disponibilidade imposto pelo requisito de disponibilidade e a capacidade necessária no pico, e para cada interface registra o modo de comunicação, o volume, a latência e se ela cruza a fronteira entre a nuvem e o centro de dados local, caso em que exige conexão dedicada ou VPN. O diagrama de implantação desse estágio usa nós genéricos, como máquina virtual, cluster Kubernetes ou função sem servidor, e não nomeia provedor, região nem serviço gerenciado do provedor, porque a definição tecnológica da solução e o modelo técnico de referência, que fazem essa escolha, são o assunto da Aula 5. O Kubernetes entra nesse estágio como tecnologia de orquestração genérica, oferecida por vários provedores, e o nome do serviço de Kubernetes de cada provedor é decidido na Aula 5.
 
+## No caderno arquitetural
+
+{{ficha:7:4}}
+
+**Para que serve.** Quando a solução se divide em contêineres, cada seta entre eles vira uma exigência. Uma relação que atende 5.800 sessões no pico não pode ser tratada como um envio noturno de arquivo, e o núcleo COBOL, que a equipe da ACME não pode alterar até 30/09/2027, precisa estar no lugar certo do desenho. A seção 7 guarda esse desenho com as relações rotuladas, porque ele é a lista de exigências que a Aula 5 recebe para escolher a tecnologia.
+
+**O que você faz neste exercício.** O enunciado traz o diagrama de contêineres da arquitetura alvo, com 15 relações numeradas, entre elas a que leva o aplicativo do aluno ao serviço de matrícula (relação 1) e a que leva o serviço de notas ao ambiente virtual (relação 6). Você rotula cada relação com modo, volume e latência, indica as que sustentam o R6 e o R7 e decide se o núcleo fica dentro ou fora da fronteira. As respostas entram no caderno na parte Contêineres e relações da arquitetura alvo.
+
+| Campo do caderno | Como preencher | Item |
+| --- | --- | --- |
+| Modo de comunicação | Para cada uma das 15 relações, diga se é síncrona, quando quem chama espera a resposta, ou assíncrona, quando segue adiante | 1 |
+| Volume e latência | Para cada relação, escreva quanto passa por ela e quanto tempo a troca pode levar, e escreva não informado quando o dossiê não trouxer o dado | 1 |
+| Relações do R6 | Indique, pelo número, as relações que fazem parte do caminho da confirmação da matrícula em até 4 segundos | 2 |
+| Relações do R7 | Indique, pelo número, as relações que fazem parte do caminho da nota até o ambiente virtual em até 10 minutos | 2 |
+| Posição do núcleo transacional | Diga se o núcleo COBOL fica dentro ou fora da fronteira da solução e por quê | 3 |
+
+**O que você já tem.** O diagrama de contexto corrigido no exercício 15, que fixou os elementos de dentro e de fora da fronteira, e os fatos dos dados operacionais reproduzidos no enunciado.
+
+**Quando está pronto.** As 15 relações têm modo, volume e latência, as relações de cada requisito estão indicadas pelo número e a posição do núcleo transacional está justificada pela fronteira de responsabilidade.
+
+[Ver esta seção no template](../caderno/template.md#7-decisoes){ .caderno-botao }
+[Ver o gabarito do exercício 16](../gabaritos/gabarito-exercicio-16.md){ .caderno-botao }
+
+{{/ficha}}
+
 ## Exercício 16
 
 O exercício 16 mostra como a infraestrutura converte o desenho da solução em exigências para a Aula 5. A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. O enunciado traz o diagrama de contêineres da arquitetura alvo do primeiro ciclo, com 15 relações numeradas. Um contêiner, no modelo C4, é uma aplicação, um serviço ou um banco de dados executável que compõe o sistema, como o Serviço de notas ou o Banco Oracle. Uma relação é uma seta entre dois elementos do diagrama, por onde um deles chama o outro. O aluno faz três coisas, uma por item. No item 1, rotula cada relação com o que ela exige da comunicação. No item 2, liga as relações aos requisitos R6 e R7. No item 3, decide a posição do núcleo transacional, o sistema central da ACME escrito em COBOL, em relação à fronteira da solução.
@@ -157,6 +182,8 @@ A tabela seguinte traz os volumes registrados nos dados operacionais.
 
 1. Rotule cada relação numerada com o modo de comunicação, síncrono ou assíncrono, e com o volume e a latência exigidos, usando os fatos da tabela quando se aplicarem e escrevendo não informado quando o dossiê não trouxer o dado.
 
+Suas respostas viram os campos Modo de comunicação e Volume e latência, na seção 7 do caderno.
+
 As relações rotuladas neste item são a lista de exigências de comunicação que a definição tecnológica da Aula 5 recebe como entrada.
 
 ### Item 2: Relações ligadas aos requisitos
@@ -178,6 +205,8 @@ graph LR
 ```
 
 1. Indique, pelo número, quais relações do diagrama do item 1 sustentam diretamente o requisito R6 e quais sustentam o requisito R7.
+
+Suas respostas viram os campos Relações do R6 e Relações do R7, na seção 7 do caderno.
 
 ### Item 3: Núcleo transacional na arquitetura alvo
 
@@ -206,6 +235,8 @@ flowchart TB
 ```
 
 1. Responda, em uma frase, que consequência essa divisão de responsabilidade tem para a posição do núcleo transacional COBOL no diagrama de contêineres do item 1, com base no critério de fronteira de responsabilidade do [exemplo do internet banking](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#um-exemplo-completo-nos-dois-niveis) do bloco 3.
+
+Sua resposta vira o campo Posição do núcleo transacional, na seção 7 do caderno.
 
 ## Fontes
 

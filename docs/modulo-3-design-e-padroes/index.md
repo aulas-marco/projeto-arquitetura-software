@@ -47,6 +47,19 @@ O [bloco 4](bloco-4-registro-de-decisao-arquitetural.md) trata do racional arqui
 
 A [síntese](sintese.md) fecha o módulo com o checklist do que precisa permanecer, a cadeia da decisão construída na aula, a autoavaliação e as fontes da aula inteira.
 
+## O que a Aula 3 constrói no caderno
+
+A Aula 2 deixou o caderno com os requisitos, os cenários de qualidade e as restrições da ACME, e agora é hora de usá-los para desenhar. Os quatro exercícios desta aula preenchem a seção 6, Princípios, e abrem a seção 7, Decisões, porque o desenho nasce das regras e termina numa escolha registrada. A seção 6 recebe os princípios e o esboço lógico do exercício 9, e a seção 7 acumula a comparação de estilos (10), os padrões para os três problemas (11) e o ADR do estilo (12). O caderno que sai da Aula 3 é o do [gabarito do exercício 12](../gabaritos/gabarito-exercicio-12.md).
+
+{{trilha:7:3}}
+
+| Bloco | Exercício | O que entra no caderno | Gabarito |
+| --- | --- | --- | --- |
+| 1 | 9 | Quatro princípios de design em ordem de prioridade e o esboço lógico com cinco elementos para as oito responsabilidades (RS1 a RS8), com um risco e uma decisão pendente | [Gabarito 9](../gabaritos/gabarito-exercicio-09.md) |
+| 2 | 10 | A comparação de três estilos diante dos dois cenários de qualidade, com risco, mecanismo compensatório e o estilo recomendado | [Gabarito 10](../gabaritos/gabarito-exercicio-10.md) |
+| 3 | 11 | Um padrão para cada um dos três problemas da ACME, com nível, elemento afetado, consequência favorável, custo aceito e os padrões descartados | [Gabarito 11](../gabaritos/gabarito-exercicio-11.md) |
+| 4 | 12 | O ADR do estilo e dos padrões, nos dez campos do modelo, com estado proposta | [Gabarito 12](../gabaritos/gabarito-exercicio-12.md) |
+
 ## Preparação para a Aula 4
 
 A Aula 4 detalha a solução nos domínios de negócio, dados, aplicações e infraestrutura. Ela parte da declaração de escopo do exercício 8, do esboço lógico do exercício 9, dos padrões do exercício 11 e do ADR do exercício 12, e termina na representação da arquitetura alvo em modelos C4, uma notação de diagramas em quatro níveis de detalhe, dos quais a aula usa os de contexto e de contêineres. As escolhas de produto, framework e plataforma continuam fora de escopo até a Aula 5, e o [cronograma](../cronograma.md) traz a sequência completa das seis aulas.

@@ -11,6 +11,7 @@ Esta página fecha a Aula 3 com quatro partes. A primeira é a lista do que o al
 - A taxonomia de três níveis, estilo arquitetural, padrão arquitetural e padrão de design, com a pergunta que cada nível responde
 - Os dez padrões do repertório, cada um com problema, contexto e forças, estrutura mínima, consequência favorável, custo e sinal de uso inadequado
 - O template de ADR em dez campos, com o critério de qualidade e o erro frequente de cada um, e a prática de criar um registro novo e marcar o anterior como substituído quando a decisão muda
+- O estado do [caderno arquitetural](../referencia/glossario.md#caderno-arquitetural) ao fim da Aula 3: a seção 6 com os princípios e o esboço lógico, e a seção 7 com a comparação de estilos, os padrões e o primeiro ADR
 
 ## Cadeia da decisão
 
@@ -27,7 +28,7 @@ Um elo ausente nessa cadeia aparece no ADR como força sem origem (um critério 
 
 ## Autoavaliação
 
-As afirmações abaixo servem para o aluno conferir, sozinho e sem gabarito público, o que reteve antes da Aula 4. Para cada uma, o aluno verifica se consegue fazer o que ela descreve.
+As afirmações abaixo servem para o aluno conferir o que reteve antes da Aula 4. Ele responde sozinho, porque as perguntas de autoavaliação não têm gabarito. Os exercícios têm, e a seção [Gabaritos](../gabaritos/index.md) mostra o caderno da ACME preenchido a cada exercício, para comparar com o seu.
 
 1. Dado um princípio qualquer, eu indico que alternativa de desenho ele elimina e que evidência mostraria sua aplicação.
 2. Eu produzo um esboço lógico em que nenhum elemento nomeia produto, linguagem, provedor de nuvem ou framework.

@@ -12,10 +12,11 @@ Esta página fecha o módulo de entradas e requisitos com o que precisa permanec
 - O conceito de artefato de linha de base e a classificação de restrições por origem, entre regulatória, contratual, de política interna e técnica
 - As categorias de parte interessada, os quatro motivos de comunicação e a distinção entre ponto de vista e visão
 - Os artefatos produzidos nos exercícios, a classificação de requisitos com as reescritas mensuráveis, os dois cenários com julgamento de significância e a declaração de escopo, porque a Aula 3 parte deles
+- O [caderno arquitetural](../referencia/glossario.md#caderno-arquitetural) ao fim da Aula 2, com a seção 2 (partes interessadas e escopo), a seção 3 (direcionadores, requisitos e cenários) e a primeira parte da seção 4 (artefatos de linha de base) preenchidas, que a Aula 3 usa para escolher estilos e registrar decisões
 
 ## Autoavaliação
 
-As perguntas abaixo são para o aluno responder a si mesmo, sem gabarito público, como verificação de retenção antes da Aula 3.
+As perguntas abaixo servem para você conferir o que ficou, antes da Aula 3. Responda sozinho, porque elas não têm gabarito. Os exercícios têm: a seção [Gabaritos](../gabaritos/index.md) mostra o caderno arquitetural da ACME preenchido a cada exercício.
 
 1. Dado um direcionador qualquer, eu digo se ele é interno ou externo e indico a fonte que o produziu.
 2. Dada uma declaração que chegou rotulada como não funcional, eu digo se ela é requisito de atributo de qualidade ou restrição, e justifico por quê.

@@ -123,6 +123,31 @@ O arquiteto levanta os direcionadores antes de discutir alternativa, porque eles
 
 O registro dos direcionadores também protege o projeto quando a liderança muda. Uma solução cujo motivo declarado esteja documentado sobrevive à troca de patrocinador, e uma solução cujo motivo só existia na conversa inicial costuma ser questionada desde o começo a cada mudança de interlocutor.
 
+## No caderno arquitetural
+
+{{ficha:3}}
+
+**Para que serve.** A seção 3 do caderno, Requisitos, registra o que a solução precisa entregar e como saber que ela entregou. Ela começa pelas pressões que levaram a ACME a querer mudar, como o custo de R$ 15,83 milhões por ano, os 34 dias úteis para entregar uma mudança e o parecer jurídico de 28/04/2026. Sem esse registro o arquiteto não sabe quais pressões pedem uma resposta imediata e quais podem apenas ser acompanhadas, e por isso o exercício as ordena antes de qualquer requisito ser escrito.
+
+**O que você faz neste exercício.** O enunciado traz sete direcionadores de mudança, três internos e quatro externos, como o custo de propriedade e a avaliação regulatória. Você diz se a ACME responde a cada um de forma reativa ou antecipatória e cita o dado do caso que sustenta a escolha. Depois distribui três fatos externos, numerados de F1 a F3, nas seis dimensões da análise PESTLE, acrescenta um fator às dimensões que ficarem vazias e explica em até cinco linhas como o contrato do mainframe, que termina em 31/12/2028, limita a meta de custo. As respostas viram o quadro de direcionadores e a análise do ambiente externo do caderno.
+
+| Campo do caderno | Como preencher | Item |
+| --- | --- | --- |
+| Resposta ao direcionador | Diga se a ACME responde de forma reativa, porque o direcionador já virou problema, ou antecipatória, porque a mudança é prevista e ainda não produziu efeito | 1 |
+| Evidência da resposta | Cite o dado do caso que sustenta a escolha, como uma data, um valor ou um incidente | 1 |
+| Dimensão da análise PESTLE | Diga em qual das seis dimensões do ambiente externo cada um dos três fatos se encaixa | 2 |
+| Fator externo acrescentado | Nas dimensões que ficaram sem fato, escreva um fator plausível para os próximos três anos e marque que ele é seu, porque o dossiê não o registra | 2 |
+| Efeito do contrato do mainframe na meta de custo | Explique em até cinco linhas por que o contrato de capacidade limita o que o projeto pode prometer de economia no primeiro ciclo | 3 |
+
+**O que você já tem.** As restrições da seção 1, preenchidas na Aula 1, porque o parecer jurídico de 28/04/2026 e a pré-aprovação dos dois provedores de nuvem aparecem lá como as restrições RT5 e RT3.
+
+**Quando está pronto.** Os sete direcionadores têm resposta e evidência, as seis dimensões têm um fator marcado como do dossiê ou acrescentado, e a explicação do contrato diz o que o primeiro ciclo pode prometer.
+
+[Ver esta seção no template](../caderno/template.md#3-requisitos){ .caderno-botao }
+[Ver o gabarito do exercício 5](../gabaritos/gabarito-exercicio-05.md){ .caderno-botao }
+
+{{/ficha}}
+
 ## Exercício 5
 
 Este exercício treina a leitura dos direcionadores de mudança, as pressões que levam uma organização a mudar, num caso concreto. Saber quais pressões já viraram problema e quais ainda podem ser previstas ajuda o arquiteto a decidir o que a solução precisa tratar primeiro e o que pode apenas ser monitorado. O exercício tem três itens. O primeiro separa os direcionadores da ACME em reativos e antecipatórios, o segundo organiza fatores externos pelas seis dimensões da análise PESTLE, e o terceiro relaciona a meta de custo ao contrato do mainframe, o computador de grande porte em que roda o núcleo do sistema acadêmico. Os dados necessários aparecem no enunciado de cada item.
@@ -162,6 +187,8 @@ flowchart LR
 
 1. Classifique cada um dos sete direcionadores como reativo ou antecipatório, e justifique citando o dado da coluna Evidência no caso que sustenta a escolha. Registre a classificação e a justificativa ao lado do nome do direcionador.
 
+Suas respostas viram os campos Resposta ao direcionador e Evidência da resposta, na seção 3 do caderno.
+
 ### Item 2: Análise PESTLE da ACME
 
 A [análise PESTLE](#analise-pestle) examina o ambiente externo da organização por seis dimensões, e este item mostra como ela funciona na prática. O primeiro quadro abaixo traz três fatos externos já registrados no dossiê do caso, numerados de F1 a F3. Dois deles são o parecer jurídico sobre dados no território nacional e a pré-aprovação de dois provedores de nuvem. O segundo quadro traz as seis dimensões com a coluna de fator externo em branco, e o aluno distribui os fatos nas dimensões e completa as que ficarem vazias.
@@ -184,6 +211,8 @@ A [análise PESTLE](#analise-pestle) examina o ambiente externo da organização
 1. Associe cada um dos três fatos registrados a uma das seis dimensões e anote-o na linha correspondente do segundo quadro.
 2. Preencha cada dimensão que ficou sem fato com um fator externo plausível, que possa afetar a instituição nos próximos três anos, e marque cada um desses fatores como acréscimo seu, porque o dossiê não o registra.
 
+Suas respostas viram os campos Dimensão da análise PESTLE e Fator externo acrescentado, na seção 3 do caderno.
+
 ### Item 3: Meta de custo e contrato do mainframe
 
 O dossiê do caso registra uma meta de reduzir o custo anual do sistema, e este item verifica se ela cabe no primeiro ano de trabalho. A ACME paga pelo mainframe um contrato de capacidade com piso de volume contratado, isto é, um valor mínimo devido mesmo que a carga diminua. O diagrama abaixo dispõe em ordem cronológica os quatro marcos que condicionam a meta de redução do custo anual de propriedade, da situação atual até 2029.
@@ -196,6 +225,8 @@ flowchart TB
 ```
 
 1. Explique, em até cinco linhas, como o contrato de capacidade do mainframe, que só termina em 31/12/2028, afeta a meta de custo de R$ 11,0 milhões e, por consequência, o que o projeto pode prometer de economia dentro do primeiro ciclo de 12 meses.
+
+Sua resposta vira o campo Efeito do contrato do mainframe na meta de custo, na seção 3 do caderno.
 
 ## Fontes
 

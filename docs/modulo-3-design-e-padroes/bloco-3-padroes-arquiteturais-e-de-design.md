@@ -182,6 +182,33 @@ Padrões se combinam quando cada um resolve um problema distinto. No portal da T
 
 O arquiteto seleciona um padrão pelo problema declarado e registra, junto com a escolha, o custo aceito e o sinal que indicaria que o padrão deixou de ser adequado. Esse registro permite que outra pessoa avalie depois se o problema ainda existe e se o custo continua justificado, e evita que um padrão permaneça no desenho apenas porque já está lá. O nível do padrão indica também quem precisa participar da decisão, porque um padrão arquitetural afeta várias equipes e entra no [ADR](bloco-4-registro-de-decisao-arquitetural.md) da solução, enquanto um padrão de design costuma ser decidido pela equipe responsável pela parte afetada.
 
+## No caderno arquitetural
+
+{{ficha:7:3}}
+
+**Para que serve.** Com o estilo escolhido, a ACME ainda tem problemas concretos pela frente, como fazer o sistema novo conviver com o núcleo antigo sem parar a matrícula. Para cada problema desses já existe uma solução conhecida, chamada padrão, mas todo padrão cobra um custo, e por isso a ACME precisa decidir sabendo o que paga. A seção 7 do caderno registra o problema, o padrão e o custo aceito, de modo que a escolha apareça como resposta a uma necessidade real.
+
+**O que você faz neste exercício.** O enunciado traz três problemas da ACME, um por item: a coexistência entre o sistema legado e a solução nova, a proteção contra falha de integração, como a do incidente de 04/02/2026, e a entrega confiável da nota ao ambiente virtual de aprendizagem. Para cada problema você escolhe um padrão do repertório de dez da aula e diz em que nível ele atua, porque isso mostra quem precisa participar da decisão. Depois indica o elemento do esboço lógico que o recebe, o que a ACME ganha e o que passa a pagar, e no terceiro item registra também um padrão que descartou.
+
+| Campo do caderno | Como preencher | Item |
+| --- | --- | --- |
+| Padrão | Para cada problema, escolha um padrão do repertório de dez da aula, ou mais de um quando resolverem partes diferentes do problema | 1, 2 e 3 |
+| Nível do padrão | Diga se é estilo arquitetural, padrão arquitetural ou padrão de design, conforme a tabela de três níveis da aula | 1, 2 e 3 |
+| Elemento afetado | Indique qual elemento do esboço lógico do exercício 9 recebe o padrão | 1, 2 e 3 |
+| Consequência favorável | Descreva o que a ACME ganha com o padrão | 1, 2 e 3 |
+| Custo aceito | Descreva o que a ACME passa a pagar por ele | 1, 2 e 3 |
+| Padrão descartado | Indique um padrão que você considerou e não adotou, em um dos três problemas | 3 |
+| Motivo do descarte | Explique por que esse padrão não serve ao contexto da ACME | 3 |
+
+**O que você já tem.** O esboço lógico da seção 6 e o estilo recomendado do exercício 10, na seção 7.
+
+**Quando está pronto.** Os três problemas têm padrão, nível, elemento afetado, consequência favorável e custo aceito, e um padrão descartado está registrado com o motivo.
+
+[Ver esta seção no template](../caderno/template.md#7-decisoes){ .caderno-botao }
+[Ver o gabarito do exercício 11](../gabaritos/gabarito-exercicio-11.md){ .caderno-botao }
+
+{{/ficha}}
+
 ## Exercício 11
 
 Este exercício treina a escolha de padrões a partir de problemas concretos, com o custo de cada escolha declarado, porque um padrão só se justifica quando resolve um problema real e o custo é aceito de forma consciente. A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. No [exercício 10](bloco-2-estilos-arquiteturais.md#exercicio-10), o aluno recomendou um estilo arquitetural para a modernização, e agora seleciona padrões dentro desse estilo. O enunciado traz três problemas da ACME, um por item. O primeiro é a coexistência entre o sistema legado e a solução nova, o segundo é a proteção contra falha de integração, e o terceiro é a publicação confiável de mudança acadêmica. Os dados de cada problema foram reproduzidos da [arquitetura de linha de base](../caso-acme/linha-de-base.md) e dos [dados operacionais](../caso-acme/dados-operacionais.md). Em cada item, o aluno escolhe um padrão entre os dez do repertório acima e registra a consequência e o custo da escolha. O conjunto das três respostas forma o mapa de problema, padrão e consequência, que é a entrada do ADR do exercício 12, no [bloco 4](bloco-4-registro-de-decisao-arquitetural.md).
@@ -202,6 +229,8 @@ graph LR
 1. Escolha um padrão do repertório deste bloco para o problema, ou mais de um quando resolverem aspectos distintos do mesmo problema, e indique o nível de cada padrão na tabela de três níveis (estilo arquitetural, padrão arquitetural ou padrão de design) apresentada no início do bloco.
 2. Registre três informações, o elemento afetado do esboço lógico produzido no [exercício 9](bloco-1-principios-de-design.md#exercicio-9), a consequência favorável esperada e o custo aceito. Quem não tem o esboço lógico pode indicar como elemento afetado o componente correspondente do diagrama acima.
 
+Suas respostas viram os campos Padrão, Nível do padrão, Elemento afetado, Consequência favorável e Custo aceito do primeiro problema, na seção 7 do caderno.
+
 ### Item 2: Proteção contra falha de integração
 
 O segundo problema é impedir que a falha de um componente derrube os demais. Os portais chamam o CICS por um conector transacional síncrono, isto é, a chamada fica esperando a resposta, com tempo limite de 30 s. No incidente de 04/02/2026 sessões abandonadas mantiveram transações abertas até esgotar o limite de tarefas concorrentes, com 4h20 de indisponibilidade e 62% de erro nas tentativas de matrícula, na sequência que o diagrama abaixo mostra.
@@ -216,6 +245,8 @@ flowchart TB
 
 1. Escolha um padrão do repertório deste bloco para o problema, ou mais de um quando resolverem aspectos distintos do mesmo problema, e indique o nível de cada padrão na tabela de três níveis (estilo arquitetural, padrão arquitetural ou padrão de design) apresentada no início do bloco.
 2. Registre três informações, o elemento afetado do esboço lógico produzido no [exercício 9](bloco-1-principios-de-design.md#exercicio-9), a consequência favorável esperada e o custo aceito. Quem não tem o esboço lógico pode indicar como elemento afetado o componente correspondente do diagrama acima.
+
+Suas respostas viram os campos Padrão, Nível do padrão, Elemento afetado, Consequência favorável e Custo aceito do segundo problema, na seção 7 do caderno.
 
 ### Item 3: Publicação confiável de mudança acadêmica
 
@@ -232,6 +263,8 @@ flowchart TB
 1. Escolha um padrão do repertório deste bloco para o problema, ou mais de um quando resolverem aspectos distintos do mesmo problema, e indique o nível de cada padrão na tabela de três níveis (estilo arquitetural, padrão arquitetural ou padrão de design) apresentada no início do bloco.
 2. Registre três informações, o elemento afetado do esboço lógico produzido no [exercício 9](bloco-1-principios-de-design.md#exercicio-9), a consequência favorável esperada e o custo aceito. Quem não tem o esboço lógico pode indicar como elemento afetado o componente correspondente do diagrama acima.
 3. Indique um padrão que você considerou e descartou para um dos três problemas deste exercício, com o motivo do descarte ligado ao contexto da ACME.
+
+Suas respostas viram os campos Padrão, Nível do padrão, Elemento afetado, Consequência favorável e Custo aceito do terceiro problema, e os campos Padrão descartado e Motivo do descarte, na seção 7 do caderno.
 
 ## Fontes
 

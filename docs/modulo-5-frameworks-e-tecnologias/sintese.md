@@ -15,6 +15,7 @@ Esta página fecha o módulo de frameworks e tecnologias com o que precisa perma
 - A [grade de permissões](../referencia/glossario.md#grade-de-permissoes) preenchida pelo [menor privilégio](../referencia/glossario.md#menor-privilegio), com o tipo de acesso, a condição e o nível de segurança de cada recurso
 - A [fronteira de confiança](../referencia/glossario.md#fronteira-de-confianca), as seis categorias do [STRIDE](../referencia/glossario.md#stride) com a propriedade que cada uma viola e o controle típico, e os dois testes da [autoridade de design de segurança](../referencia/glossario.md#autoridade-de-design-de-seguranca)
 - Os quatro tipos de lacuna de provisão, nova, substituição, modificação e remoção, a estimativa de tamanho, custo, recurso e tempo de cada uma e a entrada das lacunas confirmadas no roteiro de entrega da Aula 6
+- O estado do caderno ao fim da aula: a seção 8 preenchida, com o modelo técnico aplicado aos contêineres, a plataforma e a zona de pouso, a segurança dos dados e o ADR de plataforma, pronta para a análise de lacunas e o roteiro de entrega da Aula 6
 
 ## Cadeia da definição tecnológica
 
@@ -30,7 +31,7 @@ As lacunas classificadas no exercício 20 são a entrada que a análise de lacun
 
 ## Autoavaliação
 
-As perguntas abaixo são para o aluno responder a si mesmo, sem gabarito público, como verificação de retenção antes da Aula 6.
+As perguntas abaixo servem para o aluno conferir o que ficou antes da Aula 6. Ele as responde sozinho, porque elas não têm gabarito, ao contrário dos exercícios: a seção [Gabaritos](../gabaritos/index.md) mostra o caderno arquitetural da ACME preenchido a cada exercício.
 
 1. Dado um bloco de construção, é possível indicar o requisito de serviço de infraestrutura, o serviço do catálogo e a categoria do modelo técnico de referência que o realizam, e o que se registra quando o catálogo não traz o serviço.
 2. Dadas duas alternativas aprovadas para a mesma categoria, é possível montar a matriz dos seis critérios com o dado que sustenta cada célula e declarar a restrição que elimina uma das alternativas.

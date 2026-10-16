@@ -12,7 +12,7 @@ Este é o caderno da ACME depois do exercício 1, e a moldura âmbar marca o que
 
 #### Instituição e pergunta central
 
-Estes são os dados do caso que abrem o caderno. Eles já vêm preenchidos, porque não são resposta do exercício.
+Todo caderno começa por quem é a ACME e por qual problema ela quer resolver. Esses dados vêm do dossiê do caso e já aparecem preenchidos no seu caderno, porque o exercício não pede que você os produza.
 
 | Dimensão | Valor |
 | --- | --- |
@@ -25,11 +25,11 @@ Estes são os dados do caso que abrem o caderno. Eles já vêm preenchidos, porq
 | Equipe do núcleo | 6 especialistas em COBOL, 2 deles com aposentadoria prevista para 2027 |
 | Orçamento do primeiro ciclo | R$ 6,2 milhões em 12 meses |
 
-A pergunta central é como evoluir o sistema acadêmico de forma segura e incremental, mantendo o núcleo em operação durante a transição. Em 12/03/2026, a Reitoria descartou duas respostas: a substituição integral por produto de mercado, que exigiria migrar os históricos de 214.000 egressos, e a reescrita em entrega única, porque nenhuma janela do calendário acadêmico comporta a virada de todos os módulos.
+O problema do projeto cabe numa pergunta: como evoluir o sistema acadêmico de forma segura e incremental, mantendo o núcleo em operação durante a transição? Em 12/03/2026, a Reitoria já descartou duas respostas. Uma é a substituição integral por um produto de mercado, que exigiria migrar os históricos de 214.000 egressos. A outra é a reescrita em uma única entrega, porque nenhuma janela do calendário acadêmico comporta a virada de todos os módulos de uma vez.
 
 #### Restrições que chegam fechadas
 
-Restrição é uma decisão tomada por outra pessoa ou área, que o arquiteto precisa aceitar. As sete abaixo já chegam prontas ao projeto.
+Antes de desenhar qualquer coisa, o arquiteto descobre o que não pode mudar. São as restrições: decisões que outras pessoas ou áreas da ACME já tomaram e que o projeto precisa aceitar como estão. As sete abaixo chegam prontas, e cada uma diz quem a tomou e o que ela impõe à arquitetura.
 
 | Código | Restrição | Origem | Consequência para a arquitetura |
 | --- | --- | --- | --- |
@@ -43,7 +43,7 @@ Restrição é uma decisão tomada por outra pessoa ou área, que o arquiteto pr
 
 #### Decisões por nível de arquitetura
 
-A tabela reúne as nove decisões que a ACME já tomou ou propôs. Para classificar cada uma, pergunte até onde o efeito da decisão chega. Se ela muda só o funcionamento interno de um componente de software, é de arquitetura de software. Se muda um processo, um papel, a responsabilidade por um dado ou a relação com um fornecedor, é de arquitetura de solução. Se vale para iniciativas que ainda nem existem, é de arquitetura corporativa.
+A tabela traz as nove decisões que a ACME já tomou ou propôs, cada uma com o nível de arquitetura a que pertence. Para chegar a esse nível, ajuda perguntar até onde o efeito da decisão alcança. Quando ela mexe só no funcionamento interno de um componente de software, é uma decisão de arquitetura de software. Quando muda um processo, um papel, a responsabilidade por um dado ou a relação com um fornecedor, é de arquitetura de solução. E quando vale também para iniciativas que ainda nem existem, é de arquitetura corporativa.
 
 | Código | Decisão | Nível | Justificativa |
 | --- | --- | --- | --- |
@@ -57,13 +57,13 @@ A tabela reúne as nove decisões que a ACME já tomou ou propôs. Para classifi
 | D8 | O histórico escolar é emitido com assinatura digital no padrão ICP-Brasil | Solução | Muda o procedimento de emissão do histórico e depende de certificado de terceiro, mas não vale para iniciativas futuras |
 | D9 | A transição ocorre por extração incremental de módulos, com o núcleo em operação | Solução | Afeta o contrato de sustentação, o calendário acadêmico e a rotina das equipes |
 
-As decisões D1, D4 e D7 reproduzem as restrições fechadas RT4, RT5 e RT6. As decisões D2, D3, D5, D6, D8 e D9 estão **propostas** e dependem de validação com as partes interessadas.
+As decisões da tabela não têm todas o mesmo estado. D1, D4 e D7 apenas repetem restrições que chegaram prontas (RT4, RT5 e RT6). As outras seis, D2, D3, D5, D6, D8 e D9, estão **propostas**: ainda dependem de validação com as partes interessadas.
 
 #### Componente da solução afetado
 
-Nas decisões de solução, a tabela mostra quais componentes da solução são atingidos além da tecnologia (pessoas, estruturas organizacionais, processos e informação).
+Uma decisão de solução quase nunca é só técnica. A tabela a seguir mostra, para cada uma delas, que componentes da solução ela atinge além da tecnologia (pessoas, estruturas organizacionais, processos e informação).
 
-| Código | Tipo de componente da solução | Efeito |
+| Código | Tipo do componente da solução | Efeito |
 | --- | --- | --- |
 | D2 | Processos | O fechamento de notas deixa de depender da janela noturna de lote |
 | D5 | Estruturas organizacionais | A correção de dado cadastral sai da equipe de sustentação, terceirizada, e passa à Secretaria Acadêmica |
@@ -73,7 +73,7 @@ Nas decisões de solução, a tabela mostra quais componentes da solução são 
 
 #### Dependência entre decisões
 
-A decisão D3 depende da D2. Sem a D2, o reenvio seria desenhado para um percurso em lote noturno, em que cada nova tentativa só acontece na janela seguinte. Nesse percurso, o intervalo crescente entre tentativas não tem prazo de propagação que o justifique, e a nota continua chegando ao aluno no dia seguinte.
+A D3 só faz sentido depois da D2. Imagine decidir o reenvio com intervalo crescente quando a nota ainda segue por um lote noturno: cada nova tentativa só aconteceria na janela seguinte, e esperar mais entre as tentativas não aproximaria a nota do aluno, que continuaria chegando no dia seguinte. Só depois que a D2 fixa o prazo de 10 minutos o intervalo entre as tentativas passa a ter o que o justifique.
 
 {{/novo}}
 

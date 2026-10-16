@@ -153,6 +153,32 @@ A pergunta do arquiteto neste domínio, no roteiro do [bloco 0](bloco-0-espinha-
 
 O arquiteto de solução consulta os modelos que a arquitetura de negócio já mantém para delimitar o que a solução muda, sem redesenhar a organização a cada iniciativa. O mapa de capacidades indica onde a mudança incide, o fluxo de valor indica onde o cliente percebe a mudança, e o modelo de processo indica que atividades precisam ser revistas com as áreas responsáveis. Quando um desses modelos não existe, o arquiteto registra a ausência como risco e solicita o artefato à área de negócio, sem assumir a modelagem como tarefa própria.
 
+## No caderno arquitetural
+
+{{ficha:7:4}}
+
+**Para que serve.** A seção 7 do caderno reúne as escolhas principais da solução, cada uma com a razão que levou a ela. A primeira escolha do arquiteto é saber onde a modernização toca o trabalho da ACME, porque só então as decisões sobre dados, aplicações e infraestrutura têm um alvo claro. Por isso o caderno registra, antes de tudo, quais capacidades da universidade o primeiro ciclo altera e em quais etapas do serviço o aluno percebe a mudança.
+
+**O que você faz neste exercício.** O enunciado traz dez capacidades acadêmicas da ACME, como Matrícula em disciplinas e Avaliação e registro de notas, o fluxo de valor do aluno em seis etapas e o processo de lançamento de nota em cinco atividades. Você classifica as capacidades, marca as que o primeiro ciclo altera e aponta as etapas e as atividades que mudam, porque a Coordenação de Educação a Distância quer a nota no ambiente virtual em até 10 minutos e o aluno quer renovar a matrícula pelo celular. As respostas entram no caderno na parte Efeito da solução no negócio.
+
+| Campo do caderno | Como preencher | Item |
+| --- | --- | --- |
+| Classificação da capacidade | Diga se a capacidade é estratégica, quando orienta a oferta e a qualidade do serviço, operacional, quando entrega o serviço ao aluno, ou de apoio, quando sustenta as demais | 1 |
+| Capacidade afetada | Marque as capacidades que o primeiro ciclo altera, conforme a declaração de escopo do exercício 8, e escreva uma linha de justificativa para cada marcação | 1 |
+| Etapa com problema | Aponte as etapas do fluxo de valor do aluno em que ele percebe atraso, restrição de acesso ou falta de função | 2 |
+| Requisito da etapa | Para cada etapa apontada, diga se o problema é o do R1, do R7 ou do R13, ou registre que nenhum dos três se aplica | 2 |
+| Atividade que muda | Aponte as atividades do processo de lançamento de nota que mudam quando a nota passa a chegar ao ambiente virtual em até 10 minutos | 3 |
+| Unidade afetada | Diga qual unidade da organização sente essa mudança e qual atividade deixa de existir | 3 |
+
+**O que você já tem.** A declaração de escopo do primeiro ciclo, produzida no exercício 8, que diz o que muda e o que permanece nos primeiros 12 meses, e os três requisitos reproduzidos no enunciado, o R1, o R7 e o R13, que servem de guia nos itens 2 e 3.
+
+**Quando está pronto.** As dez capacidades têm classificação, as afetadas têm justificativa, cada etapa com problema tem o requisito ao lado, e o processo de lançamento de nota mostra as atividades que mudam e a unidade que sente a mudança.
+
+[Ver esta seção no template](../caderno/template.md#7-decisoes){ .caderno-botao }
+[Ver o gabarito do exercício 13](../gabaritos/gabarito-exercicio-13.md){ .caderno-botao }
+
+{{/ficha}}
+
 ## Exercício 13
 
 O exercício 13 aplica à ACME os modelos de negócio deste bloco. A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental, isto é, por troca gradual de partes, sem parar o sistema. Antes de decidir qualquer coisa sobre dados ou sistemas, o arquiteto precisa saber onde a modernização mexe no trabalho da universidade, e cada modelo ajuda a localizar um tipo de mudança. O mapa de capacidades mostra o que a universidade precisa conseguir fazer, o fluxo de valor mostra as etapas pelas quais o aluno recebe o serviço, e o modelo de processo mostra as atividades de um trabalho e quem as executa.
@@ -200,6 +226,8 @@ block-beta
 1. Classifique cada uma das dez capacidades em estratégica, operacional ou de apoio.
 2. Marque as capacidades afetadas pelo primeiro ciclo, conforme a declaração de escopo do exercício 8, com uma linha de justificativa para cada marcação.
 
+Suas respostas viram os campos Classificação da capacidade e Capacidade afetada, na seção 7 do caderno.
+
 ### Item 2: Fluxo de valor do aluno
 
 O fluxo de valor é a sequência de etapas pelas quais o aluno recebe o serviço da universidade. O enunciado traz o fluxo de valor do aluno em seis etapas, numeradas de 1 a 6, que vão de renovar a matrícula até consultar o resultado do pedido de aproveitamento de disciplina, isto é, o pedido para que a universidade reconheça uma disciplina já cursada. A tabela registra a situação de cada etapa na [arquitetura de linha de base](../caso-acme/linha-de-base.md), ou seja, como o sistema atual a realiza. O item serve para descobrir em que etapas o aluno percebe um problema e ligar cada problema ao requisito que pede a melhoria, entre os três da tabela do início do exercício. O R1 trata da renovação de matrícula pelo celular, o R7 trata do prazo de 10 minutos para a nota chegar ao ambiente virtual, e o R13 trata da consulta do resultado de aproveitamento pelo portal. Você registra as etapas com problema e o requisito de cada uma. Latência, nas etapas, é o atraso entre um fato acontecer e a informação chegar a quem precisa dela.
@@ -231,6 +259,8 @@ flowchart TB
 1. Indique as etapas em que a latência, a restrição de acesso ou a ausência de função compromete o valor para o aluno.
 2. Para cada etapa indicada, informe qual requisito, R1, R7 ou R13, ela afeta, ou registre que nenhum dos três se aplica.
 
+Suas respostas viram os campos Etapa com problema e Requisito da etapa, na seção 7 do caderno.
+
 ### Item 3: Processo de lançamento de nota
 
 Um processo de negócio é o conjunto de atividades que produz um resultado, e cada atividade tem um responsável. O enunciado traz o processo atual de lançamento de nota em cinco atividades, numeradas de 1 a 5, mais uma atividade de retorno, e o diagrama mostra em itálico quem executa cada uma. O professor registra a nota no Portal do Professor, o site em que ele lança notas, e o núcleo transacional, que é o sistema central da ACME em que ficam as regras acadêmicas, calcula a média e a situação do aluno. Depois, a equipe de integrações gera o arquivo de notas no lote das 05h10, que é uma rotina automática que roda em horário fixo da madrugada e envia arquivos de um sistema a outro. O item serve para ver o que muda no processo quando o requisito R7 passa a valer e quais unidades da organização sentem essa mudança. No diagrama, a nota fica disponível no ambiente virtual às 06h00 do dia seguinte ao lançamento, e a atividade de retorno, desenhada com borda tracejada e separada do caminho da nota, é o lote diário das 06h15, em que o ambiente virtual devolve à ACME a nota de atividade avaliativa e a presença registradas nele.
@@ -254,6 +284,8 @@ flowchart TB
 
 1. Indique quais atividades do diagrama mudam se a nota passar a chegar ao ambiente virtual em até 10 minutos, como pede o R7.
 2. Indique qual unidade organizacional é afetada por essa mudança e qual atividade deixa de existir.
+
+Suas respostas viram os campos Atividade que muda e Unidade afetada, na seção 7 do caderno.
 
 As capacidades marcadas como afetadas no item 1 são a entrada da grade de dados do exercício 14, no [bloco 2](bloco-2-arquitetura-de-dados.md), porque as entidades dessa grade são as que sustentam essas capacidades.
 

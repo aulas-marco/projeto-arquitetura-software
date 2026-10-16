@@ -92,6 +92,35 @@ O arquiteto usa a lista de quatro perguntas como verificação contra a omissão
 
 Os pontos de vista servem para não travar a discussão em um modelo único. Apresentar o mesmo desenho a um diretor financeiro e a um gerente de sustentação produz duas conversas improdutivas, porque cada um precisa de um recorte diferente da mesma descrição de arquitetura.
 
+## No caderno arquitetural
+
+{{ficha:2}}
+
+**Para que serve.** Um projeto de modernização mexe com pessoas que não querem a mesma coisa. A Reitora quer resultado em 12 meses, o Diretor Financeiro teme pagar o legado e a nuvem no mesmo ano, e o Gerente de sustentação da fábrica teme perder o contrato. A seção 2 do caderno registra quem são essas pessoas, que recorte da arquitetura cada uma precisa ver e o que a mudança do primeiro ciclo toca ou deixa como está, para que os conflitos apareçam antes do desenho.
+
+**O que você faz neste exercício.** O enunciado traz o mapa de atores da ACME, com oito papéis, e dez elementos do sistema numerados de E1 a E10, como o ambiente virtual de aprendizagem (E2) e os programas COBOL do núcleo (E4). Você enquadra cada papel numa das nove categorias de parte interessada, aponta as categorias sem representante, escreve o ponto de vista de três papéis e marca em cada elemento se ele muda ou permanece no primeiro ciclo, com a origem de cada exclusão. As respostas viram a classificação das partes interessadas, os pontos de vista e a declaração de escopo do caderno.
+
+| Campo do caderno | Como preencher | Item |
+| --- | --- | --- |
+| Categoria | Diga a que categoria de parte interessada cada um dos oito papéis pertence e qual deles exerce o patrocínio do negócio | 1 |
+| Papel que representa a categoria | Para cada uma das nove categorias, escreva o papel do mapa de atores que fala por ela, ou deixe a categoria sem representante | 2 |
+| Risco da ausência | Nas categorias sem representante, explique o que pode dar errado quando ninguém fala por elas | 2 |
+| Preocupação principal | Escreva a principal preocupação do papel, partindo do que ele teme | 3 |
+| Critério de seleção | Diga o que entra no recorte da arquitetura que o papel recebe | 3 |
+| Estrutura do artefato | Diga em que formato o documento chega ao papel, como tabela, fluxo ou lista | 3 |
+| Forma de apresentação | Diga como a informação é mostrada ao papel, por exemplo lado a lado com outro dado ou com marcações | 3 |
+| Muda ou permanece | Diga se cada elemento muda ou fica como está nos 12 meses do primeiro ciclo | 4 |
+| Origem da exclusão | Nos elementos que permanecem, diga qual restrição, contrato ou decisão de governança os manteve fora da mudança | 4 |
+
+**O que você já tem.** As restrições RT1 a RT7 e a decisão D5 da seção 1, que servem de origem para as exclusões do escopo, e o catálogo de requisitos da seção 3, que mostra quem declarou cada exigência.
+
+**Quando está pronto.** Os oito papéis têm categoria, as categorias sem representante têm o risco explicado, três papéis têm ponto de vista completo e os dez elementos têm decisão e origem.
+
+[Ver esta seção no template](../caderno/template.md#2-partes-interessadas){ .caderno-botao }
+[Ver o gabarito do exercício 8](../gabaritos/gabarito-exercicio-08.md){ .caderno-botao }
+
+{{/ficha}}
+
 ## Exercício 8
 
 Este exercício treina a identificação das partes interessadas do caso, a definição de pontos de vista e a declaração de escopo do primeiro ciclo. Quem decide sobre a solução, o que cada pessoa teme e o que fica dentro da mudança são perguntas que o arquiteto responde antes de desenhar, e o exercício as pratica em quatro itens. Nas conversas com as partes interessadas, o arquiteto da ACME registrou oito papéis, como a Reitora e o Gerente de sustentação da fábrica de software, que formam o mapa de atores do dossiê e aparecem no Item 1. O Item 1 classifica esses papéis, o Item 2 procura categorias de parte interessada sem representante, o Item 3 define pontos de vista para três papéis e o Item 4 declara o escopo do primeiro ciclo.
@@ -129,6 +158,8 @@ flowchart LR
 1. Classifique cada um dos oito papéis em uma das nove categorias de parte interessada apresentadas na seção [Categorias de parte interessada](#categorias-de-parte-interessada) deste bloco, e registre a categoria ao lado do papel.
 2. Indique qual dos oito papéis exerce o papel de patrocinador de negócio, com justificativa.
 
+Suas respostas viram o campo Categoria, na seção 2 do caderno.
+
 ### Item 2: Categorias sem representante
 
 Se uma categoria de parte interessada não tem representante entre os oito papéis, o arquiteto corre o risco de ignorar uma preocupação importante. O quadro abaixo lista as nove categorias de parte interessada da seção [Categorias de parte interessada](#categorias-de-parte-interessada), com uma coluna em branco para o papel do mapa de atores que representa cada uma.
@@ -148,6 +179,8 @@ Se uma categoria de parte interessada não tem representante entre os oito papé
 1. Preencha a coluna com os papéis classificados no Item 1 e identifique duas categorias que ficaram sem representante.
 2. Explique, em até três linhas por categoria, que risco a ausência de cada uma introduz no processo.
 
+Suas respostas viram os campos Papel que representa a categoria e Risco da ausência, na seção 2 do caderno.
+
 ### Item 3: Ponto de vista para três papéis
 
 Cada parte interessada precisa de um recorte diferente da descrição da arquitetura, e o ponto de vista é a regra que define esse recorte. Um [ponto de vista](../referencia/glossario.md#ponto-de-vista) declara o critério de seleção, isto é, o que entra no recorte, a estrutura do artefato, isto é, o formato do documento, e a forma de apresentação, isto é, como a informação é mostrada. A [visão](../referencia/glossario.md#visao) é o resultado de aplicá-lo à descrição de arquitetura. O quadro abaixo traz, na primeira linha, o exemplo do gestor descrito na seção [Pontos de vista na prática](#pontos-de-vista-na-pratica), e deixa três linhas em branco para o aluno preencher.
@@ -160,6 +193,8 @@ Cada parte interessada precisa de um recorte diferente da descrição da arquite
 | | | | | |
 
 1. Escolha três papéis do mapa de atores do Item 1 e preencha uma linha do quadro para cada um, seguindo o exemplo do gestor. Use como ponto de partida a coluna O que teme do quadro do Item 1 para escrever a preocupação principal.
+
+Suas respostas viram os campos Preocupação principal, Critério de seleção, Estrutura do artefato e Forma de apresentação, na seção 2 do caderno.
 
 ### Item 4: Declaração de escopo do primeiro ciclo
 
@@ -180,6 +215,8 @@ A declaração de escopo diz o que a mudança altera e o que fica de fora, e cad
 
 1. Marque cada um dos dez elementos como muda ou permanece no primeiro ciclo de 12 meses, na coluna Muda ou permanece.
 2. Indique, para cada elemento que permanece, a origem da exclusão na coluna Origem da exclusão, escolhendo entre as restrições fechadas do caso (as sete listadas no Item 5 do [exercício 7](bloco-3-cenarios-linha-de-base-e-restricoes.md#exercicio-7)), os contratos vigentes e as decisões de governança registradas no dossiê. O quadro preenchido constitui a declaração de escopo do primeiro ciclo.
+
+Suas respostas viram os campos Muda ou permanece e Origem da exclusão, na seção 2 do caderno.
 
 ## Fontes
 

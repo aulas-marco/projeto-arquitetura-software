@@ -33,7 +33,7 @@ A arquitetura de solução ocupa-se de soluções que são sistemas de negócio 
 
 Os componentes da solução (pessoas, estruturas organizacionais, processos, informação e tecnologia) classificam-se em cinco áreas, usadas como lista de verificação para que nenhuma delas fique de fora do desenho. Mudança, nesse contexto, inclui acrescentar um componente da solução novo, alterar um existente ou retirá-lo.
 
-| Tipo | O que abrange | Exemplo na ACME |
+| Tipo do componente da solução | O que abrange | Exemplo na ACME |
 | --- | --- | --- |
 | Pessoas | Funcionários, clientes, parceiros, papéis, capacidades, habilidades e descrições de cargo | Professores que passam a lançar nota diretamente, com o treinamento correspondente |
 | Estruturas organizacionais | Unidades, estruturas de gestão, terceirização, organizações parceiras, metas e acordos de nível de serviço | Fim da intermediação da fábrica de software na correção de dado cadastral, que volta para a Secretaria Acadêmica |
@@ -87,7 +87,7 @@ A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativo
 
 Uma solução não é só tecnologia. Para o sistema funcionar, alguém precisa aprender a usá-lo, uma área pode ter de mudar a rotina e um contrato pode precisar de aditivo. Cada uma dessas peças é um componente da solução, e o arquiteto os separa em cinco tipos para conferir que nenhum ficou esquecido: pessoas, estruturas organizacionais, processos, informação e tecnologia. Uma universidade também pode ser vista em três níveis encaixados, o sistema de negócio, o sistema de informação e o sistema de TI, descritos na seção [Os três níveis de uma organização](#os-tres-niveis-de-uma-organizacao) deste bloco. Este exercício usa um pedido real da ACME, o requisito R7, para praticar as duas ideias. Requisito é aquilo que uma área da organização exige da solução, e R7 é o código com que esse pedido consta no dossiê do caso. No Item 1 você classifica os componentes da solução por tipo e no Item 2 você situa os fatos da situação atual em cada nível. As respostas dos dois itens vão para o caderno arquitetural, o documento em que o curso reúne, seção por seção, a arquitetura da solução da ACME, apresentado no [bloco 4](bloco-4-processo-de-definicao-da-arquitetura.md#o-caderno-arquitetural).
 
-### Item 1: Componentes da solução do R7
+### Item 1: Componentes da solução do pedido de nota
 
 A Coordenação de Educação a Distância, área que cuida dos cursos a distância da ACME, declarou o requisito R7, segundo o qual a nota lançada pelo professor chega ao ambiente virtual de aprendizagem em até 10 minutos. O ambiente virtual de aprendizagem é a plataforma on-line em que o aluno acompanha as disciplinas e consulta a nota. Hoje a nota segue do núcleo acadêmico, o sistema que registra as notas, para o ambiente virtual por um lote diário noturno, isto é, um envio único de todas as notas do dia, feito à noite, o que gera reclamação de aluno a cada fechamento, como mostra o diagrama abaixo. O ambiente virtual permanece em operação e não será substituído, por decisão da Reitoria de 12/03/2026, e o plano do fornecedor que oferece interfaces de programação custa 38% a mais que o plano vigente.
 
@@ -119,7 +119,7 @@ O enunciado reúne dez candidatos a componente da solução, que poderiam atende
 
 Suas respostas viram os campos Tipo do componente da solução e Tipo de componente da solução ausente, na seção 1 do caderno.
 
-### Item 2: Os três níveis do R7
+### Item 2: Os fatos da situação atual em três níveis
 
 Um elemento da situação atual é um fato sobre como a ACME opera hoje e que influencia o prazo em que a nota chega ao aluno. O quadro abaixo lista seis, numerados de N1 a N6. Dois deles são o calendário acadêmico que fixa a data de fechamento das notas (N2) e a exportação noturna por lote (N6). O sistema de negócio é o que a universidade oferece, o sistema de informação reúne as pessoas, os processos e os registros que cuidam da informação, e o sistema de TI reúne equipamentos e programas. Situar cada elemento em um desses níveis mostra onde o prazo percebido pelo aluno se forma.
 

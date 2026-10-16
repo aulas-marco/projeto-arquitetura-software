@@ -134,6 +134,33 @@ Assim como o estilo arquitetural é a maior decisão que um arquiteto toma em um
 
 O arquiteto documenta a comparação antes de decidir, em um quadro comparativo que lista as plataformas candidatas nas linhas e os seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao) nas colunas, com uma nota curta em cada célula. Esse quadro entra no ADR de plataforma como evidência de que a escolha considerou alternativas reais e não só a plataforma mais familiar ao time, e essa evidência permite defender a decisão quando ela for questionada meses depois.
 
+## No caderno arquitetural
+
+{{ficha:8}}
+
+**Para que serve.** Com os produtos definidos, a ACME enfrenta a dúvida seguinte: sobre que plataforma os serviços novos vão rodar e em que base de nuvem. A plataforma é o conjunto de ferramentas que põe em prática o estilo escolhido na Aula 3, e a zona de pouso é a base de nuvem, com contas, rede e regras, que precisa existir antes do primeiro serviço. Se cada equipe montasse o próprio ambiente, o custo e a segurança variariam de um serviço para outro, então o caderno registra a plataforma escolhida e confere se a zona de pouso cumpre os padrões da organização.
+
+**O que você faz neste exercício.** Você começa pelo estilo que recomendou no exercício 10 e escolhe duas plataformas que poderiam concretizá-lo, listando as ferramentas de cada uma, como o Spring Boot e o Kubernetes. Em seguida compara as duas pelos seis critérios de seleção, mas o dossiê só dá dado para quatro deles, e por isso maturidade e suporte ficam registrados como informação que falta. Com a comparação feita, você escolhe uma plataforma pela convivência com o sistema antigo e depois confere o diagrama da zona de pouso, ligando cada elemento a um dos cinco pilares, apontando as etiquetas que faltam em seis recursos e dizendo qual requisito justifica a conta de segurança e registros.
+
+| Campo do caderno | Como preencher | Item |
+| --- | --- | --- |
+| Plataformas candidatas e ferramentas | Indique duas plataformas capazes de concretizar o estilo recomendado no exercício 10 e liste as ferramentas concretas de cada uma | 1 |
+| Comparação pelos critérios com dado | Para aderência ao requisito, custo total de propriedade, competência da equipe e portabilidade, diga qual plataforma atende melhor, ou se empatam, e o motivo em uma linha | 2 |
+| Dado que falta em maturidade e suporte | Escreva qual informação falta nesses dois critérios e quem poderia fornecê-la, sem dar valor às plataformas | 2 |
+| Plataforma escolhida | Escolha uma das duas e justifique pela convivência com o sistema antigo | 2 |
+| Pilar de cada elemento da zona de pouso | Ligue cada elemento do diagrama ao pilar da zona de pouso que ele realiza | 3 |
+| Etiquetas que faltam | Para cada recurso da tabela, diga quais das quatro etiquetas obrigatórias (projeto, ambiente, time e centro de custo) estão ausentes | 3 |
+| Requisito da conta de segurança e registros | Diga em uma linha qual requisito justifica a existência dessa conta | 3 |
+
+**O que você já tem.** O estilo recomendado no exercício 10, na seção 7, e a matriz de seleção do exercício 17, cujos seis critérios o quadro comparativo reaproveita.
+
+**Quando está pronto.** As duas plataformas têm ferramentas e comparação pelos critérios com dado, a escolha está justificada, cada elemento da zona de pouso tem pilar, cada recurso tem as etiquetas que faltam e a conta de segurança tem o requisito de origem.
+
+[Ver esta seção no template](../caderno/template.md#8-tecnologia-e-plataforma){ .caderno-botao }
+[Ver o gabarito do exercício 18](../gabaritos/gabarito-exercicio-18.md){ .caderno-botao }
+
+{{/ficha}}
+
 ## Exercício 18
 
 A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, isto é, o sistema é trocado por partes. O núcleo transacional em COBOL, que executa as operações acadêmicas, segue em operação sobre o monitor CICS durante toda a transição. Há também uma camada web em JSF e EJB, e as integrações com o ERP financeiro, o sistema de gestão financeira da universidade, e com o ambiente virtual de aprendizagem, onde o aluno acessa as turmas, são resolvidas por arquivo, em lote noturno.
@@ -157,6 +184,8 @@ graph LR
 1. Indique, entre os quatro exemplos da seção Exemplos de plataforma por estilo, duas plataformas candidatas capazes de concretizar o estilo recomendado no exercício 10.
 2. Para cada plataforma candidata, liste as ferramentas concretas que a compõem, como o Spring Boot e o Kubernetes no exemplo de microsserviços, no nível de detalhe dos exemplos da seção.
 
+Sua resposta vira o campo Plataformas candidatas e ferramentas, na seção 8 do caderno.
+
 ### Item 2: Quadro comparativo pelos seis critérios
 
 O objetivo deste item é comparar as duas plataformas candidatas com os mesmos critérios, para que a escolha tenha dado que a sustente. A tabela abaixo traz uma linha para cada um dos seis critérios de seleção apresentados no [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao), com os dados do [dossiê da ACME](../caso-acme/index.md) e da linha de base que valem para o critério. Quatro critérios têm dado, e os dois restantes, maturidade e suporte, estão sem dado no dossiê. R4 e R6 são códigos de requisitos do caso e vêm explicados na própria linha. O quadro que o aluno preenche, com as duas plataformas candidatas nas linhas e os seis critérios nas colunas, é o que alimenta o campo de alternativas do ADR de plataforma do exercício 20, no [bloco 4](bloco-4-adr-de-plataforma.md).
@@ -173,6 +202,8 @@ O objetivo deste item é comparar as duas plataformas candidatas com os mesmos c
 1. Para cada um dos quatro critérios com dado do caso, que são aderência ao requisito, custo total de propriedade, competência da equipe e portabilidade, marque qual das duas plataformas candidatas do Item 1 atende melhor, ou se as duas empatam, e registre o motivo em uma linha com base no dado.
 2. Para os critérios maturidade e suporte, escreva uma frase que diga qual dado falta e quem poderia fornecê-lo, sem atribuir valor às plataformas, conforme o Item 3 do [exercício 17](bloco-1-definicao-tecnologica-e-trm.md#exercicio-17).
 3. Escolha uma das duas plataformas e justifique a escolha considerando a restrição de convivência com o legado mostrada no diagrama do Item 1.
+
+Suas respostas viram os campos Comparação pelos critérios com dado, Dado que falta em maturidade e suporte e Plataforma escolhida, na seção 8 do caderno.
 
 ### Item 3: Zona de pouso da solução
 
@@ -229,6 +260,8 @@ A tabela a seguir lista seis recursos da conta de produção com as etiquetas qu
 1. Associe cada elemento do diagrama, como a conta de rede central ou o acesso da equipe por perfil, ao pilar da zona de pouso, entre os cinco da Figura 2, que ele realiza.
 2. Indique as etiquetas obrigatórias que faltam em cada recurso da tabela, ou indique que não falta nenhuma.
 3. Responda em uma linha qual requisito justifica a existência da conta de segurança e registros.
+
+Suas respostas viram os campos Pilar de cada elemento da zona de pouso, Etiquetas que faltam e Requisito da conta de segurança e registros, na seção 8 do caderno.
 
 ## Fontes
 

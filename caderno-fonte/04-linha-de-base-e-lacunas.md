@@ -12,3 +12,24 @@ modo: acumula
 | Vem de onde | Do dossiê e da seção 3. Para as lacunas, também das seções 5 a 8, que descrevem a solução desenhada. |
 | Quando se preenche | A descrição do sistema atual, na Aula 2 (exercício 7). A lista de lacunas, na Aula 6 (exercício 21). |
 <!--/orientacao-->
+
+
+<!--ex n=7 titulo="Artefatos de linha de base que sustentam os cenários"-->
+<!--campos-->
+- **Artefato de linha de base:** escolha quatro dos seis artefatos do enunciado que sustentam os dois cenários de qualidade.
+- **Dado que o artefato fornece:** diga qual informação do artefato aparece no cenário.
+- **Efeito de um dado desatualizado:** diga o que aconteceria com o cenário se esse dado estivesse desatualizado.
+<!--/campos-->
+<!--gabarito-->
+#### Artefatos de linha de base dos cenários
+
+Os cenários do pico e do incidente só são confiáveis se os números que os sustentam estiverem corretos, e esses números vêm dos artefatos da linha de base, os documentos e as medições que descrevem o sistema atual. Quatro dos seis artefatos sustentam os cenários, mas o L3, o prazo de 34 dias úteis, e o L4, o custo de R$ 15,83 milhões, não aparecem em nenhum deles.
+
+| Artefato | Dado que fornece | Efeito de um dado desatualizado |
+| --- | --- | --- |
+| L6, série de medição de sessões simultâneas e de taxa de erro do portal | A média anual de 815 sessões, o pico de 5.800 e a taxa de erro de 6,3% no pico | A razão de 7,1 e a meta de erro ficariam erradas, e o teste de carga simularia um pico diferente do real |
+| L2, registro dos três incidentes graves dos últimos 18 meses | A sequência do incidente de 04/02/2026, com 4h20 de duração e 62% das tentativas com erro | O cenário do incidente trataria uma causa que não aconteceu, e a medida de 260 minutos perderia o ponto de comparação |
+| L1, inventário de componentes do sistema acadêmico | O monitor CICS, o limite de tarefas e as camadas que o estímulo atravessa | O campo Artefato apontaria uma parte do sistema que já mudou, e a resposta seria desenhada para o lugar errado |
+| L5, contratos de sustentação e de capacidade | O prazo de 30/09/2027 para qualquer alteração no núcleo COBOL | A resposta poderia prever alteração no núcleo sem que o contrato permita, e o tempo limite teria de ficar na camada web |
+<!--/gabarito-->
+<!--/ex-->

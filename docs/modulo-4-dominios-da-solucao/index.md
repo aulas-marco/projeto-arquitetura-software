@@ -52,6 +52,19 @@ O [bloco 4](bloco-4-arquitetura-de-infraestrutura.md) trata da arquitetura de in
 
 A [síntese](sintese.md) fecha o módulo com o checklist do que precisa permanecer, a cadeia dos domínios construída na aula, a autoavaliação e as fontes principais da aula, e as demais constam das Fontes de cada bloco e da bibliografia.
 
+## O que a Aula 4 constrói no caderno
+
+Nas aulas anteriores, o caderno arquitetural da ACME ganhou o contexto do caso, as partes interessadas, os requisitos e os princípios, e a Aula 3 deixou nele as primeiras decisões de estilo e de padrões. A Aula 4 usa esse material para detalhar a solução domínio por domínio, e por isso os quatro exercícios acrescentam ao caderno o efeito da solução no negócio, as decisões sobre dados e a decisão sobre as aplicações, com o desenho da fronteira na seção 5, e o desenho dos contêineres com as relações rotuladas, na seção 7. O caderno que sai da Aula 4 é o do [gabarito do exercício 16](../gabaritos/gabarito-exercicio-16.md).
+
+{{trilha:7:4}}
+
+| Bloco | Exercício | O que entra no caderno | Gabarito |
+| --- | --- | --- | --- |
+| 1 | 13 | A classificação das dez capacidades acadêmicas, as etapas do fluxo de valor do aluno com problema e as atividades do processo de lançamento de nota que mudam | [Gabarito 13](../gabaritos/gabarito-exercicio-13.md) |
+| 2 | 14 | O dono e o regime de consistência de cada uma das cinco entidades, o estilo de dado mestre do aluno e as obrigações do dado pessoal | [Gabarito 14](../gabaritos/gabarito-exercicio-14.md) |
+| 3 | 15 | A cor das onze aplicações, o contrato da integração de notas e o diagrama de contexto corrigido, na seção 5 | [Gabarito 15](../gabaritos/gabarito-exercicio-15.md) |
+| 4 | 16 | O modo, o volume e a latência das 15 relações entre contêineres, as relações que sustentam o R6 e o R7 e a posição do núcleo transacional | [Gabarito 16](../gabaritos/gabarito-exercicio-16.md) |
+
 ## Preparação para a Aula 5
 
 A Aula 5 converte os contêineres rotulados com tecnologia a definir em escolhas de serviço de infraestrutura, de plataforma e de framework, classificadas no modelo técnico de referência. A mesma aula avalia a segurança fim a fim sobre a tecnologia escolhida e registra a decisão de plataforma em ADR, com as lacunas de provisão, e o [cronograma](../cronograma.md) traz a sequência completa das seis aulas.

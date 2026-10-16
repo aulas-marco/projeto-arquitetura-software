@@ -47,6 +47,19 @@ O [bloco 4](bloco-4-adr-de-plataforma.md) apresenta o ADR de plataforma como seg
 
 A [síntese](sintese.md) fecha o módulo com o checklist do que precisa permanecer, a cadeia dos exercícios 16 a 20, a autoavaliação e a lista das referências citadas nos quatro blocos.
 
+## O que a Aula 5 constrói no caderno
+
+Ao fim da Aula 4, o caderno da ACME já dizia o que a universidade quer construir, mas ainda não dizia com que tecnologia nem como proteger o resultado, e os contêineres novos seguiam marcados como tecnologia a definir. Os quatro exercícios desta aula preenchem por isso a seção 8, Tecnologia e plataforma, que fecha essa lacuna: primeiro os produtos e a comparação do provedor de identidade, depois a plataforma e a zona de pouso, em seguida a proteção dos dados e, por último, o ADR de plataforma com as lacunas de provisão. O caderno que sai da Aula 5 é o do [gabarito do exercício 20](../gabaritos/gabarito-exercicio-20.md), e ele parte do que as aulas anteriores deixaram nas seções 1 a 7.
+
+{{trilha:8}}
+
+| Bloco | Exercício | O que entra no caderno | Gabarito |
+| --- | --- | --- | --- |
+| 1 | 17 | A linha do modelo técnico de cada contêiner novo, a cor de cada uma das seis tecnologias da linha de base e a matriz de seleção do provedor de identidade | [Gabarito 17](../gabaritos/gabarito-exercicio-17.md) |
+| 2 | 18 | As duas plataformas candidatas com o quadro de seis critérios, a plataforma escolhida, o pilar de cada elemento da zona de pouso e as etiquetas que faltam | [Gabarito 18](../gabaritos/gabarito-exercicio-18.md) |
+| 3 | 19 | A classificação dos seis ativos de dado pela LGPD, a grade de permissões corrigida e as seis ameaças (T1 a T6) com categoria STRIDE e controle | [Gabarito 19](../gabaritos/gabarito-exercicio-19.md) |
+| 4 | 20 | O ADR de plataforma, com os dez campos, e o tipo de cada uma das seis lacunas de provisão | [Gabarito 20](../gabaritos/gabarito-exercicio-20.md) |
+
 ## Preparação para a Aula 6
 
 A Aula 6 compara a arquitetura de linha de base com a arquitetura alvo definida nas aulas anteriores e usa as lacunas de provisão classificadas no exercício 20 como entrada do roteiro de entrega. A mesma aula trata de governança e de inovação em soluções tecnológicas, e o [cronograma](../cronograma.md) traz a sequência completa das seis aulas.

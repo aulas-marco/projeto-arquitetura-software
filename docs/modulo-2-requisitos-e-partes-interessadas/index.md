@@ -39,6 +39,19 @@ O [bloco 4](bloco-4-partes-interessadas-e-pontos-de-vista.md) trata das categori
 
 A [síntese](sintese.md) fecha o módulo com o checklist do que precisa permanecer, a autoavaliação e as fontes da aula inteira.
 
+## O que a Aula 2 constrói no caderno
+
+Na Aula 1 o caderno ganhou a seção 1, Contexto, com as restrições, as decisões, os componentes da solução e as tarefas do projeto. A Aula 2 parte dessa base, porque as restrições dizem o que já está decidido e as decisões dizem quem precisa ser ouvido, e acrescenta o que o arquiteto descobre antes de desenhar: as pressões que levaram à mudança, os requisitos e cenários de qualidade, o ponto de partida do sistema e as partes interessadas com o escopo do primeiro ciclo. O caderno que sai da Aula 2 é o do [gabarito do exercício 8](../gabaritos/gabarito-exercicio-08.md).
+
+{{trilha:3}}
+
+| Bloco | Exercício | O que entra no caderno | Gabarito |
+| --- | --- | --- | --- |
+| 1 | 5 | A resposta da ACME a cada um dos sete direcionadores de mudança, os fatores externos pelas seis dimensões da análise PESTLE e o efeito do contrato do mainframe na meta de custo, na seção 3 | [Gabarito 5](../gabaritos/gabarito-exercicio-05.md) |
+| 2 | 6 | A categoria das oito declarações de requisito (R2 a R13) e as reescritas mensuráveis de duas delas, na seção 3 | [Gabarito 6](../gabaritos/gabarito-exercicio-06.md) |
+| 3 | 7 | Os dois cenários de qualidade com o julgamento de significância e a origem das sete restrições, na seção 3, e os quatro artefatos de linha de base que os sustentam, na seção 4 | [Gabarito 7](../gabaritos/gabarito-exercicio-07.md) |
+| 4 | 8 | A categoria dos oito papéis do mapa de atores, os pontos de vista de três deles e a declaração de escopo dos dez elementos (E1 a E10), na seção 2 | [Gabarito 8](../gabaritos/gabarito-exercicio-08.md) |
+
 ## Preparação para a Aula 3
 
 A Aula 3 trata de princípios de design, estilos e padrões arquiteturais e do registro de decisão em ADR. Os cenários de qualidade e o julgamento de significância desta aula são o insumo direto daquela, porque estilo se compara contra exigência medida, e a primeira decisão registrada em ADR é a escolha de estilo. A declaração de escopo produzida no bloco 4 delimita sobre que parte do sistema essa escolha incide.

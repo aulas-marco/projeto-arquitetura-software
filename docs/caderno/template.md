@@ -42,7 +42,7 @@ Você escreve:
 - **Componente da solução afetado:** nas decisões de solução, diga que componentes da solução a decisão atinge além da tecnologia: pessoas, estruturas organizacionais (áreas e contratos), processos ou informação.
 - **Dependência entre decisões:** veja se uma decisão só faz sentido depois de outra e, se fizer, diga qual vem primeiro e o que daria errado se a ordem fosse invertida.
 
-### 1.2 Componentes da solução do R7
+### 1.2 Os componentes da solução, num exemplo da ACME
 
 Esta parte é preenchida no exercício 2.
 
@@ -90,6 +90,22 @@ Você escreve:
 | Vem de onde | Da seção 1 e do mapa de atores do dossiê. |
 | Quando se preenche | Na Aula 2, no exercício 8. |
 
+### 2.1 Partes interessadas, pontos de vista e escopo do primeiro ciclo
+
+Esta parte é preenchida no exercício 8.
+
+Você escreve:
+
+- **Categoria:** diga a que categoria de parte interessada cada um dos oito papéis pertence, entre as nove apresentadas no bloco 4, e indique qual papel exerce o patrocínio do negócio.
+- **Papel que representa a categoria:** para cada uma das nove categorias, escreva o papel do mapa de atores que a representa. Se nenhum papel serve, deixe a categoria sem representante.
+- **Risco da ausência:** nas categorias sem representante, explique o que pode dar errado no processo quando ninguém fala por elas.
+- **Preocupação principal:** para cada um dos três papéis escolhidos, escreva a principal preocupação, partindo do que o papel teme.
+- **Critério de seleção:** diga o que entra no recorte da arquitetura que o papel recebe, ou seja, quais partes do desenho interessam a ele.
+- **Estrutura do artefato:** diga em que formato o documento é entregue ao papel, como uma tabela, um fluxo ou uma lista.
+- **Forma de apresentação:** diga como a informação é mostrada ao papel, por exemplo lado a lado com outro dado ou com marcações.
+- **Muda ou permanece:** para cada um dos dez elementos da declaração de escopo, diga se ele muda ou fica como está nos 12 meses do primeiro ciclo.
+- **Origem da exclusão:** para cada elemento que permanece, diga qual restrição, contrato ou decisão de governança o manteve fora da mudança.
+
 {{/folha}}
 
 {{folha:3}}
@@ -103,6 +119,47 @@ Você escreve:
 | O que você escreve | A lista de requisitos do caso, cada um com tipo, medida e prioridade, e os pedidos vagos reescritos com um número que dá para medir. Também os fatores que empurram a mudança, que são os direcionadores, e os cenários de qualidade, que descrevem uma situação de uso em seis partes: quem provoca, o que provoca, em que situação, o que é afetado, o que o sistema faz e como se mede o resultado. |
 | Vem de onde | Das seções 1 e 2, porque restrições e partes interessadas dizem o que pode virar requisito. |
 | Quando se preenche | Na Aula 2, nos exercícios 5, 6 e 7. |
+
+### 3.1 Direcionadores de mudança e fatores externos
+
+Esta parte é preenchida no exercício 5.
+
+Você escreve:
+
+- **Resposta ao direcionador:** diga, para cada um dos sete direcionadores, se a ACME responde de forma reativa, porque o direcionador já virou problema, ou antecipatória, porque a mudança é prevista e ainda não produziu efeito.
+- **Evidência da resposta:** cite o dado do caso que sustenta a escolha, como uma data, um valor ou um incidente.
+- **Dimensão da análise PESTLE:** para cada um dos três fatos do dossiê, diga em qual das seis dimensões do ambiente externo ele se encaixa.
+- **Fator externo acrescentado:** nas dimensões que ficaram sem fato, escreva um fator plausível para os próximos três anos e marque que ele é seu, porque o dossiê não o registra.
+- **Efeito do contrato do mainframe na meta de custo:** explique em até cinco linhas por que o contrato de capacidade limita o que o projeto pode prometer de economia no primeiro ciclo.
+
+### 3.2 Catálogo de requisitos e reescritas mensuráveis
+
+Esta parte é preenchida no exercício 6.
+
+Você escreve:
+
+- **Categoria do requisito:** diga se cada uma das oito declarações é requisito funcional, requisito de atributo de qualidade ou restrição. Nenhuma fica como requisito não funcional.
+- **Justificativa da categoria:** explique em uma frase por que a declaração pertence a essa categoria.
+- **Formulação:** nas declarações de atributo de qualidade, diga se estão bem formuladas, isto é, se trazem o contexto e a medida, ou mal formuladas.
+- **Contexto:** nas duas declarações que você reescrever, diga em que situação o requisito vale.
+- **Carga:** diga quanto uso o sistema recebe nessa situação.
+- **Medida:** diga o valor a atingir. Se a declaração não nomear atributo algum, registre isso e deixe a medida sem valor.
+
+### 3.3 Cenários de qualidade, significância arquitetural e restrições
+
+Esta parte é preenchida no exercício 7.
+
+Você escreve:
+
+- **Resposta do cenário do pico:** escreva o que o sistema faz quando chegam as 5.800 sessões simultâneas da abertura da matrícula.
+- **Medida do cenário do pico:** escreva o valor que permite verificar a resposta em teste de carga, que simula as sessões e mede o resultado.
+- **Artefato do cenário do incidente:** diga qual parte do sistema sofre o efeito das transações abertas que se acumulam.
+- **Resposta do cenário do incidente:** escreva o que o sistema faz para o incidente de 04/02/2026 não se repetir.
+- **Medida do cenário do incidente:** escreva o valor que permite verificar que o incidente não se repete.
+- **Respostas ao roteiro de significância:** marque sim ou não para cada uma das sete perguntas, em cada cenário, com uma justificativa curta.
+- **Conclusão sobre significância:** diga, em até três linhas por cenário, se ele é um requisito arquiteturalmente significativo.
+- **Origem da restrição:** classifique cada uma das sete restrições do caso em regulatória, contratual, de política interna ou técnica.
+- **Quem pode rever a restrição:** diga quem tem autoridade para mudar a restrição.
 
 {{/folha}}
 
@@ -118,6 +175,16 @@ Você escreve:
 | Vem de onde | Do dossiê e da seção 3. Para as lacunas, também das seções 5 a 8, que descrevem a solução desenhada. |
 | Quando se preenche | A descrição do sistema atual, na Aula 2 (exercício 7). A lista de lacunas, na Aula 6 (exercício 21). |
 
+### 4.1 Artefatos de linha de base que sustentam os cenários
+
+Esta parte é preenchida no exercício 7.
+
+Você escreve:
+
+- **Artefato de linha de base:** escolha quatro dos seis artefatos do enunciado que sustentam os dois cenários de qualidade.
+- **Dado que o artefato fornece:** diga qual informação do artefato aparece no cenário.
+- **Efeito de um dado desatualizado:** diga o que aconteceria com o cenário se esse dado estivesse desatualizado.
+
 {{/folha}}
 
 {{folha:5}}
@@ -131,6 +198,20 @@ Você escreve:
 | O que você escreve | Um diagrama de contexto no formato C4, nível 1, que mostra a solução como uma caixa só, cercada por quem a usa e pelos outros sistemas com que ela conversa. Junto, uma legenda e um parágrafo explicando por que cada sistema ficou dentro ou fora da solução. |
 | Vem de onde | Das seções 2 e 4: as partes interessadas mostram quem usa a solução, e o sistema atual mostra com quem ela conversa. |
 | Quando se preenche | Na Aula 4, no exercício 15. |
+
+### 5.1 Portfólio, contrato de notas e diagrama de contexto
+
+Esta parte é preenchida no exercício 15.
+
+Você escreve:
+
+- **Classificação da aplicação:** diga se cada uma das onze aplicações do catálogo é verde (manter e evoluir), âmbar (manter por ora, com investimento restrito) ou vermelha (substituir ou retirar).
+- **Justificativa da classificação:** escreva uma linha com o fato do caso que levou à cor, como o ano da aplicação, a tecnologia ou a decisão da Reitoria de mantê-la.
+- **Contrato de integração de notas:** preencha, com resposta curta, os doze campos do contrato que leva a nota do sistema da ACME ao ambiente virtual de aprendizagem, de Origem até Nível de serviço.
+- **Modo de comunicação:** diga se a integração é síncrona, quando quem pede espera a resposta, ou assíncrona, quando quem envia segue adiante, e justifique pelos padrões escolhidos no exercício 11.
+- **Nota corrigida:** explique o que acontece quando o professor corrige uma nota que já foi enviada ao ambiente virtual.
+- **Erros do diagrama:** aponte os dois erros de nível ou de fronteira que o diagrama de contexto do enunciado contém.
+- **Correção de cada erro:** para cada erro, diga qual elemento está errado e onde ele deve ficar no diagrama.
 
 {{/folha}}
 
@@ -146,6 +227,22 @@ Você escreve:
 | Vem de onde | Das seções 1 e 3, porque os princípios nascem das restrições e dos requisitos. |
 | Quando se preenche | Na Aula 3, no exercício 9. |
 
+### 6.1 Princípios priorizados e esboço lógico
+
+Esta parte é preenchida no exercício 9.
+
+Você escreve:
+
+- **Princípio:** escolha, no repertório de nove princípios da aula, de três a cinco que as quatro exigências do caso justificam, e escreva o nome de cada um.
+- **Motivação:** diga qual das quatro exigências originou o princípio, para que ele não pareça uma regra adotada por hábito.
+- **Implicação no desenho:** descreva o que muda na solução quando o princípio é seguido e o que passa a ser proibido.
+- **Evidência esperada:** diga o que se poderia medir ou conferir para provar que o princípio foi aplicado.
+- **Prioridade:** numere os princípios do mais importante ao menos importante e explique qual deles vence quando dois entram em conflito.
+- **Elemento lógico:** agrupe as oito responsabilidades do enunciado (RS1 a RS8) em três a cinco elementos e dê a cada um um nome que diga o que ele faz, sem citar produto, linguagem ou provedor.
+- **Situação do elemento:** diga se o elemento continua sendo atendido pelo núcleo legado durante a transição ou se passa a ser um elemento novo.
+- **Risco:** aponte ao menos uma coisa que pode dar errado no esboço e o princípio que ela ameaça.
+- **Decisão pendente:** aponte ao menos uma escolha que ainda não pode ser feita e o princípio que ela afeta.
+
 {{/folha}}
 
 {{folha:7}}
@@ -160,6 +257,93 @@ Você escreve:
 | Vem de onde | Das seções 3 e 6: toda decisão atende a um requisito e obedece a um princípio. |
 | Quando se preenche | Nas Aulas 3 e 4, nos exercícios 10, 11, 12, 13, 14 e 16. |
 
+### 7.1 Comparação de estilos e estilo recomendado
+
+Esta parte é preenchida no exercício 10.
+
+Você escreve:
+
+- **Estilo:** escolha três dos sete estilos da aula e escreva o nome de cada um.
+- **Adequação ao cenário 1:** para cada estilo, diga se ele é favorável, neutro ou desfavorável ao cenário do pico de matrícula, com o motivo em uma linha.
+- **Adequação ao cenário 2:** faça o mesmo para o cenário do incidente de 04/02/2026.
+- **Adequação aos princípios:** diga quais princípios priorizados no caderno o estilo sustenta e quais ele contraria.
+- **Risco do estilo:** descreva o que o estilo traz de problema para a ACME.
+- **Mecanismo compensatório:** diga o recurso que se acrescenta ao desenho para neutralizar esse risco.
+- **Estilo recomendado:** escolha um dos três estilos.
+- **Justificativa da recomendação:** explique a escolha pelo atributo de qualidade que o estilo favorece, pelo que ele prejudica e pelo princípio que desempata a comparação.
+
+### 7.2 Padrões para os três problemas
+
+Esta parte é preenchida no exercício 11.
+
+Você escreve:
+
+- **Padrão:** para cada um dos três problemas, escolha um padrão do repertório de dez da aula, ou mais de um quando resolverem partes diferentes do mesmo problema.
+- **Nível do padrão:** diga se cada padrão é de estilo arquitetural, de padrão arquitetural ou de padrão de design, conforme a tabela de três níveis da aula.
+- **Elemento afetado:** indique qual elemento do esboço lógico do caderno recebe o padrão.
+- **Consequência favorável:** descreva o que a ACME ganha com o padrão.
+- **Custo aceito:** descreva o que a ACME passa a pagar por ele.
+- **Padrão descartado:** indique um padrão que você considerou e não adotou, em um dos três problemas.
+- **Motivo do descarte:** explique por que o padrão não serve ao contexto da ACME.
+
+### 7.3 ADR do estilo e dos padrões
+
+Esta parte é preenchida no exercício 12.
+
+Você escreve:
+
+- **Título:** escreva a sigla ADR, o número do registro e a decisão em uma frase.
+- **Estado:** diga se o registro é proposta, aceito, substituído ou rejeitado.
+- **Data:** escreva a data da decisão, ou "a definir" com o responsável, quando ela ainda não foi tomada.
+- **Contexto:** descreva de forma neutra os dois cenários que motivaram a análise e diga o que fica fora do registro.
+- **Forças:** liste o que diferencia as alternativas, ligando cada força a um princípio ou cenário e dando a medida quando o caso a traz.
+- **Alternativas:** compare, pelas mesmas forças, os estilos que você descartou no exercício 10.
+- **Decisão:** diga o estilo escolhido e os padrões do exercício 11, ligando a justificativa às forças listadas.
+- **Consequências:** escreva ao menos uma consequência positiva, uma negativa e uma neutra, com o custo de cada padrão.
+- **Evidências:** diga o que sustenta a decisão e onde cada evidência pode ser reproduzida.
+- **Revisão:** escreva um gatilho que dá para observar, com valor e prazo.
+
+### 7.4 Efeito da solução no negócio
+
+Esta parte é preenchida no exercício 13.
+
+Você escreve:
+
+- **Classificação da capacidade:** diga se cada uma das dez capacidades acadêmicas é estratégica, quando orienta a oferta e a qualidade do serviço, operacional, quando entrega o serviço ao aluno, ou de apoio, quando sustenta as demais.
+- **Capacidade afetada:** marque as capacidades que o primeiro ciclo altera, conforme a declaração de escopo do exercício 8, e escreva uma linha de justificativa para cada marcação.
+- **Etapa com problema:** aponte as etapas do fluxo de valor do aluno em que ele percebe atraso, restrição de acesso ou falta de função.
+- **Requisito da etapa:** para cada etapa apontada, diga se o problema é o do R1, do R7 ou do R13, ou registre que nenhum dos três se aplica.
+- **Atividade que muda:** aponte as atividades do processo de lançamento de nota que mudam quando a nota passa a chegar ao ambiente virtual em até 10 minutos.
+- **Unidade afetada:** diga qual unidade da organização sente essa mudança e qual atividade deixa de existir.
+
+### 7.5 Dados: dono, consistência e proteção
+
+Esta parte é preenchida no exercício 14.
+
+Você escreve:
+
+- **Dono da entidade:** marque, para cada uma das cinco entidades, a aplicação ou o elemento do esboço lógico do exercício 9 que passa a ser o único autorizado a gravá-la na arquitetura alvo.
+- **Justificativa do dono:** escreva uma linha por entidade, citando a capacidade afetada do exercício 13 que ela sustenta.
+- **Regime de consistência:** para cada consumidor de cada entidade, diga se a leitura precisa refletir a gravação na hora (forte) ou dentro de um prazo (eventual, com o prazo escrito).
+- **Estilo de dado mestre do aluno:** escolha entre registro, consolidação, coexistência e centralizado para o cadastro único do aluno.
+- **Registro da escolha do dado mestre:** escreva em três linhas o contexto, a decisão e uma consequência da escolha.
+- **Classificação dos atributos:** diga, para cada um dos seis atributos do aluno, se é dado pessoal ou dado pessoal sensível.
+- **Destino com excesso de dado:** indique o destino que recebe mais atributos do que a finalidade exige.
+- **Hipótese de conservação e origem do R14:** diga qual hipótese do art. 16 da LGPD autoriza guardar o histórico dos egressos e se o R14 vem da lei ou de decisão da instituição.
+- **Motivo contra o acesso direto ao banco:** explique em até três linhas por que os 2.300 acessos diretos contrariam a propriedade do dado.
+
+### 7.6 Contêineres e relações da arquitetura alvo
+
+Esta parte é preenchida no exercício 16.
+
+Você escreve:
+
+- **Modo de comunicação:** para cada uma das 15 relações do diagrama de contêineres, diga se é síncrona, quando quem chama espera a resposta, ou assíncrona, quando segue adiante.
+- **Volume e latência:** para cada relação, escreva quanto passa por ela e quanto tempo a troca pode levar, usando os fatos dos dados operacionais, e escreva "não informado" quando o dossiê não trouxer o dado.
+- **Relações do R6:** indique, pelo número, as relações que fazem parte do caminho da confirmação da matrícula em até 4 segundos.
+- **Relações do R7:** indique, pelo número, as relações que fazem parte do caminho da nota até o ambiente virtual em até 10 minutos.
+- **Posição do núcleo transacional:** diga se o núcleo COBOL fica dentro ou fora da fronteira da solução, e por quê.
+
 {{/folha}}
 
 {{folha:8}}
@@ -173,6 +357,66 @@ Você escreve:
 | O que você escreve | A lista de tecnologias aprovadas, proibidas e em avaliação, e a comparação entre alternativas por seis critérios. A plataforma e a zona de pouso escolhidas, que é a base em nuvem onde a solução roda. A classificação dos dados por sensibilidade, as ameaças de segurança com os controles contra cada uma e o registro da decisão sobre a plataforma. |
 | Vem de onde | Das seções 5 e 7: o desenho e as decisões já tomadas mostram o que a tecnologia precisa fazer. |
 | Quando se preenche | Na Aula 5, nos exercícios 17, 18, 19 e 20. |
+
+### 8.1 Modelo técnico, tecnologias da linha de base e provedor de identidade
+
+Esta parte é preenchida no exercício 17.
+
+Você escreve:
+
+- **Linha do modelo e padrão obrigatório:** para o provedor de identidade, o serviço de matrícula, o banco do serviço de notas e o evento de nota, diga qual linha do modelo técnico de referência vale e qual padrão ela exige.
+- **Linhas válidas para todos os contêineres:** indique as duas linhas do recorte que valem para qualquer contêiner novo, qualquer que seja a função dele, e explique em uma frase.
+- **Classificação da tecnologia:** classifique cada tecnologia da linha de base em verde, âmbar ou vermelho e justifique em uma linha com o dado da tabela.
+- **Tecnologias sob plano de migração:** entre as vermelhas, diga quais continuam em uso hoje e só podem ficar enquanto houver plano de migração documentado.
+- **Aderência e portabilidade das alternativas:** para cada forma de obter o provedor de identidade (A, B e C), escreva o dado do caso que sustenta a aderência ao requisito e a portabilidade, citando o código do requisito ou da restrição.
+- **Dado que falta por critério:** para maturidade, suporte, custo total de propriedade e competência da equipe, diga qual informação o caso não traz e precisa ser levantada.
+- **Alternativa eliminada pela restrição:** escolha o R8 ou o R14, diga qual alternativa a restrição elimina antes da comparação e qual documento do fornecedor comprova o atendimento.
+
+### 8.2 Plataforma escolhida e zona de pouso
+
+Esta parte é preenchida no exercício 18.
+
+Você escreve:
+
+- **Plataformas candidatas e ferramentas:** indique duas plataformas capazes de concretizar o estilo recomendado no exercício 10 e liste as ferramentas concretas de cada uma.
+- **Comparação pelos critérios com dado:** para aderência ao requisito, custo total de propriedade, competência da equipe e portabilidade, diga qual plataforma atende melhor, ou se empatam, explicando por que em uma linha.
+- **Dado que falta em maturidade e suporte:** escreva qual informação falta nesses dois critérios e quem poderia fornecê-la, sem dar valor às plataformas.
+- **Plataforma escolhida:** escolha uma das duas e justifique pela convivência com o sistema antigo.
+- **Pilar de cada elemento da zona de pouso:** ligue cada elemento do diagrama ao pilar da zona de pouso que ele realiza.
+- **Etiquetas que faltam:** para cada recurso da tabela, diga quais das quatro etiquetas obrigatórias (projeto, ambiente, time e centro de custo) estão ausentes.
+- **Requisito da conta de segurança e registros:** diga em uma linha qual requisito justifica a existência dessa conta.
+
+### 8.3 Segurança dos dados, permissões e ameaças
+
+Esta parte é preenchida no exercício 19.
+
+Você escreve:
+
+- **Classificação LGPD do ativo:** classifique cada um dos seis ativos em não pessoal, pessoal ou pessoal sensível, conforme o art. 5º da LGPD.
+- **Nível de confidencialidade:** atribua nível baixo, médio ou alto a cada ativo e justifique em uma linha o nível do ativo pessoal sensível.
+- **Ativos restritos pelo R14:** diga quais ativos não podem ser processados fora do território nacional e qual sistema externo recebe hoje um deles.
+- **Células que violam o menor privilégio:** aponte as três células da grade de permissões que dão acesso maior que o necessário, com o perfil e o recurso.
+- **Acesso correto:** escreva o acesso correto de cada uma das três células, com a condição quando houver.
+- **Categoria STRIDE da ameaça:** classifique cada ameaça, de T1 a T6, em uma das seis categorias do STRIDE.
+- **Controle da ameaça:** associe a cada ameaça a letra do controle que a trata.
+- **Controle que também atende ao R9:** indique qual dos seis controles também atende ao requisito de trilha de auditoria.
+
+### 8.4 ADR de plataforma e lacunas de provisão
+
+Esta parte é preenchida no exercício 20.
+
+Você escreve:
+
+- **Título, estado e data:** escreva o título do ADR, o estado (proposto) e a data do registro.
+- **Contexto:** descreva a situação que levou à decisão, citando pelo título o ADR de estilo do exercício 12.
+- **Alternativas:** transporte o quadro comparativo do exercício 18, com as plataformas avaliadas pelos seis critérios do exercício 17.
+- **Forças:** liste as pressões que pesam na escolha, com pelo menos três critérios de seleção e uma dimensão de dependência de fornecedor, cada uma com o dado do caso.
+- **Decisão:** nomeie a plataforma escolhida e ligue a justificativa às forças.
+- **Consequências:** escreva ao menos uma consequência positiva, uma negativa e uma neutra, considerando os achados de segurança do exercício 19.
+- **Evidências:** diga o que sustentaria a escolha e onde poderia ser reproduzido, nomeando a evidência desejável que não existe.
+- **Revisão:** escreva um gatilho observável, ligado à convivência com o núcleo COBOL sobre CICS, que indique a hora de reavaliar a plataforma.
+- **Tipo da lacuna de provisão:** classifique cada um dos seis itens da definição tecnológica como lacuna nova, substituição, modificação ou remoção, com o dado da coluna de situação.
+- **Lacuna que reduz custo recorrente:** indique qual item reduz custo recorrente já registrado nos dados operacionais e cite o dado.
 
 {{/folha}}
 

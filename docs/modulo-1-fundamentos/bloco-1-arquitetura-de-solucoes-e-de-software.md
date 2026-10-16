@@ -134,7 +134,7 @@ Sua resposta vira as colunas Nível e Justificativa da tabela de decisões, na s
 
 Uma decisão de solução quase nunca é só técnica. Ela costuma exigir que alguém aprenda algo, que uma área mude de função, que um processo seja refeito ou que uma informação ganhe dono, e são essas partes que costumam ficar sem responsável. Este item pede que você identifique quais componentes da solução, além da tecnologia, cada decisão atinge. Treinar os professores para um novo procedimento, por exemplo, mexe com o componente da solução pessoas, e guardar um registro de auditoria por 5 anos mexe com o componente da solução informação. O quadro abaixo reproduz quatro dos cinco tipos de [componentes da solução](../referencia/glossario.md#componentes-da-solucao) (pessoas, estruturas organizacionais, processos e informação), detalhados no [bloco 2](bloco-2-a-solucao-como-sistema.md#os-cinco-tipos-de-componente-da-solucao) desta aula, sem o tipo tecnologia, porque o objetivo é enxergar o que está além dela.
 
-| Tipo de componente da solução | O que abrange |
+| Tipo do componente da solução | O que abrange |
 | --- | --- |
 | Pessoas | Funcionários, clientes, parceiros, papéis, capacidades, habilidades e descrições de cargo |
 | Estruturas organizacionais | Unidades, estruturas de gestão, terceirização, organizações parceiras, metas e acordos de nível de serviço |

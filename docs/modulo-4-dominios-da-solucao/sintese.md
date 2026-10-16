@@ -14,6 +14,7 @@ Esta página fecha o módulo de domínios da arquitetura de solução com o que 
 - A distinção entre padrão técnico, protocolo, especificação de interface e contrato de integração, com padrão técnico como tradução de *standard*
 - O [modelo C4](../referencia/glossario.md#modelo-c4) como notação de modelagem da aula, com o diagrama de contexto, o diagrama de contêineres, a coerência dos sistemas externos entre os dois níveis e a escolha do nível pela audiência
 - As camadas de execução, a topologia com regiões e zonas de disponibilidade e o diagrama de implantação, que liga cada instância de contêiner ao nó de implantação em que executa
+- O estado do caderno ao fim da aula, com o efeito da solução no negócio, as decisões sobre dados e as relações entre contêineres na seção 7, e o diagrama de contexto e o contrato de notas na seção 5
 
 ## Cadeia dos domínios
 
@@ -28,7 +29,7 @@ As relações rotuladas no exercício 16 são a lista de exigências que a defin
 
 ## Autoavaliação
 
-As perguntas abaixo são para o aluno responder a si mesmo, sem gabarito público, como verificação de retenção antes da Aula 5.
+As perguntas abaixo servem para você conferir o que ficou, antes da Aula 5. Responda sozinho, porque elas não têm gabarito. Os exercícios têm: a seção [Gabaritos](../gabaritos/index.md) mostra o caderno arquitetural da ACME preenchido a cada exercício.
 
 1. Dado um problema de negócio, eu aplico as quatro perguntas de aplicabilidade e indico se a arquitetura de solução é o método adequado.
 2. Para uma entidade de dado qualquer, eu indico a fonte de verdade, o dono e o regime de consistência de cada consumidor com prazo declarado.

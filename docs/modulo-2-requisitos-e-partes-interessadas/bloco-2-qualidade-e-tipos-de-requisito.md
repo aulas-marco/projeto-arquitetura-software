@@ -81,6 +81,32 @@ O arquiteto separa requisito não funcional de requisito de atributo de qualidad
 
 As doze dimensões entram em outro momento do trabalho. Elas funcionam como lista de verificação antes de encerrar o levantamento. O arquiteto percorre as doze e pergunta, para cada uma, se aquela dimensão foi discutida com alguém. As que ninguém mencionou são o material da próxima entrevista, e costumam ser justamente as caras de corrigir depois, como residência de dados, tempo de recuperação e compatibilidade retroativa de integração.
 
+## No caderno arquitetural
+
+{{ficha:3}}
+
+**Para que serve.** As entrevistas com as partes interessadas da ACME renderam 15 declarações, como a matrícula não pode cair, e elas chegam com graus muito diferentes de clareza. Algumas dizem o que o sistema faz, outras dizem o quão bem ele deve funcionar, outras fecham uma alternativa antes de qualquer análise, e só uma parte delas pode ser testada. O catálogo de requisitos da seção 3 do caderno separa as declarações por categoria e mostra quais ainda precisam ser reescritas para se tornarem verificáveis.
+
+**O que você faz neste exercício.** O enunciado traz oito dessas declarações, numeradas de R2 a R13, entre elas o R2, a matrícula não pode cair, e o R5, a emissão do histórico escolar com assinatura digital. Você diz se cada uma é requisito funcional, requisito de atributo de qualidade ou restrição e justifica em uma frase, e nas de qualidade diz se estão bem ou mal formuladas. Depois escolhe duas das mal formuladas e escreve o contexto, a carga e a medida de cada uma. As respostas entram no catálogo de requisitos do caderno.
+
+| Campo do caderno | Como preencher | Item |
+| --- | --- | --- |
+| Categoria do requisito | Diga se a declaração é requisito funcional, requisito de atributo de qualidade ou restrição, sem usar o rótulo requisito não funcional | 1 |
+| Justificativa da categoria | Explique em uma frase por que a declaração pertence a essa categoria | 1 |
+| Formulação | Nas declarações de qualidade, diga se estão bem formuladas, com contexto e medida, ou mal formuladas | 1 |
+| Contexto | Nas duas declarações que você reescrever, diga em que situação o requisito vale | 2 |
+| Carga | Diga quanto uso o sistema recebe nessa situação | 2 |
+| Medida | Diga o valor a atingir. Se a declaração não nomear atributo algum, registre isso e deixe a medida sem valor | 2 |
+
+**O que você já tem.** A seção 3 já traz os direcionadores do exercício 5, que mostram as pressões por trás das declarações. As 15 declarações e quem fez cada uma estão na [página inicial do caso](../caso-acme/index.md).
+
+**Quando está pronto.** As oito declarações têm categoria e justificativa, as de qualidade têm a formulação avaliada, e duas delas têm contexto, carga e medida.
+
+[Ver esta seção no template](../caderno/template.md#3-requisitos){ .caderno-botao }
+[Ver o gabarito do exercício 6](../gabaritos/gabarito-exercicio-06.md){ .caderno-botao }
+
+{{/ficha}}
+
 ## Exercício 6
 
 Este exercício treina a classificação das declarações que chegam das entrevistas e a reescrita das declarações vagas em requisitos mensuráveis. Isso importa porque uma declaração como "o tempo de resposta precisa ser bom" não diz o que testar nem quando o trabalho termina, e o arquiteto precisa saber qual delas já é verificável e qual ainda depende de conversa. A ACME, universidade privada brasileira fictícia cujo sistema acadêmico está em modernização, levantou as declarações usadas aqui em entrevistas com as [partes interessadas](../referencia/glossario.md#parte-interessada), as pessoas e áreas com interesse na solução, e as registrou como foram ditas, sem revisão de texto. A lista completa, com 15 declarações numeradas de R1 a R15 e a origem de cada uma, está na [página inicial do caso](../caso-acme/index.md). O exercício usa oito delas, e os códigos do quadro seguem essa numeração. O exercício tem dois itens, a classificação das oito declarações e a reescrita mensurável de duas delas.
@@ -111,6 +137,8 @@ flowchart LR
 1. Classifique cada uma das oito declarações em uma das três categorias de trabalho, requisito funcional, requisito de atributo de qualidade ou restrição, e justifique em uma frase ao lado do código. Nenhuma delas deve ser classificada como requisito não funcional, porque esse rótulo é o ponto de partida do trabalho e não o resultado dele.
 2. Para cada declaração que você classificou como requisito de atributo de qualidade, indique se está bem ou mal formulada. Considere bem formulada a que traz contexto, a situação em que vale, carga, o volume de uso, e medida, o valor a atingir.
 
+Suas respostas viram os campos Categoria do requisito, Justificativa da categoria e Formulação, na seção 3 do caderno.
+
 ### Item 2: Reescrita mensurável
 
 Uma declaração vaga só se torna requisito quando se sabe em que situação ela vale, quanto uso o sistema recebe e qual valor deve ser atingido. O quadro abaixo traz, na segunda coluna, o exemplo de desempenho da plataforma de vídeo da Produtora ACME apresentado na seção [Conceito](#conceito), decomposto nesses três elementos, contexto, carga e medida. As duas últimas colunas ficam em branco para os dois requisitos que o aluno escolhe reescrever. Como dado de apoio, o portal da ACME registra 815 sessões simultâneas em média anual ponderada e pico de 5.800 sessões na abertura da matrícula.
@@ -122,6 +150,8 @@ Uma declaração vaga só se torna requisito quando se sabe em que situação el
 | Medida | 95% das consultas em até 500 ms e 99% em até 1 segundo | | |
 
 1. Escolha dois requisitos de atributo de qualidade que você marcou como mal formulados no Item 1 e preencha o contexto, a carga e a medida de cada um no quadro. Se alguma parte da declaração original não puder ser reescrita por não nomear atributo algum, registre isso na célula correspondente e deixe a medida sem valor.
+
+Suas respostas viram os campos Contexto, Carga e Medida, na seção 3 do caderno.
 
 ## Fontes
 
