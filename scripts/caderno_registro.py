@@ -21,13 +21,14 @@ SUBSTITUI = {
 }
 
 # Exercício -> seções do caderno que ele preenche, em ordem de importância.
+# As seções que substituem (0 e 10) vêm de SUBSTITUI, e o exercício 24 só as preenche.
 PLANO = {
     1: (1,), 2: (1,), 3: (1,), 4: (1,),
     5: (3,), 6: (3,), 7: (3, 4), 8: (2,),
     9: (6,), 10: (7,), 11: (7,), 12: (7,),
     13: (7,), 14: (7,), 15: (5,), 16: (7,),
     17: (8,), 18: (8,), 19: (8,), 20: (8,),
-    21: (4,), 22: (9,), 23: (9,), 24: (10,),
+    21: (4,), 22: (9,), 23: (9,), 24: (),
 }
 
 # Exercício -> (aula, página do bloco relativa a docs/, título do bloco).
