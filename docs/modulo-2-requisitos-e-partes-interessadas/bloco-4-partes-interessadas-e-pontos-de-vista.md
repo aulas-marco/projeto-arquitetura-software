@@ -88,9 +88,11 @@ Na ACME, universidade privada brasileira fictícia com 38.400 alunos ativos e si
 
 ## Uso pelo arquiteto
 
-O arquiteto usa a lista de quatro perguntas como verificação contra a omissão mais cara do processo, a parte interessada descoberta tarde: quem tem autoridade sobre orçamento e quem responde por exigência regulatória costuma ser lembrado, mas quem sustenta o sistema depois da implantação costuma ser esquecido até o momento em que a operação recusa o desenho.
+Antes de fechar o desenho, o arquiteto aplica as quatro perguntas à lista de pessoas da ACME para localizar quem falta. Quem tem autoridade sobre orçamento, como o Diretor Financeiro, e quem responde por exigência regulatória costumam ser lembrados. O Gerente de sustentação da fábrica, que mantém o sistema depois da implantação, costuma aparecer tarde, e por isso o arquiteto o inclui cedo, já que a operação pode recusar um desenho que não consegue sustentar.
 
-Se o arquiteto apresentasse o mesmo desenho ao Diretor Financeiro e ao Gerente de sustentação da ACME, teria duas conversas improdutivas, porque cada um precisa de um recorte diferente da mesma descrição de arquitetura, e é para isso que servem os pontos de vista, que evitam travar a discussão em um modelo único.
+Ao apresentar o desenho, o arquiteto escolhe o ponto de vista conforme a decisão que cada audiência precisa tomar. Ao patrocinador leva a visão de contexto C1, com o Sistema Acadêmico em uma só caixa, para decidir escopo e dependências. À equipe de segurança leva a visão C2, que mostra contêineres e fronteiras de confiança onde os controles devem operar. Ao gestor entrega a planilha de rastreabilidade, para conferir se cada preocupação chegou a uma decisão acompanhável. As três visões saem da mesma descrição de arquitetura, e por isso o arquiteto mantém um só modelo. Se mostrasse o mesmo desenho ao Diretor Financeiro e ao Gerente de sustentação, teria duas conversas improdutivas, porque cada um precisa de um recorte diferente.
+
+Ao declarar o escopo, o arquiteto registra o que permanece, como o ambiente virtual de aprendizagem e o ERP financeiro por decisão da Reitoria de 12/03/2026, e informa à equipe que sobre eles o trabalho é de integração e de governança. A declaração aprovada formalmente delimita o que será mudado, e o que ficou fora dela não entra no orçamento da solução.
 
 ## No caderno arquitetural
 

@@ -74,9 +74,11 @@ O [template do caderno](../caderno/template.md) mostra, seção por seção, o q
 
 ## Uso pelo arquiteto
 
-Quando alguém pede ao arquiteto um catálogo de blocos de construção durante a descoberta, antecipa uma decisão que ainda não tem base, e quando pede criatividade na fase de análise, atrapalha o fechamento que aquela fase precisa produzir. Por isso o arquiteto usa o ciclo para saber o que pode e o que não pode ser cobrado dele em cada momento.
+Durante o projeto, o arquiteto consulta o ciclo de oito fases para saber em que ponto está e o que pode ser cobrado dele naquele momento. Quando alguém lhe pede um catálogo de blocos de construção durante a descoberta, antecipa uma decisão que ainda não tem base, porque esse catálogo é saída da fase de análise. Quando alguém lhe pede criatividade na fase de análise, atrapalha o fechamento que aquela fase precisa produzir, que é a escolha de uma única opção. Com a tabela das fases em mãos, o arquiteto recusa o pedido e indica a fase em que o artefato nasce.
 
-O ciclo também organiza a conversa sobre incerteza. Quando o patrocinador pergunta qual será o custo da solução na segunda semana de trabalho, a resposta honesta é que a estimativa de custo é saída da fase de desenvolvimento do roteiro, e que o que existe naquele momento é ordem de grandeza derivada do esboço. Declarar isso protege o arquiteto e o patrocinador de um compromisso numérico que não se sustenta.
+Quando o patrocinador pergunta qual será o custo da solução na segunda semana de trabalho, o arquiteto responde com o que o ciclo permite afirmar. A estimativa de custo é saída da fase de desenvolvimento do roteiro, e naquele momento existe apenas ordem de grandeza derivada do esboço. Declarar isso protege o arquiteto e o patrocinador de um compromisso numérico que não se sustenta.
+
+Ao fim de cada fase, o arquiteto usa a tabela que liga as seções do caderno às fases para conferir o que precisa estar registrado. Concluída a descoberta, por exemplo, as seções de partes interessadas, requisitos e linha de base já devem ter conteúdo, e a seção 10 recebe o que ainda falta decidir e quem decide. A decisão do patrocinador sobre a passagem de fase se apoia, então, no que está escrito no caderno.
 
 ## No caderno arquitetural
 

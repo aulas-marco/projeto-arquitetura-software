@@ -124,7 +124,9 @@ Se o catálogo do hospital não tiver um serviço de gestão de identidade e ace
 
 ## Uso pelo arquiteto
 
-Ao receber o desenho de uma solução, o arquiteto parte do modelo técnico de referência publicado pela organização e localiza a linha que corresponde a cada requisito de serviço de infraestrutura. Antes de somar qualquer anotação na matriz de avaliação, ele registra as restrições que eliminam alternativas, e só então compara o que sobrou. A matriz preenchida, com o dado que sustenta cada célula e com a eliminação declarada, segue para o campo de alternativas do ADR de seleção, porque a escolha só se conclui quando o ADR registra a alternativa escolhida, as alternativas descartadas e o gatilho de revisão.
+O arquiteto consulta o modelo técnico de referência e a matriz de avaliação quando o desenho de contêineres chega com o rótulo tecnologia a definir, como as oito caixas da ACME no exercício 16, porque é nesse ponto que cada equipe tende a escolher o produto que já conhece. A linha do modelo diz qual padrão o contêiner precisa respeitar, então ele localiza a linha de cada requisito de serviço de infraestrutura e registra as restrições que eliminam alternativas antes de qualquer comparação. Só depois preenche a matriz dos seis critérios, com o dado que sustenta cada célula, e a leva ao ADR de seleção, que o patrocinador e a equipe consultam para saber qual alternativa foi escolhida, quais foram descartadas e quando a escolha deve ser revista.
+
+Sem esse material, a escolha depende do hábito de cada equipe, e a ACME terminaria com padrões diferentes em cada serviço e com tecnologias antigas copiadas para o sistema novo. A lacuna de provisão que a comparação revelaria também só apareceria com o serviço já em construção, fora do custo e do roteiro de entrega aprovados.
 
 ## No caderno arquitetural
 

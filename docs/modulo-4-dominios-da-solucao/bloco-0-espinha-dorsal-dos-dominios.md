@@ -42,7 +42,7 @@ A ordem negócio, dados, aplicações e infraestrutura tem uma razão, que é o 
 
 ## Uso pelo arquiteto
 
-O arquiteto não pergunta por dados antes de saber que capacidades mudam, nem por infraestrutura antes de saber que aplicações trocam informação, e por isso cada domínio abre com uma pergunta cuja resposta é a entrada da pergunta seguinte. Os blocos 1 a 4 retomam a pergunta do respectivo domínio, com a mesma redação.
+O arquiteto consulta este roteiro no início do detalhamento, quando a solução já está delimitada e ele precisa saber por onde começar sem tentar decidir tudo de uma vez. Cada domínio abre com uma pergunta cuja resposta é a entrada da pergunta seguinte, então ele só decide os dados depois de saber que capacidades mudam e só dimensiona a infraestrutura depois de saber que aplicações trocam informação. Ele leva a pergunta de cada domínio à área que mantém o modelo correspondente, como a arquitetura corporativa ou a arquitetura de dados, para pedir o insumo que falta antes de decidir. Sem a sequência, o arquiteto dimensiona a infraestrutura para aplicações ainda indefinidas e descobre depois que o dado trocado entre elas não tinha dono, e a decisão de infraestrutura precisa ser refeita. Os blocos 1 a 4 retomam a pergunta do respectivo domínio, com a mesma redação.
 
 1. Negócio: Que capacidades, etapas do fluxo de valor e atividades a solução altera, segundo os modelos que a arquitetura de negócio já mantém?
 2. Dados: Que entidades sustentam as capacidades afetadas, quem é o dono de cada uma, onde fica a fonte de verdade, com que regime cada cópia a reflete e que obrigações o dado carrega?

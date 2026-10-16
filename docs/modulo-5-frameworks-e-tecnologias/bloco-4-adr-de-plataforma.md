@@ -93,7 +93,9 @@ Concluída a definição, a equipe de arquitetura de solução e a função de i
 
 ## Uso pelo arquiteto
 
-O arquiteto escreve este segundo registro logo depois de fechar a comparação de plataformas, no mesmo momento em que as candidatas descartadas e o critério que as eliminou ainda estão claros. O campo de evidências é o que mais se beneficia desse momento, porque é quando ainda existem o teste de carga, a prova de conceito ou a medição que sustentaram a escolha, e é trivial anotar onde cada um pode ser reproduzido. Meses depois, essa informação já se perdeu, e o registro fica com uma justificativa que ninguém consegue verificar. O relatório de lacunas produzido na mesma ocasião alimenta o custo da solução e o roteiro de entrega, e cada lacuna listada leva ao ADR o custo estimado de tornar a plataforma escolhida utilizável.
+O arquiteto escreve o ADR de plataforma logo depois de fechar a comparação, porque nesse momento as candidatas descartadas, o critério que as eliminou e as evidências, como o teste de carga, a prova de conceito ou a medição, ainda estão à mão, e ele anota no campo de evidências onde cada uma pode ser reproduzida. Quando alguém da ACME perguntar meses depois por que a plataforma foi escolhida, e a equipe que decidiu já tiver saído, o novo arquiteto consulta o ADR para responder, e o registro das preocupações levantadas na validação com as partes interessadas mostra o que foi discutido antes da decisão.
+
+O relatório de lacunas, produzido na mesma ocasião, leva ao patrocinador o custo estimado de tornar a plataforma escolhida utilizável e alimenta o custo da solução e o roteiro de entrega. Sem essas informações, o registro fica com uma justificativa que ninguém consegue verificar, e os serviços de infraestrutura ausentes são descobertos durante a construção.
 
 ## No caderno arquitetural
 

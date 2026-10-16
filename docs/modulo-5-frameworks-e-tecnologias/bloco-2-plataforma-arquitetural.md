@@ -130,9 +130,9 @@ Região, zonas de disponibilidade e camadas de execução já foram tratadas no 
 
 ## Uso pelo arquiteto
 
-Assim como o estilo arquitetural é a maior decisão que um arquiteto toma em um projeto, a plataforma arquitetural é a maior decisão tecnológica do projeto. Por consequência, ela precisa ser justificada e registrada em um ADR próprio, escrito no [bloco 4](bloco-4-adr-de-plataforma.md) desta aula, e a zona de pouso que recebe a plataforma é registrada na mesma decisão.
+O arquiteto precisa dizer ao patrocinador e à fábrica de software qual conjunto de tecnologias vai concretizar o estilo arquitetural já escolhido e sobre qual zona de pouso ele vai executar, porque as equipes de desenvolvimento só começam a construir com essa resposta. Por isso, depois de fechar o estilo na Aula 3, ele monta o quadro comparativo, com as plataformas candidatas nas linhas, os seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao) nas colunas e uma nota curta em cada célula. O quadro entra no ADR de plataforma, escrito no [bloco 4](bloco-4-adr-de-plataforma.md) desta aula junto com a zona de pouso, e mostra que a escolha considerou alternativas reais, o que dá a quem questionar a decisão meses depois o material para defendê-la.
 
-O arquiteto documenta a comparação antes de decidir, em um quadro comparativo que lista as plataformas candidatas nas linhas e os seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao) nas colunas, com uma nota curta em cada célula. Esse quadro entra no ADR de plataforma como evidência de que a escolha considerou alternativas reais e não só a plataforma mais familiar ao time, e essa evidência permite defender a decisão quando ela for questionada meses depois.
+Sem o quadro, a decisão tende a recair na plataforma mais familiar ao time, e o arquiteto não consegue demonstrar que as outras foram avaliadas. Se a plataforma for decidida antes do estilo, a ordem de dependência entre as duas decisões se inverte, e o estilo passa a ser consequência do produto escolhido.
 
 ## No caderno arquitetural
 

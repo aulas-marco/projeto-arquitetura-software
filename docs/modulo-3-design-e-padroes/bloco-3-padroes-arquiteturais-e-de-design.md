@@ -180,7 +180,9 @@ Padrões se combinam quando cada um resolve um problema distinto. No portal da T
 
 ## Uso pelo arquiteto
 
-Uma escolha de padrão só vale se outra pessoa conseguir reavaliá-la depois, e por isso o arquiteto seleciona o padrão pelo problema declarado e registra, junto com a escolha, o custo aceito e o sinal que indicaria que o padrão deixou de ser adequado. Esse registro permite que outra pessoa avalie depois se o problema ainda existe e se o custo continua justificado, e evita que um padrão permaneça no desenho apenas porque já está lá. O nível do padrão indica também quem precisa participar da decisão, porque um padrão arquitetural afeta várias equipes e entra no [ADR](bloco-4-registro-de-decisao-arquitetural.md) da solução, enquanto um padrão de design costuma ser decidido pela equipe responsável pela parte afetada.
+Depois de escolher o estilo, o arquiteto da ACME ainda enfrenta problemas concretos, como fazer a solução nova conviver com o núcleo antigo sem interromper a matrícula, e precisa decidir qual padrão aplicar a cada um. Por isso ele parte do problema declarado, escolhe o padrão que o resolve e registra, junto com a escolha, o custo aceito e o sinal que indicaria que o padrão deixou de ser adequado. Esse registro permite que outra pessoa avalie depois se o problema ainda existe e se o custo continua justificado, e impede que um padrão permaneça no desenho apenas porque já está lá.
+
+O nível do padrão indica a quem o arquiteto leva a decisão. Um padrão arquitetural afeta várias equipes, então ele o discute com elas e o inclui no [ADR](bloco-4-registro-de-decisao-arquitetural.md) da solução. Um padrão de design costuma ser decidido pela equipe responsável pela parte afetada, e o arquiteto apenas confere se ele respeita os princípios. Sem o problema e o custo registrados, a ACME paga um custo que ninguém lembra de ter aceito, como a complexidade operacional de uma camada de tradução mantida depois de o legado ter sido desligado.
 
 ## No caderno arquitetural
 

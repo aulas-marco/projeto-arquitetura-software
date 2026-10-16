@@ -119,9 +119,9 @@ Nenhum dos três relatórios substitui a evidência produzida pela própria orga
 
 ## Uso pelo arquiteto
 
-Se a ACME discutisse alternativas sem ter registrado por que quer mudar, alguém poderia descartar cedo demais uma opção ainda viável. Por isso o arquiteto levanta os direcionadores antes de qualquer alternativa, porque eles determinam o que conta como solução aceitável: um direcionador externo de natureza legal costuma fechar alternativas de forma definitiva, enquanto um direcionador interno de custo costuma apenas ordenar preferências.
+Na ACME, o dossiê reúne sete pressões, entre elas o custo anual de R$ 15,83 milhões, o parecer jurídico de 28/04/2026 e os dois provedores de nuvem pré-aprovados em 12/03/2026, e o arquiteto precisa saber quais delas fecham alternativas e quais apenas ordenam preferências. Por isso ele classifica cada direcionador como interno ou externo e registra a evidência antes de discutir qualquer solução, porque a origem indica quem pode revê-lo. O parecer jurídico, de natureza legal e origem externa, elimina as alternativas que processam dado de aluno fora do país, e o custo, de origem interna, serve para ordenar as alternativas que restam. Sem essa classificação, a equipe poderia avaliar uma opção que o parecer já excluiu.
 
-O registro dos direcionadores também protege o projeto quando a liderança muda, porque uma solução cujo motivo declarado está documentado sobrevive à troca de patrocinador, e uma solução cujo motivo só existia na conversa inicial costuma ser questionada desde o começo a cada novo interlocutor.
+O arquiteto volta ao registro quando muda o patrocinador ou quando um novo interlocutor questiona o motivo da iniciativa. Ele leva ao interlocutor a tabela de direcionadores com a evidência de cada linha, como a aposentadoria prevista para 2027 de 2 dos 6 especialistas em COBOL, e mostra que a solução responde a pressões documentadas. Ao preencher a análise PESTLE, ele também separa o fator apoiado em fonte verificável, como um relatório de pesquisa citado com título, edição e data, do fator que ainda é hipótese levantada em oficina. Sem o registro, o motivo da mudança fica na memória de quem participou da conversa inicial, e cada troca de liderança reabre a discussão sobre a necessidade do projeto.
 
 ## No caderno arquitetural
 

@@ -40,9 +40,11 @@ O quarto é a **decisão baseada em evidência**, porque a modelagem da área do
 
 ## Uso pelo arquiteto
 
-Ao montar a equipe de um projeto como o da ACME, o arquiteto usa a lista de competências como diagnóstico da própria atuação e da composição da equipe. Quando o grupo de negócio está fraco, a solução tende a ser tecnicamente correta e desalinhada da estratégia, e quando o grupo de entrega está fraco, o desenho ignora a capacidade real de execução da organização e produz um roteiro que ninguém consegue cumprir.
+Antes de fechar a equipe do projeto de modernização da ACME, o arquiteto precisa saber que competências a solução vai exigir e quais delas a equipe ainda não cobre. Ele usa a lista dos quatro grupos de competência (negócio, técnico, entrega e prático) como diagnóstico da própria atuação e da composição da equipe, e leva a lacuna ao patrocinador antes de o trabalho começar. Quando o grupo de negócio está fraco, a solução tende a ser tecnicamente correta e desalinhada da estratégia, e quando o grupo de entrega está fraco, o desenho ignora a capacidade real de execução da organização e produz um roteiro que ninguém consegue cumprir.
 
-A separação entre entradas, produtos intermediários e entregáveis organiza a negociação de prazo. O patrocinador costuma cobrar o desenho final desde a primeira semana, e é o arquiteto quem precisa mostrar que a declaração de visão e o documento de iniciação vêm antes, com custo baixo, e que a decisão de seguir ou parar é tomada sobre eles.
+A separação entre entradas, produtos intermediários e entregáveis serve ao arquiteto na negociação de prazo. O patrocinador costuma cobrar o desenho final desde a primeira semana, e o arquiteto responde com a ordem dos artefatos, mostrando que a declaração de visão e o documento de iniciação vêm antes, com custo baixo, e que a decisão de seguir ou parar é tomada sobre eles. Sem essa ordem à mão, ele fica sujeito a prometer o desenho final antes de a descoberta produzir a base factual de que o desenho depende.
+
+Quando alguém questiona o tempo gasto nas fases anteriores ao desenho, o arquiteto recorre aos sete benefícios da abordagem arquitetural. A resolução precoce de conflito e de duplicação é um deles, porque o escopo declarado e as análises de lacuna e de impacto revelam cedo quais outras iniciativas em curso tocam a mesma área.
 
 ## No caderno arquitetural
 

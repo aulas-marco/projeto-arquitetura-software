@@ -141,9 +141,9 @@ A mesma avaliação apontou três vulnerabilidades, classificadas pelo OWASP Top
 
 ## Uso pelo arquiteto
 
-O arquiteto leva à autoridade de design de segurança um desenho que já traz os ativos classificados por confidencialidade, integridade e disponibilidade e pela Lei Geral de Proteção de Dados, a grade de permissões preenchida pelo menor privilégio, as fronteiras de confiança identificadas e os controles da zona de pouso declarados. Com esse material, a autoridade concentra os dois testes nos pontos em que o desenho pode falhar e dispensa o levantamento de informações que cabe à equipe de solução.
+O arquiteto usa estes artefatos quando produtos, plataforma e zona de pouso já estão definidos e falta saber se o desenho protege a nota do aluno e o dado pessoal gravado no banco. Ele leva à autoridade de design de segurança os ativos classificados por confidencialidade, integridade e disponibilidade e pela Lei Geral de Proteção de Dados, a grade de permissões preenchida pelo menor privilégio, as fronteiras de confiança identificadas e os controles da zona de pouso, porque com esse material a autoridade concentra os testes nos pontos em que o desenho pode falhar e dispensa o levantamento que cabe à equipe de solução.
 
-A recomendação da autoridade retorna à equipe de solução como revisão de desenho, e cada recomendação aceita altera um artefato concreto, como uma célula da grade de permissões, um controle na fronteira ou uma mudança de infraestrutura. A recomendação que exige serviço de infraestrutura ausente do catálogo gera uma lacuna de provisão, classificada no [bloco 4](bloco-4-adr-de-plataforma.md) desta aula.
+A recomendação da autoridade volta à equipe como revisão de desenho, e cada recomendação aceita altera um artefato concreto, como uma célula da grade de permissões, um controle na fronteira ou uma mudança de infraestrutura. Quando a recomendação exige serviço de infraestrutura ausente do catálogo, o arquiteto a registra como lacuna de provisão, classificada no [bloco 4](bloco-4-adr-de-plataforma.md) desta aula, e a leva ao custo e ao roteiro de entrega. Sem o material pronto, a autoridade precisa refazer o levantamento, a revisão atrasa e vulnerabilidades como o acesso além do necessário e a injeção podem chegar à implementação.
 
 ## No caderno arquitetural
 
