@@ -1,6 +1,6 @@
 # Plataforma arquitetural
 
-Este bloco responde a duas perguntas que só fazem sentido depois do estilo já decidido, qual conjunto de tecnologias concretiza esse estilo na prática de desenvolvimento e operação e sobre qual fundação em nuvem esse conjunto executa.
+Na Aula 3, o projeto escolheu um estilo arquitetural, que é a forma geral de organizar o sistema, como em camadas, em microsserviços ou orientado a eventos. Este bloco trata das duas perguntas que vêm depois dessa escolha. A primeira é qual conjunto de tecnologias, chamado de plataforma arquitetural, concretiza o estilo escolhido no desenvolvimento e na operação do sistema. A segunda é sobre qual fundação em nuvem, chamada de zona de pouso, esse conjunto executa. O exercício 18, no fim da página, aplica as duas perguntas à ACME, a universidade fictícia que serve de caso ao curso.
 
 ## Antes de começar
 
@@ -29,7 +29,7 @@ A segunda é a composição multidimensional, pois uma plataforma não é monol�
 
 A terceira é o alinhamento com práticas de engenharia. A plataforma promove testabilidade, com ferramentas como o Jest e o JUnit, automação, com integração contínua, que verifica automaticamente cada alteração de código, e esteiras de implantação, que levam o código aprovado ao ambiente de execução sem etapas manuais, e escalabilidade e manutenção, com orquestração de execução em Kubernetes ou Service Fabric.
 
-A quarta é a adaptação ao contexto, porque plataformas não são universais e são selecionadas e configuradas a partir de um racional arquitetural, apresentado no Conceito do [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), e a comparação entre plataformas candidatas usa os seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao), que são aderência ao requisito, maturidade, suporte, custo total de propriedade, competência da equipe e portabilidade. Uma plataforma tecnicamente superior que ninguém no time sabe operar tem custo real maior do que o preço de licença sugere, e é o critério de competência da equipe que captura isso.
+A quarta é a adaptação ao contexto, porque plataformas não são universais e são selecionadas e configuradas a partir de um racional arquitetural, o conjunto de razões que justifica uma decisão de desenho, apresentado no Conceito do [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), e a comparação entre plataformas candidatas usa os seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao), que são aderência ao requisito, maturidade, suporte, custo total de propriedade, competência da equipe e portabilidade. Uma plataforma tecnicamente superior que ninguém no time sabe operar tem custo real maior do que o preço de licença sugere, e é o critério de competência da equipe que captura isso.
 
 ### Exemplos de plataforma por estilo
 
@@ -45,7 +45,7 @@ Entre as peças, o Servlet é a base de tudo no contêiner web, a interface de p
 
 *Plataforma Java EE e Jakarta EE, em que os três contêineres são a divisão estrutural que o estilo em camadas impõe e a faixa de serviços transversais na base é o que nenhum framework isolado entrega. Fonte: material base do professor.*
 
-Esta é a plataforma da camada web da ACME, descrita na [arquitetura de linha de base](../caso-acme/linha-de-base.md) como JSF e EJB sobre servidor de aplicação fora de suporte desde 2018.
+Esta é a plataforma em que a camada web da ACME funciona hoje, descrita na [arquitetura de linha de base](../caso-acme/linha-de-base.md) como JSF e EJB sobre servidor de aplicação fora de suporte desde 2018.
 
 #### Plataforma web elástica em nuvem
 
@@ -136,11 +136,13 @@ O arquiteto documenta a comparação antes de decidir, em um quadro comparativo 
 
 ## Exercício 18
 
-A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, cujo núcleo transacional em COBOL sobre o monitor CICS segue em operação durante toda a transição, com uma camada web em JSF e EJB e integrações com o ERP financeiro e o ambiente virtual de aprendizagem resolvidas por arquivo, em lote noturno. O exercício parte do estilo arquitetural recomendado no [exercício 10](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#exercicio-10) da Aula 3, e a plataforma escolhida aqui é a entrada do ADR de plataforma do exercício 20, no [bloco 4](bloco-4-adr-de-plataforma.md).
+A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, isto é, o sistema é trocado por partes. O núcleo transacional em COBOL, que executa as operações acadêmicas, segue em operação sobre o monitor CICS durante toda a transição. Há também uma camada web em JSF e EJB, e as integrações com o ERP financeiro, o sistema de gestão financeira da universidade, e com o ambiente virtual de aprendizagem, onde o aluno acessa as turmas, são resolvidas por arquivo, em lote noturno.
+
+O exercício serve para escolher, com dados do caso, a plataforma que concretiza o estilo arquitetural e para conferir se a fundação em nuvem proposta cumpre os pilares da zona de pouso. Ele parte do estilo que o aluno recomendou no [exercício 10](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#exercicio-10) da Aula 3, e a plataforma escolhida aqui é a entrada do ADR de plataforma, o registro de decisão do exercício 20, no [bloco 4](bloco-4-adr-de-plataforma.md). São três itens, e o aluno registra a resposta de cada um com o dado do enunciado que a sustenta.
 
 ### Item 1: Plataformas candidatas para o estilo escolhido
 
-O objetivo deste item é escolher duas plataformas que poderiam concretizar o estilo recomendado no exercício 10 da Aula 3, que é o estilo arquitetural indicado para a ACME naquela aula. O diagrama abaixo mostra as partes do sistema atual com as quais qualquer plataforma candidata precisa conviver durante a transição, conforme a [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+O objetivo deste item é escolher duas plataformas que poderiam concretizar o estilo recomendado no exercício 10 da Aula 3, que é o estilo arquitetural indicado para a ACME naquela aula. Uma plataforma candidata é uma das opções que entram na comparação do item 2. Como o sistema antigo continua em operação, a plataforma nova precisa conviver com ele, e o diagrama abaixo mostra as partes do sistema atual com as quais isso acontece: o núcleo COBOL sobre CICS, o banco Oracle 12c de 11 TB compartilhado, os lotes noturnos por arquivo e, ligados a esses lotes, o ERP financeiro e o ambiente virtual de aprendizagem, conforme a [arquitetura de linha de base](../caso-acme/linha-de-base.md).
 
 ```mermaid
 graph LR
@@ -152,12 +154,12 @@ graph LR
     CICS --> ORA
 ```
 
-1. Indique, entre os exemplos de plataforma por estilo apresentados no Conceito, duas plataformas candidatas capazes de concretizar o estilo recomendado no exercício 10.
-2. Para cada plataforma candidata, liste as ferramentas concretas que a compõem, no nível de detalhe dos exemplos do Conceito.
+1. Indique, entre os quatro exemplos da seção Exemplos de plataforma por estilo, duas plataformas candidatas capazes de concretizar o estilo recomendado no exercício 10.
+2. Para cada plataforma candidata, liste as ferramentas concretas que a compõem, como o Spring Boot e o Kubernetes no exemplo de microsserviços, no nível de detalhe dos exemplos da seção.
 
 ### Item 2: Quadro comparativo pelos seis critérios
 
-O objetivo deste item é comparar as duas plataformas candidatas com os mesmos critérios, para que a escolha tenha dado que a sustente. A tabela abaixo reúne dados do [dossiê da ACME](../caso-acme/index.md) e da linha de base para os seis critérios de seleção apresentados no [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao). O quadro preenchido neste item é o que alimenta o campo de alternativas do ADR de plataforma do exercício 20, no [bloco 4](bloco-4-adr-de-plataforma.md).
+O objetivo deste item é comparar as duas plataformas candidatas com os mesmos critérios, para que a escolha tenha dado que a sustente. A tabela abaixo traz uma linha para cada um dos seis critérios de seleção apresentados no [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao), com os dados do [dossiê da ACME](../caso-acme/index.md) e da linha de base que valem para o critério. Quatro critérios têm dado, e os dois restantes, maturidade e suporte, estão sem dado no dossiê. R4 e R6 são códigos de requisitos do caso e vêm explicados na própria linha. O quadro que o aluno preenche, com as duas plataformas candidatas nas linhas e os seis critérios nas colunas, é o que alimenta o campo de alternativas do ADR de plataforma do exercício 20, no [bloco 4](bloco-4-adr-de-plataforma.md).
 
 | Critério | Dado do caso |
 | --- | --- |
@@ -168,13 +170,13 @@ O objetivo deste item é comparar as duas plataformas candidatas com os mesmos c
 | Competência da equipe | Camada web em Java sustentada por 9 pessoas, 6 internas e 3 da fábrica, sem escassez, mas sem experiência em JSF 1.2 nos contratados desde 2021 |
 | Portabilidade | Dois provedores de nuvem pré-aprovados pelo Conselho Universitário em 12/03/2026, com decisões de plataforma portáveis entre os dois, e autenticação por padrões abertos de identidade |
 
-1. Para cada um dos quatro critérios com dado do caso, marque qual das duas plataformas candidatas do Item 1 atende melhor, ou se as duas empatam, e registre o motivo em uma linha com base no dado.
+1. Para cada um dos quatro critérios com dado do caso, que são aderência ao requisito, custo total de propriedade, competência da equipe e portabilidade, marque qual das duas plataformas candidatas do Item 1 atende melhor, ou se as duas empatam, e registre o motivo em uma linha com base no dado.
 2. Para os critérios maturidade e suporte, escreva uma frase que diga qual dado falta e quem poderia fornecê-lo, sem atribuir valor às plataformas, conforme o Item 3 do [exercício 17](bloco-1-definicao-tecnologica-e-trm.md#exercicio-17).
 3. Escolha uma das duas plataformas e justifique a escolha considerando a restrição de convivência com o legado mostrada no diagrama do Item 1.
 
 ### Item 3: Zona de pouso da solução
 
-O objetivo deste item é conferir se a fundação em nuvem proposta cumpre os cinco pilares e as etiquetas obrigatórias. O diagrama abaixo descreve a zona de pouso proposta para a solução nova da ACME, com a organização na nuvem, as cinco contas, a ligação híbrida ao centro de dados onde permanecem o núcleo COBOL e o Oracle, e os recursos da conta de produção.
+O objetivo deste item é conferir se a fundação em nuvem proposta cumpre os cinco pilares da Figura 2 e as etiquetas obrigatórias, para que a solução nova já nasça com os padrões de segurança e de custo da organização. O diagrama abaixo descreve a zona de pouso proposta para a solução nova da ACME, com a organização na nuvem, as cinco contas, a ligação híbrida ao centro de dados onde permanecem o núcleo COBOL e o Oracle, e os recursos da conta de produção. Conta é o espaço separado da nuvem em que ficam os recursos de um ambiente, e a ligação híbrida é o enlace que conecta a nuvem ao centro de dados próprio da ACME.
 
 ```mermaid
 graph LR
@@ -213,7 +215,7 @@ Os três requisitos do [dossiê](../caso-acme/index.md) que orientam o desenho s
 | R14 | Nenhum dado pessoal de aluno é processado fora do território nacional | Jurídico, parecer de 28/04/2026 |
 | R9 | Toda leitura de dado pessoal de aluno é registrada em trilha de auditoria, com retenção de 5 anos | Encarregada de proteção de dados |
 
-A tabela a seguir lista seis recursos da conta de produção com as etiquetas que cada um traz. Os recursos e as etiquetas são ilustrativos e não constam do dossiê.
+A tabela a seguir lista seis recursos da conta de produção com as etiquetas que cada um traz. Etiqueta é um rótulo preso ao recurso, e as quatro obrigatórias são projeto, ambiente, time e centro de custo. O gateway de APIs é o ponto de entrada das chamadas externas, e o bucket é um armazenamento de arquivos na nuvem. Os recursos e as etiquetas são ilustrativos e não constam do dossiê.
 
 | Recurso | Etiquetas que o recurso traz |
 | --- | --- |
@@ -224,7 +226,7 @@ A tabela a seguir lista seis recursos da conta de produção com as etiquetas qu
 | Fila de eventos de notas | projeto, ambiente |
 | Bucket de trilha de auditoria | projeto, ambiente, centro de custo |
 
-1. Associe cada elemento do diagrama ao pilar da zona de pouso, entre os cinco da Figura 2, que ele realiza.
+1. Associe cada elemento do diagrama, como a conta de rede central ou o acesso da equipe por perfil, ao pilar da zona de pouso, entre os cinco da Figura 2, que ele realiza.
 2. Indique as etiquetas obrigatórias que faltam em cada recurso da tabela, ou indique que não falta nenhuma.
 3. Responda em uma linha qual requisito justifica a existência da conta de segurança e registros.
 

@@ -10,7 +10,7 @@ Este bloco trabalha dentro do estilo recomendado no [bloco 2](bloco-2-estilos-ar
 
 ## Três níveis de decisão
 
-Christopher Alexander definiu o padrão como a descrição de um problema que ocorre repetidamente em um ambiente e do núcleo da solução para esse problema, definição adotada também por Gamma et al. (1994) para o software. A definição tem duas consequências práticas. A primeira é que o padrão só se aplica quando o problema que ele descreve está presente, com as forças que o caracterizam. A segunda é que o padrão registra uma solução já testada por outros, com consequências conhecidas, o que permite ao arquiteto antecipar o custo antes de adotá-la.
+O arquiteto de edificações Christopher Alexander definiu o padrão como a descrição de um problema que ocorre repetidamente em um ambiente e do núcleo da solução para esse problema, definição adotada também por Gamma et al. (1994) para o software. A definição tem duas consequências práticas. A primeira é que o padrão só se aplica quando o problema que ele descreve está presente, com as forças que o caracterizam. A segunda é que o padrão registra uma solução já testada por outros, com consequências conhecidas, o que permite ao arquiteto antecipar o custo antes de adotá-la.
 
 Estilo e padrão respondem a perguntas de alcance diferente, e confundir os dois leva a discutir a organização do sistema inteiro quando o problema é local, ou a tratar como decisão local uma escolha que afeta toda a solução. Este bloco adota três níveis, cada um associado a uma pergunta.
 
@@ -30,7 +30,7 @@ Dois termos frequentes nesta discussão precisam de explicação. Strangler Fig 
 
 *Figura 1 — Os três níveis de decisão usados nesta aula, do sistema inteiro à colaboração dentro de uma parte, em material do curso elaborado com base em Gamma et al. (1994) e em Ford e Richards (2020).*
 
-A seleção parte sempre do problema declarado. Um padrão acrescenta elementos, interfaces e comportamento ao desenho, e cada acréscimo que não responde a uma exigência nomeada produz **complexidade acidental**, que é a complexidade introduzida pela solução e ausente do problema. O critério de adoção é a existência de evidência de necessidade, como um cenário de qualidade não atendido, um incidente registrado ou uma restrição que fecha as demais alternativas, e a popularidade do padrão ou a familiaridade da equipe com ele não constituem evidência. O repertório abaixo reúne dez padrões agrupados pelo tipo de problema que resolvem, e cada um é descrito pelos mesmos seis aspectos, problema, contexto e forças, estrutura mínima, consequência favorável, custo e sinal de uso inadequado.
+A seleção parte sempre do problema declarado. Um padrão acrescenta elementos, interfaces e comportamento ao desenho, e cada acréscimo que não responde a uma exigência nomeada produz **complexidade acidental**, que é a complexidade introduzida pela solução e ausente do problema. O critério de adoção é a existência de evidência de necessidade, como um cenário de qualidade não atendido, um incidente registrado ou uma restrição que fecha as demais alternativas, e a popularidade do padrão ou a familiaridade da equipe com ele não constituem evidência. O repertório abaixo reúne dez padrões agrupados pelo tipo de problema que resolvem. Em modernização e integração estão Strangler Fig, Anti-Corruption Layer, Adapter e API Gateway, em resiliência estão Timeout, Retry com limite, Circuit Breaker e Bulkhead, e em consistência entre partes distribuídas estão Transactional Outbox e Saga. Cada um é descrito pelos mesmos seis aspectos, problema, contexto e forças, estrutura mínima, consequência favorável, custo e sinal de uso inadequado.
 
 ### Modernização e integração
 
@@ -184,11 +184,11 @@ O arquiteto seleciona um padrão pelo problema declarado e registra, junto com a
 
 ## Exercício 11
 
-Este exercício treina a escolha de padrões a partir de problemas concretos, com o custo de cada escolha declarado. A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. No [exercício 10](bloco-2-estilos-arquiteturais.md#exercicio-10), o aluno recomendou um estilo arquitetural para a modernização, e agora seleciona padrões dentro desse estilo para três problemas da ACME. O primeiro é a coexistência entre o sistema legado e a solução nova, o segundo é a proteção contra falha de integração, e o terceiro é a publicação confiável de mudança acadêmica. Os dados de cada problema foram reproduzidos da [arquitetura de linha de base](../caso-acme/linha-de-base.md) e dos [dados operacionais](../caso-acme/dados-operacionais.md). O mapa de problema, padrão e consequência produzido aqui é a entrada do ADR do exercício 12, no [bloco 4](bloco-4-registro-de-decisao-arquitetural.md).
+Este exercício treina a escolha de padrões a partir de problemas concretos, com o custo de cada escolha declarado, porque um padrão só se justifica quando resolve um problema real e o custo é aceito de forma consciente. A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. No [exercício 10](bloco-2-estilos-arquiteturais.md#exercicio-10), o aluno recomendou um estilo arquitetural para a modernização, e agora seleciona padrões dentro desse estilo. O enunciado traz três problemas da ACME, um por item. O primeiro é a coexistência entre o sistema legado e a solução nova, o segundo é a proteção contra falha de integração, e o terceiro é a publicação confiável de mudança acadêmica. Os dados de cada problema foram reproduzidos da [arquitetura de linha de base](../caso-acme/linha-de-base.md) e dos [dados operacionais](../caso-acme/dados-operacionais.md). Em cada item, o aluno escolhe um padrão entre os dez do repertório acima e registra a consequência e o custo da escolha. O conjunto das três respostas forma o mapa de problema, padrão e consequência, que é a entrada do ADR do exercício 12, no [bloco 4](bloco-4-registro-de-decisao-arquitetural.md).
 
 ### Item 1: Coexistência entre legado e solução nova
 
-O núcleo COBOL sobre CICS permanece em operação durante toda a transição. A camada Java tem 2.300 pontos de código que leem ou gravam as tabelas do núcleo diretamente, sem passar pelas transações do CICS, e só a fábrica contratada, empresa que mantém o núcleo, pode alterar os programas dele, até 30/09/2027. O diagrama abaixo mostra essa situação.
+O primeiro problema é fazer o sistema novo conviver com o antigo sem parar a operação. O núcleo COBOL, que roda sobre o CICS (monitor que executa as transações do núcleo), permanece em operação durante toda a transição. A camada Java dos portais tem 2.300 pontos de código que leem ou gravam as tabelas do núcleo diretamente, sem passar pelas transações do CICS, e só a fábrica contratada, empresa que mantém o núcleo, pode alterar os programas dele, até 30/09/2027. Por isso o elemento novo não pode exigir mudança no núcleo, como mostra o diagrama abaixo.
 
 ```mermaid
 graph LR
@@ -199,12 +199,12 @@ graph LR
     NOVO["Elemento novo da solução"] -.->|"precisa conviver com"| CICS
 ```
 
-1. Escolha um padrão do repertório deste bloco para o problema, ou mais de um quando resolverem aspectos distintos do mesmo problema, e indique o nível de cada padrão na taxonomia de três níveis.
-2. Registre o elemento afetado do esboço lógico produzido no [exercício 9](bloco-1-principios-de-design.md#exercicio-9), a consequência favorável esperada e o custo aceito. Quem não tem o esboço lógico pode indicar como elemento afetado o componente correspondente do diagrama acima.
+1. Escolha um padrão do repertório deste bloco para o problema, ou mais de um quando resolverem aspectos distintos do mesmo problema, e indique o nível de cada padrão na tabela de três níveis (estilo arquitetural, padrão arquitetural ou padrão de design) apresentada no início do bloco.
+2. Registre três informações, o elemento afetado do esboço lógico produzido no [exercício 9](bloco-1-principios-de-design.md#exercicio-9), a consequência favorável esperada e o custo aceito. Quem não tem o esboço lógico pode indicar como elemento afetado o componente correspondente do diagrama acima.
 
 ### Item 2: Proteção contra falha de integração
 
-Os portais chamam o CICS por conector transacional síncrono com tempo limite de 30 s, e no incidente de 04/02/2026 sessões abandonadas mantiveram transações abertas até esgotar o limite de tarefas concorrentes, com 4h20 de indisponibilidade e 62% de erro nas tentativas de matrícula. O diagrama abaixo mostra a sequência do incidente.
+O segundo problema é impedir que a falha de um componente derrube os demais. Os portais chamam o CICS por um conector transacional síncrono, isto é, a chamada fica esperando a resposta, com tempo limite de 30 s. No incidente de 04/02/2026 sessões abandonadas mantiveram transações abertas até esgotar o limite de tarefas concorrentes, com 4h20 de indisponibilidade e 62% de erro nas tentativas de matrícula, na sequência que o diagrama abaixo mostra.
 
 ```mermaid
 flowchart TB
@@ -214,12 +214,12 @@ flowchart TB
     S4 --> S5["4h20 de indisponibilidade e 62% de erro na matrícula"]
 ```
 
-1. Escolha um padrão do repertório deste bloco para o problema, ou mais de um quando resolverem aspectos distintos do mesmo problema, e indique o nível de cada padrão na taxonomia de três níveis.
-2. Registre o elemento afetado do esboço lógico produzido no [exercício 9](bloco-1-principios-de-design.md#exercicio-9), a consequência favorável esperada e o custo aceito. Quem não tem o esboço lógico pode indicar como elemento afetado o componente correspondente do diagrama acima.
+1. Escolha um padrão do repertório deste bloco para o problema, ou mais de um quando resolverem aspectos distintos do mesmo problema, e indique o nível de cada padrão na tabela de três níveis (estilo arquitetural, padrão arquitetural ou padrão de design) apresentada no início do bloco.
+2. Registre três informações, o elemento afetado do esboço lógico produzido no [exercício 9](bloco-1-principios-de-design.md#exercicio-9), a consequência favorável esperada e o custo aceito. Quem não tem o esboço lógico pode indicar como elemento afetado o componente correspondente do diagrama acima.
 
 ### Item 3: Publicação confiável de mudança acadêmica
 
-O requisito R7 do caso exige que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. A exportação atual ocorre em lote diário iniciado às 05h10, e a janela de fechamento chega a 360.000 lançamentos. A integração por interface de programação exige o plano do ambiente virtual com acréscimo de 38% sobre o valor anual do contrato vigente. O diagrama abaixo mostra o caminho atual da nota.
+O terceiro problema é fazer a nota chegar rápido ao ambiente virtual de aprendizagem. O requisito R7, o sétimo da lista de declarações das partes interessadas, exige que a nota lançada pelo professor chegue a esse ambiente em até 10 minutos. A exportação atual ocorre em lote diário iniciado às 05h10, e a janela de fechamento chega a 360.000 lançamentos. A integração por interface de programação (API), que permitiria enviar cada nota no momento do lançamento, exige o plano do ambiente virtual com acréscimo de 38% sobre o valor anual do contrato vigente, e o diagrama abaixo mostra o caminho atual da nota.
 
 ```mermaid
 flowchart TB
@@ -229,8 +229,8 @@ flowchart TB
     R7["R7, até 10 minutos entre o lançamento e a chegada"] -.- AVA
 ```
 
-1. Escolha um padrão do repertório deste bloco para o problema, ou mais de um quando resolverem aspectos distintos do mesmo problema, e indique o nível de cada padrão na taxonomia de três níveis.
-2. Registre o elemento afetado do esboço lógico produzido no [exercício 9](bloco-1-principios-de-design.md#exercicio-9), a consequência favorável esperada e o custo aceito. Quem não tem o esboço lógico pode indicar como elemento afetado o componente correspondente do diagrama acima.
+1. Escolha um padrão do repertório deste bloco para o problema, ou mais de um quando resolverem aspectos distintos do mesmo problema, e indique o nível de cada padrão na tabela de três níveis (estilo arquitetural, padrão arquitetural ou padrão de design) apresentada no início do bloco.
+2. Registre três informações, o elemento afetado do esboço lógico produzido no [exercício 9](bloco-1-principios-de-design.md#exercicio-9), a consequência favorável esperada e o custo aceito. Quem não tem o esboço lógico pode indicar como elemento afetado o componente correspondente do diagrama acima.
 3. Indique um padrão que você considerou e descartou para um dos três problemas deste exercício, com o motivo do descarte ligado ao contexto da ACME.
 
 ## Fontes

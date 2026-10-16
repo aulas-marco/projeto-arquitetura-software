@@ -1,6 +1,6 @@
 # Partes interessadas, pontos de vista e escopo
 
-Este bloco trata de quem decide sobre a solução, como essas pessoas são identificadas e avaliadas, como suas preocupações são tratadas por pontos de vista e visões, e como o escopo da mudança é declarado.
+Este bloco trata de quem decide sobre a solução, como essas pessoas são identificadas e avaliadas, como suas preocupações são tratadas por pontos de vista e visões, e como o escopo da mudança é declarado. Parte interessada é qualquer pessoa, equipe ou organização com interesse na solução, como a Reitora ou a empresa que mantém o sistema. Escopo é a delimitação do que a mudança altera e do que continua como está.
 
 ## Antes de começar
 
@@ -60,12 +60,14 @@ O patrocinador precisa decidir sobre escopo, valor e dependências organizaciona
 
 #### Visão de segurança C2 para a equipe de segurança
 
-A equipe de segurança precisa localizar superfícies expostas, dados pessoais, integrações frágeis e pontos onde os controles devem operar. O nível C2 do modelo C4 decompõe o Sistema Acadêmico em contêineres e preserva sua fronteira de responsabilidade. As relações em laranja destacam exposições da linha de base, enquanto as relações verdes mostram controles requeridos. A tecnologia dos portais é identificada como Java legado com JSF 1.2 e EJB 2.0 para documentar a situação atual, não para recomendá-la. A trilha de auditoria aparece como controle exigido pelo requisito R9, e não como componente já existente.
+A equipe de segurança precisa localizar superfícies expostas, dados pessoais, integrações frágeis e pontos onde os controles devem operar. O nível C2 do modelo C4 decompõe o Sistema Acadêmico em contêineres e preserva sua fronteira de responsabilidade. Um contêiner, nesse modelo, é uma parte do sistema que executa por conta própria e guarda ou processa dados, como um portal web, o núcleo COBOL ou o banco de dados. As relações em laranja destacam exposições da linha de base, enquanto as relações verdes mostram controles requeridos. A tecnologia dos portais é identificada como Java legado com JSF 1.2 e EJB 2.0, isto é, tecnologias Java dos anos 2007 a 2009 para montar as telas web e os componentes de servidor, cujo servidor de aplicação saiu de suporte do fornecedor em 2018, o que a visão registra para documentar a situação atual, não para recomendá-la. A trilha de auditoria aparece como controle exigido pelo requisito R9 da lista do caso, que determina o registro de toda leitura de dado pessoal de aluno, e não como componente já existente.
 
 <figure markdown="span">
 ![Visão de contêineres C2 da ACME destinada à equipe de segurança. Dentro da fronteira do Sistema Acadêmico aparecem os portais web, o núcleo COBOL sobre CICS, a integração em lote, o banco Oracle e a trilha de auditoria requerida. Relações destacam autenticação, acesso direto ao banco, conectores proprietários, arquivos posicionais e registro de acesso a dados pessoais.](../assets/images/modulo-2-visao-seguranca-c2.svg){ .module-diagram }
 <figcaption>Visão C2 de segurança, linha de base atual da ACME em 2026: contêineres, fronteiras de confiança, riscos existentes e controles requeridos.</figcaption>
 </figure>
+
+A legenda da figura cita fronteiras de confiança, que são as linhas que separam partes do sistema com níveis diferentes de confiança, como a fronteira entre o navegador do aluno e o portal. Tudo o que atravessa uma dessas linhas precisa ser verificado e protegido, e por isso a equipe de segurança olha primeiro para elas. O [glossário](../referencia/glossario.md#fronteira-de-confianca) traz a definição completa.
 
 #### Visão de rastreabilidade para o gestor
 
@@ -92,13 +94,13 @@ Os pontos de vista servem para não travar a discussão em um modelo único. Apr
 
 ## Exercício 8
 
-Este exercício treina a identificação das partes interessadas do caso, a definição de pontos de vista e a declaração de escopo do primeiro ciclo. Nas conversas com as partes interessadas, o arquiteto da ACME registrou oito papéis, que formam o mapa de atores do dossiê e aparecem no Item 1.
+Este exercício treina a identificação das partes interessadas do caso, a definição de pontos de vista e a declaração de escopo do primeiro ciclo. Quem decide sobre a solução, o que cada pessoa teme e o que fica dentro da mudança são perguntas que o arquiteto responde antes de desenhar, e o exercício as pratica em quatro itens. Nas conversas com as partes interessadas, o arquiteto da ACME registrou oito papéis, como a Reitora e o Gerente de sustentação da fábrica de software, que formam o mapa de atores do dossiê e aparecem no Item 1. O Item 1 classifica esses papéis, o Item 2 procura categorias de parte interessada sem representante, o Item 3 define pontos de vista para três papéis e o Item 4 declara o escopo do primeiro ciclo.
 
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 2.150 professores, 1.480 técnico-administrativos e 4 campi, cujo sistema acadêmico está em operação desde 2004 e é mantido por uma fábrica de software contratada, sob contrato de sustentação vigente até 30/09/2027. A declaração de escopo marcada no Item 4 é o ponto de partida do [exercício 13](../modulo-4-dominios-da-solucao/bloco-1-arquitetura-de-negocio.md#exercicio-13) da Aula 4.
 
 ### Item 1: Categoria de cada papel
 
-O diagrama abaixo mostra os oito papéis do mapa de atores do caso, com a área a que cada um pertence, e o quadro seguinte reproduz o que cada papel quer e o que teme.
+O aluno precisa saber que tipo de interesse cada papel representa, porque o tipo define como o arquiteto se comunica com ele. O diagrama abaixo mostra os oito papéis do mapa de atores do caso, com a área a que cada um pertence, e o quadro seguinte reproduz o que cada papel quer e o que teme.
 
 ```mermaid
 flowchart LR
@@ -124,12 +126,12 @@ flowchart LR
 | Encarregada de proteção de dados | Conformidade com a LGPD, base legal declarada e trilha de auditoria sobre dado pessoal | Transferência de dado de aluno para fora do território nacional sem amparo |
 | Representação discente | Aplicativo móvel e matrícula que não falhe na abertura | Perda de vaga em disciplina por indisponibilidade do portal |
 
-1. Classifique os oito papéis nas categorias de parte interessada apresentadas na seção [Categorias de parte interessada](#categorias-de-parte-interessada) deste bloco.
+1. Classifique cada um dos oito papéis em uma das nove categorias de parte interessada apresentadas na seção [Categorias de parte interessada](#categorias-de-parte-interessada) deste bloco, e registre a categoria ao lado do papel.
 2. Indique qual dos oito papéis exerce o papel de patrocinador de negócio, com justificativa.
 
 ### Item 2: Categorias sem representante
 
-O quadro abaixo lista as nove categorias de parte interessada, com uma coluna em branco para o papel do mapa de atores que representa cada uma.
+Se uma categoria de parte interessada não tem representante entre os oito papéis, o arquiteto corre o risco de ignorar uma preocupação importante. O quadro abaixo lista as nove categorias de parte interessada da seção [Categorias de parte interessada](#categorias-de-parte-interessada), com uma coluna em branco para o papel do mapa de atores que representa cada uma.
 
 | Categoria | Papel do mapa de atores que a representa |
 | --- | --- |
@@ -148,7 +150,7 @@ O quadro abaixo lista as nove categorias de parte interessada, com uma coluna em
 
 ### Item 3: Ponto de vista para três papéis
 
-Um [ponto de vista](../referencia/glossario.md#ponto-de-vista) declara o critério de seleção, a estrutura do artefato e a forma de apresentação, e a [visão](../referencia/glossario.md#visao) é o resultado de aplicá-lo à descrição de arquitetura. O quadro abaixo traz, na primeira linha, o exemplo do gestor descrito na seção [Pontos de vista na prática](#pontos-de-vista-na-pratica), e deixa três linhas em branco.
+Cada parte interessada precisa de um recorte diferente da descrição da arquitetura, e o ponto de vista é a regra que define esse recorte. Um [ponto de vista](../referencia/glossario.md#ponto-de-vista) declara o critério de seleção, isto é, o que entra no recorte, a estrutura do artefato, isto é, o formato do documento, e a forma de apresentação, isto é, como a informação é mostrada. A [visão](../referencia/glossario.md#visao) é o resultado de aplicá-lo à descrição de arquitetura. O quadro abaixo traz, na primeira linha, o exemplo do gestor descrito na seção [Pontos de vista na prática](#pontos-de-vista-na-pratica), e deixa três linhas em branco para o aluno preencher.
 
 | Papel | Preocupação principal | Critério de seleção | Estrutura do artefato | Forma de apresentação |
 | --- | --- | --- | --- | --- |
@@ -157,11 +159,11 @@ Um [ponto de vista](../referencia/glossario.md#ponto-de-vista) declara o critér
 | | | | | |
 | | | | | |
 
-1. Escolha três papéis do mapa de atores do Item 1 e preencha uma linha do quadro para cada um, seguindo o exemplo do gestor.
+1. Escolha três papéis do mapa de atores do Item 1 e preencha uma linha do quadro para cada um, seguindo o exemplo do gestor. Use como ponto de partida a coluna O que teme do quadro do Item 1 para escrever a preocupação principal.
 
 ### Item 4: Declaração de escopo do primeiro ciclo
 
-O quadro abaixo lista dez elementos do sistema acadêmico e do seu entorno, com duas colunas em branco. A declaração de escopo registra o que muda no primeiro ciclo de 12 meses e o que permanece, e cada exclusão precisa indicar de onde veio.
+A declaração de escopo diz o que a mudança altera e o que fica de fora, e cada exclusão precisa de uma origem para que ninguém a reabra sem saber quem a decidiu. O quadro abaixo lista dez elementos do sistema acadêmico e do seu entorno, numerados de E1 a E10, com duas colunas em branco. Dois deles são o ambiente virtual de aprendizagem, E2, a plataforma de ensino a distância da ACME, e os programas COBOL do núcleo, E4. O E10, responsabilidade pela correção de dado cadastral de aluno, refere-se a quem corrige o dado de cadastro, como nome ou situação do aluno, quando ele está errado. Hoje a correção é feita pela equipe de sustentação, que pertence à fábrica de software contratada, e a decisão registrada na [Aula 1](../modulo-1-fundamentos/bloco-1-arquitetura-de-solucoes-e-de-software.md#exercicio-1) é que a Secretaria Acadêmica passe a responder por ela. O item pergunta se essa responsabilidade muda ou permanece no primeiro ciclo.
 
 | Código | Elemento | Muda ou permanece | Origem da exclusão |
 | --- | --- | --- | --- |
@@ -176,8 +178,8 @@ O quadro abaixo lista dez elementos do sistema acadêmico e do seu entorno, com 
 | E9 | Região de implantação dos componentes em nuvem | | |
 | E10 | Responsabilidade pela correção de dado cadastral de aluno | | |
 
-1. Marque cada elemento como muda ou permanece no primeiro ciclo de 12 meses.
-2. Indique, para cada elemento que permanece, a origem da exclusão, entre as restrições fechadas do caso (as sete listadas no Item 5 do [exercício 7](bloco-3-cenarios-linha-de-base-e-restricoes.md#exercicio-7)), os contratos vigentes e as decisões de governança registradas no dossiê. O quadro marcado constitui a declaração de escopo do primeiro ciclo.
+1. Marque cada um dos dez elementos como muda ou permanece no primeiro ciclo de 12 meses, na coluna Muda ou permanece.
+2. Indique, para cada elemento que permanece, a origem da exclusão na coluna Origem da exclusão, escolhendo entre as restrições fechadas do caso (as sete listadas no Item 5 do [exercício 7](bloco-3-cenarios-linha-de-base-e-restricoes.md#exercicio-7)), os contratos vigentes e as decisões de governança registradas no dossiê. O quadro preenchido constitui a declaração de escopo do primeiro ciclo.
 
 ## Fontes
 

@@ -1,13 +1,13 @@
 # Arquitetura de infraestrutura da solução
 
-Este bloco conclui o detalhamento por domínios e responde onde a solução executa, como suas partes se conectam e o que cada interface exige, sem escolher produto ou provedor, decisão reservada à Aula 5.
+Este bloco é o quarto e último dos domínios da Aula 4. Infraestrutura é o conjunto de equipamentos, redes e serviços sobre o qual a solução executa. O bloco responde a três perguntas, onde a solução executa, como suas partes se conectam e o que cada interface exige da comunicação, e não escolhe produto nem provedor de nuvem, decisão reservada à Aula 5, em que se definem as tecnologias da solução.
 
 ## Antes de começar
 
 - [Arquitetura de infraestrutura](../referencia/glossario.md#arquitetura-de-infraestrutura)
 - [Modelo C4](../referencia/glossario.md#modelo-c4)
 - [Bloco de construção da solução](../referencia/glossario.md#bloco-de-construcao-da-solucao)
-- Diagrama de contexto corrigido no [exercício 15](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#exercicio-15)
+- Diagrama de contexto corrigido no [exercício 15](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#exercicio-15), que fixa quais elementos ficam dentro e fora da fronteira da solução
 
 ## Infraestrutura e contêineres
 
@@ -112,18 +112,40 @@ O arquiteto usa a visão de infraestrutura para converter cada contêiner do [di
 
 ## Exercício 16
 
-A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. O exercício mostra como a infraestrutura converte o desenho da solução em exigências para a Aula 5, ao rotular as relações entre contêineres, ligá-las a dois requisitos e posicionar o sistema legado. Ele parte do diagrama de contexto corrigido no [exercício 15](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#exercicio-15) e de fatos reproduzidos dos [dados operacionais](../caso-acme/dados-operacionais.md), da [arquitetura de linha de base](../caso-acme/linha-de-base.md) e da [página inicial do caso](../caso-acme/index.md).
+O exercício 16 mostra como a infraestrutura converte o desenho da solução em exigências para a Aula 5. A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. O enunciado traz o diagrama de contêineres da arquitetura alvo do primeiro ciclo, com 15 relações numeradas. Um contêiner, no modelo C4, é uma aplicação, um serviço ou um banco de dados executável que compõe o sistema, como o Serviço de notas ou o Banco Oracle. Uma relação é uma seta entre dois elementos do diagrama, por onde um deles chama o outro. O aluno faz três coisas, uma por item. No item 1, rotula cada relação com o que ela exige da comunicação. No item 2, liga as relações aos requisitos R6 e R7. No item 3, decide a posição do núcleo transacional, o sistema central da ACME escrito em COBOL, em relação à fronteira da solução.
+
+O exercício parte do diagrama de contexto corrigido no [exercício 15](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#exercicio-15), que fixou quais elementos ficam dentro e fora da fronteira, e de fatos reproduzidos dos [dados operacionais](../caso-acme/dados-operacionais.md), da [arquitetura de linha de base](../caso-acme/linha-de-base.md) e da [página inicial do caso](../caso-acme/index.md).
 
 ### Item 1: Modo, volume e latência das relações
 
-Este item descreve o que cada relação entre contêineres exige da comunicação. O diagrama abaixo é o diagrama de contêineres da arquitetura alvo do primeiro ciclo, coerente com o diagrama de contexto corrigido no exercício 15. Os contêineres novos, que são o aplicativo do aluno, o serviço de matrícula, o serviço de notas e o banco próprio de cada um desses dois serviços, levam o rótulo tecnologia a definir na Aula 5. O Portal do Professor e o Portal da Secretaria são contêineres existentes, mantidos no primeiro ciclo, e o núcleo transacional COBOL continua gravando no banco Oracle existente. As relações estão apenas numeradas, sem rótulo de comunicação, e as relações 12 a 15 ligam os serviços novos aos seus bancos, o aplicativo do aluno ao serviço de notas e o Portal da Secretaria ao núcleo.
+Este item descreve o que cada relação entre contêineres exige da comunicação. O modo de comunicação é síncrono, quando quem chama espera a resposta, ou assíncrono, quando quem chama segue adiante e a resposta ou o efeito chega depois. O volume é quanto passa pela relação, por exemplo o número de sessões ou de lançamentos de nota, e a latência é o tempo que a troca pode levar. O diagrama abaixo é o diagrama de contêineres da arquitetura alvo do primeiro ciclo, coerente com o diagrama de contexto corrigido no exercício 15. Os contêineres novos, que são o aplicativo do aluno, o serviço de matrícula, o serviço de notas e o banco próprio de cada um desses dois serviços, levam o rótulo tecnologia a definir na Aula 5. O Portal do Professor e o Portal da Secretaria são contêineres existentes, mantidos no primeiro ciclo, e o núcleo transacional COBOL continua gravando no banco Oracle existente. As relações estão apenas numeradas, sem rótulo de comunicação, e as relações 12 a 15 ligam os serviços novos aos seus bancos, o aplicativo do aluno ao serviço de notas e o Portal da Secretaria ao núcleo.
 
 <figure markdown="span">
 ![Diagrama de contêineres da arquitetura alvo do primeiro ciclo da ACME. No alto, professor, aluno e secretaria acadêmica. Dentro da fronteira do sistema acadêmico, o Portal do Professor e o Portal da Secretaria existentes, o aplicativo do aluno, os serviços de notas e de matrícula com banco próprio cada um e tecnologia a definir, e o núcleo transacional COBOL existente com o banco Oracle existente. À direita, fora da fronteira, provedor de identidade, assinador digital ICP-Brasil, ambiente virtual de aprendizagem, gateway de pagamento, ERP financeiro e órgão regulador. As relações estão numeradas de 1 a 15, em linhas ortogonais e sem rótulo de comunicação.](../assets/images/acme-ex16-diagrama-de-conteineres.svg){ .module-diagram }
 </figure>
 
 
-A tabela traz os volumes registrados nos dados operacionais.
+A tabela abaixo diz quais elementos cada relação liga, com a origem na ponta de quem chama, e não traz o modo, o volume nem a latência, que são a resposta do item.
+
+| Relação | Origem | Destino |
+| --- | --- | --- |
+| 1 | Aplicativo do aluno | Serviço de matrícula |
+| 2 | Portal do Professor | Serviço de notas |
+| 3 | Serviço de matrícula | Núcleo transacional COBOL |
+| 4 | Serviço de notas | Núcleo transacional COBOL |
+| 5 | Núcleo transacional COBOL | Banco Oracle |
+| 6 | Serviço de notas | Ambiente virtual de aprendizagem |
+| 7 | Serviço de matrícula | Gateway de pagamento |
+| 8 | Aplicativo do aluno | Provedor de identidade |
+| 9 | Portal da Secretaria | Assinador digital ICP-Brasil |
+| 10 | Núcleo transacional COBOL | ERP financeiro |
+| 11 | Núcleo transacional COBOL | Órgão regulador |
+| 12 | Serviço de matrícula | Banco do serviço de matrícula |
+| 13 | Serviço de notas | Banco do serviço de notas |
+| 14 | Aplicativo do aluno | Serviço de notas |
+| 15 | Portal da Secretaria | Núcleo transacional COBOL |
+
+A tabela seguinte traz os volumes registrados nos dados operacionais.
 
 | Fato | Valor |
 | --- | --- |
@@ -139,7 +161,7 @@ As relações rotuladas neste item são a lista de exigências de comunicação 
 
 ### Item 2: Relações ligadas aos requisitos
 
-Este item mostra quais relações do desenho sustentam os requisitos de desempenho do caso. Os dois requisitos abaixo, da página inicial do caso, fixam tempo de resposta e prazo de propagação para relações do diagrama do item 1.
+Este item mostra quais relações do desenho sustentam os requisitos de desempenho do caso. Uma relação sustenta diretamente um requisito quando faz parte do caminho percorrido pela operação que o requisito mede, no R6 a confirmação da matrícula e no R7 a chegada da nota ao ambiente virtual. Os dois requisitos abaixo, da página inicial do caso, fixam tempo de resposta e prazo de propagação para relações do diagrama do item 1. O percentil 95 do R6 é o valor abaixo do qual ficam 95% das respostas.
 
 | Código | Declaração |
 | --- | --- |
@@ -159,7 +181,7 @@ graph LR
 
 ### Item 3: Núcleo transacional na arquitetura alvo
 
-Este item decide se o núcleo COBOL fica dentro ou fora da fronteira da solução, a partir de quem responde por ele. O núcleo transacional executa sob o monitor CICS em ambiente de grande porte no centro de dados da ACME, e as restrições abaixo constam da página inicial do caso e dos dados operacionais. A ACME detém a responsabilidade pelo núcleo e terceiriza à fábrica contratada apenas a manutenção dos programas COBOL. O diagrama de implantação parcial, na notação C4 da seção [Diagrama de implantação em C4](#diagrama-de-implantacao-em-c4), mostra onde ficam o núcleo e os dois serviços novos que o chamam.
+Este item decide se o núcleo COBOL fica dentro ou fora da fronteira da solução, a partir de quem responde por ele. A fronteira é a linha do diagrama de contêineres que separa o que a equipe da solução evolui e opera do que outra parte mantém. O núcleo transacional executa sob o monitor CICS, o programa que recebe e processa cada transação, em ambiente de grande porte, o computador central da instituição, no centro de dados da ACME. As restrições abaixo constam da página inicial do caso e dos dados operacionais. A ACME detém a responsabilidade pelo núcleo e terceiriza à fábrica contratada apenas a manutenção dos programas COBOL. O diagrama de implantação parcial, na notação C4 da seção [Diagrama de implantação em C4](#diagrama-de-implantacao-em-c4), mostra onde ficam o núcleo e os dois serviços novos que o chamam, os serviços de matrícula e de notas, que são as relações 3 e 4 da tabela do item 1.
 
 | Restrição | Origem |
 | --- | --- |

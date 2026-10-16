@@ -105,11 +105,13 @@ O ciclo também organiza a conversa sobre incerteza. Quando o patrocinador pergu
 
 ## Exercício 4
 
-A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 4.900 turmas por semestre e 230.400 matrículas em disciplina por semestre, cujo sistema acadêmico está em operação desde 2004 e sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro. A modernização foi autorizada pela Reitoria com orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses.
+A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 4.900 turmas por semestre e 230.400 matrículas em disciplina por semestre, cujo sistema acadêmico está em operação desde 2004 e sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro, o sistema de gestão das finanças da universidade. A modernização foi autorizada pela Reitoria com orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses.
+
+O arquiteto trabalha em fases, e cada fase usa documentos produzidos pelas anteriores e deixa documentos para as seguintes. Saber em que fase cada documento aparece evita cobrar do arquiteto, cedo demais, algo que só existe mais adiante. Este exercício usa o ciclo de oito fases da tabela da seção [As oito fases](#as-oito-fases) e o caderno arquitetural, o documento em que o curso reúne, seção por seção, a arquitetura da solução da ACME. No Item 1 você liga dez artefatos do caso às fases e às seções do caderno. No Item 2 você trata de um pedido que ainda não pode ser atendido, a data de conclusão do ciclo.
 
 ### Item 1: Fase e papel de cada artefato
 
-O quadro abaixo traz dez artefatos do caso, alguns já existentes e outros ainda por produzir. Um [artefato de linha de base](../referencia/glossario.md#artefato-de-linha-de-base) é aquele que já descreve a situação atual antes do início do processo, conforme a seção [Conceito](#conceito) deste bloco.
+Artefato é qualquer documento ou modelo que o trabalho usa ou produz, como o mapa de atores, que registra o que cada área da universidade quer e teme, ou o inventário dos componentes atuais do sistema. O quadro abaixo traz dez artefatos do caso, numerados de A1 a A10, alguns já existentes e outros ainda por produzir. Cada artefato tem um papel: entrada, quando a fase o recebe pronto, produto intermediário, quando ele é produzido para alimentar uma fase seguinte, ou entregável, quando é o resultado entregue ao patrocinador de negócio, o responsável último pela solução. Um [artefato de linha de base](../referencia/glossario.md#artefato-de-linha-de-base) é aquele que já descreve a situação atual antes do início do processo, conforme a seção [Conceito](#conceito) deste bloco.
 
 | Código | Artefato |
 | --- | --- |
@@ -124,7 +126,7 @@ O quadro abaixo traz dez artefatos do caso, alguns já existentes e outros ainda
 | A9 | Documento que autoriza a equipe de arquitetura a iniciar a investigação, com prazo e entregáveis |
 | A10 | Conjunto de modelos da solução implantada, devolvido ao repositório de arquitetura corporativa |
 
-1. Associe cada um dos dez artefatos à fase do ciclo em que ele é produzido ou usado como entrada, e indique se ele é entrada, produto intermediário ou entregável.
+1. Indique, para cada um dos dez artefatos, a fase do ciclo em que ele é produzido ou usado como entrada, entre iniciação, descoberta, definição do esboço da solução, análise, desenho lógico, validação, desenvolvimento do roteiro e conclusão, e diga se ele é entrada, produto intermediário ou entregável.
 2. Identifique quais artefatos do quadro são artefatos de linha de base, isto é, já existiam antes do início do processo.
 3. Indique a seção do caderno, entre as do [template](../caderno/template.md), em que cada artefato fica registrado.
 
@@ -132,7 +134,7 @@ Suas respostas viram os campos Fase, Papel, Linha de base e Seção do caderno d
 
 ### Item 2: Data de conclusão do ciclo
 
-O diagrama abaixo mostra as oito fases do ciclo e o momento em que a instituição pediu a data de conclusão, logo após a autorização registrada em A9.
+Uma pendência é uma decisão que ainda não pode ser tomada e que o caderno registra, com o nome de quem decide, para que não seja prometida antes da hora. A instituição pediu ao arquiteto a data em que o ciclo termina, e esse pedido é um caso típico. O diagrama abaixo mostra as oito fases do ciclo e o momento em que a data foi pedida, logo após a autorização registrada em A9, o documento que autoriza a equipe de arquitetura a iniciar a investigação.
 
 ```mermaid
 %%{init: {"flowchart": {"curve": "stepAfter"}}}%%

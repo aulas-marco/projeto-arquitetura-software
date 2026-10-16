@@ -7,7 +7,7 @@ Esta página fecha a Aula 3 com quatro partes. A primeira é a lista do que o al
 - A distinção entre objetivo, requisito, princípio, decisão e elemento lógico, com o papel de cada um na justificativa de uma escolha de desenho
 - A anatomia de um princípio de design, com nome, motivação, implicação no desenho e evidência de aplicação, e o teste de perguntar que alternativa o princípio elimina
 - A hierarquia do desenho conceitual ao lógico e os cinco passos da transformação, identificar responsabilidades, agrupar por coesão, declarar interfaces e fluxos, aplicar restrições e princípios, e localizar riscos e decisões pendentes
-- Os sete estilos arquiteturais descritos pelos mesmos aspectos, com o atributo que cada um favorece, o que prejudica e o anti-padrão que denuncia seu uso inadequado
+- Os sete estilos arquiteturais descritos pelos mesmos aspectos, com o atributo que cada um favorece, o que prejudica e o anti-padrão, que é o erro típico de aplicação do estilo e que denuncia seu uso inadequado
 - A taxonomia de três níveis, estilo arquitetural, padrão arquitetural e padrão de design, com a pergunta que cada nível responde
 - Os dez padrões do repertório, cada um com problema, contexto e forças, estrutura mínima, consequência favorável, custo e sinal de uso inadequado
 - O template de ADR em dez campos, com o critério de qualidade e o erro frequente de cada um, e a prática de criar um registro novo e marcar o anterior como substituído quando a decisão muda
@@ -23,7 +23,7 @@ A aula constrói uma única decisão por etapas, e cada etapa usa como ponto de 
 5. O padrão resolve um problema específico dentro do estilo, com custo declarado, selecionado no exercício 11.
 6. A decisão registrada em ADR reúne estilo e padrões com contexto, alternativas, consequências, evidências e gatilho de revisão, escrita no exercício 12.
 
-Um elo ausente nessa cadeia aparece no ADR como força sem origem, alternativa sem comparação ou consequência sem custo, e esses três sinais permitem que quem não participou da decisão revise o registro.
+Um elo ausente nessa cadeia aparece no ADR como força sem origem (um critério que não vem de nenhum princípio, cenário ou restrição), como alternativa sem comparação ou como consequência sem custo, e esses três sinais permitem que quem não participou da decisão revise o registro.
 
 ## Autoavaliação
 
@@ -33,7 +33,7 @@ As afirmações abaixo servem para o aluno conferir, sozinho e sem gabarito púb
 2. Eu produzo um esboço lógico em que nenhum elemento nomeia produto, linguagem, provedor de nuvem ou framework.
 3. Para dois estilos arquiteturais, eu indico o atributo que cada um favorece, o que prejudica e o anti-padrão típico de cada um.
 4. Dado um padrão qualquer do repertório, eu digo em que nível de decisão ele atua e descrevo o sinal de uso inadequado.
-5. Eu escrevo um gatilho de revisão de ADR com medida, valor e janela de observação.
+5. Eu escrevo um gatilho de revisão de ADR, que é a condição que reabre o registro, com medida, valor e janela de observação, como "se a taxa de erro da matrícula ultrapassar 1% durante uma semana, o registro é reaberto".
 
 ## Fontes da aula
 

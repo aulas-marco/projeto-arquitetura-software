@@ -83,11 +83,13 @@ Os três níveis servem para situar o alcance do que está sendo desenhado e par
 
 ## Exercício 2
 
-A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, dos quais 10.200 na graduação a distância, 2.150 professores e 4 campi em 3 cidades. O sistema acadêmico está em operação desde 2004 e sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro.
+A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, dos quais 10.200 na graduação a distância, 2.150 professores e 4 campi em 3 cidades. O sistema acadêmico está em operação desde 2004 e sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro, o sistema de gestão das finanças da universidade.
+
+Uma solução não é só tecnologia. Para o sistema funcionar, alguém precisa aprender a usá-lo, uma área pode ter de mudar a rotina e um contrato pode precisar de aditivo. Cada uma dessas peças é um componente da solução, e o arquiteto os separa em cinco tipos para conferir que nenhum ficou esquecido: pessoas, estruturas organizacionais, processos, informação e tecnologia. Uma universidade também pode ser vista em três níveis encaixados, o sistema de negócio, o sistema de informação e o sistema de TI, descritos na seção [Os três níveis de uma organização](#os-tres-niveis-de-uma-organizacao) deste bloco. Este exercício usa um pedido real da ACME, o requisito R7, para praticar as duas ideias. Requisito é aquilo que uma área da organização exige da solução, e R7 é o código com que esse pedido consta no dossiê do caso. No Item 1 você classifica os componentes por tipo e no Item 2 você situa os fatos da situação atual em cada nível. As respostas dos dois itens vão para o caderno arquitetural, o documento em que o curso reúne, seção por seção, a arquitetura da solução da ACME, apresentado no [bloco 4](bloco-4-processo-de-definicao-da-arquitetura.md#o-caderno-arquitetural).
 
 ### Item 1: Componentes da solução do R7
 
-A Coordenação de Educação a Distância declarou o requisito registrado como R7 no dossiê do caso, segundo o qual a nota lançada pelo professor chega ao ambiente virtual de aprendizagem em até 10 minutos. Hoje essa propagação ocorre por lote diário noturno, o que gera reclamação de aluno a cada fechamento, como mostra o diagrama abaixo. O ambiente virtual permanece em operação e não será substituído, por decisão da Reitoria de 12/03/2026, e o plano do fornecedor que oferece interfaces de programação custa 38% a mais que o plano vigente.
+A Coordenação de Educação a Distância, área que cuida dos cursos a distância da ACME, declarou o requisito R7, segundo o qual a nota lançada pelo professor chega ao ambiente virtual de aprendizagem em até 10 minutos. O ambiente virtual de aprendizagem é a plataforma on-line em que o aluno acompanha as disciplinas e consulta a nota. Hoje a nota segue do núcleo acadêmico, o sistema que registra as notas, para o ambiente virtual por um lote diário noturno, isto é, um envio único de todas as notas do dia, feito à noite, o que gera reclamação de aluno a cada fechamento, como mostra o diagrama abaixo. O ambiente virtual permanece em operação e não será substituído, por decisão da Reitoria de 12/03/2026, e o plano do fornecedor que oferece interfaces de programação custa 38% a mais que o plano vigente.
 
 ```mermaid
 flowchart TB
@@ -97,7 +99,7 @@ flowchart TB
     EAD["Coordenação de Educação a Distância"] -.->|"R7, nota no ambiente virtual em até 10 minutos"| AVA
 ```
 
-O quadro abaixo lista dez componentes candidatos da solução que atende ao R7, sem classificação.
+O enunciado reúne dez componentes que poderiam atender ao R7, numerados de CP1 a CP10, sem classificação. Dois deles são o treinamento dos professores (CP1), que trata de pessoas, e a mensageria entre os dois sistemas (CP8), que é tecnologia, e os demais você classifica por conta própria. Mensageria é o mecanismo que permite a um sistema enviar mensagens a outro assim que algo acontece.
 
 | Código | Componente candidato |
 | --- | --- |
@@ -119,7 +121,7 @@ Suas respostas viram os campos Tipo do componente e Tipo sem componente, na seç
 
 ### Item 2: Os três níveis do R7
 
-O quadro abaixo lista seis elementos da situação atual que determinam o prazo em que a nota chega ao aluno.
+Um elemento da situação atual é um fato sobre como a ACME opera hoje e que influencia o prazo em que a nota chega ao aluno. O quadro abaixo lista seis, numerados de N1 a N6. Dois deles são o calendário acadêmico que fixa a data de fechamento das notas (N2) e a exportação noturna por lote (N6). O sistema de negócio é o que a universidade oferece, o sistema de informação reúne as pessoas, os processos e os registros que cuidam da informação, e o sistema de TI reúne equipamentos e programas. Situar cada elemento em um desses níveis mostra onde o prazo percebido pelo aluno se forma.
 
 | Código | Elemento da situação atual |
 | --- | --- |

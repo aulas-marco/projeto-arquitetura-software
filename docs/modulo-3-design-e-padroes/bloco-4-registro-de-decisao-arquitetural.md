@@ -26,7 +26,7 @@ O efeito do racional vai além do indivíduo. Envolver o time na elaboração do
 
 ### Abordagem leve para registro de decisões
 
-Em projetos ágeis, decisões emergem de forma iterativa, a partir de novos aprendizados ou de mudança de escopo. Abordagens tradicionais como o *Rational Unified Process*, descrito por Kruchten (2004), e o método *Views and Beyond*, de Clements et al. (2010), enfatizam documentação detalhada e extensa. O registro leve adota um caminho incremental e modular, com registros pequenos e acessíveis, escritos em Markdown dentro do próprio repositório do código, que a equipe consegue atualizar à medida que as decisões são tomadas, porque um volume único de documentação tende a ficar desatualizado rapidamente.
+Em projetos ágeis, decisões emergem de forma iterativa, a partir de novos aprendizados ou de mudança de escopo. Abordagens tradicionais enfatizam documentação detalhada e extensa. O *Rational Unified Process*, descrito por Kruchten (2004), é um processo de desenvolvimento de software que prescreve fases e uma grande quantidade de documentos a produzir em cada uma. O método *Views and Beyond*, de Clements et al. (2010), descreve a arquitetura em várias vistas, cada uma voltada a um grupo de leitores, acompanhadas de documentação complementar. O registro leve adota um caminho incremental e modular, com registros pequenos e acessíveis, escritos em Markdown dentro do próprio repositório do código, que a equipe consegue atualizar à medida que as decisões são tomadas, porque um volume único de documentação tende a ficar desatualizado rapidamente.
 
 Duas regras sustentam essa abordagem. A primeira é manter o documento dentro do próprio repositório, em formato leve. A segunda é mantê-lo curto o bastante para que o time de desenvolvimento consiga mantê-lo. Nem todas as decisões serão tomadas de uma vez, nem todas no início do projeto, e documentos pequenos e modulares têm ao menos a chance de serem atualizados.
 
@@ -165,7 +165,7 @@ Quando falta dado para preencher um campo, o caminho é registrar o ADR com esta
 
 ## Exercício 12
 
-Este exercício reúne em um único registro as escolhas feitas nos exercícios 9 a 11, para que a decisão possa ser entendida e revisada por quem não participou dela. A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. O aluno escreve o ADR que registra o estilo escolhido e os padrões que sustentam a estratégia de modernização, no template de dez campos apresentado no Conceito acima, a partir dos produtos dos três exercícios anteriores desta aula.
+Este exercício reúne em um único registro as escolhas feitas nos exercícios 9 a 11, para que a decisão possa ser entendida e revisada por quem não participou dela. A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. O aluno escreve o ADR que registra o estilo escolhido e os padrões que sustentam a estratégia de modernização, no template de dez campos apresentado no Conceito acima, a partir dos produtos dos três exercícios anteriores desta aula, a saber, os princípios e o esboço lógico, a comparação de estilos e o mapa de padrões. O exercício tem dois itens. O item 1 cobre os sete primeiros campos, e o item 2 cobre os três últimos. O produto final é um único documento em Markdown, com os dez campos na ordem do template.
 
 ### Item 1: Origem de cada campo do registro
 
@@ -182,17 +182,17 @@ graph LR
     E11 --> CON["Campo Consequências"]
 ```
 
-O item cobre os cinco primeiros grupos de campos do ADR, e o aluno escreve cada um deles.
+O item cobre sete campos do ADR, reunidos em cinco grupos, e o aluno escreve cada um dos grupos abaixo.
 
 1. título, estado e data
-2. contexto, descrevendo de forma neutra os dois cenários que motivaram a análise e delimitando o que fica fora do registro
+2. contexto, descrevendo de forma neutra os dois cenários que motivaram a análise, o pico de acessos na abertura da matrícula e o incidente de 04/02/2026, e delimitando o que fica fora do registro
 3. forças, derivadas dos princípios priorizados no exercício 9 e dos cenários, com medida sempre que o caso fornecer
 4. alternativas, com os dois estilos comparados e descartados no exercício 10, cada um avaliado pelas mesmas forças do item anterior
 5. decisão, com o estilo escolhido e os padrões do exercício 11, conectando a justificativa às forças listadas
 
 ### Item 2: Consequências, evidências e revisão
 
-As quatro frases abaixo servem de modelo para os campos que costumam sair fracos.
+Os campos de consequências, alternativas e revisão costumam sair fracos quando o autor não sabe como redigi-los. As quatro frases abaixo servem de modelo, e as letras X, Y, Z e W são lacunas que o aluno substitui por dados da própria decisão, como o nome do estilo descartado, a força afetada e a medida observada.
 
 | Campo | Frase-modelo |
 | --- | --- |

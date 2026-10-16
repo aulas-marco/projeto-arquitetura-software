@@ -20,7 +20,7 @@ Esta página fecha o módulo de frameworks e tecnologias com o que precisa perma
 
 A aula converte o desenho lógico em tecnologia por uma cadeia de cinco produtos, e cada exercício consome o produto do anterior.
 
-1. O diagrama de contêineres do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16), recebido da Aula 4, traz as relações rotuladas por modo, volume e latência e os contêineres novos com tecnologia a definir.
+1. O diagrama de contêineres do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16), recebido da Aula 4, mostra as partes executáveis da solução nova, como o serviço de matrícula e o banco do serviço de notas, com as relações rotuladas por modo de comunicação, volume e latência, e os contêineres novos ainda com o rótulo tecnologia a definir.
 2. O [exercício 17](bloco-1-definicao-tecnologica-e-trm.md#exercicio-17) associa os contêineres às categorias do modelo técnico de referência, classifica seis tecnologias da linha de base em verde, âmbar ou vermelho e preenche a parte da matriz de seleção do provedor de identidade que o dossiê permite.
 3. O [exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) escolhe a plataforma para o estilo do exercício 10 pelo quadro comparativo dos seis critérios e avalia a zona de pouso quanto aos pilares e às etiquetas obrigatórias.
 4. O [exercício 19](bloco-3-seguranca-fim-a-fim.md#exercicio-19) classifica os ativos de dado pela LGPD, corrige a grade de permissões pelo menor privilégio e associa as ameaças da fronteira do aplicativo do aluno às categorias STRIDE e aos controles.

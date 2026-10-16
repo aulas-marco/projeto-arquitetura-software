@@ -1,6 +1,6 @@
 # Os quatro domínios numa só solução
 
-Este bloco apresenta, antes do detalhamento de cada domínio, o que o arquiteto de solução recebe, decide e entrega nos domínios de negócio, dados, aplicações e infraestrutura, e como a decisão tomada num domínio se torna a entrada do domínio seguinte.
+Este bloco apresenta, antes do detalhamento de cada domínio, o que o arquiteto de solução recebe, decide e entrega nos domínios de negócio, dados, aplicações e infraestrutura, e como a decisão tomada num domínio se torna a entrada do domínio seguinte. Um domínio é uma área de trabalho da arquitetura, com perguntas e produtos próprios. O bloco não tem exercício, e os quatro blocos seguintes detalham um domínio cada, com um exercício sobre o caso do curso, que é o de uma universidade fictícia.
 
 ## Antes de começar
 
@@ -11,7 +11,7 @@ Este bloco apresenta, antes do detalhamento de cada domínio, o que o arquiteto 
 
 ## O trabalho do arquiteto nos quatro domínios
 
-O arquiteto de solução trabalha sobre uma única solução, delimitada pela declaração de escopo, e a detalha em quatro domínios, na ordem negócio, dados, aplicações e infraestrutura. Em cada domínio, ele consulta os modelos que a arquitetura corporativa e as áreas especialistas já mantêm, decide o que é próprio da solução e entrega ao domínio seguinte a decisão de que ele precisa, como parte do papel apresentado no [bloco 3 da Aula 1](../modulo-1-fundamentos/bloco-3-papel-do-arquiteto-de-solucao.md). O percurso parte do estilo e dos padrões registrados no [ADR da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md) e termina nas exigências que a definição tecnológica da Aula 5 recebe.
+O arquiteto de solução trabalha sobre uma única solução, delimitada pela declaração de escopo, o quadro do exercício 8 que registra o que muda e o que permanece no primeiro ciclo, e a detalha em quatro domínios, na ordem negócio, dados, aplicações e infraestrutura. Em cada domínio, ele consulta os modelos que a arquitetura corporativa e as áreas especialistas já mantêm, decide o que é próprio da solução e entrega ao domínio seguinte a decisão de que ele precisa, como parte do papel apresentado no [bloco 3 da Aula 1](../modulo-1-fundamentos/bloco-3-papel-do-arquiteto-de-solucao.md). O percurso parte do estilo e dos padrões registrados no [ADR da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md) e termina nas exigências que a definição tecnológica da Aula 5 recebe.
 
 A Figura 1 organiza esse percurso em quatro camadas, cada uma com a forma curta da pergunta que o arquiteto responde, detalhada no roteiro da seção Uso pelo arquiteto, e três colunas. A coluna Recebe registra o que chega ao domínio e de quem, a coluna Decide registra o trabalho próprio do arquiteto, e a coluna Entrega registra o produto que segue para o domínio seguinte, indicado pelas setas que ligam a coluna Entrega de uma camada à coluna Recebe da camada abaixo.
 
@@ -23,7 +23,7 @@ A Figura 1 organiza esse percurso em quatro camadas, cada uma com a forma curta 
 
 ### O que o arquiteto faz em cada domínio
 
-A tabela detalha as três colunas da Figura 1 e acrescenta o limite do papel, isto é, o trabalho que o arquiteto de solução consulta ou solicita, sem assumir como tarefa própria.
+A tabela detalha as três colunas da Figura 1 e acrescenta o limite do papel, isto é, o trabalho que o arquiteto de solução consulta ou solicita, sem assumir como tarefa própria. Os termos da tabela são definidos no bloco de cada domínio. Capacidade é o que a organização precisa conseguir fazer, etapa é cada passo do fluxo de valor pelo qual o cliente recebe o serviço, e atividade é cada tarefa de um processo. Dono é quem tem autorização para gravar uma entidade de dados, fonte de verdade é o lugar em que a entidade é registrada com autoridade, e regime de consistência é o atraso com que uma cópia reflete a fonte. Contêiner é cada aplicação, serviço ou banco de dados executável que compõe o sistema.
 
 | Domínio | Recebe, e de quem | Decide | Entrega | Trabalho que não assume |
 | --- | --- | --- | --- | --- |
@@ -33,6 +33,8 @@ A tabela detalha as três colunas da Figura 1 e acrescenta o limite do papel, is
 | Infraestrutura | Contêineres e relações, do domínio de aplicações | Modo, volume e latência de cada relação, camada de execução compatível e topologia | Diagrama de implantação e exigências para a definição tecnológica | Operação da plataforma, que cabe à área de infraestrutura |
 
 Quando um insumo da coluna Recebe não existe, o arquiteto registra a ausência como risco e solicita o artefato à área responsável, procedimento que o [bloco 1](bloco-1-arquitetura-de-negocio.md) detalha para os modelos de negócio.
+
+No caso do curso, o encadeamento funciona assim. O bloco 1 localiza o lançamento de nota como uma atividade afetada. O bloco 2 decide quem é o dono da entidade nota. O bloco 3 escreve o contrato da integração que leva a nota ao ambiente virtual de aprendizagem, a plataforma de ensino a distância da universidade. O bloco 4 rotula essa relação com o prazo de 10 minutos que o requisito de propagação da nota, pedido pela área de Educação a Distância, exige para a nota chegar a essa plataforma.
 
 ### A ordem dos domínios
 

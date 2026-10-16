@@ -1,6 +1,6 @@
 # Qualidade em software e os tipos de requisito
 
-Este bloco responde a uma pergunta que antecede qualquer especificação de sistema, o que se quer dizer com qualidade em software e como essa noção se traduz em requisito passível de análise e verificação.
+Este bloco responde a uma pergunta que antecede qualquer especificação de sistema, o que se quer dizer com qualidade em software e como essa noção se traduz em requisito passível de análise e verificação. Requisito é a descrição do que alguém espera do sistema, como "o aluno consulta o resultado da solicitação pelo portal", e o bloco ensina a separar o que o sistema faz do quão bem ele deve fazer e do que já vem decidido.
 
 ## Antes de começar
 
@@ -83,11 +83,11 @@ As doze dimensões entram em outro momento do trabalho. Elas funcionam como list
 
 ## Exercício 6
 
-Este exercício treina a classificação das declarações que chegam das entrevistas e a reescrita das declarações vagas em requisitos mensuráveis. A ACME, universidade privada brasileira fictícia cujo sistema acadêmico está em modernização, levantou as declarações usadas aqui em entrevistas com as [partes interessadas](../referencia/glossario.md#parte-interessada) e as registrou como foram ditas, sem revisão de texto. A lista completa, com a origem de cada declaração, está na [página inicial do caso](../caso-acme/index.md), e os códigos R2 a R13 do quadro seguem a numeração dessa lista.
+Este exercício treina a classificação das declarações que chegam das entrevistas e a reescrita das declarações vagas em requisitos mensuráveis. Isso importa porque uma declaração como "o tempo de resposta precisa ser bom" não diz o que testar nem quando o trabalho termina, e o arquiteto precisa saber qual delas já é verificável e qual ainda depende de conversa. A ACME, universidade privada brasileira fictícia cujo sistema acadêmico está em modernização, levantou as declarações usadas aqui em entrevistas com as [partes interessadas](../referencia/glossario.md#parte-interessada), as pessoas e áreas com interesse na solução, e as registrou como foram ditas, sem revisão de texto. A lista completa, com 15 declarações numeradas de R1 a R15 e a origem de cada uma, está na [página inicial do caso](../caso-acme/index.md). O exercício usa oito delas, e os códigos do quadro seguem essa numeração. O exercício tem dois itens, a classificação das oito declarações e a reescrita mensurável de duas delas.
 
 ### Item 1: Categoria de cada declaração
 
-O diagrama abaixo mostra as três categorias de trabalho em que uma declaração recebida é classificada, e o quadro seguinte reproduz oito declarações do caso.
+As três categorias de trabalho são o requisito funcional, que descreve o que o sistema faz, como emitir um histórico escolar, o requisito de atributo de qualidade, que descreve o quão bem ele faz, como responder em até 2 segundos, e a restrição, que fecha uma alternativa antes da análise, como usar um provedor de nuvem já escolhido. O diagrama abaixo mostra essas categorias, e o quadro seguinte reproduz oito declarações do caso, numeradas de R2 a R13, que o aluno classifica.
 
 ```mermaid
 flowchart LR
@@ -108,12 +108,12 @@ flowchart LR
 | R11 | O sistema precisa ser moderno e escalável |
 | R13 | O aluno consulta o resultado da solicitação de aproveitamento de disciplina pelo portal |
 
-1. Classifique cada uma das oito declarações em uma das três categorias de trabalho, requisito funcional, requisito de atributo de qualidade ou restrição, justificando em uma frase. Nenhuma delas deve ser classificada como requisito não funcional, porque esse rótulo é o ponto de partida do trabalho e não o resultado dele.
-2. Para as declarações classificadas como requisito de atributo de qualidade, indique se estão bem ou mal formuladas, considerando bem formulada a que traz contexto, carga e medida.
+1. Classifique cada uma das oito declarações em uma das três categorias de trabalho, requisito funcional, requisito de atributo de qualidade ou restrição, e justifique em uma frase ao lado do código. Nenhuma delas deve ser classificada como requisito não funcional, porque esse rótulo é o ponto de partida do trabalho e não o resultado dele.
+2. Para cada declaração que você classificou como requisito de atributo de qualidade, indique se está bem ou mal formulada. Considere bem formulada a que traz contexto, a situação em que vale, carga, o volume de uso, e medida, o valor a atingir.
 
 ### Item 2: Reescrita mensurável
 
-O quadro abaixo traz, na segunda coluna, o exemplo de desempenho da plataforma de vídeo da Produtora ACME apresentado na seção [Conceito](#conceito), decomposto em contexto, carga e medida. As duas últimas colunas ficam em branco para os requisitos escolhidos. Como dado de apoio, o portal da ACME registra 815 sessões simultâneas em média anual ponderada e pico de 5.800 sessões na abertura da matrícula.
+Uma declaração vaga só se torna requisito quando se sabe em que situação ela vale, quanto uso o sistema recebe e qual valor deve ser atingido. O quadro abaixo traz, na segunda coluna, o exemplo de desempenho da plataforma de vídeo da Produtora ACME apresentado na seção [Conceito](#conceito), decomposto nesses três elementos, contexto, carga e medida. As duas últimas colunas ficam em branco para os dois requisitos que o aluno escolhe reescrever. Como dado de apoio, o portal da ACME registra 815 sessões simultâneas em média anual ponderada e pico de 5.800 sessões na abertura da matrícula.
 
 | Elemento | Exemplo da Produtora ACME | Primeiro requisito escolhido | Segundo requisito escolhido |
 | --- | --- | --- | --- |

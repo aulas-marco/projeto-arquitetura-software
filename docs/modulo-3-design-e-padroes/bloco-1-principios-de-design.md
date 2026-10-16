@@ -1,6 +1,6 @@
 # Princípios de design e passagem ao desenho lógico
 
-Este bloco inicia a cadeia de decisão da aula e responde a duas perguntas que antecedem qualquer escolha de estilo ou de tecnologia. A primeira é quais regras devem orientar o desenho da solução. A segunda é como essas regras produzem um primeiro desenho lógico, isto é, um desenho em elementos com responsabilidades, sem produto nem tecnologia definidos.
+Este bloco inicia a cadeia de decisão da aula e responde a duas perguntas que antecedem qualquer escolha de estilo ou de tecnologia. A primeira é quais regras devem orientar o desenho da solução. A segunda é como essas regras produzem um primeiro desenho lógico, isto é, um desenho em elementos com responsabilidades, sem produto nem tecnologia definidos. Um elemento lógico é uma parte do sistema descrita pelo que ela faz, como "atendimento ao requerente" ou "emissão de documento", e não pelo programa ou pelo banco de dados que a realizará.
 
 ## Antes de começar
 
@@ -58,7 +58,7 @@ Princípios entram em conflito, e a priorização faz parte do produto. No servi
 
 O desenho de uma solução percorre uma hierarquia de idealização que vai do conceitual ao lógico e deste ao físico. O **desenho conceitual** descreve a solução em termos de capacidades, responsabilidades e relações com o ambiente, em nível alto o suficiente para que as partes interessadas avaliem a abordagem sem que o desenho final fique restringido antes da análise. O **desenho lógico** descreve a solução em elementos lógicos com responsabilidades, interfaces e fluxos declarados, e recebe o nome de lógico porque trata de componentes e de suas interações, deixando a implementação física para o trabalho de engenharia posterior.
 
-A passagem do conceitual ao lógico é uma transformação progressiva, apoiada na análise de blocos de construção e na análise de interfaces. O roteiro abaixo organiza essa transformação em cinco passos.
+A passagem do conceitual ao lógico é uma transformação progressiva em cinco passos, listados depois deste parágrafo, apoiada em duas análises. A análise de blocos de construção examina, um a um, os componentes que a solução terá e verifica se a organização já possui algo que cumpra a função, no todo ou em parte. Para cada componente já existente, decide-se se ele serve como está, se pode ser trocado por outro com as mesmas interfaces, se será mantido em paralelo até a troca futura ou se precisa ser construído ou adquirido, e o resultado é um quadro com nome, categoria, responsável, situação atual e modificações necessárias de cada componente. A análise de interfaces lista todos os pontos de contato entre os componentes, isto é, os lugares em que um entrega algo ao outro, e descreve cada um por origem, destino, evento que o dispara, itens trocados, sequência e condições que valem antes e depois da troca, e o resultado é um catálogo de interfaces.
 
 1. identificar capacidades e responsabilidades
 2. agrupar responsabilidades coesas
@@ -76,7 +76,7 @@ No serviço de licenciamento da Prefeitura ACME, o primeiro passo identifica as 
 
 ### Aplicação à ACME
 
-Na ACME, universidade privada brasileira fictícia usada como caso da disciplina, quatro entradas já levantadas na Aula 2 têm efeito direto sobre a distribuição de responsabilidades lógicas. A continuidade operacional exige que qualquer elemento novo conviva com o núcleo legado, o sistema em COBOL em operação desde 2004, durante a transição. A residência de dados delimita onde cada responsabilidade que manipula dado pessoal de aluno pode ser executada. A redução da dependência do legado pede que responsabilidades hoje concentradas no núcleo possam ser assumidas por elementos novos, uma a uma. A propagação de notas em minutos exige repensar a responsabilidade hoje atribuída ao lote diário, a rotina que exporta as notas ao ambiente virtual de aprendizagem às 05h10. O exercício deste bloco pede que o aluno transforme essas quatro entradas em princípios e em um esboço lógico, e as entradas aparecem detalhadas no próprio exercício.
+Na ACME, universidade privada brasileira fictícia usada como caso da disciplina, quatro entradas já levantadas na Aula 2 têm efeito direto sobre a distribuição de responsabilidades lógicas. A continuidade operacional exige que qualquer elemento novo conviva com o núcleo legado, o sistema em COBOL em operação desde 2004, durante a transição. A residência de dados, que é a exigência de que o dado pessoal de aluno seja processado em território nacional, delimita onde cada responsabilidade que manipula esse dado pode ser executada. A redução da dependência do legado pede que responsabilidades hoje concentradas no núcleo possam ser assumidas por elementos novos, uma a uma. A propagação de notas em minutos exige repensar a responsabilidade hoje atribuída ao lote diário, a rotina que exporta as notas ao ambiente virtual de aprendizagem às 05h10. O exercício deste bloco pede que o aluno transforme essas quatro entradas em princípios e em um esboço lógico, e as entradas aparecem detalhadas no próprio exercício.
 
 ## Uso pelo arquiteto
 
@@ -84,11 +84,11 @@ O arquiteto usa princípios priorizados para tomar decisões sucessivas com o me
 
 ## Exercício 9
 
-Este exercício treina a passagem das exigências do caso ACME aos princípios de design e destes a um primeiro desenho lógico. A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental, isto é, por troca gradual de partes, sem parar o sistema. Os dados abaixo foram reproduzidos da [página inicial do caso](../caso-acme/index.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md), e o aluno não precisa consultá-las para resolver. Os princípios priorizados e o esboço lógico deste exercício são a entrada da comparação de estilos do exercício 10, no [bloco 2](bloco-2-estilos-arquiteturais.md).
+Este exercício treina a passagem das exigências do caso ACME aos princípios de design e destes a um primeiro desenho lógico. Sem essa passagem, a escolha do estilo arquitetural no exercício seguinte não teria critério. A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental, isto é, por troca gradual de partes, sem parar o sistema. Os dados abaixo foram reproduzidos da [página inicial do caso](../caso-acme/index.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md), e o aluno não precisa consultá-las para resolver. O exercício tem dois itens. No item 1, o aluno produz a tabela de princípios priorizados. No item 2, produz o esboço lógico, uma lista de elementos com as responsabilidades de cada um. Os dois produtos são a entrada da comparação de estilos do exercício 10, no [bloco 2](bloco-2-estilos-arquiteturais.md).
 
 ### Item 1: Princípios a partir das entradas
 
-Cada princípio precisa nascer de uma exigência concreta, e a tabela abaixo traz as quatro exigências do caso que servem de ponto de partida, cada uma com a área da ACME que a apresentou. O código R7 identifica um requisito da lista do caso.
+Um princípio de design só tem utilidade quando nasce de uma exigência concreta. O enunciado traz quatro exigências do caso, levantadas junto às partes interessadas na Aula 2, e a tabela abaixo as reúne, cada uma com a área da ACME que a apresentou. A lista do caso numera as declarações das partes interessadas de R1 a R15, e a última linha da tabela cita a R7, que trata da chegada da nota ao ambiente virtual de aprendizagem, o sistema em que os alunos acessam o material das disciplinas a distância.
 
 | Entrada | Conteúdo | Origem |
 | --- | --- | --- |
@@ -97,12 +97,12 @@ Cada princípio precisa nascer de uma exigência concreta, e a tabela abaixo tra
 | Dependência do legado | Manutenção do núcleo COBOL sob contrato até 30/09/2027, com 6 especialistas, dos quais 2 se aposentam em 2027, e apenas 1 domina o módulo de matrícula | Contrato de sustentação e inventário técnico |
 | Propagação de notas | Requisito R7, a nota lançada pelo professor chega ao ambiente virtual de aprendizagem em até 10 minutos, contra a exportação atual em lote diário iniciado às 05h10 | Educação a Distância |
 
-1. Escolha, no repertório de nove princípios apresentado neste bloco, entre três e cinco princípios que as quatro entradas justificam. Para cada princípio escolhido, registre nome, motivação, implicação no desenho e evidência esperada de que o princípio foi aplicado, com a motivação apontando a entrada da tabela que o originou.
-2. Ordene os princípios escolhidos por prioridade e indique, com base nas entradas, qual deles prevalece quando entra em conflito com os demais.
+1. Escolha, no repertório de nove princípios apresentado neste bloco, entre três e cinco princípios que as quatro entradas justificam. Para cada princípio escolhido, registre quatro informações, o nome, a motivação, a implicação no desenho e a evidência esperada de que o princípio foi aplicado, como no exemplo da Rede de Clínicas ACME mostrado acima. A motivação deve apontar a entrada da tabela que originou o princípio.
+2. Ordene os princípios escolhidos por prioridade e indique, com base nas entradas, qual deles prevalece quando entra em conflito com os demais. Registre a ordem na mesma tabela de princípios.
 
 ### Item 2: Esboço lógico a partir das responsabilidades
 
-Para desenhar o esboço, é preciso saber como o sistema funciona hoje. O diagrama abaixo resume o caminho atual da matrícula, da nota e do lançamento financeiro no sistema legado, conforme a arquitetura de linha de base. COBOL é a linguagem do núcleo, CICS é o monitor que executa as transações do núcleo, e Oracle é o banco de dados compartilhado.
+O esboço lógico mostra como a solução se divide em partes, e para dividi-la é preciso saber como o sistema funciona hoje. O diagrama abaixo resume o caminho atual da matrícula, da nota e do lançamento financeiro no sistema legado, conforme a arquitetura de linha de base. COBOL é a linguagem do núcleo, CICS é o monitor que executa as transações do núcleo, e Oracle é o banco de dados compartilhado. Um lote é uma rotina que processa muitos registros de uma só vez, em horário fixo, como o lote de notas das 05h10, que gera um arquivo e o entrega ao ambiente virtual de aprendizagem.
 
 ```mermaid
 graph LR
@@ -119,7 +119,7 @@ graph LR
     LFIN -->|"arquivo"| ERP["ERP financeiro"]
 ```
 
-A tabela abaixo traz oito responsabilidades que a solução precisa cumprir, extraídas dos requisitos e da linha de base do caso, cada uma com um código de RS1 a RS8 para facilitar a referência. ERP é o sistema de gestão financeira da ACME, e ICP-Brasil é o padrão brasileiro de certificação digital.
+A tabela abaixo traz oito responsabilidades, numeradas de RS1 a RS8, extraídas dos requisitos e da linha de base do caso. Uma responsabilidade é uma tarefa que a solução precisa cumprir, e duas delas são a RS1, receber o pedido de renovação de matrícula feito pelo aluno, e a RS4, entregar a nota lançada ao ambiente virtual de aprendizagem. O esboço lógico distribui essas oito tarefas entre os elementos. ERP é o sistema de gestão financeira da ACME, e ICP-Brasil é o padrão brasileiro de certificação digital.
 
 | Código | Responsabilidade |
 | --- | --- |
@@ -132,7 +132,7 @@ A tabela abaixo traz oito responsabilidades que a solução precisa cumprir, ext
 | RS7 | Registrar em trilha de auditoria toda leitura de dado pessoal de aluno |
 | RS8 | Emitir histórico escolar com assinatura digital no padrão ICP-Brasil |
 
-1. Agrupe as oito responsabilidades em três a cinco elementos lógicos e dê a cada elemento um nome que descreva a responsabilidade assumida, sem nomear produto, linguagem, provedor de nuvem ou framework.
+1. Agrupe as oito responsabilidades em três a cinco elementos lógicos e dê a cada elemento um nome que descreva a responsabilidade assumida, sem nomear produto, linguagem, provedor de nuvem ou framework. Registre o esboço como uma lista de elementos, cada um com os códigos RS que reúne.
 2. Indique quais elementos permanecem atendidos pelo núcleo legado durante a transição e quais passam a elementos novos, com base nas entradas do Item 1.
 3. Marque no esboço ao menos um risco, que é algo que pode dar errado, e ao menos uma decisão pendente, que é uma escolha que ainda não pode ser feita, indicando qual princípio do Item 1 cada um afeta.
 

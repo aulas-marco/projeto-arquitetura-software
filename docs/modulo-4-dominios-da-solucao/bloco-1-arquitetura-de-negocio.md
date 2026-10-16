@@ -1,6 +1,6 @@
 # Arquitetura de negócio da solução
 
-Este bloco inicia o detalhamento da solução por domínios e responde a uma pergunta que precede dados, aplicações e infraestrutura, o que a solução muda no negócio e quais modelos permitem localizar essa mudança.
+Este bloco é o primeiro dos quatro domínios em que a Aula 4 detalha a solução, que são negócio, dados, aplicações e infraestrutura. A pergunta dele vem antes das outras três, porque pergunta o que a solução muda no trabalho da organização e quais modelos permitem localizar essa mudança. Ao fim do bloco, o aluno aplica esses modelos ao sistema acadêmico da ACME, no exercício 13.
 
 ## Antes de começar
 
@@ -16,9 +16,9 @@ Este bloco inicia o detalhamento da solução por domínios e responde a uma per
 ![Mapa do bloco 0 com quatro faixas empilhadas, negócio, dados, aplicações e infraestrutura, e o que o arquiteto decide em cada uma, com a faixa do negócio em destaque e as demais esmaecidas.](../assets/images/modulo-4-b0-mapa-negocio.svg){ .module-diagram }
 </figure>
 
-No mapa do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), este bloco trata do domínio de negócio, o primeiro dos quatro. O arquiteto recebe o mapa de capacidades, o fluxo de valor e o modelo de processo mantidos pela arquitetura corporativa e pela análise de negócio, decide em que capacidades, etapas e atividades a mudança incide e entrega ao bloco 2 as capacidades afetadas, sobre a forma estrutural registrada no [ADR](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md) da Aula 3.
+No mapa do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), este bloco trata do domínio de negócio, o primeiro dos quatro. O arquiteto recebe o mapa de capacidades, o fluxo de valor e o modelo de processo mantidos pela arquitetura corporativa e pela análise de negócio, decide em que capacidades, etapas e atividades a mudança incide e entrega ao bloco 2 as capacidades afetadas, sobre a forma estrutural registrada no registro de decisão arquitetural, o [ADR](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), da Aula 3.
 
-A **arquitetura de negócio** é definida pelo Business Architecture Guild como uma representação da organização que oferece entendimento comum sobre ela e serve para alinhar objetivos estratégicos e demandas táticas. O TOGAF descreve a mesma arquitetura como um conjunto de visões do negócio sobre capacidades, entrega de valor de ponta a ponta, informação e estrutura organizacional, com as relações entre essas visões e as estratégias, os produtos, as políticas e as partes interessadas. As duas definições atribuem ao domínio dois papéis na arquitetura de solução, o de origem da necessidade de mudança, já tratada como [direcionador de mudança](../modulo-2-requisitos-e-partes-interessadas/bloco-1-direcionadores-de-mudanca.md) na Aula 2, e o de alvo da mudança que a solução entrega.
+A **arquitetura de negócio** é definida pelo Business Architecture Guild, associação profissional da área, como uma representação da organização que oferece entendimento comum sobre ela e serve para alinhar objetivos estratégicos e demandas táticas. O TOGAF, método de arquitetura corporativa mantido pela The Open Group, descreve a mesma arquitetura como um conjunto de visões do negócio sobre capacidades, entrega de valor de ponta a ponta, informação e estrutura organizacional, com as relações entre essas visões e as estratégias, os produtos, as políticas e as partes interessadas. As duas definições atribuem ao domínio dois papéis na arquitetura de solução, o de origem da necessidade de mudança, já tratada como [direcionador de mudança](../modulo-2-requisitos-e-partes-interessadas/bloco-1-direcionadores-de-mudanca.md) na Aula 2, e o de alvo da mudança que a solução entrega.
 
 ### Quando a arquitetura de solução se aplica
 
@@ -155,7 +155,9 @@ O arquiteto de solução consulta os modelos que a arquitetura de negócio já m
 
 ## Exercício 13
 
-O exercício aplica os modelos deste bloco à ACME, universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. Ele serve para localizar, nos modelos de negócio, onde a modernização mexe no trabalho da universidade, antes de qualquer decisão sobre dados ou sistemas. Parte da declaração de escopo do primeiro ciclo, o texto que delimita as capacidades que a solução afeta, produzida no [exercício 8](../modulo-2-requisitos-e-partes-interessadas/bloco-4-partes-interessadas-e-pontos-de-vista.md#exercicio-8), e de três requisitos reproduzidos da [página inicial do caso](../caso-acme/index.md), usados nos itens 2 e 3.
+O exercício 13 aplica à ACME os modelos de negócio deste bloco. A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental, isto é, por troca gradual de partes, sem parar o sistema. Antes de decidir qualquer coisa sobre dados ou sistemas, o arquiteto precisa saber onde a modernização mexe no trabalho da universidade, e cada modelo ajuda a localizar um tipo de mudança. O mapa de capacidades mostra o que a universidade precisa conseguir fazer, o fluxo de valor mostra as etapas pelas quais o aluno recebe o serviço, e o modelo de processo mostra as atividades de um trabalho e quem as executa.
+
+O exercício parte de dois insumos. O primeiro é a declaração de escopo do primeiro ciclo, produzida no [exercício 8](../modulo-2-requisitos-e-partes-interessadas/bloco-4-partes-interessadas-e-pontos-de-vista.md#exercicio-8), um quadro em que o aluno marcou, para dez elementos do sistema acadêmico e do seu entorno, como a integração de notas e turmas com o ambiente virtual de aprendizagem e o ERP financeiro, o que muda e o que permanece nos primeiros 12 meses. O ambiente virtual de aprendizagem é a plataforma de ensino a distância em que o aluno vê turmas e notas, e o ERP financeiro é o sistema de gestão financeira da universidade. O segundo insumo são três requisitos, que são pedidos das partes interessadas feitos nas entrevistas e identificados por um código que começa com R. Eles foram reproduzidos da [página inicial do caso](../caso-acme/index.md) na tabela abaixo e são usados nos itens 2 e 3.
 
 | Código | Declaração | Origem |
 | --- | --- | --- |
@@ -165,7 +167,7 @@ O exercício aplica os modelos deste bloco à ACME, universidade privada brasile
 
 ### Item 1: Capacidades acadêmicas
 
-A classificação mostra o papel de cada capacidade na universidade, e a marcação das afetadas delimita onde o primeiro ciclo atua. O mapa abaixo reúne dez capacidades acadêmicas da ACME, montadas pelo material do curso a partir do dossiê do caso, ainda sem classificação. A tabela seguinte descreve cada uma.
+Uma capacidade é aquilo que a universidade precisa conseguir fazer, como matricular alunos ou registrar notas, sem dizer quem faz nem com qual sistema. O enunciado traz dez capacidades acadêmicas da ACME, reunidas no mapa abaixo, montadas pelo material do curso a partir do dossiê do caso e ainda sem classificação. Duas delas são Matrícula em disciplinas e Avaliação e registro de notas, e a tabela seguinte descreve cada uma. A classificação mostra o papel de cada capacidade na universidade, porque as estratégicas orientam a oferta e a qualidade do serviço, as operacionais entregam o serviço ao aluno e as de apoio sustentam as demais. A marcação das afetadas delimita onde o primeiro ciclo atua e define a entrada do exercício 14. Você registra, para cada capacidade, a classificação e, para as afetadas, a justificativa de uma linha.
 
 ```mermaid
 block-beta
@@ -195,12 +197,12 @@ block-beta
 | Biblioteca | Empréstimo, reserva e débito |
 | Relação com o órgão regulador | Extração anual do censo da educação superior |
 
-1. Classifique cada capacidade em estratégica, operacional ou de apoio.
+1. Classifique cada uma das dez capacidades em estratégica, operacional ou de apoio.
 2. Marque as capacidades afetadas pelo primeiro ciclo, conforme a declaração de escopo do exercício 8, com uma linha de justificativa para cada marcação.
 
 ### Item 2: Fluxo de valor do aluno
 
-Este item procura as etapas em que o aluno percebe um problema na linha de base, para ligá-las aos requisitos. O diagrama abaixo mostra o fluxo de valor do aluno em seis etapas, e a tabela registra a situação de cada etapa na [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+O fluxo de valor é a sequência de etapas pelas quais o aluno recebe o serviço da universidade. O enunciado traz o fluxo de valor do aluno em seis etapas, numeradas de 1 a 6, que vão de renovar a matrícula até consultar o resultado do pedido de aproveitamento de disciplina, isto é, o pedido para que a universidade reconheça uma disciplina já cursada. A tabela registra a situação de cada etapa na [arquitetura de linha de base](../caso-acme/linha-de-base.md), ou seja, como o sistema atual a realiza. O item serve para descobrir em que etapas o aluno percebe um problema e ligar cada problema ao requisito que pede a melhoria, entre os três da tabela do início do exercício. O R1 trata da renovação de matrícula pelo celular, o R7 trata do prazo de 10 minutos para a nota chegar ao ambiente virtual, e o R13 trata da consulta do resultado de aproveitamento pelo portal. Você registra as etapas com problema e o requisito de cada uma. Latência, nas etapas, é o atraso entre um fato acontecer e a informação chegar a quem precisa dela.
 
 ```mermaid
 flowchart TB
@@ -231,7 +233,7 @@ flowchart TB
 
 ### Item 3: Processo de lançamento de nota
 
-Este item mostra como um requisito de prazo altera as atividades de um processo e as unidades que as executam. O diagrama abaixo mostra as atividades do processo atual de lançamento de nota, do registro pelo professor à consulta pelo aluno, com o responsável por cada uma em itálico. A nota fica disponível no ambiente virtual às 06h00 do dia seguinte ao lançamento. A atividade de retorno, desenhada com borda tracejada e separada do caminho da nota, é o lote diário das 06h15, em que o ambiente virtual devolve à ACME a nota de atividade avaliativa e a presença registradas nele.
+Um processo de negócio é o conjunto de atividades que produz um resultado, e cada atividade tem um responsável. O enunciado traz o processo atual de lançamento de nota em cinco atividades, numeradas de 1 a 5, mais uma atividade de retorno, e o diagrama mostra em itálico quem executa cada uma. O professor registra a nota no Portal do Professor, o site em que ele lança notas, e o núcleo transacional, que é o sistema central da ACME em que ficam as regras acadêmicas, calcula a média e a situação do aluno. Depois, a equipe de integrações gera o arquivo de notas no lote das 05h10, que é uma rotina automática que roda em horário fixo da madrugada e envia arquivos de um sistema a outro. O item serve para ver o que muda no processo quando o requisito R7 passa a valer e quais unidades da organização sentem essa mudança. No diagrama, a nota fica disponível no ambiente virtual às 06h00 do dia seguinte ao lançamento, e a atividade de retorno, desenhada com borda tracejada e separada do caminho da nota, é o lote diário das 06h15, em que o ambiente virtual devolve à ACME a nota de atividade avaliativa e a presença registradas nele.
 
 ```mermaid
 flowchart TB
@@ -250,10 +252,10 @@ flowchart TB
     style AR stroke-dasharray: 5 5
 ```
 
-1. Indique quais atividades mudam se a nota passar a chegar ao ambiente virtual em até 10 minutos, como pede o R7.
+1. Indique quais atividades do diagrama mudam se a nota passar a chegar ao ambiente virtual em até 10 minutos, como pede o R7.
 2. Indique qual unidade organizacional é afetada por essa mudança e qual atividade deixa de existir.
 
-As capacidades marcadas como afetadas no item 1 são a entrada da grade de dados do exercício 14, no [bloco 2](bloco-2-arquitetura-de-dados.md).
+As capacidades marcadas como afetadas no item 1 são a entrada da grade de dados do exercício 14, no [bloco 2](bloco-2-arquitetura-de-dados.md), porque as entidades dessa grade são as que sustentam essas capacidades.
 
 ## Fontes
 

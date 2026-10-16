@@ -1,6 +1,6 @@
 # ADR de plataforma e lacunas
 
-Este bloco fecha o par de decisões da aula respondendo a uma pergunta que só se coloca depois do bloco anterior, como registrar a escolha de plataforma feita ali, de modo que a justificativa continue compreensível depois que quem a tomou deixar a equipe.
+O ADR, registro de decisão arquitetural, é um documento curto que guarda uma decisão de arquitetura, o contexto em que foi tomada e as consequências esperadas. Na Aula 3, o aluno escreveu um ADR para o estilo arquitetural. Este bloco ensina a escrever o segundo ADR, o da plataforma escolhida no bloco 2, de modo que a justificativa continue compreensível depois que quem tomou a decisão deixar a equipe. O bloco ensina também a listar as lacunas de provisão, que são os serviços de infraestrutura que a escolha exige e que a organização ainda não oferece, e a validar a definição tecnológica com as partes interessadas.
 
 ## Antes de começar
 
@@ -97,11 +97,13 @@ O arquiteto escreve este segundo registro logo depois de fechar a comparação d
 
 ## Exercício 20
 
-A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. Este exercício pede o ADR que registra a escolha de plataforma feita no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) do bloco anterior, no mesmo template de dez campos usado no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md). O registro serve para que a decisão possa ser entendida e revista no futuro, e cada item abaixo preenche alguns dos campos. A segunda parte do exercício, o item 4, é separada do ADR e classifica as lacunas de provisão da definição tecnológica.
+A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, isto é, o sistema é trocado por partes, usada como caso desta disciplina. Na Aula 3, o aluno registrou em um ADR a escolha do estilo arquitetural, e no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) do bloco anterior escolheu a plataforma que concretiza esse estilo. Este exercício pede o ADR que registra a escolha de plataforma, no mesmo template de dez campos usado no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md): título, estado, data, contexto, forças, alternativas, decisão, consequências, evidências e revisão. O registro serve para que a decisão possa ser entendida e revista no futuro por quem não participou dela.
+
+O exercício tem quatro itens. Os itens 1 a 3 preenchem os dez campos do ADR, na ordem em que cada grupo de campos se apoia nos exercícios anteriores, e o aluno registra a resposta de cada um no campo correspondente. O item 4 é separado do ADR e classifica as lacunas de provisão da definição tecnológica, isto é, os serviços de infraestrutura que a solução exige e que a ACME ainda não oferece. Nos enunciados, um código formado por R e um número, como R8, identifica um requisito do dossiê da ACME, a exigência que a solução precisa cumprir.
 
 ### Item 1: Encadeamento com o ADR de estilo
 
-Este item preenche os campos de título, contexto e alternativas, que se apoiam em exercícios anteriores. O diagrama abaixo mostra de onde vêm as entradas deste registro e a referência cruzada que liga o par de ADRs. O ADR de estilo é o registro do estilo arquitetural escrito no Exercício 12 da Aula 3.
+Este item preenche os campos de título, estado e data, contexto e alternativas, que reaproveitam o que o aluno já produziu. O contexto é a situação que levou à decisão, e as alternativas são as opções consideradas. O diagrama abaixo mostra de onde vêm as entradas deste registro, que são os exercícios 12, 17, 18 e 19, e a referência cruzada que liga o par de ADRs. O ADR de estilo é o registro do estilo arquitetural escrito no Exercício 12 da Aula 3.
 
 ```mermaid
 graph LR
@@ -118,7 +120,7 @@ graph LR
 
 ### Item 2: Forças e dependência de fornecedor
 
-Este item preenche os campos de forças e de decisão, mostrando o que pesa na escolha e quanto a plataforma prende a ACME a um fornecedor. A tabela abaixo relaciona as seis dimensões de dependência de fornecedor listadas no Conceito a dados do [dossiê da ACME](../caso-acme/index.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+Este item preenche os campos de forças e de decisão, mostrando o que pesa na escolha e quanto a plataforma prende a ACME a um fornecedor. As forças são as pressões que empurram a decisão, como um requisito, uma restrição ou a competência da equipe, e a decisão é a plataforma escolhida com a justificativa. A tabela abaixo relaciona as seis dimensões de dependência de fornecedor listadas no Conceito a dados do [dossiê da ACME](../caso-acme/index.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md).
 
 | Dimensão | Dado do caso |
 | --- | --- |
@@ -134,7 +136,7 @@ Este item preenche os campos de forças e de decisão, mostrando o que pesa na e
 
 ### Item 3: Consequências, evidências e revisão
 
-Este item preenche os campos que olham para o futuro da decisão, o que ela provoca, o que a sustenta e quando deve ser reavaliada. A tabela abaixo reúne os dados do caso que limitam as evidências disponíveis e que podem servir de base para o gatilho de revisão.
+Este item preenche os campos que olham para o futuro da decisão: as consequências, que são o que a decisão provoca, as evidências, que são o que a sustenta, e a revisão, que é a condição para reavaliá-la. A tabela abaixo reúne os dados do caso que limitam as evidências disponíveis e que podem servir de base para o gatilho de revisão.
 
 | Dado | Valor |
 | --- | --- |
@@ -150,7 +152,7 @@ O campo de evidências é o mais difícil neste exercício, porque a ACME não t
 
 ### Item 4: Lacunas de provisão
 
-O objetivo deste item é identificar o que a ACME precisa providenciar, trocar, ajustar ou abandonar para que a tecnologia escolhida funcione. Os seis itens da tabela abaixo vêm da definição tecnológica considerada neste exercício, montada com o bloco 1 e os exercícios 16 a 19, e não do dossiê. A manutenção do diretório corporativo atrás do provedor de identidade faz parte dessa definição. A coluna de situação traz apenas o que a [arquitetura de linha de base](../caso-acme/linha-de-base.md) registra, e a linha de base faz o papel de catálogo de infraestrutura neste exercício, porque o dossiê não traz um catálogo formal.
+O objetivo deste item é identificar o que a ACME precisa providenciar, trocar, ajustar ou abandonar para que a tecnologia escolhida funcione, e com isso alimentar o custo da solução e o roteiro de entrega. A tabela abaixo traz seis itens da definição tecnológica considerada neste exercício, que foi montada com o bloco 1 e os exercícios 16 a 19, e não com o dossiê. Um exemplo é o provedor de identidade com OpenID Connect, e outro é a observabilidade de ponta a ponta, isto é, a capacidade de acompanhar um pedido por todos os componentes. A manutenção do diretório corporativo atrás do provedor de identidade faz parte dessa definição. A coluna de situação traz apenas o que a [arquitetura de linha de base](../caso-acme/linha-de-base.md) registra, e a linha de base faz o papel de catálogo de infraestrutura neste exercício, porque o dossiê não traz um catálogo formal. Os códigos R6, R7 e R8 citados na tabela são requisitos do caso, explicados na própria linha, e a camada anticorrupção é o componente que traduz as chamadas entre o sistema novo e o núcleo antigo, para que o código novo não dependa do modelo antigo.
 
 ```mermaid
 graph TB
@@ -167,7 +169,7 @@ graph TB
 | Capacidade para 5.800 sessões simultâneas na abertura da matrícula, como pede o R6 | A camada web e o monitor CICS atendem hoje a abertura da matrícula, e em 04/02/2026 o limite de tarefas concorrentes do CICS foi atingido, com 62% das tentativas de matrícula retornando erro |
 | Observabilidade de ponta a ponta, com rastreamento entre os componentes | O dossiê não registra ferramenta de observabilidade para o sistema acadêmico |
 
-1. Classifique cada um dos seis itens como lacuna nova, substituição, modificação ou remoção, justificando a classificação com o dado da coluna de situação.
+1. Classifique cada um dos seis itens como lacuna nova, substituição, modificação ou remoção, conforme os quatro tipos da tabela do Conceito, e justifique a classificação com o dado da coluna de situação.
 2. Indique qual dos seis itens, uma vez atendido, tende a reduzir custo recorrente já registrado nos [dados operacionais](../caso-acme/dados-operacionais.md), e cite o dado.
 
 ## Fontes

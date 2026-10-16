@@ -1,6 +1,6 @@
 # Arquitetura de dados da solução
 
-Este bloco identifica os dados que sustentam a mudança localizada no bloco 1 e responde ao que a solução recebe da arquitetura de dados corporativa, a quem pertence cada entidade, onde ela é registrada com autoridade, com que atraso cada cópia pode refleti-la e que obrigações o dado carrega.
+Este bloco é o segundo dos quatro domínios da Aula 4 e trata dos dados que sustentam a mudança localizada no bloco 1. Uma entidade é um tipo de coisa sobre a qual o sistema guarda dados, como aluno, turma ou nota. O bloco responde a cinco perguntas sobre cada entidade: o que a solução recebe da arquitetura de dados da organização, a quem a entidade pertence, onde ela é registrada com autoridade, com que atraso cada cópia pode refleti-la e que obrigações o dado carrega.
 
 ## Antes de começar
 
@@ -10,7 +10,7 @@ Este bloco identifica os dados que sustentam a mudança localizada no bloco 1 e 
 - [Regime de consistência](../referencia/glossario.md#regime-de-consistencia)
 - [Propriedade do dado](../referencia/glossario.md#propriedade-do-dado)
 - [Dados mestres](../referencia/glossario.md#dados-mestres)
-- Capacidades afetadas, produzidas no [exercício 13](bloco-1-arquitetura-de-negocio.md#exercicio-13)
+- Capacidades afetadas, a lista de capacidades marcadas como afetadas pelo primeiro ciclo no [exercício 13](bloco-1-arquitetura-de-negocio.md#exercicio-13)
 
 ## Dados na solução
 
@@ -199,11 +199,13 @@ O arquiteto recebe da arquitetura de dados corporativa o recorte do modelo corpo
 
 ## Exercício 14
 
-O exercício aplica as decisões de dados deste bloco à ACME, universidade privada brasileira com 38.400 alunos ativos e sistema acadêmico em operação desde 2004. As cinco entidades acadêmicas do caso (aluno, matrícula, nota, lançamento financeiro e turma) aparecem numa grade fornecida, e cada item pede uma decisão sobre elas, de quem é o dono até o que a ACME deve fazer com o dado pessoal. O exercício parte das [capacidades](../referencia/glossario.md#capacidade) marcadas como afetadas no [exercício 13](bloco-1-arquitetura-de-negocio.md#exercicio-13), das responsabilidades que o esboço lógico do [exercício 9](../modulo-3-design-e-padroes/bloco-1-principios-de-design.md#exercicio-9) distribuiu entre os elementos da solução e de fatos reproduzidos da [arquitetura de linha de base](../caso-acme/linha-de-base.md) e da [página inicial do caso](../caso-acme/index.md).
+O exercício 14 aplica à ACME as decisões de dados deste bloco. A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos e sistema acadêmico em operação desde 2004. O enunciado traz cinco entidades acadêmicas, que são aluno, matrícula, nota, lançamento financeiro e turma, numa grade que cruza cada uma com as aplicações que a gravam, leem ou recebem. Cada um dos cinco itens pede uma decisão sobre essas entidades, do dono ao tratamento do dado pessoal. As decisões servem para que, na arquitetura alvo, que é a forma que a solução terá ao fim do primeiro ciclo, cada dado tenha um responsável claro e cada cópia tenha um atraso aceito, antes de o bloco 3 definir as interfaces.
+
+O exercício usa três produtos anteriores. Do [exercício 13](bloco-1-arquitetura-de-negocio.md#exercicio-13), vêm as [capacidades](../referencia/glossario.md#capacidade) marcadas como afetadas, entre as dez capacidades acadêmicas do mapa daquele exercício. Do [exercício 9](../modulo-3-design-e-padroes/bloco-1-principios-de-design.md#exercicio-9), vem o esboço lógico, que agrupou as oito responsabilidades da solução em poucos elementos e distribuiu essas responsabilidades entre eles. Da [arquitetura de linha de base](../caso-acme/linha-de-base.md) e da [página inicial do caso](../caso-acme/index.md), vêm os fatos reproduzidos em cada item.
 
 ### Item 1: Dono de cada entidade
 
-Este item decide quem responde por cada entidade, porque só o dono pode gravá-la. A grade dado × aplicação abaixo foi montada pelo material do curso a partir da linha de base e cruza as cinco entidades acadêmicas com as aplicações que as gravam, leem ou recebem, sem a coluna de dono.
+Dono de uma entidade é a aplicação ou o elemento com autorização exclusiva para gravá-la, e as demais partes apenas leem a entidade ou recebem cópia dela. Este item decide quem responde por cada uma das cinco entidades. A grade dado × aplicação abaixo foi montada pelo material do curso a partir da linha de base e não traz a coluna de dono, que é a resposta do item. As colunas são as aplicações do sistema atual. O núcleo transacional é o sistema central da ACME, escrito em COBOL, em que ficam as regras acadêmicas. Os portais Java são os quatro portais web, do aluno, do professor, da secretaria e do gestor. O ERP financeiro é o sistema de gestão financeira, o ambiente virtual é a plataforma de ensino a distância, e o data warehouse é a base que reúne cópias dos dados para relatórios e análises. Uma célula como "Recebe por lote às 04h00" indica uma cópia enviada por arquivo, de forma automática, naquele horário da madrugada.
 
 | Entidade | Núcleo transacional | Portais Java | ERP financeiro | Ambiente virtual | Data warehouse |
 | --- | --- | --- | --- | --- | --- |
@@ -216,11 +218,11 @@ Este item decide quem responde por cada entidade, porque só o dono pode gravá-
 1. Marque, para cada uma das cinco entidades, a aplicação ou o elemento do esboço lógico do exercício 9 que deve ser o dono na arquitetura alvo.
 2. Justifique cada marcação em uma linha, citando a capacidade afetada do exercício 13 que a entidade sustenta.
 
-O dono marcado para a entidade nota é a origem do contrato de integração do exercício 15, no [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md).
+O dono marcado para a entidade nota é a origem do contrato de integração do exercício 15, no [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md), em que esse dono passa a ser a aplicação que envia a nota ao ambiente virtual.
 
 ### Item 2: Regime de consistência por consumidor
 
-Este item decide com que atraso cada consumidor pode ler cada entidade. Toda troca com o ERP financeiro e com o ambiente virtual de aprendizagem ocorre por arquivo, em lote noturno, e o data warehouse recebe uma extração diária. O diagrama mostra o sentido e o horário de cada um dos seis lotes da linha de base.
+Consumidor é toda aplicação que lê ou recebe uma entidade, como as colunas da grade do item 1. Regime de consistência é o atraso aceito entre a gravação da entidade na fonte de verdade e o momento em que o consumidor enxerga essa gravação. O regime é forte quando a leitura reflete a gravação na hora, e eventual quando reflete dentro de um prazo declarado, como 10 minutos. Este item decide o regime de cada consumidor para cada entidade. Hoje toda troca com o ERP financeiro e com o ambiente virtual de aprendizagem ocorre por arquivo, em lote noturno, e o data warehouse recebe uma extração diária. O diagrama mostra o sentido e o horário de cada um dos seis lotes da linha de base.
 
 ```mermaid
 graph LR
@@ -237,18 +239,18 @@ graph LR
     AVA -->|"06h15 notas e frequência de atividades"| ACA
 ```
 
-Dois requisitos do caso, reproduzidos na tabela abaixo, afetam o regime de consistência. O R7 define o prazo de propagação da nota até o ambiente virtual, e o R6 exige tempo de resposta do sistema de registro durante a matrícula, o que interessa à decisão de o consumidor ler a fonte com consistência forte.
+Dois requisitos do caso, reproduzidos na tabela abaixo, afetam o regime de consistência. O R7, pedido pela Educação a Distância, define o prazo de propagação da nota até o ambiente virtual. O R6, da Diretoria de TI, exige tempo de resposta do sistema de registro durante a matrícula, o que interessa à decisão de o consumidor ler a fonte com consistência forte. O percentil 95 do R6 é o valor abaixo do qual ficam 95% das respostas.
 
 | Código | Declaração |
 | --- | --- |
 | R6 | O portal sustenta 5.800 sessões simultâneas na abertura da matrícula, com percentil 95 do tempo de confirmação em até 4 segundos |
 | R7 | A nota lançada pelo professor chega ao ambiente virtual de aprendizagem em até 10 minutos |
 
-1. Marque, para cada consumidor de cada entidade na grade do item 1, o regime de consistência exigido, forte ou eventual com o prazo, usando o R7 como prazo de propagação da nota e o R6 como exigência de tempo de resposta para os consumidores que leem a fonte com consistência forte durante a matrícula.
+1. Marque, para cada consumidor de cada entidade na grade do item 1, o regime de consistência exigido, forte ou eventual com o prazo, usando o R7 como prazo de propagação da nota e o R6 como exigência de tempo de resposta para os consumidores que leem a fonte com consistência forte durante a matrícula. Registre o resultado numa tabela com as mesmas linhas e colunas da grade.
 
 ### Item 3: Estilo de dado mestre para o aluno
 
-Este item escolhe como manter um cadastro único de aluno entre as aplicações. O aluno é a entidade compartilhada da ACME, com 38.400 alunos ativos e 214.000 egressos com dados retidos. O cadastro acadêmico grava o aluno, e as demais aplicações recebem ou mantêm cópia dele, como mostra o diagrama.
+Dados mestres são as entidades compartilhadas por várias aplicações, e o estilo de dado mestre define onde a escrita ocorre e qual papel o repositório central tem, conforme a tabela de quatro estilos da seção Dados mestres e de referência. Este item escolhe o estilo para manter um cadastro único de aluno entre as aplicações. O aluno é a entidade compartilhada da ACME, com 38.400 alunos ativos e 214.000 egressos, que são ex-alunos cujos dados a instituição ainda retém. O cadastro acadêmico grava o aluno, e as demais aplicações recebem ou mantêm cópia dele, como mostra o diagrama. A seta tracejada indica uma relação prevista na arquitetura alvo, a do aplicativo do aluno, que atualiza endereço e telefone e ainda não existe.
 
 ```mermaid
 graph LR
@@ -260,11 +262,11 @@ graph LR
 ```
 
 1. Escolha o estilo de dado mestre, registro, consolidação, coexistência ou centralizado, para a entidade aluno na arquitetura alvo.
-2. Registre a escolha em três linhas, com o contexto, a decisão e uma consequência, como os campos correspondentes do ADR apresentado no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md).
+2. Registre a escolha em três linhas, com o contexto, a decisão e uma consequência, como os campos correspondentes do ADR, o registro de decisão arquitetural apresentado no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md).
 
 ### Item 4: Obrigações do dado pessoal do aluno
 
-Este item traduz a LGPD em obrigações sobre os dados do aluno. A tabela, montada pelo material do curso a partir da linha de base, lista atributos do aluno usados pela ACME e os destinos para os quais cada um é copiado. A cor ou raça autodeclarada e a condição de deficiência são coletadas para a extração anual do censo da educação superior.
+Este item traduz a LGPD, a Lei Geral de Proteção de Dados Pessoais, em obrigações sobre os dados do aluno. Dado pessoal é a informação relacionada a uma pessoa identificada ou identificável, e dado pessoal sensível é a categoria que exige controle mais estrito, como o dado sobre saúde ou sobre origem racial ou étnica, conforme a tabela da seção Requisitos de dados. A tabela abaixo, montada pelo material do curso a partir da linha de base, lista seis atributos do aluno usados pela ACME e os destinos, isto é, os sistemas que recebem cópia de cada atributo. A cor ou raça autodeclarada e a condição de deficiência são coletadas para a extração anual do censo da educação superior.
 
 | Atributo | Destinos na linha de base |
 | --- | --- |
@@ -275,15 +277,15 @@ Este item traduz a LGPD em obrigações sobre os dados do aluno. A tabela, monta
 | Condição de deficiência | Data warehouse |
 | Histórico escolar de egresso, 214.000 registros | Data warehouse |
 
-O caso também registra o requisito R9, que exige trilha de auditoria de toda leitura de dado pessoal de aluno com retenção de 5 anos, e o R14, que proíbe processar dado pessoal de aluno fora do território nacional, com base em parecer do Jurídico de 28/04/2026.
+O caso também registra dois requisitos sobre o dado pessoal. O R9, declarado pela Encarregada de proteção de dados, papel da área Jurídica que responde pela conformidade da ACME com a LGPD, exige trilha de auditoria de toda leitura de dado pessoal de aluno, isto é, um registro de cada leitura, guardado por 5 anos. A encarregada pediu essa trilha para ter conformidade com a LGPD e base legal declarada, e o dossiê não informa de onde vem o prazo de 5 anos. O R14, do Jurídico, proíbe processar dado pessoal de aluno fora do território nacional. Ele se apoia num parecer do Jurídico de 28/04/2026, que o dossiê cita sem reproduzir o conteúdo, e responde ao receio da encarregada de que dado de aluno seja transferido para o exterior sem amparo.
 
 1. Classifique cada atributo como dado pessoal ou dado pessoal sensível, conforme o art. 5º da LGPD.
-2. Indique um destino que recebe atributo além do necessário para a finalidade, conforme o princípio da necessidade.
+2. Indique um destino que recebe atributo além do necessário para a finalidade, conforme o princípio da necessidade, segundo o qual o tratamento se limita ao mínimo necessário (art. 6º, III).
 3. Indique qual hipótese do art. 16 da LGPD autoriza a ACME a conservar os históricos de egressos e se o R14 decorre da LGPD ou de decisão da instituição.
 
 ### Item 5: Acesso direto ao banco
 
-Este item pede que o aluno explique, com um caso real, o problema do banco compartilhado descrito na seção sobre propriedade do dado. O banco Oracle, com 740 tabelas, é compartilhado entre o núcleo COBOL e a camada Java, sem separação de esquema por responsabilidade. Existem 2.300 pontos no código Java que leem ou gravam tabelas do núcleo diretamente, contornando as transações do núcleo, e o inventário não registra a distribuição desses pontos por entidade.
+Este item pede que o aluno explique, com um caso real, o problema do banco compartilhado descrito na seção sobre propriedade do dado, segundo a qual cada entidade tem um único responsável autorizado a gravá-la. O banco Oracle, com 740 tabelas, é compartilhado entre o núcleo COBOL e a camada Java, que reúne os quatro portais web, sem separação de esquema por responsabilidade. O caminho normal dos portais é chamar as transações do núcleo, que o monitor CICS recebe e processa e nas quais ficam as regras acadêmicas. Em 2.300 pontos do código Java, porém, os portais leem ou gravam as tabelas do núcleo diretamente, contornando essas transações, e o inventário não registra a distribuição desses pontos por entidade.
 
 ```mermaid
 graph TD

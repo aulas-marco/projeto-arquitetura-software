@@ -1,6 +1,6 @@
 # Arquitetura de aplicações e integração
 
-Este bloco identifica as aplicações e as interfaces que realizam a mudança, distingue o que governa uma integração entre padrão técnico, protocolo, especificação e contrato, e representa a fronteira da solução no diagrama de contexto do modelo C4.
+Este bloco é o terceiro dos quatro domínios da Aula 4. Uma aplicação é um programa que oferece funções ao negócio, e uma interface é o ponto em que uma aplicação oferece suas funções a outra. O bloco identifica as aplicações e as interfaces que realizam a mudança, distingue o que governa uma integração entre padrão técnico, protocolo, especificação e contrato, e representa a fronteira da solução no diagrama de contexto do modelo C4.
 
 ## Antes de começar
 
@@ -8,7 +8,7 @@ Este bloco identifica as aplicações e as interfaces que realizam a mudança, d
 - [Padrão técnico](../referencia/glossario.md#padrao-tecnico)
 - [Contrato de integração](../referencia/glossario.md#contrato-de-integracao)
 - [Modelo C4](../referencia/glossario.md#modelo-c4)
-- Dono de cada entidade, marcado no [exercício 14](bloco-2-arquitetura-de-dados.md#exercicio-14)
+- Dono de cada entidade, a aplicação autorizada a gravá-la, marcado no [exercício 14](bloco-2-arquitetura-de-dados.md#exercicio-14)
 
 ## Aplicações, interfaces e contexto
 
@@ -20,7 +20,7 @@ No mapa do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), este bloco trata d
 
 A arquitetura de aplicações é o subdomínio da arquitetura corporativa que mantém a visão do portfólio de aplicações da organização e dos serviços que elas oferecem, e que liga a arquitetura de negócio à arquitetura de dados. Aplicação é um conjunto de capacidades tecnológicas que fornece funções de negócio e gerencia ativos de dados, e componente de aplicação é a unidade que encapsula uma funcionalidade e a oferece por interfaces claramente definidas. As aplicações são o principal meio de gerir o dado ao longo do seu ciclo de vida, da aquisição ao processamento, ao armazenamento, à apresentação, ao arquivamento e à exclusão.
 
-O bloco apresenta primeiro os conceitos de aplicação e de integração, cada um ilustrado em notação livre, sem convenção formal, e reúne no fim o modelo C4, a notação que a aula adota para representar a fronteira e a decomposição da solução.
+O bloco apresenta primeiro os conceitos de aplicação e de integração, cada um ilustrado em notação livre, sem convenção formal, e reúne no fim o modelo C4, a notação que a aula adota para representar a fronteira e a decomposição da solução em diagramas de níveis de detalhe progressivos.
 
 ### Aplicações e interfaces
 
@@ -99,7 +99,7 @@ Em português, a palavra padrão traduz dois termos ingleses distintos, e a dist
 
 Um **padrão técnico** reúne a experiência de profissionais ao longo de muitos anos e situações, e a apresenta como especificação de processos a seguir, documentação a produzir e regras e parâmetros a observar. Por ser genérico, um padrão técnico costuma conter partes que não se aplicam a uma solução específica, e por isso o arquiteto precisa recortar a parte que se aplica antes de transformá-la em requisito técnico.
 
-Um protocolo é o conjunto de regras que duas partes seguem para trocar mensagens, com formato, sequência e tratamento de erro definidos. Entre os protocolos da linha de base da ACME estão o LDAP na autenticação dos portais, o HTTPS nas chamadas ao gateway de pagamento e ao assinador digital, e um conector transacional proprietário entre os portais e o núcleo. O HTTP, base do HTTPS, tem sua semântica definida pelo RFC 9110 (Fielding et al., 2022).
+Um protocolo é o conjunto de regras que duas partes seguem para trocar mensagens, com formato, sequência e tratamento de erro definidos. Entre os protocolos da linha de base da ACME estão três. O primeiro é o LDAP, protocolo para consultar o diretório corporativo, que é o cadastro central de usuários da instituição, e é por ele que os portais confirmam quem está entrando. O segundo é o HTTPS, a versão protegida do HTTP, usado nas chamadas ao gateway de pagamento, serviço externo que gera boleto e cobra em cartão, e ao assinador digital, serviço externo que assina o histórico e o diploma. O terceiro é um conector transacional proprietário entre os portais e o núcleo, o sistema central da ACME, escrito em COBOL. Esse conector é um componente de um fornecedor específico, que permite aos portais em Java acionar as transações do núcleo, e o formato das mensagens que ele troca pertence ao fornecedor, não a um padrão aberto. O HTTP, base do HTTPS, tem sua semântica definida pelo RFC 9110 (Fielding et al., 2022).
 
 Uma especificação de interface descreve de forma verificável uma interface particular, com operações ou mensagens, esquemas e erros. Para interfaces síncronas sobre HTTP, a especificação OpenAPI define uma descrição independente de linguagem de programação, que permite a pessoas e a programas entender as capacidades de um serviço sem acesso ao código-fonte (OpenAPI Initiative, 2026). Para interfaces orientadas a mensagens, a especificação AsyncAPI descreve canais, mensagens e operações de forma independente do protocolo de transporte (AsyncAPI Initiative, n.d.). Os dois trechos abaixo descrevem, num exemplo genérico de comércio eletrônico, uma consulta síncrona de pedido e a publicação de um evento de pedido confirmado.
 
@@ -352,11 +352,13 @@ O arquiteto escolhe o nível do diagrama pela audiência e pela decisão em paut
 
 ## Exercício 15
 
-A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. O exercício aplica à ACME os três assuntos deste bloco, que são o destino de cada aplicação do portfólio, o contrato da troca de notas com o ambiente virtual de aprendizagem e a fronteira da solução no diagrama de contexto. Ele usa o dono da entidade nota marcado no [exercício 14](bloco-2-arquitetura-de-dados.md#exercicio-14) e fatos reproduzidos da [página inicial do caso](../caso-acme/index.md), dos [dados operacionais](../caso-acme/dados-operacionais.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+O exercício 15 aplica à ACME os três assuntos deste bloco, e cada assunto é um item. A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. O item 1 decide o destino de cada aplicação do portfólio, classificada em vermelho, âmbar ou verde. O item 2 preenche o contrato da integração que leva a nota do sistema da ACME ao ambiente virtual de aprendizagem, a plataforma de ensino a distância. O item 3 corrige um diagrama de contexto, que desenha a fronteira da solução. Os três itens servem para praticar as decisões de aplicações antes de o bloco 4 transformar o desenho em exigências de infraestrutura.
+
+O exercício reaproveita o dono da entidade nota marcado no [exercício 14](bloco-2-arquitetura-de-dados.md#exercicio-14), que é a aplicação autorizada a gravar a nota e será a origem do contrato do item 2. Reaproveita também fatos reproduzidos da [página inicial do caso](../caso-acme/index.md), dos [dados operacionais](../caso-acme/dados-operacionais.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md).
 
 ### Item 1: Classificação do portfólio
 
-Este item decide que destino cada aplicação deve ter na modernização, segundo a classificação em vermelho, âmbar e verde. O catálogo abaixo lista as onze aplicações e serviços externos da ACME registrados na linha de base, sem classificação.
+Este item decide que destino cada aplicação deve ter na modernização, segundo a classificação em vermelho (substituir ou retirar), âmbar (manter por ora, com investimento restrito) e verde (manter e evoluir). O enunciado traz um catálogo de onze aplicações e serviços externos da ACME, registrados na linha de base e ainda sem classificação. As quatro primeiras linhas são os portais web em Java, para aluno, professor, secretaria e gestor, e JSF 1.2 e EJB 2.0 são tecnologias Java antigas para telas web e componentes de servidor. O núcleo transacional é o sistema central, escrito em COBOL, e o ERP financeiro e o ambiente virtual permanecem por decisão da Reitoria. Você registra uma cor e uma linha de justificativa para cada uma das onze.
 
 | Aplicação | Ano | Tecnologia | Observação |
 | --- | --- | --- | --- |
@@ -376,7 +378,7 @@ Este item decide que destino cada aplicação deve ter na modernização, segund
 
 ### Item 2: Contrato da integração de notas
 
-Este item especifica, campo a campo, como a nota deve ir do sistema da ACME ao ambiente virtual. O requisito R7, declarado pela Educação a Distância, determina que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. A exportação de notas consolidadas ocorre hoje em lote diário iniciado às 05h10, com 4.800 lançamentos em dia letivo comum e até 360.000 na janela de fechamento. A propagação em minutos exige o plano do ambiente virtual que oferece interfaces de programação, com acréscimo de 38% sobre o valor anual do contrato vigente. O diagrama abaixo, em notação livre, mostra o caminho atual da nota, do lançamento no Portal do Professor à carga no ambiente virtual pelo lote das 05h10.
+Contrato de integração é o acordo, escrito campo a campo, sobre como duas aplicações trocam dados, com quem envia, quando envia, em que formato e com quais garantias. Este item especifica esse contrato para a nota que vai do sistema da ACME ao ambiente virtual. O requisito R7, declarado pela Educação a Distância, determina que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. Hoje a exportação de notas consolidadas ocorre em lote diário, uma rotina automática que reúne os dados num arquivo e o envia em horário fixo, iniciada às 05h10, com 4.800 lançamentos em dia letivo comum e até 360.000 na janela de fechamento. A propagação em minutos exige o plano do ambiente virtual que oferece interfaces de programação, que são formas de outro sistema enviar dados a ele sem esperar o arquivo noturno, com acréscimo de 38% sobre o valor anual do contrato vigente. O diagrama abaixo, em notação livre, mostra o caminho atual da nota, do lançamento no Portal do Professor à carga no ambiente virtual pelo lote das 05h10.
 
 ```mermaid
 sequenceDiagram
@@ -391,7 +393,7 @@ sequenceDiagram
     LT->>AV: arquivo com 4.800 lançamentos, até 360.000 no fechamento
 ```
 
-O esqueleto do contrato da integração de notas entre a ACME e o ambiente virtual de aprendizagem traz os doze campos da [estrutura de um contrato](#estrutura-de-um-contrato).
+O esqueleto do contrato da integração de notas entre a ACME e o ambiente virtual de aprendizagem é a tabela abaixo, com os doze campos da [estrutura de um contrato](#estrutura-de-um-contrato) e a coluna Resposta em branco. Dois exemplos de campo são o Gatilho, que é o evento que dispara a troca, e o Nível de serviço, que é o prazo, o volume e a disponibilidade que o provedor garante.
 
 | Campo | Resposta |
 | --- | --- |
@@ -409,18 +411,18 @@ O esqueleto do contrato da integração de notas entre a ACME e o ambiente virtu
 | Nível de serviço | |
 
 1. Preencha cada campo do esqueleto com resposta curta, usando como origem o dono da entidade nota marcado no exercício 14.
-2. Declare se a integração é síncrona ou assíncrona e justifique o modo pelos padrões selecionados no [exercício 11](../modulo-3-design-e-padroes/bloco-3-padroes-arquiteturais-e-de-design.md#exercicio-11).
+2. Declare se a integração é síncrona, em que o consumidor espera a resposta, ou assíncrona, em que o provedor publica e o consumidor processa depois, e justifique o modo pelos padrões que o aluno selecionou no [exercício 11](../modulo-3-design-e-padroes/bloco-3-padroes-arquiteturais-e-de-design.md#exercicio-11) para a coexistência com o sistema antigo, a proteção contra falha de integração e a publicação confiável de mudança.
 3. Indique o que acontece quando o professor corrige uma nota já enviada.
 
 ### Item 3: Erros de nível ou de fronteira no diagrama de contexto
 
-Este item treina a conferência de um diagrama de contexto, que deve mostrar só pessoas e sistemas e deixar de fora o que fica dentro de um sistema. O diagrama abaixo é um diagrama de contexto da arquitetura alvo do primeiro ciclo e contém dois erros de nível ou de fronteira, conforme os níveis descritos na seção [Diagrama de contexto](#diagrama-de-contexto).
+Este item treina a conferência de um diagrama de contexto, o primeiro nível do C4, que mostra o sistema como uma caixa única, com as pessoas que o usam e os sistemas externos com que ele se comunica. Dois critérios orientam a conferência. O primeiro é o nível: o contexto mostra só pessoas e sistemas e deixa de fora o que fica dentro de um sistema, como aplicações e bancos de dados. O segundo é a fronteira, a linha tracejada que separa o que fica dentro dela, que a ACME evolui e opera, do que fica fora, que outra equipe ou fornecedor mantém. O enunciado traz um diagrama de contexto da arquitetura alvo do primeiro ciclo, com três pessoas, aluno, professor e secretaria acadêmica, ligadas ao sistema acadêmico, e com os demais elementos ligados a ele. O diagrama contém dois erros de nível ou de fronteira, conforme os níveis descritos na seção [Diagrama de contexto](#diagrama-de-contexto).
 
 <figure markdown="span">
 ![Diagrama de contexto do primeiro ciclo da ACME com três atores no alto, aluno, professor e secretaria acadêmica, ligados ao sistema acadêmico. Dentro da fronteira tracejada do sistema acadêmico estão o elemento sistema acadêmico e o ERP financeiro. Abaixo, ligados por linhas ortogonais, seis elementos fora da fronteira, banco de dados acadêmico, ambiente virtual de aprendizagem, assinador digital ICP-Brasil, gateway de pagamento, provedor de identidade e órgão regulador.](../assets/images/acme-ex15-diagrama-de-contexto.svg){ .module-diagram }
 </figure>
 
-1. Aponte os dois erros do diagrama e descreva a correção de cada um.
+1. Aponte os dois erros do diagrama e descreva a correção de cada um, indicando o elemento afetado.
 
 O diagrama de contexto corrigido neste item é a base do diagrama de contêineres do exercício 16, no [bloco 4](bloco-4-arquitetura-de-infraestrutura.md).
 

@@ -1,6 +1,6 @@
 # Dados operacionais
 
-A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, cujo sistema acadêmico opera desde 2004. Esta página reúne os dados de operação do sistema no ano letivo de 2026, usados nos exercícios de cenário de qualidade e de análise de risco. Os valores vêm do painel de capacidade da Diretoria de TI, do calendário acadêmico aprovado e dos registros do service desk.
+A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, cujo sistema acadêmico opera desde 2004. Esta página é a terceira do dossiê do caso, o conjunto de informações sobre a ACME que os exercícios usam. Ela reúne os dados de operação do sistema no ano letivo de 2026, usados nos exercícios de cenário de qualidade e de análise de risco, que pedem números reais de uso, de falha e de custo. Os valores vêm do painel de capacidade da Diretoria de TI, do calendário acadêmico aprovado e dos registros do service desk.
 
 ## Volumes por período
 
@@ -43,7 +43,7 @@ A capacidade contratada de processamento é dimensionada para o pico, que ocupa 
 
 As duas janelas de matrícula somam 20 dias úteis, dos quais 2 são de abertura e 18 são dias subsequentes, o que corresponde às duas linhas da tabela de volumes.
 
-Na janela de matrícula, 34.800 alunos renovam a inscrição em disciplina. Os outros 3.600 são ingressantes, que entram pelo processo seletivo e têm matrícula registrada pela Secretaria Acadêmica. O primeiro dia concentra 14.300 confirmações, ou 41% do total da janela, porque a ordem de chegada define a prioridade de vaga em turma com lotação esgotada.
+Matrícula é o período em que o aluno se inscreve nas disciplinas do semestre. Na janela de matrícula, 34.800 alunos renovam a inscrição em disciplina. Os outros 3.600 são ingressantes, que entram pelo processo seletivo e têm matrícula registrada pela Secretaria Acadêmica. O primeiro dia concentra 14.300 confirmações, ou 41% do total da janela, porque a ordem de chegada define a prioridade de vaga: quando uma turma lota, ficam com as vagas os alunos que confirmaram a inscrição primeiro.
 
 Na janela de fechamento, 2.150 professores lançam notas de 4.900 turmas. A base é de 230.400 matrículas em disciplina, com 4 avaliações por disciplina, o que resulta em 921.600 lançamentos de nota por semestre. A concentração de 78% nos dois últimos dias significa 718.848 lançamentos nesses dois dias, ou 359.424 por dia, e 202.752 nos três primeiros, ou 67.584 por dia. As duas parcelas somam os 921.600 lançamentos do semestre.
 
@@ -96,14 +96,14 @@ O custo por aluno ativo é de R$ 412 por ano, ou 2,8% do orçamento anual da ins
 
 ## Contratos vigentes
 
-Cada contrato abaixo restringe uma classe de decisão arquitetural. A coluna de restrição indica o que a cláusula impede ou encarece.
+Cláusula é cada regra escrita num contrato. Cada contrato abaixo restringe uma classe de decisão arquitetural, isto é, um tipo de escolha técnica que o arquiteto fará mais adiante. A coluna de restrição indica o que a cláusula impede ou encarece.
 
 | Contrato | Vigência | Cláusula relevante | Restrição imposta |
 | --- | --- | --- | --- |
-| Capacidade de processamento de grande porte | Até 31/12/2028 | Volume mínimo contratado, sem desconto por redução de uso antes do término | Retirar carga do núcleo não reduz desembolso antes de 2029 |
+| Capacidade de processamento de grande porte | Até 31/12/2028 | Volume mínimo contratado, ou seja, uma quantidade de processamento que a ACME paga todo mês mesmo que use menos, sem desconto por redução de uso antes do término | Retirar carga do núcleo não reduz desembolso antes de 2029 |
 | Licenciamento Oracle | Renovação anual em 30/06 | Obrigação de licenciar todos os núcleos físicos de qualquer ambiente virtualizado onde o banco possa ser executado | Inviabiliza virtualização parcial e encarece réplica em nuvem |
 | Sustentação do núcleo acadêmico | Até 30/09/2027 | Exclusividade sobre a manutenção dos programas COBOL do núcleo | Equipe interna não pode alterar o núcleo, mesmo para expor interfaces |
-| Ambiente virtual de aprendizagem | Até 31/07/2029 | Integração incluída apenas por arquivo em formato do fornecedor, com interfaces de programação restritas ao plano superior | Propagação em minutos custa 38% a mais no valor anual |
+| Ambiente virtual de aprendizagem | Até 31/07/2029 | Integração incluída apenas por arquivo em formato do fornecedor, com interfaces de programação, as portas pelas quais outro sistema envia e recebe dados na hora, restritas ao plano superior, a modalidade mais cara do serviço | Propagação em minutos custa 38% a mais no valor anual |
 | Gateway de pagamento | Até 30/04/2027 | Multa rescisória equivalente a 6 meses de tarifa média | Troca de provedor de cobrança fica fora do primeiro ciclo |
 | Acordo de nível de serviço interno com a Graduação | Revisão anual em dezembro | Disponibilidade de 99,5% em período letivo e de 99,9% nas janelas de matrícula e fechamento | Define a medida de disponibilidade usada nos cenários de qualidade |
 

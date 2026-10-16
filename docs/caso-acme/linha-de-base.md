@@ -1,12 +1,12 @@
 # Arquitetura de linha de base
 
-A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, cujo sistema acadêmico foi construído ao longo de duas décadas. Esta página descreve a arquitetura em operação em 2026, chamada de linha de base, com a composição dos módulos, a idade de cada componente, a ordem de grandeza do código, o efetivo que sustenta cada parte, o tipo de cada integração e a dívida técnica medida.
+A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, cujo sistema acadêmico foi construído ao longo de duas décadas. Esta página é a segunda do dossiê do caso, o conjunto de informações sobre a ACME que os exercícios usam, e a primeira é a [página inicial do caso](index.md). Ela descreve a arquitetura em operação em 2026, chamada de linha de base, com a composição dos módulos, a idade de cada componente, a ordem de grandeza do código, o efetivo que sustenta cada parte, o tipo de cada integração e a dívida técnica medida. Módulo é uma parte do sistema responsável por um assunto, como a matrícula ou a biblioteca, e integração é a forma como dois sistemas trocam informação.
 
 Arquitetura de linha de base é a descrição da estrutura existente antes de qualquer decisão de evolução. Ela serve de referência para o relatório de lacunas, que compara a situação atual com a pretendida, e para o dimensionamento do esforço de transição. Os exercícios usam esta página para saber quais componentes existem, quem os sustenta e como se comunicam.
 
 ## Visão geral dos componentes
 
-O sistema tem quatro camadas. O núcleo transacional em COBOL, linguagem de programação em que estão escritas as regras acadêmicas, executa sob o monitor CICS, programa que recebe e processa cada transação, em ambiente de grande porte, o computador central da instituição. O banco Oracle guarda os dados. A camada web em Java serve os quatro portais de acesso. A camada de integração move arquivos entre a ACME, o ERP financeiro, que é o sistema de gestão financeira da instituição, e o ambiente virtual de aprendizagem, a plataforma de ensino a distância que recebe turmas, matrículas e notas.
+O sistema tem quatro camadas. O núcleo transacional em COBOL, linguagem de programação em que estão escritas as regras acadêmicas, executa sob o monitor CICS, programa que recebe e processa cada transação, em ambiente de grande porte, o computador central da instituição. O banco Oracle, programa que guarda e organiza os dados da instituição, fica sob o núcleo. A camada web em Java serve os quatro portais de acesso, que são os sites usados por alunos, professores, secretaria e gestores. A camada de integração move arquivos entre a ACME, o ERP financeiro, que é o sistema de gestão financeira da instituição, e o ambiente virtual de aprendizagem, a plataforma de ensino a distância que recebe turmas, matrículas e notas.
 
 ```mermaid
 graph TD
@@ -64,7 +64,7 @@ graph TD
 
 ## Módulos do núcleo transacional
 
-O núcleo reúne 11 módulos funcionais, com 2,8 milhões de linhas de COBOL distribuídas em 1.940 programas, 620 mapas de tela do CICS e 380 transações. O ano indicado é o da primeira entrada em produção do módulo.
+O núcleo reúne 11 módulos funcionais, com 2,8 milhões de linhas de COBOL distribuídas em 1.940 programas, 620 mapas de tela do CICS e 380 transações. O ano indicado é o da primeira entrada em produção do módulo, isto é, de quando ele passou a ser usado de verdade. Linha de código é a unidade que mede o tamanho de um programa.
 
 | Módulo | Ano | Linhas de COBOL | Observação |
 | --- | --- | --- | --- |
@@ -93,11 +93,11 @@ A camada web tem 410.000 linhas de Java escritas entre 2007 e 2009, com JSF 1.2 
 | Portal da Secretaria | 2008 | 62 | 310 usuários administrativos |
 | Portal do Gestor | 2009 | 28 | 95 coordenadores e diretores |
 
-Nenhuma das quatro aplicações tem versão responsiva. O Portal do Aluno exige navegador com suporte a um componente de calendário descontinuado, o que restringe o uso em telefone celular e é a reclamação mais frequente registrada pela central de atendimento (service desk).
+Nenhuma das quatro aplicações tem versão responsiva, ou seja, que se ajuste ao tamanho da tela do telefone. O Portal do Aluno exige navegador com suporte a um componente de calendário descontinuado, o que restringe o uso em telefone celular e é a reclamação mais frequente registrada pela central de atendimento (service desk).
 
 ## Banco de dados
 
-O banco é Oracle Database 12c Release 2, com 740 tabelas e 11 TB de dados em produção. O suporte estendido dessa versão encerrou em 31/03/2022, e a instituição opera sem correção de segurança do fornecedor desde então. O banco é compartilhado entre o núcleo COBOL e a camada Java, sem separação de esquema por responsabilidade.
+O banco é Oracle Database 12c Release 2, com 740 tabelas e 11 TB de dados em produção. O suporte estendido dessa versão, período em que o fornecedor ainda atende a clientes de versões antigas, encerrou em 31/03/2022. Desde então a instituição opera sem correção de segurança do fornecedor, isto é, sem receber as atualizações que fecham falhas de segurança descobertas no produto. O banco é compartilhado entre o núcleo COBOL e a camada Java, sem separação de esquema por responsabilidade.
 
 Existem 2.300 pontos no código Java que leem ou gravam tabelas do núcleo diretamente, contornando as transações CICS. Esses pontos são a principal barreira à extração incremental de módulos, porque qualquer mudança de estrutura de tabela tem efeito em dois códigos-fonte mantidos por equipes distintas.
 
@@ -114,9 +114,11 @@ A sustentação do sistema acadêmico envolve 27 pessoas, entre equipe interna e
 | Infraestrutura de grande porte | 3 | Fornecedor do contrato de capacidade | Serviço prestado remotamente, sem presença na instituição |
 | Atendimento de segundo nível | 2 | Internos | Fila compartilhada com outros sistemas da instituição |
 
-Entre os 6 profissionais de COBOL, apenas 1 domina o módulo de matrícula em profundidade suficiente para alterar a regra de prioridade de vaga. Essa concentração é o risco de pessoal mais citado nas atas do comitê de TI.
+Entre os 6 profissionais de COBOL, apenas 1 domina o módulo de matrícula em profundidade suficiente para alterar a regra de prioridade de vaga, que decide quem fica com a vaga quando uma turma lota. Hoje a ordem de chegada do aluno define essa prioridade, como mostram os [dados operacionais](dados-operacionais.md). Essa concentração é o risco de pessoal mais citado nas atas do comitê de TI.
 
 ## Integrações síncronas
+
+Na integração síncrona, quem pede fica esperando a resposta, e o tempo limite é quanto ele espera antes de desistir. A tabela abaixo lista as cinco integrações desse tipo.
 
 | Integração | Protocolo | Tempo limite | Observação |
 | --- | --- | --- | --- |
@@ -128,7 +130,7 @@ Entre os 6 profissionais de COBOL, apenas 1 domina o módulo de matrícula em pr
 
 ## Integrações em lote
 
-Nenhuma troca com o ERP financeiro ou com o ambiente virtual de aprendizagem é síncrona. Toda propagação ocorre por arquivo, em janelas noturnas fixas.
+Na integração em lote, os dados se acumulam durante o dia e seguem de uma só vez, num arquivo, em horário marcado. Nenhuma troca com o ERP financeiro ou com o ambiente virtual de aprendizagem é síncrona. Toda propagação ocorre por arquivo, em janelas noturnas fixas, e a tabela abaixo lista os sete lotes.
 
 | Lote | Horário de início | Duração média | Sentido | Conteúdo |
 | --- | --- | --- | --- | --- |
@@ -146,7 +148,7 @@ A janela de lote vai das 23h00 às 07h00. A consequência operacional é a latê
 
 ## Dívida técnica medida
 
-Dívida técnica é o conjunto de limitações acumuladas no código e na operação, que encarecem e atrasam cada mudança futura. Os indicadores abaixo foram levantados pela Diretoria de TI no inventário técnico concluído em 31/08/2026.
+Dívida técnica é o conjunto de limitações acumuladas no código e na operação, como documentação desatualizada e falta de testes, que encarecem e atrasam cada mudança futura. Teste automatizado é um programa que confere sozinho se o sistema continua funcionando depois de uma alteração, e cobertura é a parcela do código que esses testes alcançam. Os indicadores abaixo foram levantados pela Diretoria de TI no inventário técnico concluído em 31/08/2026.
 
 | Indicador | Valor |
 | --- | --- |

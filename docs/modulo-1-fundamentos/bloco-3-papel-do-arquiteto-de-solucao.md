@@ -70,11 +70,13 @@ A separação entre entradas, produtos intermediários e entregáveis organiza a
 
 ## Exercício 3
 
-A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 2.150 professores e 4 campi, cujo sistema acadêmico está em operação desde 2004. A instituição aprovou um ciclo de modernização de 12 meses com orçamento de R$ 6,2 milhões, mantendo o ambiente virtual de aprendizagem e o ERP financeiro em operação, e o núcleo em COBOL permanece sob contrato de sustentação de uma fábrica de software até 30/09/2027.
+A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 2.150 professores e 4 campi, cujo sistema acadêmico está em operação desde 2004. A instituição aprovou um ciclo de modernização de 12 meses com orçamento de R$ 6,2 milhões, mantendo o ambiente virtual de aprendizagem e o ERP financeiro em operação, e o núcleo em COBOL permanece sob contrato de sustentação de uma fábrica de software até 30/09/2027. A fábrica de software é a empresa contratada que mantém o núcleo, a parte mais antiga do sistema acadêmico, escrita em COBOL, uma linguagem de programação antiga.
+
+Em um projeto de modernização, muita gente trabalha ao mesmo tempo, e cada tarefa precisa ter dono. Quando a divisão não está clara, o arquiteto de solução decide o que não é dele ou deixa sem responsável o que é. Este exercício apresenta dez tarefas do ciclo de modernização da ACME, numeradas de T1 a T10, como entrevistar a Pró-Reitoria de Graduação (T1) e escolher a estrutura de dados do serviço de matrícula (T4). Nos três itens você diz de quem é cada tarefa, que tipo de habilidade as tarefas do arquiteto de solução pedem e que benefício da abordagem arquitetural justifica a tarefa T10. As respostas vão para a tabela de papéis do caderno arquitetural, o documento em que o curso reúne, seção por seção, a arquitetura da solução da ACME, apresentado no [bloco 4](bloco-4-processo-de-definicao-da-arquitetura.md#o-caderno-arquitetural).
 
 ### Item 1: Responsável por cada tarefa
 
-O diagrama abaixo situa as áreas e os sistemas envolvidos no ciclo de modernização, e o quadro seguinte lista dez tarefas desse ciclo.
+Tarefa é uma atividade do ciclo de modernização, que pode ser de levantamento, de decisão, de redação ou de configuração. O diagrama abaixo situa as áreas e os sistemas envolvidos no ciclo, que dura 12 meses e conta com R$ 6,2 milhões, e o quadro seguinte lista as dez tarefas. Três responsáveis são possíveis. O arquiteto de solução cuida da solução inteira, o arquiteto de software ou a equipe de desenvolvimento cuida do interior de um componente, e a arquitetura corporativa define regras que valem para a organização toda. O ambiente virtual de aprendizagem é a plataforma on-line em que o aluno acompanha as disciplinas e consulta a nota.
 
 ```mermaid
 flowchart TB
@@ -107,7 +109,7 @@ Sua resposta vira os campos Responsável e Justificativa da tabela de papéis, n
 
 ### Item 2: Grupo de competência de cada tarefa
 
-O quadro abaixo resume os quatro grupos de competência do arquiteto de solução apresentados na seção [Competências exigidas](#competencias-exigidas) deste bloco.
+Competência é uma habilidade que o papel exige, e cada tarefa recorre mais a uma habilidade do que a outras. Saber qual delas pesa em cada tarefa ajuda a perceber que a equipe precisa de alguém que a domine. Por exemplo, gestão de riscos pertence ao grupo Entrega e comunicação com as partes interessadas pertence ao grupo Prático. O quadro abaixo resume os quatro grupos de competência do arquiteto de solução apresentados na seção [Competências exigidas](#competencias-exigidas) deste bloco.
 
 | Grupo | O que abrange |
 | --- | --- |
@@ -122,7 +124,7 @@ Sua resposta vira o campo Grupo de competência da mesma tabela, no caderno.
 
 ### Item 3: Benefício por trás da tarefa T10
 
-A tarefa T10 consiste em verificar com a Diretoria de TI se já existe na universidade um componente de envio de mensagem que possa ser reaproveitado. O quadro abaixo lista os sete benefícios da abordagem arquitetural apresentados na seção [Benefícios da abordagem](#beneficios-da-abordagem) deste bloco.
+A abordagem arquitetural traz benefícios que justificam o trabalho extra do arquiteto, e cada tarefa de um projeto bem conduzido serve a algum deles. A tarefa T10 consiste em verificar com a Diretoria de TI se já existe na universidade um componente de envio de mensagem, isto é, um programa que transmite avisos de um sistema a outro, que possa ser reaproveitado. O item pede que você diga qual benefício está por trás dessa verificação. O quadro abaixo lista os sete benefícios da abordagem arquitetural apresentados na seção [Benefícios da abordagem](#beneficios-da-abordagem) deste bloco.
 
 | Benefício | Como ele se produz |
 | --- | --- |

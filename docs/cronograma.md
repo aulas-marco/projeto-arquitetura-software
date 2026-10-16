@@ -1,6 +1,6 @@
 # Cronograma
 
-A disciplina tem seis aulas, das 19h00 às 22h30, com intervalo das 20h30 às 20h45 e encerramento do conteúdo até as 22h10. Cada aula se divide em blocos, que são partes de cerca de 30 minutos dedicadas a um conceito, e cada bloco tem um exercício correspondente, numerado de 1 a 24 ao longo da disciplina. Os quatro blocos de apresentação conceitual somam 130 minutos, com 32 ou 33 minutos por bloco. Na Aula 4 há ainda o bloco 0, de 10 minutos e sem exercício, que abre a aula antes dos quatro blocos, e por isso os blocos 1 e 2 passam a durar 28 e 27 minutos, para o total continuar em 130. Os exercícios de cada bloco são realizados fora do horário de aula, como atividade de aplicação do conceito ao caso da instituição fictícia ACME, apresentado na página do [caso ACME](caso-acme/index.md).
+A disciplina tem seis aulas, das 19h00 às 22h30, com intervalo das 20h30 às 20h45 e encerramento do conteúdo até as 22h10. Cada aula se divide em blocos, que são partes de cerca de 30 minutos dedicadas a um conceito, e cada bloco tem um exercício correspondente, numerado de 1 a 24 ao longo da disciplina. Os quatro blocos de apresentação conceitual somam 130 minutos, com 32 ou 33 minutos por bloco. Na Aula 4 há ainda o bloco 0, de 10 minutos e sem exercício, que abre a aula antes dos quatro blocos, e por isso os blocos 1 e 2 passam a durar 28 e 27 minutos, para o total continuar em 130. Os exercícios de cada bloco são realizados fora do horário de aula, como atividade de aplicação do conceito ao caso da instituição fictícia ACME, apresentado na página do [caso ACME](caso-acme/index.md). O caso é um sistema acadêmico antigo que a ACME precisa evoluir sem interromper a matrícula nem a publicação de notas, e todos os exercícios partem dele.
 
 A partir da Aula 3, cada aula abre com 15 minutos de questões sobre a aula anterior e inclui três questionários Kahoot, plataforma de perguntas respondidas ao vivo, de 10 minutos cada. O primeiro revisa a aula anterior, o segundo trata dos blocos 1 e 2 e vem depois do intervalo, e o terceiro trata dos blocos 3 e 4 e fecha a aula.
 
@@ -8,7 +8,7 @@ As datas de cada oferta não aparecem aqui. Elas são divulgadas pela instituiç
 
 ## Sequência das aulas
 
-As duas primeiras aulas enquadram o problema, com a disciplina e seu processo, depois as entradas, os requisitos e as partes interessadas. As quatro seguintes percorrem o desenho, a tecnologia e a entrega.
+As duas primeiras aulas enquadram o problema, com a disciplina e seu processo, depois as entradas, os requisitos e as partes interessadas. As quatro seguintes percorrem o desenho, a tecnologia e a entrega. Os termos técnicos da tabela, como ADR e modelagem C4, são explicados na primeira aula em que aparecem e reunidos no [glossário](referencia/glossario.md). O ADR é o registro curto de uma decisão de arquitetura, e a modelagem C4 é uma forma de desenhar o sistema em quatro níveis de detalhe.
 
 | Aula | Tema |
 | --- | --- |
@@ -48,7 +48,7 @@ As aulas seguem a ordem natural de um projeto, que parte do enquadramento, passa
 | 1 | Princípios de design da solução e a passagem do conceitual ao lógico | 9 |
 | 2 | Estilos arquiteturais e sua relação com atributo de qualidade | 10 |
 | 3 | Padrões de design e sua relação com padrões arquiteturais | 11 |
-| 4 | Registro de decisão arquitetural, formatos Nygard e MADR | 12 |
+| 4 | Registro de decisão arquitetural, formatos Nygard e MADR, dois modelos de ficha para anotar uma decisão | 12 |
 
 ### Aula 4, domínios da arquitetura de solução
 
@@ -65,7 +65,7 @@ As aulas seguem a ordem natural de um projeto, que parte do enquadramento, passa
 | Bloco | Tema | Exercício |
 | --- | --- | --- |
 | 1 | Definição tecnológica e modelo técnico de referência, do bloco de construção ao serviço de infraestrutura | 17 |
-| 2 | Plataforma arquitetural, frameworks e zona de pouso | 18 |
+| 2 | Plataforma arquitetural, frameworks e zona de pouso, a base preparada do ambiente em nuvem | 18 |
 | 3 | Segurança fim a fim | 19 |
 | 4 | ADR de plataforma, dependência de fornecedor e lacunas na provisão de serviços | 20 |
 
@@ -80,7 +80,7 @@ As aulas seguem a ordem natural de um projeto, que parte do enquadramento, passa
 
 ## Avaliação
 
-Cada aula vale dez pontos, distribuídos entre os quatro exercícios daquela aula, somando sessenta pontos nas seis aulas. A participação nos encontros ao vivo vale quarenta pontos. Não há trabalho final entregue após a última aula, porque os exercícios de cada aula já são o instrumento de avaliação.
+Cada aula vale dez pontos, distribuídos entre os quatro exercícios daquela aula, somando sessenta pontos nas seis aulas, e a página de [artefatos por aula](caso-acme/artefatos.md) mostra o que cada exercício entrega. A participação nos encontros ao vivo vale quarenta pontos. Não há trabalho final entregue após a última aula, porque os exercícios de cada aula já são o instrumento de avaliação.
 
 ## Como os artefatos se encadeiam
 

@@ -1,6 +1,6 @@
 # Segurança fim a fim
 
-Este bloco avalia, sobre a tecnologia escolhida no bloco 1 e sobre a plataforma e a zona de pouso definidas no bloco 2, se a solução protege os ativos que precisa proteger, do dado pessoal gravado no banco à chamada que atravessa a rede.
+Depois de escolher os produtos no bloco 1 e a plataforma e a zona de pouso no bloco 2, falta conferir se a solução protege o que precisa proteger. Ativo é qualquer coisa de valor para a organização, como o dado pessoal gravado no banco ou a chamada que atravessa a rede. Este bloco apresenta os conceitos e as ferramentas dessa conferência, que são a classificação dos ativos, a grade de permissões, a fronteira de confiança, o STRIDE e a autoridade de design de segurança. O exercício 19, no fim da página, aplica essas ferramentas ao caso da ACME, a universidade fictícia do curso.
 
 ## Antes de começar
 
@@ -116,7 +116,7 @@ Como a avaliação de segurança é um campo especializado, as organizações re
 *Figura 5 — Do desenho da solução à avaliação com recomendações, com os três papéis da matriz RACI. Fonte: material do curso, com base em Lovatt (2021, seção 7.7).*
 
 1. A conformidade com as diretivas audita o desenho contra os princípios, as políticas e os padrões de segurança adotados pela organização, como a ISO/IEC 27001, cuja edição de 2022 especifica os requisitos para estabelecer, implementar, manter e melhorar continuamente um sistema de gestão de segurança da informação.
-2. O teste de vulnerabilidade simula ameaças e atividades maliciosas para testar a resistência da solução, com apoio de catálogos públicos, como a lista OWASP Top 10, cuja edição de 2021 é usada neste bloco, e o CWE, lista de fraquezas de software e de hardware mantida pela MITRE que serve de linguagem comum para descrever falhas de segurança.
+2. O teste de vulnerabilidade simula ameaças e atividades maliciosas para testar a resistência da solução, com apoio de catálogos públicos, como a lista OWASP Top 10, que reúne as dez categorias de vulnerabilidade mais frequentes em aplicações web e cuja edição de 2021 é usada neste bloco, e o CWE, lista de fraquezas de software e de hardware mantida pela MITRE que serve de linguagem comum para descrever falhas de segurança.
 
 A participação dos papéis nessa atividade pode ser registrada numa matriz RACI, que indica para cada papel se ele é responsável pela execução (R), se responde pelo resultado e o aprova (A), se é consultado (C) ou se é informado (I). A distribuição abaixo é a adotada pelo curso para a atividade de assegurar a segurança de ponta a ponta.
 
@@ -147,9 +147,11 @@ A recomendação da autoridade retorna à equipe de solução como revisão de d
 
 ## Exercício 19
 
-A ACME é a universidade privada brasileira com 38.400 alunos ativos cujo sistema acadêmico passa por modernização incremental, com o núcleo transacional mantido em operação durante a transição. O exercício verifica se a solução nova protege os dados dos alunos, e para isso parte do diagrama de contêineres do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16) e da zona de pouso do [exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18). A verificação tem três itens, a classificação dos dados pela LGPD, a correção de uma grade de permissões pelo menor privilégio e a associação de ameaças a categorias do STRIDE.
+A ACME é a universidade privada brasileira com 38.400 alunos ativos cujo sistema acadêmico passa por modernização incremental, com o núcleo transacional, o conjunto de programas que executa as operações acadêmicas, mantido em operação durante a transição. Como o sistema novo vai guardar nota, histórico escolar, CPF e outros dados dos alunos, o exercício verifica se a solução protege esses dados. Para isso, parte do diagrama de contêineres do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16), que mostra as partes executáveis da solução, e da zona de pouso do [exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18).
 
-Os dois requisitos e a restrição abaixo constam da [página inicial do caso](../caso-acme/index.md) e valem para os três itens.
+A verificação tem três itens. No primeiro, o aluno classifica seis dados pela LGPD, a Lei Geral de Proteção de Dados Pessoais. No segundo, corrige uma grade de permissões, a tabela que diz quem pode ler e gravar cada recurso, aplicando o princípio do menor privilégio. No terceiro, associa seis ameaças a categorias do STRIDE, a classificação de ameaças apresentada na seção Fronteira de confiança e STRIDE. As respostas ficam registradas por item, cada uma com a linha da tabela ou o código do enunciado que a sustenta.
+
+Nos enunciados, um código formado por R e um número, como R9, identifica um requisito do dossiê da ACME, isto é, uma exigência que a solução precisa cumprir. Os dois requisitos e a restrição abaixo constam da [página inicial do caso](../caso-acme/index.md) e valem para os três itens. A trilha de auditoria citada no R9 é o registro que permite saber quem leu cada dado e quando, e a retenção de 5 anos é o prazo em que esse registro precisa ser guardado.
 
 | Código | Declaração | Origem |
 | --- | --- | --- |
@@ -159,7 +161,17 @@ Os dois requisitos e a restrição abaixo constam da [página inicial do caso](.
 
 ### Item 1: Ativos de dado e LGPD
 
-O objetivo deste item é decidir o grau de proteção de cada dado que a solução guarda. O dossiê não detalha os campos de cada módulo, e os ativos e as ligações abaixo são os considerados neste exercício. O diagrama liga cada ativo à capacidade acadêmica que o usa, entre as capacidades do [exercício 13](../modulo-4-dominios-da-solucao/bloco-1-arquitetura-de-negocio.md#exercicio-13), que são as funções que a universidade executa, como admissão e ingresso ou oferta e grade curricular.
+O objetivo deste item é decidir o grau de proteção de cada dado que a solução guarda, porque o grau de proteção determina os controles que o desenho precisa prever. O enunciado traz seis ativos de dado, numerados de A1 a A6 no diagrama, entre eles a nota (A1) e o CPF (A3). O dossiê não detalha os campos de cada módulo, e os ativos e as ligações abaixo são os considerados neste exercício. O diagrama liga cada ativo à capacidade acadêmica que o usa. Capacidade é uma função que a universidade executa, e o [exercício 13](../modulo-4-dominios-da-solucao/bloco-1-arquitetura-de-negocio.md#exercicio-13) da Aula 4 numerou dez delas, de C1 a C10. O diagrama usa cinco, e a tabela abaixo diz o que cada código designa.
+
+| Código | Capacidade | O que a universidade executa nela |
+| --- | --- | --- |
+| C1 | Admissão e ingresso | Seleção de candidatos e registro do ingresso do aluno |
+| C2 | Oferta e grade curricular | Montagem semestral da oferta de 4.900 turmas |
+| C4 | Avaliação e registro de notas | Lançamento de notas, cálculo de média e situação do aluno |
+| C6 | Emissão de documentos acadêmicos | Histórico, declaração, atestado e diploma digital |
+| C7 | Gestão de bolsas e descontos | Regras de financiamento estudantil e de convênio |
+
+Os códigos C3 e C5, de matrícula em disciplinas e de controle de frequência, e de C8 a C10 não aparecem neste diagrama.
 
 ```mermaid
 graph LR
@@ -182,13 +194,13 @@ A tabela indica o módulo do núcleo, conforme a [arquitetura de linha de base](
 | Laudo de necessidade educacional específica | O dossiê não registra o módulo |
 | Oferta de turmas | Oferta e grade curricular |
 
-1. Classifique cada ativo em não pessoal, pessoal ou pessoal sensível, conforme o art. 5º da LGPD.
-2. Atribua a cada ativo um nível de confidencialidade baixo, médio ou alto, e justifique em uma linha o nível do ativo pessoal sensível.
-3. Responda em uma linha quais ativos a restrição R14 impede de serem processados fora do território nacional e qual serviço externo do diagrama do exercício 16 recebe hoje, pelos lotes noturnos descritos na linha de base, um desses ativos.
+1. Classifique cada ativo, de A1 a A6, em não pessoal, pessoal ou pessoal sensível, conforme o art. 5º da LGPD apresentado na seção Ativos e sua classificação.
+2. Atribua a cada ativo um nível de confidencialidade baixo, médio ou alto, conforme o dano que a divulgação indevida do dado causaria, e justifique em uma linha o nível do ativo pessoal sensível.
+3. Responda em uma linha quais ativos a restrição R14 impede de serem processados fora do território nacional e qual sistema externo do diagrama do exercício 16 recebe hoje, pelos lotes noturnos descritos na linha de base, um desses ativos.
 
 ### Item 2: Grade de permissões
 
-O objetivo deste item é encontrar acessos maiores do que o necessário numa grade de permissões já preenchida. A grade abaixo, em que três células concedem privilégio além do necessário, foi proposta para a arquitetura alvo, com os perfis e os serviços nas linhas e três recursos nas colunas. L indica leitura, E indica gravação e o traço indica nenhum acesso, e a condição aparece depois da vírgula, como em somente a própria. No sistema atual, o ambiente virtual de aprendizagem recebe a nota consolidada por exportação e devolve apenas nota de atividade, recurso que não consta desta grade.
+O objetivo deste item é encontrar acessos maiores do que o necessário numa grade de permissões já preenchida, porque cada acesso excedente é uma porta aberta a erro e a abuso. O princípio do menor privilégio diz que cada perfil ou serviço recebe apenas o acesso que a tarefa dele exige. A grade abaixo foi proposta para a arquitetura alvo, a solução nova, e três de suas células concedem privilégio além do necessário. As linhas trazem seis perfis e serviços, como Aluno e Serviço de notas, e as colunas trazem três recursos, a nota consolidada, a matrícula e o histórico escolar. L indica leitura, E indica gravação e o traço indica nenhum acesso, e a condição aparece depois da vírgula, como em somente a própria. No sistema atual, o ambiente virtual de aprendizagem recebe a nota consolidada por exportação e devolve apenas nota de atividade, recurso que não consta desta grade.
 
 | Perfil ou serviço | Nota consolidada | Matrícula | Histórico escolar |
 | --- | --- | --- | --- |
@@ -199,12 +211,12 @@ O objetivo deste item é encontrar acessos maiores do que o necessário numa gra
 | Serviço de matrícula | – | L E | – |
 | Ambiente virtual de aprendizagem | L E | L | – |
 
-1. Aponte as três células que violam o princípio do menor privilégio, pelo perfil e pelo recurso.
-2. Indique o acesso correto de cada uma das três células, com a condição quando houver.
+1. Aponte as três células da grade que violam o princípio do menor privilégio, dizendo para cada uma o perfil e o recurso.
+2. Indique o acesso correto de cada uma das três células, com a condição quando houver, usando as letras L e E e o traço.
 
 ### Item 3: Ameaças na fronteira do aplicativo do aluno
 
-O objetivo deste item é associar ameaças conhecidas a categorias do STRIDE e ao controle que cada uma exige. A fronteira de confiança analisada é a ligação entre o aplicativo do aluno, instalado no telefone, e o serviço de matrícula, que o R1 e o R6 exigem e que aparece como relação 1 no diagrama do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16). A execução do serviço de matrícula na conta de produção da zona de pouso do [exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) é suposição do exercício. A tabela reproduz da [página inicial do caso](../caso-acme/index.md) os requisitos R1, R6 e R8, que este item cita.
+O objetivo deste item é associar ameaças conhecidas a categorias do STRIDE e ao controle que cada uma exige, para que o desenho já traga a defesa certa em cada ponto exposto. Ameaça é uma forma de ataque ou de uso indevido, e controle é a medida que a combate. O enunciado traz seis ameaças, numeradas de T1 a T6, e seis controles, identificados pelas letras de (a) a (f). A fronteira de confiança analisada é a ligação entre o aplicativo do aluno, instalado no telefone, e o serviço de matrícula, que o R1 e o R6 exigem e que aparece como relação 1 no diagrama do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16). A execução do serviço de matrícula na conta de produção da zona de pouso do [exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) é suposição do exercício. A tabela reproduz da [página inicial do caso](../caso-acme/index.md) os requisitos R1, R6 e R8, que este item cita.
 
 | Código | Declaração | Origem |
 | --- | --- | --- |
@@ -224,7 +236,7 @@ graph LR
     APP -.->|"autentica"| IDP["Provedor de<br/>identidade"]
 ```
 
-A tabela descreve seis ameaças a essa fronteira.
+A tabela descreve as seis ameaças, T1 a T6, a essa fronteira, e cada linha traz o cenário de um ataque.
 
 | Ameaça | Cenário |
 | --- | --- |

@@ -1,6 +1,6 @@
 # Direcionadores de mudança
 
-Este bloco trata do que põe uma solução em movimento, os direcionadores internos e externos que levam a organização a agir, e o que deles chega ao arquiteto como insumo do desenho.
+Este bloco trata do que põe uma solução em movimento, os direcionadores internos e externos que levam a organização a agir, e o que deles chega ao arquiteto como insumo do desenho. Um exemplo do caso usado no curso, a universidade fictícia ACME, que está modernizando o sistema acadêmico: o parecer jurídico que exige processar dados de alunos em território nacional é um direcionador externo, porque vem de fora da universidade, e o custo anual de R$ 15,83 milhões do sistema é um direcionador interno, porque nasce da própria gestão. O exercício do fim do bloco pede que o aluno classifique os sete direcionadores do caso.
 
 ## Antes de começar
 
@@ -103,7 +103,7 @@ O próprio Gartner declara, no aviso que acompanha as publicações do Magic Qua
 
 Um exemplo publicado é o Magic Quadrant for Strategic Cloud Platform Services, com as posições de maio de 2025, exibido por completo em uma [publicação do Google Cloud de 08/08/2025](https://cloud.google.com/blog/products/compute/google-is-a-leader-in-gartner-magic-quadrant-for-scps), consultada em 29/09/2026. A página pertence a um dos fornecedores avaliados, que reproduz o gráfico sob licença do Gartner, e por isso deve ser lida como material promocional que contém dado de terceiro.
 
-O **Forrester Wave** é descrito pela Forrester Research como um guia para compradores que avaliam opções em um mercado de tecnologia, baseado na análise e na opinião da empresa. A avaliação combina a oferta atual do fornecedor, Current Offering, e a sua estratégia, Strategy, e desde 01/07/2024 o gráfico apresenta a avaliação de clientes, Customer Feedback, no lugar da antiga presença de mercado. Na mesma revisão, a classificação passou a ter três categorias, Leaders, Strong Performers e Contenders. O nome da empresa é Forrester Research, e a grafia Forrester Group, que aparece em algumas referências informais, não corresponde à razão social.
+O **Forrester Wave** é descrito pela Forrester Research como um guia para compradores que avaliam opções em um mercado de tecnologia, baseado na análise e na opinião da empresa. A avaliação combina a oferta atual do fornecedor, Current Offering, e a sua estratégia, Strategy, e desde 01/07/2024 o gráfico apresenta a avaliação de clientes, Customer Feedback, no lugar da antiga presença de mercado. Segundo a metodologia da Forrester, a avaliação de clientes considera quantos clientes de referência o fornecedor indicou, quantos deles responderam e quão satisfeitos estavam, e o fornecedor com avaliação superior recebe no gráfico um marcador mais destacado. A metodologia consultada não define o critério antigo de presença de mercado, que por isso não é detalhado aqui. Na mesma revisão, a classificação passou a ter três categorias, Leaders, Strong Performers e Contenders. O nome da empresa é Forrester Research, e a grafia Forrester Group, que aparece em algumas referências informais, não corresponde à razão social.
 
 Um exemplo publicado é o [Forrester Wave: Public Cloud Platforms, Q4 2024](https://reprint.forrester.com/reports/the-forrester-wave-tm-public-cloud-platforms-q4-2024-9c26c6b4/index.html), distribuído em reimpressão licenciada no portal de reimpressões da Forrester Research e consultado em 29/09/2026. Ele avalia um mercado próximo ao do Magic Quadrant citado acima, o que permite confrontar a opinião das duas empresas sobre provedores de nuvem.
 
@@ -125,13 +125,13 @@ O registro dos direcionadores também protege o projeto quando a liderança muda
 
 ## Exercício 5
 
-Este exercício treina a leitura dos direcionadores de mudança de um caso concreto. O aluno separa os direcionadores que já se tornaram problema dos que ainda podem ser previstos, organiza fatores externos pelas seis dimensões da análise PESTLE e relaciona a meta de custo ao contrato do mainframe, o computador de grande porte em que roda o núcleo do sistema acadêmico. Os dados necessários aparecem no enunciado de cada item.
+Este exercício treina a leitura dos direcionadores de mudança, as pressões que levam uma organização a mudar, num caso concreto. Saber quais pressões já viraram problema e quais ainda podem ser previstas ajuda o arquiteto a decidir o que a solução precisa tratar primeiro e o que pode apenas ser monitorado. O exercício tem três itens. O primeiro separa os direcionadores da ACME em reativos e antecipatórios, o segundo organiza fatores externos pelas seis dimensões da análise PESTLE, e o terceiro relaciona a meta de custo ao contrato do mainframe, o computador de grande porte em que roda o núcleo do sistema acadêmico. Os dados necessários aparecem no enunciado de cada item.
 
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, dos quais 10.200 na graduação a distância, e um sistema acadêmico em operação desde 2004 que sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro. A modernização foi autorizada com orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses, o custo anual de propriedade do sistema é de R$ 15,83 milhões, o prazo médio de entrega de uma mudança é de 34 dias úteis, e dois dos três incidentes graves dos últimos 18 meses ocorreram na janela de matrícula.
 
 ### Item 1: Direcionadores reativos e antecipatórios
 
-O diagrama e o quadro abaixo reproduzem os sete [direcionadores de mudança](../referencia/glossario.md#direcionador-de-mudanca) registrados no dossiê do caso, separados entre internos e externos. A resposta a um direcionador é reativa quando ele já se tornou problema, e é antecipatória quando a organização prevê a mudança e age antes que ela produza efeito.
+O diagrama e o quadro abaixo reproduzem os sete [direcionadores de mudança](../referencia/glossario.md#direcionador-de-mudanca) registrados no dossiê do caso, três internos e quatro externos. A resposta a um direcionador é reativa quando ele já se tornou problema, como a matrícula que já falhou na abertura, e é antecipatória quando a organização prevê a mudança e age antes que ela produza efeito, como a aposentadoria de especialistas marcada para 2027. O objetivo do item é decidir, para cada direcionador, em qual dessas duas situações a ACME se encontra hoje.
 
 ```mermaid
 flowchart LR
@@ -160,11 +160,11 @@ flowchart LR
 | Expectativa do aluno | Externo, retorno de clientes | Demanda por aplicativo móvel e por matrícula que não falhe na abertura |
 | Disponibilidade de nuvem contratável | Externo, tecnologia | Dois provedores pré-aprovados pelo Conselho Universitário em 12/03/2026 |
 
-1. Classifique os sete direcionadores em reativos e antecipatórios, justificando cada classificação pela evidência do caso.
+1. Classifique cada um dos sete direcionadores como reativo ou antecipatório, e justifique citando o dado da coluna Evidência no caso que sustenta a escolha. Registre a classificação e a justificativa ao lado do nome do direcionador.
 
 ### Item 2: Análise PESTLE da ACME
 
-O primeiro quadro abaixo lista três fatos externos já registrados no dossiê do caso. O segundo quadro traz as seis dimensões da [análise PESTLE](#analise-pestle) com a coluna de fator externo em branco.
+A [análise PESTLE](#analise-pestle) examina o ambiente externo da organização por seis dimensões, e este item mostra como ela funciona na prática. O primeiro quadro abaixo traz três fatos externos já registrados no dossiê do caso, numerados de F1 a F3. Dois deles são o parecer jurídico sobre dados no território nacional e a pré-aprovação de dois provedores de nuvem. O segundo quadro traz as seis dimensões com a coluna de fator externo em branco, e o aluno distribui os fatos nas dimensões e completa as que ficarem vazias.
 
 | Código | Fato registrado no dossiê |
 | --- | --- |
@@ -182,11 +182,11 @@ O primeiro quadro abaixo lista três fatos externos já registrados no dossiê d
 | Ambiental | Que condições ambientais ou compromissos de sustentabilidade afetam a operação? | |
 
 1. Associe cada um dos três fatos registrados a uma das seis dimensões e anote-o na linha correspondente do segundo quadro.
-2. Preencha as dimensões que ficaram sem fato com um fator externo plausível que possa afetar a instituição nos próximos três anos, marcando cada um desses fatores como acréscimo seu.
+2. Preencha cada dimensão que ficou sem fato com um fator externo plausível, que possa afetar a instituição nos próximos três anos, e marque cada um desses fatores como acréscimo seu, porque o dossiê não o registra.
 
 ### Item 3: Meta de custo e contrato do mainframe
 
-A ACME paga pelo mainframe um contrato de capacidade com piso de volume contratado, isto é, um valor mínimo devido mesmo que a carga diminua. O diagrama abaixo dispõe em ordem cronológica os marcos que condicionam a meta de redução do custo anual de propriedade.
+O dossiê do caso registra uma meta de reduzir o custo anual do sistema, e este item verifica se ela cabe no primeiro ano de trabalho. A ACME paga pelo mainframe um contrato de capacidade com piso de volume contratado, isto é, um valor mínimo devido mesmo que a carga diminua. O diagrama abaixo dispõe em ordem cronológica os quatro marcos que condicionam a meta de redução do custo anual de propriedade, da situação atual até 2029.
 
 ```mermaid
 flowchart TB
@@ -195,7 +195,7 @@ flowchart TB
     C2 --> C3["Fim de 2029<br/>meta de custo anual de R$ 11,0 milhões"]
 ```
 
-1. Explique, em até cinco linhas, o efeito da combinação entre a meta de custo e o contrato de capacidade do mainframe sobre o que pode ser prometido no primeiro ciclo de 12 meses.
+1. Explique, em até cinco linhas, como o contrato de capacidade do mainframe, que só termina em 31/12/2028, afeta a meta de custo de R$ 11,0 milhões e, por consequência, o que o projeto pode prometer de economia dentro do primeiro ciclo de 12 meses.
 
 ## Fontes
 

@@ -1,6 +1,6 @@
 # Cenários de qualidade, linha de base e restrições
 
-Este bloco trata de como tornar um requisito de atributo de qualidade concreto o bastante para orientar decisão, como julgar se um requisito deve pesar sobre a arquitetura, e quais insumos já existentes entram no processo antes de qualquer desenho, os artefatos de linha de base e as restrições.
+Este bloco trata de como tornar um requisito de atributo de qualidade concreto o bastante para orientar decisão, como julgar se um requisito deve pesar sobre a arquitetura, e quais insumos já existentes entram no processo antes de qualquer desenho, os artefatos de linha de base e as restrições. Cenário é a descrição de uma situação concreta, com quem a provoca, o que acontece e que resposta se espera do sistema. Artefato de linha de base é um documento ou medição que já existe e descreve o sistema atual, como o inventário de componentes. Restrição é uma decisão tomada por outra instância, como a escolha de apenas dois provedores de nuvem, que o arquiteto precisa respeitar.
 
 ## Antes de começar
 
@@ -48,7 +48,7 @@ O exemplo abaixo aplica a mesma estrutura a um requisito de desempenho em outro 
 | Resposta | Validar a identidade, recuperar o status da encomenda e devolver a resposta |
 | Medida | p95 até 500 ms, p99 até 1 s, erros abaixo de 0,1% |
 
-O exemplo seguinte aplica a mesma estrutura a um requisito de modificabilidade, no sistema de pagamentos da Varejista ACME, que trabalha com múltiplos adquirentes.
+Na medida, p95 e p99 indicam o tempo dentro do qual terminam 95% e 99% das consultas, de modo que p95 até 500 ms quer dizer que no máximo 5% das consultas demoram mais que isso. O exemplo seguinte aplica a mesma estrutura a um requisito de modificabilidade, no sistema de pagamentos da Varejista ACME, que trabalha com múltiplos adquirentes, as empresas que processam os pagamentos de cartão da loja.
 
 | Elemento | Especificação |
 | --- | --- |
@@ -127,13 +127,13 @@ O arquiteto usa o cenário e o roteiro de sete perguntas para decidir onde inves
 
 ## Exercício 7
 
-Este exercício aplica ao caso da ACME os conceitos do bloco. O aluno completa dois cenários de qualidade, julga se eles pesam sobre a arquitetura, identifica os artefatos de linha de base que sustentam os cenários e classifica as restrições do caso pela origem.
+Este exercício aplica ao caso da ACME os conceitos do bloco. Escrever um cenário completo, julgar se ele pesa sobre a arquitetura e reconhecer o que já existe e o que já está decidido permite ao arquiteto saber onde concentrar o esforço de desenho antes de propor qualquer solução. O exercício tem cinco itens. Nos dois primeiros, o aluno completa dois cenários de qualidade, um sobre o pico de matrícula e outro sobre o incidente de 04/02/2026. No terceiro, julga se os dois pesam sobre a arquitetura. No quarto, identifica os artefatos de linha de base que sustentam os cenários, e no quinto classifica as sete restrições do caso pela origem.
 
 A ACME é uma universidade privada brasileira fictícia cujo sistema acadêmico está em modernização. Os dados de sazonalidade (variação do uso ao longo do ano) e de incidentes vêm dos [dados operacionais](../caso-acme/dados-operacionais.md) do caso e aparecem nos enunciados. O Item 1 pode partir, sem obrigatoriedade, da reescrita mensurável da declaração R2, "A matrícula não pode cair", produzida no [exercício 6](bloco-2-qualidade-e-tipos-de-requisito.md#exercicio-6) desta mesma aula.
 
 ### Item 1: Cenário do pico de matrícula
 
-O portal da ACME registra 815 sessões simultâneas em média anual ponderada, com pico de 5.800 sessões na abertura da matrícula, uma razão de 7,1 entre pico e média (o pico equivale a 7,1 vezes a média), e taxa de erro de 6,3% das requisições nesse intervalo de pico, contra 0,2% em dia letivo comum. O quadro abaixo traz um [cenário de atributo de qualidade](../referencia/glossario.md#cenario-de-atributo-de-qualidade) para esse pico, com os quatro primeiros elementos preenchidos.
+O portal da ACME registra 815 sessões simultâneas em média anual ponderada, com pico de 5.800 sessões na abertura da matrícula, uma razão de 7,1 entre pico e média (o pico equivale a 7,1 vezes a média), e taxa de erro de 6,3% das requisições nesse intervalo de pico, contra 0,2% em dia letivo comum. O quadro abaixo traz um [cenário de atributo de qualidade](../referencia/glossario.md#cenario-de-atributo-de-qualidade) para esse pico, com os quatro primeiros dos seis elementos preenchidos e os dois últimos, a resposta do sistema e a medida que permite verificá-la, em branco para o aluno completar.
 
 | Elemento | Especificação |
 | --- | --- |
@@ -144,7 +144,7 @@ O portal da ACME registra 815 sessões simultâneas em média anual ponderada, c
 | Resposta | A completar |
 | Medida da resposta | A completar |
 
-1. Complete a resposta e a medida da resposta do cenário, de modo que a medida possa ser verificada em teste de carga.
+1. Complete a linha Resposta e a linha Medida da resposta do quadro, de modo que a medida possa ser verificada em teste de carga, que simula o número de sessões simultâneas e mede o resultado.
 
 ### Item 2: Cenário do incidente de 04/02/2026
 
@@ -167,11 +167,11 @@ flowchart TB
 | Resposta | A completar |
 | Medida da resposta | A completar |
 
-1. Complete o artefato, a resposta e a medida da resposta do cenário, de modo que a repetição do incidente possa ser verificada.
+1. Complete as linhas Artefato, Resposta e Medida da resposta do quadro, de modo que se possa verificar que o incidente não se repete. O artefato é a parte do sistema que sofre o efeito do estímulo.
 
 ### Item 3: Significância arquitetural dos dois cenários
 
-O quadro abaixo reproduz o roteiro de sete perguntas apresentado na seção [Conceito](#conceito) para julgar se um requisito é [arquiteturalmente significativo](../referencia/glossario.md#requisito-arquiteturalmente-significativo), com uma coluna para cada cenário.
+Um requisito é [arquiteturalmente significativo](../referencia/glossario.md#requisito-arquiteturalmente-significativo) quando atendê-lo exige decisões que mudam a estrutura da solução, e o julgamento ajuda a decidir quais cenários merecem análise de arquitetura. O quadro abaixo reproduz o roteiro de sete perguntas apresentado na seção [Conceito](#conceito) para esse julgamento, com uma coluna para cada um dos dois cenários dos itens 1 e 2.
 
 | Pergunta do roteiro | Cenário do pico | Cenário do incidente |
 | --- | --- | --- |
@@ -188,7 +188,7 @@ O quadro abaixo reproduz o roteiro de sete perguntas apresentado na seção [Con
 
 ### Item 4: Artefatos de linha de base que sustentam os cenários
 
-O quadro abaixo lista os [artefatos de linha de base](../referencia/glossario.md#artefato-de-linha-de-base) disponíveis no caso da ACME, descritos na seção [Artefatos de linha de base](#artefatos-de-linha-de-base) deste bloco.
+Um [artefato de linha de base](../referencia/glossario.md#artefato-de-linha-de-base) é um documento ou medição já existente que descreve o sistema atual, e os cenários só são confiáveis se os dados que os sustentam estiverem corretos. O quadro abaixo lista seis artefatos disponíveis no caso da ACME, numerados de L1 a L6. Dois deles são o inventário de componentes, L1, e a série de medição de sessões simultâneas do portal, L6. A seção [Artefatos de linha de base](#artefatos-de-linha-de-base) deste bloco descreve o conceito.
 
 | Código | Artefato de linha de base |
 | --- | --- |
@@ -204,7 +204,7 @@ O quadro abaixo lista os [artefatos de linha de base](../referencia/glossario.md
 
 ### Item 5: Origem das restrições fechadas
 
-O quadro abaixo reproduz as sete restrições que chegam fechadas ao caso da ACME, com o registro de quem as estabeleceu.
+Uma restrição é uma decisão tomada fora do projeto, e saber de onde ela vem mostra quem poderia revê-la. O quadro abaixo reproduz as sete restrições que chegam fechadas ao caso da ACME, com o registro de quem as estabeleceu. Duas delas são o uso de apenas dois provedores de nuvem, decidido pelo Conselho Universitário, e a manutenção do núcleo COBOL sob contrato até 30/09/2027.
 
 | Restrição | Registro no caso |
 | --- | --- |
@@ -216,7 +216,7 @@ O quadro abaixo reproduz as sete restrições que chegam fechadas ao caso da ACM
 | Manutenção do núcleo COBOL sob contrato até 30/09/2027 | Contrato de sustentação |
 | Orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses | Reitoria |
 
-1. Classifique cada restrição pela origem, entre regulatória, contratual, de política interna e técnica, e indique quem teria autoridade para revê-la.
+1. Classifique cada uma das sete restrições pela origem, entre regulatória, contratual, de política interna e técnica, e indique quem teria autoridade para revê-la. Registre os dois resultados ao lado de cada restrição.
 
 ## Fontes
 

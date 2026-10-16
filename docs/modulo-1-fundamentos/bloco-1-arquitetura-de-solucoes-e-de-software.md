@@ -13,12 +13,12 @@ Este bloco responde à questão que organiza a disciplina inteira, o que disting
 
 Uma abordagem arquitetural de um problema faz três movimentos. Vê o problema inteiro e como ele pode ser resolvido de forma **conceitual**, decompõe o problema em componentes e constrói modelos que mostram como eles funcionam juntos de forma **lógica**, e enumera as mudanças **físicas** necessárias para sair da situação atual e chegar à solução, possivelmente em etapas. Essa abordagem se opõe ao ajuste pontual, que resolve o sintoma imediato de forma estreita e costuma precisar ser desfeito quando a organização retoma o caminho de longo prazo.
 
-Arquitetura, nesse enquadramento, é a estrutura e o comportamento inerentes de um sistema, que existem como resultado de projeto, de evolução, ou dos dois. A estrutura são os componentes e suas conexões, e o comportamento são os efeitos da operação do sistema. Dizer que a arquitetura é inerente significa que todo sistema tem uma, mesmo quando ninguém a analisou, projetou ou documentou. O documento que descreve essa estrutura e esse comportamento é a descrição de arquitetura, objeto da norma ISO/IEC/IEEE 42010.
+Arquitetura, nesse enquadramento, é a estrutura e o comportamento inerentes de um sistema, que existem como resultado de projeto, de evolução, ou dos dois. A estrutura são os componentes e suas conexões, e o comportamento são os efeitos da operação do sistema. Dizer que a arquitetura é inerente significa que todo sistema tem uma, mesmo quando ninguém a analisou, projetou ou documentou. O documento que descreve essa estrutura e esse comportamento é a descrição de arquitetura, objeto da norma ISO/IEC/IEEE 42010, uma norma internacional que define o que essa descrição deve conter.
 
 > [!TIP]
 > **Arquitetura de solução** é a disciplina responsável pela produção e pela gestão do plano de uma solução completa, que atende a uma necessidade, um problema ou uma oportunidade de negócio e se integra ao negócio em alinhamento com a estratégia, minimizando impactos negativos. Produção e gestão são duas responsabilidades distintas: coordenar as atividades de projeto, e assegurar que cada mudança seja testada, validada e acordada em todas as etapas.
 
-A **arquitetura de software**, por sua vez, é o desenvolvimento e a documentação da estrutura e do comportamento de um sistema ou componente de software, incluindo suas interfaces internas e externas. Ela atua em vários níveis, da unidade de granularidade fina ao sistema inteiro, e responde por manter o software em linha com as diretrizes estratégicas, por modularidade, por cumprimento de acordos de nível de serviço e por manutenibilidade.
+A **arquitetura de software**, por sua vez, é o desenvolvimento e a documentação da estrutura e do comportamento de um sistema ou componente de software, incluindo suas interfaces internas e externas. Ela atua em vários níveis, da unidade de granularidade fina ao sistema inteiro, e responde por manter o software em linha com as diretrizes estratégicas, por modularidade, por cumprimento de acordos de nível de serviço, que são os compromissos formais de desempenho e disponibilidade assumidos com quem usa o sistema, e por manutenibilidade, a facilidade de corrigir e alterar o software.
 
 As duas definições não se contradizem, e a diferença entre elas está no alcance. Uma solução resolve um problema de negócio e depende de pessoas, estruturas organizacionais, processos, informação e tecnologia, os cinco tipos de componente que o arquiteto de solução usa como lista de verificação. O software é um desses componentes. Uma solução que troque um formulário em papel por um aplicativo, sem mudar quem aprova o pedido nem o prazo do processo, não resolveu o problema de negócio, ainda que o software esteja bem construído.
 
@@ -62,7 +62,7 @@ As três frases entre aspas no infográfico são as mesmas da linha "Exemplo na 
 
 Figura 4. Percurso das decisões D1, D2 e D3 da ACME, da diretriz corporativa transversal aos quatro domínios do TOGAF até a decisão de componente de software.
 
-A leitura do diagrama começa pela faixa superior, onde D1 aparece como diretriz transversal, válida para os quatro domínios ao mesmo tempo. As setas que descem indicam restrição: a decisão de solução D2 precisa respeitar o que cada domínio estabeleceu, e a decisão de software D3 precisa respeitar D2, mas nenhuma delas é consequência necessária da anterior. A linha inferior do diagrama nomeia o que mantém os três níveis conectados, a gestão de requisitos, que é o acompanhamento de cada requisito desde o pedido até virar decisão e software. O ponto de partida dessa gestão é o levantamento de requisitos, tratado na Aula 2.
+O diagrama usa o TOGAF, um modelo de referência muito adotado para organizar a arquitetura corporativa de uma instituição. A leitura do diagrama começa pela faixa superior, onde D1 aparece como diretriz transversal, válida para os quatro domínios ao mesmo tempo. As setas que descem indicam restrição: a decisão de solução D2 precisa respeitar o que cada domínio estabeleceu, e a decisão de software D3 precisa respeitar D2, mas nenhuma delas é consequência necessária da anterior. A linha inferior do diagrama nomeia o que mantém os três níveis conectados, a gestão de requisitos, que é o acompanhamento de cada requisito desde o pedido até virar decisão e software. O ponto de partida dessa gestão é o levantamento de requisitos, tratado na Aula 2.
 
 Duas ressalvas evitam confusão com o infográfico da Figura 2. O diagrama usa os quatro domínios de arquitetura do TOGAF, que são negócio, dados, aplicações e tecnologia, enquanto a Figura 2 lista cinco domínios de referência, porque separa segurança e infraestrutura dentro do que o TOGAF reúne sob tecnologia. Nenhuma das duas divisões é canônica para toda organização, e a escolha entre elas depende de como a arquitetura corporativa daquela instituição está estruturada. O diagrama também é uma leitura didática montada para este curso, e não reproduz notação oficial do framework, cujo ciclo de desenvolvimento de arquitetura tem representação própria.
 
@@ -106,11 +106,13 @@ A distinção também organiza a conversa com as partes interessadas. O patrocin
 
 ## Exercício 1
 
-A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 2.150 professores e 4 campi, cujo sistema acadêmico entrou em operação em 2004 e sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro. O custo anual de propriedade do sistema é de R$ 15,83 milhões, o prazo médio entre pedido aprovado e entrega em produção é de 34 dias úteis, e a manutenção do núcleo em COBOL depende de 6 especialistas, dos quais 2 se aposentam em 2027. A instituição decidiu modernizar o sistema de forma incremental, sem substituí-lo por produto de mercado e sem reescrita em entrega única.
+A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 2.150 professores e 4 campi, cujo sistema acadêmico entrou em operação em 2004 e sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro, o sistema de gestão das finanças da universidade. O custo anual de propriedade do sistema é de R$ 15,83 milhões, o prazo médio entre pedido aprovado e entrega em produção é de 34 dias úteis, e a manutenção do núcleo em COBOL depende de 6 especialistas, dos quais 2 se aposentam em 2027. A instituição decidiu modernizar o sistema de forma incremental, sem substituí-lo por produto de mercado e sem reescrita em entrega única.
+
+Este exercício treina uma pergunta que o arquiteto faz antes de qualquer desenho: de quem é esta decisão? Num projeto de modernização, parte das decisões vale para a universidade inteira, parte vale para o projeto como um todo e parte só interessa à equipe que programa um componente. O arquiteto de solução responde pelas decisões do segundo grupo e precisa reconhecer as outras para não decidir o que não é dele. O exercício tem três itens. O primeiro separa nove decisões por nível, o segundo identifica o que as decisões de solução afetam além da tecnologia e o terceiro examina se duas decisões dependem uma da outra. As respostas dos três itens vão para o caderno arquitetural, o documento em que o curso reúne, seção por seção, a arquitetura da solução da ACME, apresentado no [bloco 4](bloco-4-processo-de-definicao-da-arquitetura.md#o-caderno-arquitetural).
 
 ### Item 1: Nível de cada decisão
 
-O quadro abaixo lista nove decisões tomadas ou propostas no ciclo de modernização. O critério que separa os três níveis é o alcance do efeito da decisão, isto é, até onde ela chega e quem precisa ser avisado quando ela mudar, descrito na seção [Como aplicar o grão correto](#como-aplicar-o-grao-correto) deste bloco.
+Uma decisão, neste exercício, é uma escolha que define como parte da modernização será feita ou o que ela precisa respeitar. O quadro abaixo lista nove decisões tomadas ou propostas no ciclo de modernização, numeradas de D1 a D9. Três delas servem de exemplo dos níveis: D1 vale para toda iniciativa da universidade, D2 muda a forma como a nota viaja entre dois sistemas e D3 só altera o comportamento interno do serviço de notas. O critério que separa os três níveis é o alcance do efeito da decisão, isto é, até onde ela chega e quem precisa ser avisado quando ela mudar, descrito na seção [Como aplicar o grão correto](#como-aplicar-o-grao-correto) deste bloco.
 
 | Código | Decisão                                                                                                                              |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
@@ -124,13 +126,13 @@ O quadro abaixo lista nove decisões tomadas ou propostas no ciclo de moderniza�
 | D8     | O histórico escolar é emitido com assinatura digital no padrão ICP-Brasil                                                            |
 | D9     | A transição ocorre por extração incremental de módulos, com o núcleo em operação durante todo o percurso                             |
 
-1. Classifique cada uma das nove decisões em arquitetura corporativa, arquitetura de solução ou arquitetura de software, com uma linha de justificativa por decisão.
+1. Classifique cada uma das nove decisões em arquitetura corporativa, quando vale para a universidade inteira, arquitetura de solução, quando vale para este projeto como um todo, ou arquitetura de software, quando vale só dentro de um componente, com uma linha de justificativa por decisão.
 
 Sua resposta vira as colunas Nível e Justificativa da tabela de decisões, na seção 1 do caderno.
 
 ### Item 2: Componentes não tecnológicos afetados
 
-O quadro abaixo reproduz quatro dos cinco tipos de [componentes da solução](../referencia/glossario.md#componentes-da-solucao), detalhados no [bloco 2](bloco-2-a-solucao-como-sistema.md#os-cinco-tipos-de-componente) desta aula, sem o tipo tecnologia.
+Uma decisão de solução quase nunca é só técnica. Ela costuma exigir que alguém aprenda algo, que uma área mude de função, que um processo seja refeito ou que uma informação ganhe dono, e são essas partes que costumam ficar sem responsável. Este item pede que você identifique quais dessas partes cada decisão atinge. Treinar os professores para um novo procedimento, por exemplo, mexe com pessoas, e guardar um registro de auditoria por 5 anos mexe com informação. O quadro abaixo reproduz quatro dos cinco tipos de [componentes da solução](../referencia/glossario.md#componentes-da-solucao), detalhados no [bloco 2](bloco-2-a-solucao-como-sistema.md#os-cinco-tipos-de-componente) desta aula, sem o tipo tecnologia, porque o objetivo é enxergar o que está além dela.
 
 | Tipo de componente | O que abrange |
 | --- | --- |
@@ -145,7 +147,7 @@ Sua resposta vira a coluna Componente não tecnológico afetado da mesma tabela,
 
 ### Item 3: Dependência entre D2 e D3
 
-O diagrama abaixo mostra o percurso atual da nota lançada pelo professor até o aluno, que hoje passa por um lote diário noturno. As duas decisões tratadas neste item são reproduzidas logo depois do diagrama.
+Uma decisão depende de outra quando só faz sentido depois que a outra foi tomada. Reconhecer essa ordem evita que uma equipe implemente algo que não tem efeito prático ou que cria um problema novo. O item examina um par, D2 e D3, já presentes no Item 1. D2 muda a frequência com que a nota segue do núcleo acadêmico ao ambiente virtual de aprendizagem, a plataforma on-line em que o aluno consulta a nota, e D3 define o que o serviço de notas faz quando um envio individual não é confirmado. O diagrama abaixo mostra o percurso atual da nota lançada pelo professor até o aluno, que hoje passa por um lote diário noturno. As duas decisões são reproduzidas logo depois do diagrama.
 
 ```mermaid
 flowchart TB
