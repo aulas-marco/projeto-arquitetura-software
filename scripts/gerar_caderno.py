@@ -174,7 +174,15 @@ def render_gabarito(secoes: list[Secao], n: int, docs: Path = DOCS) -> str:
         if not visiveis:
             pendentes.append(_rotulo(secao.numero))
             continue
+        novos = any(f.n == n for f in visiveis)
         partes += [_cabecalho(secao), ""]
+        aviso = (
+            "Atualizada neste exercício"
+            if novos
+            else f"Construída {_onde(sorted({f.n for f in visiveis}))}. Clique para abrir"
+        )
+        partes += [f'<details class="caderno-secao" markdown="1"{" open" if novos else ""}>',
+                   f"<summary>{aviso}</summary>", ""]
         for i, fragmento in enumerate(secao.fragmentos, start=1):
             if fragmento not in visiveis:
                 continue
@@ -182,11 +190,22 @@ def render_gabarito(secoes: list[Secao], n: int, docs: Path = DOCS) -> str:
                 partes += [f"### {secao.numero}.{i} {fragmento.titulo}", ""]
             if fragmento.n == n:
                 partes += ["{{novo}}", "", fragmento.gabarito, "", "{{/novo}}", ""]
+            elif novos:
+                partes += ['<details class="caderno-secao" markdown="1">',
+                           f"<summary>Construída {_onde([fragmento.n])}. Clique para abrir</summary>", "",
+                           fragmento.gabarito, "", "</details>", ""]
             else:
                 partes += [fragmento.gabarito, ""]
+        partes += ["</details>", ""]
     if pendentes:
         partes += ["Ainda em branco, para os próximos exercícios: " + ", ".join(pendentes), ""]
     return "\n".join(partes).rstrip() + "\n"
+
+
+def _onde(ns: list[int]) -> str:
+    if len(ns) == 1:
+        return f"no exercício {ns[0]}"
+    return "nos exercícios " + ", ".join(str(x) for x in ns[:-1]) + f" e {ns[-1]}"
 
 
 def _com_gabarito(secoes: list[Secao]) -> set[int]:

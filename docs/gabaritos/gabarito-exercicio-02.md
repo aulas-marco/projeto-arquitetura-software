@@ -6,7 +6,13 @@ Depois do exercício 2, o caderno da ACME reúne o que os exercícios 1 a 2 prod
 
 ## 1. Contexto
 
+<details class="caderno-secao" markdown="1" open>
+<summary>Atualizada neste exercício</summary>
+
 ### 1.1 Instituição, restrições e decisões por nível
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 1. Clique para abrir</summary>
 
 #### Instituição e pergunta central
 
@@ -73,6 +79,8 @@ Quando a ACME decide algo como mudar o prazo da nota, a decisão quase nunca é 
 
 O reenvio com intervalo crescente (D3) só faz sentido depois da decisão de levar a nota ao ambiente virtual em até 10 minutos (D2). Imagine decidir o reenvio com intervalo crescente quando a nota ainda segue por um lote noturno: cada nova tentativa só aconteceria na janela seguinte, e esperar mais entre as tentativas não aproximaria a nota do aluno, que continuaria chegando no dia seguinte. Só depois que essa decisão fixa o prazo de 10 minutos o intervalo entre as tentativas passa a ter o que o justifique.
 
+</details>
+
 ### 1.2 Os componentes da solução, num exemplo da ACME
 
 {{novo}}
@@ -112,5 +120,7 @@ Para saber onde o prazo da nota se forma, os seis fatos da situação atual pode
 Imagine uma solução que atue só no nível de sistema de TI. Ela troca o lote noturno por um envio em minutos, mas deixa intactos o calendário de fechamento e a conferência manual, que são os que decidem quando a nota está pronta para publicar. O aluno continua vendo a nota no prazo do fechamento.
 
 {{/novo}}
+
+</details>
 
 Ainda em branco, para os próximos exercícios: A solução em uma página, 2. Partes interessadas, 3. Requisitos, 4. Linha de base e lacunas, 5. Contexto do sistema (C4, nível 1), 6. Princípios, 7. Decisões, 8. Tecnologia e plataforma, 9. Roteiro e governança, 10. O que ainda falta decidir

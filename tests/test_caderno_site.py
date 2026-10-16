@@ -36,7 +36,7 @@ class SiteDoCadernoTest(unittest.TestCase):
             with self.subTest(classe=classe):
                 self.assertIn(classe, css)
         self.assertIn("scripts/caderno_hooks.py", (ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
-        self.assertIn("extra.css?v=20261016-2", (ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
+        self.assertIn("extra.css?v=20261016-3", (ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
 
     def test_pagina_inicial_apresenta_o_caderno(self):
         texto = (DOCS / "index.md").read_text(encoding="utf-8")

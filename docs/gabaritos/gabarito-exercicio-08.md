@@ -6,6 +6,9 @@ Depois do exercício 8, o caderno da ACME reúne o que os exercícios 1 a 8 prod
 
 ## A solução em uma página
 
+<details class="caderno-secao" markdown="1" open>
+<summary>Atualizada neste exercício</summary>
+
 {{novo}}
 
 **O problema.** A ACME é uma universidade privada com 38.400 alunos ativos e um sistema acadêmico em operação desde 2004, com núcleo em COBOL, que custa R$ 15,83 milhões por ano e leva 34 dias úteis para colocar uma mudança em produção. A situação se agrava porque, dos 6 especialistas em COBOL que o sustentam, 2 se aposentam em 2027.
@@ -22,7 +25,12 @@ Depois do exercício 8, o caderno da ACME reúne o que os exercícios 1 a 8 prod
 
 {{/novo}}
 
+</details>
+
 ## 1. Contexto
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída nos exercícios 1, 2, 3 e 4. Clique para abrir</summary>
 
 ### 1.1 Instituição, restrições e decisões por nível
 
@@ -198,7 +206,12 @@ As premissas e as exclusões a seguir também são dados do caso. O curso as pro
 | Troca do provedor do gateway de pagamento no primeiro ciclo | Multa rescisória de 6 meses de tarifa média até 30/04/2027 |
 | Migração do banco Oracle no primeiro ciclo | O licenciamento obriga a licenciar todos os núcleos físicos do ambiente virtualizado, e o núcleo continua gravando no Oracle |
 
+</details>
+
 ## 2. Partes interessadas
+
+<details class="caderno-secao" markdown="1" open>
+<summary>Atualizada neste exercício</summary>
 
 ### 2.1 Partes interessadas, pontos de vista e escopo do primeiro ciclo
 
@@ -271,7 +284,12 @@ Para o primeiro ciclo caber nos R$ 6,2 milhões e nos 12 meses, o arquiteto sepa
 
 {{/novo}}
 
+</details>
+
 ## 3. Requisitos
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída nos exercícios 5, 6 e 7. Clique para abrir</summary>
 
 ### 3.1 Direcionadores de mudança e fatores externos
 
@@ -409,7 +427,12 @@ Cada restrição foi decidida por alguém de fora do projeto, e saber quem decid
 | Manutenção do núcleo COBOL sob contrato até 30/09/2027 | Contratual | Negociação com o fornecedor, dentro dos prazos previstos |
 | Orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses | De política interna | Nova aprovação da Reitoria |
 
+</details>
+
 ## 4. Linha de base e lacunas
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 7. Clique para abrir</summary>
 
 ### 4.1 Artefatos de linha de base que sustentam os cenários
 
@@ -424,7 +447,12 @@ Os cenários do pico de matrícula, com 5.800 sessões simultâneas, e do incide
 | L1, inventário de componentes do sistema acadêmico | O monitor CICS, o limite de tarefas e as camadas que o estímulo atravessa | O campo Artefato apontaria uma parte do sistema que já mudou, e a resposta seria desenhada para o lugar errado |
 | L5, contratos de sustentação e de capacidade | O prazo de 30/09/2027 para qualquer alteração no núcleo COBOL | A resposta poderia prever alteração no núcleo sem que o contrato permita, e o tempo limite teria de ficar na camada web |
 
+</details>
+
 ## 10. O que ainda falta decidir
+
+<details class="caderno-secao" markdown="1" open>
+<summary>Atualizada neste exercício</summary>
 
 {{novo}}
 
@@ -437,5 +465,7 @@ Os cenários do pico de matrícula, com 5.800 sessões simultâneas, e do incide
 | Aprovação da Reitoria à troca do plano do ambiente virtual de aprendizagem para o que oferece interfaces de programação, condição para mudar o envio de notas (elemento E1 do escopo) | Reitoria | Antes do início do primeiro ciclo |
 
 {{/novo}}
+
+</details>
 
 Ainda em branco, para os próximos exercícios: 5. Contexto do sistema (C4, nível 1), 6. Princípios, 7. Decisões, 8. Tecnologia e plataforma, 9. Roteiro e governança

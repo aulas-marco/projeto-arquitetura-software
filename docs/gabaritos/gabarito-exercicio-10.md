@@ -6,6 +6,9 @@ Depois do exercício 10, o caderno da ACME reúne o que os exercícios 1 a 10 pr
 
 ## A solução em uma página
 
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 8. Clique para abrir</summary>
+
 **O problema.** A ACME é uma universidade privada com 38.400 alunos ativos e um sistema acadêmico em operação desde 2004, com núcleo em COBOL, que custa R$ 15,83 milhões por ano e leva 34 dias úteis para colocar uma mudança em produção. A situação se agrava porque, dos 6 especialistas em COBOL que o sustentam, 2 se aposentam em 2027.
 
 **A pergunta.** Diante desse quadro, o projeto pergunta como evoluir o sistema acadêmico de forma segura e incremental, com o núcleo em operação durante a transição e respeitando os contratos já assumidos.
@@ -18,7 +21,12 @@ Depois do exercício 10, o caderno da ACME reúne o que os exercícios 1 a 10 pr
 
 **Como está o trabalho.** Os direcionadores de mudança, os requisitos, os cenários, as restrições e as partes interessadas estão registrados. As nove decisões levantadas na Aula 1 e as sete premissas continuam propostas.
 
+</details>
+
 ## 1. Contexto
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída nos exercícios 1, 2, 3 e 4. Clique para abrir</summary>
 
 ### 1.1 Instituição, restrições e decisões por nível
 
@@ -194,7 +202,12 @@ As premissas e as exclusões a seguir também são dados do caso. O curso as pro
 | Troca do provedor do gateway de pagamento no primeiro ciclo | Multa rescisória de 6 meses de tarifa média até 30/04/2027 |
 | Migração do banco Oracle no primeiro ciclo | O licenciamento obriga a licenciar todos os núcleos físicos do ambiente virtualizado, e o núcleo continua gravando no Oracle |
 
+</details>
+
 ## 2. Partes interessadas
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 8. Clique para abrir</summary>
 
 ### 2.1 Partes interessadas, pontos de vista e escopo do primeiro ciclo
 
@@ -263,7 +276,12 @@ Para o primeiro ciclo caber nos R$ 6,2 milhões e nos 12 meses, o arquiteto sepa
 | E9 | Região de implantação dos componentes em nuvem | Permanece | Restrição RT5, parecer do Jurídico de 28/04/2026, que exige território nacional |
 | E10 | Responsabilidade pela correção de dado cadastral de aluno | Muda | Não se aplica |
 
+</details>
+
 ## 3. Requisitos
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída nos exercícios 5, 6 e 7. Clique para abrir</summary>
 
 ### 3.1 Direcionadores de mudança e fatores externos
 
@@ -401,7 +419,12 @@ Cada restrição foi decidida por alguém de fora do projeto, e saber quem decid
 | Manutenção do núcleo COBOL sob contrato até 30/09/2027 | Contratual | Negociação com o fornecedor, dentro dos prazos previstos |
 | Orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses | De política interna | Nova aprovação da Reitoria |
 
+</details>
+
 ## 4. Linha de base e lacunas
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 7. Clique para abrir</summary>
 
 ### 4.1 Artefatos de linha de base que sustentam os cenários
 
@@ -416,7 +439,12 @@ Os cenários do pico de matrícula, com 5.800 sessões simultâneas, e do incide
 | L1, inventário de componentes do sistema acadêmico | O monitor CICS, o limite de tarefas e as camadas que o estímulo atravessa | O campo Artefato apontaria uma parte do sistema que já mudou, e a resposta seria desenhada para o lugar errado |
 | L5, contratos de sustentação e de capacidade | O prazo de 30/09/2027 para qualquer alteração no núcleo COBOL | A resposta poderia prever alteração no núcleo sem que o contrato permita, e o tempo limite teria de ficar na camada web |
 
+</details>
+
 ## 6. Princípios
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 9. Clique para abrir</summary>
 
 ### 6.1 Princípios priorizados e esboço lógico
 
@@ -447,7 +475,12 @@ Com os princípios definidos, as oito responsabilidades foram distribuídas entr
 
 O risco principal do esboço são os 2.300 pontos de acesso direto ao banco do núcleo, existentes na camada Java dos portais. Eles contornam qualquer elemento novo e ameaçam o princípio de baixo acoplamento. A decisão pendente é como capturar o lançamento de nota no momento em que ocorre sem alterar o programa COBOL de avaliação e notas, escolha que afeta o princípio de separação de responsabilidades e entra em tensão com o de baixo acoplamento.
 
+</details>
+
 ## 7. Decisões
+
+<details class="caderno-secao" markdown="1" open>
+<summary>Atualizada neste exercício</summary>
 
 ### 7.1 Comparação de estilos e estilo recomendado
 
@@ -477,7 +510,12 @@ O estilo recomendado é a arquitetura orientada a eventos na borda, com o núcle
 
 {{/novo}}
 
+</details>
+
 ## 10. O que ainda falta decidir
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 8. Clique para abrir</summary>
 
 | Pendência | Quem decide | Quando se resolve |
 | --- | --- | --- |
@@ -486,5 +524,7 @@ O estilo recomendado é a arquitetura orientada a eventos na borda, com o núcle
 | Validação das seis decisões ainda propostas (D2, D3, D5, D6, D8 e D9) | Partes interessadas da seção 2 | Fase 6, validação |
 | Confirmação das sete premissas (PR1 a PR7), as hipóteses assumidas sem confirmação | Responsáveis indicados na coluna Como verificar | Fase 2, descoberta |
 | Aprovação da Reitoria à troca do plano do ambiente virtual de aprendizagem para o que oferece interfaces de programação, condição para mudar o envio de notas (elemento E1 do escopo) | Reitoria | Antes do início do primeiro ciclo |
+
+</details>
 
 Ainda em branco, para os próximos exercícios: 5. Contexto do sistema (C4, nível 1), 8. Tecnologia e plataforma, 9. Roteiro e governança

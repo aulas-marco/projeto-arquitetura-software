@@ -6,6 +6,9 @@ Depois do exercício 20, o caderno da ACME reúne o que os exercícios 1 a 20 pr
 
 ## A solução em uma página
 
+<details class="caderno-secao" markdown="1" open>
+<summary>Atualizada neste exercício</summary>
+
 {{novo}}
 
 **O problema.** A ACME é uma universidade privada com 38.400 alunos ativos e um sistema acadêmico em operação desde 2004, com núcleo em COBOL, que custa R$ 15,83 milhões por ano e leva 34 dias úteis para colocar uma mudança em produção. A situação se agrava porque, dos 6 especialistas em COBOL que o sustentam, 2 se aposentam em 2027.
@@ -22,7 +25,12 @@ Depois do exercício 20, o caderno da ACME reúne o que os exercícios 1 a 20 pr
 
 {{/novo}}
 
+</details>
+
 ## 1. Contexto
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída nos exercícios 1, 2, 3 e 4. Clique para abrir</summary>
 
 ### 1.1 Instituição, restrições e decisões por nível
 
@@ -198,7 +206,12 @@ As premissas e as exclusões a seguir também são dados do caso. O curso as pro
 | Troca do provedor do gateway de pagamento no primeiro ciclo | Multa rescisória de 6 meses de tarifa média até 30/04/2027 |
 | Migração do banco Oracle no primeiro ciclo | O licenciamento obriga a licenciar todos os núcleos físicos do ambiente virtualizado, e o núcleo continua gravando no Oracle |
 
+</details>
+
 ## 2. Partes interessadas
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 8. Clique para abrir</summary>
 
 ### 2.1 Partes interessadas, pontos de vista e escopo do primeiro ciclo
 
@@ -267,7 +280,12 @@ Para o primeiro ciclo caber nos R$ 6,2 milhões e nos 12 meses, o arquiteto sepa
 | E9 | Região de implantação dos componentes em nuvem | Permanece | Restrição RT5, parecer do Jurídico de 28/04/2026, que exige território nacional |
 | E10 | Responsabilidade pela correção de dado cadastral de aluno | Muda | Não se aplica |
 
+</details>
+
 ## 3. Requisitos
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída nos exercícios 5, 6 e 7. Clique para abrir</summary>
 
 ### 3.1 Direcionadores de mudança e fatores externos
 
@@ -405,7 +423,12 @@ Cada restrição foi decidida por alguém de fora do projeto, e saber quem decid
 | Manutenção do núcleo COBOL sob contrato até 30/09/2027 | Contratual | Negociação com o fornecedor, dentro dos prazos previstos |
 | Orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses | De política interna | Nova aprovação da Reitoria |
 
+</details>
+
 ## 4. Linha de base e lacunas
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 7. Clique para abrir</summary>
 
 ### 4.1 Artefatos de linha de base que sustentam os cenários
 
@@ -420,7 +443,12 @@ Os cenários do pico de matrícula, com 5.800 sessões simultâneas, e do incide
 | L1, inventário de componentes do sistema acadêmico | O monitor CICS, o limite de tarefas e as camadas que o estímulo atravessa | O campo Artefato apontaria uma parte do sistema que já mudou, e a resposta seria desenhada para o lugar errado |
 | L5, contratos de sustentação e de capacidade | O prazo de 30/09/2027 para qualquer alteração no núcleo COBOL | A resposta poderia prever alteração no núcleo sem que o contrato permita, e o tempo limite teria de ficar na camada web |
 
+</details>
+
 ## 5. Contexto do sistema (C4, nível 1)
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 15. Clique para abrir</summary>
 
 ### 5.1 Portfólio, contrato de notas e diagrama de contexto
 
@@ -484,7 +512,12 @@ Para que quem lê o diagrama saiba por que cada elemento ficou onde está, a leg
 | Provedor de identidade | Sistema externo | Fora | A ACME usa o serviço para autenticar, e o produto só é escolhido na Aula 5 |
 | Órgão regulador | Sistema externo | Fora | Recebe a extração anual do censo da educação superior |
 
+</details>
+
 ## 6. Princípios
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 9. Clique para abrir</summary>
 
 ### 6.1 Princípios priorizados e esboço lógico
 
@@ -515,7 +548,12 @@ Com os princípios definidos, as oito responsabilidades foram distribuídas entr
 
 O risco principal do esboço são os 2.300 pontos de acesso direto ao banco do núcleo, existentes na camada Java dos portais. Eles contornam qualquer elemento novo e ameaçam o princípio de baixo acoplamento. A decisão pendente é como capturar o lançamento de nota no momento em que ocorre sem alterar o programa COBOL de avaliação e notas, escolha que afeta o princípio de separação de responsabilidades e entra em tensão com o de baixo acoplamento.
 
+</details>
+
 ## 7. Decisões
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída nos exercícios 10, 11, 12, 13, 14 e 16. Clique para abrir</summary>
 
 ### 7.1 Comparação de estilos e estilo recomendado
 
@@ -722,9 +760,17 @@ O requisito de confirmação em até 4 segundos (R6) é sustentado pelas relaç�
 
 O núcleo transacional fica dentro da fronteira, como contêiner. A ACME detém a responsabilidade pelo núcleo e terceiriza à fábrica apenas a manutenção dos programas COBOL, e o critério que decide a posição de um elemento é a fronteira de responsabilidade sobre ele. O contrato de sustentação até 30/09/2027 impede que a equipe interna altere o núcleo, e por isso os serviços novos o acessam pelas transações existentes.
 
+</details>
+
 ## 8. Tecnologia e plataforma
 
+<details class="caderno-secao" markdown="1" open>
+<summary>Atualizada neste exercício</summary>
+
 ### 8.1 Modelo técnico, tecnologias da linha de base e provedor de identidade
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 17. Clique para abrir</summary>
 
 #### Contêineres novos e linhas do modelo técnico de referência
 
@@ -780,7 +826,12 @@ Antes de comparar, uma restrição pode eliminar alternativas, e o item pede que
 | R8, lido como exigência do protocolo aberto OpenID Connect | A alternativa cujo produto não implementa o protocolo | Declaração de conformidade do produto com o OpenID Connect |
 | R14, nenhum dado pessoal de aluno fora do território nacional | A alternativa que processa dado fora do território nacional | Cláusula contratual da região de processamento e relação de regiões do provedor |
 
+</details>
+
 ### 8.2 Plataforma escolhida e zona de pouso
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 18. Clique para abrir</summary>
 
 #### Plataformas candidatas para o estilo escolhido
 
@@ -831,7 +882,12 @@ A zona de pouso é a base em nuvem, organizada com contas, rede, identidade e re
 
 A conta de segurança e registros existe por causa do requisito R9, que exige trilha de auditoria de toda leitura de dado pessoal, com retenção de 5 anos, guardada fora da conta de produção. O requisito de região nacional (R14) e o de provedor aprovado (R4) não explicam essa conta.
 
+</details>
+
 ### 8.3 Segurança dos dados, permissões e ameaças
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 19. Clique para abrir</summary>
 
 #### Classificação dos ativos de dado
 
@@ -873,6 +929,8 @@ Cada ameaça pertence a uma categoria do STRIDE e é tratada por um dos seis con
 
 O controle que também atende ao requisito de trilha de auditoria (R9) é o (e), registro de auditoria imutável, porque ele guarda o autor e o horário de cada acesso. A retenção de 5 anos exigida pelo R9 é um parâmetro a configurar nesse controle.
 
+</details>
+
 ### 8.4 ADR de plataforma e lacunas de provisão
 
 {{novo}}
@@ -909,7 +967,12 @@ Para o custo recorrente, as respostas mais defensáveis são o acesso ao núcleo
 
 {{/novo}}
 
+</details>
+
 ## 10. O que ainda falta decidir
+
+<details class="caderno-secao" markdown="1" open>
+<summary>Atualizada neste exercício</summary>
 
 {{novo}}
 
@@ -933,5 +996,7 @@ Para o custo recorrente, as respostas mais defensáveis são o acesso ao núcleo
 | Gatilhos de reabertura do ADR de plataforma, valores propostos sem fonte no dossiê | Diretoria de TI | Na revisão do registro |
 
 {{/novo}}
+
+</details>
 
 Ainda em branco, para os próximos exercícios: 9. Roteiro e governança

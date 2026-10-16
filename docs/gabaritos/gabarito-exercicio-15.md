@@ -6,6 +6,9 @@ Depois do exercício 15, o caderno da ACME reúne o que os exercícios 1 a 15 pr
 
 ## A solução em uma página
 
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 12. Clique para abrir</summary>
+
 **O problema.** A ACME é uma universidade privada com 38.400 alunos ativos e um sistema acadêmico em operação desde 2004, com núcleo em COBOL, que custa R$ 15,83 milhões por ano e leva 34 dias úteis para colocar uma mudança em produção. A situação se agrava porque, dos 6 especialistas em COBOL que o sustentam, 2 se aposentam em 2027.
 
 **A pergunta.** Diante desse quadro, o projeto pergunta como evoluir o sistema acadêmico de forma segura e incremental, com o núcleo em operação durante a transição e respeitando os contratos já assumidos.
@@ -18,7 +21,12 @@ Depois do exercício 15, o caderno da ACME reúne o que os exercícios 1 a 15 pr
 
 **Como está o trabalho.** O estilo e os padrões estão decididos como proposta. Faltam a data e os decisores do ADR 001, e a ACME ainda não tem ambiente para um ensaio de carga com 5.800 sessões.
 
+</details>
+
 ## 1. Contexto
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída nos exercícios 1, 2, 3 e 4. Clique para abrir</summary>
 
 ### 1.1 Instituição, restrições e decisões por nível
 
@@ -194,7 +202,12 @@ As premissas e as exclusões a seguir também são dados do caso. O curso as pro
 | Troca do provedor do gateway de pagamento no primeiro ciclo | Multa rescisória de 6 meses de tarifa média até 30/04/2027 |
 | Migração do banco Oracle no primeiro ciclo | O licenciamento obriga a licenciar todos os núcleos físicos do ambiente virtualizado, e o núcleo continua gravando no Oracle |
 
+</details>
+
 ## 2. Partes interessadas
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 8. Clique para abrir</summary>
 
 ### 2.1 Partes interessadas, pontos de vista e escopo do primeiro ciclo
 
@@ -263,7 +276,12 @@ Para o primeiro ciclo caber nos R$ 6,2 milhões e nos 12 meses, o arquiteto sepa
 | E9 | Região de implantação dos componentes em nuvem | Permanece | Restrição RT5, parecer do Jurídico de 28/04/2026, que exige território nacional |
 | E10 | Responsabilidade pela correção de dado cadastral de aluno | Muda | Não se aplica |
 
+</details>
+
 ## 3. Requisitos
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída nos exercícios 5, 6 e 7. Clique para abrir</summary>
 
 ### 3.1 Direcionadores de mudança e fatores externos
 
@@ -401,7 +419,12 @@ Cada restrição foi decidida por alguém de fora do projeto, e saber quem decid
 | Manutenção do núcleo COBOL sob contrato até 30/09/2027 | Contratual | Negociação com o fornecedor, dentro dos prazos previstos |
 | Orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses | De política interna | Nova aprovação da Reitoria |
 
+</details>
+
 ## 4. Linha de base e lacunas
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 7. Clique para abrir</summary>
 
 ### 4.1 Artefatos de linha de base que sustentam os cenários
 
@@ -416,7 +439,12 @@ Os cenários do pico de matrícula, com 5.800 sessões simultâneas, e do incide
 | L1, inventário de componentes do sistema acadêmico | O monitor CICS, o limite de tarefas e as camadas que o estímulo atravessa | O campo Artefato apontaria uma parte do sistema que já mudou, e a resposta seria desenhada para o lugar errado |
 | L5, contratos de sustentação e de capacidade | O prazo de 30/09/2027 para qualquer alteração no núcleo COBOL | A resposta poderia prever alteração no núcleo sem que o contrato permita, e o tempo limite teria de ficar na camada web |
 
+</details>
+
 ## 5. Contexto do sistema (C4, nível 1)
+
+<details class="caderno-secao" markdown="1" open>
+<summary>Atualizada neste exercício</summary>
 
 ### 5.1 Portfólio, contrato de notas e diagrama de contexto
 
@@ -484,7 +512,12 @@ Para que quem lê o diagrama saiba por que cada elemento ficou onde está, a leg
 
 {{/novo}}
 
+</details>
+
 ## 6. Princípios
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 9. Clique para abrir</summary>
 
 ### 6.1 Princípios priorizados e esboço lógico
 
@@ -515,7 +548,12 @@ Com os princípios definidos, as oito responsabilidades foram distribuídas entr
 
 O risco principal do esboço são os 2.300 pontos de acesso direto ao banco do núcleo, existentes na camada Java dos portais. Eles contornam qualquer elemento novo e ameaçam o princípio de baixo acoplamento. A decisão pendente é como capturar o lançamento de nota no momento em que ocorre sem alterar o programa COBOL de avaliação e notas, escolha que afeta o princípio de separação de responsabilidades e entra em tensão com o de baixo acoplamento.
 
+</details>
+
 ## 7. Decisões
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída nos exercícios 10, 11, 12, 13 e 14. Clique para abrir</summary>
 
 ### 7.1 Comparação de estilos e estilo recomendado
 
@@ -692,7 +730,12 @@ O destino que recebe mais do que a finalidade exige é o data warehouse, porque 
 
 O banco Oracle, com 740 tabelas, é compartilhado entre o núcleo COBOL e a camada Java. Os 2.300 acessos diretos contrariam a propriedade do dado, porque fazem duas aplicações gravar as mesmas tabelas sem passar pelo dono. Qualquer mudança de estrutura passa a exigir alteração combinada no código COBOL e no código Java, mantidos por equipes distintas, e nenhum módulo pode ser extraído sem reescrever os pontos que o acessam.
 
+</details>
+
 ## 10. O que ainda falta decidir
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 12. Clique para abrir</summary>
 
 | Pendência | Quem decide | Quando se resolve |
 | --- | --- | --- |
@@ -705,5 +748,7 @@ O banco Oracle, com 740 tabelas, é compartilhado entre o núcleo COBOL e a cama
 | Ensaio de carga com 5.800 sessões em ambiente equivalente ao de produção | Diretoria de TI | Antes de aceitar o ADR 001, pois o ambiente de carga ainda não existe |
 | Escolha do produto de mensageria | Diretoria de TI, com a fábrica de software | Na Aula 5, definição tecnológica |
 | Gravação da tabela de saída do Transactional Outbox na mesma transação da nota, hoje dentro do programa COBOL | Fábrica de software | Antes de implantar o serviço de notas |
+
+</details>
 
 Ainda em branco, para os próximos exercícios: 8. Tecnologia e plataforma, 9. Roteiro e governança

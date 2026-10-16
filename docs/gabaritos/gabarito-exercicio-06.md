@@ -6,6 +6,9 @@ Depois do exercício 6, o caderno da ACME reúne o que os exercícios 1 a 6 prod
 
 ## A solução em uma página
 
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 4. Clique para abrir</summary>
+
 **O problema.** A ACME é uma universidade privada com 38.400 alunos ativos e um sistema acadêmico em operação desde 2004, com núcleo em COBOL, que custa R$ 15,83 milhões por ano e leva 34 dias úteis para colocar uma mudança em produção. A situação se agrava porque, dos 6 especialistas em COBOL que o sustentam, 2 se aposentam em 2027.
 
 **A pergunta.** Diante desse quadro, o projeto pergunta como evoluir o sistema acadêmico de forma segura e incremental, com o núcleo em operação durante a transição e respeitando os contratos já assumidos.
@@ -18,7 +21,12 @@ Depois do exercício 6, o caderno da ACME reúne o que os exercícios 1 a 6 prod
 
 **Como está o trabalho.** As nove decisões levantadas estão classificadas por nível. Seis delas, assim como as sete premissas, ainda são propostas e precisam de validação das partes interessadas. A data de conclusão do ciclo depende da fase 7 do processo.
 
+</details>
+
 ## 1. Contexto
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída nos exercícios 1, 2, 3 e 4. Clique para abrir</summary>
 
 ### 1.1 Instituição, restrições e decisões por nível
 
@@ -194,9 +202,17 @@ As premissas e as exclusões a seguir também são dados do caso. O curso as pro
 | Troca do provedor do gateway de pagamento no primeiro ciclo | Multa rescisória de 6 meses de tarifa média até 30/04/2027 |
 | Migração do banco Oracle no primeiro ciclo | O licenciamento obriga a licenciar todos os núcleos físicos do ambiente virtualizado, e o núcleo continua gravando no Oracle |
 
+</details>
+
 ## 3. Requisitos
 
+<details class="caderno-secao" markdown="1" open>
+<summary>Atualizada neste exercício</summary>
+
 ### 3.1 Direcionadores de mudança e fatores externos
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 5. Clique para abrir</summary>
 
 #### Direcionadores de mudança
 
@@ -239,6 +255,8 @@ A meta de R$ 11,0 milhões depende do contrato de capacidade do mainframe, que o
 
 Por isso o projeto só pode prometer, dentro do primeiro ciclo, a construção das condições para reduzir o custo. A redução propriamente dita só pode aparecer depois do contrato, e a meta tem prazo em 2029 porque o contrato termina em 31/12/2028.
 
+</details>
+
 ### 3.2 Catálogo de requisitos e reescritas mensuráveis
 
 {{novo}}
@@ -275,7 +293,12 @@ Uma declaração como a matrícula não pode cair só se torna requisito quando 
 
 {{/novo}}
 
+</details>
+
 ## 10. O que ainda falta decidir
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 4. Clique para abrir</summary>
 
 | Pendência | Quem decide | Quando se resolve |
 | --- | --- | --- |
@@ -283,5 +306,7 @@ Uma declaração como a matrícula não pode cair só se torna requisito quando 
 | Nomeação do patrocinador de negócio | Reitoria | Antes da fase 3, definição do esboço da solução |
 | Validação das seis decisões ainda propostas (D2, D3, D5, D6, D8 e D9) | Partes interessadas da seção 2 | Fase 6, validação |
 | Confirmação das sete premissas (PR1 a PR7), as hipóteses assumidas sem confirmação | Responsáveis indicados na coluna Como verificar | Fase 2, descoberta |
+
+</details>
 
 Ainda em branco, para os próximos exercícios: 2. Partes interessadas, 4. Linha de base e lacunas, 5. Contexto do sistema (C4, nível 1), 6. Princípios, 7. Decisões, 8. Tecnologia e plataforma, 9. Roteiro e governança

@@ -6,6 +6,9 @@ Depois do exercício 4, o caderno da ACME reúne o que os exercícios 1 a 4 prod
 
 ## A solução em uma página
 
+<details class="caderno-secao" markdown="1" open>
+<summary>Atualizada neste exercício</summary>
+
 {{novo}}
 
 **O problema.** A ACME é uma universidade privada com 38.400 alunos ativos e um sistema acadêmico em operação desde 2004, com núcleo em COBOL, que custa R$ 15,83 milhões por ano e leva 34 dias úteis para colocar uma mudança em produção. A situação se agrava porque, dos 6 especialistas em COBOL que o sustentam, 2 se aposentam em 2027.
@@ -22,9 +25,17 @@ Depois do exercício 4, o caderno da ACME reúne o que os exercícios 1 a 4 prod
 
 {{/novo}}
 
+</details>
+
 ## 1. Contexto
 
+<details class="caderno-secao" markdown="1" open>
+<summary>Atualizada neste exercício</summary>
+
 ### 1.1 Instituição, restrições e decisões por nível
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 1. Clique para abrir</summary>
 
 #### Instituição e pergunta central
 
@@ -91,7 +102,12 @@ Quando a ACME decide algo como mudar o prazo da nota, a decisão quase nunca é 
 
 O reenvio com intervalo crescente (D3) só faz sentido depois da decisão de levar a nota ao ambiente virtual em até 10 minutos (D2). Imagine decidir o reenvio com intervalo crescente quando a nota ainda segue por um lote noturno: cada nova tentativa só aconteceria na janela seguinte, e esperar mais entre as tentativas não aproximaria a nota do aluno, que continuaria chegando no dia seguinte. Só depois que essa decisão fixa o prazo de 10 minutos o intervalo entre as tentativas passa a ter o que o justifique.
 
+</details>
+
 ### 1.2 Os componentes da solução, num exemplo da ACME
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 2. Clique para abrir</summary>
 
 #### Um exemplo da ACME: a nota que precisa chegar em 10 minutos
 
@@ -127,7 +143,12 @@ Para saber onde o prazo da nota se forma, os seis fatos da situação atual pode
 
 Imagine uma solução que atue só no nível de sistema de TI. Ela troca o lote noturno por um envio em minutos, mas deixa intactos o calendário de fechamento e a conferência manual, que são os que decidem quando a nota está pronta para publicar. O aluno continua vendo a nota no prazo do fechamento.
 
+</details>
+
 ### 1.3 Papéis e responsabilidades do ciclo
+
+<details class="caderno-secao" markdown="1">
+<summary>Construída no exercício 3. Clique para abrir</summary>
 
 #### Responsável por cada tarefa
 
@@ -151,6 +172,8 @@ Dividido o ciclo, seis tarefas cabem ao arquiteto de solução, três ao arquite
 #### A justificativa de reaproveitar um componente de software de envio de mensagem
 
 A tarefa de verificar se já existe componente de software de envio de mensagem reaproveitável (T10) se justifica pelo benefício do **reuso**. Antes de especificar algo novo, o arquiteto consulta o catálogo de aplicações e a arquitetura de software para saber se já existe um componente de software que sirva ao novo uso. Sem essa verificação, a ACME acabaria construindo um segundo componente de envio de mensagem, pagaria duas vezes pela manutenção e pela integração e faria uma mudança maior do que o necessário.
+
+</details>
 
 ### 1.4 Artefatos nas fases do processo, premissas e escopo
 
@@ -202,7 +225,12 @@ As premissas e as exclusões a seguir também são dados do caso. O curso as pro
 
 {{/novo}}
 
+</details>
+
 ## 10. O que ainda falta decidir
+
+<details class="caderno-secao" markdown="1" open>
+<summary>Atualizada neste exercício</summary>
 
 {{novo}}
 
@@ -214,5 +242,7 @@ As premissas e as exclusões a seguir também são dados do caso. O curso as pro
 | Confirmação das sete premissas (PR1 a PR7), as hipóteses assumidas sem confirmação | Responsáveis indicados na coluna Como verificar | Fase 2, descoberta |
 
 {{/novo}}
+
+</details>
 
 Ainda em branco, para os próximos exercícios: 2. Partes interessadas, 3. Requisitos, 4. Linha de base e lacunas, 5. Contexto do sistema (C4, nível 1), 6. Princípios, 7. Decisões, 8. Tecnologia e plataforma, 9. Roteiro e governança
