@@ -32,8 +32,11 @@ class SiteDoCadernoTest(unittest.TestCase):
 
     def test_estilo_do_destaque_existe_e_o_css_tem_versao_nova(self):
         css = (DOCS / "assets" / "stylesheets" / "extra.css").read_text(encoding="utf-8")
-        self.assertIn(".caderno-novo", css)
-        self.assertIn("extra.css?v=20261016-1", (ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
+        for classe in (".caderno-ficha", ".caderno-trilha", ".caderno-folha", ".caderno-progresso", ".caderno-novo"):
+            with self.subTest(classe=classe):
+                self.assertIn(classe, css)
+        self.assertIn("scripts/caderno_hooks.py", (ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
+        self.assertIn("extra.css?v=20261016-2", (ROOT / "mkdocs.yml").read_text(encoding="utf-8"))
 
     def test_pagina_inicial_apresenta_o_caderno(self):
         texto = (DOCS / "index.md").read_text(encoding="utf-8")

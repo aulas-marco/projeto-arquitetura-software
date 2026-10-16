@@ -42,9 +42,234 @@
   box-shadow: 0 0.4rem 1.2rem rgb(22 36 58 / 8%);
 }
 
-.md-typeset .caderno-novo {
-  border-left: 0.25rem solid var(--course-cobalt);
-  background: #EEF4FA;
-  padding: 0.1rem 1rem;
+/* Caderno arquitetural: identidade de folha de projeto */
+:root {
+  --caderno-noite: #0E1A2E;
+  --caderno-ciano: #5FC0D1;
+  --caderno-ambar: #F2B84B;
+  --caderno-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+.md-typeset .caderno-ficha {
+  position: relative;
+  margin: 2rem 0 3rem;
+  padding: 1.6rem 1.8rem 1.2rem;
+  border-radius: 1.1rem;
+  color: #EAF1FA;
+  background-color: var(--caderno-noite);
+  background-image:
+    linear-gradient(rgb(95 192 209 / 9%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(95 192 209 / 9%) 1px, transparent 1px);
+  background-size: 1.5rem 1.5rem;
+  box-shadow: 0 1rem 2.4rem rgb(14 26 46 / 28%);
+  overflow: hidden;
+}
+.md-typeset .caderno-ficha::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0.3rem;
+  background: linear-gradient(var(--caderno-ciano), var(--caderno-ambar));
+}
+.md-typeset .caderno-ficha .cabeca { display: flex; align-items: center; gap: 1.4rem; }
+.md-typeset .caderno-ficha .numero {
+  font: 800 5.4rem/1 var(--caderno-mono);
+  color: transparent;
+  -webkit-text-stroke: 2px var(--caderno-ciano);
+  letter-spacing: -0.04em;
+}
+.md-typeset .caderno-ficha .marca {
+  margin: 0;
+  font: 700 0.62rem/1 var(--caderno-mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--caderno-ciano);
+}
+.md-typeset .caderno-ficha .nome { margin: 0.35rem 0 0.5rem; font-size: 1.5rem; font-weight: 700; color: #FFFFFF; line-height: 1.15; }
+.md-typeset .caderno-ficha .etiquetas { margin: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.md-typeset .caderno-ficha .etiquetas span {
+  padding: 0.12rem 0.65rem;
+  border: 1px solid rgb(95 192 209 / 55%);
+  border-radius: 99px;
+  font: 600 0.66rem/1.6 var(--caderno-mono);
+  color: #CFE6EC;
+}
+.md-typeset .caderno-ficha table:not([class]) {
+  display: table;
+  width: 100%;
   margin: 1rem 0;
+  color: #EAF1FA;
+  background: rgb(255 255 255 / 4%);
+  border: 1px solid rgb(95 192 209 / 28%);
+  border-radius: 0.6rem;
+  overflow: hidden;
+}
+.md-typeset .caderno-ficha table:not([class]) th {
+  background: rgb(95 192 209 / 16%);
+  color: var(--caderno-ciano);
+  font: 700 0.62rem/1.4 var(--caderno-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.md-typeset .caderno-ficha table:not([class]) td,
+.md-typeset .caderno-ficha table:not([class]) th { border-color: rgb(95 192 209 / 22%); }
+.md-typeset .caderno-ficha a { color: var(--caderno-ambar); }
+.md-typeset .caderno-ficha .caderno-botao,
+.md-typeset a.caderno-botao {
+  display: inline-block;
+  margin: 0.2rem 0.5rem 0.2rem 0;
+  padding: 0.35rem 0.95rem;
+  border-radius: 99px;
+  background: var(--caderno-ambar);
+  color: var(--course-ink);
+  font: 700 0.72rem/1.4 var(--caderno-mono);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+.md-typeset .caderno-ficha .caderno-botao:hover { background: #FFD27A; color: var(--course-ink); }
+
+.md-typeset .caderno-trilha { margin: 1rem 0 0.4rem; overflow-x: auto; padding-bottom: 0.4rem; }
+.md-typeset .caderno-trilha.solta {
+  margin: 1.6rem 0 2rem;
+  padding: 1.1rem 1rem 0.8rem;
+  border-radius: 0.9rem;
+  background-color: var(--caderno-noite);
+  background-image:
+    linear-gradient(rgb(95 192 209 / 9%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(95 192 209 / 9%) 1px, transparent 1px);
+  background-size: 1.5rem 1.5rem;
+  box-shadow: 0 0.8rem 1.8rem rgb(14 26 46 / 22%);
+}
+.md-typeset .caderno-trilha ol {
+  display: flex;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+}
+.md-typeset .caderno-trilha ol::before {
+  content: "";
+  position: absolute;
+  top: 0.85rem;
+  left: 1rem;
+  right: 1rem;
+  height: 2px;
+  background: rgb(95 192 209 / 30%);
+}
+.md-typeset .caderno-trilha ol li { flex: 1 1 0; min-width: 0; margin: 0; text-align: center; position: relative; }
+.md-typeset .caderno-trilha .no {
+  display: grid;
+  place-items: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  margin: 0 auto 0.3rem;
+  border: 2px solid var(--caderno-ciano);
+  border-radius: 50%;
+  background: var(--caderno-noite);
+  font: 700 0.66rem/1 var(--caderno-mono);
+  color: var(--caderno-ciano);
+}
+.md-typeset .caderno-trilha .feito .no { background: var(--caderno-ciano); color: var(--caderno-noite); }
+.md-typeset .caderno-trilha .atual .no {
+  background: var(--caderno-ambar);
+  border-color: var(--caderno-ambar);
+  color: var(--caderno-noite);
+  box-shadow: 0 0 0 0.3rem rgb(242 184 75 / 28%);
+}
+.md-typeset .caderno-trilha .rotulo { display: none; font-size: 0.6rem; color: #9FB8C8; line-height: 1.2; white-space: nowrap; }
+.md-typeset .caderno-trilha .atual .rotulo { display: block; position: absolute; left: -100%; right: -100%; text-align: center; }
+.md-typeset .caderno-trilha:not(.solta) ol { margin-bottom: 1.1rem; }
+.md-typeset .caderno-trilha .atual .rotulo { color: var(--caderno-ambar); font-weight: 700; }
+
+/* Trilha avulsa do template: pílulas que quebram linha */
+.md-typeset .caderno-trilha.solta ol { flex-wrap: wrap; gap: 0.45rem; }
+.md-typeset .caderno-trilha.solta ol::before { display: none; }
+.md-typeset .caderno-trilha.solta ol li {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.75rem 0.2rem 0.25rem;
+  border: 1px solid rgb(95 192 209 / 45%);
+  border-radius: 99px;
+  text-align: left;
+}
+.md-typeset .caderno-trilha.solta .no { margin: 0; width: 1.5rem; height: 1.5rem; }
+.md-typeset .caderno-trilha.solta .rotulo { display: block; position: static; font-size: 0.66rem; color: #CFE6EC; }
+
+.md-typeset .caderno-folha {
+  position: relative;
+  margin: 2.4rem 0;
+  padding: 1.2rem 1.4rem 0.6rem 5.6rem;
+  background: #FFFFFF;
+  border: 1px solid #D8E5F1;
+  border-left: 0.35rem solid var(--course-cobalt);
+  border-radius: 0.8rem;
+  box-shadow: 0 0.5rem 1.4rem rgb(22 36 58 / 8%);
+}
+.md-typeset .caderno-folha[data-parte="II"] { border-left-color: var(--caderno-ciano); }
+.md-typeset .caderno-folha[data-parte="III"] { border-left-color: var(--caderno-ambar); }
+.md-typeset .caderno-folha::before {
+  content: attr(data-secao);
+  position: absolute;
+  top: 1.1rem;
+  left: 1.1rem;
+  display: grid;
+  place-items: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: 0.7rem;
+  background: var(--caderno-noite);
+  color: var(--caderno-ciano);
+  font: 800 1.7rem/1 var(--caderno-mono);
+  box-shadow: 0 0.4rem 1rem rgb(14 26 46 / 30%);
+}
+.md-typeset .caderno-folha h2 { margin-top: 0; }
+.md-typeset .caderno-folha table:not([class]) { display: table; width: 100%; }
+.md-typeset .caderno-folha table:not([class]) td:first-child {
+  width: 11rem;
+  background: #EEF4FA;
+  font-weight: 700;
+  color: var(--course-ink);
+}
+
+.md-typeset .caderno-progresso { margin: 1.2rem 0 1.6rem; display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
+.md-typeset .caderno-progresso .aula { display: flex; gap: 0.2rem; padding: 0.25rem; border-radius: 0.5rem; background: #E6EEF7; }
+.md-typeset .caderno-progresso .seg { width: 0.9rem; height: 1.3rem; border-radius: 0.2rem; background: #FFFFFF; border: 1px solid #B9CBE0; }
+.md-typeset .caderno-progresso .seg.feito { background: var(--course-cobalt); border-color: var(--course-cobalt); }
+.md-typeset .caderno-progresso .seg.atual { background: var(--caderno-ambar); border-color: var(--caderno-ambar); box-shadow: 0 0 0 0.2rem rgb(242 184 75 / 35%); }
+.md-typeset .caderno-progresso .legenda { margin: 0 0 0 0.4rem; font: 700 0.7rem/1 var(--caderno-mono); color: var(--course-ink); }
+
+.md-typeset .caderno-novo {
+  position: relative;
+  margin: 2rem 0 1.2rem;
+  padding: 1.4rem 1.2rem 0.4rem;
+  border: 2px solid var(--caderno-ambar);
+  border-radius: 0.8rem;
+  background: linear-gradient(180deg, #FFF8E8, #FFFFFF 3rem);
+}
+.md-typeset .caderno-novo::before {
+  content: "Novo neste exercício";
+  position: absolute;
+  top: -0.8rem;
+  left: 1rem;
+  padding: 0.15rem 0.8rem;
+  border-radius: 99px;
+  background: var(--caderno-ambar);
+  color: var(--caderno-noite);
+  font: 800 0.62rem/1.6 var(--caderno-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 44.9375em) {
+  .md-typeset .caderno-trilha:not(.solta) .no { width: 1.35rem; height: 1.35rem; font-size: 0.55rem; }
+  .md-typeset .caderno-trilha:not(.solta) ol::before { top: 0.65rem; }
+  .md-typeset .caderno-ficha { padding: 1.2rem 1rem 1rem; }
+  .md-typeset .caderno-ficha .numero { font-size: 3.6rem; }
+  .md-typeset .caderno-ficha .nome { font-size: 1.15rem; }
+  .md-typeset .caderno-folha { padding: 3.6rem 1rem 0.6rem; }
+  .md-typeset .caderno-folha::before { top: 0.8rem; left: 1rem; width: 2.6rem; height: 2.6rem; font-size: 1.3rem; }
+  .md-typeset .caderno-folha table:not([class]) td:first-child { width: auto; }
 }

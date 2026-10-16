@@ -138,21 +138,21 @@ def _pagina(n: int, docs: Path) -> str | None:
 
 
 def render_template(secoes: list[Secao]) -> str:
-    partes = ["# Template do caderno arquitetural", "", INTRO_TEMPLATE, ""]
+    partes = ["# Template do caderno arquitetural", "", INTRO_TEMPLATE, "", "{{trilha:todas}}", ""]
     for secao in secoes:
-        partes += [_cabecalho(secao), "", secao.orientacao, ""]
-        if secao.modo != "acumula":
-            continue
-        for i, fragmento in enumerate(secao.fragmentos, start=1):
-            partes += [f"### {secao.numero}.{i} {fragmento.titulo}", "",
-                       f"Preenchida no exercício {fragmento.n}.", ""]
-            if fragmento.campos:
-                partes += ["Campos a preencher:", "", fragmento.campos, ""]
+        partes += [f"{{{{folha:{secao.numero}}}}}", "", _cabecalho(secao), "", secao.orientacao, ""]
+        if secao.modo == "acumula":
+            for i, fragmento in enumerate(secao.fragmentos, start=1):
+                partes += [f"### {secao.numero}.{i} {fragmento.titulo}", "",
+                           f"Preenchida no exercício {fragmento.n}.", ""]
+                if fragmento.campos:
+                    partes += ["Campos a preencher:", "", fragmento.campos, ""]
+        partes += ["{{/folha}}", ""]
     return "\n".join(partes).rstrip() + "\n"
 
 
 def render_gabarito(secoes: list[Secao], n: int, docs: Path = DOCS) -> str:
-    partes = [f"# Gabarito do exercício {n}", ""]
+    partes = [f"# Gabarito do exercício {n}", "", f"{{{{progresso:{n}}}}}", ""]
     intro = (
         f"O caderno abaixo reúne o resultado dos exercícios 1 a {n}, e o trecho em destaque é o "
         f"que o exercício {n} preenche."
@@ -174,7 +174,7 @@ def render_gabarito(secoes: list[Secao], n: int, docs: Path = DOCS) -> str:
             if secao.modo == "acumula":
                 partes += [f"### {secao.numero}.{i} {fragmento.titulo}", ""]
             if fragmento.n == n:
-                partes += ['<div class="caderno-novo" markdown="1">', "", fragmento.gabarito, "", "</div>", ""]
+                partes += ["{{novo}}", "", fragmento.gabarito, "", "{{/novo}}", ""]
             else:
                 partes += [fragmento.gabarito, ""]
     if pendentes:

@@ -61,3 +61,16 @@ EXERCICIOS = {
 }
 
 CODIGOS = ("D", "PR", "RT", "R", "RD", "CQ", "L", "P", "DD", "DL", "B", "I", "ADR", "C", "LG", "FA")
+
+ROTULOS_CURTOS = {
+    0: "Resumo", 1: "Contexto", 2: "Partes", 3: "Requisitos", 4: "Linha de base",
+    5: "Contexto C4", 6: "Princípios", 7: "Decisões", 8: "Tecnologia",
+    9: "Roteiro", 10: "Pendências",
+}
+
+# Parte do caderno a que cada seção pertence: I enquadrar, II desenhar, III concretizar.
+PARTES = {
+    0: "I", 1: "I", 2: "I", 3: "I", 4: "I",
+    5: "II", 6: "II", 7: "II",
+    8: "III", 9: "III", 10: "III",
+}

@@ -2,6 +2,10 @@
 
 O caderno arquitetural é o documento de arquitetura da solução da ACME. Ele reúne, em dez seções, as decisões que o curso ensina a tomar, cada uma ligada ao requisito que a motivou. A tabela de cada seção indica o que vai nela, a pergunta que responde, os artefatos que a compõem, a entrada de que depende e o exercício que a preenche. As [convenções](convencoes.md) definem os códigos dos artefatos, e o [mapa](mapa.md) relaciona seção, bloco e exercício.
 
+{{trilha:todas}}
+
+{{folha:0}}
+
 ## A solução em uma página
 
 | Campo | Conteúdo |
@@ -11,6 +15,10 @@ O caderno arquitetural é o documento de arquitetura da solução da ACME. Ele r
 | Artefatos | Cinco parágrafos curtos, um para cada item acima, e uma linha de estado que diz o que está proposto e o que depende de prova |
 | Entrada | Todas as seções seguintes, porque o resumo só repete o que elas já registram |
 | Preenchida em | Revista ao fim de cada aula, nos exercícios 4, 8, 12, 16, 20 e 24, e fechada no exercício 24 |
+
+{{/folha}}
+
+{{folha:1}}
 
 ## 1. Contexto
 
@@ -22,6 +30,10 @@ O caderno arquitetural é o documento de arquitetura da solução da ACME. Ele r
 | Entrada | O dossiê do caso ACME, em particular a página inicial do caso e os dados operacionais |
 | Preenchida em | Aula 1, exercícios 1 a 4 |
 
+{{/folha}}
+
+{{folha:2}}
+
 ## 2. Partes interessadas
 
 | Campo | Conteúdo |
@@ -31,6 +43,10 @@ O caderno arquitetural é o documento de arquitetura da solução da ACME. Ele r
 | Artefatos e códigos | Matriz de partes interessadas com tratamento (envolver, consultar, manter informado), pontos de vista, declaração de escopo com o que muda, o que permanece e a origem de cada exclusão |
 | Entrada | Seção 1, em particular as restrições fechadas e o mapa de atores |
 | Preenchida em | Aula 2, exercício 8 |
+
+{{/folha}}
+
+{{folha:3}}
 
 ## 3. Requisitos
 
@@ -42,6 +58,10 @@ O caderno arquitetural é o documento de arquitetura da solução da ACME. Ele r
 | Entrada | Seções 1 e 2, porque restrição e parte interessada delimitam o que é requisito |
 | Preenchida em | Aula 2, exercícios 5, 6 e 7 |
 
+{{/folha}}
+
+{{folha:4}}
+
 ## 4. Linha de base e lacunas
 
 | Campo | Conteúdo |
@@ -51,6 +71,10 @@ O caderno arquitetural é o documento de arquitetura da solução da ACME. Ele r
 | Artefatos e códigos | Descrição da linha de base, tabela de incidentes com causa e impacto, relatório de lacunas L1 a Ln com domínio, forma de fechamento e onda |
 | Entrada | Seção 3 para a linha de base, e as seções 5 a 8 para a arquitetura alvo com que a linha de base é comparada |
 | Preenchida em | Linha de base na Aula 2, exercício 7, e lacunas na Aula 6, exercício 21 |
+
+{{/folha}}
+
+{{folha:5}}
 
 ## 5. Contexto do sistema (C4, nível 1)
 
@@ -62,6 +86,10 @@ O caderno arquitetural é o documento de arquitetura da solução da ACME. Ele r
 | Entrada | Seções 2 e 4, porque as partes interessadas e a linha de base definem usuários e sistemas externos |
 | Preenchida em | Aula 4, exercício 15 |
 
+{{/folha}}
+
+{{folha:6}}
+
 ## 6. Princípios
 
 | Campo | Conteúdo |
@@ -71,6 +99,10 @@ O caderno arquitetural é o documento de arquitetura da solução da ACME. Ele r
 | Artefatos e códigos | Tabela de princípios P1 a Pn, com a proibição correspondente e a rastreabilidade ao requisito |
 | Entrada | Seções 1 e 3, porque os princípios derivam de restrições e de requisitos |
 | Preenchida em | Aula 3, exercício 9 |
+
+{{/folha}}
+
+{{folha:7}}
 
 ## 7. Decisões
 
@@ -82,6 +114,10 @@ O caderno arquitetural é o documento de arquitetura da solução da ACME. Ele r
 | Entrada | Seções 3 e 6, porque cada decisão responde a requisito e obedece a princípio |
 | Preenchida em | Aulas 3 e 4, exercícios 10, 11, 12, 13, 14 e 16 |
 
+{{/folha}}
+
+{{folha:8}}
+
 ## 8. Tecnologia e plataforma
 
 | Campo | Conteúdo |
@@ -91,6 +127,10 @@ O caderno arquitetural é o documento de arquitetura da solução da ACME. Ele r
 | Artefatos e códigos | Modelo técnico de referência com classificação verde, âmbar e vermelho, matriz dos seis critérios, quadro comparativo de plataformas, ativos classificados, grade de permissões, ameaças por categoria STRIDE, controles C1 a Cn, ADR de plataforma |
 | Entrada | Seções 5 e 7, porque os contêineres e as decisões estruturais definem o que a tecnologia precisa realizar |
 | Preenchida em | Aula 5, exercícios 17, 18, 19 e 20 |
+
+{{/folha}}
+
+{{folha:9}}
 
 ## 9. Roteiro e governança
 
@@ -102,6 +142,10 @@ O caderno arquitetural é o documento de arquitetura da solução da ACME. Ele r
 | Entrada | Seção 4, porque as lacunas confirmadas são a matéria das ondas |
 | Preenchida em | Aula 6, exercícios 22 e 23 |
 
+{{/folha}}
+
+{{folha:10}}
+
 ## 10. O que ainda falta decidir
 
 | Campo | Conteúdo |
@@ -111,3 +155,5 @@ O caderno arquitetural é o documento de arquitetura da solução da ACME. Ele r
 | Artefatos e códigos | Tabela de pendência e responsável, com a tendência tecnológica avaliada no encerramento |
 | Entrada | Todas as seções anteriores, porque cada premissa não confirmada gera uma pendência |
 | Preenchida em | Revista ao fim de cada aula, nos exercícios 4, 8, 12, 16, 20 e 24, e fechada no exercício 24 |
+
+{{/folha}}

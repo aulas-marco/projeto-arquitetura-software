@@ -112,6 +112,8 @@ class GeradorTest(unittest.TestCase):
         self.assertIn("### 3.1 Direcionadores", texto)
         self.assertIn("- Direcionadores classificados", texto)
         self.assertNotIn("Texto do gabarito cinco", texto)
+        self.assertIn("{{folha:3}}", texto)
+        self.assertIn("{{trilha:todas}}", texto)
 
     def test_gabarito_cinco_nao_traz_o_seis(self):
         texto = self.ger.render_gabarito(self.secoes, 5, self.docs)
@@ -121,8 +123,9 @@ class GeradorTest(unittest.TestCase):
     def test_gabarito_seis_contem_o_cinco_e_destaca_so_o_seis(self):
         texto = self.ger.render_gabarito(self.secoes, 6, self.docs)
         self.assertIn("Texto do gabarito cinco.", texto)
-        self.assertIn('<div class="caderno-novo" markdown="1">\n\nTexto do gabarito seis.', texto)
-        self.assertNotIn('markdown="1">\n\nTexto do gabarito cinco', texto)
+        self.assertIn("{{novo}}\n\nTexto do gabarito seis.", texto)
+        self.assertNotIn("{{novo}}\n\nTexto do gabarito cinco", texto)
+        self.assertIn("{{progresso:6}}", texto)
 
     def test_cumulativo_a_versao_n_contem_a_anterior_nas_secoes_que_acumulam(self):
         anterior = self.ger.render_gabarito(self.secoes, 5, self.docs)
