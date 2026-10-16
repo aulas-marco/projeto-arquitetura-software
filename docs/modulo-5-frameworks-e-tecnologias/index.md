@@ -62,4 +62,4 @@ Ao fim da Aula 4, o caderno da ACME já dizia o que a universidade quer construi
 
 ## Preparação para a Aula 6
 
-A Aula 6 compara a arquitetura de linha de base com a arquitetura alvo definida nas aulas anteriores e usa as lacunas de provisão classificadas no exercício 20 como entrada do roteiro de entrega. A mesma aula trata de governança e de inovação em soluções tecnológicas, e o [cronograma](../cronograma.md) traz a sequência completa das seis aulas.
+A Aula 6 compara a arquitetura de linha de base com a arquitetura alvo definida nas aulas anteriores e usa as lacunas de provisão classificadas no exercício 20 como entrada do roteiro de entrega e da governança da mudança. A mesma aula apresenta os aceleradores de IA e percorre o caderno arquitetural completo, e o [cronograma](../cronograma.md) traz a sequência completa das seis aulas.

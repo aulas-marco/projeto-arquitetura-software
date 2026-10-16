@@ -1,6 +1,6 @@
 # Cronograma
 
-Cada uma das seis aulas começa às 19h00 e termina às 22h30, com intervalo das 20h30 às 20h45 e encerramento do conteúdo até as 22h10. Para caber nesse tempo, a aula se divide em blocos, que são partes de cerca de 30 minutos dedicadas a um conceito, e cada bloco tem um exercício correspondente, numerado de 1 a 24 ao longo da disciplina. Os quatro blocos de apresentação conceitual somam 130 minutos, com 32 ou 33 minutos por bloco. Na Aula 4, porém, há um bloco 0, de 10 minutos e sem exercício, que abre a aula antes dos quatro blocos, e por isso os blocos 1 e 2 passam a durar 28 e 27 minutos, para o total continuar em 130. Como a aula é inteira de apresentação, o aluno faz os exercícios fora do horário, aplicando cada conceito ao caso da instituição fictícia ACME, apresentado na página do [caso ACME](caso-acme/index.md). Esse caso é um sistema acadêmico antigo que a ACME precisa evoluir sem interromper a matrícula nem a publicação de notas, e todos os exercícios partem dele.
+Cada uma das seis aulas começa às 19h00 e termina às 22h30, com intervalo das 20h30 às 20h45 e encerramento do conteúdo até as 22h10. Para caber nesse tempo, a aula se divide em blocos, que são partes de cerca de 30 minutos dedicadas a um conceito, e cada bloco tem um exercício correspondente, numerado de 1 a 24 ao longo da disciplina. Os quatro blocos de apresentação conceitual somam 130 minutos, com 32 ou 33 minutos por bloco. Na Aula 4, porém, há um bloco 0, de 10 minutos e sem exercício, que abre a aula antes dos quatro blocos, e por isso os blocos 1 e 2 passam a durar 28 e 27 minutos, para o total continuar em 130. A Aula 6 tem três blocos, com o de governança ocupando a primeira metade da aula, 75 minutos e dois exercícios, e um único Kahoot depois do intervalo. Como a aula é inteira de apresentação, o aluno faz os exercícios fora do horário, aplicando cada conceito ao caso da instituição fictícia ACME, apresentado na página do [caso ACME](caso-acme/index.md). Esse caso é um sistema acadêmico antigo que a ACME precisa evoluir sem interromper a matrícula nem a publicação de notas, e todos os exercícios partem dele.
 
 A partir da Aula 3, cada aula abre com 15 minutos de questões sobre a aula anterior e inclui três questionários Kahoot, plataforma de perguntas respondidas ao vivo, de 10 minutos cada. O primeiro revisa a aula anterior, o segundo trata dos blocos 1 e 2 e vem depois do intervalo, e o terceiro trata dos blocos 3 e 4 e fecha a aula.
 
@@ -17,9 +17,9 @@ Um projeto de arquitetura começa entendendo o problema, e por isso as duas prim
 | 3 | Princípios de design, estilos arquiteturais, padrões de design e registro de decisão arquitetural |
 | 4 | Arquitetura de negócio, de dados, de aplicações e de infraestrutura da solução, com contrato de integração e modelagem C4 |
 | 5 | Definição tecnológica e modelo técnico de referência, plataforma arquitetural e frameworks, segurança fim a fim e ADR de plataforma |
-| 6 | Análise de lacunas, roteiro de entrega, governança, inovação e tendências |
+| 6 | Governança da mudança, aceleradores de IA e apresentação do caderno arquitetural |
 
-A ordem das aulas é a de um projeto real, que parte do enquadramento, passa pelo desenho e pela tecnologia e termina na entrega governada. A Aula 1 apresenta a disciplina e o processo pelo qual ela opera, e a Aula 2 reúne tudo o que entra antes de qualquer alternativa, de modo que a Aula 3 já pode escolher a forma estrutural e registrar a escolha. Com a forma escolhida, a Aula 4 detalha a solução nos domínios de negócio, dados, aplicações e infraestrutura e a representa nos níveis de contexto e de contêineres do modelo C4. Depois disso, a Aula 5 converte o desenho lógico em tecnologia e avalia a segurança fim a fim sobre a tecnologia escolhida, e a Aula 6 compara a situação atual com a pretendida e organiza a entrega.
+A ordem das aulas é a de um projeto real, que parte do enquadramento, passa pelo desenho e pela tecnologia e termina na entrega governada. A Aula 1 apresenta a disciplina e o processo pelo qual ela opera, e a Aula 2 reúne tudo o que entra antes de qualquer alternativa, de modo que a Aula 3 já pode escolher a forma estrutural e registrar a escolha. Com a forma escolhida, a Aula 4 detalha a solução nos domínios de negócio, dados, aplicações e infraestrutura e a representa nos níveis de contexto e de contêineres do modelo C4. Depois disso, a Aula 5 converte o desenho lógico em tecnologia e avalia a segurança fim a fim sobre a tecnologia escolhida, e a Aula 6 organiza a entrega em ondas, mostra como governar a mudança, apresenta os aceleradores de IA no trabalho do arquiteto e fecha o caderno arquitetural da ACME.
 
 ## Blocos de cada aula
 
@@ -69,14 +69,13 @@ A ordem das aulas é a de um projeto real, que parte do enquadramento, passa pel
 | 3 | Segurança fim a fim | 19 |
 | 4 | ADR de plataforma, dependência de fornecedor e lacunas na provisão de serviços | 20 |
 
-### Aula 6, lacunas, roteiro e governança
+### Aula 6, governança, aceleradores de IA e apresentação do caderno
 
 | Bloco | Tema | Exercício |
 | --- | --- | --- |
-| 1 | Análise de lacunas, método, entradas e saídas | 21 |
-| 2 | Roteiro de entrega, ondas e frentes de trabalho | 22 |
-| 3 | Governança, autoridade de projeto, níveis de serviço e sustentação | 23 |
-| 4 | Inovação em soluções tecnológicas e tendências | 24 |
+| 1 | Governança da mudança, lacunas, roteiro em ondas, desvio arquitetural e ciclo ADM | 21 e 22 |
+| 2 | Aceleradores de IA no trabalho do arquiteto | 23 |
+| 3 | Apresentação do caderno arquitetural | 24 |
 
 ## Avaliação
 
