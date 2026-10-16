@@ -352,11 +352,11 @@ O arquiteto escolhe o nível do diagrama pela audiência e pela decisão em paut
 
 ## Exercício 15
 
-A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. O exercício usa o dono da entidade nota marcado no [exercício 14](bloco-2-arquitetura-de-dados.md#exercicio-14) e fatos reproduzidos da [página inicial do caso](../caso-acme/index.md), dos [dados operacionais](../caso-acme/dados-operacionais.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. O exercício aplica à ACME os três assuntos deste bloco, que são o destino de cada aplicação do portfólio, o contrato da troca de notas com o ambiente virtual de aprendizagem e a fronteira da solução no diagrama de contexto. Ele usa o dono da entidade nota marcado no [exercício 14](bloco-2-arquitetura-de-dados.md#exercicio-14) e fatos reproduzidos da [página inicial do caso](../caso-acme/index.md), dos [dados operacionais](../caso-acme/dados-operacionais.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md).
 
 ### Item 1: Classificação do portfólio
 
-O catálogo abaixo lista as aplicações da ACME e os serviços externos registrados na linha de base, sem classificação.
+Este item decide que destino cada aplicação deve ter na modernização, segundo a classificação em vermelho, âmbar e verde. O catálogo abaixo lista as onze aplicações e serviços externos da ACME registrados na linha de base, sem classificação.
 
 | Aplicação | Ano | Tecnologia | Observação |
 | --- | --- | --- | --- |
@@ -376,7 +376,7 @@ O catálogo abaixo lista as aplicações da ACME e os serviços externos registr
 
 ### Item 2: Contrato da integração de notas
 
-O requisito R7, declarado pela Educação a Distância, determina que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. A exportação de notas consolidadas ocorre hoje em lote diário iniciado às 05h10, com 4.800 lançamentos em dia letivo comum e até 360.000 na janela de fechamento. A propagação em minutos exige o plano do ambiente virtual que oferece interfaces de programação, com acréscimo de 38% sobre o valor anual do contrato vigente. O diagrama abaixo, em notação livre, mostra o caminho atual da nota, do lançamento no Portal do Professor à carga no ambiente virtual pelo lote das 05h10.
+Este item especifica, campo a campo, como a nota deve ir do sistema da ACME ao ambiente virtual. O requisito R7, declarado pela Educação a Distância, determina que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. A exportação de notas consolidadas ocorre hoje em lote diário iniciado às 05h10, com 4.800 lançamentos em dia letivo comum e até 360.000 na janela de fechamento. A propagação em minutos exige o plano do ambiente virtual que oferece interfaces de programação, com acréscimo de 38% sobre o valor anual do contrato vigente. O diagrama abaixo, em notação livre, mostra o caminho atual da nota, do lançamento no Portal do Professor à carga no ambiente virtual pelo lote das 05h10.
 
 ```mermaid
 sequenceDiagram
@@ -414,7 +414,7 @@ O esqueleto do contrato da integração de notas entre a ACME e o ambiente virtu
 
 ### Item 3: Erros de nível ou de fronteira no diagrama de contexto
 
-O diagrama abaixo é um diagrama de contexto da arquitetura alvo do primeiro ciclo e contém dois erros de nível ou de fronteira, conforme os níveis descritos na seção [Diagrama de contexto](#diagrama-de-contexto).
+Este item treina a conferência de um diagrama de contexto, que deve mostrar só pessoas e sistemas e deixar de fora o que fica dentro de um sistema. O diagrama abaixo é um diagrama de contexto da arquitetura alvo do primeiro ciclo e contém dois erros de nível ou de fronteira, conforme os níveis descritos na seção [Diagrama de contexto](#diagrama-de-contexto).
 
 <figure markdown="span">
 ![Diagrama de contexto do primeiro ciclo da ACME com três atores no alto, aluno, professor e secretaria acadêmica, ligados ao sistema acadêmico. Dentro da fronteira tracejada do sistema acadêmico estão o elemento sistema acadêmico e o ERP financeiro. Abaixo, ligados por linhas ortogonais, seis elementos fora da fronteira, banco de dados acadêmico, ambiente virtual de aprendizagem, assinador digital ICP-Brasil, gateway de pagamento, provedor de identidade e órgão regulador.](../assets/images/acme-ex15-diagrama-de-contexto.svg){ .module-diagram }

@@ -70,7 +70,7 @@ A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativo
 | Expectativa do aluno | Externo, retorno de clientes | Demanda por aplicativo móvel e por matrícula que não falhe na abertura |
 | Disponibilidade de nuvem contratável | Externo, tecnologia | Dois provedores pré-aprovados pelo Conselho Universitário em 12/03/2026 |
 
-A leitura conjunta mostra por que o problema não é apenas técnico. Três direcionadores são internos e apontam para custo, prazo e competência, e quatro são externos e apontam para conformidade, reputação e expectativa. Uma solução que trate só dos internos deixa de responder ao que pressiona a instituição de fora.
+A leitura conjunta reúne três direcionadores internos, que apontam para custo, prazo e competência, e quatro externos, que apontam para conformidade, reputação e expectativa. Uma solução que trate só dos internos deixa sem resposta o que pressiona a instituição de fora.
 
 ### Fontes práticas de pesquisa para o arquiteto
 
@@ -124,6 +124,8 @@ O arquiteto levanta os direcionadores antes de discutir alternativa, porque eles
 O registro dos direcionadores também protege o projeto quando a liderança muda. Uma solução cujo motivo declarado esteja documentado sobrevive à troca de patrocinador, e uma solução cujo motivo só existia na conversa inicial costuma ser questionada desde o começo a cada mudança de interlocutor.
 
 ## Exercício 5
+
+Este exercício treina a leitura dos direcionadores de mudança de um caso concreto. O aluno separa os direcionadores que já se tornaram problema dos que ainda podem ser previstos, organiza fatores externos pelas seis dimensões da análise PESTLE e relaciona a meta de custo ao contrato do mainframe, o computador de grande porte em que roda o núcleo do sistema acadêmico. Os dados necessários aparecem no enunciado de cada item.
 
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, dos quais 10.200 na graduação a distância, e um sistema acadêmico em operação desde 2004 que sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro. A modernização foi autorizada com orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses, o custo anual de propriedade do sistema é de R$ 15,83 milhões, o prazo médio de entrega de uma mudança é de 34 dias úteis, e dois dos três incidentes graves dos últimos 18 meses ocorreram na janela de matrícula.
 
@@ -184,7 +186,7 @@ O primeiro quadro abaixo lista três fatos externos já registrados no dossiê d
 
 ### Item 3: Meta de custo e contrato do mainframe
 
-O diagrama abaixo dispõe em ordem cronológica os marcos que condicionam a meta de redução do custo anual de propriedade.
+A ACME paga pelo mainframe um contrato de capacidade com piso de volume contratado, isto é, um valor mínimo devido mesmo que a carga diminua. O diagrama abaixo dispõe em ordem cronológica os marcos que condicionam a meta de redução do custo anual de propriedade.
 
 ```mermaid
 flowchart TB

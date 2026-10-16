@@ -1,6 +1,6 @@
 # Princípios de design e passagem ao desenho lógico
 
-Este bloco inicia a cadeia de decisão da aula e responde a uma pergunta anterior a qualquer escolha de estilo ou de tecnologia, que regras devem orientar o desenho da solução e como essas regras produzem um primeiro desenho lógico.
+Este bloco inicia a cadeia de decisão da aula e responde a duas perguntas que antecedem qualquer escolha de estilo ou de tecnologia. A primeira é quais regras devem orientar o desenho da solução. A segunda é como essas regras produzem um primeiro desenho lógico, isto é, um desenho em elementos com responsabilidades, sem produto nem tecnologia definidos.
 
 ## Antes de começar
 
@@ -12,11 +12,11 @@ Este bloco inicia a cadeia de decisão da aula e responde a uma pergunta anterio
 
 ## Princípios de design
 
-A Aula 2 terminou com entradas arquiteturais já formuladas, os direcionadores de mudança, os requisitos classificados, os cenários de atributo de qualidade com medida e as restrições que chegam fechadas ao arquiteto. Nenhuma dessas entradas diz, sozinha, como a solução deve ser organizada. Entre a lista de exigências e o desenho existe uma etapa intermediária, na qual o arquiteto converte as entradas em regras que orientam muitas decisões ao mesmo tempo, e é essa etapa que este bloco trata.
+A Aula 2 terminou com as exigências sobre a solução já formuladas, que são os [direcionadores de mudança](../modulo-2-requisitos-e-partes-interessadas/bloco-1-direcionadores-de-mudanca.md) (os fatos que levam a organização a mudar o sistema), os requisitos classificados, os cenários de atributo de qualidade, que descrevem uma situação com a medida a cumprir, e as restrições, que já chegam impostas ao arquiteto. Nenhuma dessas exigências diz, sozinha, como a solução deve ser organizada. Entre a lista de exigências e o desenho existe uma etapa intermediária, na qual o arquiteto converte as exigências em regras que orientam muitas decisões ao mesmo tempo, e este bloco trata dessa etapa.
 
 ### Do objetivo ao elemento lógico
 
-Cinco conceitos aparecem juntos em qualquer discussão de desenho, e a confusão entre eles é a origem de boa parte das decisões mal justificadas. A tabela abaixo fixa o papel de cada um.
+Cinco conceitos aparecem juntos em qualquer discussão de desenho, e confundi-los leva a decisões mal justificadas. A tabela abaixo fixa o papel de cada um, e o exemplo que a segue mostra os cinco encadeados.
 
 | Conceito | Papel |
 | --- | --- |
@@ -30,7 +30,7 @@ A Rede de Clínicas ACME, com doze unidades, ilustra o encadeamento. O objetivo 
 
 ### Anatomia de um princípio
 
-Um **princípio de design** é uma regra durável, derivada de objetivos, requisitos e restrições, que orienta um conjunto de decisões de desenho e admite verificação da sua aplicação. Princípios, políticas e regras de negócio da arquitetura corporativa se aplicam a toda solução da organização, e a exceção tática a essas diretrizes gera uma dívida estratégica a ser corrigida depois. Os princípios de uma solução específica ocupam o nível seguinte, porque refinam as diretrizes corporativas para o problema em análise sem contrariá-las.
+Um **princípio de design** é uma regra durável, derivada de objetivos, requisitos e restrições, que orienta um conjunto de decisões de desenho e admite verificação da sua aplicação. A arquitetura corporativa, que reúne as diretrizes válidas para todas as soluções da organização, define princípios, políticas e regras de negócio. Quando uma solução abre exceção a essas diretrizes para atender uma urgência, a exceção cria uma dívida estratégica, ou seja, um desvio que a organização precisará corrigir depois. Os princípios de uma solução específica ficam no nível seguinte, porque detalham as diretrizes corporativas para o problema em análise sem contrariá-las.
 
 Um princípio só cumpre essa função quando traz três complementos ao nome. A motivação liga o princípio à entrada que o originou, seja um objetivo, um cenário ou uma restrição, e é o que impede sua adoção por hábito. A implicação prática declara o que muda no desenho quando o princípio é seguido, incluindo o que passa a ser proibido. A forma de verificação indica que evidência mostraria que o princípio foi respeitado, como uma revisão de dependências, um teste automatizado ou uma métrica de operação.
 
@@ -52,7 +52,7 @@ A tabela abaixo reúne nove princípios recorrentes na literatura de arquitetura
 | Segurança por desenho | Controle acrescentado depois tende a deixar lacunas | Identidade, autorização e proteção de dado são responsabilidades explícitas do desenho | Trilha de auditoria e matriz de acesso verificáveis |
 | Evolução incremental | Mudança grande em uma única entrega concentra risco | O desenho admite substituição parte a parte, com convivência entre o antigo e o novo | Entregas parciais em produção sem interrupção do serviço |
 
-Princípios entram em conflito, e a priorização faz parte do produto. No serviço de licenciamento da Prefeitura ACME, que emite alvarás de funcionamento para cerca de 9.000 estabelecimentos por ano, a simplicidade favorece um único fluxo síncrono entre o pedido, a consulta aos cadastros da vigilância sanitária e do corpo de bombeiros e a emissão do documento. O desenho para falha, motivado pela indisponibilidade frequente do cadastro dos bombeiros, exige que o pedido seja registrado mesmo quando uma das consultas não responde, o que acrescenta estado intermediário e reprocessamento. A escolha entre os dois não é técnica em abstrato, ela depende de qual entrada tem prioridade para a Prefeitura ACME, e o registro dessa prioridade evita que a mesma discussão seja reaberta a cada decisão subsequente.
+Princípios entram em conflito, e a priorização faz parte do produto. No serviço de licenciamento da Prefeitura ACME, que emite alvarás de funcionamento para cerca de 9.000 estabelecimentos por ano, a simplicidade favorece um único fluxo síncrono entre o pedido, a consulta aos cadastros da vigilância sanitária e do corpo de bombeiros e a emissão do documento. O desenho para falha, motivado pela indisponibilidade frequente do cadastro dos bombeiros, exige que o pedido seja registrado mesmo quando uma das consultas não responde, o que acrescenta estado intermediário e reprocessamento. A escolha entre os dois depende de qual entrada tem prioridade para a Prefeitura ACME, e registrar essa prioridade evita que a mesma discussão seja reaberta a cada decisão seguinte.
 
 ### Do conceitual ao lógico
 
@@ -76,33 +76,33 @@ No serviço de licenciamento da Prefeitura ACME, o primeiro passo identifica as 
 
 ### Aplicação à ACME
 
-Na ACME, universidade privada brasileira fictícia usada como caso da disciplina, quatro entradas já levantadas na Aula 2 têm efeito direto sobre a distribuição de responsabilidades lógicas. A continuidade operacional exige que qualquer elemento novo conviva com o núcleo legado durante a transição. A residência de dados delimita onde cada responsabilidade que manipula dado pessoal de aluno pode ser executada. A redução da dependência do legado pede que responsabilidades hoje concentradas no núcleo possam ser assumidas por elementos novos, uma a uma. A propagação de notas em minutos coloca em questão a responsabilidade hoje atribuída ao lote noturno. O exercício deste bloco pede ao aluno que transforme essas quatro entradas em princípios e em um esboço lógico.
+Na ACME, universidade privada brasileira fictícia usada como caso da disciplina, quatro entradas já levantadas na Aula 2 têm efeito direto sobre a distribuição de responsabilidades lógicas. A continuidade operacional exige que qualquer elemento novo conviva com o núcleo legado, o sistema em COBOL em operação desde 2004, durante a transição. A residência de dados delimita onde cada responsabilidade que manipula dado pessoal de aluno pode ser executada. A redução da dependência do legado pede que responsabilidades hoje concentradas no núcleo possam ser assumidas por elementos novos, uma a uma. A propagação de notas em minutos exige repensar a responsabilidade hoje atribuída ao lote diário, a rotina que exporta as notas ao ambiente virtual de aprendizagem às 05h10. O exercício deste bloco pede que o aluno transforme essas quatro entradas em princípios e em um esboço lógico, e as entradas aparecem detalhadas no próprio exercício.
 
 ## Uso pelo arquiteto
 
-O arquiteto usa princípios priorizados para tomar decisões sucessivas com o mesmo critério, sem reabrir a cada escolha a discussão sobre o que a solução deve privilegiar. Os mesmos princípios servem para revisar um desenho proposto por outra equipe, porque a pergunta passa a ser se o desenho respeita as regras acordadas e a evidência declarada, e não se agrada a quem revisa. O esboço lógico produzido a partir deles é o objeto sobre o qual o estilo arquitetural do bloco 2 e os padrões do bloco 3 serão escolhidos.
+O arquiteto usa princípios priorizados para tomar decisões sucessivas com o mesmo critério, sem reabrir a cada escolha a discussão sobre o que a solução deve privilegiar. Os mesmos princípios servem para revisar um desenho proposto por outra equipe, porque a pergunta a responder é se o desenho respeita as regras acordadas e a evidência declarada. O esboço lógico produzido a partir deles é o objeto sobre o qual o estilo arquitetural do bloco 2 e os padrões do bloco 3 serão escolhidos.
 
 ## Exercício 9
 
-A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental, e os dados abaixo foram reproduzidos da [página inicial do caso](../caso-acme/index.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md). Os princípios priorizados e o esboço lógico deste exercício são a entrada da comparação de estilos do exercício 10, no [bloco 2](bloco-2-estilos-arquiteturais.md).
+Este exercício treina a passagem das exigências do caso ACME aos princípios de design e destes a um primeiro desenho lógico. A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental, isto é, por troca gradual de partes, sem parar o sistema. Os dados abaixo foram reproduzidos da [página inicial do caso](../caso-acme/index.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md), e o aluno não precisa consultá-las para resolver. Os princípios priorizados e o esboço lógico deste exercício são a entrada da comparação de estilos do exercício 10, no [bloco 2](bloco-2-estilos-arquiteturais.md).
 
 ### Item 1: Princípios a partir das entradas
 
-A tabela abaixo traz quatro entradas do caso, com a origem de cada uma.
+Cada princípio precisa nascer de uma exigência concreta, e a tabela abaixo traz as quatro exigências do caso que servem de ponto de partida, cada uma com a área da ACME que a apresentou. O código R7 identifica um requisito da lista do caso.
 
 | Entrada | Conteúdo | Origem |
 | --- | --- | --- |
 | Continuidade operacional | O sistema acadêmico não pode parar em período letivo, e toda estratégia é incremental, com o legado em operação durante a transição | Pró-Reitoria de Graduação |
 | Residência de dados | Dado pessoal de aluno processado em território nacional, o que restringe a região de implantação e o uso de serviços gerenciados | Jurídico, parecer de 28/04/2026 |
 | Dependência do legado | Manutenção do núcleo COBOL sob contrato até 30/09/2027, com 6 especialistas, dos quais 2 se aposentam em 2027, e apenas 1 domina o módulo de matrícula | Contrato de sustentação e inventário técnico |
-| Propagação de notas | R7, a nota lançada pelo professor chega ao ambiente virtual de aprendizagem em até 10 minutos, contra a exportação atual em lote diário iniciado às 05h10 | Educação a Distância |
+| Propagação de notas | Requisito R7, a nota lançada pelo professor chega ao ambiente virtual de aprendizagem em até 10 minutos, contra a exportação atual em lote diário iniciado às 05h10 | Educação a Distância |
 
 1. Escolha, no repertório de nove princípios apresentado neste bloco, entre três e cinco princípios que as quatro entradas justificam. Para cada princípio escolhido, registre nome, motivação, implicação no desenho e evidência esperada de que o princípio foi aplicado, com a motivação apontando a entrada da tabela que o originou.
 2. Ordene os princípios escolhidos por prioridade e indique, com base nas entradas, qual deles prevalece quando entra em conflito com os demais.
 
 ### Item 2: Esboço lógico a partir das responsabilidades
 
-O diagrama abaixo resume o caminho atual da matrícula, da nota e do lançamento financeiro no sistema legado, conforme a arquitetura de linha de base.
+Para desenhar o esboço, é preciso saber como o sistema funciona hoje. O diagrama abaixo resume o caminho atual da matrícula, da nota e do lançamento financeiro no sistema legado, conforme a arquitetura de linha de base. COBOL é a linguagem do núcleo, CICS é o monitor que executa as transações do núcleo, e Oracle é o banco de dados compartilhado.
 
 ```mermaid
 graph LR
@@ -119,7 +119,7 @@ graph LR
     LFIN -->|"arquivo"| ERP["ERP financeiro"]
 ```
 
-A lista abaixo traz oito responsabilidades que a solução precisa cumprir, extraídas dos requisitos e da linha de base do caso.
+A tabela abaixo traz oito responsabilidades que a solução precisa cumprir, extraídas dos requisitos e da linha de base do caso, cada uma com um código de RS1 a RS8 para facilitar a referência. ERP é o sistema de gestão financeira da ACME, e ICP-Brasil é o padrão brasileiro de certificação digital.
 
 | Código | Responsabilidade |
 | --- | --- |
@@ -134,7 +134,7 @@ A lista abaixo traz oito responsabilidades que a solução precisa cumprir, extr
 
 1. Agrupe as oito responsabilidades em três a cinco elementos lógicos e dê a cada elemento um nome que descreva a responsabilidade assumida, sem nomear produto, linguagem, provedor de nuvem ou framework.
 2. Indique quais elementos permanecem atendidos pelo núcleo legado durante a transição e quais passam a elementos novos, com base nas entradas do Item 1.
-3. Marque no esboço ao menos um risco e ao menos uma decisão pendente, indicando qual princípio do Item 1 cada um afeta.
+3. Marque no esboço ao menos um risco, que é algo que pode dar errado, e ao menos uma decisão pendente, que é uma escolha que ainda não pode ser feita, indicando qual princípio do Item 1 cada um afeta.
 
 ## Fontes
 

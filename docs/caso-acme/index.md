@@ -1,6 +1,6 @@
 # Caso ACME
 
-A ACME é uma universidade privada brasileira fictícia, de porte consolidado, cujo sistema acadêmico foi construído ao longo de duas décadas e sustenta matrícula, avaliação, emissão de documentos e integração financeira. Esta página apresenta a instituição, a pergunta que organiza o caso, os atores envolvidos, as restrições que chegam fechadas ao arquiteto e os requisitos declarados pelas partes interessadas. O caso é o mesmo em todas as aulas da disciplina, e cada aula acrescenta uma camada de artefatos a ele.
+A ACME é uma universidade privada brasileira fictícia, de porte consolidado, cujo sistema acadêmico foi construído ao longo de duas décadas e sustenta matrícula, avaliação, emissão de documentos e integração financeira. Esta página apresenta a instituição, a pergunta que organiza o caso, os atores envolvidos, as restrições que chegam fechadas ao arquiteto e os requisitos declarados pelas partes interessadas. O caso é o mesmo em todas as aulas da disciplina, e cada aula acrescenta a ele os documentos e diagramas que os exercícios produzem. Os exercícios usam os dados desta página e das três páginas seguintes do dossiê, de modo que o aluno não precisa conhecer a ACME antes de começar.
 
 ## Porte da instituição
 
@@ -27,7 +27,7 @@ A média de 6,0 disciplinas por aluno por semestre explica o total de 230.400 ma
 
 ## A pergunta central
 
-O sistema acadêmico atende aos processos para os quais foi construído, entre eles a matrícula, o cálculo da situação do aluno, a emissão de documentos com validade legal e a alimentação do ERP financeiro. Os problemas registrados pela Diretoria de TI são de outra natureza. O prazo médio entre pedido aprovado e entrega em produção é de 34 dias úteis. O risco operacional concentra-se em janelas de poucos dias, nas quais ocorreram dois dos três incidentes graves dos últimos 18 meses. A alteração do módulo de matrícula depende de 1 profissional, entre os 6 especialistas em COBOL da sustentação, dos quais 2 se aposentam em 2027.
+O sistema acadêmico atende aos processos para os quais foi construído, entre eles a matrícula, o cálculo da situação do aluno, a emissão de documentos com validade legal e a alimentação do ERP financeiro. Os problemas registrados pela Diretoria de TI são de outra natureza. O prazo médio entre pedido aprovado e entrega em produção é de 34 dias úteis. O risco operacional concentra-se em janelas de poucos dias, nas quais ocorreram dois dos três incidentes graves dos últimos 18 meses. A alteração do módulo de matrícula depende de 1 profissional, entre os 6 especialistas em COBOL da sustentação, dos quais 2 se aposentam em 2027. COBOL é a linguagem de programação em que está escrito o núcleo do sistema, descrito na página de [linha de base](linha-de-base.md).
 
 A pergunta que organiza o caso é como evoluir o sistema acadêmico de forma segura e incremental, mantendo a operação contínua durante a transição e respeitando os compromissos contratuais já assumidos pela instituição.
 
@@ -35,7 +35,7 @@ Essa formulação exclui duas respostas. A primeira é a substituição integral
 
 ## Mapa de atores
 
-Cada linha da tabela descreve um papel, a área à qual ele pertence, o resultado que persegue e o risco que o preocupa. O exercício do bloco 1 da Aula 1 parte desta tabela para identificar quem decide o quê.
+Cada linha da tabela descreve um papel, a área à qual ele pertence, o resultado que persegue e o risco que o preocupa. O exercício do bloco 4 da Aula 2 parte desta tabela para classificar as partes interessadas e delimitar o escopo do primeiro ciclo.
 
 | Papel | Área | O que quer | O que teme |
 | --- | --- | --- | --- |
@@ -52,7 +52,7 @@ Cada linha da tabela descreve um papel, a área à qual ele pertence, o resultad
 
 Três pares de atores têm interesses que não se resolvem por acordo técnico e exigem decisão de quem tem autoridade orçamentária ou de quem responde pelo processo acadêmico.
 
-O primeiro par opõe o Diretor de TI ao Diretor Financeiro. O primeiro quer iniciar a migração de carga para nuvem no primeiro ciclo de 12 meses. O segundo observa que o contrato de capacidade do mainframe vai até 31/12/2028 com piso de volume contratado, de modo que retirar carga não reduz desembolso antes de 2029 e apenas soma um custo novo ao custo existente.
+O primeiro par opõe o Diretor de TI ao Diretor Financeiro. O primeiro quer iniciar a migração de carga para nuvem no primeiro ciclo de 12 meses. O segundo observa que o contrato de capacidade do mainframe vai até 31/12/2028 com volume mínimo contratado e cobrado mesmo que a ACME use menos, de modo que retirar carga não reduz desembolso antes de 2029 e apenas soma um custo novo ao custo existente.
 
 O segundo par opõe o Diretor de TI ao Gerente de sustentação da fábrica. A cláusula de exclusividade do contrato de sustentação reserva à fábrica a manutenção dos programas COBOL do núcleo acadêmico até 30/09/2027. Qualquer estratégia que exija alterar esses programas para expor interfaces novas depende de um fornecedor cujo interesse comercial é preservar o escopo atual.
 
@@ -65,16 +65,16 @@ Restrição é decisão tomada fora do processo de projeto, que limita as altern
 | Restrição | Origem e data | Consequência para a arquitetura |
 | --- | --- | --- |
 | O sistema acadêmico não pode parar em período letivo | Pró-Reitoria de Graduação | Toda estratégia é incremental, com o legado em operação durante a transição |
-| O ambiente virtual de aprendizagem e o ERP financeiro permanecem | Reitoria, 12/03/2026 | O trabalho é de integração e governança, não de substituição |
+| O ambiente virtual de aprendizagem e o ERP financeiro permanecem | Reitoria, 12/03/2026 | O trabalho consiste em integrar e governar esses dois sistemas, sem substituí-los |
 | Dois provedores de nuvem pré-aprovados | Conselho Universitário, 12/03/2026 | Decisões de plataforma precisam ser portáveis entre os dois |
-| Identidade e autorização por padrões abertos | Comitê de Segurança da Informação | A escolha é de padrão, não de produto |
+| Identidade e autorização por padrões abertos | Comitê de Segurança da Informação | A escolha recai sobre o padrão, e o produto fica em aberto |
 | Dado pessoal de aluno processado em território nacional | Jurídico, parecer de 28/04/2026 | Restringe a região de implantação e o uso de serviços gerenciados |
 | Manutenção do núcleo COBOL sob contrato até 30/09/2027 | Contrato de sustentação | Alterações no núcleo dependem de fornecedor externo |
 | Orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses | Reitoria | O roteiro de evolução precisa caber nesse valor antes de nova aprovação |
 
 ## Requisitos declarados pelas partes interessadas
 
-A lista abaixo reproduz o que cada parte interessada declarou nas entrevistas de levantamento, sem depuração editorial. Alguns itens estão expressos de forma mensurável e outros não. O exercício do bloco 2 da Aula 1 classifica esses requisitos e reescreve os que não admitem verificação.
+A lista abaixo reproduz o que cada parte interessada declarou nas entrevistas de levantamento, sem depuração editorial. Alguns itens estão expressos de forma mensurável, como o R6 e o R12, e outros não, como o R3 e o R11, que dizem apenas que o tempo de resposta "precisa ser bom" e que o sistema "precisa ser moderno". O exercício do bloco 2 da Aula 2 classifica esses requisitos e reescreve os que não admitem verificação. Os códigos R1 a R15 identificam cada declaração nos exercícios e nos gabaritos.
 
 | Código | Declaração | Origem |
 | --- | --- | --- |

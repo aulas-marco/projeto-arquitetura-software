@@ -1,6 +1,6 @@
 # Síntese da Aula 1
 
-Esta página fecha o módulo de abertura com o que precisa permanecer depois da aula, uma autoavaliação e as fontes usadas nos quatro blocos.
+Esta página fecha o módulo de abertura com o que o aluno deve reter depois da aula, uma autoavaliação e as fontes usadas nos quatro blocos.
 
 ## Checklist do que precisa permanecer
 

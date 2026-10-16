@@ -199,11 +199,11 @@ O arquiteto recebe da arquitetura de dados corporativa o recorte do modelo corpo
 
 ## Exercício 14
 
-O exercício pede decisões de dados para a ACME, universidade privada brasileira com 38.400 alunos ativos e sistema acadêmico em operação desde 2004. Ele parte das [capacidades](../referencia/glossario.md#capacidade) marcadas como afetadas no [exercício 13](bloco-1-arquitetura-de-negocio.md#exercicio-13), das responsabilidades distribuídas no esboço lógico do [exercício 9](../modulo-3-design-e-padroes/bloco-1-principios-de-design.md#exercicio-9) e de fatos reproduzidos da [arquitetura de linha de base](../caso-acme/linha-de-base.md) e da [página inicial do caso](../caso-acme/index.md).
+O exercício aplica as decisões de dados deste bloco à ACME, universidade privada brasileira com 38.400 alunos ativos e sistema acadêmico em operação desde 2004. As cinco entidades acadêmicas do caso (aluno, matrícula, nota, lançamento financeiro e turma) aparecem numa grade fornecida, e cada item pede uma decisão sobre elas, de quem é o dono até o que a ACME deve fazer com o dado pessoal. O exercício parte das [capacidades](../referencia/glossario.md#capacidade) marcadas como afetadas no [exercício 13](bloco-1-arquitetura-de-negocio.md#exercicio-13), das responsabilidades que o esboço lógico do [exercício 9](../modulo-3-design-e-padroes/bloco-1-principios-de-design.md#exercicio-9) distribuiu entre os elementos da solução e de fatos reproduzidos da [arquitetura de linha de base](../caso-acme/linha-de-base.md) e da [página inicial do caso](../caso-acme/index.md).
 
 ### Item 1: Dono de cada entidade
 
-A grade dado × aplicação abaixo foi montada pelo material do curso a partir da linha de base e cruza as cinco entidades acadêmicas com as aplicações que as gravam, leem ou recebem, sem a coluna de dono.
+Este item decide quem responde por cada entidade, porque só o dono pode gravá-la. A grade dado × aplicação abaixo foi montada pelo material do curso a partir da linha de base e cruza as cinco entidades acadêmicas com as aplicações que as gravam, leem ou recebem, sem a coluna de dono.
 
 | Entidade | Núcleo transacional | Portais Java | ERP financeiro | Ambiente virtual | Data warehouse |
 | --- | --- | --- | --- | --- | --- |
@@ -220,7 +220,7 @@ O dono marcado para a entidade nota é a origem do contrato de integração do e
 
 ### Item 2: Regime de consistência por consumidor
 
-Toda troca com o ERP financeiro e com o ambiente virtual de aprendizagem ocorre por arquivo, em lote noturno, e o data warehouse recebe uma extração diária. O diagrama mostra o sentido e o horário de cada um dos seis lotes da linha de base.
+Este item decide com que atraso cada consumidor pode ler cada entidade. Toda troca com o ERP financeiro e com o ambiente virtual de aprendizagem ocorre por arquivo, em lote noturno, e o data warehouse recebe uma extração diária. O diagrama mostra o sentido e o horário de cada um dos seis lotes da linha de base.
 
 ```mermaid
 graph LR
@@ -237,7 +237,7 @@ graph LR
     AVA -->|"06h15 notas e frequência de atividades"| ACA
 ```
 
-Dois requisitos do caso afetam o regime de consistência. O R7 define o prazo de propagação da nota até o ambiente virtual, e o R6 exige tempo de resposta do sistema de registro durante a matrícula, o que interessa à decisão de o consumidor ler a fonte com consistência forte.
+Dois requisitos do caso, reproduzidos na tabela abaixo, afetam o regime de consistência. O R7 define o prazo de propagação da nota até o ambiente virtual, e o R6 exige tempo de resposta do sistema de registro durante a matrícula, o que interessa à decisão de o consumidor ler a fonte com consistência forte.
 
 | Código | Declaração |
 | --- | --- |
@@ -248,7 +248,7 @@ Dois requisitos do caso afetam o regime de consistência. O R7 define o prazo de
 
 ### Item 3: Estilo de dado mestre para o aluno
 
-O aluno é a entidade compartilhada da ACME, com 38.400 alunos ativos e 214.000 egressos com dados retidos. O cadastro acadêmico grava o aluno, e as demais aplicações recebem ou mantêm cópia dele, como mostra o diagrama.
+Este item escolhe como manter um cadastro único de aluno entre as aplicações. O aluno é a entidade compartilhada da ACME, com 38.400 alunos ativos e 214.000 egressos com dados retidos. O cadastro acadêmico grava o aluno, e as demais aplicações recebem ou mantêm cópia dele, como mostra o diagrama.
 
 ```mermaid
 graph LR
@@ -264,7 +264,7 @@ graph LR
 
 ### Item 4: Obrigações do dado pessoal do aluno
 
-A tabela, montada pelo material do curso a partir da linha de base, lista atributos do aluno usados pela ACME e os destinos para os quais cada um é copiado. A cor ou raça autodeclarada e a condição de deficiência são coletadas para a extração anual do censo da educação superior.
+Este item traduz a LGPD em obrigações sobre os dados do aluno. A tabela, montada pelo material do curso a partir da linha de base, lista atributos do aluno usados pela ACME e os destinos para os quais cada um é copiado. A cor ou raça autodeclarada e a condição de deficiência são coletadas para a extração anual do censo da educação superior.
 
 | Atributo | Destinos na linha de base |
 | --- | --- |
@@ -283,7 +283,7 @@ O caso também registra o requisito R9, que exige trilha de auditoria de toda le
 
 ### Item 5: Acesso direto ao banco
 
-O banco Oracle, com 740 tabelas, é compartilhado entre o núcleo COBOL e a camada Java, sem separação de esquema por responsabilidade. Existem 2.300 pontos no código Java que leem ou gravam tabelas do núcleo diretamente, contornando as transações do núcleo, e o inventário não registra a distribuição desses pontos por entidade.
+Este item pede que o aluno explique, com um caso real, o problema do banco compartilhado descrito na seção sobre propriedade do dado. O banco Oracle, com 740 tabelas, é compartilhado entre o núcleo COBOL e a camada Java, sem separação de esquema por responsabilidade. Existem 2.300 pontos no código Java que leem ou gravam tabelas do núcleo diretamente, contornando as transações do núcleo, e o inventário não registra a distribuição desses pontos por entidade.
 
 ```mermaid
 graph TD

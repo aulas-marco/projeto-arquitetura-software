@@ -1,6 +1,6 @@
 # Padrões arquiteturais e padrões de design
 
-Este bloco trabalha dentro do estilo recomendado no [bloco 2](bloco-2-estilos-arquiteturais.md) e responde que soluções recorrentes tratam problemas específicos da solução, em que nível de decisão cada uma atua e que custo cada uma impõe.
+Este bloco trabalha dentro do estilo recomendado no [bloco 2](bloco-2-estilos-arquiteturais.md). Um padrão é uma solução conhecida para um problema que se repete, e o bloco responde quais padrões tratam os problemas específicos da solução, em que nível de decisão cada um atua e que custo cada um impõe.
 
 ## Antes de começar
 
@@ -22,7 +22,7 @@ Estilo e padrão respondem a perguntas de alcance diferente, e confundir os dois
 
 Um **padrão arquitetural** é uma solução recorrente para uma preocupação transversal ou de integração entre partes do sistema, com escopo menor que o do estilo e maior que o de uma colaboração local. Um **padrão de design** é uma solução recorrente para a colaboração entre responsabilidades dentro de uma parte do sistema, descrita em termos de papéis, interfaces e relações, e o catálogo de Gamma et al. (1994) é a referência de origem desse nível. A fronteira entre os dois níveis é o alcance do efeito, porque um padrão arquitetural altera a forma como partes distintas se relacionam, enquanto um padrão de design altera a organização interna de uma dessas partes.
 
-Dois termos frequentes nesta discussão precisam de enquadramento. Strangler Fig é um padrão de modernização, que organiza a substituição gradual de um sistema existente, e convive com qualquer estilo escolhido para a solução nova. Domain-driven design, proposto por Evans (2003), é uma abordagem de modelagem e de delimitação de contextos, e o Anti-Corruption Layer descrito abaixo é um dos padrões que essa abordagem formulou para proteger o modelo de um contexto contra o modelo de outro.
+Dois termos frequentes nesta discussão precisam de explicação. Strangler Fig é um padrão de modernização, que organiza a substituição gradual de um sistema existente, e convive com qualquer estilo escolhido para a solução nova. Domain-driven design, proposto por Evans (2003), é uma abordagem de modelagem e de delimitação de contextos, e o Anti-Corruption Layer descrito abaixo é um dos padrões que essa abordagem formulou para proteger o modelo de um contexto contra o modelo de outro.
 
 <figure markdown="span">
 ![Diagrama de três faixas empilhadas que representam os níveis de decisão. A faixa externa é o estilo arquitetural, com a pergunta de como o sistema inteiro se organiza e os exemplos camadas e eventos. A faixa intermediária é o padrão arquitetural, com a pergunta de como uma preocupação transversal ou de integração é resolvida e os exemplos API Gateway e Saga. A faixa interna é o padrão de design, com a pergunta de como responsabilidades colaboram dentro de uma parte e os exemplos Adapter e Strategy.](../assets/images/modulo-3-niveis-de-padrao.svg){ .module-diagram }
@@ -90,7 +90,7 @@ O API Gateway é um ponto único de entrada para os clientes externos de um conj
 
 ### Resiliência na integração
 
-O exemplo desta seção é a Transportadora ACME, empresa de cargas que atende 1.400 clientes corporativos e cujo portal de cotação consulta, a cada pedido, o serviço de tarifa de três parceiros de transporte e o serviço de rastreamento de um operador logístico externo. Nygard (2018) reúne sob o nome de padrões de estabilidade as soluções que impedem que a falha de uma dependência se propague ao sistema que a chama, e três dos quatro padrões abaixo, Timeout, Circuit Breaker e Bulkhead, pertencem a esse grupo. O Retry com limite completa o conjunto como prática de tratamento de falha transitória, segura apenas quando combinada com Timeout e aplicada a operações idempotentes.
+O exemplo desta seção é a Transportadora ACME, empresa de cargas que atende 1.400 clientes corporativos e cujo portal de cotação consulta, a cada pedido, o serviço de tarifa de três parceiros de transporte e o serviço de rastreamento de um operador logístico externo. Nygard (2018) reúne sob o nome de padrões de estabilidade as soluções que impedem que a falha de uma dependência se propague ao sistema que a chama, e três dos quatro padrões abaixo, Timeout, Circuit Breaker e Bulkhead, pertencem a esse grupo. O Retry com limite completa o conjunto como prática de tratamento de falha transitória, segura apenas quando combinada com Timeout e aplicada a operações idempotentes, isto é, que podem ser repetidas sem alterar o resultado.
 
 #### Timeout
 
@@ -184,11 +184,11 @@ O arquiteto seleciona um padrão pelo problema declarado e registra, junto com a
 
 ## Exercício 11
 
-A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. No [exercício 10](bloco-2-estilos-arquiteturais.md#exercicio-10), o aluno recomendou um estilo arquitetural para a modernização, e este exercício seleciona padrões dentro desse estilo para três problemas da ACME, a coexistência entre legado e solução nova, a proteção contra falha de integração e a publicação confiável de mudança acadêmica, com dados reproduzidos da [arquitetura de linha de base](../caso-acme/linha-de-base.md) e dos [dados operacionais](../caso-acme/dados-operacionais.md). O mapa de problema, padrão e consequência produzido aqui é a entrada do ADR do exercício 12, no [bloco 4](bloco-4-registro-de-decisao-arquitetural.md).
+Este exercício treina a escolha de padrões a partir de problemas concretos, com o custo de cada escolha declarado. A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. No [exercício 10](bloco-2-estilos-arquiteturais.md#exercicio-10), o aluno recomendou um estilo arquitetural para a modernização, e agora seleciona padrões dentro desse estilo para três problemas da ACME. O primeiro é a coexistência entre o sistema legado e a solução nova, o segundo é a proteção contra falha de integração, e o terceiro é a publicação confiável de mudança acadêmica. Os dados de cada problema foram reproduzidos da [arquitetura de linha de base](../caso-acme/linha-de-base.md) e dos [dados operacionais](../caso-acme/dados-operacionais.md). O mapa de problema, padrão e consequência produzido aqui é a entrada do ADR do exercício 12, no [bloco 4](bloco-4-registro-de-decisao-arquitetural.md).
 
 ### Item 1: Coexistência entre legado e solução nova
 
-O núcleo COBOL sobre CICS permanece em operação durante toda a transição, a camada Java tem 2.300 pontos de acesso direto às tabelas do núcleo, e a alteração dos programas do núcleo depende da fábrica contratada até 30/09/2027. O diagrama abaixo mostra essa situação.
+O núcleo COBOL sobre CICS permanece em operação durante toda a transição. A camada Java tem 2.300 pontos de código que leem ou gravam as tabelas do núcleo diretamente, sem passar pelas transações do CICS, e só a fábrica contratada, empresa que mantém o núcleo, pode alterar os programas dele, até 30/09/2027. O diagrama abaixo mostra essa situação.
 
 ```mermaid
 graph LR
@@ -219,7 +219,7 @@ flowchart TB
 
 ### Item 3: Publicação confiável de mudança acadêmica
 
-O requisito R7 exige que a nota lançada chegue ao ambiente virtual de aprendizagem em até 10 minutos, a exportação atual ocorre em lote diário iniciado às 05h10, a janela de fechamento chega a 360.000 lançamentos, e a integração por interface de programação exige o plano do ambiente virtual com acréscimo de 38% sobre o valor anual do contrato vigente. O diagrama abaixo mostra o caminho atual da nota.
+O requisito R7 do caso exige que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. A exportação atual ocorre em lote diário iniciado às 05h10, e a janela de fechamento chega a 360.000 lançamentos. A integração por interface de programação exige o plano do ambiente virtual com acréscimo de 38% sobre o valor anual do contrato vigente. O diagrama abaixo mostra o caminho atual da nota.
 
 ```mermaid
 flowchart TB

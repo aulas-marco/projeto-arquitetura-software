@@ -143,11 +143,11 @@ A mesma avaliação apontou três vulnerabilidades, classificadas pelo OWASP Top
 
 O arquiteto leva à autoridade de design de segurança um desenho que já traz os ativos classificados por confidencialidade, integridade e disponibilidade e pela Lei Geral de Proteção de Dados, a grade de permissões preenchida pelo menor privilégio, as fronteiras de confiança identificadas e os controles da zona de pouso declarados. Com esse material, a autoridade concentra os dois testes nos pontos em que o desenho pode falhar e dispensa o levantamento de informações que cabe à equipe de solução.
 
-A recomendação da autoridade retorna à equipe de solução como revisão de desenho, e cada recomendação aceita altera um artefato concreto, como uma célula da grade de permissões, um controle na fronteira ou uma mudança de infraestrutura. A recomendação que exige serviço de infraestrutura ausente do catálogo vira lacuna de provisão, classificada no [bloco 4](bloco-4-adr-de-plataforma.md) desta aula.
+A recomendação da autoridade retorna à equipe de solução como revisão de desenho, e cada recomendação aceita altera um artefato concreto, como uma célula da grade de permissões, um controle na fronteira ou uma mudança de infraestrutura. A recomendação que exige serviço de infraestrutura ausente do catálogo gera uma lacuna de provisão, classificada no [bloco 4](bloco-4-adr-de-plataforma.md) desta aula.
 
 ## Exercício 19
 
-A ACME é a universidade privada brasileira com 38.400 alunos ativos cujo sistema acadêmico passa por modernização incremental, com o núcleo transacional mantido em operação durante a transição. O exercício parte do diagrama de contêineres do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16) e da zona de pouso do [exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18), e examina a segurança da solução pela LGPD, pelo menor privilégio e pelo STRIDE.
+A ACME é a universidade privada brasileira com 38.400 alunos ativos cujo sistema acadêmico passa por modernização incremental, com o núcleo transacional mantido em operação durante a transição. O exercício verifica se a solução nova protege os dados dos alunos, e para isso parte do diagrama de contêineres do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16) e da zona de pouso do [exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18). A verificação tem três itens, a classificação dos dados pela LGPD, a correção de uma grade de permissões pelo menor privilégio e a associação de ameaças a categorias do STRIDE.
 
 Os dois requisitos e a restrição abaixo constam da [página inicial do caso](../caso-acme/index.md) e valem para os três itens.
 
@@ -159,7 +159,7 @@ Os dois requisitos e a restrição abaixo constam da [página inicial do caso](.
 
 ### Item 1: Ativos de dado e LGPD
 
-O dossiê não detalha os campos de cada módulo, e os ativos e as ligações abaixo são os considerados neste exercício. O diagrama liga cada ativo à capacidade acadêmica que o usa, entre as capacidades do [exercício 13](../modulo-4-dominios-da-solucao/bloco-1-arquitetura-de-negocio.md#exercicio-13).
+O objetivo deste item é decidir o grau de proteção de cada dado que a solução guarda. O dossiê não detalha os campos de cada módulo, e os ativos e as ligações abaixo são os considerados neste exercício. O diagrama liga cada ativo à capacidade acadêmica que o usa, entre as capacidades do [exercício 13](../modulo-4-dominios-da-solucao/bloco-1-arquitetura-de-negocio.md#exercicio-13), que são as funções que a universidade executa, como admissão e ingresso ou oferta e grade curricular.
 
 ```mermaid
 graph LR
@@ -188,7 +188,7 @@ A tabela indica o módulo do núcleo, conforme a [arquitetura de linha de base](
 
 ### Item 2: Grade de permissões
 
-A grade abaixo, em que três células concedem privilégio além do necessário, foi proposta para a arquitetura alvo, com os perfis e os serviços nas linhas e três recursos nas colunas. L indica leitura, E indica gravação e o traço indica nenhum acesso, e a condição aparece depois da vírgula, como em somente a própria. No sistema atual, o ambiente virtual de aprendizagem recebe a nota consolidada por exportação e devolve apenas nota de atividade, recurso que não consta desta grade.
+O objetivo deste item é encontrar acessos maiores do que o necessário numa grade de permissões já preenchida. A grade abaixo, em que três células concedem privilégio além do necessário, foi proposta para a arquitetura alvo, com os perfis e os serviços nas linhas e três recursos nas colunas. L indica leitura, E indica gravação e o traço indica nenhum acesso, e a condição aparece depois da vírgula, como em somente a própria. No sistema atual, o ambiente virtual de aprendizagem recebe a nota consolidada por exportação e devolve apenas nota de atividade, recurso que não consta desta grade.
 
 | Perfil ou serviço | Nota consolidada | Matrícula | Histórico escolar |
 | --- | --- | --- | --- |
@@ -204,7 +204,7 @@ A grade abaixo, em que três células concedem privilégio além do necessário,
 
 ### Item 3: Ameaças na fronteira do aplicativo do aluno
 
-A fronteira de confiança deste item é a relação 1 do diagrama do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16), entre o aplicativo do aluno, instalado no telefone, e o serviço de matrícula, que o R1 e o R6 exigem. A execução do serviço de matrícula na conta de produção da zona de pouso do [exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) é suposição do exercício. A tabela reproduz da [página inicial do caso](../caso-acme/index.md) os requisitos R1, R6 e R8, que este item cita.
+O objetivo deste item é associar ameaças conhecidas a categorias do STRIDE e ao controle que cada uma exige. A fronteira de confiança analisada é a ligação entre o aplicativo do aluno, instalado no telefone, e o serviço de matrícula, que o R1 e o R6 exigem e que aparece como relação 1 no diagrama do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16). A execução do serviço de matrícula na conta de produção da zona de pouso do [exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) é suposição do exercício. A tabela reproduz da [página inicial do caso](../caso-acme/index.md) os requisitos R1, R6 e R8, que este item cita.
 
 | Código | Declaração | Origem |
 | --- | --- | --- |

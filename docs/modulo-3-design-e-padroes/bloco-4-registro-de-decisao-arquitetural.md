@@ -1,6 +1,6 @@
 # Registro de decisão arquitetural
 
-Este bloco conclui a cadeia de decisão da aula e responde como registrar a decisão construída nos blocos 1 a 3 de forma compreensível, rastreável e revisável por quem não participou dela.
+Este bloco conclui a cadeia de decisão da aula e responde como registrar a decisão construída nos blocos 1 a 3 para que uma pessoa que não participou dela consiga entendê-la, localizar de onde ela veio e revisá-la. O registro usado para isso é o ADR, sigla de registro de decisão arquitetural.
 
 ## Antes de começar
 
@@ -22,7 +22,7 @@ Um dos maiores riscos no processo decisório arquitetural é a influência de pr
 
 O **racional arquitetural** é a base intelectual que justifica as decisões de desenho em um sistema, conectando cada escolha às metas estratégicas, aos requisitos técnicos e às restrições de negócio. Ele exige que o arquiteto documente não apenas a escolha feita, mas também o raciocínio por trás dela, incluindo as alternativas consideradas, os critérios de seleção e os impactos esperados. O racional funciona também como controle contra viés, porque obriga a fundamentar a escolha na necessidade do problema e na limitação do ambiente, e a preferência de quem decide deixa de ser justificativa aceitável.
 
-O efeito não é apenas individual. Envolver o time na elaboração do racional favorece um ambiente colaborativo e reduz a possibilidade de decisão unilateral, e o registro resultante fortalece a confiança da equipe e das partes interessadas no processo, estabelecendo base para a evolução do sistema no longo prazo. Um racional escrito sem a participação do time registra a decisão, mas deixa de produzir o acordo que sustenta a sua aplicação pelas equipes.
+O efeito do racional vai além do indivíduo. Envolver o time na elaboração do racional favorece um ambiente colaborativo e reduz a possibilidade de decisão unilateral, e o registro resultante fortalece a confiança da equipe e das partes interessadas no processo, estabelecendo base para a evolução do sistema no longo prazo. Um racional escrito sem a participação do time registra a decisão, mas deixa de produzir o acordo que sustenta a sua aplicação pelas equipes.
 
 ### Abordagem leve para registro de decisões
 
@@ -69,7 +69,7 @@ Entre os campos que o formato de Nygard não tem, Evidências e Revisão são os
 
 ### Um exemplo completo
 
-O registro abaixo aplica o template de dez campos a uma decisão de infraestrutura. Ele aparece como o arquivo Markdown ficaria no repositório, que é a forma real do artefato.
+O registro abaixo aplica o template de dez campos a uma decisão de infraestrutura de uma empresa genérica, sem relação com o caso ACME. A decisão é adotar o Kubernetes, plataforma que gerencia a execução de aplicações em contêineres, e o pod citado na decisão é a menor unidade de execução dessa plataforma. O texto aparece como o arquivo Markdown ficaria no repositório, que é a forma real do artefato.
 
 ```markdown
 # ADR 5, adoção do Kubernetes para gerenciamento de infraestrutura e aplicações
@@ -165,7 +165,7 @@ Quando falta dado para preencher um campo, o caminho é registrar o ADR com esta
 
 ## Exercício 12
 
-A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. Este exercício pede o ADR que registra o estilo escolhido e os padrões que materializam a estratégia de modernização, no template de dez campos apresentado no Conceito acima, a partir dos produtos dos três exercícios anteriores desta aula.
+Este exercício reúne em um único registro as escolhas feitas nos exercícios 9 a 11, para que a decisão possa ser entendida e revisada por quem não participou dela. A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. O aluno escreve o ADR que registra o estilo escolhido e os padrões que sustentam a estratégia de modernização, no template de dez campos apresentado no Conceito acima, a partir dos produtos dos três exercícios anteriores desta aula.
 
 ### Item 1: Origem de cada campo do registro
 
@@ -182,7 +182,7 @@ graph LR
     E11 --> CON["Campo Consequências"]
 ```
 
-Escreva os cinco primeiros grupos de campos do ADR.
+O item cobre os cinco primeiros grupos de campos do ADR, e o aluno escreve cada um deles.
 
 1. título, estado e data
 2. contexto, descrevendo de forma neutra os dois cenários que motivaram a análise e delimitando o que fica fora do registro

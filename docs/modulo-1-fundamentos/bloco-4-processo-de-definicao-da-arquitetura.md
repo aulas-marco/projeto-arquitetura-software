@@ -23,7 +23,7 @@ O ciclo não é obrigatoriamente percorrido até o fim. Durante qualquer fase, o
 <figcaption>Entrada, atividade central e saída de cada uma das oito fases, com o percurso da ideia inicial até a solução implantada.</figcaption>
 </figure>
 
-A tabela abaixo repete o conteúdo do infográfico em texto, para consulta e para busca no site. A seta de realimentação representada na parte inferior da figura é o que distingue o processo de uma sequência rígida, e as duas observações do parágrafo seguinte, sobre abandono e mudança de escopo, descrevem quando essa realimentação se torna necessária.
+A tabela abaixo repete o conteúdo do infográfico em texto, para consulta e para busca no site. A seta de realimentação representada na parte inferior da figura é o que distingue o processo de uma sequência rígida, e as duas observações do início desta seção, sobre abandono e mudança de escopo, descrevem quando essa realimentação se torna necessária.
 
 | Fase | Entrada principal | Atividade central | Saída |
 | --- | --- | --- | --- |
@@ -36,9 +36,9 @@ A tabela abaixo repete o conteúdo do infográfico em texto, para consulta e par
 | Desenvolvimento do roteiro | Desenho validado e resultado das análises | Ordenar as mudanças em sequência viável, tratando risco e prioridade das partes interessadas | Roteiro de entrega autorizado pelo patrocinador de negócio |
 | Conclusão | Roteiro autorizado | Implementar o desenho com as disciplinas de execução, com a arquitetura em papel de governança | Artefatos da solução implantada nos níveis conceitual, lógico e físico |
 
-A fase de iniciação tem custo deliberadamente baixo, porque seu produto é uma decisão e não um desenho. O que ela exige é tempo e atenção de [partes interessadas](bloco-3-papel-do-arquiteto-de-solucao.md#conceito) seniores, conceito definido no bloco 3, e é nela que costuma ser identificado o patrocinador de negócio, o responsável último pela solução, que responde pelo sucesso dela e decide sobre a passagem de cada fase.
+A fase de iniciação tem custo baixo de propósito, porque seu produto é a decisão de prosseguir ou não, e nenhum desenho é produzido nela. O que ela exige é tempo e atenção de [partes interessadas](bloco-3-papel-do-arquiteto-de-solucao.md#conceito) seniores, conceito definido no bloco 3, e é nela que costuma ser identificado o patrocinador de negócio, o responsável último pela solução, que responde pelo sucesso dela e decide sobre a passagem de cada fase.
 
-O termo problema, nesse processo, cobre três categorias. Problemas imediatos que a organização precisa tratar, problemas antecipados que exigem redução de risco, e oportunidades que a organização deve aproveitar. O espaço do problema delimita o escopo da investigação, e é a área do negócio que precisa ser examinada primeiro para estabelecer a causa raiz.
+O termo problema, nesse processo, cobre três categorias: problemas imediatos que a organização precisa tratar, problemas antecipados que exigem redução de risco e oportunidades que a organização deve aproveitar. O espaço do problema delimita o escopo da investigação, e é a área do negócio que precisa ser examinada primeiro para estabelecer a causa raiz.
 
 A fase de validação usa três técnicas que reaparecem ao longo do curso. Um **ponto de vista** é o modelo que se aplica como filtro sobre o modelo de arquitetura, e o resultado é uma **visão**. Aplicar o mesmo ponto de vista às descrições anterior e posterior da arquitetura permite ver o efeito da mudança sob uma perspectiva específica. A **análise de impacto** examina cada bloco de construção e enumera o impacto da mudança, avaliado por alcance, tamanho e direção. A **análise de lacunas** compara duas descrições de arquitetura e lista os componentes acrescentados, removidos ou alterados.
 
@@ -82,9 +82,9 @@ O ciclo também organiza a conversa sobre incerteza. Quando o patrocinador pergu
 
 {{ficha:1}}
 
-**Para que serve.** O arquiteto trabalha em fases, e cada fase deixa documentos que a seguinte usa. O caderno é onde esses documentos se encontram. Saber em que fase cada artefato nasce, que papel ele cumpre e em que seção do caderno ele entra evita cobrar do arquiteto, cedo demais, algo que só existe mais adiante, como a data de conclusão do projeto.
+**Para que serve.** O arquiteto trabalha em fases, e cada fase deixa documentos que a seguinte usa. O caderno é onde esses documentos se encontram. Saber em que fase cada documento nasce, que papel ele cumpre e em que seção do caderno ele entra evita cobrar do arquiteto, cedo demais, algo que só existe mais adiante, como a data de conclusão do projeto.
 
-**O que você faz neste exercício.** O enunciado lista dez artefatos do caso ACME, de A1 a A10, alguns que já existiam e outros que ainda serão produzidos. Você liga cada um à fase do processo, ao papel que ele cumpre e à seção do caderno em que seu resultado fica. Depois, registra na seção 10 a data de conclusão do ciclo como pendência, porque ela ainda não pode ser prometida. O gabarito mostra também a primeira versão do resumo, na seção 0.
+**O que você faz neste exercício.** O enunciado lista dez artefatos do caso ACME, numerados de A1 a A10. Artefato é qualquer documento ou modelo que o trabalho usa ou produz, como o mapa de atores ou o inventário dos componentes atuais do sistema. Alguns já existiam antes de o processo começar e outros ainda serão produzidos. Você liga cada um à fase do processo em que aparece, ao papel que ele cumpre e à seção do caderno em que seu resultado fica. Depois, registra na seção 10 a data de conclusão do ciclo como pendência, porque ela ainda não pode ser prometida. O gabarito mostra também a primeira versão do resumo, na seção 0.
 
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |

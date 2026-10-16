@@ -18,7 +18,7 @@ Arquitetura, nesse enquadramento, é a estrutura e o comportamento inerentes de 
 > [!TIP]
 > **Arquitetura de solução** é a disciplina responsável pela produção e pela gestão do plano de uma solução completa, que atende a uma necessidade, um problema ou uma oportunidade de negócio e se integra ao negócio em alinhamento com a estratégia, minimizando impactos negativos. Produção e gestão são duas responsabilidades distintas: coordenar as atividades de projeto, e assegurar que cada mudança seja testada, validada e acordada em todas as etapas.
 
-**Já a Arquitetura de software** é o desenvolvimento e a documentação da estrutura e do comportamento de um sistema ou componente de software, incluindo suas interfaces internas e externas. Ela atua em vários níveis, da unidade de granularidade fina ao sistema inteiro, e responde por manter o software em linha com as diretrizes estratégicas, por modularidade, por cumprimento de acordos de nível de serviço e por manutenibilidade.
+A **arquitetura de software**, por sua vez, é o desenvolvimento e a documentação da estrutura e do comportamento de um sistema ou componente de software, incluindo suas interfaces internas e externas. Ela atua em vários níveis, da unidade de granularidade fina ao sistema inteiro, e responde por manter o software em linha com as diretrizes estratégicas, por modularidade, por cumprimento de acordos de nível de serviço e por manutenibilidade.
 
 As duas definições não se contradizem, e a diferença entre elas está no alcance. Uma solução resolve um problema de negócio e depende de pessoas, estruturas organizacionais, processos, informação e tecnologia, os cinco tipos de componente que o arquiteto de solução usa como lista de verificação. O software é um desses componentes. Uma solução que troque um formulário em papel por um aplicativo, sem mudar quem aprova o pedido nem o prazo do processo, não resolveu o problema de negócio, ainda que o software esteja bem construído.
 
@@ -40,7 +40,7 @@ A distinção operacional entre as disciplinas está na granularidade. A **arqui
 
 Figura 2. Os três níveis de arquitetura por alcance, pergunta que responde e artefato típico, com os cinco domínios de referência da arquitetura corporativa na faixa inferior.
 
-As setas verticais do infográfico representam a relação de refinamento descrita nos parágrafos anteriores: os princípios e as políticas corporativas restringem as soluções, e cada solução é detalhada em sistemas e componentes de software. O sentido inverso também ocorre na prática, quando uma restrição encontrada no nível do software obriga a revisar o plano da solução, mas essa leitura pertence ao Bloco 4, sobre o processo de definição da arquitetura.
+As setas verticais do infográfico representam a relação de refinamento descrita nos parágrafos anteriores: os princípios e as políticas corporativas restringem as soluções, e cada solução é detalhada em sistemas e componentes de software. O caminho inverso também acontece na prática: quando uma restrição aparece no nível do software, o arquiteto precisa revisar o plano da solução. Essa volta se chama realimentação e é tratada no [bloco 4](bloco-4-processo-de-definicao-da-arquitetura.md), sobre o processo de definição da arquitetura.
 
 A tabela abaixo situa as três disciplinas no caso usado em todo o curso. A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, cujo sistema acadêmico entrou em operação em 2004 e sustenta matrícula, avaliação, emissão de documentos e integração financeira, hoje em processo de modernização.
 
@@ -56,15 +56,13 @@ A tabela abaixo situa as três disciplinas no caso usado em todo o curso. A ACME
 
 Figura 3. As três declarações da tabela acima aplicadas à modernização do sistema acadêmico da ACME, uma por nível de arquitetura.
 
-As três frases entre aspas no infográfico são as mesmas da linha "Exemplo na ACME" da tabela, e servem de teste de classificação: cada uma decide algo de alcance diferente sobre a mesma iniciativa de modernização. O Exercício 1 deste bloco amplia esse conjunto para nove decisões, de D1 a D9.
-
-Essas mesmas três decisões, identificadas como D1, D2 e D3 no exercício ao fim do bloco, podem ser lidas de outro ângulo, o da estrutura de domínios que a arquitetura corporativa usa para organizar suas diretrizes.
+As três frases entre aspas no infográfico são as mesmas da linha "Exemplo na ACME" da tabela, e servem de teste de classificação: cada uma decide algo de alcance diferente sobre a mesma iniciativa de modernização. O Exercício 1 deste bloco amplia esse conjunto para nove decisões, numeradas de D1 a D9, e as três do infográfico correspondem a D1, D2 e D3. O diagrama a seguir lê essas três decisões por outro ângulo, o da estrutura de domínios que a arquitetura corporativa usa para organizar suas diretrizes.
 
 ![Diagrama técnico da ACME alinhado ao TOGAF. Os domínios corporativos de negócio, dados, aplicações e tecnologia estabelecem diretrizes. A decisão corporativa D1 é refinada na decisão de solução D2 e orienta a decisão de software D3.](../assets/images/modulo-1-arquitetura-corporativa-togaf.svg){ .module-diagram }
 
 Figura 4. Percurso das decisões D1, D2 e D3 da ACME, da diretriz corporativa transversal aos quatro domínios do TOGAF até a decisão de componente de software.
 
-A leitura do diagrama começa pela faixa superior, onde D1 aparece como diretriz transversal, válida para os quatro domínios ao mesmo tempo, e não como conteúdo de um deles. As setas que descem indicam restrição, não derivação automática: a decisão de solução D2 precisa respeitar o que cada domínio estabeleceu, e a decisão de software D3 precisa respeitar D2, sem que nenhuma delas seja consequência necessária da anterior. A linha inferior do diagrama nomeia o mecanismo que mantém os três níveis conectados, a gestão de requisitos, cujo insumo é o levantamento tratado na Aula 2.
+A leitura do diagrama começa pela faixa superior, onde D1 aparece como diretriz transversal, válida para os quatro domínios ao mesmo tempo. As setas que descem indicam restrição: a decisão de solução D2 precisa respeitar o que cada domínio estabeleceu, e a decisão de software D3 precisa respeitar D2, mas nenhuma delas é consequência necessária da anterior. A linha inferior do diagrama nomeia o que mantém os três níveis conectados, a gestão de requisitos, que é o acompanhamento de cada requisito desde o pedido até virar decisão e software. O ponto de partida dessa gestão é o levantamento de requisitos, tratado na Aula 2.
 
 Duas ressalvas evitam confusão com o infográfico da Figura 2. O diagrama usa os quatro domínios de arquitetura do TOGAF, que são negócio, dados, aplicações e tecnologia, enquanto a Figura 2 lista cinco domínios de referência, porque separa segurança e infraestrutura dentro do que o TOGAF reúne sob tecnologia. Nenhuma das duas divisões é canônica para toda organização, e a escolha entre elas depende de como a arquitetura corporativa daquela instituição está estruturada. O diagrama também é uma leitura didática montada para este curso, e não reproduz notação oficial do framework, cujo ciclo de desenvolvimento de arquitetura tem representação própria.
 
@@ -74,21 +72,21 @@ A relação típica entre as duas disciplinas mais próximas segue quatro passos
 
 O critério prático para saber qual disciplina responde por uma decisão é o alcance do efeito. Se a decisão muda apenas a estrutura interna de um componente de software, e nenhuma outra parte da organização precisa ser avisada, ela é de arquitetura de software. Se a decisão muda processo, papel, propriedade de dado ou a relação com um fornecedor, ela é de arquitetura de solução, ainda que a execução seja inteiramente técnica. Se a decisão vale para iniciativas que nem existem ainda, ela é de arquitetura corporativa.
 
-Na ACME, decidir que a matrícula não pode parar em período letivo não é decisão do arquiteto, e sim restrição imposta pela Pró-Reitoria de Graduação. Decidir que a transição ocorre por extração incremental de módulos, com o núcleo em COBOL em operação durante todo o percurso, é decisão de arquitetura de solução, porque afeta o contrato de sustentação, o calendário acadêmico e a rotina das equipes. Decidir como o módulo extraído mantém consistência com o núcleo durante a coexistência é decisão de arquitetura de software.
+Na ACME, decidir que a matrícula não pode parar em período letivo é uma restrição imposta pela Pró-Reitoria de Graduação, que o arquiteto recebe como dado do problema. Decidir que a transição ocorre por extração incremental de módulos, com o núcleo em COBOL em operação durante todo o percurso, é decisão de arquitetura de solução, porque afeta o contrato de sustentação, o calendário acadêmico e a rotina das equipes. Decidir como o módulo extraído mantém consistência com o núcleo durante a coexistência é decisão de arquitetura de software.
 
 ## Uso pelo arquiteto
 
 O arquiteto usa essa distinção para saber de quem é a decisão que tem diante de si, e para não responder sozinho por escolhas que pertencem a outro nível. Levar uma decisão de arquitetura corporativa para dentro de uma solução isolada produz divergência entre iniciativas, e tratar uma decisão de solução como se fosse de software costuma deixar de fora exatamente os componentes que não são técnicos, o processo que precisa mudar e a área que precisa assumir uma responsabilidade nova.
 
-A distinção também organiza a conversa com as partes interessadas. O patrocinador de negócio decide sobre a solução, não sobre o desenho interno dos componentes, e cobrar dele uma escolha técnica desloca a decisão para quem não tem elementos para tomá-la. A recíproca vale: pedir ao time de desenvolvimento que decida quem passa a ser dono de um dado transfere ao time uma decisão de alcance organizacional.
+A distinção também organiza a conversa com as partes interessadas. O patrocinador de negócio decide sobre a solução, e o desenho interno dos componentes fica fora do alcance dele, de modo que cobrar-lhe uma escolha técnica desloca a decisão para quem não tem elementos para tomá-la. A recíproca vale: pedir ao time de desenvolvimento que decida quem passa a ser dono de um dado transfere ao time uma decisão de alcance organizacional.
 
 ## No caderno arquitetural
 
 {{ficha:1}}
 
-**Para que serve.** A seção 1 do caderno, **Contexto**, guarda o ponto de partida do projeto: quem é a ACME, que problema ela quer resolver e o que já foi decidido. Parte dessas decisões vem das conversas do arquiteto com as partes interessadas, como a Reitoria, a Diretoria de TI e a Secretaria Acadêmica. Antes de desenhar qualquer coisa, o arquiteto precisa saber de quem é cada decisão, porque só responde pelas que pertencem à solução. As demais são da organização inteira ou da equipe que programa.
+**Para que serve.** A seção 1 do caderno, **Contexto**, guarda o ponto de partida do projeto: quem é a ACME, que problema ela quer resolver e o que já foi decidido. Parte dessas decisões vem das conversas do arquiteto com as partes interessadas, que são as pessoas com interesse no projeto, como a Reitoria, a Diretoria de TI e a Secretaria Acadêmica. Antes de desenhar qualquer coisa, o arquiteto precisa saber de quem é cada decisão, porque só responde pelas que pertencem à solução. As demais são da organização inteira ou da equipe que programa.
 
-**O que você faz neste exercício.** Nas conversas com as partes interessadas, o arquiteto da ACME reuniu nove decisões, numeradas de D1 a D9, que aparecem no enunciado. Você classifica cada uma por nível de arquitetura e registra o resultado na tabela de decisões do caderno.
+**O que você faz neste exercício.** Nas conversas com as partes interessadas, o arquiteto da ACME reuniu nove decisões, e o enunciado as traz numeradas de D1 a D9. Uma delas diz que a identidade dos usuários segue padrões abertos em qualquer iniciativa da universidade, e outra diz que o serviço de notas repete o envio quando o ambiente virtual não confirma o recebimento. A primeira vale para a universidade toda, e a segunda só mexe dentro de um componente. Você faz essa mesma separação para as nove: diz de que nível é cada decisão, explica por quê e registra o resultado na tabela de decisões do caderno.
 
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
@@ -112,7 +110,7 @@ A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativo
 
 ### Item 1: Nível de cada decisão
 
-O quadro abaixo lista nove decisões tomadas ou propostas no ciclo de modernização. O critério que separa os três níveis é o alcance do efeito da decisão, descrito na seção [Como aplicar o grão correto](#como-aplicar-o-grao-correto) deste bloco.
+O quadro abaixo lista nove decisões tomadas ou propostas no ciclo de modernização. O critério que separa os três níveis é o alcance do efeito da decisão, isto é, até onde ela chega e quem precisa ser avisado quando ela mudar, descrito na seção [Como aplicar o grão correto](#como-aplicar-o-grao-correto) deste bloco.
 
 | Código | Decisão                                                                                                                              |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |

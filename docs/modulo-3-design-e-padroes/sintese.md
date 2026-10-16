@@ -1,6 +1,6 @@
 # Síntese da Aula 3
 
-Esta página fecha o módulo de princípios de design, padrões e registro de decisão com o que precisa permanecer depois da aula, a cadeia da decisão construída nos quatro exercícios, uma autoavaliação e as fontes usadas nos quatro blocos.
+Esta página fecha a Aula 3 com quatro partes. A primeira é a lista do que o aluno deve reter depois da aula, a segunda é a cadeia da decisão construída nos quatro exercícios, a terceira é uma autoavaliação, e a quarta reúne as fontes usadas nos quatro blocos.
 
 ## Checklist do que precisa permanecer
 
@@ -14,7 +14,7 @@ Esta página fecha o módulo de princípios de design, padrões e registro de de
 
 ## Cadeia da decisão
 
-A aula constrói uma única decisão por etapas, e cada etapa consome o produto da anterior.
+A aula constrói uma única decisão por etapas, e cada etapa usa como ponto de partida o produto da anterior.
 
 1. O objetivo de negócio define o resultado pretendido pela solução.
 2. O requisito, com as restrições e os cenários de qualidade da Aula 2, torna esse objetivo verificável.
@@ -23,11 +23,11 @@ A aula constrói uma única decisão por etapas, e cada etapa consome o produto 
 5. O padrão resolve um problema específico dentro do estilo, com custo declarado, selecionado no exercício 11.
 6. A decisão registrada em ADR reúne estilo e padrões com contexto, alternativas, consequências, evidências e gatilho de revisão, escrita no exercício 12.
 
-Um elo ausente nessa cadeia aparece no ADR como força sem origem, alternativa sem comparação ou consequência sem custo, e é por esses três sinais que um registro pode ser revisado por quem não participou da decisão.
+Um elo ausente nessa cadeia aparece no ADR como força sem origem, alternativa sem comparação ou consequência sem custo, e esses três sinais permitem que quem não participou da decisão revise o registro.
 
 ## Autoavaliação
 
-As perguntas abaixo são para o aluno responder a si mesmo, sem gabarito público, como verificação de retenção antes da Aula 4.
+As afirmações abaixo servem para o aluno conferir, sozinho e sem gabarito público, o que reteve antes da Aula 4. Para cada uma, o aluno verifica se consegue fazer o que ela descreve.
 
 1. Dado um princípio qualquer, eu indico que alternativa de desenho ele elimina e que evidência mostraria sua aplicação.
 2. Eu produzo um esboço lógico em que nenhum elemento nomeia produto, linguagem, provedor de nuvem ou framework.

@@ -48,9 +48,9 @@ A separação entre entradas, produtos intermediários e entregáveis organiza a
 
 {{ficha:1}}
 
-**Para que serve.** O caderno precisa deixar claro quem faz o quê. Num projeto de modernização, parte das tarefas é do arquiteto de solução, parte é do arquiteto de software ou da equipe de desenvolvimento e parte é da arquitetura corporativa. Quando essa divisão não está escrita, o arquiteto acaba decidindo o que não é dele ou deixa sem dono o que é.
+**Para que serve.** O caderno precisa deixar claro quem faz o quê. Num projeto de modernização, parte das tarefas é do arquiteto de solução, que cuida da solução como um todo. Outra parte é do arquiteto de software ou da equipe de desenvolvimento, que cuidam do interior de cada componente. E uma terceira é da arquitetura corporativa, que define regras para a organização inteira. Quando essa divisão não está escrita, o arquiteto acaba decidindo o que não é dele ou deixa sem dono o que é.
 
-**O que você faz neste exercício.** O enunciado lista dez tarefas do ciclo de modernização da ACME, de T1 a T10. Você diz de quem é cada tarefa, que tipo de habilidade ela pede do arquiteto de solução e, no caso da T10, que benefício ela traz. O resultado vira a tabela de papéis do caderno.
+**O que você faz neste exercício.** O enunciado lista dez tarefas do ciclo de modernização da ACME, numeradas de T1 a T10. Entre elas estão entrevistar a Pró-Reitoria de Graduação (T1), estimar o custo da mudança (T3) e escolher a estrutura de dados do serviço de matrícula (T4). Você diz de quem é cada tarefa, que tipo de habilidade ela pede do arquiteto de solução e, no caso da T10, que benefício ela traz. O resultado vira a tabela de papéis do caderno.
 
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |

@@ -51,7 +51,7 @@ As três visões a seguir descrevem aspectos da mesma solução, mas não são i
 
 #### Visão de contexto C1 para o patrocinador
 
-O patrocinador precisa decidir sobre escopo, valor e dependências organizacionais. Por isso, o ponto de vista seleciona os usuários, o Sistema Acadêmico como uma única caixa e os sistemas externos com que ele se relaciona. O nível C1 da modelagem C4 responde quem usa a solução, qual é sua fronteira e de que outros sistemas ela depende. Portais, banco de dados e tecnologias internas ficam de fora porque não ajudam essa audiência a tomar a decisão em pauta. A legenda temporal identifica a visão como representação da linha de base atual da ACME em 2026, e não como arquitetura alvo.
+O patrocinador precisa decidir sobre escopo, valor e dependências organizacionais. Por isso, o ponto de vista seleciona os usuários, o Sistema Acadêmico como uma única caixa e os sistemas externos com que ele se relaciona. O nível C1 do [modelo C4](../referencia/glossario.md#modelo-c4), notação que descreve um sistema em quatro níveis de detalhe, responde quem usa a solução, qual é sua fronteira e de que outros sistemas ela depende. Portais, banco de dados e tecnologias internas ficam de fora porque não ajudam essa audiência a tomar a decisão em pauta. A legenda temporal identifica a visão como representação da linha de base atual da ACME em 2026, e não como arquitetura alvo.
 
 <figure markdown="span">
 ![Visão de contexto C1 da ACME destinada ao patrocinador. Aluno, professor e gestão acadêmica interagem com o Sistema Acadêmico, apresentado como uma única caixa. O sistema troca informações com o ambiente virtual de aprendizagem, o ERP financeiro, os serviços institucionais e o órgão regulador.](../assets/images/modulo-2-visao-contexto-patrocinador.svg){ .module-diagram }
@@ -60,7 +60,7 @@ O patrocinador precisa decidir sobre escopo, valor e dependências organizaciona
 
 #### Visão de segurança C2 para a equipe de segurança
 
-A equipe de segurança precisa localizar superfícies expostas, dados pessoais, integrações frágeis e pontos onde os controles devem operar. O nível C2 da modelagem C4 decompõe o Sistema Acadêmico em contêineres e preserva sua fronteira de responsabilidade. As relações em laranja destacam exposições da linha de base, enquanto as relações verdes mostram controles requeridos. A tecnologia dos portais é identificada como Java legado com JSF 1.2 e EJB 2.0 para documentar a situação atual, não para recomendá-la. A trilha de auditoria aparece como controle exigido pelo requisito R9, e não como componente já existente.
+A equipe de segurança precisa localizar superfícies expostas, dados pessoais, integrações frágeis e pontos onde os controles devem operar. O nível C2 do modelo C4 decompõe o Sistema Acadêmico em contêineres e preserva sua fronteira de responsabilidade. As relações em laranja destacam exposições da linha de base, enquanto as relações verdes mostram controles requeridos. A tecnologia dos portais é identificada como Java legado com JSF 1.2 e EJB 2.0 para documentar a situação atual, não para recomendá-la. A trilha de auditoria aparece como controle exigido pelo requisito R9, e não como componente já existente.
 
 <figure markdown="span">
 ![Visão de contêineres C2 da ACME destinada à equipe de segurança. Dentro da fronteira do Sistema Acadêmico aparecem os portais web, o núcleo COBOL sobre CICS, a integração em lote, o banco Oracle e a trilha de auditoria requerida. Relações destacam autenticação, acesso direto ao banco, conectores proprietários, arquivos posicionais e registro de acesso a dados pessoais.](../assets/images/modulo-2-visao-seguranca-c2.svg){ .module-diagram }
@@ -76,11 +76,11 @@ O gestor precisa saber se cada preocupação chegou a uma decisão acompanhável
 <figcaption>Visão de rastreabilidade: da preocupação da parte interessada até a evidência que permite acompanhar a decisão.</figcaption>
 </figure>
 
-O contraste mostra que ponto de vista não é apenas nível de zoom. O patrocinador recebe um mapa de contexto, a equipe de segurança recebe uma decomposição orientada a controles, e o gestor recebe uma matriz de cobertura. As três visões podem derivar da mesma descrição de arquitetura sem apresentar a mesma informação.
+O contraste mostra que o ponto de vista seleciona conteúdo diferente para cada audiência, além de mudar o nível de detalhe. O patrocinador recebe um mapa de contexto, a equipe de segurança recebe uma decomposição orientada a controles, e o gestor recebe uma matriz de cobertura. As três visões podem derivar da mesma descrição de arquitetura sem apresentar a mesma informação.
 
 ### Definição do escopo
 
-O escopo da solução é declarado em termos de componentes, e não de intenção. Entram na declaração os componentes de negócio, os de informação e tecnologia, e os blocos de construção, com a distinção entre bloco de construção de arquitetura, que é genérico e reutilizável, e bloco de construção da solução, que é a realização daquele bloco naquela solução. A declaração é documentada e aprovada formalmente, porque é ela que delimita o que será mudado e, por exclusão, o que permanece.
+O escopo da solução é declarado por componentes. Entram na declaração os componentes de negócio, os de informação e tecnologia, e os blocos de construção, com a distinção entre bloco de construção de arquitetura, que é genérico e reutilizável, e bloco de construção da solução, que é a realização daquele bloco naquela solução. A declaração é documentada e aprovada formalmente, porque é ela que delimita o que será mudado e, por exclusão, o que permanece.
 
 Na ACME, universidade privada brasileira fictícia com 38.400 alunos ativos e sistema acadêmico em operação desde 2004, a declaração de escopo precisa registrar que o ambiente virtual de aprendizagem e o ERP financeiro permanecem, por decisão da Reitoria de 12/03/2026, e que o trabalho sobre eles é de integração e de governança.
 
@@ -91,6 +91,8 @@ O arquiteto usa a lista de quatro perguntas como verificação contra a omissão
 Os pontos de vista servem para não travar a discussão em um modelo único. Apresentar o mesmo desenho a um diretor financeiro e a um gerente de sustentação produz duas conversas improdutivas, porque cada um precisa de um recorte diferente da mesma descrição de arquitetura.
 
 ## Exercício 8
+
+Este exercício treina a identificação das partes interessadas do caso, a definição de pontos de vista e a declaração de escopo do primeiro ciclo. Nas conversas com as partes interessadas, o arquiteto da ACME registrou oito papéis, que formam o mapa de atores do dossiê e aparecem no Item 1.
 
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 2.150 professores, 1.480 técnico-administrativos e 4 campi, cujo sistema acadêmico está em operação desde 2004 e é mantido por uma fábrica de software contratada, sob contrato de sustentação vigente até 30/09/2027. A declaração de escopo marcada no Item 4 é o ponto de partida do [exercício 13](../modulo-4-dominios-da-solucao/bloco-1-arquitetura-de-negocio.md#exercicio-13) da Aula 4.
 
@@ -175,7 +177,7 @@ O quadro abaixo lista dez elementos do sistema acadêmico e do seu entorno, com 
 | E10 | Responsabilidade pela correção de dado cadastral de aluno | | |
 
 1. Marque cada elemento como muda ou permanece no primeiro ciclo de 12 meses.
-2. Indique, para cada elemento que permanece, a origem da exclusão, entre as restrições fechadas do caso, os contratos vigentes e as decisões de governança registradas no dossiê. O quadro marcado constitui a declaração de escopo do primeiro ciclo.
+2. Indique, para cada elemento que permanece, a origem da exclusão, entre as restrições fechadas do caso (as sete listadas no Item 5 do [exercício 7](bloco-3-cenarios-linha-de-base-e-restricoes.md#exercicio-7)), os contratos vigentes e as decisões de governança registradas no dossiê. O quadro marcado constitui a declaração de escopo do primeiro ciclo.
 
 ## Fontes
 

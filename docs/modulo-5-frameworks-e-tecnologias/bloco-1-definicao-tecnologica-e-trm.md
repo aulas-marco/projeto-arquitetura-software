@@ -132,7 +132,7 @@ A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sis
 
 ### Item 1: Contêineres e categorias do modelo técnico
 
-O diagrama reproduz os contêineres do exercício 16 que entram nas perguntas deste item, e a tabela traz um recorte do modelo técnico de referência da ACME com seis linhas.
+O objetivo deste item é ligar cada contêiner novo à linha do modelo técnico de referência que diz qual padrão ele deve seguir. O diagrama reproduz os contêineres do exercício 16 que entram nas perguntas deste item, e a tabela traz um recorte do modelo técnico de referência da ACME com seis linhas. O R7 citado no diagrama é o requisito de que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos.
 
 ```mermaid
 graph LR
@@ -163,12 +163,12 @@ graph LR
 | Infraestrutura | Observabilidade | OpenTelemetry | Coletores compatíveis | Registro sem correlação |
 | Dados | Banco de serviço novo | SQL, banco por serviço, região nacional | PostgreSQL ou compatível | Oracle sem ADR de desvio |
 
-1. Indique, para cada elemento a seguir, a linha do recorte que se aplica e o padrão ou protocolo obrigatório dessa linha: o provedor de identidade, o serviço de matrícula, o banco do serviço de notas e a comunicação por evento do serviço de notas com o ambiente virtual de aprendizagem, exigida pelo R7.
+1. Indique, para cada elemento a seguir, a linha do recorte que se aplica e o padrão ou protocolo obrigatório dessa linha: o provedor de identidade, o serviço de matrícula, o banco do serviço de notas e a comunicação por evento do serviço de notas com o ambiente virtual de aprendizagem, que o R7 exige.
 2. Indique as duas linhas cujo padrão vale para todos os contêineres novos, independentemente da função do serviço, e justifique a escolha em uma frase.
 
 ### Item 2: Tecnologias da linha de base
 
-A tabela reúne seis tecnologias da arquitetura de linha de base da ACME, cada uma com o dado registrado no dossiê do caso. O recorte do modelo técnico de referência do item 1 é a segunda fonte da classificação, ao lado do dado da tabela.
+O objetivo deste item é decidir quais tecnologias já em uso na ACME podem continuar, quais exigem aprovação e quais devem ser abandonadas. A linha de base é a descrição do sistema acadêmico como ele funciona hoje. A tabela reúne seis tecnologias da arquitetura de linha de base da ACME, cada uma com o dado registrado no dossiê do caso. O recorte do modelo técnico de referência do item 1 é a segunda fonte da classificação, ao lado do dado da tabela.
 
 | Tecnologia | Dado da linha de base |
 | --- | --- |
@@ -184,7 +184,7 @@ A tabela reúne seis tecnologias da arquitetura de linha de base da ACME, cada u
 
 ### Item 3: Matriz de seleção do provedor de identidade
 
-A primeira tabela reproduz os requisitos e a restrição do caso que pesam na escolha do provedor de identidade, com a origem de cada um. Neste exercício, o R8 é lido como exigência de protocolo aberto de identidade, o OpenID Connect, e não como proibição de produto que o implemente. A segunda tabela é a parte da matriz de avaliação que o caso permite preencher, com as células de aderência ao requisito e de portabilidade em branco para as três alternativas.
+O objetivo deste item é começar a comparar três formas de obter um provedor de identidade, o serviço que autentica os usuários, usando apenas o que o dossiê registra. A primeira tabela reproduz os requisitos e a restrição do caso que pesam na escolha do provedor de identidade, com a origem de cada um. Neste exercício, o R8 é lido como exigência do protocolo aberto de identidade OpenID Connect, sem proibir produto que o implemente. A segunda tabela é a parte da matriz de avaliação que o caso permite preencher, com as células de aderência ao requisito e de portabilidade em branco para as três alternativas.
 
 | Código | Requisito ou restrição | Origem |
 | --- | --- | --- |
@@ -200,7 +200,7 @@ A primeira tabela reproduz os requisitos e a restrição do caso que pesam na es
 | B, serviço de terceiro |  |  |
 | C, gerenciado da nuvem |  |  |
 
-A terceira tabela lista os quatro critérios para os quais o dossiê da ACME não registra dado sobre as alternativas.
+A terceira tabela lista os quatro critérios para os quais o dossiê da ACME não registra dado sobre as alternativas, e o aluno indica nela o dado que faltaria.
 
 | Critério | Dado que o caso não traz e precisa ser levantado |
 | --- | --- |

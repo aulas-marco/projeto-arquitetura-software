@@ -1,6 +1,8 @@
 # Aula 6, lacunas, roteiro, governança e inovação
 
-A Aula 6 fecha a disciplina comparando a arquitetura de linha de base com a arquitetura alvo, organizando a entrega em ondas, definindo como a solução é governada depois de implantada, e tratando de inovação e tendências.
+A Aula 6 fecha a disciplina. Ela compara a arquitetura atual da ACME, chamada de [linha de base](../referencia/glossario.md#arquitetura-de-linha-de-base), com a [arquitetura alvo](../referencia/glossario.md#arquitetura-alvo) construída nas aulas anteriores, e organiza a entrega das mudanças em ondas, que são etapas sucessivas de implantação. Define também como a solução é governada depois de implantada, isto é, quem decide e como se acompanha o seu funcionamento, e trata de inovação e tendências tecnológicas.
+
+A tabela abaixo lista os quatro blocos da aula e o número do exercício de cada um, que o aluno faz depois da apresentação do bloco.
 
 | Bloco | Tema | Exercício |
 | --- | --- | --- |

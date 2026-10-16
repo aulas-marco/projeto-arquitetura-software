@@ -8,7 +8,7 @@ modo: substitui
 | --- | --- |
 | Para que serve | Quem decide sobre o projeto raramente lê o caderno inteiro. Este resumo de uma página dá a essa pessoa o essencial para apoiar o projeto ou questioná-lo. |
 | Pergunta que responde | Se alguém lesse só esta página, entenderia o projeto? |
-| O que você escreve | Seis parágrafos curtos: o problema, a pergunta, a decisão central, o requisito que mais pesa, o que a ACME aceita perder em troca e como está o trabalho. |
+| O que você escreve | Seis parágrafos curtos: qual é o problema, que pergunta o projeto responde, qual é a decisão central, que requisito mais pesa no desenho, o que a ACME aceita perder em troca e em que pé está o trabalho. |
 | Vem de onde | Das outras seções. O resumo só repete, em poucas linhas, o que o caderno já registra. |
 | Quando se preenche | Ao fim de cada aula, nos exercícios 4, 8, 12, 16, 20 e 24. Cada versão substitui a anterior. |
 <!--/orientacao-->

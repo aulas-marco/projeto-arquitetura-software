@@ -1,6 +1,6 @@
 # Estilos arquiteturais e sua relação com atributo de qualidade
 
-Este bloco recebe os princípios priorizados no [bloco 1](bloco-1-principios-de-design.md#repertorio-de-principios) e os cenários de qualidade do [bloco 3 da Aula 2](../modulo-2-requisitos-e-partes-interessadas/bloco-3-cenarios-linha-de-base-e-restricoes.md) e responde qual padrão de organização estrutural sustenta melhor essas exigências, reconhecendo o compromisso que cada estilo impõe.
+Este bloco parte dos princípios priorizados no [bloco 1](bloco-1-principios-de-design.md#repertorio-de-principios) e dos cenários de qualidade do [bloco 3 da Aula 2](../modulo-2-requisitos-e-partes-interessadas/bloco-3-cenarios-linha-de-base-e-restricoes.md), e responde qual forma de organizar o sistema sustenta melhor essas exigências. Cada forma, chamada de estilo arquitetural, tem um compromisso: ao favorecer certas qualidades, prejudica outras.
 
 ## Antes de começar
 
@@ -12,7 +12,7 @@ Este bloco recebe os princípios priorizados no [bloco 1](bloco-1-principios-de-
 
 Um estilo arquitetural é um padrão de organização estrutural de um sistema, que define tipos de componentes, formas de conexão entre eles e restrições sobre essa organização. A definição tem três partes que merecem exame separado. Tipos de componentes significa que o estilo nomeia categorias recorrentes de elemento, como camada, serviço ou produtor de evento, não instâncias específicas de um sistema. Formas de conexão significa que o estilo fixa como esses elementos se comunicam, de forma síncrona ou assíncrona, direta ou mediada por um intermediário. Restrições sobre essa organização significa que o estilo proíbe certas relações, como uma camada inferior chamar uma camada superior, ou um serviço acessar diretamente o banco de outro serviço. Um estilo arquitetural descreve, portanto, a forma macro de um sistema inteiro, e a organização interna de uma camada ou de um componente fica para os padrões tratados no bloco 3.
 
-A arquitetura civil ajuda a fixar a ideia. Por que faria sentido projetar uma casa de madeira com telhado pontudo? Porque a forma segue a função. O telhado inclinado impede o acúmulo de neve, e a madeira opera como isolamento térmico. Cada uma das duas escolhas responde a uma condição do ambiente em que a casa vai operar, e a mesma lógica vale em software, onde o estilo responde às condições de carga, de mudança e de falha em que o sistema vai executar.
+A arquitetura civil ajuda a fixar a ideia. Uma casa de madeira com telhado pontudo faz sentido em região de neve, porque a forma segue a função, já que o telhado inclinado impede o acúmulo de neve e a madeira funciona como isolamento térmico. Cada uma das duas escolhas responde a uma condição do ambiente em que a casa vai ser usada, e a mesma lógica vale em software, onde o estilo responde às condições de carga, de mudança e de falha em que o sistema vai executar.
 
 ![Montagem com três casas em estilos construtivos diferentes, uma moderna de concreto e vidro com grandes aberturas e vista para montanhas, uma contemporânea de madeira escura em linhas horizontais, e uma casa de madeira clara com telhado inclinado sob neve.](../assets/images/aula1-analogia-casas.png)
 
@@ -32,7 +32,7 @@ O quadro abaixo apresenta sete estilos, os tipos de componente que cada um defin
 | Pipes and filters | Filtros que transformam o dado recebido e pipes que transportam o dado entre eles | Unidirecional e em sequência, sem estado compartilhado entre filtros, cada um recebendo apenas o que o anterior produziu | Substituição e reordenação de etapa sem afetar o restante, reúso do mesmo filtro em outro fluxo, escalabilidade por etapa | Latência acumulada e sobrecarga de comunicação em fluxo longo, e dificuldade de operação que precise de visão do dado inteiro | Alta coesão, simplicidade |
 | Arquitetura orientada a APIs | Serviços que expõem capacidade por contrato formal, e um gateway que centraliza o acesso a eles | Síncrona e sempre através da API publicada, com contrato declarado e versionado, nunca por acesso direto ao dado alheio | Interoperabilidade, reúso da mesma capacidade em contextos diferentes, desacoplamento entre consumidor e provedor, integração rápida de parceiro novo | Gestão do ciclo de vida da API, porque versionamento mal conduzido recria dependência rígida entre consumidor e provedor | Encapsulamento, baixo acoplamento |
 
-A última coluna indica tendência e não garantia. Um estilo que tende a sustentar baixo acoplamento pode ser implantado com acoplamento alto, como mostra o anti-padrão do monólito distribuído descrito na seção de microsserviços abaixo, e um princípio que o estilo não sustenta por estrutura pode ser atendido por mecanismo acrescentado, com custo. A comparação útil cruza, para cada estilo candidato, os princípios priorizados com o que o estilo oferece por estrutura e com o que exigiria de mecanismo compensatório.
+A última coluna indica uma tendência, que a implantação pode contrariar. Um estilo que tende a sustentar baixo acoplamento pode ser implantado com acoplamento alto, como mostra o anti-padrão do monólito distribuído descrito na seção de microsserviços abaixo, e um princípio que o estilo não sustenta por estrutura pode ser atendido por mecanismo acrescentado, com custo. A comparação útil cruza, para cada estilo candidato, os princípios priorizados com o que o estilo oferece por estrutura e com o que exigiria de mecanismo compensatório.
 
 <figure markdown="span">
 ![Matriz de estilos por força e compromisso. As linhas trazem os sete estilos, camadas, microsserviços, orientada a eventos, microkernel, hexagonal, pipes and filters e orientada a APIs. As colunas trazem quatro forças genéricas, acoplamento baixo, implantação independente, consistência imediata e simplicidade operacional. Cada célula marca se o estilo favorece, é neutro ou prejudica a força, e uma nota informa que a matriz indica tendência estrutural.](../assets/images/modulo-3-estilos-forcas-compromissos.svg){ .module-diagram }
@@ -128,7 +128,7 @@ No exemplo do sistema de gestão de estoque industrial com regras fiscais por es
 
 ### Arquitetura hexagonal
 
-A arquitetura hexagonal, também chamada de portas e adaptadores, ataca um problema diferente dos anteriores. Ela não trata de como distribuir o sistema, trata de proteger a regra de negócio do que a cerca. Em um sistema de concessão de crédito, a política de risco e de limite fica no núcleo, e tudo o que é externo entra por adaptador, o serviço de consulta a bureau de crédito, o núcleo bancário que efetiva o desembolso e os canais pelos quais o cliente pede o empréstimo. O núcleo não conhece nenhum desses três, ele declara o que precisa, por exemplo obter a pontuação de crédito de um solicitante, e cada adaptador atende a essa declaração. Trocar de bureau passa a ser trocar um adaptador, sem tocar na política de risco, e testar a política deixa de exigir bureau, banco ou tela.
+A arquitetura hexagonal, também chamada de portas e adaptadores, ataca um problema diferente dos anteriores. Ela protege a regra de negócio do que a cerca, e a distribuição do sistema fica fora do seu alcance. Em um sistema de concessão de crédito, a política de risco e de limite fica no núcleo, e tudo o que é externo entra por adaptador, o serviço de consulta a bureau de crédito, o núcleo bancário que efetiva o desembolso e os canais pelos quais o cliente pede o empréstimo. O núcleo não conhece nenhum desses três, ele declara o que precisa, por exemplo obter a pontuação de crédito de um solicitante, e cada adaptador atende a essa declaração. Trocar de bureau passa a ser trocar um adaptador, sem tocar na política de risco, e testar a política deixa de exigir bureau, banco ou tela.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -144,7 +144,7 @@ No exemplo do sistema de concessão de crédito, o vazamento apareceria se a pol
 
 ### Pipes and filters
 
-O estilo pipes and filters organiza o sistema como uma sequência de etapas de transformação. Os filtros encapsulam uma função específica, como validar, estimar ou calcular, e os pipes transportam o dado de um para o outro na forma de fluxo. No sistema de processamento de medições de consumo da Distribuidora de Energia ACME, a leitura bruta do medidor passa por um filtro de validação, depois por um filtro que estima a leitura quando ela veio ausente ou implausível, depois pelo filtro que aplica a tarifa vigente e por fim pelo que gera a fatura. Mudar a regra de estimativa é trocar um filtro, e a tarifação nem fica sabendo. Ferramentas modernas de fluxo de dados derivam desse estilo, e é por isso que ele é a base de sistemas de extração, transformação e carga.
+O estilo pipes and filters organiza o sistema como uma sequência de etapas de transformação. Os filtros encapsulam uma função específica, como validar, estimar ou calcular, e os pipes transportam o dado de um para o outro na forma de fluxo. No sistema de processamento de medições de consumo da Distribuidora de Energia ACME, a leitura bruta do medidor passa por um filtro de validação, depois por um filtro que estima a leitura quando ela veio ausente ou implausível, depois pelo filtro que aplica a tarifa vigente e por fim pelo que gera a fatura. Mudar a regra de estimativa é trocar um filtro, e o filtro de tarifação não é afetado. Ferramentas modernas de fluxo de dados derivam desse estilo, e é por isso que ele é a base de sistemas de extração, transformação e carga.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -180,11 +180,11 @@ O arquiteto usa essa comparação de estilo por atributo de qualidade para defen
 
 ## Exercício 10
 
-A ACME é uma universidade privada brasileira cujo sistema acadêmico legado sustenta um núcleo transacional em COBOL sobre o monitor CICS, uma camada web em JSF e EJB e integrações por arquivo em lote com o ERP financeiro e o ambiente virtual de aprendizagem, em processo de modernização incremental. A comparação deste exercício usa os princípios priorizados no [exercício 9](bloco-1-principios-de-design.md#exercicio-9), e o estilo recomendado aqui é a entrada da seleção de padrões do exercício 11, no [bloco 3](bloco-3-padroes-arquiteturais-e-de-design.md).
+Este exercício treina a comparação de estilos arquiteturais diante de exigências reais do caso. O aluno verifica como cada estilo se comporta nos dois cenários de qualidade e à luz dos princípios, e recomenda um deles. A ACME é uma universidade privada brasileira cujo sistema acadêmico legado tem um núcleo transacional em COBOL sobre o monitor CICS (o programa que executa as transações do núcleo), uma camada web em Java, construída com as tecnologias JSF e EJB, e integrações por arquivo em lote com o ERP financeiro e o ambiente virtual de aprendizagem, tudo em modernização incremental. A comparação usa os princípios priorizados no [exercício 9](bloco-1-principios-de-design.md#exercicio-9), e o estilo recomendado aqui é a entrada da seleção de padrões do exercício 11, no [bloco 3](bloco-3-padroes-arquiteturais-e-de-design.md).
 
 ### Item 1: Adequação aos cenários de qualidade
 
-Os dois cenários abaixo já foram formulados no formato de seis elementos apresentado no [bloco 3 da Aula 2](../modulo-2-requisitos-e-partes-interessadas/bloco-3-cenarios-linha-de-base-e-restricoes.md). Quem já escreveu os próprios cenários naquele bloco pode usá-los no lugar destes, que servem de versão de referência.
+Um estilo só é adequado se ajudar a cumprir a medida de cada cenário de qualidade, e por isso o item pede que cada estilo seja confrontado com os dois cenários abaixo. Eles já foram formulados no formato de seis elementos apresentado no [bloco 3 da Aula 2](../modulo-2-requisitos-e-partes-interessadas/bloco-3-cenarios-linha-de-base-e-restricoes.md). Quem já escreveu os próprios cenários naquele bloco pode usá-los no lugar destes, que servem de versão de referência.
 
 Cenário 1, pico de sazonalidade
 
@@ -232,7 +232,7 @@ Quem ainda não tem os princípios do exercício 9 pode partir dos três enuncia
 | Dado pessoal de aluno é tratado apenas em território nacional. | Residência de dados |
 | Responsabilidades do núcleo legado são assumidas por elementos novos uma a uma, sem substituição simultânea. | Dependência do legado |
 
-1. Para cada um dos três estilos escolhidos no Item 1, registre a adequação aos princípios priorizados, o risco introduzido pelo estilo no contexto da ACME e o mecanismo compensatório necessário para neutralizar esse risco.
+1. Para cada um dos três estilos escolhidos no Item 1, registre a adequação aos princípios priorizados, o risco introduzido pelo estilo no contexto da ACME e o mecanismo compensatório, que é o recurso que se acrescenta ao desenho para neutralizar esse risco.
 2. Recomende um dos três estilos para um contexto de modernização incremental de um sistema legado crítico, justificando a escolha pelo atributo de qualidade favorecido, pelo atributo de qualidade prejudicado e pelo princípio que desempata a comparação.
 
 ## Fontes

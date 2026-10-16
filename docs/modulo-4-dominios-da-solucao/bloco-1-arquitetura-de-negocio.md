@@ -155,7 +155,7 @@ O arquiteto de solução consulta os modelos que a arquitetura de negócio já m
 
 ## Exercício 13
 
-O exercício aplica os modelos deste bloco à ACME, universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. Ele parte da declaração de escopo do primeiro ciclo, produzida no [exercício 8](../modulo-2-requisitos-e-partes-interessadas/bloco-4-partes-interessadas-e-pontos-de-vista.md#exercicio-8), e de três requisitos reproduzidos da [página inicial do caso](../caso-acme/index.md), usados nos itens 2 e 3.
+O exercício aplica os modelos deste bloco à ACME, universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico, em operação desde 2004, passa por modernização incremental. Ele serve para localizar, nos modelos de negócio, onde a modernização mexe no trabalho da universidade, antes de qualquer decisão sobre dados ou sistemas. Parte da declaração de escopo do primeiro ciclo, o texto que delimita as capacidades que a solução afeta, produzida no [exercício 8](../modulo-2-requisitos-e-partes-interessadas/bloco-4-partes-interessadas-e-pontos-de-vista.md#exercicio-8), e de três requisitos reproduzidos da [página inicial do caso](../caso-acme/index.md), usados nos itens 2 e 3.
 
 | Código | Declaração | Origem |
 | --- | --- | --- |
@@ -165,7 +165,7 @@ O exercício aplica os modelos deste bloco à ACME, universidade privada brasile
 
 ### Item 1: Capacidades acadêmicas
 
-O mapa abaixo reúne dez capacidades acadêmicas da ACME, montadas pelo material do curso a partir do dossiê do caso, ainda sem classificação. A tabela seguinte descreve cada uma.
+A classificação mostra o papel de cada capacidade na universidade, e a marcação das afetadas delimita onde o primeiro ciclo atua. O mapa abaixo reúne dez capacidades acadêmicas da ACME, montadas pelo material do curso a partir do dossiê do caso, ainda sem classificação. A tabela seguinte descreve cada uma.
 
 ```mermaid
 block-beta
@@ -200,7 +200,7 @@ block-beta
 
 ### Item 2: Fluxo de valor do aluno
 
-O diagrama abaixo mostra o fluxo de valor do aluno em seis etapas, e a tabela registra a situação de cada etapa na [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+Este item procura as etapas em que o aluno percebe um problema na linha de base, para ligá-las aos requisitos. O diagrama abaixo mostra o fluxo de valor do aluno em seis etapas, e a tabela registra a situação de cada etapa na [arquitetura de linha de base](../caso-acme/linha-de-base.md).
 
 ```mermaid
 flowchart TB
@@ -231,7 +231,7 @@ flowchart TB
 
 ### Item 3: Processo de lançamento de nota
 
-O diagrama abaixo mostra as atividades do processo atual de lançamento de nota, do registro pelo professor à consulta pelo aluno, com o responsável por cada uma em itálico. A nota fica disponível no ambiente virtual às 06h00 do dia seguinte ao lançamento. A atividade de retorno, desenhada com borda tracejada e separada do caminho da nota, é o lote diário das 06h15, em que o ambiente virtual devolve à ACME a nota de atividade avaliativa e a presença registradas nele.
+Este item mostra como um requisito de prazo altera as atividades de um processo e as unidades que as executam. O diagrama abaixo mostra as atividades do processo atual de lançamento de nota, do registro pelo professor à consulta pelo aluno, com o responsável por cada uma em itálico. A nota fica disponível no ambiente virtual às 06h00 do dia seguinte ao lançamento. A atividade de retorno, desenhada com borda tracejada e separada do caminho da nota, é o lote diário das 06h15, em que o ambiente virtual devolve à ACME a nota de atividade avaliativa e a presença registradas nele.
 
 ```mermaid
 flowchart TB

@@ -4,7 +4,7 @@ A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativo
 
 ## Volumes por período
 
-A carga do sistema não é uniforme ao longo do ano. A tabela classifica os 251 dias úteis de 2026 em seis tipos de período, sem sobreposição entre eles, e relaciona cada tipo à média diária observada. Os dois dias de abertura de matrícula estão descontados dos dias de janela de matrícula, para que cada dia útil do ano seja contado uma única vez.
+A carga do sistema não é uniforme ao longo do ano. A tabela classifica os 251 dias úteis de 2026 em seis tipos de período, sem sobreposição entre eles, e relaciona cada tipo à média diária observada. O percentil 95 do tempo de resposta é o valor abaixo do qual ficam 95% das respostas, de modo que só 5% delas demoram mais. Sessão simultânea é um usuário com o sistema aberto ao mesmo tempo que os demais. Os dois dias de abertura de matrícula estão descontados dos dias de janela de matrícula, para que cada dia útil do ano seja contado uma única vez.
 
 | Período | Dias úteis no ano | Sessões simultâneas, média | Transações no núcleo por dia | Percentil 95 do tempo de resposta |
 | --- | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ Na janela de fechamento, 2.150 professores lançam notas de 4.900 turmas. A base
 
 ## Incidentes registrados
 
-Os três incidentes abaixo ocorreram nos últimos 18 meses e estão descritos nos relatórios de análise de causa arquivados pela Diretoria de TI. Nenhum deles teve origem em erro de regra acadêmica. As causas foram limite de recurso, acoplamento por formato de arquivo e rotina operacional, isto é, propriedades estruturais do sistema.
+Os três incidentes abaixo ocorreram nos últimos 18 meses e estão descritos nos relatórios de análise de causa arquivados pela Diretoria de TI. Nenhum deles teve origem em erro de regra acadêmica. As causas foram limite de recurso, acoplamento por formato de arquivo e rotina operacional, ou seja, de características da estrutura do sistema.
 
 ### Esgotamento de tarefas do CICS na abertura da matrícula
 
@@ -58,7 +58,7 @@ Os três incidentes abaixo ocorreram nos últimos 18 meses e estão descritos no
 | Data | 04/02/2026 |
 | Duração | 4h20, das 08h00 às 12h20 |
 | Causa | O limite de tarefas concorrentes do monitor CICS foi atingido porque sessões da camada JSF permaneciam com transação aberta após o abandono do navegador, sem tempo limite de sessão configurado |
-| Impacto | 62% das tentativas de matrícula retornaram erro, 9.400 alunos não concluíram a inscrição no dia, a janela foi prorrogada em 2 dias úteis e passou a encerrar em 20/02/2026, e o service desk registrou 1.100 chamados em 24 horas |
+| Impacto | 62% das tentativas de matrícula retornaram erro, 9.400 alunos não concluíram a inscrição no dia, a janela foi prorrogada em 2 dias úteis e passou a encerrar em 20/02/2026, e a central de atendimento (service desk) registrou 1.100 chamados em 24 horas |
 
 ### Interrupção do lote de exportação de notas para o ambiente virtual
 

@@ -1,6 +1,6 @@
 # ADR de plataforma e lacunas
 
-Este bloco fecha o par de decisões da aula respondendo a uma pergunta que só se coloca depois do bloco anterior, como registrar a escolha de plataforma feita ali, de um jeito que sobreviva à saída de quem a tomou.
+Este bloco fecha o par de decisões da aula respondendo a uma pergunta que só se coloca depois do bloco anterior, como registrar a escolha de plataforma feita ali, de modo que a justificativa continue compreensível depois que quem a tomou deixar a equipe.
 
 ## Antes de começar
 
@@ -13,7 +13,7 @@ Este bloco fecha o par de decisões da aula respondendo a uma pergunta que só s
 
 Um **ADR de plataforma** é o segundo ADR do par ensinado na disciplina, escrito no mesmo template de dez campos apresentado no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), mas aplicado a uma decisão de natureza diferente da primeira. Aquele ADR registra a escolha de um [estilo arquitetural](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md). O ADR deste bloco registra a escolha de uma das plataformas candidatas capazes de concretizar esse estilo, comparação que o [bloco 2](bloco-2-plataforma-arquitetural.md) desta aula já apresentou.
 
-O template não muda entre os dois. O conteúdo de cada campo muda, e três campos mudam de forma característica.
+O template é o mesmo nos dois registros, e o conteúdo de três campos muda de forma característica.
 
 <figure markdown="span">
 ![Lista dos dez campos do template de ADR, título, estado, data, contexto, forças, alternativas, decisão, consequências, evidências e revisão, com forças, alternativas e consequências em destaque por mudarem de forma característica.](../assets/images/modulo-5-campos-do-adr.svg){ .module-diagram }
@@ -97,11 +97,11 @@ O arquiteto escreve este segundo registro logo depois de fechar a comparação d
 
 ## Exercício 20
 
-A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. Este exercício pede o ADR que registra a escolha de plataforma feita no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) do bloco anterior, no mesmo template de dez campos usado no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md).
+A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. Este exercício pede o ADR que registra a escolha de plataforma feita no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) do bloco anterior, no mesmo template de dez campos usado no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md). O registro serve para que a decisão possa ser entendida e revista no futuro, e cada item abaixo preenche alguns dos campos. A segunda parte do exercício, o item 4, é separada do ADR e classifica as lacunas de provisão da definição tecnológica.
 
 ### Item 1: Encadeamento com o ADR de estilo
 
-O diagrama abaixo mostra de onde vêm as entradas deste registro e a referência cruzada que liga o par de ADRs.
+Este item preenche os campos de título, contexto e alternativas, que se apoiam em exercícios anteriores. O diagrama abaixo mostra de onde vêm as entradas deste registro e a referência cruzada que liga o par de ADRs. O ADR de estilo é o registro do estilo arquitetural escrito no Exercício 12 da Aula 3.
 
 ```mermaid
 graph LR
@@ -112,13 +112,13 @@ graph LR
     E20 -.->|"citado no campo Revisão quando a prática se firma"| E12
 ```
 
-1. título, estado e data
-2. contexto, referenciando pelo título o ADR de estilo escrito no [Exercício 12](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md#exercicio-12)
-3. alternativas, transportando o quadro comparativo preenchido no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18), que aplica o método dos seis critérios do [Exercício 17](bloco-1-definicao-tecnologica-e-trm.md#exercicio-17)
+1. Escreva o título, o estado e a data do ADR.
+2. Escreva o contexto, citando pelo título o ADR de estilo escrito no [Exercício 12](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md#exercicio-12).
+3. Escreva as alternativas, transportando o quadro comparativo preenchido no [Exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18), que aplica o método dos seis critérios do [Exercício 17](bloco-1-definicao-tecnologica-e-trm.md#exercicio-17).
 
 ### Item 2: Forças e dependência de fornecedor
 
-A tabela abaixo relaciona as seis dimensões de dependência de fornecedor listadas no Conceito a dados do [dossiê da ACME](../caso-acme/index.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+Este item preenche os campos de forças e de decisão, mostrando o que pesa na escolha e quanto a plataforma prende a ACME a um fornecedor. A tabela abaixo relaciona as seis dimensões de dependência de fornecedor listadas no Conceito a dados do [dossiê da ACME](../caso-acme/index.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md).
 
 | Dimensão | Dado do caso |
 | --- | --- |
@@ -129,12 +129,12 @@ A tabela abaixo relaciona as seis dimensões de dependência de fornecedor lista
 | Custo de saída de dados | Dois provedores de nuvem pré-aprovados, com decisões de plataforma portáveis entre os dois |
 | Habilidades da equipe | A camada Java tem 9 pessoas sem escassez, e o núcleo COBOL tem 6 especialistas, dos quais 2 se aposentam em 2027 |
 
-1. forças, com pelo menos três dos seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao), mais ao menos uma das seis dimensões da tabela, indicando o dado do caso que sustenta cada força
-2. decisão, nomeando a plataforma escolhida e conectando a justificativa às forças
+1. Escreva as forças, usando pelo menos três dos seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao) e ao menos uma das seis dimensões da tabela, e indique o dado do caso que sustenta cada força.
+2. Escreva a decisão, nomeando a plataforma escolhida e ligando a justificativa às forças.
 
 ### Item 3: Consequências, evidências e revisão
 
-A tabela abaixo reúne os dados do caso que limitam as evidências disponíveis e que podem servir de base para o gatilho de revisão.
+Este item preenche os campos que olham para o futuro da decisão, o que ela provoca, o que a sustenta e quando deve ser reavaliada. A tabela abaixo reúne os dados do caso que limitam as evidências disponíveis e que podem servir de base para o gatilho de revisão.
 
 | Dado | Valor |
 | --- | --- |
@@ -142,15 +142,15 @@ A tabela abaixo reúne os dados do caso que limitam as evidências disponíveis 
 | Contrato de sustentação do núcleo COBOL | Exclusividade da fábrica até 30/09/2027 |
 | Contrato de capacidade de grande porte | Volume mínimo contratado até 31/12/2028 |
 
-1. consequências, com ao menos uma positiva, uma negativa e uma neutra, levando em conta os achados de segurança do [Exercício 19](bloco-3-seguranca-fim-a-fim.md#exercicio-19)
-2. evidências, indicando o que sustentaria a escolha e onde poderia ser reproduzido
-3. revisão, com um gatilho observável ligado à convivência com o núcleo COBOL sobre CICS
+1. Escreva as consequências, com ao menos uma positiva, uma negativa e uma neutra, levando em conta os achados de segurança do [Exercício 19](bloco-3-seguranca-fim-a-fim.md#exercicio-19).
+2. Escreva as evidências, indicando o que sustentaria a escolha e onde poderia ser reproduzido.
+3. Escreva a revisão, com um gatilho observável ligado à convivência com o núcleo COBOL sobre CICS, ou seja, um fato que a equipe consiga verificar e que indique a hora de reavaliar a plataforma.
 
 O campo de evidências é o mais difícil neste exercício, porque a ACME não tem ambiente de teste de carga. Nomear a evidência que seria desejável, e que não existe, é resposta melhor do que inventar uma medição.
 
 ### Item 4: Lacunas de provisão
 
-Os itens da tabela abaixo vêm da definição tecnológica considerada neste exercício, montada com o bloco 1 e os exercícios 16 a 19, e não do dossiê. A manutenção do diretório corporativo atrás do provedor de identidade faz parte dessa definição. A coluna de situação traz apenas o que a [arquitetura de linha de base](../caso-acme/linha-de-base.md) registra, e a linha de base faz o papel de catálogo de infraestrutura neste exercício, porque o dossiê não traz um catálogo formal.
+O objetivo deste item é identificar o que a ACME precisa providenciar, trocar, ajustar ou abandonar para que a tecnologia escolhida funcione. Os seis itens da tabela abaixo vêm da definição tecnológica considerada neste exercício, montada com o bloco 1 e os exercícios 16 a 19, e não do dossiê. A manutenção do diretório corporativo atrás do provedor de identidade faz parte dessa definição. A coluna de situação traz apenas o que a [arquitetura de linha de base](../caso-acme/linha-de-base.md) registra, e a linha de base faz o papel de catálogo de infraestrutura neste exercício, porque o dossiê não traz um catálogo formal.
 
 ```mermaid
 graph TB
@@ -163,12 +163,12 @@ graph TB
 | Provedor de identidade com OpenID Connect, padrão aberto de identidade, como pede o R8 | Existe só o diretório corporativo, acessado por LDAP de forma síncrona, com tempo limite de 10 s, e ele autentica todos os perfis |
 | Troca de notas com o ambiente virtual de aprendizagem em até 10 minutos, como pede o R7 | Lote das 05h10 por arquivo posicional, e o incidente de 09/07/2026 deixou 61.400 lançamentos de nota fora do ambiente virtual, com reprocessamento manual |
 | Autenticação dos perfis dos portais existentes, Professor e Secretaria, pelo provedor de identidade, com o diretório corporativo mantido atrás dele | O diretório autentica hoje todos os perfis por LDAP, sem provedor de identidade |
-| Todo acesso ao núcleo por camada anticorrupção, sem acesso direto da camada Java ao banco | O código Java tem 2.300 pontos de acesso direto ao banco, fora do núcleo |
+| Todo acesso ao núcleo por [camada anticorrupção](../modulo-3-design-e-padroes/bloco-3-padroes-arquiteturais-e-de-design.md#anti-corruption-layer), que traduz as chamadas entre a camada Java e o núcleo, sem acesso direto da camada Java ao banco | O código Java tem 2.300 pontos de acesso direto ao banco, fora do núcleo |
 | Capacidade para 5.800 sessões simultâneas na abertura da matrícula, como pede o R6 | A camada web e o monitor CICS atendem hoje a abertura da matrícula, e em 04/02/2026 o limite de tarefas concorrentes do CICS foi atingido, com 62% das tentativas de matrícula retornando erro |
 | Observabilidade de ponta a ponta, com rastreamento entre os componentes | O dossiê não registra ferramenta de observabilidade para o sistema acadêmico |
 
-1. classificar cada um dos seis itens como lacuna nova, substituição, modificação ou remoção, justificando a classificação com o dado da coluna de situação
-2. indicar qual dos seis itens, uma vez atendido, tende a reduzir custo recorrente já registrado nos [dados operacionais](../caso-acme/dados-operacionais.md), e citar o dado
+1. Classifique cada um dos seis itens como lacuna nova, substituição, modificação ou remoção, justificando a classificação com o dado da coluna de situação.
+2. Indique qual dos seis itens, uma vez atendido, tende a reduzir custo recorrente já registrado nos [dados operacionais](../caso-acme/dados-operacionais.md), e cite o dado.
 
 ## Fontes
 

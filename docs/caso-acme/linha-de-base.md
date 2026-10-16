@@ -2,11 +2,11 @@
 
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, cujo sistema acadêmico foi construído ao longo de duas décadas. Esta página descreve a arquitetura em operação em 2026, chamada de linha de base, com a composição dos módulos, a idade de cada componente, a ordem de grandeza do código, o efetivo que sustenta cada parte, o tipo de cada integração e a dívida técnica medida.
 
-Arquitetura de linha de base é a descrição da estrutura existente antes de qualquer decisão de evolução. Ela serve de referência para o relatório de lacunas e para o dimensionamento do esforço de transição.
+Arquitetura de linha de base é a descrição da estrutura existente antes de qualquer decisão de evolução. Ela serve de referência para o relatório de lacunas, que compara a situação atual com a pretendida, e para o dimensionamento do esforço de transição. Os exercícios usam esta página para saber quais componentes existem, quem os sustenta e como se comunicam.
 
 ## Visão geral dos componentes
 
-O sistema tem quatro camadas. O núcleo transacional em COBOL executa sob o monitor CICS em ambiente de grande porte e concentra as regras acadêmicas. O banco Oracle guarda o estado. A camada web em Java serve os quatro portais de acesso. A camada de integração move arquivos entre a ACME, o ERP financeiro e o ambiente virtual de aprendizagem.
+O sistema tem quatro camadas. O núcleo transacional em COBOL, linguagem de programação em que estão escritas as regras acadêmicas, executa sob o monitor CICS, programa que recebe e processa cada transação, em ambiente de grande porte, o computador central da instituição. O banco Oracle guarda os dados. A camada web em Java serve os quatro portais de acesso. A camada de integração move arquivos entre a ACME, o ERP financeiro, que é o sistema de gestão financeira da instituição, e o ambiente virtual de aprendizagem, a plataforma de ensino a distância que recebe turmas, matrículas e notas.
 
 ```mermaid
 graph TD
@@ -84,7 +84,7 @@ O módulo de matrícula é o mais sensível do conjunto. Ele concentra 16% do c�
 
 ## Camada web
 
-A camada web tem 410.000 linhas de Java escritas entre 2007 e 2009, com JSF 1.2 e EJB 2.0 sobre servidor de aplicação cuja versão saiu de suporte do fornecedor em 2018. São 220 telas distribuídas em quatro aplicações.
+A camada web tem 410.000 linhas de Java escritas entre 2007 e 2009, com JSF 1.2 e EJB 2.0, tecnologias Java para telas web e componentes de servidor, sobre servidor de aplicação cuja versão saiu de suporte do fornecedor em 2018. São 220 telas distribuídas em quatro aplicações.
 
 | Aplicação | Ano | Telas | Público |
 | --- | --- | --- | --- |
@@ -93,7 +93,7 @@ A camada web tem 410.000 linhas de Java escritas entre 2007 e 2009, com JSF 1.2 
 | Portal da Secretaria | 2008 | 62 | 310 usuários administrativos |
 | Portal do Gestor | 2009 | 28 | 95 coordenadores e diretores |
 
-Nenhuma das quatro aplicações tem versão responsiva. O Portal do Aluno exige navegador com suporte a um componente de calendário descontinuado, o que restringe o uso em telefone celular e é a reclamação mais frequente registrada pelo service desk.
+Nenhuma das quatro aplicações tem versão responsiva. O Portal do Aluno exige navegador com suporte a um componente de calendário descontinuado, o que restringe o uso em telefone celular e é a reclamação mais frequente registrada pela central de atendimento (service desk).
 
 ## Banco de dados
 
@@ -140,13 +140,13 @@ Nenhuma troca com o ERP financeiro ou com o ambiente virtual de aprendizagem é 
 | Retorno de notas e frequência de atividades | 06h15 | 35 min | Ambiente virtual para ACME | Nota de atividade avaliativa e presença |
 | Extração do censo da educação superior | Maio, anual | 6h20 | ACME para órgão regulador | Base completa de alunos, docentes e cursos |
 
-Os lotes são sequenciais, com uma exceção. A exportação de notas das 05h10 e o retorno de baixas de pagamento das 05h30 correm em paralelo por 30 minutos. Os dois têm sentidos opostos, da ACME para o ambiente virtual e do ERP para a ACME, e não disputam o mesmo arquivo, mas disputam a mesma capacidade de processamento noturna. Essa concorrência é característica declarada da linha de base, não um erro de agendamento. A janela das 23h00 às 07h00 está saturada, porque os seis lotes diários somam 5h50 de execução em 8 horas de janela, e não há espaço para acrescentar um lote novo sem sobreposição.
+Os lotes são sequenciais, com uma exceção. A exportação de notas das 05h10 e o retorno de baixas de pagamento das 05h30 correm em paralelo por 30 minutos. Os dois têm sentidos opostos, da ACME para o ambiente virtual e do ERP para a ACME, e não disputam o mesmo arquivo, mas disputam a mesma capacidade de processamento noturna. Essa concorrência faz parte da linha de base declarada e não resulta de erro de agendamento. A janela das 23h00 às 07h00 está saturada, porque os seis lotes diários somam 5h50 de execução em 8 horas de janela, e não há espaço para acrescentar um lote novo sem sobreposição.
 
 A janela de lote vai das 23h00 às 07h00. A consequência operacional é a latência de propagação. Uma matrícula confirmada às 09h00 só aparece no ambiente virtual de aprendizagem no dia seguinte, às 04h55. Uma nota lançada pelo professor às 15h00 só chega ao ambiente virtual às 06h00 do dia seguinte, porque depende do lote de exportação de notas das 05h10. Um pagamento compensado só é refletido na situação do aluno cerca de 30 horas depois da transação bancária. O requisito R7 da [página inicial do caso](index.md), que pede propagação de nota em até 10 minutos, é incompatível com essa estrutura de lote.
 
 ## Dívida técnica medida
 
-Os indicadores abaixo foram levantados pela Diretoria de TI no inventário técnico concluído em 31/08/2026.
+Dívida técnica é o conjunto de limitações acumuladas no código e na operação, que encarecem e atrasam cada mudança futura. Os indicadores abaixo foram levantados pela Diretoria de TI no inventário técnico concluído em 31/08/2026.
 
 | Indicador | Valor |
 | --- | --- |

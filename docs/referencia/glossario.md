@@ -1,34 +1,34 @@
 # Glossário
 
-Este glossário reúne os termos usados nas páginas de conceito do curso, com a definição adotada pela disciplina. Cada entrada corresponde a uma âncora, referenciada pela seção "Antes de começar" das páginas de bloco.
+Este glossário reúne os termos usados nas páginas do curso, com a definição adotada pela disciplina. Quem chega sem conhecer o assunto pode ler cada entrada isoladamente, porque ela explica o termo com palavras simples. Cada entrada corresponde a uma âncora, e a seção "Antes de começar" das páginas de bloco leva o aluno direto à definição do termo que vai usar.
 
 ## Arquitetura de solução
 
-Disciplina responsável pela produção e pela gestão do plano de uma solução completa, que atende a uma necessidade, um problema ou uma oportunidade de negócio e se integra ao negócio em alinhamento com a estratégia, minimizando impactos negativos. O plano descreve a estrutura e o comportamento da solução em alto nível, antes da escolha dos produtos que a realizam.
+Disciplina que produz e gerencia o plano de uma solução completa, isto é, do conjunto de pessoas, processos, informação e tecnologia que responde a uma necessidade, um problema ou uma oportunidade de negócio. A solução precisa se encaixar na estratégia da organização e causar o menor impacto negativo possível. O plano descreve a estrutura e o comportamento da solução em alto nível, antes da escolha dos produtos que a realizam.
 
 ## Espinha dorsal dos domínios
 
-Modelo apresentado no bloco 0 da Aula 4 que mostra, para os domínios de negócio, dados, aplicações e infraestrutura, o que o arquiteto de solução recebe, decide e entrega, e como a entrega de cada domínio se torna a entrada do domínio seguinte.
+Modelo apresentado no bloco 0 da Aula 4. Para cada um dos quatro domínios da solução, que são negócio, dados, aplicações e infraestrutura, ele mostra o que o arquiteto de solução recebe, o que decide e o que entrega, e como a entrega de um domínio vira a entrada do domínio seguinte.
 
 ## Arquiteto de solução
 
-Profissional que conduz a definição de uma solução inteira, investiga o problema, levanta as partes interessadas, compara alternativas e responde pela integridade do desenho até a entrega. Decide sobre os cinco tipos de componente da solução, não apenas sobre software.
+Profissional que conduz a definição de uma solução inteira. Ele investiga o problema, levanta as partes interessadas, compara alternativas e responde pela coerência do desenho até a entrega. Suas decisões cobrem os cinco tipos de componente da solução, e não apenas o software.
 
 ## Arquitetura corporativa
 
-Disciplina que emite diretrizes, princípios e modelos válidos para a organização inteira, organizados nos domínios de negócio, aplicações, dados, infraestrutura e segurança. Opera no nível de granularidade mais alto, acima de qualquer solução isolada.
+Disciplina que define diretrizes, princípios e modelos válidos para a organização inteira, nos domínios de negócio, aplicações, dados, infraestrutura e segurança. Ela atua no nível mais amplo, acima de qualquer solução isolada.
 
 ## Componentes da solução
 
-Os cinco tipos de elemento que compõem uma solução, usados como lista de verificação para que nenhum deles fique de fora do desenho: pessoas, estruturas organizacionais, processos, informação e tecnologia.
+Os cinco tipos de elemento que formam uma solução: pessoas, estruturas organizacionais, processos, informação e tecnologia. O arquiteto os usa como lista de conferência para que nenhum fique de fora do desenho.
 
 ## Bloco de construção da solução
 
-Unidade lógica do desenho, que representa uma capacidade necessária à solução antes de estar decidido qual produto ou serviço a realiza. Um bloco de granularidade grossa agrupa vários blocos de granularidade fina.
+Unidade do desenho que representa uma capacidade de que a solução precisa, antes de estar decidido qual produto ou serviço a realiza. Um bloco de granularidade grossa, isto é, mais abrangente, agrupa vários blocos de granularidade fina, mais detalhados.
 
 ## Direcionador de mudança
 
-Fator que leva a organização a buscar uma solução. É interno quando nasce da própria operação, como custo, risco ou limitação de capacidade, e externo quando vem de fora, como exigência regulatória, movimento de concorrente ou mudança de expectativa do usuário.
+Fator que leva a organização a buscar uma solução. É interno quando nasce da própria operação, como custo, risco ou limite de capacidade, e externo quando vem de fora, como exigência regulatória, movimento de concorrente ou mudança de expectativa do usuário.
 
 ## Parte interessada
 
@@ -36,135 +36,135 @@ Pessoa, papel ou área com interesse legítimo no resultado da solução, seja p
 
 ## Ponto de vista
 
-Conjunto de convenções que define como construir e ler um tipo de representação da arquitetura, escolhido em função das preocupações de uma parte interessada.
+Conjunto de regras que define como construir e ler um tipo de representação da arquitetura. É escolhido de acordo com as preocupações de uma parte interessada.
 
 ## Visão
 
-Representação concreta da arquitetura construída segundo um ponto de vista, que responde às preocupações às quais aquele ponto de vista se dirige.
+Representação concreta da arquitetura, construída segundo um ponto de vista, que responde às preocupações às quais esse ponto de vista se dirige.
 
 ## Arquitetura de linha de base
 
-Descrição da arquitetura como ela é hoje, com os componentes existentes, suas idades, seus responsáveis e suas integrações. É o ponto de partida da comparação com a arquitetura alvo.
+Descrição da arquitetura como ela é hoje, com os componentes existentes, suas idades, seus responsáveis e suas integrações. É o ponto de partida para comparar com a arquitetura alvo.
 
 ## Arquitetura alvo
 
-Descrição da arquitetura pretendida ao fim de um ciclo de evolução. A diferença entre ela e a arquitetura de linha de base é o objeto da análise de lacunas.
+Descrição da arquitetura que se pretende ter ao fim de um ciclo de evolução. A diferença entre ela e a arquitetura de linha de base é o objeto da análise de lacunas.
 
 ## Artefato de linha de base
 
-Documento ou modelo já existente que descreve parte da situação atual e entra como insumo do processo de definição da arquitetura, aproveitado na forma em que a organização o mantém.
+Documento ou modelo que já existe, descreve parte da situação atual e entra como insumo do processo de definição da arquitetura. É aproveitado na forma em que a organização o mantém, sem ser refeito.
 
 ## Fase do processo de definição da arquitetura
 
-Etapa do ciclo de vida que organiza o trabalho do arquiteto de solução, com entrada, atividades e saída próprias. O curso adota o ciclo de oito fases, de iniciação a conclusão.
+Etapa do ciclo de vida que organiza o trabalho do arquiteto de solução, com entrada, atividades e saída próprias. O curso adota um ciclo de oito fases, da iniciação à conclusão.
 
 ## Arquitetura de software
 
-Conjunto das decisões estruturais fundamentais sobre um sistema, difíceis de reverter depois de tomadas, que determinam sua capacidade de satisfazer os atributos de qualidade exigidos.
+Conjunto das decisões estruturais fundamentais sobre um sistema, que são difíceis de reverter depois de tomadas e determinam se o sistema consegue atender aos atributos de qualidade exigidos.
 
 ## Arquiteto de software
 
-Profissional responsável por tomar e documentar as decisões estruturais de um sistema, balanceando atributos de qualidade concorrentes, requisitos funcionais e restrições de negócio.
+Profissional responsável por tomar e documentar as decisões estruturais de um sistema. Ele equilibra atributos de qualidade que competem entre si, requisitos funcionais e restrições de negócio.
 
 ## Atributo de qualidade
 
-Propriedade pela qual um sistema é avaliado, como desempenho, disponibilidade, segurança ou capacidade de manutenção.
+Propriedade pela qual um sistema é avaliado, como desempenho, disponibilidade, segurança ou facilidade de manutenção.
 
 ## Requisito funcional
 
-Expectativa sobre o que o sistema faz, descrita como uma função, um comportamento ou uma resposta a um estímulo específico.
+Expectativa sobre o que o sistema faz, descrita como uma função, um comportamento ou uma resposta a um estímulo específico. Exemplo: o sistema emite o histórico escolar do aluno.
 
 ## Requisito não funcional
 
-Categoria tradicional e mais ampla de requisito, que em diversas taxonomias reúne tanto requisitos de atributo de qualidade quanto restrições. O curso não trata requisito não funcional como sinônimo de atributo de qualidade. Atributo de qualidade é a propriedade avaliada, requisito não funcional é a categoria que agrupa essa e outras expectativas não funcionais, incluindo restrições.
+Categoria ampla de requisito que, em várias classificações, reúne os requisitos de atributo de qualidade e as restrições. O curso não usa o termo como sinônimo de atributo de qualidade. Atributo de qualidade é a propriedade avaliada, e requisito não funcional é o nome do grupo que reúne essa e outras expectativas que não descrevem função, incluindo as restrições.
 
 ## Requisito de atributo de qualidade
 
-Expectativa concreta e mensurável sobre um atributo de qualidade, expressa em termos de estímulo, resposta e medida da resposta.
+Expectativa concreta e mensurável sobre um atributo de qualidade, escrita com o estímulo que o sistema recebe, a resposta esperada e a medida dessa resposta.
 
 ## Restrição
 
-Decisão ou condição imposta ao sistema a partir de fora do processo de projeto, que limita as alternativas disponíveis ao arquiteto sem ser negociável por ele.
+Decisão ou condição imposta ao sistema de fora do processo de projeto. Ela limita as alternativas do arquiteto, que não tem poder para negociá-la.
 
 ## Requisito arquiteturalmente significativo
 
-Requisito cuja satisfação influencia materialmente a arquitetura do sistema, podendo ser de qualidade, funcional ou restritivo.
+Requisito cujo atendimento influencia de forma relevante a arquitetura do sistema. Pode ser de qualidade, funcional ou uma restrição.
 
 ## Direcionador arquitetural
 
-Fator, de negócio ou técnico, que orienta as decisões de arquitetura antes de se traduzir em requisitos específicos.
+Fator de negócio ou técnico que orienta as decisões de arquitetura antes de se transformar em requisitos específicos.
 
 ## Cenário de atributo de qualidade
 
-Descrição estruturada de um requisito de qualidade em seis elementos, fonte do estímulo, estímulo, artefato afetado, ambiente, resposta e medida da resposta.
+Descrição estruturada de um requisito de qualidade em seis elementos: fonte do estímulo, estímulo, artefato afetado, ambiente, resposta e medida da resposta.
 
 ## Estilo arquitetural
 
-Padrão de organização estrutural de um sistema, que define tipos de componentes, formas de conexão entre eles e restrições sobre essa organização.
+Forma de organizar a estrutura de um sistema, que define os tipos de componente, as maneiras de conectá-los e as restrições dessa organização. Camadas e microsserviços são exemplos de estilo.
 
 ## Princípio de design
 
-Regra durável, derivada de objetivos, requisitos e restrições, que orienta um conjunto de decisões de desenho e admite verificação da sua aplicação por evidência observável.
+Regra durável, derivada de objetivos, requisitos e restrições, que orienta várias decisões de desenho. A aplicação do princípio pode ser verificada por evidência observável.
 
 ## Desenho conceitual
 
-Descrição da solução em termos de capacidades, responsabilidades e relações com o ambiente, sem estrutura interna detalhada e sem compromisso com tecnologia.
+Descrição da solução em termos de capacidades, responsabilidades e relações com o ambiente, sem estrutura interna detalhada e sem escolha de tecnologia.
 
 ## Desenho lógico
 
-Descrição da solução em elementos lógicos com responsabilidades, interfaces e fluxos declarados, ainda sem produto, linguagem ou plataforma escolhidos.
+Descrição da solução em elementos com responsabilidades, interfaces e fluxos declarados, ainda sem produto, linguagem ou plataforma escolhidos.
 
 ## Padrão arquitetural
 
-Solução recorrente para uma preocupação transversal ou de integração entre partes de um sistema, com escopo menor que o do estilo arquitetural e maior que o do padrão de design.
+Solução recorrente para uma preocupação que atravessa o sistema ou que envolve a integração entre suas partes. Tem escopo menor que o estilo arquitetural e maior que o padrão de design.
 
 ## Padrão de design
 
-Solução recorrente para a colaboração entre responsabilidades dentro de uma parte do sistema, descrita em termos de papéis, interfaces e relações entre elementos.
+Solução recorrente para a colaboração entre responsabilidades dentro de uma parte do sistema, descrita pelos papéis, pelas interfaces e pelas relações entre os elementos.
 
 ## Plataforma arquitetural
 
-Conjunto estruturado e consistente de ferramentas, frameworks, bibliotecas e práticas de desenho, organizadas para implementar um ou mais estilos arquiteturais, cobrindo desenvolvimento, integração, implantação e manutenção. Adotada como decisão arquitetural própria, posterior à decisão de estilo.
+Conjunto organizado de ferramentas, frameworks, bibliotecas e práticas de desenho que implementa um ou mais estilos arquiteturais e cobre desenvolvimento, integração, implantação e manutenção. É adotada como decisão arquitetural própria, tomada depois da decisão de estilo.
 
 ## ADR
 
-Registro de decisão de arquitetura, do inglês Architecture Decision Record, documento curto que descreve uma decisão arquitetural, o contexto que a motivou e suas consequências.
+Registro de decisão de arquitetura, do inglês Architecture Decision Record. É um documento curto que descreve uma decisão arquitetural, o contexto que a motivou e suas consequências.
 
 ## Racional arquitetural
 
-Base intelectual que justifica as decisões de desenho de um sistema, conectando cada escolha às metas estratégicas, aos requisitos técnicos e às restrições de negócio. Registra não apenas a escolha feita, mas o raciocínio por trás dela, as alternativas consideradas, os critérios de seleção e os impactos esperados.
+Raciocínio que justifica as decisões de desenho de um sistema e liga cada escolha às metas estratégicas, aos requisitos técnicos e às restrições de negócio. Registra a escolha feita, o motivo, as alternativas consideradas, os critérios de seleção e os impactos esperados.
 
 ## Dependência de fornecedor
 
-Dificuldade de trocar ou negociar uma dependência técnica ou organizacional adotada pelo sistema. Precisa ficar explícita no registro de decisão em seis dimensões, API proprietária, formato de dados, identidade, observabilidade, custo de saída de dados e habilidades da equipe.
+Dificuldade de trocar ou renegociar uma dependência técnica ou organizacional adotada pelo sistema. O registro de decisão precisa explicitá-la em seis dimensões: API proprietária, formato de dados, identidade, observabilidade, custo de saída dos dados e habilidades da equipe.
 
 ## Modelo C4
 
-Notação para representar a arquitetura de um sistema em quatro níveis de abstração progressiva, contexto, contêineres, componentes e código, com nome que vem das iniciais dos quatro níveis em inglês, Context, Containers, Components e Code.
+Notação que representa a arquitetura de um sistema em quatro níveis, do mais amplo ao mais detalhado: contexto, contêineres, componentes e código. O nome vem das iniciais dos quatro níveis em inglês, Context, Containers, Components e Code.
 
 ## Arquitetura de negócio
 
-Representação da organização em capacidades, fluxos de valor, informação e estrutura organizacional, usada para alinhar objetivos estratégicos e demandas táticas, e que é ao mesmo tempo origem e alvo da mudança promovida por uma solução.
+Representação da organização em capacidades, fluxos de valor, informação e estrutura organizacional. Serve para alinhar objetivos estratégicos e demandas do dia a dia, e é ao mesmo tempo a origem e o alvo da mudança que uma solução promove.
 
 ## Capacidade
 
-Aquilo que a organização precisa conseguir fazer para entregar seus serviços e executar sua estratégia, caracterizada pelo volume que consegue entregar em paralelo, pela competência exigida e pelos recursos que a habilitam.
+Aquilo que a organização precisa saber fazer para entregar seus serviços e executar sua estratégia. Caracteriza-se pelo volume que consegue entregar em paralelo, pela competência exigida e pelos recursos que a sustentam.
 
 ## Fluxo de valor
 
-Conjunto de etapas de ponta a ponta pelo qual a organização entrega valor a um cliente, do primeiro contato com a organização até a realização desse valor pelo cliente, com cada etapa nomeada por um verbo seguido do objeto, como solicitar exame.
+Sequência de etapas, de ponta a ponta, pela qual a organização entrega valor a um cliente, do primeiro contato até o cliente receber esse valor. Cada etapa é nomeada por um verbo seguido do objeto, como solicitar exame.
 
 ## Arquitetura de dados
 
-Estrutura geral dos dados e dos recursos relacionados a dados, tratada como parte integrante da arquitetura corporativa e definida no DMBOK como uma das onze áreas de gestão de dados, à qual a arquitetura de dados de cada solução precisa ser consistente.
+Estrutura geral dos dados e dos recursos relacionados a eles, tratada como parte da arquitetura corporativa. O DMBOK, guia de referência de gestão de dados, a define como uma das onze áreas dessa gestão, e a arquitetura de dados de cada solução precisa ser consistente com ela.
 
 ## Modelo de dados corporativo
 
-Conjunto de modelos que descreve de forma consistente as entidades, os atributos e os relacionamentos da organização em quatro níveis, visão conceitual das áreas de assunto, visão de cada área de assunto, modelo lógico corporativo e modelos lógicos e físicos de cada aplicação ou projeto.
+Conjunto de modelos que descreve, de forma consistente, as entidades, os atributos e os relacionamentos da organização em quatro níveis: visão conceitual das áreas de assunto, visão de cada área de assunto, modelo lógico corporativo e modelos lógicos e físicos de cada aplicação ou projeto.
 
 ## Dados mestres
 
-Entidades de negócio compartilhadas por várias aplicações, como cliente, aluno ou paciente, geridas para reduzir redundância e melhorar a qualidade, por meio de um dos estilos de implementação registro, consolidação, coexistência ou centralizado.
+Entidades de negócio compartilhadas por várias aplicações, como cliente, aluno ou paciente. São geridos para reduzir redundância e melhorar a qualidade, por um de quatro estilos de implementação: registro, consolidação, coexistência ou centralizado.
 
 ## Linhagem de dados
 
@@ -172,11 +172,11 @@ Registro da origem de cada conjunto de dados e das transformações pelas quais 
 
 ## Contrato de dados
 
-Acordo formal entre o dono de um conjunto de dados e seus consumidores, com esquema, regras de qualidade, nível de serviço e papéis, padronizado pelo Open Data Contract Standard.
+Acordo formal entre o dono de um conjunto de dados e quem o consome, com esquema, regras de qualidade, nível de serviço e papéis. É padronizado pelo Open Data Contract Standard.
 
 ## Propriedade do dado
 
-Atribuição de uma entidade de dado a um único responsável, que a grava, enquanto as demais partes a leem por interface ou a recebem por evento.
+Atribuição de uma entidade de dado a um único responsável, que é o único a gravá-la. As demais partes a leem por interface ou a recebem por evento.
 
 ## Fonte de verdade
 
@@ -184,19 +184,19 @@ Local em que uma entidade de dado é registrada e mantida com autoridade, e do q
 
 ## Sistema de registro
 
-Sistema que guarda a versão autoritativa de um dado e no qual o dado é escrito primeiro, enquanto os sistemas de dado derivado guardam cópias transformadas a partir dele. Nesta disciplina, equivale à [fonte de verdade](#fonte-de-verdade).
+Sistema que guarda a versão autoritativa de um dado e no qual o dado é escrito primeiro. Os sistemas de dado derivado guardam cópias transformadas a partir dele. Nesta disciplina, equivale à [fonte de verdade](#fonte-de-verdade).
 
 ## Regime de consistência
 
-Garantia declarada sobre o momento em que a leitura feita na fonte ou numa cópia reflete a fonte de verdade, forte quando reflete imediatamente e eventual quando reflete dentro de um prazo declarado.
+Garantia declarada sobre o momento em que uma leitura, feita na fonte ou numa cópia, reflete a fonte de verdade. É forte quando reflete imediatamente e eventual quando reflete dentro de um prazo declarado.
 
 ## Arquitetura de aplicações
 
-Subdomínio da arquitetura corporativa que mantém a visão do portfólio de aplicações da organização e dos serviços que elas oferecem, e que liga a arquitetura de negócio à arquitetura de dados.
+Subdomínio da arquitetura corporativa que mantém a visão do conjunto de aplicações da organização e dos serviços que elas oferecem, e liga a arquitetura de negócio à arquitetura de dados.
 
 ## Padrão técnico
 
-Conjunto de processos, documentação, regras e parâmetros a observar, fixado por organismo de normalização, por autoridade ou pela própria organização e adotado pela solução, como o sistema da nota fiscal eletrônica. Corresponde ao termo inglês *standard*, é distinto da especificação de interface, que descreve uma interface particular, e do padrão arquitetural e do padrão de design, que correspondem a *pattern*.
+Conjunto de processos, documentação, regras e parâmetros a observar, fixado por organismo de normalização, por autoridade ou pela própria organização, e adotado pela solução, como o sistema da nota fiscal eletrônica. Corresponde ao termo inglês *standard*. Não se confunde com a especificação de interface, que descreve uma interface particular, nem com o padrão arquitetural e o padrão de design, que correspondem a *pattern*.
 
 ## Protocolo
 
@@ -208,35 +208,35 @@ Descrição verificável de uma interface particular, com as operações ou mens
 
 ## Contrato de integração
 
-Especificação de interface somada às garantias acordadas entre provedor e consumidor, como versionamento, garantia de entrega, idempotência e nível de serviço.
+Especificação de interface somada às garantias acordadas entre quem fornece e quem consome, como versionamento, garantia de entrega, idempotência (repetir a mesma mensagem não altera o resultado) e nível de serviço.
 
 ## Arquitetura de infraestrutura
 
-Arquitetura dos componentes e serviços tecnológicos que sustentam as atividades da organização, como equipamentos, redes, plataformas e capacidade de processamento, chamada de arquitetura de tecnologia no TOGAF.
+Arquitetura dos componentes e serviços tecnológicos que sustentam as atividades da organização, como equipamentos, redes, plataformas e capacidade de processamento. O TOGAF, método de arquitetura corporativa, a chama de arquitetura de tecnologia.
 
 ## BPMN
 
-Notação padronizada pelo Object Management Group para representar processos de negócio em raias, com eventos, tarefas, gateways e fluxos de sequência, na versão 2.0.2 publicada em 2014.
+Notação padronizada pelo Object Management Group para desenhar processos de negócio em raias, com eventos, tarefas, gateways e fluxos de sequência. A versão em uso é a 2.0.2, publicada em 2014.
 
 ## ArchiMate
 
-Linguagem de modelagem de arquitetura corporativa mantida pela The Open Group, vigente na versão 4, publicada em abril de 2026, e cuja camada de estratégia define os elementos capacidade e fluxo de valor.
+Linguagem de modelagem de arquitetura corporativa mantida pela The Open Group, na versão 4, publicada em abril de 2026. Sua camada de estratégia define os elementos capacidade e fluxo de valor.
 
 ## Captura de mudanças de dados
 
-Técnica que lê as alterações confirmadas no sistema de registro, em geral pelo log de transações do banco, e as propaga como eventos para as cópias derivadas, como faz o Debezium.
+Técnica que lê as alterações confirmadas no sistema de registro, em geral pelo log de transações do banco, e as envia como eventos para as cópias derivadas, como faz o Debezium.
 
 ## Banco por serviço
 
-Prática em que o dado persistente de cada serviço é privado e acessível apenas pela interface desse serviço, como forma de aplicar a propriedade do dado.
+Prática em que o dado persistente de cada serviço é privado e só pode ser acessado pela interface desse serviço. É a forma de aplicar a propriedade do dado.
 
 ## Linguagem de esquema
 
-Notação que define a estrutura e as restrições de uma mensagem para permitir validá-la por programa, como JSON Schema, Avro e Protocol Buffers.
+Notação que define a estrutura e as restrições de uma mensagem, para que um programa possa validá-la. JSON Schema, Avro e Protocol Buffers são exemplos.
 
 ## Gateway de API
 
-Componente que recebe as chamadas antes do provedor e aplica num ponto único autenticação, limite de taxa e roteamento entre versões da interface.
+Componente que recebe as chamadas antes de elas chegarem a quem fornece o serviço e aplica, num ponto único, autenticação, limite de chamadas por período e roteamento entre versões da interface.
 
 ## Estilo de integração
 
@@ -244,31 +244,31 @@ Combinação de modo de comunicação, protocolo e formato usada numa interface,
 
 ## Zona de disponibilidade
 
-Local isolado dentro de uma região de um provedor de nuvem, usado para distribuir réplicas de modo que a falha de um único local não interrompa a aplicação.
+Local isolado dentro de uma região de um provedor de nuvem. As réplicas da aplicação são distribuídas em zonas diferentes para que a falha de um único local não interrompa o serviço.
 
 ## Diagrama de implantação
 
-Diagrama de apoio do modelo C4 que mostra como instâncias de sistemas de software e de contêineres são implantadas nos nós de implantação de um único ambiente, com nós de infraestrutura, como DNS, balanceador de carga e firewall, representados como elementos de apoio.
+Diagrama de apoio do modelo C4 que mostra onde as instâncias dos sistemas e dos contêineres são implantadas, nos nós de um único ambiente. Elementos de infraestrutura, como DNS, balanceador de carga e firewall, aparecem como elementos de apoio.
 
 ## Balanceador de carga
 
-Componente que distribui requisições entre as réplicas de um serviço e retira da distribuição as réplicas que falham na verificação de saúde.
+Componente que distribui as requisições entre as réplicas de um serviço e deixa de enviar requisições às réplicas que falham na verificação de saúde.
 
 ## Definição tecnológica da solução
 
-Avaliação da infraestrutura necessária para sustentar a arquitetura de solução proposta, que lista os serviços e os componentes de infraestrutura exigidos, as áreas da infraestrutura atual que mudam e o custo, o prazo e os recursos dessa mudança.
+Avaliação da infraestrutura necessária para sustentar a arquitetura de solução proposta. Ela lista os serviços e os componentes de infraestrutura exigidos, as áreas da infraestrutura atual que mudam e o custo, o prazo e os recursos dessa mudança.
 
 ## Lacuna de provisão
 
-Requisito de serviço de infraestrutura da solução que não encontra correspondente no catálogo de infraestrutura e que pode exigir um serviço novo, a substituição, a modificação ou a remoção de um serviço existente.
+Requisito de serviço de infraestrutura da solução que não tem correspondente no catálogo de infraestrutura da organização. Pode exigir um serviço novo ou a substituição, a modificação ou a remoção de um serviço existente.
 
 ## Modelo técnico de referência
 
-Catálogo que organiza, por camada arquitetural e categoria tecnológica, os padrões, os protocolos e os produtos aprovados, proibidos ou em avaliação na organização, e que serve de lista de partida para a escolha de tecnologia de cada solução. Também conhecido pela sigla TRM, do inglês Technical Reference Model.
+Catálogo que organiza, por camada arquitetural e categoria tecnológica, os padrões, os protocolos e os produtos que a organização aprova, proíbe ou mantém em avaliação. Serve de lista de partida para escolher a tecnologia de cada solução. Também é conhecido pela sigla TRM, do inglês Technical Reference Model.
 
 ## Zona de pouso
 
-Fundação do ambiente em nuvem, preparada antes da primeira carga de trabalho, que organiza contas, rede, identidade, políticas e monitoramento para que as soluções futuras herdem padrões de segurança, governança e operação.
+Base do ambiente em nuvem, preparada antes da primeira carga de trabalho. Organiza contas, rede, identidade, políticas e monitoramento para que as soluções futuras já nasçam com os padrões de segurança, governança e operação da organização.
 
 ## Infraestrutura como código
 
@@ -276,7 +276,7 @@ Descrição da infraestrutura em arquivos declarativos, versionados e revisados 
 
 ## Autoridade de design de segurança
 
-Grupo que decide sobre os aspectos de segurança de todas as soluções da organização e que avalia cada desenho por dois testes, a conformidade com as diretivas de segurança adotadas e o teste de vulnerabilidade contra catálogos de ameaças e de fraquezas conhecidas.
+Grupo que decide sobre os aspectos de segurança de todas as soluções da organização. Avalia cada desenho por dois testes: a conformidade com as diretivas de segurança adotadas e o teste de vulnerabilidade contra catálogos de ameaças e de fraquezas conhecidas.
 
 ## Dado pessoal sensível
 
@@ -284,27 +284,27 @@ Dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião pol
 
 ## Fronteira de confiança
 
-Linha que separa partes de uma solução que operam sob níveis diferentes de confiança, na qual os dados e as chamadas que a atravessam precisam ser autenticados, validados e protegidos.
+Linha que separa partes de uma solução que operam sob níveis diferentes de confiança. Os dados e as chamadas que a atravessam precisam ser autenticados, validados e protegidos.
 
 ## Grade de permissões
 
-Tabela que cruza entidades, que podem ser pessoas, papéis ou sistemas, com recursos ou tarefas, e indica em cada interseção o tipo de acesso permitido, como leitura ou gravação, e as condições para concedê-lo.
+Tabela que cruza entidades, que podem ser pessoas, papéis ou sistemas, com recursos ou tarefas. Em cada cruzamento indica o tipo de acesso permitido, como leitura ou gravação, e as condições para concedê-lo.
 
 ## Menor privilégio
 
-Princípio segundo o qual cada entidade recebe acesso ao conjunto mínimo de recursos, com o menor nível de privilégio, que ainda permite executar as atividades de negócio que lhe cabem.
+Princípio segundo o qual cada entidade recebe acesso apenas aos recursos de que precisa, com o menor nível de privilégio que ainda permite executar as atividades de negócio que lhe cabem.
 
 ## STRIDE
 
-Classificação de ameaças em seis categorias, falsificação de identidade, adulteração, repúdio, divulgação de informação, negação de serviço e elevação de privilégio, cada uma associada a uma propriedade de segurança violada e usada para examinar cada fronteira de confiança de uma solução.
+Classificação de ameaças em seis categorias: falsificação de identidade, adulteração, repúdio, divulgação de informação, negação de serviço e elevação de privilégio. Cada categoria corresponde a uma propriedade de segurança violada, e a classificação é usada para examinar cada fronteira de confiança de uma solução.
 
 ## Descrição de arquitetura
 
-Conjunto de documentos e modelos que mostra como é a arquitetura de um sistema num determinado momento, seja uma organização, uma aplicação ou uma solução. A arquitetura de linha de base e a arquitetura alvo de uma solução têm descrições diferentes, e a análise de lacunas compara as duas.
+Conjunto de documentos e modelos que mostra como é a arquitetura de um sistema num determinado momento, seja de uma organização, de uma aplicação ou de uma solução. A arquitetura de linha de base e a arquitetura alvo de uma solução têm descrições diferentes, e a análise de lacunas compara as duas.
 
 ## Entregável de arquitetura
 
-Documento ou relatório produzido pela equipe de arquitetura para uma descrição de arquitetura. Reúne artefatos, que são as informações organizadas, e comentários e análises em texto livre. São exemplos a declaração de requisitos, o caso de negócio, o esboço da solução, o desenho lógico e o relatório de impacto.
+Documento ou relatório que a equipe de arquitetura produz para uma descrição de arquitetura. Reúne artefatos, que são as informações organizadas, e comentários e análises em texto livre. São exemplos a declaração de requisitos, o caso de negócio, o esboço da solução, o desenho lógico e o relatório de impacto.
 
 ## Artefato de arquitetura
 
@@ -312,7 +312,7 @@ Catálogo, mapa, tabela, diagrama ou modelo que trata de um aspecto da arquitetu
 
 ## Entidade de arquitetura
 
-Elemento que faz parte da arquitetura de um sistema e interessa a quem a analisa, como um requisito, uma interface ou um componente. Uma entidade pode aparecer em mais de um artefato e se relacionar com outras: por abstração, quando é generalizada numa categoria, ou por composição, quando é formada por várias.
+Elemento que faz parte da arquitetura de um sistema e interessa a quem a analisa, como um requisito, uma interface ou um componente. Uma entidade pode aparecer em mais de um artefato e se relacionar com outras, por abstração, quando é generalizada numa categoria, ou por composição, quando é formada por várias.
 
 ## Caderno arquitetural
 

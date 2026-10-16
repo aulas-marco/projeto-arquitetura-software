@@ -223,9 +223,11 @@ def render_indice(existentes: set[int]) -> str:
     partes = [
         "# Gabaritos",
         "",
-        "Cada gabarito mostra o caderno arquitetural da ACME como ele fica depois de um exercício. "
-        "As respostas dos exercícios anteriores já estão lá, e o trecho do exercício atual aparece em "
-        "destaque. Use o [template](../caderno/template.md) para ver o caderno vazio e o "
+        "O caderno arquitetural é o documento em que a arquitetura da solução da ACME vai sendo registrada "
+        "ao longo do curso. A [Aula 1](../modulo-1-fundamentos/index.md#o-fio-condutor-do-curso-o-caderno-arquitetural) "
+        "explica o que ele é e para que serve cada seção. Cada gabarito mostra o caderno como ele fica depois de "
+        "um exercício: as respostas dos exercícios anteriores já estão lá, e o trecho do exercício atual aparece "
+        "em destaque. Use o [template](../caderno/template.md) para ver o caderno vazio e o "
         "[mapa](../caderno/mapa.md) para saber qual exercício preenche cada seção.",
         "",
     ]

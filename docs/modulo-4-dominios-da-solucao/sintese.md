@@ -22,7 +22,7 @@ A aula detalha uma única solução por domínios, no encadeamento apresentado n
 1. O domínio de negócio localiza a mudança nas capacidades, nas etapas do fluxo de valor e nas atividades do processo, no exercício 13.
 2. O domínio de dados atribui a cada entidade que sustenta as capacidades afetadas um dono e um regime de consistência por consumidor, no exercício 14.
 3. O domínio de aplicações classifica o portfólio, especifica o contrato da integração de notas a partir do dono da entidade nota e corrige a fronteira da solução no diagrama de contexto, no exercício 15.
-4. O domínio de infraestrutura recebe o diagrama de contêineres fornecido, coerente com o contexto corrigido, rotula cada relação com modo, volume e latência, liga as relações aos requisitos R6 e R7 e posiciona o núcleo transacional, no exercício 16.
+4. O domínio de infraestrutura recebe o diagrama de contêineres fornecido, coerente com o contexto corrigido, rotula cada relação com modo, volume e latência, liga as relações aos requisitos R6, de tempo de confirmação da matrícula, e R7, de prazo da nota, e posiciona o núcleo transacional, no exercício 16.
 
 As relações rotuladas no exercício 16 são a lista de exigências que a definição tecnológica da Aula 5 recebe, e cada uma delas pode ser rastreada até uma capacidade marcada no exercício 13.
 

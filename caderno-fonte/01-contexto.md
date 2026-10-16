@@ -8,7 +8,7 @@ modo: acumula
 | --- | --- |
 | Para que serve | Antes de desenhar a solução, o arquiteto precisa conhecer o ponto de partida: a situação da ACME, o que outras pessoas já decidiram e o que o projeto não pode mudar. Esta seção reúne esse ponto de partida. |
 | Pergunta que responde | Que organização é esta, que problema ela quer resolver e o que já está decidido antes de desenhar qualquer coisa? |
-| O que você escreve | Tabelas com as restrições (RT1 a RT7), as decisões (D1 a D9), os componentes da solução (CP1 a CP10), as tarefas do ciclo (T1 a T10), os artefatos do processo (A1 a A10) e as premissas (PR1 a PR7). A página de convenções explica cada código. |
+| O que você escreve | Cinco coisas, cada uma numa tabela. As restrições, que são decisões de outras pessoas que o projeto precisa aceitar. As decisões da modernização, classificadas por nível de arquitetura. Os componentes da solução, que são as peças de que ela precisa, como pessoas, processos e tecnologia. As tarefas do projeto, com o responsável por cada uma. E os documentos do trabalho, ligados às fases do processo. Cada item recebe um código curto, como RT1 ou D2, explicado na página de convenções. |
 | Vem de onde | Do dossiê do caso ACME, que traz os números da instituição, a pergunta central e as restrições. |
 | Quando se preenche | Na Aula 1, com os exercícios 1 a 4. |
 <!--/orientacao-->

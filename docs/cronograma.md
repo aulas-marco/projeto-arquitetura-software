@@ -1,6 +1,8 @@
 # Cronograma
 
-A disciplina tem seis aulas, das 19h00 às 22h30, com intervalo das 20h30 às 20h45 e encerramento do conteúdo até as 22h10. A partir da Aula 3, cada aula abre com 15 minutos de questões sobre a aula anterior e três questionários Kahoot de 10 minutos, um de revisão da aula anterior, um sobre os blocos 1 e 2, depois do intervalo, e um sobre os blocos 3 e 4, no encerramento. Os quatro blocos de apresentação conceitual somam 130 minutos, com 32 ou 33 minutos por bloco. Na Aula 4, o bloco 0, de 10 minutos e sem exercício, precede os quatro blocos, e os blocos 1 e 2 passam a 28 e 27 minutos para manter o total de 130. Os exercícios de cada bloco são realizados fora do horário de aula, como atividade de aplicação do conceito ao caso da instituição fictícia ACME.
+A disciplina tem seis aulas, das 19h00 às 22h30, com intervalo das 20h30 às 20h45 e encerramento do conteúdo até as 22h10. Cada aula se divide em blocos, que são partes de cerca de 30 minutos dedicadas a um conceito, e cada bloco tem um exercício correspondente, numerado de 1 a 24 ao longo da disciplina. Os quatro blocos de apresentação conceitual somam 130 minutos, com 32 ou 33 minutos por bloco. Na Aula 4 há ainda o bloco 0, de 10 minutos e sem exercício, que abre a aula antes dos quatro blocos, e por isso os blocos 1 e 2 passam a durar 28 e 27 minutos, para o total continuar em 130. Os exercícios de cada bloco são realizados fora do horário de aula, como atividade de aplicação do conceito ao caso da instituição fictícia ACME, apresentado na página do [caso ACME](caso-acme/index.md).
+
+A partir da Aula 3, cada aula abre com 15 minutos de questões sobre a aula anterior e inclui três questionários Kahoot, plataforma de perguntas respondidas ao vivo, de 10 minutos cada. O primeiro revisa a aula anterior, o segundo trata dos blocos 1 e 2 e vem depois do intervalo, e o terceiro trata dos blocos 3 e 4 e fecha a aula.
 
 As datas de cada oferta não aparecem aqui. Elas são divulgadas pela instituição a cada turma, e este cronograma descreve apenas a sequência dos temas, que não muda entre ofertas.
 
@@ -17,7 +19,7 @@ As duas primeiras aulas enquadram o problema, com a disciplina e seu processo, d
 | 5 | Definição tecnológica e modelo técnico de referência, plataforma arquitetural e frameworks, segurança fim a fim e ADR de plataforma |
 | 6 | Análise de lacunas, roteiro de entrega, governança, inovação e tendências |
 
-O encadeamento vai do enquadramento ao desenho, do desenho à tecnologia, e da tecnologia à entrega governada. A Aula 1 estabelece de que disciplina se trata e por qual processo ela opera. A Aula 2 reúne tudo o que entra antes de qualquer alternativa. A Aula 3 escolhe a forma estrutural e registra a escolha. A Aula 4 detalha a solução nos domínios de negócio, dados, aplicações e infraestrutura e a representa nos níveis de contexto e de contêineres do modelo C4. A Aula 5 converte o desenho lógico em tecnologia e avalia a segurança fim a fim sobre a tecnologia escolhida. A Aula 6 compara a situação atual com a pretendida e organiza a entrega.
+As aulas seguem a ordem natural de um projeto, que parte do enquadramento, passa pelo desenho e pela tecnologia e termina na entrega governada. A Aula 1 apresenta a disciplina e o processo pelo qual ela opera. A Aula 2 reúne tudo o que entra antes de qualquer alternativa. A Aula 3 escolhe a forma estrutural e registra a escolha. A Aula 4 detalha a solução nos domínios de negócio, dados, aplicações e infraestrutura e a representa nos níveis de contexto e de contêineres do modelo C4. A Aula 5 converte o desenho lógico em tecnologia e avalia a segurança fim a fim sobre a tecnologia escolhida. A Aula 6 compara a situação atual com a pretendida e organiza a entrega.
 
 ## Blocos de cada aula
 
@@ -82,4 +84,4 @@ Cada aula vale dez pontos, distribuídos entre os quatro exercícios daquela aul
 
 ## Como os artefatos se encadeiam
 
-Os exercícios não são independentes entre si. O artefato produzido em um bloco costuma ser a entrada do bloco seguinte, e como o exercício é feito fora do horário de aula, o aluno chega ao encontro seguinte com o artefato que aquela aula consome, e o [caso ACME](caso-acme/index.md) é o mesmo em toda a disciplina. A página de [artefatos por aula](caso-acme/artefatos.md) descreve o que cada exercício produz, com que entrada do dossiê e sob qual critério de aceitação.
+Os exercícios dependem uns dos outros. O artefato produzido em um bloco, isto é, o documento ou diagrama que o exercício entrega, costuma ser a entrada do bloco seguinte. Como o exercício é feito fora do horário de aula, o aluno chega ao encontro seguinte com o artefato que aquela aula consome. O [caso ACME](caso-acme/index.md) é o mesmo em toda a disciplina, e a página de [artefatos por aula](caso-acme/artefatos.md) descreve o que cada exercício produz, com qual parte do dossiê e sob qual critério de aceitação.

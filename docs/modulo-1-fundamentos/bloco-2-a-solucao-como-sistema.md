@@ -10,9 +10,9 @@ Este bloco trata do objeto sobre o qual o arquiteto de solução trabalha, a sol
 
 ## Conceito
 
-Uma solução atende a um problema, um risco ou uma oportunidade da organização. Com o tempo, as soluções implantadas deixam de ser reconhecíveis como tais e passam a fazer parte do tecido da instituição, de modo que uma solução nova quase sempre substitui ou modifica uma solução anterior, mesmo quando ninguém a chamou assim na época.
+Uma solução atende a um problema, um risco ou uma oportunidade da organização. Com o tempo, as soluções implantadas deixam de ser reconhecíveis como tais e passam a fazer parte do funcionamento cotidiano da instituição, de modo que uma solução nova quase sempre substitui ou modifica uma solução anterior, mesmo quando ninguém a chamou assim na época.
 
-A [arquitetura de solução](bloco-1-arquitetura-de-solucoes-e-de-software.md#o-que-e-arquitetura-de-solucao), definida no bloco 1, trata a solução como um sistema, com partes que interagem para produzir o comportamento exigido. As partes podem ser novas ou já existentes, podem ser compartilhadas com outras soluções, e interagem por interfaces nas quais informação é trocada. Essa leitura tem uma consequência direta: uma solução não é avaliada pela qualidade isolada de cada parte, e sim pelo comportamento que o conjunto produz.
+A [arquitetura de solução](bloco-1-arquitetura-de-solucoes-e-de-software.md#o-que-e-arquitetura-de-solucao), definida no bloco 1, trata a solução como um sistema, com partes que interagem para produzir o comportamento exigido. As partes podem ser novas ou já existentes, podem ser compartilhadas com outras soluções, e interagem por interfaces nas quais informação é trocada. Essa leitura tem uma consequência direta: o comportamento que o conjunto produz é o que avalia a solução, e a qualidade isolada de cada parte não basta para julgá-la.
 
 ### Os três níveis de uma organização
 
@@ -47,7 +47,7 @@ Nem todo tipo de componente precisa mudar em toda solução. O desenho declara e
 
 ### Alinhamento com a estratégia
 
-A solução precisa sustentar, e idealmente reforçar, a estratégia de negócio e a estratégia de TI. A técnica de planejamento estratégico usada como referência organiza cinco níveis encaixados, visão, missão, objetivos, estratégia e táticas. A visão descreve a situação futura ideal, que nem sempre é alcançável, e serve para alinhar o entendimento de todos sobre o destino pretendido. Os objetivos tornam essa direção verificável, a estratégia define o caminho escolhido, e as táticas são as ações concretas que a realizam.
+A solução precisa sustentar, e idealmente reforçar, a estratégia de negócio e a estratégia de TI. Uma forma comum de planejar a estratégia organiza cinco níveis encaixados: visão, missão, objetivos, estratégia e táticas. A visão descreve a situação futura ideal, que nem sempre é alcançável, e serve para alinhar o entendimento de todos sobre o destino pretendido. Os objetivos tornam essa direção verificável, a estratégia define o caminho escolhido, e as táticas são as ações concretas que a realizam.
 
 Para o arquiteto, a utilidade prática dessa cadeia é o teste de coerência. Uma solução proposta que não se ligue a nenhum objetivo declarado da organização, ou que contrarie uma estratégia vigente, precisa ser reformulada ou explicitamente negociada com quem responde pela estratégia. Na ACME, a meta de reduzir o custo anual de propriedade de R$ 15,83 milhões para R$ 11,0 milhões até o fim de 2029 é o objetivo ao qual qualquer decisão de plataforma precisa se ligar, e o contrato de capacidade do mainframe vigente até 31/12/2028 é o fato que impede tratar a redução como consequência automática da migração.
 
@@ -61,20 +61,20 @@ Os três níveis servem para situar o alcance do que está sendo desenhado e par
 
 {{ficha:1}}
 
-**Para que serve.** Uma solução não é só tecnologia. Ela também muda pessoas, áreas, processos e informações, e tudo isso precisa estar visível no caderno para que nada fique sem responsável. Esta parte da seção 1 reúne os componentes de uma solução e mostra em que nível da organização cada elemento do problema aparece: no negócio, na informação ou na TI.
+**Para que serve.** Uma solução não é só tecnologia. Para o sistema funcionar, alguém precisa aprender a usá-lo, uma área pode ter de mudar a rotina, um contrato pode precisar de aditivo e só então entra o programa. Cada uma dessas peças é um componente da solução, e todas precisam aparecer no caderno para que nenhuma fique sem responsável. Esta parte da seção 1 lista os componentes e mostra em que nível da organização cada fato do problema aparece.
 
-**O que você faz neste exercício.** A Coordenação de Educação a Distância pediu que a nota lançada pelo professor chegue ao ambiente virtual em até 10 minutos, o requisito R7. O enunciado traz dez componentes que poderiam atender a esse pedido, de CP1 a CP10, e seis elementos da situação atual, de N1 a N6. Você classifica uns e outros e registra o resultado no caderno.
+**O que você faz neste exercício.** O exercício parte de um pedido real da ACME. A Coordenação de Educação a Distância quer que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos, e hoje ela chega no dia seguinte, por um envio noturno. Esse pedido é o requisito R7. O enunciado reúne dez componentes que poderiam atender ao pedido, numerados de CP1 a CP10, como treinar os professores para publicar a nota na hora (pessoas) ou criar uma mensageria entre os dois sistemas (tecnologia). Traz também seis fatos sobre a situação atual, numerados de N1 a N6, como o calendário que fixa a data de fechamento das notas. Você diz de que tipo é cada componente, em que nível da organização está cada fato, e registra as respostas no caderno.
 
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
-| Tipo do componente | Classifique cada componente em um dos cinco tipos: pessoas, estruturas organizacionais (áreas, contratos e acordos), processos, informação ou tecnologia | 1 |
+| Tipo do componente | Classifique cada componente em um dos cinco tipos: pessoas (quem faz ou aprende algo), estruturas organizacionais (áreas, contratos e acordos), processos (como o trabalho é feito), informação (dados e registros) ou tecnologia (equipamentos e programas) | 1 |
 | Tipo sem componente | Confira se algum tipo ficou sem nenhum componente, o que indicaria algo esquecido na solução, e diga qual tipo mais muda a rotina de quem trabalha na instituição | 1 |
-| Nível do elemento | Diga se cada elemento da situação atual pertence ao sistema de negócio (o que a universidade oferece), ao sistema de informação (pessoas, processos e registros) ou ao sistema de TI (equipamentos e programas) | 2 |
+| Nível do elemento | Diga se cada fato da situação atual pertence ao sistema de negócio (o que a universidade oferece, como o serviço de avaliação), ao sistema de informação (as pessoas, os processos e os registros que cuidam da informação) ou ao sistema de TI (equipamentos e programas) | 2 |
 | Prazo percebido | Explique em até cinco linhas por que trocar só a tecnologia pode não encurtar o prazo que o aluno percebe | 2 |
 
 **O que você já tem.** A tabela de decisões do exercício 1, que mostra quais decisões mexem em componentes além da tecnologia.
 
-**Quando está pronto.** Os dez componentes têm tipo, os seis elementos têm nível e a explicação do prazo percebido está escrita.
+**Quando está pronto.** Os dez componentes têm tipo, os seis fatos têm nível e a explicação do prazo percebido está escrita.
 
 [Ver esta seção no template](../caderno/template.md#1-contexto){ .caderno-botao }
 [Ver o gabarito do exercício 2](../gabaritos/gabarito-exercicio-02.md){ .caderno-botao }
