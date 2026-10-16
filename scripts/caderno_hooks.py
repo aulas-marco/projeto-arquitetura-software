@@ -1,7 +1,9 @@
 """Hook do MkDocs que expande a marcação do caderno arquitetural em HTML.
 
-Gramática: {{ficha:N}} e {{/ficha}}, {{folha:N}} e {{/folha}}, {{trilha:N}} ou
-{{trilha:todas}}, {{progresso:N}}, {{novo}} e {{/novo}}.
+Gramática: {{ficha:N}} ou {{ficha:N:AULA}} e {{/ficha}}, {{folha:N}} e {{/folha}},
+{{trilha:N}}, {{trilha:N:AULA}} ou {{trilha:todas}}, {{progresso:N}}, {{novo}} e
+{{/novo}}. A aula é obrigatória quando a seção N é preenchida em mais de uma aula,
+como a 4 e a 7, e nas seções 0 e 10, que são revistas ao fim de cada aula.
 """
 
 import re
@@ -21,10 +23,36 @@ def _secao(valor):
     return int(valor)
 
 
-def _exercicios_da_secao(secao):
+def _todos_os_exercicios(secao):
     if secao in SUBSTITUI:
         return list(SUBSTITUI[secao])
     return sorted(n for n, secoes in PLANO.items() if secao in secoes)
+
+
+def _aula(valor):
+    if valor is None:
+        return None
+    if not valor.isdigit() or not 1 <= int(valor) <= 6:
+        raise ValueError(f"número de aula inválido: {valor!r}")
+    return int(valor)
+
+
+def _exercicios(secao, aula):
+    """Exercícios da seção, restritos à aula quando ela é informada."""
+    todos = _todos_os_exercicios(secao)
+    aulas = {EXERCICIOS[n][0] for n in todos}
+    if aula is None:
+        if len(aulas) > 1:
+            raise ValueError(f"a seção {secao} abrange mais de uma aula, informe a aula, como {{{{ficha:{secao}:AULA}}}}")
+        return todos
+    escolhidos = [n for n in todos if EXERCICIOS[n][0] == aula]
+    if not escolhidos:
+        raise ValueError(f"a seção {secao} não é preenchida na aula {aula}")
+    return escolhidos
+
+
+def _primeira_vez(secao):
+    return min(_todos_os_exercicios(secao))
 
 
 def _lista_de_exercicios(numeros):
@@ -34,10 +62,12 @@ def _lista_de_exercicios(numeros):
     return f"Exercícios {corpo}"
 
 
-def trilha(ativa, solta=False):
+def trilha(ativa, solta=False, ate=None):
+    """Nós das onze seções. Feita é a seção preenchida antes do exercício `ate`."""
     itens = []
     for numero in range(11):
-        classe = "feito" if ativa is not None and numero < ativa else ("atual" if numero == ativa else "")
+        feita = ativa is not None and ate is not None and numero != ativa and _primeira_vez(numero) < ate
+        classe = "feito" if feita else ("atual" if numero == ativa else "")
         atual = ' aria-current="step"' if numero == ativa else ""
         itens.append(
             f'<li class="{classe}"{atual} title="{numero}. {TITULOS_SECAO[numero]}"><span class="no">{numero}</span>'
@@ -61,8 +91,8 @@ def progresso(n):
     )
 
 
-def _ficha(secao):
-    exercicios = _exercicios_da_secao(secao)
+def _ficha(secao, aula):
+    exercicios = _exercicios(secao, aula)
     aula = EXERCICIOS[exercicios[0]][0]
     titulo = TITULOS_SECAO[secao]
     return (
@@ -70,7 +100,7 @@ def _ficha(secao):
         f'<div class="cabeca"><span class="numero">{secao}</span><div class="titulo">'
         f'<p class="marca">Seção do caderno</p><p class="nome">{titulo}</p>'
         f'<p class="etiquetas"><span>Aula {aula}</span><span>{_lista_de_exercicios(exercicios)}</span></p>'
-        f'</div></div>\n\n{trilha(secao)}\n\n'
+        f'</div></div>\n\n{trilha(secao, ate=min(exercicios))}\n\n'
     )
 
 
@@ -89,7 +119,8 @@ def expandir(markdown):
             return "\n\n</div>\n"
         if nome == "ficha":
             pilha.append(nome)
-            return _ficha(_secao(valor))
+            partes = (valor or "").split(":")
+            return _ficha(_secao(partes[0]), _aula(partes[1] if len(partes) > 1 else None))
         if nome == "folha":
             pilha.append(nome)
             return _folha(_secao(valor))
@@ -97,7 +128,12 @@ def expandir(markdown):
             pilha.append(nome)
             return '<div class="caderno-novo" markdown="1">\n\n'
         if nome == "trilha":
-            return trilha(None if valor == "todas" else _secao(valor), solta=True)
+            if valor == "todas":
+                return trilha(None, solta=True)
+            partes = (valor or "").split(":")
+            secao = _secao(partes[0])
+            exercicios = _exercicios(secao, _aula(partes[1] if len(partes) > 1 else None))
+            return trilha(secao, solta=True, ate=min(exercicios))
         if nome == "progresso":
             if valor is None or not valor.isdigit() or not 1 <= int(valor) <= 24:
                 raise ValueError(f"número de exercício inválido: {valor!r}")

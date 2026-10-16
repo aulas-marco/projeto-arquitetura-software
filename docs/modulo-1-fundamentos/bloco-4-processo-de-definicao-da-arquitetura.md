@@ -84,7 +84,7 @@ O ciclo também organiza a conversa sobre incerteza. Quando o patrocinador pergu
 
 O exercício deste bloco fecha a Aula 1 com o mapa dos artefatos do caso nas fases do processo, registra a primeira pendência na seção 10 e leva a primeira versão do resumo da seção 0.
 
-| Campo da seção 1 | O que preencher | Item |
+| Campo do caderno | O que preencher | Item |
 | --- | --- | --- |
 | Fase | A fase do ciclo em que cada artefato de A1 a A10 é produzido ou usado | 1 |
 | Papel | Entrada, produto intermediário ou entregável | 1 |

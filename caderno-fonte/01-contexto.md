@@ -8,17 +8,18 @@ modo: acumula
 | --- | --- |
 | O que vai | A instituição e os números do problema, as restrições que chegam fechadas, as respostas já excluídas, as decisões classificadas por nível de arquitetura, os componentes da solução nos cinco tipos e os papéis de quem decide |
 | Pergunta que responde | Que organização é esta, que problema ela precisa resolver e quem decide cada parte |
-| Artefatos e códigos | Tabela de porte, tabela de restrições com origem e efeito, decisões D1 a Dn pelo nível que cada uma toma, premissas PR1 a PRn |
+| Artefatos e códigos | Tabela de porte, tabela de restrições com origem e efeito, decisões D1 a Dn pelo nível que cada uma toma, componentes CP1 a CPn e elementos N1 a Nn do requisito em análise, tarefas T1 a Tn, artefatos A1 a An e premissas PR1 a PRn |
 | Entrada | O dossiê do caso ACME, em particular a página inicial do caso e os dados operacionais |
 | Preenchida em | Aula 1, exercícios 1 a 4 |
 <!--/orientacao-->
 
 <!--ex n=1 titulo="Instituição, restrições e decisões por nível"-->
 <!--campos-->
-- Instituição, pergunta central e restrições fechadas, fornecidas pelo dossiê
-- Nível de arquitetura de cada decisão D1 a D9, com a justificativa pelo alcance do efeito
-- Tipo de componente não tecnológico afetado pelas decisões de solução
-- Dependência entre decisões
+- Dado do dossiê: instituição, pergunta central e restrições fechadas, já preenchidos
+- Nível: arquitetura corporativa, de solução ou de software, para cada decisão de D1 a D9
+- Justificativa: uma linha pelo alcance do efeito da decisão
+- Componente não tecnológico afetado: pessoas, estruturas organizacionais, processos ou informação, nas decisões de solução
+- Dependência entre decisões: a decisão de que cada uma depende e o motivo
 <!--/campos-->
 <!--gabarito-->
 #### Instituição e pergunta central
@@ -64,7 +65,7 @@ O critério de classificação é o alcance do efeito da decisão. Decisão que 
 | D8 | O histórico escolar é emitido com assinatura digital no padrão ICP-Brasil | Solução | Muda o procedimento de emissão e depende de certificado de terceiro, sem valer para iniciativas futuras |
 | D9 | A transição ocorre por extração incremental de módulos, com o núcleo em operação | Solução | Afeta o contrato de sustentação, o calendário acadêmico e a rotina das equipes |
 
-As decisões D1 a D3 vêm do caderno de referência, e as decisões D4 a D9 estão **propostas** e dependem de validação com as partes interessadas.
+As decisões D1, D4 e D7 reproduzem as restrições fechadas RT4, RT5 e RT6. As decisões D2, D3, D5, D6, D8 e D9 estão **propostas** e dependem de validação com as partes interessadas.
 
 #### Componente não tecnológico afetado
 
@@ -84,8 +85,10 @@ A decisão D3 depende da D2. Sem a D2, o reenvio com intervalo crescente seria d
 
 <!--ex n=2 titulo="Componentes da solução do R7"-->
 <!--campos-->
-- Tipo de cada componente candidato CP1 a CP10
-- Nível de cada elemento da situação atual N1 a N6
+- Tipo do componente: pessoas, estruturas organizacionais, processos, informação ou tecnologia, para cada componente de CP1 a CP10
+- Tipo sem componente: se algum dos cinco tipos ficou vazio, e o tipo de maior impacto sobre quem trabalha
+- Nível do elemento: sistema de negócio, de informação ou de TI, para cada elemento de N1 a N6
+- Prazo percebido: por que uma solução só de TI pode não reduzir o prazo que o aluno percebe
 <!--/campos-->
 <!--gabarito-->
 #### Componentes da solução do R7
@@ -124,9 +127,10 @@ Uma solução construída apenas no nível de sistema de TI troca o lote noturno
 
 <!--ex n=3 titulo="Papéis e responsabilidades do ciclo"-->
 <!--campos-->
-- Nível de arquitetura responsável por cada tarefa T1 a T10
-- Grupo de competência das tarefas do arquiteto de solução
-- Benefício da abordagem que justifica a tarefa T10
+- Responsável: arquiteto de solução, arquiteto de software ou arquitetura corporativa, para cada tarefa de T1 a T10
+- Justificativa: uma linha pelo alcance da tarefa
+- Grupo de competência: negócio, técnico, entrega ou prático, para as tarefas do arquiteto de solução
+- Benefício da tarefa T10: o benefício da abordagem que justifica a verificação de reúso
 <!--/campos-->
 <!--gabarito-->
 #### Responsável por cada tarefa
@@ -156,12 +160,16 @@ A tarefa T10 se justifica pelo benefício do **reúso**, porque a consulta ao ca
 
 <!--ex n=4 titulo="Artefatos nas fases do processo, premissas e escopo"-->
 <!--campos-->
-- Fase, papel e seção do caderno de cada artefato A1 a A10
-- Artefatos de linha de base
-- Premissas e exclusões do escopo, fornecidas pelo caderno de referência
+- Fase: a fase do ciclo em que cada artefato de A1 a A10 é produzido ou usado
+- Papel: entrada, produto intermediário ou entregável
+- Linha de base: se o artefato já existia antes do início do processo
+- Seção do caderno: a seção em que o resultado de cada artefato fica registrado
+- Dado do caso: premissas e exclusões do escopo, propostas pelo curso para confirmação na descoberta
 <!--/campos-->
 <!--gabarito-->
 #### Artefatos nas fases do processo
+
+Os papéis seguem o bloco 3. Entrada é o artefato que a fase recebe, produto intermediário é a saída que alimenta outra fase de trabalho e entregável é a saída que o patrocinador recebe como resultado do trabalho do arquiteto. O documento de iniciação é artefato de entrada, e a comparação de alternativas é o caso de negócio levado ao Conselho, por isso entregável da análise.
 
 | Código | Artefato | Fase | Papel | Linha de base | Seção do caderno |
 | --- | --- | --- | --- | --- | --- |
@@ -169,7 +177,7 @@ A tarefa T10 se justifica pelo benefício do **reúso**, porque a consulta ao ca
 | A2 | Inventário dos componentes atuais | 2. Descoberta | Entrada | Sim | 4 |
 | A3 | Catálogo de blocos de construção e interfaces | 4. Análise | Produto intermediário | Não | 7 |
 | A4 | Registro da decisão da Reitoria de 12/03/2026 | 1. Iniciação | Entrada | Sim | 1 |
-| A5 | Comparação de duas alternativas de modernização | 4. Análise | Produto intermediário | Não | 7 |
+| A5 | Comparação de duas alternativas de modernização | 4. Análise | Entregável | Não | 7 |
 | A6 | Modelo único de componentes da solução | 5. Desenho lógico | Entregável | Não | 7 |
 | A7 | Sequência de extração dos módulos | 7. Desenvolvimento do roteiro | Entregável | Não | 9 |
 | A8 | Lista de componentes acrescentados, removidos e alterados | 6. Validação | Produto intermediário | Não | 4 |
@@ -179,6 +187,8 @@ A tarefa T10 se justifica pelo benefício do **reúso**, porque a consulta ao ca
 Os artefatos de linha de base são A1, A2 e A4, porque já descreviam parte da situação atual antes do início do processo. O pedido da data de conclusão chega depois do A9, na iniciação, e a data só pode ser dada com precisão depois da fase 7, em que sai a estimativa de prazo e de custo. Até lá, o caderno registra a pendência na seção 10.
 
 #### Premissas
+
+As premissas e as exclusões a seguir são dados do caso, propostos pelo curso para confirmação na descoberta, e não resposta do exercício.
 
 | Código | Premissa | Se for falsa | Como verificar |
 | --- | --- | --- | --- |

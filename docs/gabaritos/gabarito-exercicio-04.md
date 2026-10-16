@@ -18,7 +18,7 @@ O caderno abaixo reúne o resultado dos exercícios 1 a 4, e o trecho em destaqu
 
 **O que a organização aceita em troca.** A definir, depois da escolha do estilo na Aula 3.
 
-**Estado.** As decisões D1 a D9 estão classificadas por nível, as decisões D4 a D9 e as sete premissas estão **propostas**, e a data de conclusão do ciclo depende da fase 7 do processo.
+**Estado.** As decisões D1 a D9 estão classificadas por nível, as decisões D2, D3, D5, D6, D8 e D9 e as sete premissas estão **propostas**, e a data de conclusão do ciclo depende da fase 7 do processo.
 
 {{/novo}}
 
@@ -69,7 +69,7 @@ O critério de classificação é o alcance do efeito da decisão. Decisão que 
 | D8 | O histórico escolar é emitido com assinatura digital no padrão ICP-Brasil | Solução | Muda o procedimento de emissão e depende de certificado de terceiro, sem valer para iniciativas futuras |
 | D9 | A transição ocorre por extração incremental de módulos, com o núcleo em operação | Solução | Afeta o contrato de sustentação, o calendário acadêmico e a rotina das equipes |
 
-As decisões D1 a D3 vêm do caderno de referência, e as decisões D4 a D9 estão **propostas** e dependem de validação com as partes interessadas.
+As decisões D1, D4 e D7 reproduzem as restrições fechadas RT4, RT5 e RT6. As decisões D2, D3, D5, D6, D8 e D9 estão **propostas** e dependem de validação com as partes interessadas.
 
 #### Componente não tecnológico afetado
 
@@ -150,13 +150,15 @@ A tarefa T10 se justifica pelo benefício do **reúso**, porque a consulta ao ca
 
 #### Artefatos nas fases do processo
 
+Os papéis seguem o bloco 3. Entrada é o artefato que a fase recebe, produto intermediário é a saída que alimenta outra fase de trabalho e entregável é a saída que o patrocinador recebe como resultado do trabalho do arquiteto. O documento de iniciação é artefato de entrada, e a comparação de alternativas é o caso de negócio levado ao Conselho, por isso entregável da análise.
+
 | Código | Artefato | Fase | Papel | Linha de base | Seção do caderno |
 | --- | --- | --- | --- | --- | --- |
 | A1 | Mapa de atores | 2. Descoberta | Entrada | Sim | 2 |
 | A2 | Inventário dos componentes atuais | 2. Descoberta | Entrada | Sim | 4 |
 | A3 | Catálogo de blocos de construção e interfaces | 4. Análise | Produto intermediário | Não | 7 |
 | A4 | Registro da decisão da Reitoria de 12/03/2026 | 1. Iniciação | Entrada | Sim | 1 |
-| A5 | Comparação de duas alternativas de modernização | 4. Análise | Produto intermediário | Não | 7 |
+| A5 | Comparação de duas alternativas de modernização | 4. Análise | Entregável | Não | 7 |
 | A6 | Modelo único de componentes da solução | 5. Desenho lógico | Entregável | Não | 7 |
 | A7 | Sequência de extração dos módulos | 7. Desenvolvimento do roteiro | Entregável | Não | 9 |
 | A8 | Lista de componentes acrescentados, removidos e alterados | 6. Validação | Produto intermediário | Não | 4 |
@@ -166,6 +168,8 @@ A tarefa T10 se justifica pelo benefício do **reúso**, porque a consulta ao ca
 Os artefatos de linha de base são A1, A2 e A4, porque já descreviam parte da situação atual antes do início do processo. O pedido da data de conclusão chega depois do A9, na iniciação, e a data só pode ser dada com precisão depois da fase 7, em que sai a estimativa de prazo e de custo. Até lá, o caderno registra a pendência na seção 10.
 
 #### Premissas
+
+As premissas e as exclusões a seguir são dados do caso, propostos pelo curso para confirmação na descoberta, e não resposta do exercício.
 
 | Código | Premissa | Se for falsa | Como verificar |
 | --- | --- | --- | --- |
@@ -196,9 +200,9 @@ Os artefatos de linha de base são A1, A2 e A4, porque já descreviam parte da s
 
 | Pendência | Quem decide | Quando se resolve |
 | --- | --- | --- |
-| Data de conclusão do ciclo | Reitoria, como patrocinadora, com o roteiro autorizado | Fase 7, desenvolvimento do roteiro |
-| Nomeação do patrocinador de negócio | Reitoria | Fase 1, iniciação |
-| Validação das decisões D4 a D9, propostas | Partes interessadas da seção 2 | Fase 6, validação |
+| Data de conclusão do ciclo | Reitoria, candidata a patrocinadora, com o roteiro autorizado | Fase 7, desenvolvimento do roteiro |
+| Nomeação do patrocinador de negócio | Reitoria | Antes da fase 3, definição do esboço da solução |
+| Validação das decisões propostas D2, D3, D5, D6, D8 e D9 | Partes interessadas da seção 2 | Fase 6, validação |
 | Confirmação das premissas PR1 a PR7 | Responsáveis indicados na coluna Como verificar | Fase 2, descoberta |
 
 {{/novo}}

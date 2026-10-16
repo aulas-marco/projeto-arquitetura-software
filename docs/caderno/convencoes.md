@@ -4,7 +4,7 @@ O caderno usa códigos curtos para que uma decisão, um requisito e uma lacuna p
 
 ## Códigos de artefato
 
-Cada código é a inicial do artefato seguida de um número sequencial dentro do caderno, como R6 para o sexto requisito declarado.
+Cada código é a inicial do artefato seguida de um número sequencial dentro do caderno, como R6 para o sexto requisito declarado. Os códigos CP, N, T e A têm numeração própria em cada exercício da seção 1 e não colidem com os controles de segurança, que usam C.
 
 | Código | Artefato | Seção |
 | --- | --- | --- |
@@ -24,6 +24,10 @@ Cada código é a inicial do artefato seguida de um número sequencial dentro do
 | C | Controle de segurança | 8 |
 | LG | Ligação entre contêineres, com protocolo e contrato | 7 |
 | FA | Função de aptidão que verifica uma decisão na esteira | 9 |
+| CP | Componente candidato da solução, classificado por tipo | 1 |
+| N | Elemento da situação atual, lido nos três níveis de sistema | 1 |
+| T | Tarefa do ciclo de modernização, atribuída a um papel | 1 |
+| A | Artefato do caso, associado a fase, papel e seção | 1 |
 
 ## Marcadores de estado
 

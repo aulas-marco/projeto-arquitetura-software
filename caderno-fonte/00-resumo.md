@@ -25,6 +25,6 @@ modo: substitui
 
 **O que a organização aceita em troca.** A definir, depois da escolha do estilo na Aula 3.
 
-**Estado.** As decisões D1 a D9 estão classificadas por nível, as decisões D4 a D9 e as sete premissas estão **propostas**, e a data de conclusão do ciclo depende da fase 7 do processo.
+**Estado.** As decisões D1 a D9 estão classificadas por nível, as decisões D2, D3, D5, D6, D8 e D9 e as sete premissas estão **propostas**, e a data de conclusão do ciclo depende da fase 7 do processo.
 <!--/gabarito-->
 <!--/ex-->

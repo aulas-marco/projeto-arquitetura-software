@@ -60,7 +60,7 @@ EXERCICIOS = {
     24: (6, "modulo-6-lacunas-e-governanca/bloco-4-inovacao-e-tendencias.md", "Inovação e tendências"),
 }
 
-CODIGOS = ("D", "PR", "RT", "R", "RD", "CQ", "L", "P", "DD", "DL", "B", "I", "ADR", "C", "LG", "FA")
+CODIGOS = ("D", "PR", "RT", "R", "RD", "CQ", "L", "P", "DD", "DL", "B", "I", "ADR", "C", "LG", "FA", "CP", "N", "T", "A")
 
 ROTULOS_CURTOS = {
     0: "Resumo", 1: "Contexto", 2: "Partes", 3: "Requisitos", 4: "Linha de base",

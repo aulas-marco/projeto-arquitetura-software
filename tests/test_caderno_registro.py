@@ -48,6 +48,6 @@ class RegistroTest(unittest.TestCase):
 
     def test_codigos_de_artefato(self):
         self.assertEqual(
-            ("D", "PR", "RT", "R", "RD", "CQ", "L", "P", "DD", "DL", "B", "I", "ADR", "C", "LG", "FA"),
+            ("D", "PR", "RT", "R", "RD", "CQ", "L", "P", "DD", "DL", "B", "I", "ADR", "C", "LG", "FA", "CP", "N", "T", "A"),
             self.reg.CODIGOS,
         )

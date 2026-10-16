@@ -53,7 +53,7 @@ O critério de classificação é o alcance do efeito da decisão. Decisão que 
 | D8 | O histórico escolar é emitido com assinatura digital no padrão ICP-Brasil | Solução | Muda o procedimento de emissão e depende de certificado de terceiro, sem valer para iniciativas futuras |
 | D9 | A transição ocorre por extração incremental de módulos, com o núcleo em operação | Solução | Afeta o contrato de sustentação, o calendário acadêmico e a rotina das equipes |
 
-As decisões D1 a D3 vêm do caderno de referência, e as decisões D4 a D9 estão **propostas** e dependem de validação com as partes interessadas.
+As decisões D1, D4 e D7 reproduzem as restrições fechadas RT4, RT5 e RT6. As decisões D2, D3, D5, D6, D8 e D9 estão **propostas** e dependem de validação com as partes interessadas.
 
 #### Componente não tecnológico afetado
 

@@ -14,12 +14,15 @@ modo: substitui
 <!--/orientacao-->
 
 <!--ex n=4 titulo="Pendências ao fim da Aula 1"-->
+<!--campos-->
+- Pendência da data de conclusão: quem decide e em que fase a data se resolve
+<!--/campos-->
 <!--gabarito-->
 | Pendência | Quem decide | Quando se resolve |
 | --- | --- | --- |
-| Data de conclusão do ciclo | Reitoria, como patrocinadora, com o roteiro autorizado | Fase 7, desenvolvimento do roteiro |
-| Nomeação do patrocinador de negócio | Reitoria | Fase 1, iniciação |
-| Validação das decisões D4 a D9, propostas | Partes interessadas da seção 2 | Fase 6, validação |
+| Data de conclusão do ciclo | Reitoria, candidata a patrocinadora, com o roteiro autorizado | Fase 7, desenvolvimento do roteiro |
+| Nomeação do patrocinador de negócio | Reitoria | Antes da fase 3, definição do esboço da solução |
+| Validação das decisões propostas D2, D3, D5, D6, D8 e D9 | Partes interessadas da seção 2 | Fase 6, validação |
 | Confirmação das premissas PR1 a PR7 | Responsáveis indicados na coluna Como verificar | Fase 2, descoberta |
 <!--/gabarito-->
 <!--/ex-->

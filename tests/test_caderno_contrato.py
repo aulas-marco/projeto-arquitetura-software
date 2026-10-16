@@ -84,3 +84,25 @@ class ContratoDoCadernoTest(unittest.TestCase):
         for n in (1, 2, 3, 4):
             with self.subTest(exercicio=n):
                 self.assertTrue((DOCS / "gabaritos" / f"gabarito-exercicio-{n:02d}.md").is_file())
+
+    def test_todo_campo_da_ficha_de_um_bloco_existe_no_template(self):
+        """Spec 6.3: o campo que a seção No caderno arquitetural lista existe nos campos da fonte."""
+        validador = carregar("validate_content")
+        por_arquivo = {Path(arquivo).name: n for n, (_, arquivo, _) in self.reg.EXERCICIOS.items()}
+        for nome in sorted(validador.CADERNO_BLOCKS):
+            n = por_arquivo[nome]
+            pagina = next((DOCS).glob(f"modulo-*/{nome}")).read_text(encoding="utf-8")
+            ficha = pagina[pagina.index("{{ficha:"):pagina.index("{{/ficha}}")]
+            campos_da_ficha = [
+                linha.split("|")[1].strip()
+                for linha in ficha.splitlines()
+                if linha.startswith("| ") and not linha.startswith(("| Campo", "| ---"))
+            ]
+            campos_da_fonte = " ".join(
+                f.campos for secao in self.secoes for f in secao.fragmentos if f.n == n
+            ).casefold()
+            with self.subTest(bloco=nome):
+                self.assertGreaterEqual(len(campos_da_ficha), 3)
+                for campo in campos_da_ficha:
+                    with self.subTest(campo=campo):
+                        self.assertIn(campo.casefold(), campos_da_fonte)

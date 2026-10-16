@@ -79,3 +79,32 @@ class HooksTest(unittest.TestCase):
     def test_ficha_aberta_sem_fechamento_e_rejeitada(self):
         with self.assertRaises(ValueError):
             self.h.expandir("{{ficha:1}}\n\ncorpo")
+
+    def test_ficha_de_secao_que_abrange_varias_aulas_exige_a_aula(self):
+        with self.assertRaises(ValueError):
+            self.h.expandir("{{ficha:7}}\n\ncorpo\n\n{{/ficha}}")
+        html = self.h.expandir("{{ficha:7:4}}\n\ncorpo\n\n{{/ficha}}")
+        self.assertIn("Aula 4", html)
+        self.assertIn("Exercícios 13, 14 e 16", html)
+        self.assertNotIn("Aula 3", html)
+
+    def test_ficha_com_aula_das_secoes_de_substituicao_mostra_o_exercicio_do_fim_da_aula(self):
+        html = self.h.expandir("{{ficha:0:1}}\n\ncorpo\n\n{{/ficha}}")
+        self.assertIn("Aula 1", html)
+        self.assertIn("Exercício 4", html)
+        html = self.h.expandir("{{ficha:4:6}}\n\ncorpo\n\n{{/ficha}}")
+        self.assertIn("Aula 6", html)
+        self.assertIn("Exercício 21", html)
+
+    def test_aula_sem_exercicio_da_secao_e_rejeitada(self):
+        with self.assertRaises(ValueError):
+            self.h.expandir("{{ficha:1:3}}\n\ncorpo\n\n{{/ficha}}")
+
+    def test_feito_significa_preenchida_antes_do_primeiro_exercicio_da_ficha(self):
+        na_secao_1 = self.h.expandir("{{ficha:1}}\n\ncorpo\n\n{{/ficha}}")
+        self.assertEqual(0, na_secao_1.count('class="feito"'))
+        na_secao_3 = self.h.expandir("{{ficha:3}}\n\ncorpo\n\n{{/ficha}}")
+        self.assertEqual(3, na_secao_3.count('class="feito"'))
+        for numero in (0, 1, 10):
+            self.assertRegex(na_secao_3, rf'class="feito"[^>]*><span class="no">{numero}<')
+        self.assertNotRegex(na_secao_3, r'class="feito"[^>]*><span class="no">2<')

@@ -26,7 +26,7 @@ O caderno arquitetural é o documento de arquitetura da solução da ACME. Ele r
 | --- | --- |
 | O que vai | A instituição e os números do problema, as restrições que chegam fechadas, as respostas já excluídas, as decisões classificadas por nível de arquitetura, os componentes da solução nos cinco tipos e os papéis de quem decide |
 | Pergunta que responde | Que organização é esta, que problema ela precisa resolver e quem decide cada parte |
-| Artefatos e códigos | Tabela de porte, tabela de restrições com origem e efeito, decisões D1 a Dn pelo nível que cada uma toma, premissas PR1 a PRn |
+| Artefatos e códigos | Tabela de porte, tabela de restrições com origem e efeito, decisões D1 a Dn pelo nível que cada uma toma, componentes CP1 a CPn e elementos N1 a Nn do requisito em análise, tarefas T1 a Tn, artefatos A1 a An e premissas PR1 a PRn |
 | Entrada | O dossiê do caso ACME, em particular a página inicial do caso e os dados operacionais |
 | Preenchida em | Aula 1, exercícios 1 a 4 |
 
@@ -36,10 +36,11 @@ Preenchida no exercício 1.
 
 Campos a preencher:
 
-- Instituição, pergunta central e restrições fechadas, fornecidas pelo dossiê
-- Nível de arquitetura de cada decisão D1 a D9, com a justificativa pelo alcance do efeito
-- Tipo de componente não tecnológico afetado pelas decisões de solução
-- Dependência entre decisões
+- Dado do dossiê: instituição, pergunta central e restrições fechadas, já preenchidos
+- Nível: arquitetura corporativa, de solução ou de software, para cada decisão de D1 a D9
+- Justificativa: uma linha pelo alcance do efeito da decisão
+- Componente não tecnológico afetado: pessoas, estruturas organizacionais, processos ou informação, nas decisões de solução
+- Dependência entre decisões: a decisão de que cada uma depende e o motivo
 
 ### 1.2 Componentes da solução do R7
 
@@ -47,8 +48,10 @@ Preenchida no exercício 2.
 
 Campos a preencher:
 
-- Tipo de cada componente candidato CP1 a CP10
-- Nível de cada elemento da situação atual N1 a N6
+- Tipo do componente: pessoas, estruturas organizacionais, processos, informação ou tecnologia, para cada componente de CP1 a CP10
+- Tipo sem componente: se algum dos cinco tipos ficou vazio, e o tipo de maior impacto sobre quem trabalha
+- Nível do elemento: sistema de negócio, de informação ou de TI, para cada elemento de N1 a N6
+- Prazo percebido: por que uma solução só de TI pode não reduzir o prazo que o aluno percebe
 
 ### 1.3 Papéis e responsabilidades do ciclo
 
@@ -56,9 +59,10 @@ Preenchida no exercício 3.
 
 Campos a preencher:
 
-- Nível de arquitetura responsável por cada tarefa T1 a T10
-- Grupo de competência das tarefas do arquiteto de solução
-- Benefício da abordagem que justifica a tarefa T10
+- Responsável: arquiteto de solução, arquiteto de software ou arquitetura corporativa, para cada tarefa de T1 a T10
+- Justificativa: uma linha pelo alcance da tarefa
+- Grupo de competência: negócio, técnico, entrega ou prático, para as tarefas do arquiteto de solução
+- Benefício da tarefa T10: o benefício da abordagem que justifica a verificação de reúso
 
 ### 1.4 Artefatos nas fases do processo, premissas e escopo
 
@@ -66,9 +70,11 @@ Preenchida no exercício 4.
 
 Campos a preencher:
 
-- Fase, papel e seção do caderno de cada artefato A1 a A10
-- Artefatos de linha de base
-- Premissas e exclusões do escopo, fornecidas pelo caderno de referência
+- Fase: a fase do ciclo em que cada artefato de A1 a A10 é produzido ou usado
+- Papel: entrada, produto intermediário ou entregável
+- Linha de base: se o artefato já existia antes do início do processo
+- Seção do caderno: a seção em que o resultado de cada artefato fica registrado
+- Dado do caso: premissas e exclusões do escopo, propostas pelo curso para confirmação na descoberta
 
 {{/folha}}
 
