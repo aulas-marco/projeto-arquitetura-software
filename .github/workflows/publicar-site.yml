@@ -39,6 +39,9 @@ jobs:
       - name: Executar os testes
         run: python -m unittest discover -s tests -v
 
+      - name: Conferir as páginas geradas do caderno
+        run: python scripts/gerar_caderno.py --check
+
       - name: Validar o conteúdo do curso
         run: python scripts/validate_content.py
 

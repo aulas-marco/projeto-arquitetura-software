@@ -185,6 +185,8 @@ O professor revisou o Módulo 1 publicado e determinou as mudanças abaixo. Elas
 
 ### 12.1 Anatomia da página de bloco, revista
 
+> **Revisto em 16/10/2026** por `2026-10-16-caderno-arquitetural-design.md`: a anatomia passa a oito seções, com `## No caderno arquitetural`, à medida que cada módulo migra.
+
 A página de bloco passa a ter **sete seções**, não oito. O Gabarito sai da anatomia pública.
 
 1. Título de nível 1, funcional
@@ -198,6 +200,8 @@ A página de bloco passa a ter **sete seções**, não oito. O Gabarito sai da a
 O validador de conteúdo (`scripts/validate_content.py`) e seus testes precisam refletir essa anatomia de sete seções, sem exigir Gabarito, e passam a exigir que o cabeçalho de Exercício traga um número.
 
 ### 12.2 Gabarito sai do site, entra na narrativa do PKA
+
+> **Revogado em 16/10/2026** por `2026-10-16-caderno-arquitetural-design.md`: os gabaritos voltam ao site, na seção Gabaritos, abertos desde a publicação.
 
 Nenhuma página pública contém gabarito, resposta ou critério de avaliação fechado. Esse conteúdo é reescrito com mais profundidade do que tinha no site e passa a viver em `~/pka/projects/aulas/PRJ-aulas-iec-asd-10-estrategias-e-projeto-de-arquitetura-de-software.md`, arquivo de narrativa do projeto no PKA do professor, fora deste repositório.
 

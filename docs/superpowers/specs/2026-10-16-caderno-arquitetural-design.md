@@ -44,7 +44,7 @@ O template reproduz as dez seções do pocket. Onde o pocket não tem lugar para
 | Seção | Conteúdo | Exercícios |
 | --- | --- | --- |
 | A solução em uma página | Problema, pergunta, decisão central, requisito guia, compromisso aceito e estado | escrita ao fim, revisada a cada aula, fechada no 24 |
-| 1. Contexto | Instituição, números, restrições fechadas, respostas excluídas. Subseções acrescentadas: decisões por nível de arquitetura, componentes da solução, papéis | 1, 2, 3 |
+| 1. Contexto | Instituição, números, restrições fechadas, respostas excluídas. Subseções acrescentadas: decisões por nível de arquitetura, componentes da solução, papéis, e o mapa das seções do caderno nas fases do processo | 1, 2, 3, 4 |
 | 2. Partes interessadas | Papéis, o que querem, o que temem, tratamento, conflitos | 8 |
 | 3. Requisitos | Catálogo com tipo, medida e prioridade, cenário de qualidade. Subseção acrescentada: direcionadores de mudança | 5, 6, 7 |
 | 4. Linha de base e lacunas | Camadas, integrações, incidentes, lacunas principais | linha de base no 7, lacunas no 21 |
@@ -80,6 +80,8 @@ A página de bloco passa de sete para oito seções, com `## No caderno arquitet
 3. a entrada, isto é, a seção anterior de que o bloco depende
 4. o critério de seção completa
 
+O validador exige a seção apenas nos blocos listados em `CADERNO_BLOCKS`, que cada parte da decomposição amplia, e rejeita a seção fora de ordem em qualquer bloco.
+
 ### 5.2 Exercícios
 
 - Cada item de exercício pede o preenchimento de um campo ou de uma coluna da seção, e o título do item nomeia o campo.
@@ -98,7 +100,8 @@ A página de bloco passa de sete para oito seções, com `## No caderno arquitet
 
 ### 6.1 Fonte única
 
-- O texto vive em `docs/caderno/fonte/`, um arquivo por seção, com cada trecho marcado pelo exercício que o produz.
+- O texto vive em `caderno-fonte/`, um arquivo por seção, com cada trecho marcado pelo exercício que o produz. A fonte fica fora de `docs/` porque o MkDocs a publicaria e o validador resolveria os links relativos a partir da pasta errada.
+- As seções 0 e 10 têm modo de substituição, e a página de gabarito N mostra só a versão mais recente com exercício menor ou igual a N. As demais seções acumulam.
 - O script `scripts/gerar_gabaritos.py` gera `docs/gabaritos/gabarito-exercicio-NN.md`, com todos os trechos de exercício menor ou igual a NN e o trecho de NN em destaque.
 - As páginas geradas são versionadas no repositório, porque o MkDocs as lê direto da pasta `docs/`.
 - A mesma fonte gera `caderno/template.md`, com os trechos substituídos por orientação de preenchimento.

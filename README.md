@@ -11,6 +11,8 @@ O site publicado está em <https://aulas-marco.github.io/projeto-arquitetura-sof
 | `docs/` | Páginas do site, uma pasta por aula, mais o caso ACME e a seção de referência |
 | `overrides/` | Ajustes do tema, entre eles a página de erro própria |
 | `scripts/validate_content.py` | Validador das regras editoriais do curso |
+| `caderno-fonte/` | Fonte do caderno arquitetural, uma seção por arquivo, com orientação e trechos de gabarito |
+| `scripts/gerar_caderno.py` | Gera `docs/caderno/` e `docs/gabaritos/` a partir da fonte, e com `--check` falha se alguma página diverge |
 | `tests/` | Contrato de conteúdo, executado na publicação |
 | `mkdocs.yml` | Configuração do site, navegação e redirecionamentos |
 
