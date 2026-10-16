@@ -1,6 +1,6 @@
 # Glossário
 
-Este glossário reúne os termos usados nas páginas do curso, com a definição adotada pela disciplina. Quem chega sem conhecer o assunto pode ler cada entrada isoladamente, porque ela explica o termo com palavras simples. Cada entrada corresponde a uma âncora, e a seção "Antes de começar" das páginas de bloco leva o aluno direto à definição do termo que vai usar.
+Quem abre uma página de bloco pela primeira vez costuma esbarrar em termos novos, como lacuna, linha de base ou zona de pouso, e este glossário existe para esse momento. Ele reúne os termos usados nas páginas do curso, com a definição adotada pela disciplina, e cada entrada explica o termo com palavras simples, de modo que dá para lê-la isoladamente. Como cada entrada corresponde a uma âncora, a seção "Antes de começar" das páginas de bloco leva o aluno direto à definição do termo que ele vai usar.
 
 ## Arquitetura de solução
 
@@ -20,7 +20,7 @@ Disciplina que define diretrizes, princípios e modelos válidos para a organiza
 
 ## Componentes da solução
 
-Os cinco tipos de elemento que formam uma solução: pessoas, estruturas organizacionais, processos, informação e tecnologia. O arquiteto os usa como lista de conferência para que nenhum fique de fora do desenho. Neste curso, "componente" sozinho quer dizer peça de TI, como um serviço, um banco de dados ou uma mensageria, e "componente da solução" é o sentido amplo, que abrange os cinco tipos.
+Quando a ACME decidiu que a nota deveria chegar ao ambiente virtual em até 10 minutos, a mudança envolvia mais do que programa: alguém precisaria aprender a lançar a nota na hora, e uma área teria de mudar a rotina de fechamento. Cada uma dessas peças é um componente da solução, que pode ser de cinco tipos: pessoas, estruturas organizacionais, processos, informação e tecnologia. O arquiteto os usa como lista de conferência para que nenhum fique de fora do desenho. Neste curso, "componente" sozinho quer dizer peça de TI, como um serviço, um banco de dados ou uma mensageria, e "componente da solução" é o sentido amplo, que abrange os cinco tipos.
 
 ## Bloco de construção da solução
 
@@ -44,11 +44,11 @@ Representação concreta da arquitetura, construída segundo um ponto de vista, 
 
 ## Arquitetura de linha de base
 
-Descrição da arquitetura como ela é hoje, com os componentes existentes, suas idades, seus responsáveis e suas integrações. É o ponto de partida para comparar com a arquitetura alvo.
+Descrição da arquitetura como ela é hoje, com os componentes existentes, suas idades, seus responsáveis e suas integrações. No caso da ACME, é o retrato de um núcleo em COBOL de 2004 que o arquiteto precisa conhecer antes de propor qualquer mudança, e serve de ponto de partida para comparar com a arquitetura alvo.
 
 ## Arquitetura alvo
 
-Descrição da arquitetura que se pretende ter ao fim de um ciclo de evolução. A diferença entre ela e a arquitetura de linha de base é o objeto da análise de lacunas.
+Descrição da arquitetura que se pretende ter ao fim de um ciclo de evolução, como a ACME com a nota chegando ao ambiente virtual em minutos. A diferença entre ela e a arquitetura de linha de base é a lacuna, que é o objeto da análise de lacunas.
 
 ## Artefato de linha de base
 
@@ -84,7 +84,7 @@ Expectativa concreta e mensurável sobre um atributo de qualidade, escrita com o
 
 ## Restrição
 
-Decisão ou condição imposta ao sistema de fora do processo de projeto. Ela limita as alternativas do arquiteto, que não tem poder para negociá-la.
+Decisão ou condição imposta ao sistema de fora do processo de projeto, como o parecer do Jurídico da ACME que exige o processamento de dado de aluno em território nacional. Ela limita as alternativas do arquiteto, que não tem poder para negociá-la.
 
 ## Requisito arquiteturalmente significativo
 
@@ -268,7 +268,7 @@ Catálogo que organiza, por camada arquitetural e categoria tecnológica, os pad
 
 ## Zona de pouso
 
-Base do ambiente em nuvem, preparada antes da primeira carga de trabalho. Organiza contas, rede, identidade, políticas e monitoramento para que as soluções futuras já nasçam com os padrões de segurança, governança e operação da organização.
+Base do ambiente em nuvem, preparada antes da primeira carga de trabalho, para que a ACME não precise reconfigurar segurança e rede a cada solução nova. Organiza contas, rede, identidade, políticas e monitoramento para que as soluções futuras já nasçam com os padrões de segurança, governança e operação da organização.
 
 ## Infraestrutura como código
 
@@ -316,4 +316,4 @@ Elemento que faz parte da arquitetura de um sistema e interessa a quem a analisa
 
 ## Caderno arquitetural
 
-Documento em que a arquitetura da solução da ACME vai sendo registrada ao longo do curso, em dez seções mais um resumo, do contexto ao roteiro e à governança. Cada exercício preenche uma parte dele. O [template](../caderno/template.md) mostra o caderno vazio, e a seção Gabaritos mostra o caderno preenchido a cada exercício.
+Documento em que a arquitetura da solução da ACME vai sendo registrada ao longo do curso, em dez seções mais um resumo, do contexto ao roteiro e à governança, de modo que quem chegar depois ao projeto entenda o que foi decidido e por quê. Cada exercício preenche uma parte dele. O [template](../caderno/template.md) mostra o caderno vazio, e a seção Gabaritos mostra o caderno preenchido a cada exercício.

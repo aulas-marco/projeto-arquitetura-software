@@ -2,21 +2,21 @@
 
 {{progresso:7}}
 
-Este é o caderno da ACME depois do exercício 7. Ele reúne o que os exercícios 1 a 7 produziram, e a moldura âmbar marca o que o exercício 7 acrescentou. Compare com o seu caderno e veja onde as respostas diferem. O [enunciado do exercício 7](../modulo-2-requisitos-e-partes-interessadas/bloco-3-cenarios-linha-de-base-e-restricoes.md#exercicio-7) está na página do bloco.
+Depois do exercício 7, o caderno da ACME reúne o que os exercícios 1 a 7 produziram, e a moldura âmbar marca o que o exercício 7 acrescentou. Compare com o seu caderno para ver onde as suas respostas diferem. O [enunciado do exercício 7](../modulo-2-requisitos-e-partes-interessadas/bloco-3-cenarios-linha-de-base-e-restricoes.md#exercicio-7) está na página do bloco.
 
 ## A solução em uma página
 
-**O problema.** A ACME é uma universidade privada com 38.400 alunos ativos e um sistema acadêmico em operação desde 2004, com núcleo em COBOL, que custa R$ 15,83 milhões por ano e leva 34 dias úteis para colocar uma mudança em produção. Dos 6 especialistas em COBOL, 2 se aposentam em 2027.
+**O problema.** A ACME é uma universidade privada com 38.400 alunos ativos e um sistema acadêmico em operação desde 2004, com núcleo em COBOL, que custa R$ 15,83 milhões por ano e leva 34 dias úteis para colocar uma mudança em produção. A situação se agrava porque, dos 6 especialistas em COBOL que o sustentam, 2 se aposentam em 2027.
 
-**A pergunta.** Como evoluir o sistema acadêmico de forma segura e incremental, com o núcleo em operação durante a transição e respeitando os contratos já assumidos.
+**A pergunta.** Diante desse quadro, o projeto pergunta como evoluir o sistema acadêmico de forma segura e incremental, com o núcleo em operação durante a transição e respeitando os contratos já assumidos.
 
-**A decisão central.** Ainda não há. O processo está na fase de descoberta, e a Reitoria já descartou a substituição integral e a reescrita em entrega única.
+**A decisão central.** Ainda não há decisão central, porque o processo está na fase de descoberta. A Reitoria já descartou a substituição integral e a reescrita em entrega única, de modo que nenhuma das duas volta à discussão.
 
-**O requisito que guia o desenho.** A definir na Aula 2, quando os requisitos declarados forem classificados e medidos.
+**O requisito que guia o desenho.** Ainda indefinido, e a definição fica para a Aula 2, quando os requisitos declarados forem classificados e medidos.
 
-**O que a organização aceita em troca.** A definir, depois da escolha do estilo na Aula 3.
+**O que a organização aceita em troca.** Ainda indefinido, porque a troca só aparece depois da escolha do estilo na Aula 3.
 
-**Como está o trabalho.** As decisões D1 a D9 estão classificadas por nível, as decisões D2, D3, D5, D6, D8 e D9 e as sete premissas estão **propostas**, e a data de conclusão do ciclo depende da fase 7 do processo.
+**Como está o trabalho.** As decisões D1 a D9 estão classificadas por nível, e as decisões D2, D3, D5, D6, D8 e D9 e as sete premissas estão **propostas**, aguardando validação. A data de conclusão do ciclo só pode ser dada na fase 7 do processo.
 
 ## 1. Contexto
 
@@ -73,7 +73,7 @@ As decisões da tabela não têm todas o mesmo estado. D1, D4 e D7 apenas repete
 
 #### Componente da solução afetado
 
-Uma decisão de solução quase nunca é só técnica. A tabela a seguir mostra, para cada uma delas, que componentes da solução ela atinge além da tecnologia (pessoas, estruturas organizacionais, processos e informação).
+Quando a ACME decide algo como mudar o prazo da nota, a decisão quase nunca é só técnica. A tabela a seguir mostra, para cada decisão de solução, que componentes da solução ela atinge além da tecnologia (pessoas, estruturas organizacionais, processos e informação).
 
 | Código | Tipo do componente da solução | Efeito |
 | --- | --- | --- |
@@ -91,7 +91,7 @@ A D3 só faz sentido depois da D2. Imagine decidir o reenvio com intervalo cresc
 
 #### Um exemplo da ACME: a nota que precisa chegar em 10 minutos
 
-Para ver como uma solução se divide em componentes da solução (pessoas, áreas, processos, informação e tecnologia), vale um exemplo concreto da ACME. A Coordenação de Educação a Distância quer que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. Hoje a nota só chega no dia seguinte, em um envio noturno, e a cada fechamento algum aluno reclama. No dossiê, esse pedido tem o código R7. Para atendê-lo, a ACME listou dez candidatos a componente da solução, e eles se distribuem pelos cinco tipos (pessoas, estruturas organizacionais, processos, informação e tecnologia), dois em cada um.
+Um exemplo da ACME mostra como uma solução se reúne em componentes da solução. A Coordenação de Educação a Distância quer que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. Hoje a nota só chega no dia seguinte, em um envio noturno, e a cada fechamento algum aluno reclama. O dossiê registra esse pedido com o código R7. Para atendê-lo, a ACME listou dez candidatos a componente da solução, e eles se distribuem pelos cinco tipos (pessoas, estruturas organizacionais, processos, informação e tecnologia), dois em cada um.
 
 | Código | Tipo do componente da solução | Componente da solução |
 | --- | --- | --- |
@@ -106,11 +106,11 @@ Para ver como uma solução se divide em componentes da solução (pessoas, áre
 | CP9 | Tecnologia | Serviço de notas que publica um evento a cada lançamento |
 | CP10 | Pessoas | Responsável na Coordenação de Educação a Distância pelas falhas de envio |
 
-Nenhum dos cinco tipos ficou vazio, e isso é bom sinal: a solução não depende só de tecnologia. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o CP4 e o CP5 mexem na rotina de fechamento e de correção de nota de professores, coordenações e Secretaria. Trocar apenas a tecnologia não altera o prazo que o aluno percebe.
+Nenhum dos cinco tipos ficou vazio, o que mostra que a solução não depende só de tecnologia. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o CP4 e o CP5 mexem na rotina de fechamento e de correção de nota de professores, coordenações e Secretaria, e por isso trocar apenas a tecnologia não altera o prazo que o aluno percebe.
 
 #### Os fatos da situação atual, em três níveis
 
-Os seis fatos sobre a situação atual podem ser lidos em três níveis, do mais amplo ao mais técnico: o negócio, a informação e a TI.
+Para saber onde o prazo da nota se forma, os seis fatos da situação atual podem ser lidos em três níveis, do mais amplo ao mais técnico: o negócio, a informação e a TI.
 
 | Código | Elemento da situação atual | Nível |
 | --- | --- | --- |
@@ -142,7 +142,7 @@ Para dividir as tarefas, vale a mesma pergunta usada nas decisões: até onde o 
 | T9 | Configurar o servidor de integração contínua | Arquiteto de software | | É configuração de ferramenta da equipe de desenvolvimento |
 | T10 | Verificar se já existe componente de software de envio de mensagem reaproveitável | Arquiteto de solução | Técnico | Exige conhecer a tecnologia vigente antes de especificar componente de software novo |
 
-No total, seis tarefas cabem ao arquiteto de solução, três ao arquiteto de software ou à equipe de desenvolvimento e uma à arquitetura corporativa. Repare que as seis tarefas do arquiteto de solução usam os quatro grupos de competência, o que mostra o quanto o papel exige de habilidades diferentes.
+Dividido o ciclo, seis tarefas cabem ao arquiteto de solução, três ao arquiteto de software ou à equipe de desenvolvimento e uma à arquitetura corporativa. As seis tarefas do arquiteto de solução usam os quatro grupos de competência, o que mostra o quanto o papel exige de habilidades diferentes.
 
 #### Benefício por trás da tarefa T10
 
@@ -258,7 +258,7 @@ As entrevistas trouxeram declarações com graus diferentes de clareza, e antes 
 
 #### Reescritas mensuráveis
 
-Uma declaração como a matrícula não pode cair só vira requisito quando se sabe em que situação ela vale, quanto uso o sistema recebe e que valor deve atingir. Por isso o R2 e o R3 foram reescritos com contexto, carga e medida, e o R11 aparece à parte, porque uma metade dele não pode ser reescrita.
+Uma declaração como a matrícula não pode cair só se torna requisito quando se sabe em que situação ela vale, quanto uso o sistema recebe e que valor deve atingir. Por isso o R2 e o R3 foram reescritos com contexto, carga e medida, e o R11 aparece à parte, porque uma metade dele não pode ser reescrita.
 
 | Elemento | R2, a matrícula não pode cair | R3, o tempo de resposta precisa ser bom |
 | --- | --- | --- |

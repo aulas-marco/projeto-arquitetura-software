@@ -1,12 +1,12 @@
 # Arquitetura de linha de base
 
-A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, cujo sistema acadêmico foi construído ao longo de duas décadas. Esta página é a segunda do dossiê do caso, o conjunto de informações sobre a ACME que os exercícios usam, e a primeira é a [página inicial do caso](index.md). Ela descreve a arquitetura em operação em 2026, chamada de linha de base, com a composição dos módulos, a idade de cada componente, a ordem de grandeza do código, o efetivo que sustenta cada parte, o tipo de cada integração e a dívida técnica medida. Módulo é uma parte do sistema responsável por um assunto, como a matrícula ou a biblioteca, e integração é a forma como dois sistemas trocam informação.
+Antes de propor qualquer mudança no sistema da ACME, o arquiteto precisa saber do que ele é feito, e esta página responde a isso. A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, cujo sistema acadêmico foi construído ao longo de duas décadas. Esta é a segunda página do dossiê do caso, o conjunto de informações sobre a ACME que os exercícios usam, e a primeira é a [página inicial do caso](index.md). Ela descreve a arquitetura em operação em 2026, chamada de linha de base, com a composição dos módulos, a idade de cada componente, a ordem de grandeza do código, o efetivo que sustenta cada parte, o tipo de cada integração e a dívida técnica medida. Módulo é uma parte do sistema responsável por um assunto, como a matrícula ou a biblioteca, e integração é a forma como dois sistemas trocam informação.
 
-Arquitetura de linha de base é a descrição da estrutura existente antes de qualquer decisão de evolução. Ela serve de referência para o relatório de lacunas, que compara a situação atual com a pretendida, e para o dimensionamento do esforço de transição. Os exercícios usam esta página para saber quais componentes existem, quem os sustenta e como se comunicam.
+Arquitetura de linha de base é a descrição da estrutura existente antes de qualquer decisão de evolução. Ela serve de referência para o relatório de lacunas, que compara a situação atual com a pretendida, e para o dimensionamento do esforço de transição, e por isso os exercícios recorrem a esta página sempre que precisam saber quais componentes existem, quem os sustenta e como se comunicam.
 
 ## Visão geral dos componentes
 
-O sistema tem quatro camadas. O núcleo transacional em COBOL, linguagem de programação em que estão escritas as regras acadêmicas, executa sob o monitor CICS, programa que recebe e processa cada transação, em ambiente de grande porte, o computador central da instituição. O banco Oracle, programa que guarda e organiza os dados da instituição, fica sob o núcleo. A camada web em Java serve os quatro portais de acesso, que são os sites usados por alunos, professores, secretaria e gestores. A camada de integração move arquivos entre a ACME, o ERP financeiro, que é o sistema de gestão financeira da instituição, e o ambiente virtual de aprendizagem, a plataforma de ensino a distância que recebe turmas, matrículas e notas.
+Quem olha o sistema de fora vê um portal, mas por trás dele há quatro camadas empilhadas. O núcleo transacional em COBOL, linguagem de programação em que estão escritas as regras acadêmicas, executa sob o monitor CICS, programa que recebe e processa cada transação, em ambiente de grande porte, o computador central da instituição. O banco Oracle, programa que guarda e organiza os dados da instituição, fica sob o núcleo. A camada web em Java serve os quatro portais de acesso, que são os sites usados por alunos, professores, secretaria e gestores. A camada de integração move arquivos entre a ACME, o ERP financeiro, que é o sistema de gestão financeira da instituição, e o ambiente virtual de aprendizagem, a plataforma de ensino a distância que recebe turmas, matrículas e notas.
 
 ```mermaid
 graph TD
@@ -80,11 +80,11 @@ O núcleo reúne 11 módulos funcionais, com 2,8 milhões de linhas de COBOL dis
 | Estágio e atividades complementares | 2013 | 160.000 | Convênio, termo e carga horária |
 | Diploma digital | 2019 | 120.000 | Emissão assinada, único módulo posterior a 2015 |
 
-O módulo de matrícula é o mais sensível do conjunto. Ele concentra 16% do código do núcleo, responde por 71% do volume transacional das janelas críticas e depende do módulo de bolsas e descontos para calcular o valor da parcela antes de confirmar a inscrição em disciplina.
+Entre os onze módulos, o de matrícula é o que mais preocupa a TI. Ele concentra 16% do código do núcleo, responde por 71% do volume transacional das janelas críticas e depende do módulo de bolsas e descontos para calcular o valor da parcela antes de confirmar a inscrição em disciplina.
 
 ## Camada web
 
-A camada web tem 410.000 linhas de Java escritas entre 2007 e 2009, com JSF 1.2 e EJB 2.0, tecnologias Java para telas web e componentes de servidor, sobre servidor de aplicação cuja versão saiu de suporte do fornecedor em 2018. São 220 telas distribuídas em quatro aplicações.
+Quando o aluno abre o portal para se matricular, quem o atende é a camada web, que tem 410.000 linhas de Java escritas entre 2007 e 2009, com JSF 1.2 e EJB 2.0, tecnologias Java para telas web e componentes de servidor, sobre servidor de aplicação cuja versão saiu de suporte do fornecedor em 2018. São 220 telas distribuídas em quatro aplicações.
 
 | Aplicação | Ano | Telas | Público |
 | --- | --- | --- | --- |
@@ -93,17 +93,17 @@ A camada web tem 410.000 linhas de Java escritas entre 2007 e 2009, com JSF 1.2 
 | Portal da Secretaria | 2008 | 62 | 310 usuários administrativos |
 | Portal do Gestor | 2009 | 28 | 95 coordenadores e diretores |
 
-Nenhuma das quatro aplicações tem versão responsiva, ou seja, que se ajuste ao tamanho da tela do telefone. O Portal do Aluno exige navegador com suporte a um componente de calendário descontinuado, o que restringe o uso em telefone celular e é a reclamação mais frequente registrada pela central de atendimento (service desk).
+Nenhuma das quatro aplicações tem versão responsiva, ou seja, que se ajuste ao tamanho da tela do telefone. Como o Portal do Aluno exige navegador com suporte a um componente de calendário descontinuado, o uso em telefone celular fica restrito, e essa é a reclamação mais frequente registrada pela central de atendimento (service desk).
 
 ## Banco de dados
 
-O banco é Oracle Database 12c Release 2, com 740 tabelas e 11 TB de dados em produção. O suporte estendido dessa versão, período em que o fornecedor ainda atende a clientes de versões antigas, encerrou em 31/03/2022. Desde então a instituição opera sem correção de segurança do fornecedor, isto é, sem receber as atualizações que fecham falhas de segurança descobertas no produto. O banco é compartilhado entre o núcleo COBOL e a camada Java, sem separação de esquema por responsabilidade.
+Sob as duas camadas fica o banco Oracle Database 12c Release 2, com 740 tabelas e 11 TB de dados em produção. O suporte estendido dessa versão, período em que o fornecedor ainda atende a clientes de versões antigas, encerrou em 31/03/2022, e desde então a instituição opera sem correção de segurança do fornecedor, isto é, sem receber as atualizações que fecham falhas de segurança descobertas no produto. O banco é compartilhado entre o núcleo COBOL e a camada Java, sem separação de esquema por responsabilidade.
 
-Existem 2.300 pontos no código Java que leem ou gravam tabelas do núcleo diretamente, contornando as transações CICS. Esses pontos são a principal barreira à extração incremental de módulos, porque qualquer mudança de estrutura de tabela tem efeito em dois códigos-fonte mantidos por equipes distintas.
+Essa mistura tem uma consequência concreta, porque existem 2.300 pontos no código Java que leem ou gravam tabelas do núcleo diretamente, contornando as transações CICS. Qualquer mudança de estrutura de tabela afeta então dois códigos-fonte mantidos por equipes distintas, e por isso esses pontos são a principal barreira à extração incremental de módulos.
 
 ## Efetivo de sustentação
 
-A sustentação do sistema acadêmico envolve 27 pessoas, entre equipe interna e fábrica contratada.
+Cada parte do sistema depende de uma equipe diferente, e a coluna de escassez da tabela indica onde falta gente ou experiência. A sustentação do sistema acadêmico envolve 27 pessoas, entre equipe interna e fábrica contratada.
 
 | Parte sustentada | Pessoas | Vínculo | Escassez |
 | --- | --- | --- | --- |
@@ -114,11 +114,11 @@ A sustentação do sistema acadêmico envolve 27 pessoas, entre equipe interna e
 | Infraestrutura de grande porte | 3 | Fornecedor do contrato de capacidade | Serviço prestado remotamente, sem presença na instituição |
 | Atendimento de segundo nível | 2 | Internos | Fila compartilhada com outros sistemas da instituição |
 
-Entre os 6 profissionais de COBOL, apenas 1 domina o módulo de matrícula em profundidade suficiente para alterar a regra de prioridade de vaga, que decide quem fica com a vaga quando uma turma lota. Hoje a ordem de chegada do aluno define essa prioridade, como mostram os [dados operacionais](dados-operacionais.md). Essa concentração é o risco de pessoal mais citado nas atas do comitê de TI.
+Um dado da tabela merece atenção à parte, porque é o risco de pessoal mais citado nas atas do comitê de TI. Entre os 6 profissionais de COBOL, apenas 1 domina o módulo de matrícula em profundidade suficiente para alterar a regra de prioridade de vaga, que decide quem fica com a vaga quando uma turma lota, e hoje essa regra é a ordem de chegada do aluno, como mostram os [dados operacionais](dados-operacionais.md).
 
 ## Integrações síncronas
 
-Na integração síncrona, quem pede fica esperando a resposta, e o tempo limite é quanto ele espera antes de desistir. A tabela abaixo lista as cinco integrações desse tipo.
+Quando o aluno clica em confirmar a matrícula, o portal pede ao núcleo e fica esperando a resposta, e isso é uma integração síncrona. O tempo limite é quanto quem pede espera antes de desistir, e a tabela abaixo lista as cinco integrações desse tipo.
 
 | Integração | Protocolo | Tempo limite | Observação |
 | --- | --- | --- | --- |
@@ -130,7 +130,7 @@ Na integração síncrona, quem pede fica esperando a resposta, e o tempo limite
 
 ## Integrações em lote
 
-Na integração em lote, os dados se acumulam durante o dia e seguem de uma só vez, num arquivo, em horário marcado. Nenhuma troca com o ERP financeiro ou com o ambiente virtual de aprendizagem é síncrona. Toda propagação ocorre por arquivo, em janelas noturnas fixas, e a tabela abaixo lista os sete lotes.
+Com o ERP financeiro e com o ambiente virtual de aprendizagem a conversa é outra, porque nada acontece na hora. Na integração em lote, os dados se acumulam durante o dia e seguem de uma só vez, num arquivo, em horário marcado, e por isso toda propagação com esses dois sistemas ocorre em janelas noturnas fixas. A tabela abaixo lista os sete lotes.
 
 | Lote | Horário de início | Duração média | Sentido | Conteúdo |
 | --- | --- | --- | --- | --- |
@@ -142,13 +142,13 @@ Na integração em lote, os dados se acumulam durante o dia e seguem de uma só 
 | Retorno de notas e frequência de atividades | 06h15 | 35 min | Ambiente virtual para ACME | Nota de atividade avaliativa e presença |
 | Extração do censo da educação superior | Maio, anual | 6h20 | ACME para órgão regulador | Base completa de alunos, docentes e cursos |
 
-Os lotes são sequenciais, com uma exceção. A exportação de notas das 05h10 e o retorno de baixas de pagamento das 05h30 correm em paralelo por 30 minutos. Os dois têm sentidos opostos, da ACME para o ambiente virtual e do ERP para a ACME, e não disputam o mesmo arquivo, mas disputam a mesma capacidade de processamento noturna. Essa concorrência faz parte da linha de base declarada e não resulta de erro de agendamento. A janela das 23h00 às 07h00 está saturada, porque os seis lotes diários somam 5h50 de execução em 8 horas de janela, e não há espaço para acrescentar um lote novo sem sobreposição.
+Os lotes rodam um depois do outro, com uma exceção. A exportação de notas das 05h10 e o retorno de baixas de pagamento das 05h30 correm em paralelo por 30 minutos. Os dois têm sentidos opostos, da ACME para o ambiente virtual e do ERP para a ACME, e não disputam o mesmo arquivo, mas disputam a mesma capacidade de processamento noturna. Essa concorrência faz parte da linha de base declarada e não resulta de erro de agendamento. A janela das 23h00 às 07h00 está saturada, porque os seis lotes diários somam 5h50 de execução em 8 horas de janela, e não há espaço para acrescentar um lote novo sem sobreposição.
 
-A janela de lote vai das 23h00 às 07h00. A consequência operacional é a latência de propagação. Uma matrícula confirmada às 09h00 só aparece no ambiente virtual de aprendizagem no dia seguinte, às 04h55. Uma nota lançada pelo professor às 15h00 só chega ao ambiente virtual às 06h00 do dia seguinte, porque depende do lote de exportação de notas das 05h10. Um pagamento compensado só é refletido na situação do aluno cerca de 30 horas depois da transação bancária. O requisito R7 da [página inicial do caso](index.md), que pede propagação de nota em até 10 minutos, é incompatível com essa estrutura de lote.
+Como a janela de lote vai das 23h00 às 07h00, cada informação espera a noite para chegar ao outro sistema, e essa espera é a latência de propagação. Uma matrícula confirmada às 09h00 só aparece no ambiente virtual de aprendizagem no dia seguinte, às 04h55. Uma nota lançada pelo professor às 15h00 só chega ao ambiente virtual às 06h00 do dia seguinte, porque depende do lote de exportação de notas das 05h10. Um pagamento compensado só é refletido na situação do aluno cerca de 30 horas depois da transação bancária. O requisito R7 da [página inicial do caso](index.md), que pede propagação de nota em até 10 minutos, é incompatível com essa estrutura de lote.
 
 ## Dívida técnica medida
 
-Dívida técnica é o conjunto de limitações acumuladas no código e na operação, como documentação desatualizada e falta de testes, que encarecem e atrasam cada mudança futura. Teste automatizado é um programa que confere sozinho se o sistema continua funcionando depois de uma alteração, e cobertura é a parcela do código que esses testes alcançam. Os indicadores abaixo foram levantados pela Diretoria de TI no inventário técnico concluído em 31/08/2026.
+Um pedido aprovado leva em média 34 dias úteis para chegar à produção. Esta seção reúne os indicadores de dívida técnica do sistema. Dívida técnica é o conjunto de limitações acumuladas no código e na operação, como documentação desatualizada e falta de testes, que encarecem e atrasam cada mudança futura. Teste automatizado é um programa que confere sozinho se o sistema continua funcionando depois de uma alteração, e cobertura é a parcela do código que esses testes alcançam. Os indicadores abaixo foram levantados pela Diretoria de TI no inventário técnico concluído em 31/08/2026.
 
 | Indicador | Valor |
 | --- | --- |
@@ -164,4 +164,4 @@ Dívida técnica é o conjunto de limitações acumuladas no código e na opera�
 | Idade mediana das demandas abertas | 9 meses |
 | Ambientes disponíveis | Produção e homologação, sem ambiente de teste de carga |
 
-A ausência de ambiente de teste de carga explica por que os incidentes de janela crítica descritos nos [dados operacionais](dados-operacionais.md) só se manifestam em produção.
+Sem ambiente de teste de carga, ninguém consegue simular o pico antes de ele acontecer, e é por isso que os incidentes de janela crítica descritos nos [dados operacionais](dados-operacionais.md) só se manifestam em produção.

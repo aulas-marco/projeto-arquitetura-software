@@ -2,7 +2,7 @@
 
 {{progresso:1}}
 
-Este é o caderno da ACME depois do exercício 1, e a moldura âmbar marca o que ele acrescentou. Compare com o seu caderno e veja onde as respostas diferem. O [enunciado do exercício 1](../modulo-1-fundamentos/bloco-1-arquitetura-de-solucoes-e-de-software.md#exercicio-1) está na página do bloco.
+Ao terminar o exercício 1, o caderno da ACME ganhou as suas primeiras respostas, e a moldura âmbar marca o que foi acrescentado. Compare com o seu caderno para ver onde as suas respostas diferem. O [enunciado do exercício 1](../modulo-1-fundamentos/bloco-1-arquitetura-de-solucoes-e-de-software.md#exercicio-1) está na página do bloco.
 
 ## 1. Contexto
 
@@ -61,7 +61,7 @@ As decisões da tabela não têm todas o mesmo estado. D1, D4 e D7 apenas repete
 
 #### Componente da solução afetado
 
-Uma decisão de solução quase nunca é só técnica. A tabela a seguir mostra, para cada uma delas, que componentes da solução ela atinge além da tecnologia (pessoas, estruturas organizacionais, processos e informação).
+Quando a ACME decide algo como mudar o prazo da nota, a decisão quase nunca é só técnica. A tabela a seguir mostra, para cada decisão de solução, que componentes da solução ela atinge além da tecnologia (pessoas, estruturas organizacionais, processos e informação).
 
 | Código | Tipo do componente da solução | Efeito |
 | --- | --- | --- |

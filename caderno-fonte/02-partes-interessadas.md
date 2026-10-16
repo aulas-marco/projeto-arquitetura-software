@@ -6,11 +6,11 @@ modo: acumula
 <!--orientacao-->
 | Campo | Conteúdo |
 | --- | --- |
-| Para que serve | As decisões de um projeto dependem de pessoas, e elas nem sempre querem a mesma coisa. Esta seção registra quem são, o que cada uma espera e teme e como o arquiteto vai lidar com cada uma, para que os conflitos apareçam cedo. |
+| Para que serve | As decisões de um projeto dependem de pessoas, e na ACME a Reitora quer resultado em 12 meses, o Diretor Financeiro teme pagar o legado e a nuvem no mesmo ano e o Gerente de sustentação da fábrica teme perder o contrato. Esta seção registra quem são essas pessoas, o que cada uma espera e teme e como o arquiteto vai lidar com cada uma, e assim os conflitos aparecem cedo. |
 | Pergunta que responde | Quem precisa participar das decisões e onde os interesses entram em conflito? |
-| O que você escreve | Uma tabela com o que cada pessoa ou grupo quer, o que teme e como o arquiteto vai tratá-lo: envolver nas decisões, consultar ou apenas manter informado. Depois, os pontos de vista de cada grupo, que são as preocupações que o desenho precisa mostrar, e a declaração de escopo: o que muda no primeiro ciclo, o que fica como está e por que cada item ficou de fora. |
-| Vem de onde | Da seção 1 e do mapa de atores do dossiê. |
-| Quando se preenche | Na Aula 2, no exercício 8. |
+| O que você escreve | Você monta primeiro uma tabela com o que cada pessoa ou grupo quer, o que teme e como o arquiteto vai tratá-lo: envolver nas decisões, consultar ou apenas manter informado. Depois escreve os pontos de vista de cada grupo, que são as preocupações que o desenho precisa mostrar, e a declaração de escopo, que diz o que muda no primeiro ciclo, o que fica como está e por que cada item ficou de fora. |
+| Vem de onde | Da seção 1 e do mapa de atores do dossiê, que dizem quem são as pessoas envolvidas no projeto. |
+| Quando se preenche | Você preenche esta seção na Aula 2, no exercício 8. |
 <!--/orientacao-->
 
 

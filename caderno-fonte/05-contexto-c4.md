@@ -6,11 +6,11 @@ modo: acumula
 <!--orientacao-->
 | Campo | Conteúdo |
 | --- | --- |
-| Para que serve | Mostra os limites da solução num único desenho: o que está dentro, quem a usa e com quais outros sistemas ela conversa. É o desenho que qualquer pessoa consegue ler em um minuto. |
+| Para que serve | Para que qualquer pessoa entenda a solução em um minuto, o arquiteto a desenha numa única figura, que mostra o que está dentro dela, quem a usa e com quais outros sistemas ela conversa. |
 | Pergunta que responde | O que está dentro da solução, o que está fora e com quem ela se relaciona? |
-| O que você escreve | Um diagrama de contexto no formato C4, nível 1, que mostra a solução como uma caixa só, cercada por quem a usa e pelos outros sistemas com que ela conversa. Junto, uma legenda e um parágrafo explicando por que cada sistema ficou dentro ou fora da solução. |
-| Vem de onde | Das seções 2 e 4: as partes interessadas mostram quem usa a solução, e o sistema atual mostra com quem ela conversa. |
-| Quando se preenche | Na Aula 4, no exercício 15. |
+| O que você escreve | Você desenha um diagrama de contexto no formato C4, nível 1, em que a solução aparece como uma caixa só, cercada por quem a usa e pelos outros sistemas com que ela conversa. Junto vão uma legenda e um parágrafo que explica por que cada sistema ficou dentro ou fora da solução. |
+| Vem de onde | Das seções 2 e 4, porque as partes interessadas mostram quem usa a solução e o sistema atual mostra com quem ela conversa. |
+| Quando se preenche | Você preenche esta seção na Aula 4, no exercício 15. |
 <!--/orientacao-->
 
 <!--ex n=15 titulo="Portfólio, contrato de notas e diagrama de contexto"-->
@@ -26,7 +26,7 @@ modo: acumula
 <!--gabarito-->
 #### Portfólio de aplicações
 
-O catálogo traz onze aplicações da ACME. A tabela dá a cor de cada uma e o fato do caso que a sustenta. Os quatro portais usam tecnologia que o fornecedor deixou de apoiar, o núcleo ainda sustenta a operação e continua sob contrato, e o ERP financeiro e o ambiente virtual ficam por decisão da Reitoria.
+Diante das onze aplicações do catálogo, a pergunta do arquiteto é qual delas ainda merece investimento e qual deve sair. Os quatro portais usam tecnologia que o fornecedor deixou de apoiar e por isso ficam em vermelho, o núcleo ainda sustenta a operação e continua sob contrato, o que o deixa em âmbar, e o ERP financeiro e o ambiente virtual ficam em verde por decisão da Reitoria. A tabela dá a cor de cada aplicação e o fato do caso que a sustenta.
 
 | Aplicação | Cor | Justificativa |
 | --- | --- | --- |
@@ -44,7 +44,7 @@ O catálogo traz onze aplicações da ACME. A tabela dá a cor de cada uma e o f
 
 #### Contrato da integração de notas
 
-A nota nasce no núcleo transacional, que é o dono da nota consolidada pela decisão do exercício 14. Hoje ela segue para o ambiente virtual num arquivo gerado às 05h10, e o R7 pede que chegue em até 10 minutos. O contrato abaixo descreve a troca nova campo a campo, com o modo assíncrono.
+Quando o professor lança a nota, ela nasce no núcleo transacional, que é o dono da nota consolidada pela decisão do exercício 14. Hoje ela segue para o ambiente virtual num arquivo gerado às 05h10, e como o R7 pede que chegue em até 10 minutos, o contrato abaixo descreve a troca nova campo a campo, com o modo assíncrono.
 
 | Campo | Resposta |
 | --- | --- |
@@ -67,11 +67,11 @@ Quando o professor corrige uma nota já enviada, o serviço publica uma nova ver
 
 #### Diagrama de contexto da solução
 
-Os dois erros do diagrama do enunciado eram o banco de dados acadêmico desenhado como elemento externo e o ERP financeiro desenhado dentro da fronteira. O banco é um contêiner, parte interna do sistema, e só aparece no nível seguinte. O ERP permanece por decisão da Reitoria e é mantido por outra equipe, então precisa ficar fora da caixa. A correção do segundo erro também elimina a caixa duplicada do sistema acadêmico que existia dentro da fronteira.
+O diagrama do enunciado trazia dois erros. O primeiro era o banco de dados acadêmico desenhado como elemento externo, quando ele é um contêiner, parte interna do sistema, que só aparece no nível seguinte. O segundo era o ERP financeiro desenhado dentro da fronteira, quando ele permanece por decisão da Reitoria e é mantido por outra equipe, então precisa ficar fora da caixa. A correção do segundo erro também elimina a caixa duplicada do sistema acadêmico que existia dentro da fronteira.
 
 ![Diagrama de contexto corrigido do primeiro ciclo da ACME, com aluno, professor e secretaria acadêmica ligados ao sistema acadêmico, que é uma caixa única dentro da fronteira tracejada, e com seis sistemas externos fora dela: ERP financeiro, ambiente virtual de aprendizagem, assinador digital ICP-Brasil, gateway de pagamento, provedor de identidade e órgão regulador.](../assets/images/acme-ex15-contexto-corrigido.svg){ .module-diagram }
 
-A legenda abaixo diz, para cada elemento, se ele está dentro ou fora da solução e por quê.
+Para que quem lê o diagrama saiba por que cada elemento ficou onde está, a legenda abaixo diz, para cada um, se ele está dentro ou fora da solução e por quê.
 
 | Elemento | Tipo | Posição | Motivo |
 | --- | --- | --- | --- |

@@ -1,6 +1,6 @@
 # Registro de decisão arquitetural
 
-Este bloco conclui a cadeia de decisão da aula e responde como registrar a decisão construída nos blocos 1 a 3 para que uma pessoa que não participou dela consiga entendê-la, localizar de onde ela veio e revisá-la. O registro usado para isso é o ADR, sigla de registro de decisão arquitetural.
+Meses depois da decisão, alguém da ACME vai perguntar por que o sistema foi desenhado daquela maneira, e este bloco conclui a cadeia de decisão da aula respondendo como registrar a decisão construída nos blocos 1 a 3 para que uma pessoa que não participou dela consiga entendê-la, localizar de onde ela veio e revisá-la. O registro usado para isso é o ADR, sigla de registro de decisão arquitetural.
 
 ## Antes de começar
 
@@ -12,7 +12,7 @@ Este bloco conclui a cadeia de decisão da aula e responde como registrar a deci
 
 A distinção entre decisão de arquitetura de solução e decisão de arquitetura de software já foi estabelecida no [bloco 1 da Aula 1](../modulo-1-fundamentos/bloco-1-arquitetura-de-solucoes-e-de-software.md#o-que-e-arquitetura-de-solucao). Este bloco parte dessa distinção para tratar de como registrar uma decisão de forma rastreável.
 
-Decisões arquiteturais são aquelas que afetam a estrutura, as características não funcionais, as dependências, as interfaces ou as técnicas de construção do sistema. A definição é operacional, ela permite separar o que merece registro do que não merece sem recorrer a julgamento de importância. Escolher a fronteira entre dois módulos é decisão arquitetural, porque altera a estrutura e as interfaces, enquanto a escolha do formatador de código do projeto fica fora do registro por não afetar nenhum desses cinco aspectos.
+Nem toda escolha de um projeto merece registro, e a pergunta é qual merece. Nem toda escolha de um projeto merece registro, e a pergunta é qual merece. Decisões arquiteturais são aquelas que afetam a estrutura, as características não funcionais, as dependências, as interfaces ou as técnicas de construção do sistema. A definição é operacional, ela permite separar o que merece registro do que não merece sem recorrer a julgamento de importância. Escolher a fronteira entre dois módulos é decisão arquitetural, porque altera a estrutura e as interfaces, enquanto a escolha do formatador de código do projeto fica fora do registro por não afetar nenhum desses cinco aspectos.
 
 O registro de decisão ocupa um lugar preciso na cadeia desta aula. Os princípios do [bloco 1](bloco-1-principios-de-design.md) e os [cenários de atributo de qualidade](../referencia/glossario.md#cenario-de-atributo-de-qualidade) da Aula 2 fornecem as forças que diferenciam as alternativas, a comparação de estilos do [bloco 2](bloco-2-estilos-arquiteturais.md) fornece as alternativas e a escolha, e o mapa de padrões do [bloco 3](bloco-3-padroes-arquiteturais-e-de-design.md) fornece as consequências e os custos aceitos. O ADR registra uma decisão com o seu racional, e o desenho lógico e o plano de implementação continuam sendo artefatos próprios, aos quais o registro remete sem reproduzi-los.
 
@@ -195,7 +195,7 @@ Quando falta dado para preencher um campo, o caminho é registrar o ADR com esta
 
 ## Exercício 12
 
-Este exercício reúne em um único registro as escolhas feitas nos exercícios 9 a 11, para que a decisão possa ser entendida e revisada por quem não participou dela. A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. O aluno escreve o ADR que registra o estilo escolhido e os padrões que sustentam a estratégia de modernização, no template de dez campos apresentado no Conceito acima, a partir dos produtos dos três exercícios anteriores desta aula, a saber, os princípios e o esboço lógico, a comparação de estilos e o mapa de padrões. O exercício tem dois itens. O item 1 cobre os sete primeiros campos, e o item 2 cobre os três últimos. O produto final é um único documento em Markdown, com os dez campos na ordem do template.
+Meses depois, a pessoa que assumir a arquitetura da ACME terá apenas o registro para entender por que o estilo e os padrões foram escolhidos, e este exercício reúne em um único ADR as escolhas feitas nos exercícios 9 a 11, para que a decisão possa ser entendida e revisada por quem não participou dela. A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. O aluno escreve o ADR que registra o estilo escolhido e os padrões que sustentam a estratégia de modernização, no template de dez campos apresentado no Conceito acima, a partir dos produtos dos três exercícios anteriores desta aula, a saber, os princípios e o esboço lógico, a comparação de estilos e o mapa de padrões. O exercício tem dois itens. O item 1 cobre os sete primeiros campos, e o item 2 cobre os três últimos. O produto final é um único documento em Markdown, com os dez campos na ordem do template.
 
 ### Item 1: Origem de cada campo do registro
 
@@ -233,7 +233,7 @@ Os campos de consequências, alternativas e revisão costumam sair fracos quando
 | Consequência desfavorável | Aceitamos o custo X enquanto a condição Y permanecer verdadeira. |
 | Gatilho de revisão | Se a medida X ultrapassar o valor Y na janela Z, este registro é reaberto. |
 
-Escreva os três últimos grupos de campos do ADR, observando que uma alternativa listada só pelo nome não foi comparada e que um gatilho do tipo "revisar no futuro" não define quando a revisão ocorre.
+Com as frases-modelo na mão, o aluno fecha o ADR escrevendo os três últimos grupos de campos, atento a dois defeitos comuns, a alternativa listada só pelo nome, que não foi comparada, e o gatilho do tipo "revisar no futuro", que não define quando a revisão ocorre.
 
 1. consequências, com ao menos uma positiva, uma negativa e uma neutra, incluindo o custo aceito de cada padrão
 2. evidências, indicando onde cada uma poderia ser reproduzida

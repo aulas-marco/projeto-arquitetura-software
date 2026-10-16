@@ -1,6 +1,6 @@
 # Plataforma arquitetural
 
-Na Aula 3, o projeto escolheu um estilo arquitetural, que é a forma geral de organizar o sistema, como em camadas, em microsserviços ou orientado a eventos. Este bloco trata das duas perguntas que vêm depois dessa escolha. A primeira é qual conjunto de tecnologias, chamado de plataforma arquitetural, concretiza o estilo escolhido no desenvolvimento e na operação do sistema. A segunda é sobre qual fundação em nuvem, chamada de zona de pouso, esse conjunto executa. O exercício 18, no fim da página, aplica as duas perguntas à ACME, a universidade fictícia que serve de caso ao curso.
+Na Aula 3, o projeto escolheu um estilo arquitetural, a forma geral de organizar o sistema, como em camadas, em microsserviços ou orientado a eventos. Escolhido o estilo, surgem duas perguntas práticas: qual conjunto de tecnologias, chamado de plataforma arquitetural, concretiza esse estilo no desenvolvimento e na operação do sistema, e sobre qual fundação em nuvem, chamada de zona de pouso, esse conjunto vai executar. Este bloco responde às duas, e o exercício 18, no fim da página, aplica as respostas à ACME, a universidade fictícia que serve de caso ao curso.
 
 ## Antes de começar
 
@@ -11,9 +11,9 @@ Na Aula 3, o projeto escolheu um estilo arquitetural, que é a forma geral de or
 
 ## Conceito
 
-Uma **plataforma arquitetural** é um conjunto estruturado e consistente de ferramentas, frameworks, bibliotecas e práticas de desenho, organizadas para implementar um ou mais [estilos arquiteturais](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md). Diferentemente de um framework isolado ou de uma biblioteca, a plataforma é um ambiente integrado que cobre todos os aspectos do ciclo de vida do software, incluindo desenvolvimento, integração, implantação e manutenção. Ela atua como a concretização prática de um estilo arquitetural, alinhando o princípio teórico às demandas operacionais de construir e executar o sistema.
+Quando um estilo como microsserviços é escolhido, ainda falta decidir com que ferramentas ele será construído e operado, e esse conjunto de decisões forma a **plataforma arquitetural**: um conjunto estruturado e consistente de ferramentas, frameworks, bibliotecas e práticas de desenho, organizadas para implementar um ou mais [estilos arquiteturais](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md). Diferentemente de um framework isolado ou de uma biblioteca, a plataforma é um ambiente integrado que cobre todos os aspectos do ciclo de vida do software, incluindo desenvolvimento, integração, implantação e manutenção, e por isso funciona como a concretização prática do estilo, alinhando o princípio teórico às demandas operacionais de construir e executar o sistema.
 
-A plataforma executa o estilo já escolhido. Por isso essa decisão vem depois da decisão de estilo, porque decidir framework, banco de dados ou orquestrador de execução antes de fixar o padrão estrutural inverte a ordem de dependência entre as duas decisões.
+Como a plataforma executa o estilo já escolhido, essa decisão vem depois da decisão de estilo. Se a equipe decidisse framework, banco de dados ou orquestrador de execução antes de fixar o padrão estrutural, inverteria a ordem de dependência entre as duas decisões.
 
 ### Quatro características de uma plataforma arquitetural
 
@@ -23,7 +23,7 @@ A plataforma executa o estilo já escolhido. Por isso essa decisão vem depois d
 
 *Figura 1 — As quatro características de uma plataforma arquitetural. Fonte: material do curso, com base em Mendes (2026b).*
 
-A primeira é a instanciação de estilos arquiteturais, porque toda plataforma está baseada em um ou mais estilos. O Java EE implementa a [arquitetura em camadas](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-em-camadas) para sistemas web, o Spring Boot com Spring Cloud concretiza a [arquitetura de microsserviços](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-de-microsservicos), e o Event Store e o Apache Kafka dão suporte à [arquitetura orientada a eventos](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-orientada-a-eventos).
+Para reconhecer uma plataforma e distingui-la de um conjunto solto de bibliotecas, vale observar quatro características. A primeira é a instanciação de estilos arquiteturais, porque toda plataforma está baseada em um ou mais estilos. O Java EE implementa a [arquitetura em camadas](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-em-camadas) para sistemas web, o Spring Boot com Spring Cloud concretiza a [arquitetura de microsserviços](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-de-microsservicos), e o Event Store e o Apache Kafka dão suporte à [arquitetura orientada a eventos](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-orientada-a-eventos).
 
 A segunda é a composição multidimensional, pois uma plataforma não é monolítica e reúne quatro tipos de peça. Frameworks base definem o núcleo funcional e estrutural, como o Spring Framework ou o ASP.NET Core, e ferramentas de integração cuidam da comunicação e da orquestração, como o RabbitMQ ou o gRPC. Ferramentas de monitoramento e manutenção acompanham a execução, como o Prometheus e o Grafana, e bibliotecas complementares resolvem necessidades pontuais, como o Axios para acesso HTTP e o Zod para validação de dados.
 
@@ -61,7 +61,7 @@ A peça que define essa plataforma é o grupo de autoescalonamento, que cria e d
 
 Materializa o [estilo de microsserviços](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-de-microsservicos). A função é permitir que times diferentes construam, implantem e escalem partes do sistema de forma independente, e toda a plataforma existe para tornar essa independência operacionalmente viável. O cliente entra por um único ponto, o gateway de API, que aplica o padrão [API Gateway](../modulo-3-design-e-padroes/bloco-3-padroes-arquiteturais-e-de-design.md#api-gateway), roteia para o serviço correto e concentra o que seria repetido em cada um, como terminação de HTTPS e limite de requisição. Dentro do agrupamento, cada serviço roda em contêiner próprio, com seu armazenamento, e se comunica com os demais por chamada direta quando precisa de resposta imediata ou por barramento de eventos quando não precisa. A observabilidade é obrigatória, porque com o sistema dividido em muitos processos não existe mais um registro único onde olhar. A esteira de entrega, que automatiza o caminho do código até a implantação, faz parte da plataforma, porque a implantação independente de cada serviço depende dessa automação.
 
-Entre as peças, o Kubernetes é o orquestrador que decide em qual máquina cada contêiner roda, reinicia o que falha e escala o que satura. O Docker é o formato de empacotamento que torna o serviço idêntico em qualquer máquina. O NGINX Ingress é o gateway que traduz o endereço externo para o serviço interno. O Kafka é o barramento que guarda o evento publicado e permite que vários consumidores o leiam no próprio ritmo. O Prometheus coleta métricas, o Grafana as apresenta em painel e o OpenTelemetry padroniza a coleta de rastros que atravessam vários serviços, que permite responder em que serviço um pedido demorou.
+Entre as peças, o Kubernetes é o orquestrador que decide em qual máquina cada contêiner roda, reinicia o que falha e escala o que satura, e o Docker é o formato de empacotamento que torna o serviço idêntico em qualquer máquina. Na entrada, o NGINX Ingress traduz o endereço externo para o serviço interno, e entre os serviços o Kafka guarda o evento publicado e permite que vários consumidores o leiam no próprio ritmo. Para acompanhar o conjunto, o Prometheus coleta métricas, o Grafana as apresenta em painel e o OpenTelemetry padroniza a coleta de rastros que atravessam vários serviços, o que permite responder em que serviço um pedido demorou.
 
 ![Plataforma de microsserviços. À esquerda, clientes web, móvel e usuários entram por HTTP e HTTPS num gateway de API com NGINX Ingress. No centro, um agrupamento Kubernetes com camada de serviço e três pods em contêineres Docker, um serviço de catálogo em Java, um de pedidos em .NET e um de pagamentos em Node.js, apoiados por Redis, PostgreSQL e um barramento Kafka. À direita, observabilidade com Prometheus para métricas, Grafana para painéis e OpenTelemetry para rastros. Na base, a esteira de integração e entrega, do código ao GitHub Actions, ao registro de contêineres e à implantação no Kubernetes.](../assets/images/plataforma-microsservicos.png)
 
@@ -106,7 +106,7 @@ Os dois primeiros pilares, ambientes separados e rede segmentada, também funcio
 
 #### Infraestrutura como código e etiquetas
 
-A **[infraestrutura como código](../referencia/glossario.md#infraestrutura-como-codigo)** descreve a infraestrutura em arquivos declarativos, versionados e revisados como o código da aplicação. Com essa descrição, o ambiente pode ser recriado a partir dos arquivos, cada mudança de rede, de política ou de capacidade passa a ter autor, data e revisão no histórico, e os três ambientes podem ser criados da mesma descrição com parâmetros diferentes, o que reduz a diferença entre homologação e produção. A descrição declarativa também reduz a [dependência de fornecedor](../referencia/glossario.md#dependencia-de-fornecedor), e uma ferramenta portável entre provedores, como o Terraform, mantém uma só base de código quando a organização opera em mais de uma nuvem.
+Se a equipe criasse cada ambiente clicando no console do provedor, ninguém saberia dizer depois quem mudou uma regra de rede nem como refazer o ambiente do zero. A **[infraestrutura como código](../referencia/glossario.md#infraestrutura-como-codigo)** responde a esse problema ao descrever a infraestrutura em arquivos declarativos, versionados e revisados como o código da aplicação. Com essa descrição, o ambiente pode ser recriado a partir dos arquivos, cada mudança de rede, de política ou de capacidade passa a ter autor, data e revisão no histórico, e os três ambientes podem ser criados da mesma descrição com parâmetros diferentes, o que reduz a diferença entre homologação e produção. A descrição declarativa também reduz a [dependência de fornecedor](../referencia/glossario.md#dependencia-de-fornecedor), e uma ferramenta portável entre provedores, como o Terraform, mantém uma só base de código quando a organização opera em mais de uma nuvem.
 
 <figure markdown="span">
 ![Fluxo da infraestrutura como código. Arquivos declarativos, versionados e revisados permitem recriar os ambientes de desenvolvimento, homologação e produção a partir da mesma descrição, e o código aplica as quatro etiquetas obrigatórias: projeto, ambiente, time e centro de custo.](../assets/images/modulo-5-iac-e-etiquetas.svg){ .module-diagram }
@@ -114,11 +114,11 @@ A **[infraestrutura como código](../referencia/glossario.md#infraestrutura-como
 
 *Figura 3 — Da descrição declarativa ao ambiente recriado, com as quatro etiquetas obrigatórias. Fonte: material do curso.*
 
-As etiquetas obrigatórias são quatro, projeto, ambiente, time e centro de custo. Aplicadas pelo código e exigidas por uma política que recusa recurso sem etiqueta, elas permitem responder quanto custa o ambiente de produção de um serviço e quanto uma equipe consome em homologação.
+Quando a direção pergunta quanto custa o ambiente de produção de um serviço, só as etiquetas permitem responder. As etiquetas obrigatórias são quatro, projeto, ambiente, time e centro de custo, aplicadas pelo código e exigidas por uma política que recusa recurso sem etiqueta, e com elas também se sabe quanto uma equipe consome em homologação.
 
 #### Observabilidade como camada transversal
 
-A observabilidade define como a equipe sabe o que acontece na solução, e por isso atravessa todas as camadas da plataforma. Ela se organiza em três sinais, o registro estruturado de eventos, as métricas e o rastreamento, e o OpenTelemetry é o padrão aberto de coleta de métricas e rastros. Quando a solução se divide em vários serviços, deixa de existir um registro único onde olhar, e o rastreamento que atravessa os serviços é a forma de responder em que trecho do caminho o tempo foi gasto.
+Quando um serviço demora a responder, a equipe precisa saber onde o tempo foi gasto, e é a observabilidade que oferece essa resposta, por isso ela atravessa todas as camadas da plataforma. Ela se organiza em três sinais, o registro estruturado de eventos, as métricas e o rastreamento, e o OpenTelemetry é o padrão aberto de coleta de métricas e rastros. Quando a solução se divide em vários serviços, deixa de existir um registro único onde olhar, e o rastreamento que atravessa os serviços é a forma de responder em que trecho do caminho o tempo foi gasto.
 
 <figure markdown="span">
 ![Três sinais de observabilidade sobre as camadas da plataforma. O registro estruturado de eventos, as métricas e o rastreamento são os três sinais, o OpenTelemetry é o padrão aberto de coleta de métricas e rastros, e a observabilidade atravessa todas as camadas da plataforma.](../assets/images/modulo-5-tres-sinais-observabilidade.svg){ .module-diagram }
@@ -165,11 +165,11 @@ O arquiteto documenta a comparação antes de decidir, em um quadro comparativo 
 
 A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, isto é, o sistema é trocado por partes. O núcleo transacional em COBOL, que executa as operações acadêmicas, segue em operação sobre o monitor CICS durante toda a transição. Há também uma camada web em JSF e EJB, e as integrações com o ERP financeiro, o sistema de gestão financeira da universidade, e com o ambiente virtual de aprendizagem, onde o aluno acessa as turmas, são resolvidas por arquivo, em lote noturno.
 
-O exercício serve para escolher, com dados do caso, a plataforma que concretiza o estilo arquitetural e para conferir se a fundação em nuvem proposta cumpre os pilares da zona de pouso. Ele parte do estilo que o aluno recomendou no [exercício 10](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#exercicio-10) da Aula 3, e a plataforma escolhida aqui é a entrada do ADR de plataforma, o registro de decisão do exercício 20, no [bloco 4](bloco-4-adr-de-plataforma.md). São três itens, e o aluno registra a resposta de cada um com o dado do enunciado que a sustenta.
+A equipe da ACME precisa agora escolher a plataforma que concretiza o estilo arquitetural e conferir se a fundação em nuvem proposta cumpre os pilares da zona de pouso, e o exercício reproduz esse trabalho com dados do caso. Ele parte do estilo que o aluno recomendou no [exercício 10](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#exercicio-10) da Aula 3, e a plataforma escolhida aqui é a entrada do ADR de plataforma, o registro de decisão do exercício 20, no [bloco 4](bloco-4-adr-de-plataforma.md). São três itens, e o aluno registra a resposta de cada um com o dado do enunciado que a sustenta.
 
 ### Item 1: Plataformas candidatas para o estilo escolhido
 
-O objetivo deste item é escolher duas plataformas que poderiam concretizar o estilo recomendado no exercício 10 da Aula 3, que é o estilo arquitetural indicado para a ACME naquela aula. Uma plataforma candidata é uma das opções que entram na comparação do item 2. Como o sistema antigo continua em operação, a plataforma nova precisa conviver com ele, e o diagrama abaixo mostra as partes do sistema atual com as quais isso acontece: o núcleo COBOL sobre CICS, o banco Oracle 12c de 11 TB compartilhado, os lotes noturnos por arquivo e, ligados a esses lotes, o ERP financeiro e o ambiente virtual de aprendizagem, conforme a [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+Como o sistema antigo da ACME continua em operação, qualquer plataforma nova precisa conviver com ele, e é nesse cenário que o item pede duas plataformas que poderiam concretizar o estilo recomendado no exercício 10 da Aula 3, o estilo arquitetural indicado para a ACME naquela aula. Uma plataforma candidata é uma das opções que entram na comparação do item 2, e o diagrama abaixo mostra as partes do sistema atual com as quais a convivência acontece: o núcleo COBOL sobre CICS, o banco Oracle 12c de 11 TB compartilhado, os lotes noturnos por arquivo e, ligados a esses lotes, o ERP financeiro e o ambiente virtual de aprendizagem, conforme a [arquitetura de linha de base](../caso-acme/linha-de-base.md).
 
 ```mermaid
 graph LR
@@ -188,7 +188,7 @@ Sua resposta vira o campo Plataformas candidatas e ferramentas, na seção 8 do 
 
 ### Item 2: Quadro comparativo pelos seis critérios
 
-O objetivo deste item é comparar as duas plataformas candidatas com os mesmos critérios, para que a escolha tenha dado que a sustente. A tabela abaixo traz uma linha para cada um dos seis critérios de seleção apresentados no [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao), com os dados do [dossiê da ACME](../caso-acme/index.md) e da linha de base que valem para o critério. Quatro critérios têm dado, e os dois restantes, maturidade e suporte, estão sem dado no dossiê. R4 e R6 são códigos de requisitos do caso e vêm explicados na própria linha. O quadro que o aluno preenche, com as duas plataformas candidatas nas linhas e os seis critérios nas colunas, é o que alimenta o campo de alternativas do ADR de plataforma do exercício 20, no [bloco 4](bloco-4-adr-de-plataforma.md).
+Duas plataformas só podem ser comparadas com justiça se passarem pelos mesmos critérios, e por isso o item pede que as duas candidatas sejam avaliadas pelos seis critérios, para que a escolha tenha dado que a sustente. A tabela abaixo traz uma linha para cada um dos seis critérios de seleção apresentados no [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao), com os dados do [dossiê da ACME](../caso-acme/index.md) e da linha de base que valem para o critério. Quatro critérios têm dado, e os dois restantes, maturidade e suporte, estão sem dado no dossiê. R4 e R6 são códigos de requisitos do caso e vêm explicados na própria linha. O quadro que o aluno preenche, com as duas plataformas candidatas nas linhas e os seis critérios nas colunas, é o que alimenta o campo de alternativas do ADR de plataforma do exercício 20, no [bloco 4](bloco-4-adr-de-plataforma.md).
 
 | Critério | Dado do caso |
 | --- | --- |
@@ -207,7 +207,7 @@ Suas respostas viram os campos Comparação pelos critérios com dado, Dado que 
 
 ### Item 3: Zona de pouso da solução
 
-O objetivo deste item é conferir se a fundação em nuvem proposta cumpre os cinco pilares da Figura 2 e as etiquetas obrigatórias, para que a solução nova já nasça com os padrões de segurança e de custo da organização. O diagrama abaixo descreve a zona de pouso proposta para a solução nova da ACME, com a organização na nuvem, as cinco contas, a ligação híbrida ao centro de dados onde permanecem o núcleo COBOL e o Oracle, e os recursos da conta de produção. Conta é o espaço separado da nuvem em que ficam os recursos de um ambiente, e a ligação híbrida é o enlace que conecta a nuvem ao centro de dados próprio da ACME.
+Antes de o primeiro serviço novo ir para a nuvem, a ACME precisa saber se a fundação proposta já nasce com os padrões de segurança e de custo da organização, e por isso o item pede que se confira se ela cumpre os cinco pilares da Figura 2 e as etiquetas obrigatórias. O diagrama abaixo descreve a zona de pouso proposta para a solução nova da ACME, com a organização na nuvem, as cinco contas, a ligação híbrida ao centro de dados onde permanecem o núcleo COBOL e o Oracle, e os recursos da conta de produção. Conta é o espaço separado da nuvem em que ficam os recursos de um ambiente, e a ligação híbrida é o enlace que conecta a nuvem ao centro de dados próprio da ACME.
 
 ```mermaid
 graph LR
@@ -238,7 +238,7 @@ graph LR
     PRD -.->|"envia os registros"| SEC
 ```
 
-Os três requisitos do [dossiê](../caso-acme/index.md) que orientam o desenho são os seguintes.
+Três requisitos do [dossiê](../caso-acme/index.md) orientam o desenho dessa fundação, e a tabela a seguir os reproduz.
 
 | Código | Requisito | Origem |
 | --- | --- | --- |

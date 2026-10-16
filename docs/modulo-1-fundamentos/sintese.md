@@ -1,6 +1,6 @@
 # Síntese da Aula 1
 
-Esta página fecha o módulo de abertura com o que o aluno deve reter depois da aula, uma autoavaliação e as fontes usadas nos quatro blocos.
+Depois de classificar decisões, componentes da solução, tarefas e artefatos da ACME, resta conferir o que ficou da aula. Esta página reúne o que o aluno deve reter, propõe uma autoavaliação e lista as fontes usadas nos quatro blocos.
 
 ## Checklist do que precisa permanecer
 
@@ -15,7 +15,7 @@ Esta página fecha o módulo de abertura com o que o aluno deve reter depois da 
 
 ## Autoavaliação
 
-As perguntas abaixo servem para você conferir o que ficou, antes da Aula 2. Responda sozinho, porque elas não têm gabarito. Os exercícios têm: a seção [Gabaritos](../gabaritos/index.md) mostra o caderno arquitetural da ACME preenchido a cada exercício.
+Antes de passar para a Aula 2, vale testar o que ficou, e as perguntas abaixo servem a isso. Responda sozinho, porque elas não têm gabarito, e use a seção [Gabaritos](../gabaritos/index.md) para os exercícios, que mostram o caderno arquitetural da ACME preenchido a cada exercício.
 
 1. Dada uma decisão qualquer de um projeto, eu digo se ela pertence à arquitetura corporativa, à arquitetura de solução ou à arquitetura de software, e justifico pelo alcance do efeito.
 2. Eu enumero os cinco tipos de componente da solução e dou um exemplo de cada um em um caso concreto.

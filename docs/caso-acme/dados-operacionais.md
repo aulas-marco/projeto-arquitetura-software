@@ -1,10 +1,10 @@
 # Dados operacionais
 
-A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, cujo sistema acadêmico opera desde 2004. Esta página é a terceira do dossiê do caso, o conjunto de informações sobre a ACME que os exercícios usam. Ela reúne os dados de operação do sistema no ano letivo de 2026, usados nos exercícios de cenário de qualidade e de análise de risco, que pedem números reais de uso, de falha e de custo. Os valores vêm do painel de capacidade da Diretoria de TI, do calendário acadêmico aprovado e dos registros do service desk.
+Um dia letivo comum e a manhã em que a matrícula abre são dois sistemas diferentes para quem os mede, e esta página reúne os números que mostram essa diferença. A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, cujo sistema acadêmico opera desde 2004. Esta é a terceira página do dossiê do caso, o conjunto de informações sobre a ACME que os exercícios usam, e ela traz os dados de operação do sistema no ano letivo de 2026, que os exercícios de cenário de qualidade e de análise de risco usam como números reais de uso, de falha e de custo. Os valores vêm do painel de capacidade da Diretoria de TI, do calendário acadêmico aprovado e dos registros do service desk.
 
 ## Volumes por período
 
-A carga do sistema não é uniforme ao longo do ano. A tabela classifica os 251 dias úteis de 2026 em seis tipos de período, sem sobreposição entre eles, e relaciona cada tipo à média diária observada. O percentil 95 do tempo de resposta é o valor abaixo do qual ficam 95% das respostas, de modo que só 5% delas demoram mais. Sessão simultânea é um usuário com o sistema aberto ao mesmo tempo que os demais. Os dois dias de abertura de matrícula estão descontados dos dias de janela de matrícula, para que cada dia útil do ano seja contado uma única vez.
+A carga do sistema não é a mesma ao longo do ano, e é essa variação que decide quanto de capacidade a ACME precisa ter. A tabela classifica os 251 dias úteis de 2026 em seis tipos de período, sem sobreposição entre eles, e relaciona cada tipo à média diária observada. O percentil 95 do tempo de resposta é o valor abaixo do qual ficam 95% das respostas, de modo que só 5% delas demoram mais. Sessão simultânea é um usuário com o sistema aberto ao mesmo tempo que os demais. Os dois dias de abertura de matrícula estão descontados dos dias de janela de matrícula, para que cada dia útil do ano seja contado uma única vez.
 
 | Período | Dias úteis no ano | Sessões simultâneas, média | Transações no núcleo por dia | Percentil 95 do tempo de resposta |
 | --- | --- | --- | --- | --- |
@@ -16,18 +16,18 @@ A carga do sistema não é uniforme ao longo do ano. A tabela classifica os 251 
 | Abertura da matrícula, primeiro dia | 2 | 5.800 | 14,2 milhões | 11,8 s |
 | Total | 251 | | | |
 
-O pico de 5.800 sessões simultâneas é medido nos 30 minutos seguintes à abertura da janela, às 08h00 do primeiro dia. Nesse intervalo, 2.400 matrículas são confirmadas e o restante das sessões permanece em fila ou expira por tempo limite. A taxa de erro nesse intervalo chega a 6,3% das requisições, contra 0,2% em dia letivo comum.
+Na manhã de abertura, o pico de 5.800 sessões simultâneas é medido nos 30 minutos seguintes às 08h00 do primeiro dia. Nesse intervalo, 2.400 matrículas são confirmadas e o restante das sessões permanece em fila ou expira por tempo limite, e a taxa de erro chega a 6,3% das requisições, contra 0,2% em dia letivo comum.
 
 ## Sazonalidade
 
-A média anual é a média ponderada dos seis tipos de período pela quantidade de dias úteis de cada um, conforme a tabela acima. Para as sessões simultâneas, a soma de 153 vezes 640, 48 vezes 90, 20 vezes 1.150, 18 vezes 2.700, 10 vezes 1.900 e 2 vezes 5.800 resulta em 204.440, que dividido por 251 dias úteis dá 814,5, arredondado para 815 sessões. O mesmo cálculo aplicado às transações resulta em 543,3 milhões no ano e média de 2,16 milhões por dia útil.
+Para dimensionar o sistema, o arquiteto compara o pico com a média do ano, que é a média ponderada dos seis tipos de período pela quantidade de dias úteis de cada um, conforme a tabela acima. No caso das sessões simultâneas, a soma de 153 vezes 640, 48 vezes 90, 20 vezes 1.150, 18 vezes 2.700, 10 vezes 1.900 e 2 vezes 5.800 resulta em 204.440, que dividido por 251 dias úteis dá 814,5, arredondado para 815 sessões. O mesmo cálculo aplicado às transações resulta em 543,3 milhões no ano e média de 2,16 milhões por dia útil.
 
 | Indicador | Média anual ponderada | Pico | Razão |
 | --- | --- | --- | --- |
 | Sessões simultâneas | 815 | 5.800 | 7,1 |
 | Transações no núcleo por dia | 2,16 milhões | 14,2 milhões | 6,6 |
 
-A capacidade contratada de processamento é dimensionada para o pico, que ocupa 94% dela. A ocupação média anual é de 13%, obtida pela divisão dos 94% pela razão de 7,1, e em dia letivo comum fica em 10%.
+A ACME contratou a capacidade de processamento para o pico, que ocupa 94% dela, e por isso a máquina fica quase ociosa o resto do ano. A ocupação média anual é de 13%, obtida pela divisão dos 94% pela razão de 7,1, e em dia letivo comum fica em 10%.
 
 ## Calendário acadêmico de 2026
 
@@ -43,13 +43,13 @@ A capacidade contratada de processamento é dimensionada para o pico, que ocupa 
 
 As duas janelas de matrícula somam 20 dias úteis, dos quais 2 são de abertura e 18 são dias subsequentes, o que corresponde às duas linhas da tabela de volumes.
 
-Matrícula é o período em que o aluno se inscreve nas disciplinas do semestre. Na janela de matrícula, 34.800 alunos renovam a inscrição em disciplina. Os outros 3.600 são ingressantes, que entram pelo processo seletivo e têm matrícula registrada pela Secretaria Acadêmica. O primeiro dia concentra 14.300 confirmações, ou 41% do total da janela, porque a ordem de chegada define a prioridade de vaga: quando uma turma lota, ficam com as vagas os alunos que confirmaram a inscrição primeiro.
+Matrícula é o período em que o aluno se inscreve nas disciplinas do semestre, e nesse período 34.800 alunos renovam a inscrição em disciplina. Os outros 3.600 são ingressantes, que entram pelo processo seletivo e têm matrícula registrada pela Secretaria Acadêmica. O aluno que renova tem um motivo para correr no primeiro dia, porque a ordem de chegada define a prioridade de vaga e, quando uma turma lota, ficam com as vagas os que confirmaram a inscrição primeiro. Por isso o primeiro dia concentra 14.300 confirmações, ou 41% do total da janela.
 
-Na janela de fechamento, 2.150 professores lançam notas de 4.900 turmas. A base é de 230.400 matrículas em disciplina, com 4 avaliações por disciplina, o que resulta em 921.600 lançamentos de nota por semestre. A concentração de 78% nos dois últimos dias significa 718.848 lançamentos nesses dois dias, ou 359.424 por dia, e 202.752 nos três primeiros, ou 67.584 por dia. As duas parcelas somam os 921.600 lançamentos do semestre.
+O fechamento de notas tem a mesma forma de pico, só que do lado do professor. Na janela de fechamento, 2.150 professores lançam notas de 4.900 turmas, e a base é de 230.400 matrículas em disciplina, com 4 avaliações por disciplina, o que resulta em 921.600 lançamentos de nota por semestre. Como 78% deles se concentram nos dois últimos dias, esses dias recebem 718.848 lançamentos, ou 359.424 por dia, e os três primeiros recebem 202.752, ou 67.584 por dia. As duas parcelas somam os 921.600 lançamentos do semestre.
 
 ## Incidentes registrados
 
-Os três incidentes abaixo ocorreram nos últimos 18 meses e estão descritos nos relatórios de análise de causa arquivados pela Diretoria de TI. Nenhum deles teve origem em erro de regra acadêmica. As causas foram limite de recurso, acoplamento por formato de arquivo e rotina operacional, ou seja, de características da estrutura do sistema.
+Os três incidentes abaixo ocorreram nos últimos 18 meses e estão descritos nos relatórios de análise de causa arquivados pela Diretoria de TI. Quando a Diretoria investigou cada um, nenhum teve origem em erro de regra acadêmica, e as causas foram limite de recurso, acoplamento por formato de arquivo e rotina operacional, ou seja, características da estrutura do sistema.
 
 ### Esgotamento de tarefas do CICS na abertura da matrícula
 
@@ -80,7 +80,7 @@ Os três incidentes abaixo ocorreram nos últimos 18 meses e estão descritos no
 
 ## Custo anual do sistema acadêmico
 
-O total abaixo é o custo de propriedade do sistema acadêmico. Ele soma infraestrutura, licenciamento, contrato de sustentação externa e a folha das 15 pessoas internas que a [arquitetura de linha de base](linha-de-base.md) atribui à sustentação do sistema, a um custo médio anual de R$ 186 mil por pessoa, já com encargos.
+Quanto custa manter o sistema funcionando? O total abaixo é o custo de propriedade do sistema acadêmico, e ele soma infraestrutura, licenciamento, contrato de sustentação externa e a folha das 15 pessoas internas que a [arquitetura de linha de base](linha-de-base.md) atribui à sustentação do sistema, a um custo médio anual de R$ 186 mil por pessoa, já com encargos.
 
 | Item | Valor anual |
 | --- | --- |
@@ -92,11 +92,11 @@ O total abaixo é o custo de propriedade do sistema acadêmico. Ele soma infraes
 | Servidor de aplicação e middleware de integração | R$ 0,64 milhão |
 | Total | R$ 15,83 milhões |
 
-O custo por aluno ativo é de R$ 412 por ano, ou 2,8% do orçamento anual da instituição. A Diretoria de TI declarou a meta de reduzir esse mesmo total, com o mesmo escopo, para R$ 11,0 milhões até o fim de 2029, registrada como requisito R15 na [página inicial do caso](index.md).
+O custo por aluno ativo é de R$ 412 por ano, ou 2,8% do orçamento anual da instituição, e a Diretoria de TI declarou a meta de reduzir esse mesmo total, com o mesmo escopo, para R$ 11,0 milhões até o fim de 2029, registrada como requisito R15 na [página inicial do caso](index.md).
 
 ## Contratos vigentes
 
-Cláusula é cada regra escrita num contrato. Cada contrato abaixo restringe uma classe de decisão arquitetural, isto é, um tipo de escolha técnica que o arquiteto fará mais adiante. A coluna de restrição indica o que a cláusula impede ou encarece.
+Antes de escolher qualquer solução, o arquiteto lê os contratos que a ACME já assinou, porque cada cláusula, que é uma regra escrita num contrato, pode impedir ou encarecer uma escolha. Cada contrato abaixo restringe uma classe de decisão arquitetural, isto é, um tipo de escolha técnica que o arquiteto fará mais adiante, e a coluna de restrição indica o que a cláusula impede ou encarece.
 
 | Contrato | Vigência | Cláusula relevante | Restrição imposta |
 | --- | --- | --- | --- |
@@ -107,8 +107,8 @@ Cláusula é cada regra escrita num contrato. Cada contrato abaixo restringe uma
 | Gateway de pagamento | Até 30/04/2027 | Multa rescisória equivalente a 6 meses de tarifa média | Troca de provedor de cobrança fica fora do primeiro ciclo |
 | Acordo de nível de serviço interno com a Graduação | Revisão anual em dezembro | Disponibilidade de 99,5% em período letivo e de 99,9% nas janelas de matrícula e fechamento | Define a medida de disponibilidade usada nos cenários de qualidade |
 
-A disponibilidade de 99,9% na janela de matrícula corresponde a 43 minutos de indisponibilidade tolerada por mês. O incidente de 04/02/2026 consumiu 260 minutos, seis vezes o limite acordado.
+Na janela de matrícula, a disponibilidade de 99,9% tolera 43 minutos de indisponibilidade por mês, e o incidente de 04/02/2026 consumiu 260 minutos, seis vezes o limite acordado.
 
 ## Leitura complementar
 
-A composição dos módulos, o efetivo de sustentação e a dívida técnica medida estão na página de [arquitetura de linha de base](linha-de-base.md). Os atores, as restrições fechadas e a lista de requisitos declarados estão na [página inicial do caso](index.md).
+Para ligar esses números ao que existe por trás deles, a composição dos módulos, o efetivo de sustentação e a dívida técnica medida estão na página de [arquitetura de linha de base](linha-de-base.md). Já os atores, as restrições fechadas e a lista de requisitos declarados estão na [página inicial do caso](index.md).

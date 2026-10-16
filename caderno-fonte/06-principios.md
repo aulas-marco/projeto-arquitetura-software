@@ -6,11 +6,11 @@ modo: acumula
 <!--orientacao-->
 | Campo | Conteúdo |
 | --- | --- |
-| Para que serve | Princípios são regras que valem para todas as decisões do projeto. Escrevê-los antes de decidir permite recusar uma proposta que quebre uma regra, sem discutir do zero cada caso. |
+| Para que serve | Quando chega uma proposta e ninguém sabe se ela é aceitável, a discussão recomeça do zero. Os princípios evitam isso, porque são regras que valem para todas as decisões do projeto, e escrevê-los antes de decidir permite recusar a proposta que quebre uma delas. |
 | Pergunta que responde | Que regras o desenho precisa respeitar, de modo que uma proposta possa ser recusada por quebrá-las? |
-| O que você escreve | Uma tabela de princípios, cada um com a regra, o que ela proíbe e o requisito ou a restrição que a justifica. Um exemplo é "o sistema antigo não é alterado por quem não é o fornecedor", que proíbe mexer no núcleo por conta própria. |
+| O que você escreve | Você monta uma tabela de princípios, cada um com a regra, o que ela proíbe e o requisito ou a restrição que a justifica. Um exemplo é o princípio de que o sistema antigo não é alterado por quem não é o fornecedor, que proíbe mexer no núcleo sem o fornecedor. |
 | Vem de onde | Das seções 1 e 3, porque os princípios nascem das restrições e dos requisitos. |
-| Quando se preenche | Na Aula 3, no exercício 9. |
+| Quando se preenche | Você preenche esta seção na Aula 3, no exercício 9. |
 <!--/orientacao-->
 
 <!--ex n=9 titulo="Princípios priorizados e esboço lógico"-->

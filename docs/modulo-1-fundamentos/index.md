@@ -1,12 +1,12 @@
 # Aula 1, arquitetura de soluções e seu processo
 
-Esta aula responde a quatro perguntas: o que diferencia a arquitetura de soluções da arquitetura de software, com o que o arquiteto de solução trabalha, o que o papel exige dele e por qual processo uma solução é definida.
+Quando a ACME decidiu modernizar o sistema acadêmico, o arquiteto de solução precisou responder a quatro perguntas antes de desenhar qualquer coisa: o que diferencia a arquitetura de soluções da arquitetura de software, com o que ele trabalha, o que o papel exige dele e por qual processo uma solução é definida. A aula percorre essas perguntas na ordem em que aparecem num projeto, e cada uma termina num exercício que preenche a seção 1 do caderno arquitetural.
 
 ![Atlas visual da modernização da ACME. O requisito R7 é analisado em quatro lentes conectadas, escopo das decisões D1 a D3, solução como sistema, responsabilidades T1 a T10 e processo com artefatos A1 a A10.](../assets/images/modulo-1-visao-da-solucao.svg){ .module-diagram }
 
 ## O fio condutor do curso: o caderno arquitetural
 
-Um caderno arquitetural é o documento em que o arquiteto de solução registra, num só lugar, o que foi decidido sobre uma solução e por quê. Ele responde às perguntas que qualquer pessoa do projeto faz mais cedo ou mais tarde: qual é o problema, o que já está decidido, o que a solução precisa fazer, como ela se organiza, com que tecnologia será construída e em que ordem será entregue. Quando o arquiteto deixa o projeto, é o caderno que explica as decisões a quem fica.
+Imagine que o arquiteto de solução deixa o projeto da ACME no meio do caminho. Quem fica precisa saber qual é o problema, o que já está decidido, o que a solução precisa fazer, como ela se organiza, com que tecnologia será construída e em que ordem será entregue. O caderno arquitetural é o documento em que o arquiteto registra, num só lugar, essas respostas e as razões por trás delas, e é ele que explica as decisões a quem assume o projeto.
 
 Neste curso, você monta o caderno da ACME aos poucos. Cada exercício preenche um pedaço, e ao fim das seis aulas os 24 exercícios formam um único documento, com a arquitetura completa da solução. O caderno tem um resumo de uma página e dez seções, e cada uma tem um objetivo:
 
@@ -40,7 +40,7 @@ Ao final da aula, o aluno é capaz de
 
 ## Grade de tempo
 
-A aula ocorre das 19h00 às 22h30, com intervalo das 20h30 às 20h45, e o tempo de conteúdo encerra até as 22h10. Todo o tempo de aula é destinado à apresentação conceitual dos quatro blocos, e os exercícios são realizados fora do horário de aula. A tabela abaixo mostra o tempo de cada bloco, e esses minutos só aparecem nesta página.
+A aula ocorre das 19h00 às 22h30, com intervalo das 20h30 às 20h45, e o tempo de conteúdo precisa terminar até as 22h10. Como todo o tempo de aula vai para a apresentação conceitual dos quatro blocos, os exercícios ficam para depois, fora do horário de aula. A tabela abaixo mostra o tempo de cada bloco, e esses minutos só aparecem nesta página.
 
 | Bloco | Conceito | Apresentação (min) |
 | --- | --- | --- |

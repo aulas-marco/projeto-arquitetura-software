@@ -1,6 +1,6 @@
 # Padrões arquiteturais e padrões de design
 
-Este bloco trabalha dentro do estilo recomendado no [bloco 2](bloco-2-estilos-arquiteturais.md). Um padrão é uma solução conhecida para um problema que se repete, e o bloco responde quais padrões tratam os problemas específicos da solução, em que nível de decisão cada um atua e que custo cada um impõe.
+Escolhido o estilo no [bloco 2](bloco-2-estilos-arquiteturais.md), o arquiteto ainda enfrenta problemas específicos, como fazer o sistema novo conviver com o antigo. Um padrão é uma solução conhecida para um problema que se repete, e este bloco responde quais padrões tratam esses problemas dentro do estilo recomendado, em que nível de decisão cada um atua e que custo cada um impõe.
 
 ## Antes de começar
 
@@ -180,7 +180,7 @@ Padrões se combinam quando cada um resolve um problema distinto. No portal da T
 
 ## Uso pelo arquiteto
 
-O arquiteto seleciona um padrão pelo problema declarado e registra, junto com a escolha, o custo aceito e o sinal que indicaria que o padrão deixou de ser adequado. Esse registro permite que outra pessoa avalie depois se o problema ainda existe e se o custo continua justificado, e evita que um padrão permaneça no desenho apenas porque já está lá. O nível do padrão indica também quem precisa participar da decisão, porque um padrão arquitetural afeta várias equipes e entra no [ADR](bloco-4-registro-de-decisao-arquitetural.md) da solução, enquanto um padrão de design costuma ser decidido pela equipe responsável pela parte afetada.
+Uma escolha de padrão só vale se outra pessoa conseguir reavaliá-la depois, e por isso o arquiteto seleciona o padrão pelo problema declarado e registra, junto com a escolha, o custo aceito e o sinal que indicaria que o padrão deixou de ser adequado. Esse registro permite que outra pessoa avalie depois se o problema ainda existe e se o custo continua justificado, e evita que um padrão permaneça no desenho apenas porque já está lá. O nível do padrão indica também quem precisa participar da decisão, porque um padrão arquitetural afeta várias equipes e entra no [ADR](bloco-4-registro-de-decisao-arquitetural.md) da solução, enquanto um padrão de design costuma ser decidido pela equipe responsável pela parte afetada.
 
 ## No caderno arquitetural
 
@@ -211,7 +211,7 @@ O arquiteto seleciona um padrão pelo problema declarado e registra, junto com a
 
 ## Exercício 11
 
-Este exercício treina a escolha de padrões a partir de problemas concretos, com o custo de cada escolha declarado, porque um padrão só se justifica quando resolve um problema real e o custo é aceito de forma consciente. A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. No [exercício 10](bloco-2-estilos-arquiteturais.md#exercicio-10), o aluno recomendou um estilo arquitetural para a modernização, e agora seleciona padrões dentro desse estilo. O enunciado traz três problemas da ACME, um por item. O primeiro é a coexistência entre o sistema legado e a solução nova, o segundo é a proteção contra falha de integração, e o terceiro é a publicação confiável de mudança acadêmica. Os dados de cada problema foram reproduzidos da [arquitetura de linha de base](../caso-acme/linha-de-base.md) e dos [dados operacionais](../caso-acme/dados-operacionais.md). Em cada item, o aluno escolhe um padrão entre os dez do repertório acima e registra a consequência e o custo da escolha. O conjunto das três respostas forma o mapa de problema, padrão e consequência, que é a entrada do ADR do exercício 12, no [bloco 4](bloco-4-registro-de-decisao-arquitetural.md).
+A ACME já tem um estilo recomendado e ainda precisa resolver três problemas concretos, e este exercício treina a escolha de padrões a partir deles, com o custo de cada escolha declarado, porque um padrão só se justifica quando resolve um problema real e o custo é aceito de forma consciente. A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. No [exercício 10](bloco-2-estilos-arquiteturais.md#exercicio-10), o aluno recomendou um estilo arquitetural para a modernização, e agora seleciona padrões dentro desse estilo. O enunciado traz três problemas da ACME, um por item. O primeiro é a coexistência entre o sistema legado e a solução nova, o segundo é a proteção contra falha de integração, e o terceiro é a publicação confiável de mudança acadêmica. Os dados de cada problema foram reproduzidos da [arquitetura de linha de base](../caso-acme/linha-de-base.md) e dos [dados operacionais](../caso-acme/dados-operacionais.md). Em cada item, o aluno escolhe um padrão entre os dez do repertório acima e registra a consequência e o custo da escolha. O conjunto das três respostas forma o mapa de problema, padrão e consequência, que é a entrada do ADR do exercício 12, no [bloco 4](bloco-4-registro-de-decisao-arquitetural.md).
 
 ### Item 1: Coexistência entre legado e solução nova
 
@@ -225,6 +225,8 @@ graph LR
     FAB["Fábrica contratada até 30/09/2027"] -.->|"única autorizada a alterar"| CICS
     NOVO["Elemento novo da solução"] -.->|"precisa conviver com"| CICS
 ```
+
+O primeiro problema pede um padrão que deixe o elemento novo viver ao lado do núcleo sem alterá-lo, e o item pede dois passos, o da escolha do padrão e o do registro da consequência e do custo.
 
 1. Escolha um padrão do repertório deste bloco para o problema, ou mais de um quando resolverem aspectos distintos do mesmo problema, e indique o nível de cada padrão na tabela de três níveis (estilo arquitetural, padrão arquitetural ou padrão de design) apresentada no início do bloco.
 2. Registre três informações, o elemento afetado do esboço lógico produzido no [exercício 9](bloco-1-principios-de-design.md#exercicio-9), a consequência favorável esperada e o custo aceito. Quem não tem o esboço lógico pode indicar como elemento afetado o componente correspondente do diagrama acima.
@@ -243,6 +245,8 @@ flowchart TB
     S4 --> S5["4h20 de indisponibilidade e 62% de erro na matrícula"]
 ```
 
+O segundo problema pede um padrão que impeça a repetição da sequência de 04/02/2026, em que sessões abandonadas esgotaram o núcleo e arrastaram os portais, e o item pede os mesmos dois passos.
+
 1. Escolha um padrão do repertório deste bloco para o problema, ou mais de um quando resolverem aspectos distintos do mesmo problema, e indique o nível de cada padrão na tabela de três níveis (estilo arquitetural, padrão arquitetural ou padrão de design) apresentada no início do bloco.
 2. Registre três informações, o elemento afetado do esboço lógico produzido no [exercício 9](bloco-1-principios-de-design.md#exercicio-9), a consequência favorável esperada e o custo aceito. Quem não tem o esboço lógico pode indicar como elemento afetado o componente correspondente do diagrama acima.
 
@@ -259,6 +263,8 @@ flowchart TB
     LOTE -->|"arquivo com até 360.000 lançamentos no fechamento"| AVA["Ambiente virtual recebe às 06h00 do dia seguinte"]
     R7["R7, até 10 minutos entre o lançamento e a chegada"] -.- AVA
 ```
+
+O terceiro problema pede um padrão que faça a nota sair do núcleo no ritmo do lançamento, e aqui o item pede também um terceiro passo, o do padrão que foi considerado e descartado.
 
 1. Escolha um padrão do repertório deste bloco para o problema, ou mais de um quando resolverem aspectos distintos do mesmo problema, e indique o nível de cada padrão na tabela de três níveis (estilo arquitetural, padrão arquitetural ou padrão de design) apresentada no início do bloco.
 2. Registre três informações, o elemento afetado do esboço lógico produzido no [exercício 9](bloco-1-principios-de-design.md#exercicio-9), a consequência favorável esperada e o custo aceito. Quem não tem o esboço lógico pode indicar como elemento afetado o componente correspondente do diagrama acima.

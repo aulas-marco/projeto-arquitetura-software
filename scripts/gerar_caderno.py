@@ -28,12 +28,12 @@ GABARITO = re.compile(r"<!--gabarito-->[ \t]*\n(.*?)<!--/gabarito-->", re.DOTALL
 CERCA = re.compile(r"^\s*(```|~~~)")
 
 INTRO_TEMPLATE = (
-    "O caderno arquitetural da ACME é o documento em que a arquitetura da solução fica registrada, "
-    "seção por seção, ao longo do curso. Cada seção responde a uma pergunta e é preenchida por um ou "
-    "mais exercícios. A trilha abaixo mostra as onze partes, e cada ficha explica o que entra na "
-    "seção, de onde vêm as informações e quando ela é preenchida. Se um código como D1 ou R6 não for "
-    "familiar, a página de [convenções](convencoes.md) explica todos, e o [mapa](mapa.md) mostra qual "
-    "exercício preenche cada seção."
+    "Ao longo do curso, a arquitetura da solução da ACME vai sendo registrada num único documento, "
+    "seção por seção, e esse documento é o caderno arquitetural. Cada seção responde a uma pergunta e é "
+    "preenchida por um ou mais exercícios, e por isso a trilha abaixo mostra as onze partes, com uma "
+    "ficha que diz o que entra em cada seção, de onde vêm as informações e quando ela é preenchida. "
+    "Quem encontrar um código como D1 ou R6 sem saber o que significa pode consultar a página de "
+    "[convenções](convencoes.md), e o [mapa](mapa.md) mostra qual exercício preenche cada seção."
 )
 
 
@@ -155,14 +155,14 @@ def render_gabarito(secoes: list[Secao], n: int, docs: Path = DOCS) -> str:
     partes = [f"# Gabarito do exercício {n}", "", f"{{{{progresso:{n}}}}}", ""]
     if n == 1:
         intro = (
-            "Este é o caderno da ACME depois do exercício 1, e a moldura âmbar marca o que ele acrescentou. "
-            "Compare com o seu caderno e veja onde as respostas diferem."
+            "Ao terminar o exercício 1, o caderno da ACME ganhou as suas primeiras respostas, e a moldura âmbar "
+            "marca o que foi acrescentado. Compare com o seu caderno para ver onde as suas respostas diferem."
         )
     else:
         intro = (
-            f"Este é o caderno da ACME depois do exercício {n}. Ele reúne o que os exercícios 1 a {n} produziram, "
-            f"e a moldura âmbar marca o que o exercício {n} acrescentou. Compare com o seu caderno e veja onde "
-            "as respostas diferem."
+            f"Depois do exercício {n}, o caderno da ACME reúne o que os exercícios 1 a {n} produziram, "
+            f"e a moldura âmbar marca o que o exercício {n} acrescentou. Compare com o seu caderno para ver "
+            "onde as suas respostas diferem."
         )
     pagina = _pagina(n, docs)
     if pagina:
@@ -197,9 +197,9 @@ def render_mapa(secoes: list[Secao], existentes: set[int], docs: Path = DOCS) ->
     linhas = [
         "# Mapa do caderno arquitetural",
         "",
-        "A tabela mostra, para cada seção do caderno, o bloco que ensina o assunto, o exercício que "
-        "preenche a seção e o gabarito em que o resultado aparece. As seções 0 e 10 são revistas ao "
-        "fim de cada aula, nos exercícios 4, 8, 12, 16, 20 e 24.",
+        "Para saber onde cada seção do caderno é preenchida, a tabela mostra o bloco que ensina o assunto, "
+        "o exercício que preenche a seção e o gabarito em que o resultado aparece. As seções 0 e 10 são "
+        "exceção, porque são revistas ao fim de cada aula, nos exercícios 4, 8, 12, 16, 20 e 24.",
         "",
         "| Seção | Aula | Bloco | Exercício | Gabarito |",
         "| --- | --- | --- | --- | --- |",
@@ -224,11 +224,12 @@ def render_indice(existentes: set[int]) -> str:
         "# Gabaritos",
         "",
         "O caderno arquitetural é o documento em que a arquitetura da solução da ACME vai sendo registrada "
-        "ao longo do curso. A [Aula 1](../modulo-1-fundamentos/index.md#o-fio-condutor-do-curso-o-caderno-arquitetural) "
-        "explica o que ele é e para que serve cada seção. Cada gabarito mostra o caderno como ele fica depois de "
-        "um exercício: as respostas dos exercícios anteriores já estão lá, e o trecho do exercício atual aparece "
-        "em destaque. Use o [template](../caderno/template.md) para ver o caderno vazio e o "
-        "[mapa](../caderno/mapa.md) para saber qual exercício preenche cada seção.",
+        "ao longo do curso, e a [Aula 1](../modulo-1-fundamentos/index.md#o-fio-condutor-do-curso-o-caderno-arquitetural) "
+        "explica o que ele é e para que serve cada seção. Depois de cada exercício o caderno está num estado "
+        "diferente, com as respostas dos exercícios anteriores já escritas e o trecho do exercício atual em "
+        "destaque, e cada gabarito mostra exatamente esse estado. Para ver o caderno vazio, use o "
+        "[template](../caderno/template.md), e para saber qual exercício preenche cada seção, use o "
+        "[mapa](../caderno/mapa.md).",
         "",
     ]
     if not existentes:

@@ -6,11 +6,11 @@ modo: acumula
 <!--orientacao-->
 | Campo | Conteúdo |
 | --- | --- |
-| Para que serve | A tecnologia só se escolhe depois que as decisões estruturais estão tomadas. Esta seção mostra com que produtos e plataforma a solução será construída e como ela será protegida contra ameaças. |
+| Para que serve | Só depois de tomadas as decisões estruturais faz sentido escolher a tecnologia. Esta seção mostra com que produtos e plataforma a solução será construída e como ela será protegida contra ameaças. |
 | Pergunta que responde | Que produtos e que plataforma atendem às decisões já tomadas, e que riscos de segurança precisam de resposta? |
-| O que você escreve | A lista de tecnologias aprovadas, proibidas e em avaliação, e a comparação entre alternativas por seis critérios. A plataforma e a zona de pouso escolhidas, que é a base em nuvem onde a solução roda. A classificação dos dados por sensibilidade, as ameaças de segurança com os controles contra cada uma e o registro da decisão sobre a plataforma. |
-| Vem de onde | Das seções 5 e 7: o desenho e as decisões já tomadas mostram o que a tecnologia precisa fazer. |
-| Quando se preenche | Na Aula 5, nos exercícios 17, 18, 19 e 20. |
+| O que você escreve | Você lista as tecnologias aprovadas, proibidas e em avaliação e compara as alternativas por seis critérios. Depois registra a plataforma e a zona de pouso escolhidas, que é a base em nuvem onde a solução roda, classifica os dados por sensibilidade e relaciona cada ameaça de segurança aos controles contra ela. A seção termina com o registro da decisão sobre a plataforma. |
+| Vem de onde | Das seções 5 e 7, porque o desenho e as decisões já tomadas mostram o que a tecnologia precisa fazer. |
+| Quando se preenche | Você preenche esta seção na Aula 5, nos exercícios 17, 18, 19 e 20. |
 <!--/orientacao-->
 
 <!--ex n=17 titulo="Modelo técnico, tecnologias da linha de base e provedor de identidade"-->
@@ -26,7 +26,7 @@ modo: acumula
 <!--gabarito-->
 #### Contêineres novos e linhas do modelo técnico de referência
 
-Cada contêiner novo deve seguir a linha do modelo técnico que trata da função dele. O provedor de identidade segue a linha de identidade e acesso e o evento de nota segue a de mensageria, porque é a linha que diz à equipe qual padrão respeitar.
+Cada equipe da ACME precisa saber qual padrão respeitar antes de escolher um produto, e a linha do modelo técnico que trata da função do contêiner diz exatamente isso. O provedor de identidade segue a linha de identidade e acesso, e o evento de nota segue a de mensageria.
 
 | Elemento | Linha do modelo técnico | Padrão ou protocolo obrigatório |
 | --- | --- | --- |
@@ -39,7 +39,7 @@ Duas linhas valem para todos os contêineres novos, a de infraestrutura como có
 
 #### Classificação das tecnologias da linha de base
 
-A cor de cada tecnologia sai do dado da linha de base e do recorte do modelo técnico. O COBOL sob CICS não aparece no recorte e o dossiê não traz plano de migração para ele, então a permanência dele se explica pelo contrato e não por qualidade técnica.
+Para decidir a cor de cada tecnologia, o arquiteto lê o dado da linha de base e o recorte do modelo técnico. O COBOL sob CICS não aparece no recorte e o dossiê não traz plano de migração para ele, de modo que a permanência dele se explica pelo contrato de manutenção, que vale até 30/09/2027.
 
 | Tecnologia | Cor | Justificativa |
 | --- | --- | --- |
@@ -227,7 +227,7 @@ O ADR de plataforma usa os dez campos do ADR de estilo e se apoia nos exercício
 
 #### Lacunas de provisão da definição tecnológica
 
-Cada item da definição tecnológica considerada se compara com o que a linha de base já oferece, e o resultado mostra o tamanho do trabalho. A lacuna é nova quando o serviço não existe, substituição quando um serviço existente dá lugar a outro, modificação quando o existente precisa mudar e remoção quando deixa de existir.
+Para medir o tamanho do trabalho, cada item da definição tecnológica considerada se compara com o que a linha de base já oferece, e o resultado cai em um de quatro tipos: a lacuna é nova quando o serviço não existe, é substituição quando um serviço existente dá lugar a outro, é modificação quando o existente precisa mudar e é remoção quando ele deixa de existir.
 
 | Item da definição tecnológica | Tipo | Justificativa pela situação atual |
 | --- | --- | --- |

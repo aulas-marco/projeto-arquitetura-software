@@ -1,6 +1,6 @@
 # O processo de definição da arquitetura
 
-Este bloco apresenta o ciclo de vida de oito fases que organiza o trabalho de arquitetura de solução, com a entrada, a atividade central e a saída de cada fase.
+Em um projeto de modernização como o da ACME, quem patrocina a mudança pergunta cedo quando a solução fica pronta e quanto ela custa, e o arquiteto só consegue responder com honestidade quando trabalha em fases. Este bloco apresenta o ciclo de vida de oito fases que organiza esse trabalho, com a entrada, a atividade central e a saída de cada fase.
 
 ## Antes de começar
 
@@ -12,7 +12,7 @@ Este bloco apresenta o ciclo de vida de oito fases que organiza o trabalho de ar
 
 ## Conceito
 
-Produzir um desenho de solução completo e realista a partir apenas de uma ideia inicial exige trabalho organizado. O processo adotado no curso organiza esse trabalho em oito fases sequenciais, cada uma construída sobre as saídas das anteriores. O ponto de partida é o conceito de solução, a ideia de que uma solução é necessária. Alguns dos artefatos usados no percurso já existem e descrevem a situação atual, e são chamados de artefatos de linha de base, guardados no repositório de arquitetura corporativa. O processo modifica parte deles, cria outros, e devolve as versões finais a esse repositório.
+Partir apenas de uma ideia inicial e chegar a um desenho de solução completo e realista exige trabalho organizado, e por isso o processo adotado no curso o divide em oito fases sequenciais, cada uma construída sobre as saídas das anteriores. O ponto de partida é o conceito de solução, a ideia de que uma solução é necessária. Alguns dos artefatos usados no percurso já existem e descrevem a situação atual, e são chamados de artefatos de linha de base, guardados no repositório de arquitetura corporativa. O processo modifica parte deles, cria outros e devolve as versões finais a esse repositório.
 
 O ciclo não é obrigatoriamente percorrido até o fim. Durante qualquer fase, ou ao término dela, é legítimo abandonar o processo quando nenhuma solução aceitável for encontrada. Mais comum que o abandono é a mudança de escopo, que pode ser reduzido quando apenas parte do problema tem solução viável, ou ampliado para incluir áreas do negócio que estavam fora do recorte inicial.
 
@@ -38,9 +38,9 @@ A tabela abaixo repete o conteúdo do infográfico em texto, para consulta e par
 
 A fase de iniciação tem custo baixo de propósito, porque seu produto é a decisão de prosseguir ou não, e nenhum desenho é produzido nela. O que ela exige é tempo e atenção de [partes interessadas](bloco-3-papel-do-arquiteto-de-solucao.md#conceito) seniores, conceito definido no bloco 3, e é nela que costuma ser identificado o patrocinador de negócio, o responsável último pela solução, que responde pelo sucesso dela e decide sobre a passagem de cada fase.
 
-O termo problema, nesse processo, cobre três categorias: problemas imediatos que a organização precisa tratar, problemas antecipados que exigem redução de risco e oportunidades que a organização deve aproveitar. O espaço do problema delimita o escopo da investigação, e é a área do negócio que precisa ser examinada primeiro para estabelecer a causa raiz.
+Antes de investigar, o arquiteto precisa saber o que conta como problema, e o processo cobre três categorias: problemas imediatos que a organização precisa tratar, problemas antecipados que exigem redução de risco e oportunidades que a organização deve aproveitar. O espaço do problema delimita o escopo da investigação, e é a área do negócio que precisa ser examinada primeiro para estabelecer a causa raiz.
 
-A fase de validação usa três técnicas que reaparecem ao longo do curso. Um **ponto de vista** é o modelo que se aplica como filtro sobre o modelo de arquitetura, e o resultado é uma **visão**. Aplicar o mesmo ponto de vista às descrições anterior e posterior da arquitetura permite ver o efeito da mudança sob uma perspectiva específica. A **análise de impacto** examina cada bloco de construção e enumera o impacto da mudança, avaliado por alcance, tamanho e direção. A **análise de lacunas** compara duas descrições de arquitetura e lista os componentes da solução acrescentados, removidos ou alterados (pessoas, estruturas organizacionais, processos, informação e tecnologia).
+Quando o desenho lógico fica pronto, a fase de validação o verifica com três técnicas que reaparecem ao longo do curso. Um **ponto de vista** é o modelo que se aplica como filtro sobre o modelo de arquitetura, e o resultado é uma **visão**. Aplicar o mesmo ponto de vista às descrições anterior e posterior da arquitetura permite ver o efeito da mudança sob uma perspectiva específica. A **análise de impacto** examina cada bloco de construção e enumera o impacto da mudança, avaliado por alcance, tamanho e direção. A **análise de lacunas** compara duas descrições de arquitetura e lista os componentes da solução acrescentados, removidos ou alterados (pessoas, estruturas organizacionais, processos, informação e tecnologia).
 
 ### Adaptação do processo
 
@@ -74,7 +74,7 @@ O [template do caderno](../caderno/template.md) mostra, seção por seção, o q
 
 ## Uso pelo arquiteto
 
-O arquiteto usa o ciclo para saber o que pode e o que não pode ser cobrado dele em cada momento. Pedir catálogo de blocos de construção durante a descoberta antecipa uma decisão que ainda não tem base, e pedir criatividade na fase de análise atrapalha o fechamento que aquela fase precisa produzir.
+Quando alguém pede ao arquiteto um catálogo de blocos de construção durante a descoberta, antecipa uma decisão que ainda não tem base, e quando pede criatividade na fase de análise, atrapalha o fechamento que aquela fase precisa produzir. Por isso o arquiteto usa o ciclo para saber o que pode e o que não pode ser cobrado dele em cada momento.
 
 O ciclo também organiza a conversa sobre incerteza. Quando o patrocinador pergunta qual será o custo da solução na segunda semana de trabalho, a resposta honesta é que a estimativa de custo é saída da fase de desenvolvimento do roteiro, e que o que existe naquele momento é ordem de grandeza derivada do esboço. Declarar isso protege o arquiteto e o patrocinador de um compromisso numérico que não se sustenta.
 
@@ -107,11 +107,11 @@ O ciclo também organiza a conversa sobre incerteza. Quando o patrocinador pergu
 
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 4.900 turmas por semestre e 230.400 matrículas em disciplina por semestre, cujo sistema acadêmico está em operação desde 2004 e sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro, o sistema de gestão das finanças da universidade. A modernização foi autorizada pela Reitoria com orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses.
 
-O arquiteto trabalha em fases, e cada fase usa documentos produzidos pelas anteriores e deixa documentos para as seguintes. Saber em que fase cada documento aparece evita cobrar do arquiteto, cedo demais, algo que só existe mais adiante. Este exercício usa o ciclo de oito fases da tabela da seção [As oito fases](#as-oito-fases) e o caderno arquitetural, o documento em que o curso reúne, seção por seção, a arquitetura da solução da ACME. No Item 1 você liga dez artefatos do caso às fases e às seções do caderno. No Item 2 você trata de um pedido que ainda não pode ser atendido, a data de conclusão do ciclo.
+Na ACME, o arquiteto trabalha em fases, e cada fase usa documentos produzidos pelas anteriores e deixa documentos para as seguintes, de modo que saber em que fase cada documento aparece evita cobrar dele, cedo demais, algo que só existe mais adiante. Este exercício usa o ciclo de oito fases da tabela da seção [As oito fases](#as-oito-fases) e o caderno arquitetural, o documento em que o curso reúne, seção por seção, a arquitetura da solução da ACME. No Item 1 você liga dez artefatos do caso às fases e às seções do caderno. No Item 2 você trata de um pedido que ainda não pode ser atendido, a data de conclusão do ciclo.
 
 ### Item 1: Fase e papel de cada artefato
 
-Artefato é qualquer documento ou modelo que o trabalho usa ou produz, como o mapa de atores, que registra o que cada área da universidade quer e teme, ou o inventário dos componentes de software atuais do sistema. O quadro abaixo traz dez artefatos do caso, numerados de A1 a A10, alguns já existentes e outros ainda por produzir. Cada artefato tem um papel: entrada, quando a fase o recebe pronto, produto intermediário, quando ele é produzido para alimentar uma fase seguinte, ou entregável, quando é o resultado entregue ao patrocinador de negócio, o responsável último pela solução. Um [artefato de linha de base](../referencia/glossario.md#artefato-de-linha-de-base) é aquele que já descreve a situação atual antes do início do processo, conforme a seção [Conceito](#conceito) deste bloco.
+Para ligar os artefatos às fases, é preciso saber o que cada um é. Artefato é qualquer documento ou modelo que o trabalho usa ou produz, como o mapa de atores, que registra o que cada área da universidade quer e teme, ou o inventário dos componentes de software atuais do sistema. O quadro abaixo traz dez artefatos do caso, numerados de A1 a A10, alguns já existentes e outros ainda por produzir. Cada artefato tem um papel: entrada, quando a fase o recebe pronto, produto intermediário, quando ele é produzido para alimentar uma fase seguinte, ou entregável, quando é o resultado entregue ao patrocinador de negócio, o responsável último pela solução. Um [artefato de linha de base](../referencia/glossario.md#artefato-de-linha-de-base) é aquele que já descreve a situação atual antes do início do processo, conforme a seção [Conceito](#conceito) deste bloco.
 
 | Código | Artefato |
 | --- | --- |
@@ -134,7 +134,7 @@ Suas respostas viram os campos Fase, Papel, Linha de base e Seção do caderno d
 
 ### Item 2: Data de conclusão do ciclo
 
-Uma pendência é uma decisão que ainda não pode ser tomada e que o caderno registra, com o nome de quem decide, para que não seja prometida antes da hora. A instituição pediu ao arquiteto a data em que o ciclo termina, e esse pedido é um caso típico. O diagrama abaixo mostra as oito fases do ciclo e o momento em que a data foi pedida, logo após a autorização registrada em A9, o documento que autoriza a equipe de arquitetura a iniciar a investigação.
+A instituição pediu ao arquiteto a data em que o ciclo termina, logo após a autorização registrada em A9, o documento que autoriza a equipe de arquitetura a iniciar a investigação. Esse pedido é um caso típico de pendência, ou seja, uma decisão que ainda não pode ser tomada e que o caderno registra, com o nome de quem decide, para que não seja prometida antes da hora. O diagrama abaixo mostra as oito fases do ciclo e o momento em que a data foi pedida.
 
 ```mermaid
 %%{init: {"flowchart": {"curve": "stepAfter"}}}%%

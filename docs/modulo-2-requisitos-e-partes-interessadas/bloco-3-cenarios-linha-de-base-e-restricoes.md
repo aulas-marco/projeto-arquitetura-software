@@ -1,6 +1,6 @@
 # Cenários de qualidade, linha de base e restrições
 
-Este bloco trata de como tornar um requisito de atributo de qualidade concreto o bastante para orientar decisão, como julgar se um requisito deve pesar sobre a arquitetura, e quais insumos já existentes entram no processo antes de qualquer desenho, os artefatos de linha de base e as restrições. Cenário é a descrição de uma situação concreta, com quem a provoca, o que acontece e que resposta se espera do sistema. Artefato de linha de base é um documento ou medição que já existe e descreve o sistema atual, como o inventário de componentes. Restrição é uma decisão tomada por outra instância, como a escolha de apenas dois provedores de nuvem, que o arquiteto precisa respeitar.
+Quando a ACME diz que a matrícula não pode cair, o arquiteto precisa transformar a frase em algo que oriente decisão. Este bloco trata de como tornar um requisito de atributo de qualidade concreto o bastante para isso, de como julgar se um requisito deve pesar sobre a arquitetura e de quais insumos já existentes entram no processo antes de qualquer desenho, os artefatos de linha de base e as restrições. Cenário é a descrição de uma situação concreta, com quem a provoca, o que acontece e que resposta se espera do sistema. Artefato de linha de base é um documento ou medição que já existe e descreve o sistema atual, como o inventário de componentes, e restrição é uma decisão tomada por outra instância, como a escolha de apenas dois provedores de nuvem, que o arquiteto precisa respeitar.
 
 ## Antes de começar
 
@@ -14,7 +14,7 @@ Este bloco trata de como tornar um requisito de atributo de qualidade concreto o
 
 Um [requisito de atributo de qualidade](bloco-2-qualidade-e-tipos-de-requisito.md#conceito), definido no bloco 2 desta aula, mesmo bem formulado, ainda deixa dúvida sobre em que situação exata ele vale e sobre como equipes diferentes devem interpretá-lo. O Software Engineering Institute usa cenários para reduzir essa ambiguidade. O relatório CMU/SEI-2003-TR-016 descreve o Quality Attribute Workshop, QAW, como método conduzido com os interessados para descobrir atributos de qualidade importantes e esclarecer requisitos antes mesmo de existir uma arquitetura detalhada. No QAW, os interessados geram, consolidam, priorizam e refinam cenários que representam os requisitos de qualidade do sistema. Esse trabalho também revela suposições e conflitos que permaneceriam ocultos em expressões genéricas como rápido, seguro ou flexível.
 
-Um **cenário de atributo de qualidade** organiza essa expectativa em seis elementos.
+Para eliminar essa dúvida, o **cenário de atributo de qualidade** organiza a expectativa em seis elementos, que a tabela abaixo apresenta com a pergunta que cada um responde.
 
 | Elemento | Pergunta respondida |
 | --- | --- |
@@ -37,7 +37,7 @@ Um exemplo aplicado torna a estrutura concreta antes das três variações detal
 
 *Figura 2 — Exemplo aplicado da estrutura de seis elementos a um requisito de desempenho de um serviço de catálogo. Fonte: material do curso.*
 
-O exemplo abaixo aplica a mesma estrutura a um requisito de desempenho em outro domínio, na mesma progressão de contexto e medida vista no exemplo de desempenho da plataforma de vídeo da Produtora ACME, apresentado na seção Conceito do [bloco 2](bloco-2-qualidade-e-tipos-de-requisito.md).
+Para ver a estrutura em outro domínio, o primeiro exemplo traz um requisito de desempenho do aplicativo de rastreamento de encomendas da Transportadora ACME, na mesma progressão de contexto e medida vista no exemplo de desempenho da plataforma de vídeo da Produtora ACME, apresentado na seção Conceito do [bloco 2](bloco-2-qualidade-e-tipos-de-requisito.md).
 
 | Elemento | Especificação |
 | --- | --- |
@@ -48,7 +48,7 @@ O exemplo abaixo aplica a mesma estrutura a um requisito de desempenho em outro 
 | Resposta | Validar a identidade, recuperar o status da encomenda e devolver a resposta |
 | Medida | p95 até 500 ms, p99 até 1 s, erros abaixo de 0,1% |
 
-Na medida, p95 e p99 indicam o tempo dentro do qual terminam 95% e 99% das consultas, de modo que p95 até 500 ms quer dizer que no máximo 5% das consultas demoram mais que isso. O exemplo seguinte aplica a mesma estrutura a um requisito de modificabilidade, no sistema de pagamentos da Varejista ACME, que trabalha com múltiplos adquirentes, as empresas que processam os pagamentos de cartão da loja.
+Na medida, p95 e p99 indicam o tempo dentro do qual terminam 95% e 99% das consultas, de modo que p95 até 500 ms quer dizer que no máximo 5% das consultas demoram mais que isso. O exemplo seguinte aplica a mesma estrutura a um requisito de modificabilidade: o sistema de pagamentos da Varejista ACME trabalha com múltiplos adquirentes, as empresas que processam os pagamentos de cartão da loja, e precisa incluir um novo sem mexer nas integrações existentes.
 
 | Elemento | Especificação |
 | --- | --- |
@@ -59,7 +59,7 @@ Na medida, p95 e p99 indicam o tempo dentro do qual terminam 95% e 99% das consu
 | Resposta | Implementar e ativar a nova integração sem alterar as integrações existentes |
 | Medida | Até dez dias úteis, alterações limitadas ao adaptador, configuração e testes contratuais |
 
-O terceiro exemplo aplica a mesma estrutura a um requisito de segurança, em um domínio ainda não usado nesta aula, o portal de sinistros da Seguradora ACME.
+No terceiro exemplo, o portal de sinistros da Seguradora ACME precisa resistir a quem tenta adivinhar a senha de um segurado, e a mesma estrutura descreve esse requisito de segurança, em um domínio ainda não usado nesta aula.
 
 | Elemento | Especificação |
 | --- | --- |
@@ -74,7 +74,7 @@ Um cenário bem escrito ainda não indica se o requisito é arquiteturalmente si
 
 Nem todo requisito produz o mesmo efeito sobre a solução. Incluir um campo opcional em uma tela já existente costuma ser mudança local, contida em poucos componentes. Já a exigência de que um sistema de pagamentos permaneça disponível mesmo após a perda completa de uma região de nuvem pode alterar implantação, replicação de dados, comunicação entre serviços, tratamento de falha, monitoramento e custo operacional. A arquitetura passa a importar quando uma necessidade produz efeito amplo, envolve risco elevado ou exige escolha difícil de reverter.
 
-Um **requisito arquiteturalmente significativo**, ASR, é um requisito cuja satisfação exerce influência importante sobre a arquitetura, podendo determinar estrutura, responsabilidade, interface, tecnologia, mecanismo, padrão de interação ou forma de implantação. Arquiteturalmente significativo designa um juízo sobre o impacto que aquele requisito produz sobre a arquitetura. Um requisito tende a ser um ASR quando sua satisfação apresenta ao menos uma das oito condições abaixo.
+Para nomear esse efeito amplo, usa-se o conceito de **requisito arquiteturalmente significativo**, ASR, um requisito cuja satisfação exerce influência importante sobre a arquitetura, podendo determinar estrutura, responsabilidade, interface, tecnologia, mecanismo, padrão de interação ou forma de implantação. Arquiteturalmente significativo designa um juízo sobre o impacto que aquele requisito produz sobre a arquitetura. Um requisito tende a ser um ASR quando sua satisfação apresenta ao menos uma das oito condições abaixo.
 
 - força escolhas estruturais importantes
 - afeta vários componentes ou equipes
@@ -89,9 +89,9 @@ Um **direcionador arquitetural** é um fator prioritário que orienta a formaç�
 
 Atributo de qualidade e ASR não são equivalentes. Um atributo de qualidade é uma propriedade, como desempenho ou disponibilidade. Um requisito de atributo de qualidade estabelece o comportamento esperado em relação a essa propriedade. Um ASR é um requisito que influencia materialmente a arquitetura, e essa influência decorre do efeito que ele produz sobre decisões estruturais. Um requisito de atributo de qualidade pode ser arquiteturalmente significativo, mas não necessariamente será, como acontece com uma consulta administrativa de baixo volume que continua sendo requisito de desempenho válido sem provocar qualquer decisão arquitetural nova. Um ASR, por sua vez, não precisa ser um requisito de atributo de qualidade. No sistema de pagamentos da Varejista ACME, o requisito de escolher dinamicamente entre cinco adquirentes, considerando custo, disponibilidade, risco e regra contratual, sem duplicar cobrança durante tentativa de contingência, tem núcleo funcional. Ainda assim ele pode exigir estratégia intercambiável entre adquirentes, normalização de contrato, idempotência, gerenciamento de estado, tratamento de falha parcial, auditoria e observabilidade distribuída, o que o torna um ASR funcional. Na expansão internacional, o objetivo de disponibilizar o produto em cinco países em doze meses ainda não especifica comportamento de software, mas pode gerar ASRs de localização, configurabilidade, extensibilidade e conformidade regulatória, sem que nenhum desses ASRs seja, sozinho, um requisito de qualidade nomeado como tal.
 
-Os dois conjuntos, requisito de atributo de qualidade e ASR, se cruzam sem coincidir. Existem requisitos de qualidade que são ASR e requisitos de qualidade que não são. Existem ASR funcionais e existem ASR que são restrição. Existe também requisito funcional comum sem nenhuma significância arquitetural relevante.
+Os dois conjuntos, requisito de atributo de qualidade e ASR, se cruzam sem coincidir: há requisitos de qualidade que são ASR e outros que não são, há ASR funcionais e ASR que são restrição, e há ainda requisito funcional comum sem nenhuma significância arquitetural relevante.
 
-Diante de um requisito qualquer, um roteiro prático ajuda a decidir se ele deve pesar sobre a arquitetura.
+Quando um requisito novo chega à mesa, o arquiteto precisa de um roteiro prático para decidir se ele deve pesar sobre a arquitetura, e as sete perguntas abaixo cumprem esse papel.
 
 1. Quais decisões mudariam? O requisito influencia decomposição, interfaces, comunicação, persistência, implantação ou tecnologias?
 2. Qual é o alcance? Afeta um único componente ou atravessa vários elementos, serviços e equipes?
@@ -101,9 +101,9 @@ Diante de um requisito qualquer, um roteiro prático ajuda a decidir se ele deve
 6. É necessário validar hipóteses cedo? O requisito demanda protótipo, teste de carga, experimento ou prova de conceito?
 7. Qual é a prioridade para os interessados? A exigência está ligada a objetivos de negócio ou de missão realmente prioritários?
 
-Uma heurística resume o roteiro. Se uma alteração relevante no requisito obrigaria a reconsiderar decisões fundamentais, caras ou transversais da solução, há boa evidência de significância arquitetural. Essa heurística não substitui julgamento, porque significância depende de escala, riscos, arquitetura existente, competências disponíveis e custo de mudança, e pode variar entre sistemas e entre estágios do ciclo de vida do mesmo sistema.
+Uma heurística resume o roteiro: se uma alteração relevante no requisito obrigaria a reconsiderar decisões fundamentais, caras ou transversais da solução, há boa evidência de significância arquitetural. Ela não substitui julgamento, porque significância depende de escala, riscos, arquitetura existente, competências disponíveis e custo de mudança, e pode variar entre sistemas e entre estágios do ciclo de vida do mesmo sistema.
 
-Dois erros conceituais recorrentes merecem atenção neste ponto. O primeiro é tratar todo requisito não funcional como ASR. Nem todo requisito de qualidade altera a arquitetura, e alguns são satisfeitos por configuração local, implementação convencional ou capacidade já existente, como no exemplo da consulta administrativa, citado no parágrafo sobre a relação entre atributo de qualidade e ASR, nesta mesma seção Conceito. O segundo é tratar todo ASR como requisito não funcional. Funcionalidade, restrição regulatória, padrão corporativo e integração mandatória também podem condicionar a arquitetura, como mostra o exemplo do roteamento entre adquirentes de pagamento, apresentado no mesmo parágrafo sobre a relação entre atributo de qualidade e ASR, que é, no núcleo, um requisito funcional.
+Dois erros recorrentes aparecem neste ponto. O primeiro é tratar todo requisito não funcional como ASR. Nem todo requisito de qualidade altera a arquitetura, e alguns são satisfeitos por configuração local, implementação convencional ou capacidade já existente, como no exemplo da consulta administrativa, citado no parágrafo sobre a relação entre atributo de qualidade e ASR, nesta mesma seção Conceito. O segundo é tratar todo ASR como requisito não funcional. Funcionalidade, restrição regulatória, padrão corporativo e integração mandatória também podem condicionar a arquitetura, como mostra o exemplo do roteamento entre adquirentes de pagamento, apresentado no mesmo parágrafo sobre a relação entre atributo de qualidade e ASR, que é, no núcleo, um requisito funcional.
 
 ### Artefatos de linha de base
 
@@ -117,13 +117,13 @@ Na ACME, universidade privada brasileira fictícia com sistema acadêmico em ope
 
 Restrição é decisão tomada fora do processo de projeto, que limita as alternativas do arquiteto sem ser negociável por ele. Ela difere do requisito em dois pontos. O requisito descreve o que a solução precisa entregar e admite discussão sobre a forma de atendê-lo, enquanto a restrição fecha alternativas antes da análise. Tratar restrição como requisito leva a comparar opções que a organização já descartou, e tratar requisito como restrição leva a aceitar como fechado o que ainda podia ser negociado.
 
-As restrições chegam de origens distintas, e a origem determina quem pode revê-las. Restrição regulatória vem de fora e só muda com mudança normativa. Restrição contratual vem de acordo assinado e muda por negociação com o fornecedor, dentro dos prazos previstos. Restrição de política interna vem de decisão de governança e muda com nova decisão do mesmo nível. Restrição técnica vem do parque instalado e muda com investimento.
+As restrições chegam de origens distintas, e a origem determina quem pode revê-las: a restrição regulatória vem de fora e só muda com mudança normativa, a contratual vem de acordo assinado e muda por negociação com o fornecedor dentro dos prazos previstos, a de política interna vem de decisão de governança e muda com nova decisão do mesmo nível, e a técnica vem do parque instalado e muda com investimento.
 
 Sete restrições chegam fechadas ao caso da ACME, entre elas a impossibilidade de parar o sistema em período letivo, imposta pela Pró-Reitoria de Graduação, a permanência do ambiente virtual de aprendizagem e do ERP financeiro, decidida pela Reitoria em 12/03/2026, o uso de apenas dois provedores de nuvem pré-aprovados pelo Conselho Universitário, e o processamento de dado pessoal de aluno em território nacional, conforme parecer jurídico de 28/04/2026. As sete aparecem no Item 5 do [exercício 7](#exercicio-7), com o registro de quem as estabeleceu.
 
 ## Uso pelo arquiteto
 
-O arquiteto usa o cenário e o roteiro de sete perguntas para decidir onde investir esforço de design, dentro de um conjunto de requisitos que nunca recebe atenção equivalente. Cenários bem formados tornam comparável o que antes era apenas uma lista de rótulos de atributo, e o roteiro filtra, entre os cenários escritos, quais realmente pesam sobre decisão estrutural, risco ou custo de mudança tardia. O resultado orienta a prioridade de análise antes de qualquer proposta de solução, evitando que o esforço de arquitetura se disperse sobre requisito que a implementação convencional já resolve.
+Um conjunto de requisitos nunca recebe atenção equivalente, e na ACME não seria diferente, de modo que o arquiteto usa o cenário e o roteiro de sete perguntas para decidir onde investir esforço de design. Cenários bem formados tornam comparável o que antes era apenas uma lista de rótulos de atributo, e o roteiro filtra, entre os cenários escritos, quais realmente pesam sobre decisão estrutural, risco ou custo de mudança tardia. O resultado orienta a prioridade de análise antes de qualquer proposta de solução e evita que o esforço de arquitetura se disperse sobre requisito que a implementação convencional já resolve.
 
 ## No caderno arquitetural
 
@@ -177,7 +177,7 @@ O arquiteto usa o cenário e o roteiro de sete perguntas para decidir onde inves
 
 ## Exercício 7
 
-Este exercício aplica ao caso da ACME os conceitos do bloco. Escrever um cenário completo, julgar se ele pesa sobre a arquitetura e reconhecer o que já existe e o que já está decidido permite ao arquiteto saber onde concentrar o esforço de desenho antes de propor qualquer solução. O exercício tem cinco itens. Nos dois primeiros, o aluno completa dois cenários de qualidade, um sobre o pico de matrícula e outro sobre o incidente de 04/02/2026. No terceiro, julga se os dois pesam sobre a arquitetura. No quarto, identifica os artefatos de linha de base que sustentam os cenários, e no quinto classifica as sete restrições do caso pela origem.
+Antes de propor qualquer solução, o arquiteto da ACME precisa saber onde concentrar o esforço de desenho, e isso depende de escrever um cenário completo, julgar se ele pesa sobre a arquitetura e reconhecer o que já existe e o que já está decidido. O exercício aplica esses conceitos ao caso em cinco itens: nos dois primeiros, o aluno completa dois cenários de qualidade, um sobre o pico de matrícula e outro sobre o incidente de 04/02/2026, no terceiro julga se os dois pesam sobre a arquitetura, no quarto identifica os artefatos de linha de base que sustentam os cenários, e no quinto classifica as sete restrições do caso pela origem.
 
 A ACME é uma universidade privada brasileira fictícia cujo sistema acadêmico está em modernização. Os dados de sazonalidade (variação do uso ao longo do ano) e de incidentes vêm dos [dados operacionais](../caso-acme/dados-operacionais.md) do caso e aparecem nos enunciados. O Item 1 pode partir, sem obrigatoriedade, da reescrita mensurável da declaração R2, "A matrícula não pode cair", produzida no [exercício 6](bloco-2-qualidade-e-tipos-de-requisito.md#exercicio-6) desta mesma aula.
 
@@ -225,7 +225,7 @@ Suas respostas viram os campos Artefato, Resposta e Medida do cenário do incide
 
 ### Item 3: Significância arquitetural dos dois cenários
 
-Um requisito é [arquiteturalmente significativo](../referencia/glossario.md#requisito-arquiteturalmente-significativo) quando atendê-lo exige decisões que mudam a estrutura da solução, e o julgamento ajuda a decidir quais cenários merecem análise de arquitetura. O quadro abaixo reproduz o roteiro de sete perguntas apresentado na seção [Conceito](#conceito) para esse julgamento, com uma coluna para cada um dos dois cenários dos itens 1 e 2.
+Depois de escritos os dois cenários, resta saber quais deles merecem análise de arquitetura, e a resposta depende de o requisito ser [arquiteturalmente significativo](../referencia/glossario.md#requisito-arquiteturalmente-significativo), isto é, de atendê-lo exigir decisões que mudam a estrutura da solução. O quadro abaixo reproduz o roteiro de sete perguntas apresentado na seção [Conceito](#conceito) para esse julgamento, com uma coluna para cada um dos dois cenários dos itens 1 e 2.
 
 | Pergunta do roteiro | Cenário do pico | Cenário do incidente |
 | --- | --- | --- |
@@ -244,7 +244,7 @@ Suas respostas viram os campos Respostas ao roteiro de significância e Conclus�
 
 ### Item 4: Artefatos de linha de base que sustentam os cenários
 
-Um [artefato de linha de base](../referencia/glossario.md#artefato-de-linha-de-base) é um documento ou medição já existente que descreve o sistema atual, e os cenários só são confiáveis se os dados que os sustentam estiverem corretos. O quadro abaixo lista seis artefatos disponíveis no caso da ACME, numerados de L1 a L6. Dois deles são o inventário de componentes, L1, e a série de medição de sessões simultâneas do portal, L6. A seção [Artefatos de linha de base](#artefatos-de-linha-de-base) deste bloco descreve o conceito.
+Os números dos dois cenários vêm de documentos e medições que já existiam, e por isso os cenários só são confiáveis se os [artefatos de linha de base](../referencia/glossario.md#artefato-de-linha-de-base), documentos ou medições já existentes que descrevem o sistema atual, estiverem corretos. O quadro abaixo lista seis artefatos disponíveis no caso da ACME, numerados de L1 a L6, entre eles o inventário de componentes, L1, e a série de medição de sessões simultâneas do portal, L6. A seção [Artefatos de linha de base](#artefatos-de-linha-de-base) deste bloco descreve o conceito.
 
 | Código | Artefato de linha de base |
 | --- | --- |

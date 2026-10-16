@@ -1,6 +1,6 @@
 # Direcionadores de mudança
 
-Este bloco trata do que põe uma solução em movimento, os direcionadores internos e externos que levam a organização a agir, e o que deles chega ao arquiteto como insumo do desenho. Um exemplo do caso usado no curso, a universidade fictícia ACME, que está modernizando o sistema acadêmico: o parecer jurídico que exige processar dados de alunos em território nacional é um direcionador externo, porque vem de fora da universidade, e o custo anual de R$ 15,83 milhões do sistema é um direcionador interno, porque nasce da própria gestão. O exercício do fim do bloco pede que o aluno classifique os sete direcionadores do caso.
+Quando a ACME, a universidade fictícia do caso usado no curso, decidiu modernizar o sistema acadêmico, a primeira pergunta do arquiteto foi o que empurrava a instituição a mudar. O parecer jurídico que exige processar dados de alunos em território nacional vem de fora da universidade e por isso é um direcionador externo, enquanto o custo anual de R$ 15,83 milhões do sistema nasce da própria gestão e é um direcionador interno. Este bloco mostra como separar essas pressões e o que delas chega ao arquiteto como insumo do desenho, e o exercício do fim pede que o aluno classifique os sete direcionadores do caso.
 
 ## Antes de começar
 
@@ -10,7 +10,7 @@ Este bloco trata do que põe uma solução em movimento, os direcionadores inter
 
 ## Conceito
 
-Direcionador é a força que faz a organização sentir pressão para mudar parte do negócio, mudança que pode ser alcançada com uma solução nova ou modificada. No início do ciclo de vida, o negócio entrega à equipe de arquitetura três coisas, a declaração do problema contida na declaração de visão da solução, qualquer documentação existente que ajude a entender a situação, e a autorização para investigar, contida no documento de iniciação da arquitetura. Esses dois documentos são os artefatos de entrada descritos no [bloco 3 da Aula 1](../modulo-1-fundamentos/bloco-3-papel-do-arquiteto-de-solucao.md#o-que-o-trabalho-entrega).
+Uma organização só se move quando sente pressão, e essa pressão tem nome: direcionador é a força que a faz querer mudar parte do negócio, mudança que uma solução nova ou modificada pode alcançar. No início do ciclo de vida, o negócio entrega à equipe de arquitetura três coisas, a declaração do problema contida na declaração de visão da solução, qualquer documentação existente que ajude a entender a situação, e a autorização para investigar, contida no documento de iniciação da arquitetura. Os dois documentos são os artefatos de entrada descritos no [bloco 3 da Aula 1](../modulo-1-fundamentos/bloco-3-papel-do-arquiteto-de-solucao.md#o-que-o-trabalho-entrega).
 
 <figure markdown="span">
 ![Infográfico sobre direcionadores de mudança. À esquerda, os direcionadores internos estratégia de negócio, estratégia de TI e análise de negócio. Ao centro, a pressão para mudar passa pela análise e orienta decisões arquiteturais. À direita, a análise do macroambiente é organizada nas seis dimensões PESTLE, política, econômica, sociocultural, tecnológica, legal e ambiental.](../assets/images/modulo-2-direcionadores-mudanca.png){ .module-diagram }
@@ -18,15 +18,15 @@ Direcionador é a força que faz a organização sentir pressão para mudar part
 
 ### Direcionadores internos
 
-Três fontes internas alimentam o desenho. A **estratégia de negócio** define a direção e as prioridades da operação, e descreve por que as coisas precisam mudar e em que parte do negócio a ação deve se concentrar. Dela vêm requisitos de negócio, objetivos e metas, resultados de investigações anteriores e artefatos como planos, mapas, modelos e cadeias de valor. A estratégia também é fonte de restrição, sobretudo quando um plano já em curso se sobrepõe ao problema em análise.
+Quem decide que uma universidade precisa mudar costuma ser a própria direção, e por isso a primeira das três fontes internas é a **estratégia de negócio**, que define a direção e as prioridades da operação e explica por que as coisas precisam mudar e em que parte do negócio a ação deve se concentrar. Dela vêm requisitos de negócio, objetivos e metas, resultados de investigações anteriores e artefatos como planos, mapas, modelos e cadeias de valor. Quando um plano já em curso se sobrepõe ao problema em análise, a mesma estratégia passa a ser também fonte de restrição.
 
-A **estratégia de TI** está necessariamente ligada à estratégia de negócio, porque a finalidade da tecnologia é sustentar os objetivos da organização. Nem toda ideia de mudança nasce do negócio, e a disponibilidade de tecnologia nova ou a evolução da existente criam oportunidades e desafios com impacto relevante sobre a operação. Quase toda estratégia de TI contém um esforço de racionalização do parque instalado em direção a padrões, sistemas e componentes preferidos, muitas vezes organizado em um radar tecnológico que classifica tecnologias por grau de adoção recomendada. Decisões registradas na estratégia de TI viram requisitos técnicos da solução, e o calendário de implantação de um componente novo pode restringir o calendário da solução.
+A **estratégia de TI** está ligada à estratégia de negócio, porque a tecnologia existe para sustentar os objetivos da organização, mas nem toda ideia de mudança nasce no negócio. Quando surge tecnologia nova ou evolui a existente, aparecem oportunidades e desafios com impacto relevante sobre a operação, e por isso quase toda estratégia de TI contém um esforço de racionalização do parque instalado em direção a padrões, sistemas e componentes preferidos, muitas vezes organizado em um radar tecnológico que classifica tecnologias por grau de adoção recomendada. As decisões registradas nessa estratégia viram requisitos técnicos da solução, e o calendário de implantação de um componente novo pode restringir o calendário da solução.
 
-A **análise de negócio** é a terceira fonte. O ciclo de mudança de negócio usado por essa disciplina tem cinco estágios, alinhar, definir, desenhar, implementar e realizar. O estágio de alinhar examina o ambiente externo e o interno em busca de desalinhamentos, e é nele que as ideias de mudança aparecem. Definir e desenhar são os estágios em que a arquitetura de solução concentra seu trabalho. Implementar e realizar ficam com a gestão de projetos e com as equipes de entrega, com a arquitetura respondendo pela governança.
+A terceira fonte é a **análise de negócio**, que conduz a mudança em cinco estágios: alinhar, definir, desenhar, implementar e realizar. Tudo começa em alinhar, quando o exame do ambiente externo e do interno revela desalinhamentos e as ideias de mudança aparecem. Definir e desenhar são os estágios em que a arquitetura de solução concentra seu trabalho, e só depois deles vêm implementar e realizar, que ficam com a gestão de projetos e com as equipes de entrega, cabendo à arquitetura a governança.
 
 ### Direcionadores externos
 
-Alguns direcionadores têm causa externa inequívoca, como mudança de legislação ou ação de concorrente. Outros são mais sutis, como decisões estratégicas de dirigentes que respondem em parte a eventos externos. A lista abaixo reúne os de componente externa forte.
+Nem toda pressão vem de dentro. Uma lei nova ou a ação de um concorrente tem causa externa inequívoca, e a decisão estratégica de um dirigente que responde em parte a um evento de fora é mais sutil, mas também conta. A tabela abaixo reúne seis direcionadores de componente externa forte, de finanças a legislação, cada um com um exemplo de como se manifesta.
 
 | Direcionador | Exemplo de manifestação |
 | --- | --- |
@@ -37,11 +37,11 @@ Alguns direcionadores têm causa externa inequívoca, como mudança de legislaç
 | Retorno de clientes | Reclamação recorrente ou pesquisa de satisfação |
 | Legislação | Lei nova ou alterada que muda obrigações da organização |
 
-A resposta a esses direcionadores é reativa quando eles já se tornaram problema. Para agir de forma antecipada, a organização precisa prever a mudança externa, determinar seu impacto e decidir que ações cabem.
+A organização responde a esses direcionadores de forma reativa quando eles já se tornaram problema, e só consegue agir de forma antecipada se prever a mudança externa, determinar seu impacto e decidir que ações cabem.
 
 ### Análise PESTLE
 
-PESTLE é uma técnica de análise do macroambiente, isto é, das condições externas amplas que a organização não controla, mas que podem criar oportunidades, ameaças ou restrições. O nome é um acrônimo formado pelas iniciais de seis lentes. Usá-las como roteiro reduz o risco de observar apenas os fatores mais familiares à equipe, como tecnologia e legislação, e ignorar mudanças sociais, econômicas ou ambientais capazes de alterar o problema.
+Como olhar para fora sem se prender aos fatores que a equipe já conhece? PESTLE é uma técnica de análise do macroambiente, isto é, das condições externas amplas que a organização não controla, mas que podem criar oportunidades, ameaças ou restrições. O nome reúne as iniciais de seis lentes, e usá-las como roteiro reduz o risco de observar apenas os fatores mais familiares, como tecnologia e legislação, e ignorar mudanças sociais, econômicas ou ambientais capazes de alterar o problema.
 
 | Dimensão | Pergunta orientadora | Exemplo para uma instituição de ensino |
 | --- | --- | --- |
@@ -52,13 +52,13 @@ PESTLE é uma técnica de análise do macroambiente, isto é, das condições ex
 | **Legal** | Que leis, normas ou decisões regulatórias criam obrigações? | Exigência de residência de dados em território nacional |
 | **Ambiental** | Que condições ambientais ou compromissos de sustentabilidade afetam a operação? | Eventos climáticos que interrompem o acesso a um campus |
 
-PESTLE não produz requisitos automaticamente e não serve para prever o futuro com certeza. Ela organiza a investigação. Para cada fator relevante, a equipe registra a evidência, estima o possível impacto, identifica o horizonte de tempo e decide se deve monitorar o sinal, formular um requisito ou reconhecer uma restrição.
+PESTLE não produz requisitos automaticamente nem prevê o futuro com certeza, mas organiza a investigação: para cada fator relevante, a equipe registra a evidência, estima o possível impacto, identifica o horizonte de tempo e decide se deve monitorar o sinal, formular um requisito ou reconhecer uma restrição.
 
-No caso da ACME, a análise pode começar com fatos já documentados. A dimensão legal aparece na exigência de processamento de dados no Brasil, a tecnológica aparece nos provedores de nuvem pré-aprovados e a sociocultural aparece na expectativa por acesso móvel. As outras dimensões exigem pesquisa adicional. Essa distinção é importante, porque um fator plausível levantado numa oficina ainda é hipótese, enquanto uma condição apoiada por fonte verificável pode orientar uma decisão.
+Na ACME, a análise começa pelos fatos que o dossiê já documenta: a dimensão legal aparece na exigência de processamento de dados no Brasil, a tecnológica nos provedores de nuvem pré-aprovados e a sociocultural na expectativa por acesso móvel. As outras dimensões exigem pesquisa adicional, e a diferença importa, porque um fator plausível levantado numa oficina ainda é hipótese, enquanto uma condição apoiada por fonte verificável pode orientar uma decisão.
 
 ### Os direcionadores da ACME
 
-A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 2.150 professores e 4 campi em 3 cidades, cujo sistema acadêmico está em operação desde 2004. A tabela abaixo organiza o que o dossiê do caso registra.
+Para ver os direcionadores atuando em conjunto, volta-se à ACME, universidade privada brasileira fictícia com 38.400 alunos ativos, 2.150 professores e 4 campi em 3 cidades, cujo sistema acadêmico está em operação desde 2004. A tabela abaixo organiza o que o dossiê do caso registra sobre as pressões que a levaram a querer mudar.
 
 | Direcionador | Natureza | Evidência no caso |
 | --- | --- | --- |
@@ -70,13 +70,13 @@ A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativo
 | Expectativa do aluno | Externo, retorno de clientes | Demanda por aplicativo móvel e por matrícula que não falhe na abertura |
 | Disponibilidade de nuvem contratável | Externo, tecnologia | Dois provedores pré-aprovados pelo Conselho Universitário em 12/03/2026 |
 
-A leitura conjunta reúne três direcionadores internos, que apontam para custo, prazo e competência, e quatro externos, que apontam para conformidade, reputação e expectativa. Uma solução que trate só dos internos deixa sem resposta o que pressiona a instituição de fora.
+Lidos em conjunto, os três direcionadores internos apontam para custo, prazo e competência, e os quatro externos apontam para conformidade, reputação e expectativa. Por isso uma solução que trate só dos internos deixa sem resposta o que pressiona a instituição de fora.
 
 ### Fontes práticas de pesquisa para o arquiteto
 
-A análise PESTLE exige evidência verificável para cada fator, e as dimensões tecnológica e econômica dependem de informação sobre maturidade de tecnologias e sobre mercados de fornecedores que a equipe raramente produz sozinha. Empresas de pesquisa e consultoria em tecnologia publicam relatórios recorrentes com essa informação, e três deles aparecem com frequência em discussões de arquitetura, o Hype Cycle e o Magic Quadrant, ambos do Gartner, e o Forrester Wave, da Forrester Research. O acesso ao conteúdo completo desses relatórios costuma depender de assinatura, enquanto as metodologias que os definem estão descritas publicamente nos sites das duas empresas.
+De onde vem a evidência verificável que a análise PESTLE exige para cada fator? As dimensões tecnológica e econômica dependem de informação sobre maturidade de tecnologias e sobre mercados de fornecedores que a equipe raramente produz sozinha, e empresas de pesquisa e consultoria em tecnologia publicam relatórios recorrentes com essa informação. Três deles aparecem com frequência em discussões de arquitetura: o Hype Cycle e o Magic Quadrant, ambos do Gartner, e o Forrester Wave, da Forrester Research. O acesso ao conteúdo completo costuma depender de assinatura, mas as metodologias que definem os relatórios estão descritas publicamente nos sites das duas empresas.
 
-O **Hype Cycle** representa a trajetória das expectativas sobre uma inovação ao longo do tempo. Segundo o Gartner, o eixo vertical mede as expectativas e o eixo horizontal as relaciona ao valor comprovado da inovação à medida que o tempo passa, e a travessia do ciclo leva com frequência entre três e cinco anos, com parte das inovações abandonada antes de chegar ao fim. A tabela abaixo descreve as cinco fases do ciclo, com a tradução adotada nesta disciplina e o nome original usado pelo Gartner em inglês.
+Quando uma tecnologia nova ganha manchete, o arquiteto precisa saber se ela já entrega o que promete, e o **Hype Cycle** ajuda a responder porque representa a trajetória das expectativas sobre uma inovação ao longo do tempo. Segundo o Gartner, o eixo vertical mede as expectativas e o eixo horizontal as relaciona ao valor comprovado da inovação à medida que o tempo passa, e a travessia do ciclo leva com frequência entre três e cinco anos, com parte das inovações abandonada antes de chegar ao fim. A tabela abaixo descreve as cinco fases, com a tradução adotada nesta disciplina e o nome original usado pelo Gartner em inglês.
 
 | Fase | Nome original | O que caracteriza a fase |
 | --- | --- | --- |
@@ -86,11 +86,11 @@ O **Hype Cycle** representa a trajetória das expectativas sobre uma inovação 
 | Rampa do esclarecimento | Slope of Enlightenment | Os primeiros adotantes obtêm benefícios e outras organizações entendem como adaptar a inovação |
 | Platô da produtividade | Plateau of Productivity | Mais usuários obtêm benefício real e a inovação passa ao uso corrente |
 
-Para o arquiteto, o Hype Cycle ajuda a estimar o horizonte de tempo de um fator tecnológico da análise PESTLE e o risco de adotar uma tecnologia que ainda está no pico das expectativas, quando o custo de ser um dos primeiros adotantes tende a ser maior. A posição de uma tecnologia no ciclo descreve a expectativa do mercado em geral, e a adequação dessa tecnologia ao problema da organização continua dependendo dos requisitos e das restrições do caso.
+Na prática, o ciclo ajuda a estimar o horizonte de tempo de um fator tecnológico da análise PESTLE e o risco de adotar uma tecnologia que ainda está no pico das expectativas, quando o custo de ser um dos primeiros adotantes tende a ser maior. A posição de uma tecnologia no ciclo descreve a expectativa do mercado em geral, e por isso a adequação dela ao problema da organização continua dependendo dos requisitos e das restrições do caso.
 
 O Gartner mantém uma página pública sobre o [Hype Cycle for Emerging Technologies](https://www.gartner.com/en/articles/hype-cycle-for-emerging-technologies), a edição anual dedicada a tecnologias emergentes, que serve de exemplo de aplicação do ciclo a um conjunto concreto de tecnologias e foi consultada em 29/09/2026.
 
-O **Magic Quadrant** compara fornecedores de um mesmo mercado em dois critérios, a capacidade de execução, Ability to Execute, e a abrangência da visão, Completeness of Vision. O cruzamento dos dois critérios define quatro quadrantes.
+Quando chega a hora de escolher entre fornecedores, o arquiteto precisa de uma comparação organizada, e o **Magic Quadrant** oferece uma: compara fornecedores de um mesmo mercado em dois critérios, a capacidade de execução, Ability to Execute, e a abrangência da visão, Completeness of Vision, e o cruzamento dos dois critérios define quatro quadrantes.
 
 | Quadrante | Nome original | Descrição resumida do Gartner |
 | --- | --- | --- |
@@ -103,11 +103,11 @@ O próprio Gartner declara, no aviso que acompanha as publicações do Magic Qua
 
 Um exemplo publicado é o Magic Quadrant for Strategic Cloud Platform Services, com as posições de maio de 2025, exibido por completo em uma [publicação do Google Cloud de 08/08/2025](https://cloud.google.com/blog/products/compute/google-is-a-leader-in-gartner-magic-quadrant-for-scps), consultada em 29/09/2026. A página pertence a um dos fornecedores avaliados, que reproduz o gráfico sob licença do Gartner, e por isso deve ser lida como material promocional que contém dado de terceiro.
 
-O **Forrester Wave** é descrito pela Forrester Research como um guia para compradores que avaliam opções em um mercado de tecnologia, baseado na análise e na opinião da empresa. A avaliação combina a oferta atual do fornecedor, Current Offering, e a sua estratégia, Strategy, e desde 01/07/2024 o gráfico apresenta a avaliação de clientes, Customer Feedback, no lugar da antiga presença de mercado. Segundo a metodologia da Forrester, a avaliação de clientes considera quantos clientes de referência o fornecedor indicou, quantos deles responderam e quão satisfeitos estavam, e o fornecedor com avaliação superior recebe no gráfico um marcador mais destacado. A metodologia consultada não define o critério antigo de presença de mercado, que por isso não é detalhado aqui. Na mesma revisão, a classificação passou a ter três categorias, Leaders, Strong Performers e Contenders. O nome da empresa é Forrester Research, e a grafia Forrester Group, que aparece em algumas referências informais, não corresponde à razão social.
+Uma segunda opinião sobre o mesmo mercado vem do **Forrester Wave**, que a Forrester Research descreve como um guia para compradores que avaliam opções em um mercado de tecnologia, baseado na análise e na opinião da empresa. A avaliação combina a oferta atual do fornecedor, Current Offering, e a sua estratégia, Strategy, e desde 01/07/2024 o gráfico apresenta a avaliação de clientes, Customer Feedback, no lugar da antiga presença de mercado. Segundo a metodologia da Forrester, a avaliação de clientes considera quantos clientes de referência o fornecedor indicou, quantos deles responderam e quão satisfeitos estavam, e o fornecedor com avaliação superior recebe no gráfico um marcador mais destacado. A metodologia consultada não define o critério antigo de presença de mercado, que por isso não é detalhado aqui. Na mesma revisão, a classificação passou a ter três categorias, Leaders, Strong Performers e Contenders. O nome da empresa é Forrester Research, e a grafia Forrester Group, que aparece em algumas referências informais, não corresponde à razão social.
 
 Um exemplo publicado é o [Forrester Wave: Public Cloud Platforms, Q4 2024](https://reprint.forrester.com/reports/the-forrester-wave-tm-public-cloud-platforms-q4-2024-9c26c6b4/index.html), distribuído em reimpressão licenciada no portal de reimpressões da Forrester Research e consultado em 29/09/2026. Ele avalia um mercado próximo ao do Magic Quadrant citado acima, o que permite confrontar a opinião das duas empresas sobre provedores de nuvem.
 
-Os três instrumentos respondem a perguntas diferentes e entram em momentos diferentes do processo, e a tabela abaixo resume essa correspondência.
+Cada um dos três instrumentos responde a uma pergunta diferente e entra em um momento diferente do processo, como a tabela abaixo resume.
 
 | Instrumento | Pergunta respondida | Uso no processo de arquitetura | Cuidado na leitura |
 | --- | --- | --- | --- |
@@ -119,17 +119,17 @@ Nenhum dos três relatórios substitui a evidência produzida pela própria orga
 
 ## Uso pelo arquiteto
 
-O arquiteto levanta os direcionadores antes de discutir alternativa, porque eles determinam o que conta como solução aceitável. Um direcionador externo de natureza legal costuma fechar alternativas de forma definitiva, enquanto um direcionador interno de custo costuma apenas ordenar preferências, e confundir os dois leva a descartar cedo demais uma opção que ainda era viável.
+Se a ACME discutisse alternativas sem ter registrado por que quer mudar, alguém poderia descartar cedo demais uma opção ainda viável. Por isso o arquiteto levanta os direcionadores antes de qualquer alternativa, porque eles determinam o que conta como solução aceitável: um direcionador externo de natureza legal costuma fechar alternativas de forma definitiva, enquanto um direcionador interno de custo costuma apenas ordenar preferências.
 
-O registro dos direcionadores também protege o projeto quando a liderança muda. Uma solução cujo motivo declarado esteja documentado sobrevive à troca de patrocinador, e uma solução cujo motivo só existia na conversa inicial costuma ser questionada desde o começo a cada mudança de interlocutor.
+O registro dos direcionadores também protege o projeto quando a liderança muda, porque uma solução cujo motivo declarado está documentado sobrevive à troca de patrocinador, e uma solução cujo motivo só existia na conversa inicial costuma ser questionada desde o começo a cada novo interlocutor.
 
 ## No caderno arquitetural
 
 {{ficha:3}}
 
-**Para que serve.** A seção 3 do caderno, Requisitos, registra o que a solução precisa entregar e como saber que ela entregou. Ela começa pelas pressões que levaram a ACME a querer mudar, como o custo de R$ 15,83 milhões por ano, os 34 dias úteis para entregar uma mudança e o parecer jurídico de 28/04/2026. Sem esse registro o arquiteto não sabe quais pressões pedem uma resposta imediata e quais podem apenas ser acompanhadas, e por isso o exercício as ordena antes de qualquer requisito ser escrito.
+**Para que serve.** A seção 3 do caderno, Requisitos, registra o que a solução precisa entregar e como saber que ela entregou, e começa pelas pressões que levaram a ACME a querer mudar: o custo de R$ 15,83 milhões por ano, os 34 dias úteis para entregar uma mudança e o parecer jurídico de 28/04/2026. Sem esse registro o arquiteto não sabe quais pressões pedem uma resposta imediata e quais podem apenas ser acompanhadas, e por isso o exercício as ordena antes de qualquer requisito ser escrito.
 
-**O que você faz neste exercício.** O enunciado traz sete direcionadores de mudança, três internos e quatro externos, como o custo de propriedade e a avaliação regulatória. Você diz se a ACME responde a cada um de forma reativa ou antecipatória e cita o dado do caso que sustenta a escolha. Depois distribui três fatos externos, numerados de F1 a F3, nas seis dimensões da análise PESTLE, acrescenta um fator às dimensões que ficarem vazias e explica em até cinco linhas como o contrato do mainframe, que termina em 31/12/2028, limita a meta de custo. As respostas viram o quadro de direcionadores e a análise do ambiente externo do caderno.
+**O que você faz neste exercício.** O enunciado traz sete direcionadores de mudança, três internos e quatro externos, como o custo de propriedade e a avaliação regulatória, e você diz se a ACME responde a cada um de forma reativa ou antecipatória, citando o dado do caso que sustenta a escolha. Depois distribui três fatos externos, numerados de F1 a F3, nas seis dimensões da análise PESTLE, acrescenta um fator às dimensões que ficarem vazias e explica em até cinco linhas como o contrato do mainframe, que termina em 31/12/2028, limita a meta de custo. As respostas viram o quadro de direcionadores e a análise do ambiente externo do caderno.
 
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
@@ -150,13 +150,13 @@ O registro dos direcionadores também protege o projeto quando a liderança muda
 
 ## Exercício 5
 
-Este exercício treina a leitura dos direcionadores de mudança, as pressões que levam uma organização a mudar, num caso concreto. Saber quais pressões já viraram problema e quais ainda podem ser previstas ajuda o arquiteto a decidir o que a solução precisa tratar primeiro e o que pode apenas ser monitorado. O exercício tem três itens. O primeiro separa os direcionadores da ACME em reativos e antecipatórios, o segundo organiza fatores externos pelas seis dimensões da análise PESTLE, e o terceiro relaciona a meta de custo ao contrato do mainframe, o computador de grande porte em que roda o núcleo do sistema acadêmico. Os dados necessários aparecem no enunciado de cada item.
+A equipe da ACME tem sete pressões sobre a mesa e uma verba limitada, e o arquiteto precisa saber quais delas já viraram problema e quais ainda podem ser previstas, porque isso decide o que a solução trata primeiro e o que pode apenas ser monitorado. O exercício tem três itens: o primeiro separa os direcionadores da ACME em reativos e antecipatórios, o segundo organiza fatores externos pelas seis dimensões da análise PESTLE, e o terceiro relaciona a meta de custo ao contrato do mainframe, o computador de grande porte em que roda o núcleo do sistema acadêmico, com os dados necessários no enunciado de cada item.
 
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, dos quais 10.200 na graduação a distância, e um sistema acadêmico em operação desde 2004 que sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro. A modernização foi autorizada com orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses, o custo anual de propriedade do sistema é de R$ 15,83 milhões, o prazo médio de entrega de uma mudança é de 34 dias úteis, e dois dos três incidentes graves dos últimos 18 meses ocorreram na janela de matrícula.
 
 ### Item 1: Direcionadores reativos e antecipatórios
 
-O diagrama e o quadro abaixo reproduzem os sete [direcionadores de mudança](../referencia/glossario.md#direcionador-de-mudanca) registrados no dossiê do caso, três internos e quatro externos. A resposta a um direcionador é reativa quando ele já se tornou problema, como a matrícula que já falhou na abertura, e é antecipatória quando a organização prevê a mudança e age antes que ela produza efeito, como a aposentadoria de especialistas marcada para 2027. O objetivo do item é decidir, para cada direcionador, em qual dessas duas situações a ACME se encontra hoje.
+Quando o arquiteto da ACME reuniu o que o dossiê registra, chegou a sete [direcionadores de mudança](../referencia/glossario.md#direcionador-de-mudanca), três internos e quatro externos, reproduzidos no diagrama e no quadro abaixo. A resposta a um direcionador é reativa quando ele já se tornou problema, como a matrícula que já falhou na abertura, e é antecipatória quando a organização prevê a mudança e age antes que ela produza efeito, como a aposentadoria de especialistas marcada para 2027. Para cada direcionador, decida em qual dessas duas situações a ACME se encontra hoje.
 
 ```mermaid
 flowchart LR
@@ -191,7 +191,7 @@ Suas respostas viram os campos Resposta ao direcionador e Evidência da resposta
 
 ### Item 2: Análise PESTLE da ACME
 
-A [análise PESTLE](#analise-pestle) examina o ambiente externo da organização por seis dimensões, e este item mostra como ela funciona na prática. O primeiro quadro abaixo traz três fatos externos já registrados no dossiê do caso, numerados de F1 a F3. Dois deles são o parecer jurídico sobre dados no território nacional e a pré-aprovação de dois provedores de nuvem. O segundo quadro traz as seis dimensões com a coluna de fator externo em branco, e o aluno distribui os fatos nas dimensões e completa as que ficarem vazias.
+Para olhar o ambiente externo da ACME, o arquiteto parte dos fatos que o dossiê já registra e os distribui pelas seis dimensões da [análise PESTLE](#analise-pestle). O primeiro quadro abaixo traz três desses fatos, numerados de F1 a F3, e dois deles são o parecer jurídico sobre dados no território nacional e a pré-aprovação de dois provedores de nuvem. O segundo quadro traz as seis dimensões com a coluna de fator externo em branco, e a tarefa é distribuir os fatos nas dimensões e completar as que ficarem vazias.
 
 | Código | Fato registrado no dossiê |
 | --- | --- |
@@ -215,7 +215,7 @@ Suas respostas viram os campos Dimensão da análise PESTLE e Fator externo acre
 
 ### Item 3: Meta de custo e contrato do mainframe
 
-O dossiê do caso registra uma meta de reduzir o custo anual do sistema, e este item verifica se ela cabe no primeiro ano de trabalho. A ACME paga pelo mainframe um contrato de capacidade com piso de volume contratado, isto é, um valor mínimo devido mesmo que a carga diminua. O diagrama abaixo dispõe em ordem cronológica os quatro marcos que condicionam a meta de redução do custo anual de propriedade, da situação atual até 2029.
+O dossiê registra a meta de reduzir o custo anual do sistema de R$ 15,83 milhões para R$ 11,0 milhões, e este item verifica se ela cabe no primeiro ano de trabalho. A dificuldade é que a ACME paga pelo mainframe um contrato de capacidade com piso de volume contratado, isto é, um valor mínimo devido mesmo que a carga diminua. O diagrama abaixo dispõe em ordem cronológica os quatro marcos que condicionam a meta, da situação atual até 2029.
 
 ```mermaid
 flowchart TB

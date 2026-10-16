@@ -10,7 +10,7 @@ Este bloco parte dos princípios priorizados no [bloco 1](bloco-1-principios-de-
 
 ## Conceito
 
-Um estilo arquitetural é um padrão de organização estrutural de um sistema, que define tipos de componentes, formas de conexão entre eles e restrições sobre essa organização. A definição tem três partes que merecem exame separado. Tipos de componentes significa que o estilo nomeia categorias recorrentes de elemento, como camada, serviço ou produtor de evento, não instâncias específicas de um sistema. Formas de conexão significa que o estilo fixa como esses elementos se comunicam, de forma síncrona ou assíncrona, direta ou mediada por um intermediário. Restrições sobre essa organização significa que o estilo proíbe certas relações, como uma camada inferior chamar uma camada superior, ou um serviço acessar diretamente o banco de outro serviço. Um estilo arquitetural descreve, portanto, a forma macro de um sistema inteiro, e a organização interna de uma camada ou de um componente fica para os padrões tratados no bloco 3.
+Quando a ACME precisa decidir como organizar o sistema como um todo, a decisão é de estilo arquitetural. Quando a ACME precisa decidir como organizar o sistema como um todo, a decisão é de estilo arquitetural. Um estilo arquitetural é um padrão de organização estrutural de um sistema, que define tipos de componentes, formas de conexão entre eles e restrições sobre essa organização. A definição tem três partes que merecem exame separado. Tipos de componentes significa que o estilo nomeia categorias recorrentes de elemento, como camada, serviço ou produtor de evento, não instâncias específicas de um sistema. Formas de conexão significa que o estilo fixa como esses elementos se comunicam, de forma síncrona ou assíncrona, direta ou mediada por um intermediário. Restrições sobre essa organização significa que o estilo proíbe certas relações, como uma camada inferior chamar uma camada superior, ou um serviço acessar diretamente o banco de outro serviço. Um estilo arquitetural descreve, portanto, a forma macro de um sistema inteiro, e a organização interna de uma camada ou de um componente fica para os padrões tratados no bloco 3.
 
 A arquitetura civil ajuda a fixar a ideia. Uma casa de madeira com telhado pontudo faz sentido em região de neve, porque a forma segue a função, já que o telhado inclinado impede o acúmulo de neve e a madeira funciona como isolamento térmico. Cada uma das duas escolhas responde a uma condição do ambiente em que a casa vai ser usada, e a mesma lógica vale em software, onde o estilo responde às condições de carga, de mudança e de falha em que o sistema vai executar.
 
@@ -46,7 +46,7 @@ As sete seções seguintes descrevem cada estilo na mesma ordem de aspectos, for
 
 ### Arquitetura em camadas
 
-A arquitetura em camadas é o estilo mais direto de descrever e o mais frequente em sistema corporativo de escopo estável. Em um sistema de gestão de estoque industrial, a camada de apresentação exibe posição de inventário e ordem de reposição, a camada de negócio aplica regra de ponto de pedido e rateio entre depósitos, e a camada de persistência grava o saldo por item e por local. A dependência entre camadas segue sempre a mesma direção, o que simplifica o raciocínio sobre o sistema, mas concentra a implantação em uma unidade só, de modo que um pico de consulta de estoque em um único depósito força escalar o sistema inteiro, mesmo que os demais depósitos operem em carga normal.
+A arquitetura em camadas é o estilo mais direto de descrever e o mais frequente em sistema corporativo de escopo estável. Como exemplo, tome um sistema de gestão de estoque industrial, em que a camada de apresentação exibe posição de inventário e ordem de reposição, a camada de negócio aplica regra de ponto de pedido e rateio entre depósitos, e a camada de persistência grava o saldo por item e por local. A dependência entre camadas segue sempre a mesma direção, o que simplifica o raciocínio sobre o sistema, mas concentra a implantação em uma unidade só, de modo que um pico de consulta de estoque em um único depósito força escalar o sistema inteiro, mesmo que os demais depósitos operem em carga normal.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -62,7 +62,7 @@ A heurística do sumidouro vem de Ford e Richards (2020). A estrutura em camadas
 
 ### Arquitetura de microsserviços
 
-A arquitetura de microsserviços resolve a limitação de escalabilidade do estilo em camadas ao custo de outra. Na Plataforma de Streaming ACME, que oferece música por assinatura, o catálogo de faixas, o motor de recomendação e o processamento de pagamento de assinatura podem ser serviços separados, cada um escalado de acordo com sua própria demanda, o motor de recomendação crescendo em época de lançamento de grandes artistas sem exigir que o serviço de pagamento cresça junto. O preço dessa independência é a ausência de uma transação única que atravesse os três serviços, o que obriga a tratar inconsistência temporária entre catálogo e recomendação como situação prevista no desenho, com prazo máximo de convergência declarado.
+A arquitetura de microsserviços resolve a limitação de escalabilidade do estilo em camadas ao custo de outra. Como exemplo, a Plataforma de Streaming ACME, que oferece música por assinatura, pode separar o catálogo de faixas, o motor de recomendação e o processamento de pagamento de assinatura podem ser serviços separados, cada um escalado de acordo com sua própria demanda, o motor de recomendação crescendo em época de lançamento de grandes artistas sem exigir que o serviço de pagamento cresça junto. O preço dessa independência é a ausência de uma transação única que atravesse os três serviços, o que obriga a tratar inconsistência temporária entre catálogo e recomendação como situação prevista no desenho, com prazo máximo de convergência declarado.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -80,7 +80,7 @@ A fronteira dos serviços tem também uma explicação organizacional. A Lei de 
 
 ### Arquitetura orientada a eventos
 
-A arquitetura orientada a eventos favorece situação de pico e de integração entre partes que não precisam saber umas das outras. No sistema de reservas da Companhia Aérea ACME, o serviço de reserva publica um evento de confirmação de assento, e os serviços de emissão de bilhete, de acúmulo de milhas e de notificação ao passageiro consomem esse evento de forma independente, sem que o serviço de reserva conheça a existência deles, e o diagrama abaixo mostra os dois produtores, o barramento e os três consumidores.
+A arquitetura orientada a eventos favorece situação de pico e de integração entre partes que não precisam saber umas das outras. Como exemplo, no sistema de reservas da Companhia Aérea ACME o serviço de reserva publica um evento de confirmação de assento, e os serviços de emissão de bilhete, de acúmulo de milhas e de notificação ao passageiro consomem esse evento de forma independente, sem que o serviço de reserva conheça a existência deles, e o diagrama abaixo mostra os dois produtores, o barramento e os três consumidores.
 
 ```mermaid
 graph TD
@@ -114,7 +114,7 @@ O barramento garante ordem apenas dentro de cada tópico. No exemplo do sistema 
 
 ### Arquitetura microkernel
 
-A arquitetura microkernel serve bem quando a maior parte do sistema é estável e uma parte pequena precisa variar por cliente ou por mercado. Um sistema de gestão de estoque industrial que atende clientes com regras fiscais diferentes por estado pode manter o núcleo de controle de saldo fixo e tratar cada regra fiscal como um plugin acionado no momento da baixa de estoque. O ganho é liberar um plugin novo sem tocar no núcleo nem nos demais plugins. A limitação aparece quando duas regras fiscais de plugins diferentes precisam ser aplicadas na mesma operação em uma ordem específica, porque o núcleo não foi desenhado para coordenar plugins entre si.
+A arquitetura microkernel serve bem quando a maior parte do sistema é estável e uma parte pequena precisa variar por cliente ou por mercado. Como exemplo, um sistema de gestão de estoque industrial que atende clientes com regras fiscais diferentes por estado pode manter o núcleo de controle de saldo fixo e tratar cada regra fiscal como um plugin acionado no momento da baixa de estoque. O ganho é liberar um plugin novo sem tocar no núcleo nem nos demais plugins. A limitação aparece quando duas regras fiscais de plugins diferentes precisam ser aplicadas na mesma operação em uma ordem específica, porque o núcleo não foi desenhado para coordenar plugins entre si.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -130,7 +130,7 @@ No exemplo do sistema de gestão de estoque industrial com regras fiscais por es
 
 ### Arquitetura hexagonal
 
-A arquitetura hexagonal, também chamada de portas e adaptadores, ataca um problema diferente dos anteriores. Ela protege a regra de negócio do que a cerca, e a distribuição do sistema fica fora do seu alcance. Em um sistema de concessão de crédito, a política de risco e de limite fica no núcleo, e tudo o que é externo entra por adaptador, o serviço de consulta a bureau de crédito, o núcleo bancário que efetiva o desembolso e os canais pelos quais o cliente pede o empréstimo. O núcleo não conhece nenhum desses três, ele declara o que precisa, por exemplo obter a pontuação de crédito de um solicitante, e cada adaptador atende a essa declaração. Trocar de bureau passa a ser trocar um adaptador, sem tocar na política de risco, e testar a política deixa de exigir bureau, banco ou tela.
+A arquitetura hexagonal, também chamada de portas e adaptadores, ataca um problema diferente dos anteriores. Ela protege a regra de negócio do que a cerca, e a distribuição do sistema fica fora do seu alcance. Como exemplo, em um sistema de concessão de crédito a política de risco e de limite fica no núcleo, e tudo o que é externo entra por adaptador, o serviço de consulta a bureau de crédito, o núcleo bancário que efetiva o desembolso e os canais pelos quais o cliente pede o empréstimo. O núcleo não conhece nenhum desses três, ele declara o que precisa, por exemplo obter a pontuação de crédito de um solicitante, e cada adaptador atende a essa declaração. Trocar de bureau passa a ser trocar um adaptador, sem tocar na política de risco, e testar a política deixa de exigir bureau, banco ou tela.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -146,7 +146,7 @@ No exemplo do sistema de concessão de crédito, o vazamento apareceria se a pol
 
 ### Pipes and filters
 
-O estilo pipes and filters organiza o sistema como uma sequência de etapas de transformação. Os filtros encapsulam uma função específica, como validar, estimar ou calcular, e os pipes transportam o dado de um para o outro na forma de fluxo. No sistema de processamento de medições de consumo da Distribuidora de Energia ACME, a leitura bruta do medidor passa por um filtro de validação, depois por um filtro que estima a leitura quando ela veio ausente ou implausível, depois pelo filtro que aplica a tarifa vigente e por fim pelo que gera a fatura. Mudar a regra de estimativa é trocar um filtro, e o filtro de tarifação não é afetado. Ferramentas modernas de fluxo de dados derivam desse estilo, e é por isso que ele é a base de sistemas de extração, transformação e carga.
+O estilo pipes and filters organiza o sistema como uma sequência de etapas de transformação. Os filtros encapsulam uma função específica, como validar, estimar ou calcular, e os pipes transportam o dado de um para o outro na forma de fluxo. Como exemplo, no sistema de processamento de medições de consumo da Distribuidora de Energia ACME a leitura bruta do medidor passa por um filtro de validação, depois por um filtro que estima a leitura quando ela veio ausente ou implausível, depois pelo filtro que aplica a tarifa vigente e por fim pelo que gera a fatura. Mudar a regra de estimativa é trocar um filtro, e o filtro de tarifação não é afetado. Ferramentas modernas de fluxo de dados derivam desse estilo, e é por isso que ele é a base de sistemas de extração, transformação e carga.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -162,7 +162,7 @@ No exemplo do processamento de medições, esse sinal apareceria se o filtro de 
 
 ### Arquitetura orientada a APIs
 
-A arquitetura orientada a APIs organiza o sistema em torno de contratos formais publicados. Cada capacidade é exposta por uma interface declarada e versionada, e nenhum consumidor alcança o dado de outro por caminho que não seja essa interface. As APIs costumam ser classificadas em três tipos por alcance, as internas, que ligam sistemas da própria organização, as externas, expostas a parceiros identificados, e as públicas, abertas a qualquer desenvolvedor. Na Operadora de Telecomunicações ACME, a consulta de saldo e a recarga de crédito podem ser a mesma capacidade oferecida nos três alcances, consumida internamente pelo aplicativo próprio, externamente pela rede de varejo que vende recarga no caixa, e publicamente por quem queira construir algo sobre ela. Um gateway centraliza o que seria repetido em cada serviço, a autenticação, a autorização, a limitação de taxa e a observabilidade.
+A arquitetura orientada a APIs organiza o sistema em torno de contratos formais publicados. Cada capacidade é exposta por uma interface declarada e versionada, e nenhum consumidor alcança o dado de outro por caminho que não seja essa interface. As APIs costumam ser classificadas em três tipos por alcance, as internas, que ligam sistemas da própria organização, as externas, expostas a parceiros identificados, e as públicas, abertas a qualquer desenvolvedor. Como exemplo, na Operadora de Telecomunicações ACME a consulta de saldo e a recarga de crédito podem ser a mesma capacidade oferecida nos três alcances, consumida internamente pelo aplicativo próprio, externamente pela rede de varejo que vende recarga no caixa, e publicamente por quem queira construir algo sobre ela. Um gateway centraliza o que seria repetido em cada serviço, a autenticação, a autorização, a limitação de taxa e a observabilidade.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -178,7 +178,7 @@ No exemplo da Operadora de Telecomunicações ACME, esse sinal apareceria se acr
 
 ## Uso pelo arquiteto
 
-O arquiteto usa essa comparação de estilo por atributo de qualidade para defender uma escolha diante de partes interessadas com prioridades diferentes, traduzindo uma preferência técnica em uma tabela de trocas explícitas. O arquiteto mostra qual atributo o estilo escolhido favorece, qual ele sacrifica, e associa cada um desses atributos ao cenário de qualidade que a organização já reconheceu como prioritário. Quando dois estilos empatam diante dos cenários, os princípios priorizados no [bloco 1](bloco-1-principios-de-design.md#anatomia-de-um-principio) funcionam como critério de desempate, o que torna a decisão auditável e reduz a chance de reabri-la sem novo dado.
+Diante de partes interessadas com prioridades diferentes, o arquiteto usa a comparação de estilo por atributo de qualidade para defender uma escolha, traduzindo uma preferência técnica em uma tabela de trocas explícitas. O arquiteto mostra qual atributo o estilo escolhido favorece, qual ele sacrifica, e associa cada um desses atributos ao cenário de qualidade que a organização já reconheceu como prioritário. Quando dois estilos empatam diante dos cenários, os princípios priorizados no [bloco 1](bloco-1-principios-de-design.md#anatomia-de-um-principio) funcionam como critério de desempate, o que torna a decisão auditável e reduz a chance de reabri-la sem novo dado.
 
 ## No caderno arquitetural
 
@@ -210,7 +210,7 @@ O arquiteto usa essa comparação de estilo por atributo de qualidade para defen
 
 ## Exercício 10
 
-Este exercício treina a comparação de estilos arquiteturais diante de exigências reais do caso, para que a recomendação de um estilo tenha justificativa. O aluno escolhe três dos sete estilos do bloco, verifica como cada um se comporta nos dois cenários de qualidade e à luz dos princípios, e recomenda um deles. A ACME é uma universidade privada brasileira cujo sistema acadêmico legado tem um núcleo transacional em COBOL sobre o monitor CICS (o programa que executa as transações do núcleo), uma camada web em Java, construída com as tecnologias JSF (telas web) e EJB (regras de negócio executadas no servidor), e integrações por arquivo em lote com o ERP financeiro e o ambiente virtual de aprendizagem, tudo em modernização incremental. A comparação usa os princípios priorizados no [exercício 9](bloco-1-principios-de-design.md#exercicio-9), e o estilo recomendado aqui é a entrada da seleção de padrões do exercício 11, no [bloco 3](bloco-3-padroes-arquiteturais-e-de-design.md). O exercício tem dois itens, e cada um produz uma tabela de comparação, a do item 1 com as classificações por cenário e a do item 2 com a análise por princípio e a recomendação.
+A escolha do estilo da ACME precisa resistir a duas situações reais, o pico de matrícula e o incidente de 04/02/2026, e este exercício treina a comparação de estilos diante delas, para que a recomendação tenha justificativa. O aluno escolhe três dos sete estilos do bloco, verifica como cada um se comporta nos dois cenários de qualidade e à luz dos princípios, e recomenda um deles. A ACME é uma universidade privada brasileira cujo sistema acadêmico legado tem um núcleo transacional em COBOL sobre o monitor CICS (o programa que executa as transações do núcleo), uma camada web em Java, construída com as tecnologias JSF (telas web) e EJB (regras de negócio executadas no servidor), e integrações por arquivo em lote com o ERP financeiro e o ambiente virtual de aprendizagem, tudo em modernização incremental. A comparação usa os princípios priorizados no [exercício 9](bloco-1-principios-de-design.md#exercicio-9), e o estilo recomendado aqui é a entrada da seleção de padrões do exercício 11, no [bloco 3](bloco-3-padroes-arquiteturais-e-de-design.md). O exercício tem dois itens, e cada um produz uma tabela de comparação, a do item 1 com as classificações por cenário e a do item 2 com a análise por princípio e a recomendação.
 
 ### Item 1: Adequação aos cenários de qualidade
 
@@ -249,6 +249,8 @@ flowchart TB
     PA -->|"acesso direto às tabelas"| ORA
 ```
 
+Como o núcleo COBOL permanece em operação durante a transição, nenhum estilo pode ignorá-lo, e a leitura de cada estilo nos dois cenários parte dessa condição. O item pede dois passos, o da escolha dos três estilos e o da classificação de cada par de estilo e cenário.
+
 1. Escolha três dos [sete estilos](#conceito) apresentados neste bloco, considerando o núcleo COBOL sobre CICS como parte que permanece em operação durante a transição.
 2. Para cada um dos três estilos, registre a adequação ao cenário 1 e ao cenário 2, classificando cada par de estilo e cenário como favorável, neutro ou desfavorável e indicando em uma linha o motivo. O produto é uma tabela com seis classificações, duas para cada estilo escolhido.
 
@@ -263,6 +265,8 @@ Este item verifica se cada estilo escolhido respeita os princípios de design e 
 | A operação acadêmica continua disponível durante toda a transição. | Continuidade operacional |
 | Dado pessoal de aluno é tratado apenas em território nacional. | Residência de dados |
 | Responsabilidades do núcleo legado são assumidas por elementos novos uma a uma, sem substituição simultânea. | Dependência do legado |
+
+Um estilo que ajuda no pico ainda pode quebrar uma regra do projeto, e por isso a segunda leitura confronta cada estilo com os princípios e com o risco que ele traz. O item pede dois passos, o da análise de cada estilo e o da recomendação de um deles.
 
 1. Para cada um dos três estilos escolhidos no Item 1, registre a adequação aos princípios priorizados, o risco introduzido pelo estilo no contexto da ACME e o mecanismo compensatório, que é o recurso que se acrescenta ao desenho para neutralizar esse risco.
 2. Recomende um dos três estilos para um contexto de modernização incremental de um sistema legado crítico, justificando a escolha pelo atributo de qualidade favorecido, pelo atributo de qualidade prejudicado e pelo princípio que desempata a comparação.

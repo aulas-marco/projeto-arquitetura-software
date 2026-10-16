@@ -1,6 +1,6 @@
 # Síntese da Aula 5
 
-Esta página fecha o módulo de frameworks e tecnologias com o que precisa permanecer depois da aula, a cadeia da definição tecnológica construída nos exercícios 16 a 20, uma autoavaliação e a lista das referências citadas nos quatro blocos.
+Depois de cinco exercícios encadeados, o aluno tem a definição tecnológica da ACME montada passo a passo, e esta página fecha o módulo de frameworks e tecnologias com o que precisa permanecer depois da aula, a cadeia dos exercícios 16 a 20, uma autoavaliação e a lista das referências citadas nos quatro blocos.
 
 ## Checklist do que precisa permanecer
 

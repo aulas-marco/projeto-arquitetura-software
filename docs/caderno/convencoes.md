@@ -1,10 +1,10 @@
 # Convenções do caderno arquitetural
 
-O caderno dá um código curto a cada item que pode ser citado em outra seção, como R6 para o sexto requisito. Esta página lista os códigos, explica os dois marcadores de estado e mostra como uma decisão se liga ao requisito que a motivou.
+Quando uma seção do caderno precisa citar um item de outra, como o sexto requisito, ela usa um código curto, no caso R6. Esta página lista os códigos, explica os dois marcadores de estado e mostra como uma decisão se liga ao requisito que a motivou.
 
 ## Códigos
 
-Cada código é a inicial do item seguida de um número, na ordem em que o item aparece no caderno.
+Cada código é a inicial do item seguida de um número, na ordem em que o item aparece no caderno, de modo que D2 é a segunda decisão registrada.
 
 | Código | O que identifica | Seção |
 | --- | --- | --- |
@@ -29,12 +29,12 @@ Cada código é a inicial do item seguida de um número, na ordem em que o item 
 | T | Uma tarefa do ciclo de modernização, atribuída a um papel | 1 |
 | A | Um artefato do caso, ligado a uma fase, a um papel e a uma seção | 1 |
 
-Os códigos CP, N, T e A numeram os itens dos exercícios da seção 1. O C é só dos controles de segurança, por isso os componentes usam CP.
+Na seção 1, os exercícios numeram os seus itens com CP, N, T e A. A letra C já pertence aos controles de segurança, e por isso os componentes da solução usam CP.
 
 ## Marcadores de estado
 
-O marcador **proposto** indica uma decisão ou um artefato que ainda precisa ser validado por quem tem autoridade para aprová-lo. O marcador **a definir** indica um valor que o caso ainda não traz, junto com a pessoa que pode informá-lo. Os dois saem quando a validação acontece, e a seção 10 do caderno lista tudo o que ainda os carrega.
+Nem tudo no caderno está confirmado, e dois marcadores mostram o que ainda falta. O marcador **proposto** aparece numa decisão ou num artefato que ainda precisa ser validado por quem tem autoridade para aprová-lo, e o marcador **a definir** aparece num valor que o caso ainda não traz, junto com a pessoa que pode informá-lo. Quando a validação acontece, o marcador sai, e a seção 10 do caderno lista tudo o que ainda o carrega.
 
 ## Como uma decisão se liga ao requisito
 
-Toda decisão das seções 6 a 8 diz qual requisito ou restrição a motivou. Todo requisito da seção 3 diz qual decisão o atende e como se mede esse atendimento. Uma decisão sem requisito de origem não tem justificativa, e um requisito sem decisão é uma lacuna que deve entrar na seção 4.
+Uma decisão tomada sem que ninguém saiba a razão não permite saber se ela ainda faz sentido. Para evitar isso, toda decisão das seções 6 a 8 diz qual requisito ou restrição a motivou, e todo requisito da seção 3 diz qual decisão o atende e como se mede esse atendimento. Uma decisão sem requisito de origem não tem justificativa, e um requisito sem decisão é uma lacuna que deve entrar na seção 4.

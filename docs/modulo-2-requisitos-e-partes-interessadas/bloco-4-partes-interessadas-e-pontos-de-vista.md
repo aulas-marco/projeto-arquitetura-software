@@ -1,6 +1,6 @@
 # Partes interessadas, pontos de vista e escopo
 
-Este bloco trata de quem decide sobre a solução, como essas pessoas são identificadas e avaliadas, como suas preocupações são tratadas por pontos de vista e visões, e como o escopo da mudança é declarado. Parte interessada é qualquer pessoa, equipe ou organização com interesse na solução, como a Reitora ou a empresa que mantém o sistema. Escopo é a delimitação do que a mudança altera e do que continua como está.
+Quando a ACME decidiu modernizar o sistema acadêmico, a Reitora, o Diretor Financeiro e a empresa que mantém o sistema passaram a ter interesses diferentes sobre o que mudar. Este bloco trata de quem decide sobre a solução, de como essas pessoas são identificadas e avaliadas, de como suas preocupações são tratadas por pontos de vista e visões e de como o escopo da mudança é declarado. Parte interessada é qualquer pessoa, equipe ou organização com interesse na solução, como a Reitora ou a empresa que mantém o sistema, e escopo é a delimitação do que a mudança altera e do que continua como está.
 
 ## Antes de começar
 
@@ -11,15 +11,15 @@ Este bloco trata de quem decide sobre a solução, como essas pessoas são ident
 
 ## Conceito
 
-As partes interessadas são a ligação entre a solução e o negócio. Escolhidas corretamente, elas representam o negócio e decidem em seu nome, de modo que uma solução que as satisfaça é a solução que o negócio quer. A norma ISO/IEC/IEEE 42010 define parte interessada como o indivíduo, a equipe, a organização ou a classe desses que tem interesse em um sistema, definição já adotada no [bloco 3 da Aula 1](../modulo-1-fundamentos/bloco-3-papel-do-arquiteto-de-solucao.md#conceito).
+Uma solução só tem valor se o negócio a quer, e quem diz o que o negócio quer são as partes interessadas, a ligação entre a solução e o negócio. Escolhidas corretamente, elas representam o negócio e decidem em seu nome, de modo que uma solução que as satisfaça é a solução que o negócio quer. A norma ISO/IEC/IEEE 42010 define parte interessada como o indivíduo, a equipe, a organização ou a classe desses que tem interesse em um sistema, definição já adotada no [bloco 3 da Aula 1](../modulo-1-fundamentos/bloco-3-papel-do-arquiteto-de-solucao.md#conceito).
 
 <figure markdown="span">
 ![Infográfico sobre partes interessadas, pontos de vista e escopo. À esquerda, as partes são agrupadas entre quem patrocina e decide, usa e opera, constrói e mantém, e regula e audita. Ao centro, o interesse da parte gera uma preocupação, que orienta um ponto de vista e resulta em uma visão. À direita, o escopo pergunta o que está dentro, o que fica fora e quais interfaces atravessam a fronteira.](../assets/images/modulo-2-partes-interessadas-pontos-vista.png){ .module-diagram }
 </figure>
 
-O critério prático de inclusão é uma lista de quatro perguntas. É parte interessada quem precisa de informação sobre a solução, quem fornece conhecimento essencial do negócio ou do domínio, quem tem autoridade sobre orçamento, recursos ou outras decisões organizacionais, e quem participa do desenho, da implementação ou da implantação.
+Para saber quem incluir, o arquiteto usa uma lista de quatro perguntas: é parte interessada quem precisa de informação sobre a solução, quem fornece conhecimento essencial do negócio ou do domínio, quem tem autoridade sobre orçamento, recursos ou outras decisões organizacionais, e quem participa do desenho, da implementação ou da implantação.
 
-A comunicação com essas pessoas existe por quatro motivos distintos, e confundi-los gera atrito. **Informação** mantém todos cientes do andamento, em fluxo predominantemente de mão única. **Consulta** captura conhecimento de negócio, é de mão dupla e exige registro para rastrear insumo e decisão. **Prestação de contas** registra a aprovação de decisões arquiteturais por pessoas determinadas. **Responsabilidade** aloca e acompanha tarefas atribuídas a partes interessadas.
+A comunicação com essas pessoas tem quatro motivos distintos, e confundi-los gera atrito: a **informação** mantém todos cientes do andamento, em fluxo predominantemente de mão única, a **consulta** captura conhecimento de negócio, é de mão dupla e exige registro para rastrear insumo e decisão, a **prestação de contas** registra a aprovação de decisões arquiteturais por pessoas determinadas, e a **responsabilidade** aloca e acompanha tarefas atribuídas a partes interessadas.
 
 ### Categorias de parte interessada
 
@@ -47,7 +47,7 @@ A consequência prática aparece na validação do desenho. Aplicar o mesmo pont
 
 ### Pontos de vista na prática
 
-As três visões a seguir descrevem aspectos da mesma solução, mas não são intercambiáveis. Cada uma seleciona elementos, relações e informações adequados a uma preocupação e a uma audiência. O que constitui detalhe indispensável para uma equipe pode ser ruído para outra.
+As três visões a seguir descrevem a mesma solução da ACME para audiências diferentes, e por isso não são intercambiáveis: cada uma seleciona os elementos, as relações e as informações adequados a uma preocupação, e o detalhe indispensável para uma equipe pode ser ruído para outra.
 
 #### Visão de contexto C1 para o patrocinador
 
@@ -82,15 +82,15 @@ O contraste mostra que o ponto de vista seleciona conteúdo diferente para cada 
 
 ### Definição do escopo
 
-O escopo da solução é declarado por componentes da solução (pessoas, estruturas organizacionais, processos, informação e tecnologia). Entram na declaração os componentes da solução de negócio, os de informação e os de tecnologia, e os blocos de construção, com a distinção entre bloco de construção de arquitetura, que é genérico e reutilizável, e bloco de construção da solução, que é a realização daquele bloco naquela solução. A declaração é documentada e aprovada formalmente, porque é ela que delimita o que será mudado e, por exclusão, o que permanece.
+Para dizer o que a mudança altera e o que permanece, o escopo da solução é declarado por componentes da solução (pessoas, estruturas organizacionais, processos, informação e tecnologia). Entram na declaração os componentes da solução de negócio, os de informação e os de tecnologia, e os blocos de construção, com a distinção entre bloco de construção de arquitetura, que é genérico e reutilizável, e bloco de construção da solução, que é a realização daquele bloco naquela solução. A declaração é documentada e aprovada formalmente, porque é ela que delimita o que será mudado e, por exclusão, o que permanece.
 
 Na ACME, universidade privada brasileira fictícia com 38.400 alunos ativos e sistema acadêmico em operação desde 2004, a declaração de escopo precisa registrar que o ambiente virtual de aprendizagem e o ERP financeiro permanecem, por decisão da Reitoria de 12/03/2026, e que o trabalho sobre eles é de integração e de governança.
 
 ## Uso pelo arquiteto
 
-O arquiteto usa a lista de quatro perguntas como verificação contra a omissão mais cara do processo, a parte interessada descoberta tarde. Quem tem autoridade sobre orçamento e quem responde por exigência regulatória costumam ser lembrados, e quem sustenta o sistema depois da implantação costuma ser esquecido até o momento em que a operação recusa o desenho.
+O arquiteto usa a lista de quatro perguntas como verificação contra a omissão mais cara do processo, a parte interessada descoberta tarde: quem tem autoridade sobre orçamento e quem responde por exigência regulatória costuma ser lembrado, mas quem sustenta o sistema depois da implantação costuma ser esquecido até o momento em que a operação recusa o desenho.
 
-Os pontos de vista servem para não travar a discussão em um modelo único. Apresentar o mesmo desenho a um diretor financeiro e a um gerente de sustentação produz duas conversas improdutivas, porque cada um precisa de um recorte diferente da mesma descrição de arquitetura.
+Se o arquiteto apresentasse o mesmo desenho ao Diretor Financeiro e ao Gerente de sustentação da ACME, teria duas conversas improdutivas, porque cada um precisa de um recorte diferente da mesma descrição de arquitetura, e é para isso que servem os pontos de vista, que evitam travar a discussão em um modelo único.
 
 ## No caderno arquitetural
 
@@ -123,13 +123,13 @@ Os pontos de vista servem para não travar a discussão em um modelo único. Apr
 
 ## Exercício 8
 
-Este exercício treina a identificação das partes interessadas do caso, a definição de pontos de vista e a declaração de escopo do primeiro ciclo. Quem decide sobre a solução, o que cada pessoa teme e o que fica dentro da mudança são perguntas que o arquiteto responde antes de desenhar, e o exercício as pratica em quatro itens. Nas conversas com as partes interessadas, o arquiteto da ACME registrou oito papéis, como a Reitora e o Gerente de sustentação da fábrica de software, que formam o mapa de atores do dossiê e aparecem no Item 1. O Item 1 classifica esses papéis, o Item 2 procura categorias de parte interessada sem representante, o Item 3 define pontos de vista para três papéis e o Item 4 declara o escopo do primeiro ciclo.
+Nas conversas com as partes interessadas, o arquiteto da ACME registrou oito papéis, como a Reitora e o Gerente de sustentação da fábrica de software, que formam o mapa de atores do dossiê e aparecem no Item 1. Quem decide sobre a solução, o que cada pessoa teme e o que fica dentro da mudança são perguntas que o arquiteto responde antes de desenhar, e o exercício as pratica em quatro itens: o Item 1 classifica os papéis, o Item 2 procura categorias de parte interessada sem representante, o Item 3 define pontos de vista para três papéis e o Item 4 declara o escopo do primeiro ciclo.
 
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 2.150 professores, 1.480 técnico-administrativos e 4 campi, cujo sistema acadêmico está em operação desde 2004 e é mantido por uma fábrica de software contratada, sob contrato de sustentação vigente até 30/09/2027. A declaração de escopo marcada no Item 4 é o ponto de partida do [exercício 13](../modulo-4-dominios-da-solucao/bloco-1-arquitetura-de-negocio.md#exercicio-13) da Aula 4.
 
 ### Item 1: Categoria de cada papel
 
-O aluno precisa saber que tipo de interesse cada papel representa, porque o tipo define como o arquiteto se comunica com ele. O diagrama abaixo mostra os oito papéis do mapa de atores do caso, com a área a que cada um pertence, e o quadro seguinte reproduz o que cada papel quer e o que teme.
+Cada papel do mapa de atores traz um tipo de interesse, e o tipo define como o arquiteto se comunica com ele. O diagrama abaixo mostra os oito papéis do mapa de atores do caso, com a área a que cada um pertence, e o quadro seguinte reproduz o que cada papel quer e o que teme.
 
 ```mermaid
 flowchart LR
@@ -162,7 +162,7 @@ Suas respostas viram o campo Categoria, na seção 2 do caderno.
 
 ### Item 2: Categorias sem representante
 
-Se uma categoria de parte interessada não tem representante entre os oito papéis, o arquiteto corre o risco de ignorar uma preocupação importante. O quadro abaixo lista as nove categorias de parte interessada da seção [Categorias de parte interessada](#categorias-de-parte-interessada), com uma coluna em branco para o papel do mapa de atores que representa cada uma.
+Quando nenhum dos oito papéis fala por uma categoria de parte interessada, o arquiteto corre o risco de ignorar uma preocupação importante. O quadro abaixo lista as nove categorias de parte interessada da seção [Categorias de parte interessada](#categorias-de-parte-interessada), com uma coluna em branco para o papel do mapa de atores que representa cada uma.
 
 | Categoria | Papel do mapa de atores que a representa |
 | --- | --- |
@@ -183,7 +183,7 @@ Suas respostas viram os campos Papel que representa a categoria e Risco da ausê
 
 ### Item 3: Ponto de vista para três papéis
 
-Cada parte interessada precisa de um recorte diferente da descrição da arquitetura, e o ponto de vista é a regra que define esse recorte. Um [ponto de vista](../referencia/glossario.md#ponto-de-vista) declara o critério de seleção, isto é, o que entra no recorte, a estrutura do artefato, isto é, o formato do documento, e a forma de apresentação, isto é, como a informação é mostrada. A [visão](../referencia/glossario.md#visao) é o resultado de aplicá-lo à descrição de arquitetura. O quadro abaixo traz, na primeira linha, o exemplo do gestor descrito na seção [Pontos de vista na prática](#pontos-de-vista-na-pratica), e deixa três linhas em branco para o aluno preencher.
+A Reitora e o Gerente de sustentação não leem o mesmo documento, porque cada parte interessada precisa de um recorte diferente da descrição da arquitetura, e o ponto de vista é a regra que define esse recorte. Um [ponto de vista](../referencia/glossario.md#ponto-de-vista) declara o critério de seleção, isto é, o que entra no recorte, a estrutura do artefato, isto é, o formato do documento, e a forma de apresentação, isto é, como a informação é mostrada. A [visão](../referencia/glossario.md#visao) é o resultado de aplicá-lo à descrição de arquitetura. O quadro abaixo traz, na primeira linha, o exemplo do gestor descrito na seção [Pontos de vista na prática](#pontos-de-vista-na-pratica), e deixa três linhas em branco para o aluno preencher.
 
 | Papel | Preocupação principal | Critério de seleção | Estrutura do artefato | Forma de apresentação |
 | --- | --- | --- | --- | --- |

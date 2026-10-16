@@ -1,6 +1,6 @@
 # Template do caderno arquitetural
 
-O caderno arquitetural da ACME é o documento em que a arquitetura da solução fica registrada, seção por seção, ao longo do curso. Cada seção responde a uma pergunta e é preenchida por um ou mais exercícios. A trilha abaixo mostra as onze partes, e cada ficha explica o que entra na seção, de onde vêm as informações e quando ela é preenchida. Se um código como D1 ou R6 não for familiar, a página de [convenções](convencoes.md) explica todos, e o [mapa](mapa.md) mostra qual exercício preenche cada seção.
+Ao longo do curso, a arquitetura da solução da ACME vai sendo registrada num único documento, seção por seção, e esse documento é o caderno arquitetural. Cada seção responde a uma pergunta e é preenchida por um ou mais exercícios, e por isso a trilha abaixo mostra as onze partes, com uma ficha que diz o que entra em cada seção, de onde vêm as informações e quando ela é preenchida. Quem encontrar um código como D1 ou R6 sem saber o que significa pode consultar a página de [convenções](convencoes.md), e o [mapa](mapa.md) mostra qual exercício preenche cada seção.
 
 {{trilha:todas}}
 
@@ -10,11 +10,11 @@ O caderno arquitetural da ACME é o documento em que a arquitetura da solução 
 
 | Campo | Conteúdo |
 | --- | --- |
-| Para que serve | Quem decide sobre o projeto raramente lê o caderno inteiro. Este resumo de uma página dá a essa pessoa o essencial para apoiar o projeto ou questioná-lo. |
+| Para que serve | Quem decide sobre o projeto da ACME raramente lê o caderno inteiro e, mesmo assim, precisa apoiá-lo ou questioná-lo depois de poucos minutos de leitura. Por isso este resumo de uma página reúne o essencial, e a decisão pode ser tomada sem percorrer as outras seções. |
 | Pergunta que responde | Se alguém lesse só esta página, entenderia o projeto? |
-| O que você escreve | Seis parágrafos curtos: qual é o problema, que pergunta o projeto responde, qual é a decisão central, que requisito mais pesa no desenho, o que a ACME aceita perder em troca e em que pé está o trabalho. |
-| Vem de onde | Das outras seções. O resumo só repete, em poucas linhas, o que o caderno já registra. |
-| Quando se preenche | Ao fim de cada aula, nos exercícios 4, 8, 12, 16, 20 e 24. Cada versão substitui a anterior. |
+| O que você escreve | Você escreve seis parágrafos curtos, que contam nesta ordem qual é o problema, que pergunta o projeto responde, qual é a decisão central, que requisito mais pesa no desenho, o que a ACME aceita perder em troca e em que estágio está o trabalho. |
+| Vem de onde | O resumo não traz informação nova, porque retoma em poucas linhas o que as outras seções já registram, e por isso ele é escrito depois delas. |
+| Quando se preenche | Ao fim de cada aula você reescreve o resumo, nos exercícios 4, 8, 12, 16, 20 e 24, e cada versão substitui a anterior. |
 
 {{/folha}}
 
@@ -24,11 +24,11 @@ O caderno arquitetural da ACME é o documento em que a arquitetura da solução 
 
 | Campo | Conteúdo |
 | --- | --- |
-| Para que serve | Antes de desenhar a solução, o arquiteto precisa conhecer o ponto de partida: a situação da ACME, o que outras pessoas já decidiram e o que o projeto não pode mudar. Esta seção reúne esse ponto de partida. |
+| Para que serve | Antes de desenhar qualquer coisa, o arquiteto da ACME precisou descobrir de onde partia: qual era a situação da universidade, o que outras pessoas já tinham decidido e o que o projeto não podia mudar. Esta seção reúne esse ponto de partida para que o desenho comece em terreno conhecido. |
 | Pergunta que responde | Que organização é esta, que problema ela quer resolver e o que já está decidido antes de desenhar qualquer coisa? |
-| O que você escreve | Cinco coisas, cada uma numa tabela. As restrições, que são decisões de outras pessoas que o projeto precisa aceitar. As decisões da modernização, classificadas por nível de arquitetura. Os componentes da solução, que são as peças de que ela precisa, como pessoas, processos e tecnologia. As tarefas do projeto, com o responsável por cada uma. E os documentos do trabalho, ligados às fases do processo. Cada item recebe um código curto, como RT1 ou D2, explicado na página de convenções. |
-| Vem de onde | Do dossiê do caso ACME, que traz os números da instituição, a pergunta central e as restrições. |
-| Quando se preenche | Na Aula 1, com os exercícios 1 a 4. |
+| O que você escreve | Você registra cinco coisas, cada uma numa tabela. Primeiro vêm as restrições, que são decisões de outras pessoas que o projeto precisa aceitar, e depois as decisões da modernização, classificadas por nível de arquitetura. Em seguida entram os componentes da solução, que são as peças de que ela precisa, como pessoas, processos e tecnologia, e as tarefas do projeto, com o responsável por cada uma. Por fim, os documentos do trabalho são ligados às fases do processo. Cada item recebe um código curto, como RT1 ou D2, explicado na página de convenções. |
+| Vem de onde | Os números da instituição, a pergunta central e as restrições estão no dossiê do caso ACME, e é dele que você retira o conteúdo desta seção. |
+| Quando se preenche | Você preenche esta seção na Aula 1, ao resolver os exercícios 1 a 4. |
 
 ### 1.1 Instituição, restrições e decisões por nível
 
@@ -84,11 +84,11 @@ Você escreve:
 
 | Campo | Conteúdo |
 | --- | --- |
-| Para que serve | As decisões de um projeto dependem de pessoas, e elas nem sempre querem a mesma coisa. Esta seção registra quem são, o que cada uma espera e teme e como o arquiteto vai lidar com cada uma, para que os conflitos apareçam cedo. |
+| Para que serve | As decisões de um projeto dependem de pessoas, e na ACME a Reitora quer resultado em 12 meses, o Diretor Financeiro teme pagar o legado e a nuvem no mesmo ano e o Gerente de sustentação da fábrica teme perder o contrato. Esta seção registra quem são essas pessoas, o que cada uma espera e teme e como o arquiteto vai lidar com cada uma, e assim os conflitos aparecem cedo. |
 | Pergunta que responde | Quem precisa participar das decisões e onde os interesses entram em conflito? |
-| O que você escreve | Uma tabela com o que cada pessoa ou grupo quer, o que teme e como o arquiteto vai tratá-lo: envolver nas decisões, consultar ou apenas manter informado. Depois, os pontos de vista de cada grupo, que são as preocupações que o desenho precisa mostrar, e a declaração de escopo: o que muda no primeiro ciclo, o que fica como está e por que cada item ficou de fora. |
-| Vem de onde | Da seção 1 e do mapa de atores do dossiê. |
-| Quando se preenche | Na Aula 2, no exercício 8. |
+| O que você escreve | Você monta primeiro uma tabela com o que cada pessoa ou grupo quer, o que teme e como o arquiteto vai tratá-lo: envolver nas decisões, consultar ou apenas manter informado. Depois escreve os pontos de vista de cada grupo, que são as preocupações que o desenho precisa mostrar, e a declaração de escopo, que diz o que muda no primeiro ciclo, o que fica como está e por que cada item ficou de fora. |
+| Vem de onde | Da seção 1 e do mapa de atores do dossiê, que dizem quem são as pessoas envolvidas no projeto. |
+| Quando se preenche | Você preenche esta seção na Aula 2, no exercício 8. |
 
 ### 2.1 Partes interessadas, pontos de vista e escopo do primeiro ciclo
 
@@ -114,11 +114,11 @@ Você escreve:
 
 | Campo | Conteúdo |
 | --- | --- |
-| Para que serve | Um pedido vago, como "o sistema precisa ser rápido", não permite saber se a solução deu certo. Esta seção transforma o que as pessoas pedem em requisitos que dá para verificar, com número e situação de uso. |
+| Para que serve | Quando alguém diz que o sistema precisa ser rápido, ninguém consegue saber depois se a solução deu certo. Esta seção transforma o que as pessoas pedem em requisitos que dá para verificar, cada um com um número e uma situação de uso. |
 | Pergunta que responde | O que a solução precisa entregar, e como saberemos que entregou? |
-| O que você escreve | A lista de requisitos do caso, cada um com tipo, medida e prioridade, e os pedidos vagos reescritos com um número que dá para medir. Também os fatores que empurram a mudança, que são os direcionadores, e os cenários de qualidade, que descrevem uma situação de uso em seis partes: quem provoca, o que provoca, em que situação, o que é afetado, o que o sistema faz e como se mede o resultado. |
-| Vem de onde | Das seções 1 e 2, porque restrições e partes interessadas dizem o que pode virar requisito. |
-| Quando se preenche | Na Aula 2, nos exercícios 5, 6 e 7. |
+| O que você escreve | Você lista os requisitos do caso, cada um com tipo, medida e prioridade, e reescreve os pedidos vagos com um número que dá para medir. Depois registra os fatores que empurram a mudança, que são os direcionadores, e os cenários de qualidade, que descrevem uma situação de uso em seis partes: quem provoca, o que provoca, em que situação, o que é afetado, o que o sistema faz e como se mede o resultado. |
+| Vem de onde | Das seções 1 e 2, porque as restrições e as partes interessadas mostram o que pode se tornar requisito. |
+| Quando se preenche | Você preenche esta seção na Aula 2, nos exercícios 5, 6 e 7. |
 
 ### 3.1 Direcionadores de mudança e fatores externos
 
@@ -169,11 +169,11 @@ Você escreve:
 
 | Campo | Conteúdo |
 | --- | --- |
-| Para que serve | Uma mudança só pode ser planejada se o ponto de partida for conhecido. Esta seção descreve o sistema atual, onde ele é frágil e o que o separa da solução desenhada. Linha de base é o nome da situação atual. |
+| Para que serve | Uma mudança só pode ser planejada quando se conhece o ponto de partida, e na ACME esse ponto é o sistema atual, com as suas fragilidades. Esta seção descreve esse sistema e o que o separa da solução desenhada, e linha de base é o nome da situação atual. |
 | Pergunta que responde | Onde o sistema atual é frágil, e o que é preciso mudar para chegar ao que se quer construir? |
-| O que você escreve | A descrição do sistema atual, com as camadas que o formam, as integrações com outros sistemas e os incidentes que já aconteceram. Depois, a lista de lacunas: cada diferença entre o sistema atual e o que foi desenhado, com a forma de fechá-la. |
-| Vem de onde | Do dossiê e da seção 3. Para as lacunas, também das seções 5 a 8, que descrevem a solução desenhada. |
-| Quando se preenche | A descrição do sistema atual, na Aula 2 (exercício 7). A lista de lacunas, na Aula 6 (exercício 21). |
+| O que você escreve | Você descreve o sistema atual, com as camadas que o formam, as integrações com outros sistemas e os incidentes que já aconteceram. Depois lista as lacunas, e cada uma é uma diferença entre o sistema atual e o que foi desenhado, acompanhada da forma de fechá-la. |
+| Vem de onde | Do dossiê e da seção 3 para a descrição do sistema atual, e das seções 5 a 8, que descrevem a solução desenhada, para a lista de lacunas. |
+| Quando se preenche | Você descreve o sistema atual na Aula 2, no exercício 7, e só depois, na Aula 6, no exercício 21, lista as lacunas. |
 
 ### 4.1 Artefatos de linha de base que sustentam os cenários
 
@@ -193,11 +193,11 @@ Você escreve:
 
 | Campo | Conteúdo |
 | --- | --- |
-| Para que serve | Mostra os limites da solução num único desenho: o que está dentro, quem a usa e com quais outros sistemas ela conversa. É o desenho que qualquer pessoa consegue ler em um minuto. |
+| Para que serve | Para que qualquer pessoa entenda a solução em um minuto, o arquiteto a desenha numa única figura, que mostra o que está dentro dela, quem a usa e com quais outros sistemas ela conversa. |
 | Pergunta que responde | O que está dentro da solução, o que está fora e com quem ela se relaciona? |
-| O que você escreve | Um diagrama de contexto no formato C4, nível 1, que mostra a solução como uma caixa só, cercada por quem a usa e pelos outros sistemas com que ela conversa. Junto, uma legenda e um parágrafo explicando por que cada sistema ficou dentro ou fora da solução. |
-| Vem de onde | Das seções 2 e 4: as partes interessadas mostram quem usa a solução, e o sistema atual mostra com quem ela conversa. |
-| Quando se preenche | Na Aula 4, no exercício 15. |
+| O que você escreve | Você desenha um diagrama de contexto no formato C4, nível 1, em que a solução aparece como uma caixa só, cercada por quem a usa e pelos outros sistemas com que ela conversa. Junto vão uma legenda e um parágrafo que explica por que cada sistema ficou dentro ou fora da solução. |
+| Vem de onde | Das seções 2 e 4, porque as partes interessadas mostram quem usa a solução e o sistema atual mostra com quem ela conversa. |
+| Quando se preenche | Você preenche esta seção na Aula 4, no exercício 15. |
 
 ### 5.1 Portfólio, contrato de notas e diagrama de contexto
 
@@ -221,11 +221,11 @@ Você escreve:
 
 | Campo | Conteúdo |
 | --- | --- |
-| Para que serve | Princípios são regras que valem para todas as decisões do projeto. Escrevê-los antes de decidir permite recusar uma proposta que quebre uma regra, sem discutir do zero cada caso. |
+| Para que serve | Quando chega uma proposta e ninguém sabe se ela é aceitável, a discussão recomeça do zero. Os princípios evitam isso, porque são regras que valem para todas as decisões do projeto, e escrevê-los antes de decidir permite recusar a proposta que quebre uma delas. |
 | Pergunta que responde | Que regras o desenho precisa respeitar, de modo que uma proposta possa ser recusada por quebrá-las? |
-| O que você escreve | Uma tabela de princípios, cada um com a regra, o que ela proíbe e o requisito ou a restrição que a justifica. Um exemplo é "o sistema antigo não é alterado por quem não é o fornecedor", que proíbe mexer no núcleo por conta própria. |
+| O que você escreve | Você monta uma tabela de princípios, cada um com a regra, o que ela proíbe e o requisito ou a restrição que a justifica. Um exemplo é o princípio de que o sistema antigo não é alterado por quem não é o fornecedor, que proíbe mexer no núcleo sem o fornecedor. |
 | Vem de onde | Das seções 1 e 3, porque os princípios nascem das restrições e dos requisitos. |
-| Quando se preenche | Na Aula 3, no exercício 9. |
+| Quando se preenche | Você preenche esta seção na Aula 3, no exercício 9. |
 
 ### 6.1 Princípios priorizados e esboço lógico
 
@@ -251,11 +251,11 @@ Você escreve:
 
 | Campo | Conteúdo |
 | --- | --- |
-| Para que serve | Aqui ficam as escolhas principais da solução, cada uma com a razão que levou a ela. Quem ler daqui a alguns meses entende por que se decidiu assim, o que a decisão atende e o que se aceitou perder. |
+| Para que serve | Daqui a alguns meses alguém vai perguntar por que a ACME decidiu assim, e a resposta precisa estar escrita. Esta seção guarda as escolhas principais da solução, cada uma com a razão que levou a ela, o requisito que atende e o que se aceitou perder. |
 | Pergunta que responde | O que foi decidido, que requisito cada decisão atende e o que se aceita perder com ela? |
-| O que você escreve | As escolhas principais, em grupos: as decisões de desenho, como o estilo da solução, as decisões sobre o sistema antigo e os dados, os blocos em que a solução se divide e as interfaces entre eles. Cada escolha importante vira um registro de decisão arquitetural (ADR), um texto curto que guarda o contexto, as alternativas consideradas e as consequências. |
-| Vem de onde | Das seções 3 e 6: toda decisão atende a um requisito e obedece a um princípio. |
-| Quando se preenche | Nas Aulas 3 e 4, nos exercícios 10, 11, 12, 13, 14 e 16. |
+| O que você escreve | Você registra as escolhas principais em grupos: as decisões de desenho, como o estilo da solução, as decisões sobre o sistema antigo e os dados, os blocos em que a solução se divide e as interfaces entre eles. Cada escolha importante recebe um registro de decisão arquitetural (ADR), um texto curto que guarda o contexto, as alternativas consideradas e as consequências. |
+| Vem de onde | Das seções 3 e 6, porque toda decisão atende a um requisito e obedece a um princípio. |
+| Quando se preenche | Você preenche esta seção nas Aulas 3 e 4, nos exercícios 10, 11, 12, 13, 14 e 16. |
 
 ### 7.1 Comparação de estilos e estilo recomendado
 
@@ -352,11 +352,11 @@ Você escreve:
 
 | Campo | Conteúdo |
 | --- | --- |
-| Para que serve | A tecnologia só se escolhe depois que as decisões estruturais estão tomadas. Esta seção mostra com que produtos e plataforma a solução será construída e como ela será protegida contra ameaças. |
+| Para que serve | Só depois de tomadas as decisões estruturais faz sentido escolher a tecnologia. Esta seção mostra com que produtos e plataforma a solução será construída e como ela será protegida contra ameaças. |
 | Pergunta que responde | Que produtos e que plataforma atendem às decisões já tomadas, e que riscos de segurança precisam de resposta? |
-| O que você escreve | A lista de tecnologias aprovadas, proibidas e em avaliação, e a comparação entre alternativas por seis critérios. A plataforma e a zona de pouso escolhidas, que é a base em nuvem onde a solução roda. A classificação dos dados por sensibilidade, as ameaças de segurança com os controles contra cada uma e o registro da decisão sobre a plataforma. |
-| Vem de onde | Das seções 5 e 7: o desenho e as decisões já tomadas mostram o que a tecnologia precisa fazer. |
-| Quando se preenche | Na Aula 5, nos exercícios 17, 18, 19 e 20. |
+| O que você escreve | Você lista as tecnologias aprovadas, proibidas e em avaliação e compara as alternativas por seis critérios. Depois registra a plataforma e a zona de pouso escolhidas, que é a base em nuvem onde a solução roda, classifica os dados por sensibilidade e relaciona cada ameaça de segurança aos controles contra ela. A seção termina com o registro da decisão sobre a plataforma. |
+| Vem de onde | Das seções 5 e 7, porque o desenho e as decisões já tomadas mostram o que a tecnologia precisa fazer. |
+| Quando se preenche | Você preenche esta seção na Aula 5, nos exercícios 17, 18, 19 e 20. |
 
 ### 8.1 Modelo técnico, tecnologias da linha de base e provedor de identidade
 
@@ -426,11 +426,11 @@ Você escreve:
 
 | Campo | Conteúdo |
 | --- | --- |
-| Para que serve | Uma boa solução falha se for entregue na ordem errada ou sem acompanhamento. Esta seção define a ordem das entregas e como a arquitetura é vigiada para que a obra não se afaste do desenho. |
+| Para que serve | Uma boa solução falha quando é entregue na ordem errada ou sem acompanhamento. Esta seção define a ordem das entregas e a forma de vigiar a arquitetura, para que a obra não se afaste do desenho. |
 | Pergunta que responde | Em que ordem as lacunas serão fechadas, e como evitar que a obra se afaste do que foi desenhado? |
-| O que você escreve | O roteiro dividido em ondas, que são etapas de entrega, cada uma com suas entregas e o critério para dá-la por concluída. A rotina de revisão da arquitetura, os testes automáticos que avisam quando uma decisão deixa de ser cumprida e o registro dos atalhos aceitos, que se chama dívida técnica. |
+| O que você escreve | Você divide o roteiro em ondas, que são etapas de entrega, e dá a cada uma as suas entregas e o critério para considerá-la concluída. Depois descreve a rotina de revisão da arquitetura, os testes automáticos que avisam quando uma decisão deixa de ser cumprida e o registro dos atalhos aceitos, que se chama dívida técnica. |
 | Vem de onde | Da seção 4, porque as lacunas confirmadas são a matéria das ondas. |
-| Quando se preenche | Na Aula 6, nos exercícios 22 e 23. |
+| Quando se preenche | Você preenche esta seção na Aula 6, nos exercícios 22 e 23. |
 
 {{/folha}}
 
@@ -440,10 +440,10 @@ Você escreve:
 
 | Campo | Conteúdo |
 | --- | --- |
-| Para que serve | Nem tudo está decidido. Esta seção lista o que ainda falta, para que ninguém trate como certo o que ainda é dúvida, e diz quem pode resolver cada ponto. |
+| Para que serve | Nem tudo está decidido, e tratar como certo o que ainda é dúvida leva a decisões frágeis. Esta seção lista o que ainda falta e diz quem pode resolver cada ponto. |
 | Pergunta que responde | O que ainda impede o projeto de seguir, e quem resolve? |
-| O que você escreve | Uma tabela com cada pendência, quem decide e quando ela deve ser resolvida. Na versão final entra também a avaliação de uma tendência tecnológica e do efeito que ela teria sobre a solução. |
-| Vem de onde | De todas as seções: toda premissa ainda não confirmada vira uma pendência. |
-| Quando se preenche | Ao fim de cada aula, nos exercícios 4, 8, 12, 16, 20 e 24. Cada versão substitui a anterior. |
+| O que você escreve | Você monta uma tabela com cada pendência, quem decide e quando ela deve ser resolvida. Na versão final entra também a avaliação de uma tendência tecnológica e do efeito que ela teria sobre a solução. |
+| Vem de onde | De todas as seções, porque toda premissa ainda não confirmada passa a ser uma pendência. |
+| Quando se preenche | Ao fim de cada aula você atualiza a lista, nos exercícios 4, 8, 12, 16, 20 e 24, e cada versão substitui a anterior. |
 
 {{/folha}}

@@ -1,10 +1,10 @@
 # Caso ACME
 
-A ACME é uma universidade privada brasileira fictícia, de porte consolidado, cujo sistema acadêmico foi construído ao longo de duas décadas e sustenta matrícula, avaliação, emissão de documentos e integração financeira. Esta página é a primeira das quatro que formam o dossiê do caso, isto é, o conjunto de informações sobre a ACME que os exercícios usam. Ela apresenta a instituição, a pergunta que organiza o caso, oito papéis de pessoas envolvidas (os atores), sete restrições que chegam prontas ao arquiteto e quinze requisitos, numerados de R1 a R15, que as partes interessadas declararam. Parte interessada é qualquer pessoa ou área que decide sobre o sistema, o usa, o sustenta ou é afetada por ele. O caso é o mesmo em todas as aulas da disciplina, e cada aula acrescenta a ele os documentos e diagramas que os exercícios produzem. Os exercícios trazem no enunciado os dados de que precisam, tirados desta página e das três seguintes, de modo que o aluno não precisa conhecer a ACME antes de começar.
+Em 04/02/2026, às 08h00, a matrícula da ACME abriu e o portal caiu por mais de quatro horas, e esse dia resume o problema que o caso apresenta. A ACME é uma universidade privada brasileira fictícia, de porte consolidado, cujo sistema acadêmico foi construído ao longo de duas décadas e sustenta matrícula, avaliação, emissão de documentos e integração financeira. Esta página é a primeira das quatro que formam o dossiê do caso, isto é, o conjunto de informações sobre a ACME que os exercícios usam, e ela apresenta a instituição, a pergunta que organiza o caso, oito papéis de pessoas envolvidas (os atores), sete restrições que chegam prontas ao arquiteto e quinze requisitos, numerados de R1 a R15, que as partes interessadas declararam. Parte interessada é qualquer pessoa ou área que decide sobre o sistema, o usa, o sustenta ou é afetada por ele. Como o caso é o mesmo em todas as aulas e cada aula acrescenta a ele os documentos e diagramas que os exercícios produzem, o enunciado de cada exercício traz os dados de que precisa, tirados desta página e das três seguintes, e o aluno não precisa conhecer a ACME antes de começar.
 
 ## Porte da instituição
 
-Os números abaixo descrevem a instituição no ano letivo de 2026 e são referência para todos os exercícios do curso.
+Antes de olhar para o problema, convém saber o tamanho da instituição que o tem. Os números abaixo descrevem a ACME no ano letivo de 2026 e servem de referência para todos os exercícios do curso.
 
 | Dimensão | Valor |
 | --- | --- |
@@ -23,19 +23,19 @@ Os números abaixo descrevem a instituição no ano letivo de 2026 e são refer�
 | Orçamento anual da instituição | R$ 560 milhões |
 | Custo anual de propriedade do sistema acadêmico | R$ 15,83 milhões |
 
-Matrícula em disciplina é a inscrição de um aluno em uma disciplina em um semestre. A média de 6,0 disciplinas por aluno por semestre explica o total de 230.400 matrículas em disciplina, base de cálculo do volume de lançamento de notas descrito na página de [dados operacionais](dados-operacionais.md). Egressos são os ex-alunos que já concluíram o curso, e a instituição ainda guarda o histórico deles. O custo anual de propriedade é a soma do que a instituição paga por ano para manter o sistema acadêmico funcionando, detalhada nos dados operacionais.
+Dois dos números da tabela pedem explicação, porque aparecem em quase todos os exercícios. Matrícula em disciplina é a inscrição de um aluno em uma disciplina em um semestre, e a média de 6,0 disciplinas por aluno por semestre explica o total de 230.400, que serve de base para calcular o volume de lançamento de notas descrito na página de [dados operacionais](dados-operacionais.md). Já o custo anual de propriedade é a soma do que a instituição paga por ano para manter o sistema acadêmico funcionando, detalhada nessa mesma página. Os egressos, por fim, são os ex-alunos que já concluíram o curso, e a instituição ainda guarda o histórico de todos eles.
 
 ## A pergunta central
 
-O sistema acadêmico atende aos processos para os quais foi construído, entre eles a matrícula, o cálculo da situação do aluno, a emissão de documentos com validade legal e a alimentação do ERP financeiro. Os problemas registrados pela Diretoria de TI são de outra natureza. O prazo médio entre pedido aprovado e entrega em produção é de 34 dias úteis. O risco operacional concentra-se em janelas de poucos dias, como a abertura da matrícula e o fechamento de notas, nas quais ocorreram dois dos três incidentes graves dos últimos 18 meses. A alteração do módulo de matrícula depende de 1 profissional, entre os 6 especialistas em COBOL da sustentação, dos quais 2 se aposentam em 2027. COBOL é a linguagem de programação, muito antiga e hoje rara no mercado, em que está escrito o núcleo do sistema, descrito na página de [linha de base](linha-de-base.md). Sustentação é a equipe que corrige e mantém o sistema em funcionamento depois de pronto.
+O sistema acadêmico atende aos processos para os quais foi construído, entre eles a matrícula, o cálculo da situação do aluno, a emissão de documentos com validade legal e a alimentação do ERP financeiro. Os problemas registrados pela Diretoria de TI são de outra natureza e vêm da estrutura e da equipe. O prazo médio entre pedido aprovado e entrega em produção é de 34 dias úteis. O risco operacional concentra-se em janelas de poucos dias, como a abertura da matrícula e o fechamento de notas, nas quais ocorreram dois dos três incidentes graves dos últimos 18 meses. A alteração do módulo de matrícula depende de 1 profissional, entre os 6 especialistas em COBOL da sustentação, dos quais 2 se aposentam em 2027. COBOL é a linguagem de programação, muito antiga e hoje rara no mercado, em que está escrito o núcleo do sistema, descrito na página de [linha de base](linha-de-base.md). Sustentação é a equipe que corrige e mantém o sistema em funcionamento depois de pronto.
 
-A pergunta que organiza o caso é como evoluir o sistema acadêmico de forma segura e incremental, mantendo a operação contínua durante a transição e respeitando os compromissos contratuais já assumidos pela instituição.
+Diante desse quadro, a pergunta que organiza o caso é como evoluir o sistema acadêmico de forma segura e incremental, mantendo a operação contínua durante a transição e respeitando os compromissos contratuais já assumidos pela instituição.
 
-Essa formulação exclui duas respostas. A primeira é a substituição integral por um produto de mercado, descartada pela Reitoria em 12/03/2026 por causa do custo de migração dos 214.000 históricos de egressos e da especificidade do regime acadêmico da instituição. A segunda é a reescrita completa em uma única entrega, descartada porque nenhuma janela do calendário acadêmico comporta a virada simultânea de todos os módulos.
+Duas respostas óbvias já ficaram de fora quando a pergunta foi formulada. A Reitoria descartou em 12/03/2026 a substituição integral por um produto de mercado, por causa do custo de migração dos 214.000 históricos de egressos e da especificidade do regime acadêmico da instituição. A reescrita completa em uma única entrega também foi descartada, porque nenhuma janela do calendário acadêmico comporta a virada simultânea de todos os módulos.
 
 ## Mapa de atores
 
-A tabela abaixo reúne oito papéis que têm interesse no sistema. Cada linha descreve um papel, a área à qual ele pertence, o que ele quer do projeto e o que ele teme que aconteça. O exercício do bloco 4 da Aula 2 parte desta tabela para classificar as partes interessadas e delimitar o escopo do primeiro ciclo.
+Cada pessoa que depende do sistema olha para ele de um lugar diferente, e o arquiteto precisa saber o que cada uma quer e o que teme antes de propor qualquer mudança. A tabela abaixo reúne oito papéis, com a área de cada um, o que espera do projeto e o que teme que aconteça, e o exercício do bloco 4 da Aula 2 parte dela para classificar as partes interessadas e delimitar o escopo do primeiro ciclo.
 
 | Papel | Área | O que quer | O que teme |
 | --- | --- | --- | --- |
@@ -50,7 +50,7 @@ A tabela abaixo reúne oito papéis que têm interesse no sistema. Cada linha de
 
 ## Interesses em conflito
 
-Quando dois atores querem coisas incompatíveis, o arquiteto não resolve a diferença sozinho. Três pares de atores do mapa acima têm interesses que não se resolvem por acordo técnico e exigem decisão de quem tem autoridade orçamentária ou de quem responde pelo processo acadêmico.
+Quando dois atores querem coisas incompatíveis, o arquiteto não resolve a diferença sozinho, porque nenhum desenho técnico concilia o que as duas partes pedem. Três pares de atores do mapa acima estão nessa situação, e a decisão cabe a quem tem autoridade orçamentária ou responde pelo processo acadêmico.
 
 O primeiro par opõe o Diretor de TI ao Diretor Financeiro. O primeiro quer iniciar a migração de carga para nuvem no primeiro ciclo de 12 meses. O segundo observa que o contrato de capacidade do mainframe, o computador central onde roda o núcleo do sistema, vai até 31/12/2028 com volume mínimo contratado e cobrado mesmo que a ACME use menos, de modo que retirar carga não reduz desembolso antes de 2029 e apenas soma um custo novo ao custo existente. Desembolso é o dinheiro que sai do caixa da instituição.
 
@@ -60,7 +60,7 @@ O terceiro par opõe a Coordenadora de Educação a Distância ao Diretor Financ
 
 ## Restrições fechadas
 
-Restrição é decisão tomada fora do processo de projeto, que limita as alternativas do arquiteto sem ser negociável por ele. Um exemplo é a proibição de parar o sistema em período letivo, que obriga qualquer mudança a ser feita aos poucos. As sete restrições abaixo chegam fechadas ao caso, e cada linha informa quem a impôs e o que ela implica para a arquitetura.
+Algumas decisões já chegam tomadas ao arquiteto, e ele precisa projetar em torno delas. Restrição é a decisão tomada fora do processo de projeto, que limita as alternativas do arquiteto sem ser negociável por ele. Um exemplo é a proibição de parar o sistema em período letivo, que obriga qualquer mudança a ser feita aos poucos. As sete restrições abaixo chegam fechadas ao caso, e cada linha informa quem a impôs e o que ela implica para a arquitetura.
 
 | Restrição | Origem e data | Consequência para a arquitetura |
 | --- | --- | --- |
@@ -74,7 +74,7 @@ Restrição é decisão tomada fora do processo de projeto, que limita as altern
 
 ## Requisitos declarados pelas partes interessadas
 
-Requisito é uma exigência declarada sobre o que o sistema deve fazer ou sobre a qualidade com que deve funcionar. A tabela abaixo reproduz as quinze declarações que as partes interessadas fizeram nas entrevistas de levantamento, sem depuração editorial. Cada uma recebeu um código de R1 a R15, que os exercícios e os gabaritos usam para se referir a ela. Alguns itens estão expressos de forma mensurável, como o R6 e o R12, que trazem números a verificar, e outros não, como o R3 e o R11, que dizem apenas que o tempo de resposta "precisa ser bom" e que o sistema "precisa ser moderno". O exercício do bloco 2 da Aula 2 classifica esses requisitos e reescreve os que não admitem verificação.
+Nas entrevistas de levantamento, cada parte interessada disse o que esperava do sistema, e o arquiteto chama de requisito toda exigência declarada sobre o que o sistema deve fazer ou sobre a qualidade com que deve funcionar. A tabela abaixo reproduz as quinze declarações recebidas, sem depuração editorial, e cada uma ganhou um código de R1 a R15, que os exercícios e os gabaritos usam para se referir a ela. Alguns itens trazem números a verificar, como o R6 e o R12, mas outros dizem apenas que o tempo de resposta "precisa ser bom" (R3) e que o sistema "precisa ser moderno" (R11), e ninguém consegue conferir se isso foi atendido. O exercício do bloco 2 da Aula 2 classifica esses requisitos e reescreve os que não admitem verificação.
 
 | Código | Declaração | Origem |
 | --- | --- | --- |
@@ -96,4 +96,4 @@ Requisito é uma exigência declarada sobre o que o sistema deve fazer ou sobre 
 
 ## Continuação do dossiê
 
-A [arquitetura de linha de base](linha-de-base.md) descreve os componentes atuais, sua idade, quem os sustenta e o tipo de cada integração, isto é, a forma como dois sistemas trocam informação. Os [dados operacionais](dados-operacionais.md) trazem volumes, calendário acadêmico, incidentes, custos e contratos. A página de [artefatos por aula](artefatos.md) registra o que cada aula acrescenta ao caso.
+Para saber de que o sistema é feito, a [arquitetura de linha de base](linha-de-base.md) descreve os componentes atuais, sua idade, quem os sustenta e o tipo de cada integração, isto é, a forma como dois sistemas trocam informação. Para saber como ele se comporta ao longo do ano, os [dados operacionais](dados-operacionais.md) trazem volumes, calendário acadêmico, incidentes, custos e contratos. E a página de [artefatos por aula](artefatos.md) registra o que cada aula acrescenta ao caso.

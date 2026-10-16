@@ -1,6 +1,6 @@
 # Síntese da Aula 3
 
-Esta página fecha a Aula 3 com quatro partes. A primeira é a lista do que o aluno deve reter depois da aula, a segunda é a cadeia da decisão construída nos quatro exercícios, a terceira é uma autoavaliação, e a quarta reúne as fontes usadas nos quatro blocos.
+Depois de quatro exercícios, a ACME tem uma decisão de desenho registrada, e esta página fecha a Aula 3 com quatro partes. A primeira é a lista do que o aluno deve reter depois da aula, a segunda é a cadeia da decisão construída nos exercícios, a terceira é uma autoavaliação, e a quarta reúne as fontes usadas nos quatro blocos.
 
 ## Checklist do que precisa permanecer
 
@@ -15,7 +15,7 @@ Esta página fecha a Aula 3 com quatro partes. A primeira é a lista do que o al
 
 ## Cadeia da decisão
 
-A aula constrói uma única decisão por etapas, e cada etapa usa como ponto de partida o produto da anterior.
+A decisão da ACME não surgiu de uma vez, porque cada etapa da aula usou como ponto de partida o produto da etapa anterior, como mostra a sequência abaixo.
 
 1. O objetivo de negócio define o resultado pretendido pela solução.
 2. O requisito, com as restrições e os cenários de qualidade da Aula 2, torna esse objetivo verificável.
@@ -24,7 +24,7 @@ A aula constrói uma única decisão por etapas, e cada etapa usa como ponto de 
 5. O padrão resolve um problema específico dentro do estilo, com custo declarado, selecionado no exercício 11.
 6. A decisão registrada em ADR reúne estilo e padrões com contexto, alternativas, consequências, evidências e gatilho de revisão, escrita no exercício 12.
 
-Um elo ausente nessa cadeia aparece no ADR como força sem origem (um critério que não vem de nenhum princípio, cenário ou restrição), como alternativa sem comparação ou como consequência sem custo, e esses três sinais permitem que quem não participou da decisão revise o registro.
+Quem revisa o ADR meses depois, sem ter participado da decisão, reconhece um elo ausente da cadeia por três sinais, a força sem origem (um critério que não vem de nenhum princípio, cenário ou restrição), a alternativa sem comparação e a consequência sem custo.
 
 ## Autoavaliação
 

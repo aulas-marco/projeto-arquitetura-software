@@ -1,6 +1,6 @@
 # Mapa do caderno arquitetural
 
-A tabela mostra, para cada seção do caderno, o bloco que ensina o assunto, o exercício que preenche a seção e o gabarito em que o resultado aparece. As seções 0 e 10 são revistas ao fim de cada aula, nos exercícios 4, 8, 12, 16, 20 e 24.
+Para saber onde cada seção do caderno é preenchida, a tabela mostra o bloco que ensina o assunto, o exercício que preenche a seção e o gabarito em que o resultado aparece. As seções 0 e 10 são exceção, porque são revistas ao fim de cada aula, nos exercícios 4, 8, 12, 16, 20 e 24.
 
 | Seção | Aula | Bloco | Exercício | Gabarito |
 | --- | --- | --- | --- | --- |

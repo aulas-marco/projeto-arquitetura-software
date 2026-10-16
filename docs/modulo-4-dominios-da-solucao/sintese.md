@@ -1,6 +1,6 @@
 # Síntese da Aula 4
 
-Esta página fecha o módulo de domínios da arquitetura de solução com o que precisa permanecer depois da aula, a cadeia dos domínios construída nos quatro exercícios, uma autoavaliação e as fontes principais da aula, e as demais constam das Fontes de cada bloco e da bibliografia.
+Ao fim da Aula 4, a ACME tem o efeito da solução no negócio, as decisões sobre dados, o contrato de notas, o diagrama de contexto e as relações entre contêineres registrados no caderno, e esta página recolhe o que o aluno precisa levar desse percurso. Ela traz o que precisa permanecer depois da aula, a cadeia dos domínios construída nos quatro exercícios, uma autoavaliação e as fontes principais, e as demais constam das Fontes de cada bloco e da bibliografia.
 
 ## Checklist do que precisa permanecer
 
@@ -18,18 +18,18 @@ Esta página fecha o módulo de domínios da arquitetura de solução com o que 
 
 ## Cadeia dos domínios
 
-A aula detalha uma única solução, o sistema acadêmico da ACME, por domínios, no encadeamento apresentado no [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), e cada exercício consome o produto do anterior.
+A aula detalhou uma única solução, o sistema acadêmico da ACME, domínio por domínio, no encadeamento apresentado no [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), e cada exercício consumiu o produto do anterior. A lista abaixo reconta esse caminho na ordem em que o arquiteto o percorreu.
 
 1. O domínio de negócio localiza a mudança nas capacidades, nas etapas do fluxo de valor e nas atividades do processo, no exercício 13.
 2. O domínio de dados atribui a cada entidade que sustenta as capacidades afetadas um dono e um regime de consistência por consumidor, no exercício 14.
 3. O domínio de aplicações classifica o portfólio, especifica o contrato da integração de notas a partir do dono da entidade nota e corrige a fronteira da solução no diagrama de contexto, no exercício 15.
 4. O domínio de infraestrutura recebe o diagrama de contêineres fornecido, coerente com o contexto corrigido, rotula cada relação com modo, volume e latência, liga as relações aos requisitos R6, de tempo de confirmação da matrícula, e R7, de prazo da nota, e posiciona o núcleo transacional, no exercício 16.
 
-As relações rotuladas no exercício 16 são a lista de exigências que a definição tecnológica da Aula 5 recebe, e cada uma delas pode ser rastreada até uma capacidade marcada no exercício 13.
+As relações rotuladas no exercício 16 são a lista de exigências que a definição tecnológica da Aula 5 recebe, e cada uma delas pode ser rastreada, passo a passo, até uma capacidade marcada no exercício 13, o que permite explicar a um patrocinador por que uma exigência de infraestrutura existe.
 
 ## Autoavaliação
 
-As perguntas abaixo servem para você conferir o que ficou, antes da Aula 5. Responda sozinho, porque elas não têm gabarito. Os exercícios têm: a seção [Gabaritos](../gabaritos/index.md) mostra o caderno arquitetural da ACME preenchido a cada exercício.
+Antes de entrar na Aula 5, vale conferir o que ficou da aula com as perguntas abaixo, que o aluno responde sozinho porque elas não têm gabarito. Os exercícios têm gabarito, e a seção [Gabaritos](../gabaritos/index.md) mostra o caderno arquitetural da ACME preenchido a cada exercício.
 
 1. Dado um problema de negócio, eu aplico as quatro perguntas de aplicabilidade e indico se a arquitetura de solução é o método adequado.
 2. Para uma entidade de dado qualquer, eu indico a fonte de verdade, o dono e o regime de consistência de cada consumidor com prazo declarado.

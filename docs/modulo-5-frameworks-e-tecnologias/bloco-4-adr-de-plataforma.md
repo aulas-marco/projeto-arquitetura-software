@@ -1,6 +1,6 @@
 # ADR de plataforma e lacunas
 
-O ADR, registro de decisão arquitetural, é um documento curto que guarda uma decisão de arquitetura, o contexto em que foi tomada e as consequências esperadas. Na Aula 3, o aluno escreveu um ADR para o estilo arquitetural. Este bloco ensina a escrever o segundo ADR, o da plataforma escolhida no bloco 2, de modo que a justificativa continue compreensível depois que quem tomou a decisão deixar a equipe. O bloco ensina também a listar as lacunas de provisão, que são os serviços de infraestrutura que a escolha exige e que a organização ainda não oferece, e a validar a definição tecnológica com as partes interessadas.
+Meses depois da escolha da plataforma, alguém da ACME vai perguntar por que ela foi escolhida, e a equipe que decidiu talvez já tenha saído. O ADR, registro de decisão arquitetural, existe para esse momento, pois é um documento curto que guarda uma decisão de arquitetura, o contexto em que foi tomada e as consequências esperadas. Na Aula 3, o aluno escreveu um ADR para o estilo arquitetural, e este bloco ensina a escrever o segundo, o da plataforma escolhida no bloco 2, de modo que a justificativa continue compreensível depois que quem tomou a decisão deixar a equipe. O bloco ensina também a listar as lacunas de provisão, que são os serviços de infraestrutura que a escolha exige e que a organização ainda não oferece, e a validar a definição tecnológica com as partes interessadas.
 
 ## Antes de começar
 
@@ -11,7 +11,7 @@ O ADR, registro de decisão arquitetural, é um documento curto que guarda uma d
 
 ## Conceito
 
-Um **ADR de plataforma** é o segundo ADR do par ensinado na disciplina, escrito no mesmo template de dez campos apresentado no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), mas aplicado a uma decisão de natureza diferente da primeira. Aquele ADR registra a escolha de um [estilo arquitetural](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md). O ADR deste bloco registra a escolha de uma das plataformas candidatas capazes de concretizar esse estilo, comparação que o [bloco 2](bloco-2-plataforma-arquitetural.md) desta aula já apresentou.
+Quando a equipe já escolheu o estilo e agora escolhe a plataforma, o registro dessa segunda decisão é o **ADR de plataforma**, o segundo ADR do par ensinado na disciplina. Ele é escrito no mesmo template de dez campos apresentado no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), mas se aplica a uma decisão de natureza diferente da primeira, porque o ADR anterior registra a escolha de um [estilo arquitetural](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md) e este registra a escolha de uma das plataformas candidatas capazes de concretizar esse estilo, comparação que o [bloco 2](bloco-2-plataforma-arquitetural.md) desta aula já apresentou.
 
 O template é o mesmo nos dois registros, e o conteúdo de três campos muda de forma característica.
 
@@ -25,7 +25,7 @@ O template é o mesmo nos dois registros, e o conteúdo de três campos muda de 
 
 Em um ADR de estilo, as forças são [atributos de qualidade](../referencia/glossario.md#atributo-de-qualidade) do sistema, como absorver pico de carga ou isolar falha. Em um ADR de plataforma, elas incluem esses atributos e acrescentam os seis critérios de seleção do [bloco 1](bloco-1-definicao-tecnologica-e-trm.md#seis-criterios-de-selecao), entre eles competência da equipe, custo total de propriedade e maturidade da tecnologia.
 
-A essas forças soma-se uma que só aparece na decisão de plataforma. A **dependência de fornecedor** é a dificuldade de trocar ou negociar uma dependência, técnica ou organizacional. Serviços gerenciados podem ser escolhas excelentes quando reduzem risco operacional, mas precisam ficar explícitos no ADR em seis dimensões.
+Escolher uma plataforma traz ainda uma força que a escolha de estilo não trazia, a **dependência de fornecedor**, que é a dificuldade de trocar ou negociar uma dependência, técnica ou organizacional. Serviços gerenciados podem ser escolhas excelentes quando reduzem risco operacional, mas precisam ficar explícitos no ADR em seis dimensões.
 
 1. API proprietária
 2. formato de dados
@@ -133,7 +133,7 @@ O exercício tem quatro itens. Os itens 1 a 3 preenchem os dez campos do ADR, na
 
 ### Item 1: Encadeamento com o ADR de estilo
 
-Este item preenche os campos de título, estado e data, contexto e alternativas, que reaproveitam o que o aluno já produziu. O contexto é a situação que levou à decisão, e as alternativas são as opções consideradas. O diagrama abaixo mostra de onde vêm as entradas deste registro, que são os exercícios 12, 17, 18 e 19, e a referência cruzada que liga o par de ADRs. O ADR de estilo é o registro do estilo arquitetural escrito no Exercício 12 da Aula 3.
+Quem ler o ADR de plataforma meses depois precisa saber de que decisão ele nasceu, e por isso o primeiro item preenche os campos de título, estado e data, contexto e alternativas, que reaproveitam o que o aluno já produziu. O contexto é a situação que levou à decisão, e as alternativas são as opções consideradas. O diagrama abaixo mostra de onde vêm as entradas deste registro, que são os exercícios 12, 17, 18 e 19, e a referência cruzada que liga o par de ADRs. O ADR de estilo é o registro do estilo arquitetural escrito no Exercício 12 da Aula 3.
 
 ```mermaid
 graph LR
@@ -152,7 +152,7 @@ Suas respostas viram os campos Título, estado e data, Contexto e Alternativas, 
 
 ### Item 2: Forças e dependência de fornecedor
 
-Este item preenche os campos de forças e de decisão, mostrando o que pesa na escolha e quanto a plataforma prende a ACME a um fornecedor. As forças são as pressões que empurram a decisão, como um requisito, uma restrição ou a competência da equipe, e a decisão é a plataforma escolhida com a justificativa. A tabela abaixo relaciona as seis dimensões de dependência de fornecedor listadas no Conceito a dados do [dossiê da ACME](../caso-acme/index.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md).
+Toda plataforma escolhida pesa de algum modo sobre o futuro da ACME, e o segundo item registra o que pesa na escolha e quanto a plataforma prende a ACME a um fornecedor, preenchendo os campos de forças e de decisão. As forças são as pressões que empurram a decisão, como um requisito, uma restrição ou a competência da equipe, e a decisão é a plataforma escolhida com a justificativa. A tabela abaixo relaciona as seis dimensões de dependência de fornecedor listadas no Conceito a dados do [dossiê da ACME](../caso-acme/index.md) e da [arquitetura de linha de base](../caso-acme/linha-de-base.md).
 
 | Dimensão | Dado do caso |
 | --- | --- |
@@ -170,7 +170,7 @@ Suas respostas viram os campos Forças e Decisão, na seção 8 do caderno.
 
 ### Item 3: Consequências, evidências e revisão
 
-Este item preenche os campos que olham para o futuro da decisão: as consequências, que são o que a decisão provoca, as evidências, que são o que a sustenta, e a revisão, que é a condição para reavaliá-la. A tabela abaixo reúne os dados do caso que limitam as evidências disponíveis e que podem servir de base para o gatilho de revisão.
+Uma decisão de plataforma só se sustenta se alguém puder conferir depois o que ela provocou e quando vale reavaliá-la, e por isso o terceiro item preenche os campos que olham para o futuro da decisão: as consequências, que são o que a decisão provoca, as evidências, que são o que a sustenta, e a revisão, que é a condição para reavaliá-la. A tabela abaixo reúne os dados do caso que limitam as evidências disponíveis e que podem servir de base para o gatilho de revisão.
 
 | Dado | Valor |
 | --- | --- |
@@ -188,7 +188,7 @@ Suas respostas viram os campos Consequências, Evidências e Revisão, na seçã
 
 ### Item 4: Lacunas de provisão
 
-O objetivo deste item é identificar o que a ACME precisa providenciar, trocar, ajustar ou abandonar para que a tecnologia escolhida funcione, e com isso alimentar o custo da solução e o roteiro de entrega. A tabela abaixo traz seis itens da definição tecnológica considerada neste exercício, que foi montada com o bloco 1 e os exercícios 16 a 19, e não com o dossiê. Um exemplo é o provedor de identidade com OpenID Connect, e outro é a observabilidade de ponta a ponta, isto é, a capacidade de acompanhar um pedido por todos os componentes. A manutenção do diretório corporativo atrás do provedor de identidade faz parte dessa definição. A coluna de situação traz apenas o que a [arquitetura de linha de base](../caso-acme/linha-de-base.md) registra, e a linha de base faz o papel de catálogo de infraestrutura neste exercício, porque o dossiê não traz um catálogo formal. Os códigos R6, R7 e R8 citados na tabela são requisitos do caso, explicados na própria linha, e a camada anticorrupção é o componente que traduz as chamadas entre o sistema novo e o núcleo antigo, para que o código novo não dependa do modelo antigo.
+Escolhida a tecnologia, a ACME precisa saber o que terá de providenciar, trocar, ajustar ou abandonar para que ela funcione, e é essa lista que alimenta o custo da solução e o roteiro de entrega. A tabela abaixo traz seis itens da definição tecnológica considerada neste exercício, que foi montada com o bloco 1 e os exercícios 16 a 19, e não com o dossiê. Um exemplo é o provedor de identidade com OpenID Connect, e outro é a observabilidade de ponta a ponta, isto é, a capacidade de acompanhar um pedido por todos os componentes. A manutenção do diretório corporativo atrás do provedor de identidade faz parte dessa definição. A coluna de situação traz apenas o que a [arquitetura de linha de base](../caso-acme/linha-de-base.md) registra, e a linha de base faz o papel de catálogo de infraestrutura neste exercício, porque o dossiê não traz um catálogo formal. Os códigos R6, R7 e R8 citados na tabela são requisitos do caso, explicados na própria linha, e a camada anticorrupção é o componente que traduz as chamadas entre o sistema novo e o núcleo antigo, para que o código novo não dependa do modelo antigo.
 
 ```mermaid
 graph TB

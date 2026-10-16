@@ -6,11 +6,11 @@ modo: substitui
 <!--orientacao-->
 | Campo | Conteúdo |
 | --- | --- |
-| Para que serve | Nem tudo está decidido. Esta seção lista o que ainda falta, para que ninguém trate como certo o que ainda é dúvida, e diz quem pode resolver cada ponto. |
+| Para que serve | Nem tudo está decidido, e tratar como certo o que ainda é dúvida leva a decisões frágeis. Esta seção lista o que ainda falta e diz quem pode resolver cada ponto. |
 | Pergunta que responde | O que ainda impede o projeto de seguir, e quem resolve? |
-| O que você escreve | Uma tabela com cada pendência, quem decide e quando ela deve ser resolvida. Na versão final entra também a avaliação de uma tendência tecnológica e do efeito que ela teria sobre a solução. |
-| Vem de onde | De todas as seções: toda premissa ainda não confirmada vira uma pendência. |
-| Quando se preenche | Ao fim de cada aula, nos exercícios 4, 8, 12, 16, 20 e 24. Cada versão substitui a anterior. |
+| O que você escreve | Você monta uma tabela com cada pendência, quem decide e quando ela deve ser resolvida. Na versão final entra também a avaliação de uma tendência tecnológica e do efeito que ela teria sobre a solução. |
+| Vem de onde | De todas as seções, porque toda premissa ainda não confirmada passa a ser uma pendência. |
+| Quando se preenche | Ao fim de cada aula você atualiza a lista, nos exercícios 4, 8, 12, 16, 20 e 24, e cada versão substitui a anterior. |
 <!--/orientacao-->
 
 <!--ex n=4 titulo="Pendências ao fim da Aula 1"-->

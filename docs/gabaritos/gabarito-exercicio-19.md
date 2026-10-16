@@ -2,21 +2,21 @@
 
 {{progresso:19}}
 
-Este é o caderno da ACME depois do exercício 19. Ele reúne o que os exercícios 1 a 19 produziram, e a moldura âmbar marca o que o exercício 19 acrescentou. Compare com o seu caderno e veja onde as respostas diferem. O [enunciado do exercício 19](../modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-fim-a-fim.md#exercicio-19) está na página do bloco.
+Depois do exercício 19, o caderno da ACME reúne o que os exercícios 1 a 19 produziram, e a moldura âmbar marca o que o exercício 19 acrescentou. Compare com o seu caderno para ver onde as suas respostas diferem. O [enunciado do exercício 19](../modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-fim-a-fim.md#exercicio-19) está na página do bloco.
 
 ## A solução em uma página
 
-**O problema.** A ACME é uma universidade privada com 38.400 alunos ativos e um sistema acadêmico em operação desde 2004, com núcleo em COBOL, que custa R$ 15,83 milhões por ano e leva 34 dias úteis para colocar uma mudança em produção. Dos 6 especialistas em COBOL, 2 se aposentam em 2027.
+**O problema.** A ACME é uma universidade privada com 38.400 alunos ativos e um sistema acadêmico em operação desde 2004, com núcleo em COBOL, que custa R$ 15,83 milhões por ano e leva 34 dias úteis para colocar uma mudança em produção. A situação se agrava porque, dos 6 especialistas em COBOL que o sustentam, 2 se aposentam em 2027.
 
-**A pergunta.** Como evoluir o sistema acadêmico de forma segura e incremental, com o núcleo em operação durante a transição e respeitando os contratos já assumidos.
+**A pergunta.** Diante desse quadro, o projeto pergunta como evoluir o sistema acadêmico de forma segura e incremental, com o núcleo em operação durante a transição e respeitando os contratos já assumidos.
 
-**A decisão central.** A do ADR 001, a arquitetura orientada a eventos na entrada da matrícula. Os domínios de negócio, de dados, de aplicações e de integração já têm o efeito do primeiro ciclo registrado, com o diagrama de contexto e o de contêineres da arquitetura alvo.
+**A decisão central.** Continua sendo a do ADR 001, a arquitetura orientada a eventos na entrada da matrícula. Depois dela, os domínios de negócio, de dados, de aplicações e de integração passaram a ter o efeito do primeiro ciclo registrado, com o diagrama de contexto e o de contêineres da arquitetura alvo.
 
-**O requisito que guia o desenho.** O R6 para a matrícula e o R7 para a nota. A relação entre o serviço de notas e o ambiente virtual é assíncrona, e o núcleo COBOL, que a equipe da ACME não pode alterar até 30/09/2027, permanece como sistema de registro.
+**O requisito que guia o desenho.** O R6 guia a matrícula e o R7 guia a nota. Como o núcleo COBOL, que a equipe da ACME não pode alterar até 30/09/2027, permanece como sistema de registro, a relação entre o serviço de notas e o ambiente virtual é assíncrona.
 
-**O que a organização aceita em troca.** A confirmação assíncrona da matrícula e a dependência da fábrica de software para gravar o evento junto com a nota no programa COBOL.
+**O que a organização aceita em troca.** A ACME aceita a confirmação assíncrona da matrícula e a dependência da fábrica de software, a única que pode gravar o evento junto com a nota no programa COBOL.
 
-**Como está o trabalho.** A arquitetura de negócio, de dados, de aplicações e de integração está registrada. Faltam a infraestrutura e a tecnologia, e os pontos sem informação no dossiê constam como pendências.
+**Como está o trabalho.** A arquitetura de negócio, de dados, de aplicações e de integração está registrada, e faltam a infraestrutura e a tecnologia. Os pontos sem informação no dossiê constam como pendências.
 
 ## 1. Contexto
 
@@ -73,7 +73,7 @@ As decisões da tabela não têm todas o mesmo estado. D1, D4 e D7 apenas repete
 
 #### Componente da solução afetado
 
-Uma decisão de solução quase nunca é só técnica. A tabela a seguir mostra, para cada uma delas, que componentes da solução ela atinge além da tecnologia (pessoas, estruturas organizacionais, processos e informação).
+Quando a ACME decide algo como mudar o prazo da nota, a decisão quase nunca é só técnica. A tabela a seguir mostra, para cada decisão de solução, que componentes da solução ela atinge além da tecnologia (pessoas, estruturas organizacionais, processos e informação).
 
 | Código | Tipo do componente da solução | Efeito |
 | --- | --- | --- |
@@ -91,7 +91,7 @@ A D3 só faz sentido depois da D2. Imagine decidir o reenvio com intervalo cresc
 
 #### Um exemplo da ACME: a nota que precisa chegar em 10 minutos
 
-Para ver como uma solução se divide em componentes da solução (pessoas, áreas, processos, informação e tecnologia), vale um exemplo concreto da ACME. A Coordenação de Educação a Distância quer que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. Hoje a nota só chega no dia seguinte, em um envio noturno, e a cada fechamento algum aluno reclama. No dossiê, esse pedido tem o código R7. Para atendê-lo, a ACME listou dez candidatos a componente da solução, e eles se distribuem pelos cinco tipos (pessoas, estruturas organizacionais, processos, informação e tecnologia), dois em cada um.
+Um exemplo da ACME mostra como uma solução se reúne em componentes da solução. A Coordenação de Educação a Distância quer que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. Hoje a nota só chega no dia seguinte, em um envio noturno, e a cada fechamento algum aluno reclama. O dossiê registra esse pedido com o código R7. Para atendê-lo, a ACME listou dez candidatos a componente da solução, e eles se distribuem pelos cinco tipos (pessoas, estruturas organizacionais, processos, informação e tecnologia), dois em cada um.
 
 | Código | Tipo do componente da solução | Componente da solução |
 | --- | --- | --- |
@@ -106,11 +106,11 @@ Para ver como uma solução se divide em componentes da solução (pessoas, áre
 | CP9 | Tecnologia | Serviço de notas que publica um evento a cada lançamento |
 | CP10 | Pessoas | Responsável na Coordenação de Educação a Distância pelas falhas de envio |
 
-Nenhum dos cinco tipos ficou vazio, e isso é bom sinal: a solução não depende só de tecnologia. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o CP4 e o CP5 mexem na rotina de fechamento e de correção de nota de professores, coordenações e Secretaria. Trocar apenas a tecnologia não altera o prazo que o aluno percebe.
+Nenhum dos cinco tipos ficou vazio, o que mostra que a solução não depende só de tecnologia. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o CP4 e o CP5 mexem na rotina de fechamento e de correção de nota de professores, coordenações e Secretaria, e por isso trocar apenas a tecnologia não altera o prazo que o aluno percebe.
 
 #### Os fatos da situação atual, em três níveis
 
-Os seis fatos sobre a situação atual podem ser lidos em três níveis, do mais amplo ao mais técnico: o negócio, a informação e a TI.
+Para saber onde o prazo da nota se forma, os seis fatos da situação atual podem ser lidos em três níveis, do mais amplo ao mais técnico: o negócio, a informação e a TI.
 
 | Código | Elemento da situação atual | Nível |
 | --- | --- | --- |
@@ -142,7 +142,7 @@ Para dividir as tarefas, vale a mesma pergunta usada nas decisões: até onde o 
 | T9 | Configurar o servidor de integração contínua | Arquiteto de software | | É configuração de ferramenta da equipe de desenvolvimento |
 | T10 | Verificar se já existe componente de software de envio de mensagem reaproveitável | Arquiteto de solução | Técnico | Exige conhecer a tecnologia vigente antes de especificar componente de software novo |
 
-No total, seis tarefas cabem ao arquiteto de solução, três ao arquiteto de software ou à equipe de desenvolvimento e uma à arquitetura corporativa. Repare que as seis tarefas do arquiteto de solução usam os quatro grupos de competência, o que mostra o quanto o papel exige de habilidades diferentes.
+Dividido o ciclo, seis tarefas cabem ao arquiteto de solução, três ao arquiteto de software ou à equipe de desenvolvimento e uma à arquitetura corporativa. As seis tarefas do arquiteto de solução usam os quatro grupos de competência, o que mostra o quanto o papel exige de habilidades diferentes.
 
 #### Benefício por trás da tarefa T10
 
@@ -327,7 +327,7 @@ As entrevistas trouxeram declarações com graus diferentes de clareza, e antes 
 
 #### Reescritas mensuráveis
 
-Uma declaração como a matrícula não pode cair só vira requisito quando se sabe em que situação ela vale, quanto uso o sistema recebe e que valor deve atingir. Por isso o R2 e o R3 foram reescritos com contexto, carga e medida, e o R11 aparece à parte, porque uma metade dele não pode ser reescrita.
+Uma declaração como a matrícula não pode cair só se torna requisito quando se sabe em que situação ela vale, quanto uso o sistema recebe e que valor deve atingir. Por isso o R2 e o R3 foram reescritos com contexto, carga e medida, e o R11 aparece à parte, porque uma metade dele não pode ser reescrita.
 
 | Elemento | R2, a matrícula não pode cair | R3, o tempo de resposta precisa ser bom |
 | --- | --- | --- |
@@ -422,7 +422,7 @@ Os cenários do pico e do incidente só são confiáveis se os números que os s
 
 #### Portfólio de aplicações
 
-O catálogo traz onze aplicações da ACME. A tabela dá a cor de cada uma e o fato do caso que a sustenta. Os quatro portais usam tecnologia que o fornecedor deixou de apoiar, o núcleo ainda sustenta a operação e continua sob contrato, e o ERP financeiro e o ambiente virtual ficam por decisão da Reitoria.
+Diante das onze aplicações do catálogo, a pergunta do arquiteto é qual delas ainda merece investimento e qual deve sair. Os quatro portais usam tecnologia que o fornecedor deixou de apoiar e por isso ficam em vermelho, o núcleo ainda sustenta a operação e continua sob contrato, o que o deixa em âmbar, e o ERP financeiro e o ambiente virtual ficam em verde por decisão da Reitoria. A tabela dá a cor de cada aplicação e o fato do caso que a sustenta.
 
 | Aplicação | Cor | Justificativa |
 | --- | --- | --- |
@@ -440,7 +440,7 @@ O catálogo traz onze aplicações da ACME. A tabela dá a cor de cada uma e o f
 
 #### Contrato da integração de notas
 
-A nota nasce no núcleo transacional, que é o dono da nota consolidada pela decisão do exercício 14. Hoje ela segue para o ambiente virtual num arquivo gerado às 05h10, e o R7 pede que chegue em até 10 minutos. O contrato abaixo descreve a troca nova campo a campo, com o modo assíncrono.
+Quando o professor lança a nota, ela nasce no núcleo transacional, que é o dono da nota consolidada pela decisão do exercício 14. Hoje ela segue para o ambiente virtual num arquivo gerado às 05h10, e como o R7 pede que chegue em até 10 minutos, o contrato abaixo descreve a troca nova campo a campo, com o modo assíncrono.
 
 | Campo | Resposta |
 | --- | --- |
@@ -463,11 +463,11 @@ Quando o professor corrige uma nota já enviada, o serviço publica uma nova ver
 
 #### Diagrama de contexto da solução
 
-Os dois erros do diagrama do enunciado eram o banco de dados acadêmico desenhado como elemento externo e o ERP financeiro desenhado dentro da fronteira. O banco é um contêiner, parte interna do sistema, e só aparece no nível seguinte. O ERP permanece por decisão da Reitoria e é mantido por outra equipe, então precisa ficar fora da caixa. A correção do segundo erro também elimina a caixa duplicada do sistema acadêmico que existia dentro da fronteira.
+O diagrama do enunciado trazia dois erros. O primeiro era o banco de dados acadêmico desenhado como elemento externo, quando ele é um contêiner, parte interna do sistema, que só aparece no nível seguinte. O segundo era o ERP financeiro desenhado dentro da fronteira, quando ele permanece por decisão da Reitoria e é mantido por outra equipe, então precisa ficar fora da caixa. A correção do segundo erro também elimina a caixa duplicada do sistema acadêmico que existia dentro da fronteira.
 
 ![Diagrama de contexto corrigido do primeiro ciclo da ACME, com aluno, professor e secretaria acadêmica ligados ao sistema acadêmico, que é uma caixa única dentro da fronteira tracejada, e com seis sistemas externos fora dela: ERP financeiro, ambiente virtual de aprendizagem, assinador digital ICP-Brasil, gateway de pagamento, provedor de identidade e órgão regulador.](../assets/images/acme-ex15-contexto-corrigido.svg){ .module-diagram }
 
-A legenda abaixo diz, para cada elemento, se ele está dentro ou fora da solução e por quê.
+Para que quem lê o diagrama saiba por que cada elemento ficou onde está, a legenda abaixo diz, para cada um, se ele está dentro ou fora da solução e por quê.
 
 | Elemento | Tipo | Posição | Motivo |
 | --- | --- | --- | --- |
@@ -602,7 +602,7 @@ O arquiteto começa por saber onde a mudança toca o trabalho da universidade. D
 
 #### Etapas do fluxo de valor com problema
 
-Quatro das seis etapas do fluxo do aluno têm problema. Três delas têm um requisito que pede a melhoria, e a etapa 3 mostra um atraso que nenhum requisito do exercício cobre.
+Ao percorrer o fluxo de valor do aluno, o arquiteto encontra problema em quatro das seis etapas. Três delas têm um requisito que pede a melhoria, e a etapa 3 mostra um atraso que nenhum requisito do exercício cobre.
 
 | Etapa | Problema | Requisito |
 | --- | --- | --- |
@@ -724,7 +724,7 @@ O núcleo transacional fica dentro da fronteira, como contêiner. A ACME detém 
 
 #### Contêineres novos e linhas do modelo técnico de referência
 
-Cada contêiner novo deve seguir a linha do modelo técnico que trata da função dele. O provedor de identidade segue a linha de identidade e acesso e o evento de nota segue a de mensageria, porque é a linha que diz à equipe qual padrão respeitar.
+Cada equipe da ACME precisa saber qual padrão respeitar antes de escolher um produto, e a linha do modelo técnico que trata da função do contêiner diz exatamente isso. O provedor de identidade segue a linha de identidade e acesso, e o evento de nota segue a de mensageria.
 
 | Elemento | Linha do modelo técnico | Padrão ou protocolo obrigatório |
 | --- | --- | --- |
@@ -737,7 +737,7 @@ Duas linhas valem para todos os contêineres novos, a de infraestrutura como có
 
 #### Classificação das tecnologias da linha de base
 
-A cor de cada tecnologia sai do dado da linha de base e do recorte do modelo técnico. O COBOL sob CICS não aparece no recorte e o dossiê não traz plano de migração para ele, então a permanência dele se explica pelo contrato e não por qualidade técnica.
+Para decidir a cor de cada tecnologia, o arquiteto lê o dado da linha de base e o recorte do modelo técnico. O COBOL sob CICS não aparece no recorte e o dossiê não traz plano de migração para ele, de modo que a permanência dele se explica pelo contrato de manutenção, que vale até 30/09/2027.
 
 | Tecnologia | Cor | Justificativa |
 | --- | --- | --- |
