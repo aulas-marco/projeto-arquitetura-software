@@ -20,12 +20,12 @@ A aula fecha o caderno por uma cadeia de quatro produtos, e cada exercício cons
 
 1. A linha de base e as lacunas de provisão, recebidas das Aulas 2 e 5, dão ao [exercício 21](bloco-1-governanca-da-mudanca.md#exercicio-21) as lacunas a classificar e as entregas a ordenar em ondas.
 2. O [exercício 22](bloco-1-governanca-da-mudanca.md#exercicio-22) protege o roteiro em ondas com os mecanismos de governança, a decisão sobre quem aprova cada pedido e as regras que viram função de aptidão.
-3. O [exercício 23](bloco-2-aceleradores-de-ia.md#exercicio-23) usa o ADR 001 da Aula 3 para verificar uma saída de IA e registra a assistência, que passa a ser regra de uso de IA no projeto.
+3. O [exercício 23](bloco-2-aceleradores-de-ia.md#exercicio-23) usa o registro de decisão sobre a fila na matrícula, o ADR 001 da Aula 3, para verificar uma saída de IA e registra a assistência, que passa a ser regra de uso de IA no projeto.
 4. O [exercício 24](bloco-3-apresentacao-do-caderno.md#exercicio-24) confere o caderno inteiro pela regra de rastreabilidade e escreve as versões finais do resumo e das pendências.
 
 ## Autoavaliação
 
-As perguntas abaixo servem para o aluno conferir o que ficou ao fim da disciplina. Ele as responde sozinho, porque elas não têm gabarito, ao contrário dos exercícios: a seção [Gabaritos](../gabaritos/index.md) mostra o caderno arquitetural da ACME preenchido a cada exercício.
+As perguntas abaixo servem para o aluno conferir o que ficou ao fim da disciplina. Ele as responde sozinho, porque elas não têm gabarito, e a seção [Gabaritos](../gabaritos/index.md) mostra o caderno arquitetural da ACME preenchido a cada exercício.
 
 1. Dada uma lista de lacunas, é possível separar as técnicas das organizacionais e dizer como fechar cada organizacional.
 2. Dadas três entregas e um contrato que impede alterar o núcleo até uma data, é possível ordená-las em ondas e justificar a ordem pelo critério de conclusão.

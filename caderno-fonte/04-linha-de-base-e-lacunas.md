@@ -68,6 +68,6 @@ Uma lacuna organizacional não se fecha com programa, e por isso o relatório re
 | Regra de prioridade de vaga dominada por uma só pessoa | Capacitação | Formar uma segunda pessoa com domínio da regra antes das aposentadorias de 2027 e registrar a regra em testes de caracterização, que comparam o comportamento do núcleo com o esperado |
 | Implantação mensal, com 34 dias úteis por mudança | Mudança de processo | Adotar esteira de integração com testes e implantação automatizada para os componentes novos, já na primeira onda |
 | Equipe interna sem experiência registrada nos serviços novos | Capacitação | Capacitar, contratar ou contratar suporte, decidindo caso a caso para cada componente novo antes de ele entrar em operação |
-| Contrato de sustentação do núcleo que termina em 30/09/2027 | Decisão de contrato | Decidir entre renovar, reduzir ou internalizar a sustentação e registrar a escolha em um ADR, com a Reitoria e o Diretor de TI |
+| Contrato de sustentação do núcleo que termina em 30/09/2027 | Decisão de contrato | Decidir entre renovar, reduzir ou internalizar a sustentação e registrar a escolha em um registro de decisão de arquitetura (ADR), com a Reitoria e o Diretor de TI |
 <!--/gabarito-->
 <!--/ex-->

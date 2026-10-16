@@ -11,7 +11,7 @@ Um modelo de linguagem é um programa que recebe um texto e devolve outro, e por
 
 ## Conceito
 
-Para levar ao Diretor de TI o registro da decisão sobre a fila na entrada da matrícula, o arquiteto da ACME pediu a um modelo de linguagem o rascunho do ADR e anexou ao pedido as atas das entrevistas, o formato de dez campos e um documento de orientação do projeto. Em poucos minutos voltou um texto com todos os campos preenchidos, escrito com a segurança de quem conhece o caso. O arquiteto quase o aprovou, mas ao reler o contexto estranhou que o portal precisasse atender 4.000 usuários simultâneos com tempo médio de confirmação de até 3 segundos, porque o requisito vigente, o R6 da Diretoria de TI, pede 5.800 sessões simultâneas e percentil 95 do tempo de confirmação em até 4 segundos. Os dois números errados vinham de uma versão antiga do documento de orientação, que estava entre os anexos.
+Para levar ao Diretor de TI o registro da decisão sobre a fila na entrada da matrícula, o arquiteto da ACME pediu a um modelo de linguagem o rascunho do ADR e anexou ao pedido as atas das entrevistas, o formato de dez campos e um documento de orientação do projeto. Em poucos minutos voltou um texto com todos os campos preenchidos, escrito com a segurança de quem conhece o caso. O arquiteto quase o aprovou, mas ao reler o contexto estranhou que o portal precisasse atender 4.000 usuários simultâneos com tempo médio de confirmação de até 3 segundos, porque o requisito vigente da Diretoria de TI, registrado no dossiê como R6, pede 5.800 sessões simultâneas e percentil 95 do tempo de confirmação em até 4 segundos. Os dois números errados vinham de uma versão antiga do documento de orientação, que estava entre os anexos.
 
 A releitura revelou ainda outros dois defeitos. O campo de consequências citava só ganhos, como o núcleo deixar de receber a rajada direta, e omitia que o aluno deixaria de receber a confirmação da matrícula na hora. O campo de estado dizia Aceita, embora a decisão ainda dependesse do Diretor de TI. Uma saída com estrutura completa, linguagem correta e conteúdo incorreto, inventado ou incompatível com a fonte chama-se **saída plausível e errada**, e ela é o risco central do uso de IA no trabalho do arquiteto, porque a aparência de completude é o sinal que um revisor usa para concluir que o texto pode seguir para a fase seguinte.
 
@@ -94,7 +94,7 @@ O ponto de concentração muda conforme o artefato. No ADR, a rastreabilidade li
 
 ### O que classificar antes de enviar ao modelo
 
-A ata da entrevista com a Representação discente cita nomes e matrículas de alunos, e o requisito R14 diz que nenhum dado pessoal de aluno é processado fora do território nacional. Todo texto colocado em um prompt, que é a instrução enviada ao modelo, sai do documento de origem e passa a ser processado pelo serviço que executa o modelo, que pode estar fora do país. Por isso o arquiteto classifica o conteúdo antes de enviá-lo e usa apenas um modelo aprovado pela área de segurança.
+A ata da entrevista com a Representação discente cita nomes e matrículas de alunos, e o requisito de que nenhum dado pessoal de aluno seja processado fora do território nacional, registrado no dossiê como R14, vale para todo o projeto. Todo texto colocado em um prompt, que é a instrução enviada ao modelo, sai do documento de origem e passa a ser processado pelo serviço que executa o modelo, que pode estar fora do país. Por isso o arquiteto classifica o conteúdo antes de enviá-lo e usa apenas um modelo aprovado pela área de segurança.
 
 | Conteúdo | Tratamento antes do envio |
 | --- | --- |
@@ -107,7 +107,7 @@ A Lei Geral de Proteção de Dados Pessoais, a LGPD, distingue o dado pessoal do
 
 ### O prompt versionado e o registro da assistência
 
-Com o conteúdo classificado, o cuidado seguinte é com o próprio prompt, que passa a ser um artefato com versão, revisão e reuso, guardado no repositório de arquitetura ao lado dos ADRs. Sabendo a versão, a equipe descobre qual prompt produziu cada artefato, submete a mudança do prompt à mesma revisão por par de uma mudança de código e reaproveita o prompt em decisão semelhante. A tabela mostra um exemplo de arquivo de prompt, o do crítico do contrato de matrícula.
+Com o conteúdo classificado, o cuidado seguinte é com o próprio prompt, que passa a ser um artefato com versão, revisão e reuso, guardado no repositório de arquitetura ao lado dos ADRs. Sabendo a versão, a equipe descobre qual prompt produziu cada artefato, submete a mudança do prompt à mesma revisão por par de uma mudança de código e reaproveita o prompt em decisão semelhante. A tabela mostra um exemplo de arquivo de prompt, o do crítico do contrato de matrícula, em que R1 a R15 são os quinze requisitos do catálogo da ACME.
 
 | Campo | Exemplo |
 | --- | --- |
@@ -120,7 +120,7 @@ O último cuidado é o registro, no próprio ADR, de que houve assistência de I
 
 ## Uso pelo arquiteto
 
-O arquiteto consulta a verificação de três etapas no momento em que um rascunho de modelo chega às suas mãos, antes de copiar qualquer trecho para o caderno. A dúvida que ela resolve é se o texto, que parece completo, pode seguir para a fase seguinte. Quando o arquiteto da ACME rastreou o número de 4.000 usuários e não encontrou um requisito vigente que o sustentasse, descartou o trecho antes que ele chegasse às forças do ADR, e levou ao Diretor de TI um registro com as 5.800 sessões do R6.
+O arquiteto consulta a verificação de três etapas no momento em que um rascunho de modelo chega às suas mãos, antes de copiar qualquer trecho para o caderno. A dúvida que ela resolve é se o texto, que parece completo, pode seguir para a fase seguinte. Quando o arquiteto da ACME rastreou o número de 4.000 usuários e não encontrou um requisito vigente que o sustentasse, descartou o trecho antes que ele chegasse às forças do ADR, e levou ao Diretor de TI um registro com as 5.800 sessões do requisito vigente (R6). Se tivesse aceitado o rascunho, o número errado passaria às forças do ADR e ao teste de carga planejado.
 
 A classificação do conteúdo e o registro da assistência atendem a outro interlocutor, a encarregada de proteção de dados e quem audita o projeto. O arquiteto classifica o material antes de montar o prompt para poder afirmar à encarregada que nenhuma ata com nome de aluno saiu da rede da ACME, e usa a subseção de assistência do ADR para provar o que foi gerado, com qual prompt e quem conferiu. Sem esse registro, uma pergunta de auditoria sobre dado pessoal enviado a um modelo só teria resposta pela memória de quem trabalhou no projeto.
 
@@ -132,7 +132,7 @@ As quatro tarefas de julgamento delimitam o que o arquiteto leva a quem decide. 
 
 **Para que serve.** Quando a ACME for auditada, ou quando um novo arquiteto herdar o caderno, alguém vai perguntar quais textos do projeto foram rascunhados por um modelo de linguagem e quem os conferiu. A seção 9 do caderno guarda as regras de uso de IA no projeto, com os erros que a verificação encontrou e o registro da assistência, e por isso a resposta continua disponível mesmo depois que a equipe original deixar o projeto.
 
-**O que você faz neste exercício.** Você recebe um trecho do ADR 001 rascunhado por um modelo de linguagem, com os dados corretos do caso numa tabela ao lado, e aplica as três verificações do Conceito. No item 1 você confere cada afirmação do contexto contra a fonte vigente. No item 2 você aponta a consequência omitida e o estado que não cabia ao modelo definir. No item 3 você escreve o registro da assistência, com a ferramenta, o prompt, as verificações e o revisor.
+**O que você faz neste exercício.** Você recebe um trecho do registro de decisão sobre a fila na entrada da matrícula (o ADR 001), rascunhado por um modelo de linguagem, com os dados corretos do caso numa tabela ao lado, e aplica as três verificações do Conceito. No item 1 você confere cada afirmação do contexto contra a fonte vigente. No item 2 você aponta a consequência omitida e o estado que não cabia ao modelo definir. No item 3 você escreve o registro da assistência, com a ferramenta, o prompt, as verificações e o revisor.
 
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
@@ -141,7 +141,7 @@ As quatro tarefas de julgamento delimitam o que o arquiteto leva a quem decide. 
 | Decisão que volta à autoridade | Corrija o estado e a data do registro e diga quem decide | 2 |
 | Registro da assistência de IA | Escreva a ferramenta, as partes rascunhadas, o prompt e a versão, as verificações aplicadas e o revisor | 3 |
 
-**O que você já tem.** O ADR 001 do exercício 12, na seção 7, e o ADR de plataforma do exercício 20, na seção 8, que o trecho gerado do enunciado reproduz em parte, além dos requisitos da seção 3.
+**O que você já tem.** O registro de decisão sobre a fila na entrada da matrícula (ADR 001), do exercício 12, na seção 7, e o ADR de plataforma do exercício 20, na seção 8, que o trecho gerado do enunciado reproduz em parte, além dos requisitos da seção 3.
 
 **Quando está pronto.** Cada erro do trecho gerado está apontado com a fonte da correção, as consequências omitidas estão escritas, o estado e a data voltaram a quem decide, e o registro da assistência traz os cinco dados pedidos.
 
@@ -152,7 +152,7 @@ As quatro tarefas de julgamento delimitam o que o arquiteto leva a quem decide. 
 
 ## Exercício 23
 
-A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. Este exercício treina a conferência de um texto escrito por modelo de linguagem, porque o arquiteto que aceita um rascunho sem conferir leva o erro a todos os registros que dependem dele. O arquiteto da ACME pediu a um modelo, aprovado pela área de segurança, o rascunho do ADR 001, o registro do [exercício 12](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md#exercicio-12) sobre a fila na entrada da matrícula, e anexou ao pedido as atas das entrevistas, o formato de dez campos e um documento de orientação do projeto.
+A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. Este exercício treina a conferência de um texto escrito por modelo de linguagem, porque o arquiteto que aceita um rascunho sem conferir leva o erro a todos os registros que dependem dele. O arquiteto da ACME pediu a um modelo, aprovado pela área de segurança, o rascunho do registro de decisão sobre a fila entre o portal e o núcleo na entrada da matrícula, o ADR 001 do [exercício 12](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md#exercicio-12), e anexou ao pedido as atas das entrevistas, o formato de dez campos e um documento de orientação do projeto.
 
 O enunciado traz duas tabelas. A primeira reproduz parte do que o modelo devolveu, e a segunda reúne oito dados vigentes do caso, que servem de fonte para a conferência. O exercício tem três itens, e em cada um você aplica uma das verificações do Conceito. Nos enunciados, um código formado por R e um número, como R6, identifica um requisito do dossiê da ACME, a exigência que a solução precisa cumprir.
 
@@ -188,8 +188,8 @@ Sua resposta vira o campo Verificação de rastreabilidade, na seção 9 do cade
 
 A segunda verificação compara o texto com o que já está registrado e com o modelo do artefato, e este item pede duas conferências sobre os campos de consequências e de estado. A primeira procura o que o rascunho deixou de dizer, e a segunda procura o que o modelo afirmou sem ter autoridade para afirmar.
 
-1. Diga qual exigência do modelo de ADR (dado 8) o campo de consequências gerado não cumpre e escreva duas das consequências negativas do dado 7 que o rascunho omite, indicando qual delas o aluno percebe na matrícula.
-2. Diga que estado e que data o ADR deve ter segundo o dado 6, quem decide e a qual das quatro tarefas que não se delegam ao modelo corresponde a aceitação das consequências negativas.
+1. Diga qual exigência do modelo de ADR (dado 8 da segunda tabela) o campo de consequências gerado não cumpre e escreva duas das consequências negativas do dado 7 que o rascunho omite, indicando qual delas o aluno percebe na matrícula.
+2. Diga que estado e que data o ADR deve ter segundo o dado 6 da segunda tabela, quem decide e a qual das quatro tarefas que não se delegam ao modelo corresponde a aceitação das consequências negativas.
 
 Suas respostas viram os campos Consequência omitida e Decisão que volta à autoridade, na seção 9 do caderno.
 

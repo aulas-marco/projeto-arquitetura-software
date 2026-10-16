@@ -67,7 +67,7 @@ Com as lacunas listadas, a ACME precisa decidir o que entregar primeiro, e a res
 
 Cada período do roteiro é uma **onda de entrega**, e cada onda tem valor de negócio e um critério de conclusão. O **critério de conclusão** é o que precisa estar em produção, validado e operando para que a onda seja considerada completa, e ele impede que se declare concluída uma onda só porque o prazo acabou. A ordem das ondas acompanha as dependências técnicas, e por isso a primeira costuma entregar a fundação de que as seguintes precisam, junto com uma entrega visível ao usuário. A técnica da **arquitetura mínima viável** ajuda a montar cada onda, porque pergunta qual é a menor arquitetura que entrega valor e permite aprender com o uso real.
 
-A tabela mostra as três ondas da ACME. Três requisitos do caso aparecem nela. O R1 pede a renovação da matrícula pelo celular, o R6 pede 5.800 sessões simultâneas na abertura da matrícula, com 95% das confirmações em até 4 segundos, e o R15 pede que o custo anual de propriedade caia de R$ 15,83 milhões para R$ 11,0 milhões até o fim de 2029.
+A tabela mostra as três ondas da ACME. Três requisitos do caso aparecem nela pelo código. A renovação da matrícula pelo celular é o requisito R1, as 5.800 sessões simultâneas na abertura da matrícula, com 95% das confirmações em até 4 segundos, são o R6, e a queda do custo anual de propriedade de R$ 15,83 milhões para R$ 11,0 milhões até o fim de 2029 é o R15.
 
 | Onda | Prazo suposto | Valor de negócio | Entregas principais | Critério de conclusão |
 | --- | --- | --- | --- | --- |
@@ -111,7 +111,7 @@ O conselho faz o papel de **autoridade de desenho**, o grupo que recebe as decis
 
 ### Funções de aptidão e governança leve
 
-As reuniões do conselho dependem de pessoas, e por isso a ACME acrescenta uma verificação automática. Uma **função de aptidão** é um teste automático que avisa quando uma decisão deixa de ser cumprida, porque confere a cada mudança se uma propriedade da arquitetura continua válida no código. Cada função protege uma decisão já tomada e registrada. A ACME tem duas funções de exemplo: a primeira verifica, a cada mudança, que nenhum componente novo acessa o banco do núcleo e protege a decisão da camada anticorrupção. A segunda roda um teste de carga com 5.800 sessões no ambiente de teste de carga antes de cada janela de matrícula, confere se 95% das confirmações ficam em até 4 segundos e protege o requisito R6.
+As reuniões do conselho dependem de pessoas, e por isso a ACME acrescenta uma verificação automática. Uma **função de aptidão** é um teste automático que avisa quando uma decisão deixa de ser cumprida, porque confere a cada mudança se uma propriedade da arquitetura continua válida no código. Cada função protege uma decisão já tomada e registrada. A ACME tem duas funções de exemplo: a primeira verifica, a cada mudança, que nenhum componente novo acessa o banco do núcleo e protege a decisão da camada anticorrupção. A segunda roda um teste de carga com 5.800 sessões no ambiente de teste de carga antes de cada janela de matrícula, confere se 95% das confirmações ficam em até 4 segundos e protege o requisito do pico de matrícula, o R6.
 
 Quando uma função de aptidão reprova, a mudança volta à equipe ou segue para o conselho, que pode recusá-la ou aceitá-la como desvio. O desvio aceito entra no registro de **dívida técnica**, o conjunto dos atalhos aceitos, com risco, prazo e onda de correção. Um item do registro inicial da ACME é o Portal do Professor em JSF, tecnologia em vermelho no modelo técnico de referência, que só será corrigido quando o serviço de notas assumir o lançamento.
 
@@ -119,11 +119,11 @@ A governança precisa ser leve, porque reuniões longas e pesadas criam resistê
 
 ## Uso pelo arquiteto
 
-O arquiteto produz o relatório de lacunas ao fim da validação do desenho, antes do roteiro de entrega, porque é nesse momento que as duas descrições já estão prontas para a comparação e que a diretoria ainda pode decidir o que fazer com cada item. Ele o leva ao Diretor de TI, para as lacunas técnicas, e ao Diretor Financeiro e à Reitoria, para as organizacionais, como a do contrato de grande porte que termina em 31/12/2028. Sem o relatório, o orçamento de R$ 6,2 milhões seria gasto sem que ninguém soubesse quais lacunas ele fecha, e as decisões de contrato e de pessoal chegariam depois do prazo.
+A pergunta que o arquiteto precisa responder à diretoria é o que o orçamento vai fechar, e o relatório de lacunas é a informação que a responde. Ele o produz ao fim da validação do desenho, antes do roteiro de entrega, porque nesse momento as duas descrições já estão prontas para a comparação e a diretoria ainda pode decidir o que fazer com cada item. Ele o leva ao Diretor de TI, para as lacunas técnicas, e ao Diretor Financeiro e à Reitoria, para as organizacionais, como a do contrato de grande porte que termina em 31/12/2028. Sem o relatório, o orçamento de R$ 6,2 milhões seria gasto sem que ninguém soubesse quais lacunas ele fecha, e as decisões de contrato e de pessoal chegariam depois do prazo.
 
-Com o relatório aprovado, ele monta o roteiro em ondas e o apresenta ao patrocinador, que usa o critério de conclusão para saber quando uma onda terminou e a data de 30/09/2027 para saber quando o núcleo pode ser alterado. Quando a execução mostra que uma onda não cabe no prazo, ele reabre o roteiro com as mesmas partes interessadas, porque o roteiro funciona como um compromisso com o negócio.
+Com o relatório aprovado, ele monta o roteiro em ondas e o apresenta ao patrocinador, que usa o critério de conclusão para saber quando uma onda terminou e a data de 30/09/2027 para saber quando o núcleo pode ser alterado. Quando a execução mostra que uma onda não cabe no prazo, ele reabre o roteiro com as mesmas partes interessadas, para que a ordem e as datas combinadas com o negócio sejam renegociadas antes de a onda atrasar.
 
-Na execução, o arquiteto consulta os mecanismos de governança a cada pedido de exceção para saber quem decide e que registro a decisão exige. Ele leva ao conselho as propostas de desvio, e anota no registro de dívida técnica o que foi aceito. Sem esses mecanismos, a equipe pressionada pela abertura da matrícula leria o banco do núcleo diretamente, e a ACME só descobriria o desvio quando a mudança de uma tabela quebrasse dois códigos mantidos por equipes diferentes.
+Na execução, o arquiteto consulta os mecanismos de governança a cada pedido de exceção para saber quem decide e que registro a decisão exige. Ele leva ao conselho as propostas de desvio, e anota no registro de dívida técnica o que foi aceito. Sem esses mecanismos, a equipe pressionada pela abertura da matrícula leria o banco do núcleo diretamente, e a ACME só descobriria o desvio quando uma mudança nas tabelas do núcleo quebrasse o serviço novo.
 
 ## No caderno arquitetural
 
@@ -195,7 +195,7 @@ Na execução, o arquiteto consulta os mecanismos de governança a cada pedido d
 
 ## Exercício 21
 
-A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, isto é, o sistema é trocado por partes, usada como caso desta disciplina. Antes de gastar o orçamento, a ACME precisa saber que lacunas existem entre o sistema atual e o desenhado e em que ordem fechá-las. Este exercício pede, no item 1, que o aluno classifique lacunas candidatas e, no item 2, que diga como fechar as organizacionais, e pede, no item 3, que ordene as ondas de entrega pelo critério de conclusão. Nos enunciados, um código formado por R e um número, como R6, identifica um requisito do dossiê da ACME, a exigência que a solução precisa cumprir.
+A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, isto é, o sistema é trocado por partes, usada como caso desta disciplina. Antes de gastar o orçamento, a ACME precisa saber que lacunas existem entre o sistema atual e o desenhado e em que ordem fechá-las. Este exercício pede, no item 1, que o aluno classifique lacunas candidatas e, no item 2, que diga como fechar as organizacionais, e pede, no item 3, que ordene as ondas de entrega pelo critério de conclusão. Nos enunciados, um código formado por R e um número identifica um requisito do dossiê da ACME, a exigência que a solução precisa cumprir, como o R6, que pede 5.800 sessões simultâneas na abertura da matrícula.
 
 ### Item 1: Domínio e tipo de cada lacuna
 
@@ -219,7 +219,7 @@ Suas respostas viram os campos Domínio da lacuna, Tipo da lacuna e Justificativ
 
 ### Item 2: Forma de fechar as lacunas organizacionais
 
-Uma lacuna organizacional não se fecha com programa, e por isso o relatório da ACME diz que tipo de decisão ela pede. O relatório trabalha com três formas de decisão. A capacitação forma pessoas para que a organização passe a dominar um conhecimento, a mudança de processo troca a maneira de trabalhar, e a decisão de contrato renova, reduz, encerra ou renegocia um acordo com um fornecedor. Este item usa as lacunas que o item 1 deve ter classificado como organizacionais, que são as que dependem de pessoas, de processos ou de contratos, como a LC7 e a LC5.
+Uma lacuna organizacional não se fecha com programa, e por isso o relatório da ACME diz que tipo de decisão ela pede. O relatório trabalha com três formas de decisão. A capacitação forma pessoas para que a organização passe a dominar um conhecimento, a mudança de processo troca a maneira de trabalhar, e a decisão de contrato renova, reduz, encerra ou renegocia um acordo com um fornecedor. Este item usa as lacunas que o item 1 deve ter classificado como organizacionais, que são as que dependem de pessoas, de processos ou de contratos, como o fim do contrato de sustentação (LC7) e a implantação lenta (LC5).
 
 1. Diga, para cada lacuna organizacional do item 1, se ela pede capacitação, mudança de processo ou decisão de contrato.
 
@@ -231,8 +231,8 @@ Quando o arquiteto apresenta o roteiro à Reitoria, ele precisa mostrar por que 
 
 | Entrega | O que entrega | Critério de conclusão |
 | --- | --- | --- |
-| A | Matrícula digital, aplicativo móvel mínimo viável e integração automatizada com o ERP financeiro | Matrícula digital operando numa janela real, com o R6 medido em produção, processo de matrícula redesenhado, Secretaria Acadêmica treinada e nenhuma troca manual de arquivos |
-| B | Migração das regras de negócio do COBOL | Regras migradas cobertas por teste automatizado, testes de caracterização sem divergência contra o núcleo e custo anual medido no mesmo escopo do R15 |
+| A | Matrícula digital, aplicativo móvel mínimo viável e integração automatizada com o ERP financeiro | Matrícula digital operando numa janela real, com o requisito R6, de 5.800 sessões simultâneas, medido em produção, processo de matrícula redesenhado, Secretaria Acadêmica treinada e nenhuma troca manual de arquivos |
+| B | Migração das regras de negócio do COBOL | Regras migradas cobertas por teste automatizado, testes de caracterização sem divergência contra o núcleo e custo anual medido no mesmo escopo do requisito R15, a meta de R$ 11,0 milhões em 2029 |
 | C | Zona de pouso, logon único, gateway de APIs, camada anticorrupção sobre o núcleo e portal básico do aluno | Portal básico em produção, autenticação por OpenID Connect no logon único, consulta ao núcleo pela camada anticorrupção sem acesso direto ao banco e teste de carga executado no ambiente novo |
 
 | Contrato | Data | Efeito |

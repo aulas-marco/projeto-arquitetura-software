@@ -129,14 +129,14 @@ A lista final reúne as pendências abertas ao fim da disciplina, com as três q
 | Aprovação da Reitoria à troca do plano do ambiente virtual de aprendizagem para o que oferece interfaces de programação, condição para mudar o envio de notas (elemento E1 do escopo) | Reitoria | Antes do início do primeiro ciclo |
 | Data e decisores do ADR 001, o registro que adota a arquitetura orientada a eventos | Diretor de TI | Antes da aprovação do registro |
 | Ensaio de carga com 5.800 sessões em ambiente equivalente ao de produção | Diretoria de TI | Antes de aceitar o ADR 001, pois o ambiente de carga ainda não existe |
-| Gravação da tabela de saída do Transactional Outbox na mesma transação da nota, hoje dentro do programa COBOL | Fábrica de software | Antes de implantar o serviço de notas |
+| Gravação da tabela de saída do padrão Transactional Outbox na mesma transação da nota, hoje dentro do programa COBOL | Fábrica de software | Antes de implantar o serviço de notas |
 | Prazo de guarda do histórico escolar e a norma que o sustenta, ligado à retenção de 5 anos da trilha de auditoria (R9) | Encarregada de proteção de dados | Antes de fixar a retenção no data warehouse |
 | Ano e tecnologia do data warehouse, para fechar a classificação da aplicação | Diretoria de TI | Na Aula 5, definição tecnológica |
 | Volume e tempo de resposta de duas relações do diagrama de contêineres (as de número 12 e 13), que o dossiê não informa | Diretoria de TI | Antes de fechar o dimensionamento |
-| Data do ADR de plataforma e capacitação da equipe Java nos componentes da plataforma | Diretor de TI | Antes de aprovar o registro |
-| Observabilidade da plataforma, lacuna do dossiê | Diretoria de TI | Antes de aprovar o registro |
+| Data do ADR de plataforma e capacitação da equipe Java para operar os produtos da plataforma escolhida | Diretor de TI | Antes de aprovar o registro |
+| Observabilidade da plataforma, isto é, como a equipe monitora os serviços em produção, que o dossiê não descreve | Diretoria de TI | Antes de aprovar o registro |
 | Teste de carga com 5.800 sessões na plataforma escolhida | Diretoria de TI | Antes de aprovar o ADR de plataforma |
-| Gatilhos de reabertura do ADR de plataforma, valores propostos sem fonte no dossiê | Diretoria de TI | Na revisão do registro |
+| Gatilhos de reabertura, os valores que levam a rever o ADR de plataforma, propostos sem fonte no dossiê | Diretoria de TI | Na revisão do registro |
 | Requisito ou restrição que motive o índice de busca de disciplinas em memória (D6), ou revisão da necessidade da decisão | Arquiteto de software | Antes de validar as decisões propostas |
 | Decisão que atenda ao custo anual de R$ 11,0 milhões até o fim de 2029 (R15), hoje sem decisão registrada | Diretoria de TI | Antes de aprovar o roteiro em ondas |
 | Nome do segundo arquiteto que revisa as saídas de IA e assina o registro da assistência | Diretor de TI | Antes do primeiro uso de IA no projeto |

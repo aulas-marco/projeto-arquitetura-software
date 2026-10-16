@@ -474,7 +474,7 @@ Uma lacuna organizacional não se fecha com programa, e por isso o relatório re
 | Regra de prioridade de vaga dominada por uma só pessoa | Capacitação | Formar uma segunda pessoa com domínio da regra antes das aposentadorias de 2027 e registrar a regra em testes de caracterização, que comparam o comportamento do núcleo com o esperado |
 | Implantação mensal, com 34 dias úteis por mudança | Mudança de processo | Adotar esteira de integração com testes e implantação automatizada para os componentes novos, já na primeira onda |
 | Equipe interna sem experiência registrada nos serviços novos | Capacitação | Capacitar, contratar ou contratar suporte, decidindo caso a caso para cada componente novo antes de ele entrar em operação |
-| Contrato de sustentação do núcleo que termina em 30/09/2027 | Decisão de contrato | Decidir entre renovar, reduzir ou internalizar a sustentação e registrar a escolha em um ADR, com a Reitoria e o Diretor de TI |
+| Contrato de sustentação do núcleo que termina em 30/09/2027 | Decisão de contrato | Decidir entre renovar, reduzir ou internalizar a sustentação e registrar a escolha em um registro de decisão de arquitetura (ADR), com a Reitoria e o Diretor de TI |
 
 {{/novo}}
 
@@ -1001,14 +1001,14 @@ A ordem das ondas da ACME acompanha as dependências técnicas, e o critério de
 | Onda | Entrega do enunciado | Por que nessa posição |
 | --- | --- | --- |
 | 1 | C, zona de pouso, logon único, gateway de APIs, camada anticorrupção e portal básico do aluno | É a base de que as outras duas dependem, e o critério pede o portal básico em produção, a autenticação por OpenID Connect e a consulta ao núcleo pela camada anticorrupção, sem acesso direto ao banco |
-| 2 | A, matrícula digital, aplicativo móvel mínimo viável e integração automatizada com o ERP financeiro | O critério exige a matrícula digital operando numa janela real com o R6 medido em produção, e isso só é possível sobre o logon único, o gateway e a camada anticorrupção da onda 1 |
+| 2 | A, matrícula digital, aplicativo móvel mínimo viável e integração automatizada com o ERP financeiro | O critério exige a matrícula digital operando numa janela real com o requisito R6, as 5.800 sessões simultâneas na abertura da matrícula, medido em produção, e isso só é possível sobre o logon único, o gateway e a camada anticorrupção da onda 1 |
 | 3 | B, migração das regras de negócio do COBOL | O critério pede as regras migradas cobertas por teste automatizado, e a cobertura do núcleo hoje é de 0%, de modo que a onda também espera o fim da exclusividade da fábrica |
 
 Duas perguntas de calendário completam a resposta. A primeira trata da entrega que mexe no núcleo, e a segunda do orçamento do primeiro ciclo.
 
 | Pergunta | Resposta |
 | --- | --- |
-| Que entrega depende do fim da exclusividade da fábrica | A B, porque a equipe interna não pode alterar o núcleo antes de 30/09/2027, e retirar carga do núcleo só reduz o desembolso a partir de 2029, depois do contrato de grande porte que termina em 31/12/2028 |
+| Que entrega depende do fim da exclusividade da fábrica | A entrega B, porque a equipe interna não pode alterar o núcleo antes de 30/09/2027, e retirar carga do núcleo só reduz o desembolso a partir de 2029, depois do contrato de grande porte que termina em 31/12/2028 |
 | Que ondas formam o primeiro ciclo de 12 meses | As ondas 1 e 2, que precisam caber no orçamento de R$ 6,2 milhões aprovado pela Reitoria |
 
 {{/novo}}

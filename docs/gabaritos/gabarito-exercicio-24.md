@@ -17,9 +17,9 @@ Depois do exercício 24, o caderno da ACME reúne o que os exercícios 1 a 24 pr
 
 **A decisão.** A ACME adota duas decisões, ambas em estado de proposta. A primeira, o ADR 001, coloca uma fila entre o portal e o núcleo COBOL na entrada da matrícula. A segunda, o ADR de plataforma, escolhe a plataforma de microsserviços na variante Java, com o Kafka como barramento de eventos. A entrega segue em três ondas: primeiro a base de acesso (zona de pouso, logon único, gateway de APIs, camada anticorrupção e portal básico do aluno), depois a matrícula digital com o aplicativo móvel e, por último, a migração das regras de negócio do COBOL, que só começa depois de 30/09/2027. O primeiro ciclo de 12 meses cobre as duas primeiras ondas, dentro do orçamento de R$ 6,2 milhões.
 
-**O que mais pesa no desenho.** A matrícula e a nota. Na abertura, o Portal do Aluno precisa sustentar 5.800 sessões simultâneas, com o tempo de confirmação em até 4 segundos para 95% das requisições (o requisito R6 do dossiê), e a nota lançada pelo professor precisa chegar ao ambiente virtual de aprendizagem em até 10 minutos (o R7). Um limite legal acompanha os dois: nenhum dado pessoal de aluno pode ser processado fora do território nacional, e a região escolhida para a nuvem fica no Brasil.
+**O que mais pesa no desenho.** Duas exigências pesam mais no desenho, a da matrícula e a da nota. Na abertura, o Portal do Aluno precisa sustentar 5.800 sessões simultâneas, com o tempo de confirmação em até 4 segundos para 95% das requisições (registrado no dossiê do caso como requisito R6), e a nota lançada pelo professor precisa chegar ao ambiente virtual de aprendizagem em até 10 minutos (requisito R7). Um limite legal acompanha os dois: nenhum dado pessoal de aluno pode ser processado fora do território nacional, e a região escolhida para a nuvem fica no Brasil.
 
-**Consequências.** A confirmação da matrícula deixa de ser imediata para o aluno, porque o pedido entra na fila e o núcleo o processa depois. A equipe Java precisa aprender Kafka e Kubernetes, e a ACME passa a monitorar mais peças em produção. Para a obra não se afastar do desenho, testes automáticos avisam quando uma decisão deixa de ser cumprida, e todo uso de IA no projeto passa por verificação em três etapas e fica registrado no ADR.
+**Consequências.** A confirmação da matrícula deixa de ser imediata para o aluno, porque o pedido entra na fila e o núcleo o processa depois. A equipe Java precisa aprender Kafka, o produto de mensageria, e Kubernetes, que executa os contêineres, e a ACME passa a monitorar mais peças em produção. Para a obra não se afastar do desenho, testes automáticos avisam quando uma decisão deixa de ser cumprida, e todo uso de IA no projeto passa por verificação em três etapas e fica registrado no ADR.
 
 **Como está o trabalho.** O caderno tem as onze seções preenchidas, e a conferência de rastreabilidade apontou três lacunas: uma decisão sem requisito de origem, um requisito de custo sem decisão e uma pendência sem responsável. As duas decisões continuam propostas, e as pendências da seção 10 dizem quem resolve cada ponto e quando.
 
@@ -471,7 +471,7 @@ Uma lacuna organizacional não se fecha com programa, e por isso o relatório re
 | Regra de prioridade de vaga dominada por uma só pessoa | Capacitação | Formar uma segunda pessoa com domínio da regra antes das aposentadorias de 2027 e registrar a regra em testes de caracterização, que comparam o comportamento do núcleo com o esperado |
 | Implantação mensal, com 34 dias úteis por mudança | Mudança de processo | Adotar esteira de integração com testes e implantação automatizada para os componentes novos, já na primeira onda |
 | Equipe interna sem experiência registrada nos serviços novos | Capacitação | Capacitar, contratar ou contratar suporte, decidindo caso a caso para cada componente novo antes de ele entrar em operação |
-| Contrato de sustentação do núcleo que termina em 30/09/2027 | Decisão de contrato | Decidir entre renovar, reduzir ou internalizar a sustentação e registrar a escolha em um ADR, com a Reitoria e o Diretor de TI |
+| Contrato de sustentação do núcleo que termina em 30/09/2027 | Decisão de contrato | Decidir entre renovar, reduzir ou internalizar a sustentação e registrar a escolha em um registro de decisão de arquitetura (ADR), com a Reitoria e o Diretor de TI |
 
 </details>
 
@@ -994,14 +994,14 @@ A ordem das ondas da ACME acompanha as dependências técnicas, e o critério de
 | Onda | Entrega do enunciado | Por que nessa posição |
 | --- | --- | --- |
 | 1 | C, zona de pouso, logon único, gateway de APIs, camada anticorrupção e portal básico do aluno | É a base de que as outras duas dependem, e o critério pede o portal básico em produção, a autenticação por OpenID Connect e a consulta ao núcleo pela camada anticorrupção, sem acesso direto ao banco |
-| 2 | A, matrícula digital, aplicativo móvel mínimo viável e integração automatizada com o ERP financeiro | O critério exige a matrícula digital operando numa janela real com o R6 medido em produção, e isso só é possível sobre o logon único, o gateway e a camada anticorrupção da onda 1 |
+| 2 | A, matrícula digital, aplicativo móvel mínimo viável e integração automatizada com o ERP financeiro | O critério exige a matrícula digital operando numa janela real com o requisito R6, as 5.800 sessões simultâneas na abertura da matrícula, medido em produção, e isso só é possível sobre o logon único, o gateway e a camada anticorrupção da onda 1 |
 | 3 | B, migração das regras de negócio do COBOL | O critério pede as regras migradas cobertas por teste automatizado, e a cobertura do núcleo hoje é de 0%, de modo que a onda também espera o fim da exclusividade da fábrica |
 
 Duas perguntas de calendário completam a resposta. A primeira trata da entrega que mexe no núcleo, e a segunda do orçamento do primeiro ciclo.
 
 | Pergunta | Resposta |
 | --- | --- |
-| Que entrega depende do fim da exclusividade da fábrica | A B, porque a equipe interna não pode alterar o núcleo antes de 30/09/2027, e retirar carga do núcleo só reduz o desembolso a partir de 2029, depois do contrato de grande porte que termina em 31/12/2028 |
+| Que entrega depende do fim da exclusividade da fábrica | A entrega B, porque a equipe interna não pode alterar o núcleo antes de 30/09/2027, e retirar carga do núcleo só reduz o desembolso a partir de 2029, depois do contrato de grande porte que termina em 31/12/2028 |
 | Que ondas formam o primeiro ciclo de 12 meses | As ondas 1 e 2, que precisam caber no orçamento de R$ 6,2 milhões aprovado pela Reitoria |
 
 ### 9.2 Desvio, mecanismos de governança e quem decide
@@ -1012,11 +1012,11 @@ Cada situação de desvio da ACME pede o mecanismo de governança que a contém 
 
 | Situação | Mecanismo | O que ele faz na situação |
 | --- | --- | --- |
-| S1, a esteira interrompe a conexão direta com o banco do núcleo | Função de aptidão | Reprova a mudança na esteira de integração antes da implantação, sem depender de revisão humana |
-| S2, a equipe escreve um pedido que cita o registro afetado | Processo de proposta e aprovação | Define como a decisão nova é proposta, revisada e aprovada, no formato de pedido de comentários |
-| S3, a arquiteta recém-chegada encontra no repositório o motivo da regra | ADR versionado junto ao código | Guarda a decisão com contexto e consequências, de modo que a resposta não dependa de quem decidiu |
-| S4, o grupo examina as propostas 30 dias antes da janela de matrícula | Conselho de revisão | Reúne os decisores em datas fixas e examina as decisões que mudam a estrutura da solução |
-| S5, o atalho aceito é anotado com risco, prazo e onda de correção | Gestão de dívida técnica | Registra o desvio aceito para que ele entre no roteiro como item a corrigir |
+| A esteira interrompe a conexão direta com o banco do núcleo (S1) | Função de aptidão | Reprova a mudança na esteira de integração antes da implantação, sem depender de revisão humana |
+| A equipe escreve um pedido que cita o registro afetado (S2) | Processo de proposta e aprovação | Define como a decisão nova é proposta, revisada e aprovada, no formato de pedido de comentários |
+| A arquiteta recém-chegada encontra no repositório o motivo da regra (S3) | ADR versionado junto ao código | Guarda a decisão em um registro de decisão de arquitetura (ADR), com contexto e consequências, de modo que a resposta não dependa de quem decidiu |
+| O grupo examina as propostas 30 dias antes da janela de matrícula (S4) | Conselho de revisão | Reúne os decisores em datas fixas e examina as decisões que mudam a estrutura da solução |
+| O atalho aceito é anotado com risco, prazo e onda de correção (S5) | Gestão de dívida técnica | Registra o desvio aceito para que ele entre no roteiro como item a corrigir |
 
 #### Quem decide cada pedido
 
@@ -1024,10 +1024,10 @@ Os quatro pedidos do enunciado pertencem a tipos de decisão diferentes, e cada 
 
 | Pedido | Tipo da decisão | Quem decide |
 | --- | --- | --- |
-| P1, usar banco que não consta do modelo técnico de referência | Exceção ao modelo técnico de referência | Conselho de revisão |
-| P2, alterar o formato de um evento de modo incompatível | Mudança incompatível de contrato de integração | Conselho de revisão |
-| P3, contratar o plano superior do ambiente virtual, 38% mais caro por ano | Contrato com fornecedor ou acréscimo de custo | Diretor Financeiro, com o material preparado pelo arquiteto de solução |
-| P4, prioridades diferentes da Graduação e da Educação a Distância | Prioridade de atributo de qualidade em conflito | Patrocinador |
+| Usar banco que não consta do modelo técnico de referência (P1) | Exceção ao modelo técnico de referência | Conselho de revisão |
+| Alterar o formato de um evento de modo incompatível (P2) | Mudança incompatível de contrato de integração | Conselho de revisão |
+| Contratar o plano superior do ambiente virtual, 38% mais caro por ano (P3) | Contrato com fornecedor ou acréscimo de custo | Diretor Financeiro, com o material preparado pelo arquiteto de solução |
+| Prioridades diferentes da Graduação e da Educação a Distância (P4) | Prioridade de atributo de qualidade em conflito | Patrocinador |
 
 #### Regras que viram função de aptidão
 
@@ -1035,16 +1035,16 @@ Uma regra só vira função de aptidão quando um programa consegue conferi-la s
 
 | Regra | Vira função de aptidão | Decisão protegida e momento em que roda |
 | --- | --- | --- |
-| V1, nenhum serviço novo abre conexão com o banco do núcleo | Sim | Protege a decisão de acessar o núcleo pela camada anticorrupção e roda a cada mudança |
-| V2, percentil 95 da confirmação em até 4 segundos com 5.800 sessões | Sim | Protege o cenário de qualidade da matrícula, o requisito R6, e roda no ambiente de teste de carga antes de cada janela de matrícula |
-| V3, decidir se renova, reduz ou internaliza a sustentação do núcleo | Não | É decisão de contrato, que exige julgamento de quem responde por ele |
-| V4, duas pessoas capazes de explicar a regra de prioridade de vaga | Não | Depende de pessoas e de capacitação, e nenhum teste automático confere conhecimento |
+| Nenhum serviço novo abre conexão com o banco do núcleo (V1) | Sim | Protege a decisão de acessar o núcleo pela camada anticorrupção e roda a cada mudança |
+| Percentil 95 da confirmação em até 4 segundos com 5.800 sessões (V2) | Sim | Protege o cenário de qualidade da matrícula, o requisito R6, e roda no ambiente de teste de carga antes de cada janela de matrícula |
+| Decidir se renova, reduz ou internaliza a sustentação do núcleo (V3) | Não | É decisão de contrato, que exige julgamento de quem responde por ele |
+| Duas pessoas capazes de explicar a regra de prioridade de vaga (V4) | Não | Depende de pessoas e de capacitação, e nenhum teste automático confere conhecimento |
 
 ### 9.3 Verificação de uma saída de IA e registro da assistência
 
 #### Verificação do rascunho do ADR 001 gerado por modelo de linguagem
 
-O rascunho do ADR 001 que o modelo devolveu tinha os dez campos e linguagem correta, e a conferência contra as fontes vigentes do caderno encontrou três erros. A primeira verificação, a rastreabilidade até a fonte, separa a afirmação que tem origem vigente da que veio de um documento superado.
+O rascunho do registro de decisão sobre a fila na entrada da matrícula, o ADR 001, que o modelo devolveu, tinha os dez campos e linguagem correta, e a conferência contra as fontes vigentes do caderno encontrou três erros. A primeira verificação, a rastreabilidade até a fonte, separa a afirmação que tem origem vigente da que veio de um documento superado.
 
 | Afirmação do contexto gerado | Origem vigente | Resultado | Correção |
 | --- | --- | --- | --- |
@@ -1112,14 +1112,14 @@ A lista final reúne as pendências abertas ao fim da disciplina, com as três q
 | Aprovação da Reitoria à troca do plano do ambiente virtual de aprendizagem para o que oferece interfaces de programação, condição para mudar o envio de notas (elemento E1 do escopo) | Reitoria | Antes do início do primeiro ciclo |
 | Data e decisores do ADR 001, o registro que adota a arquitetura orientada a eventos | Diretor de TI | Antes da aprovação do registro |
 | Ensaio de carga com 5.800 sessões em ambiente equivalente ao de produção | Diretoria de TI | Antes de aceitar o ADR 001, pois o ambiente de carga ainda não existe |
-| Gravação da tabela de saída do Transactional Outbox na mesma transação da nota, hoje dentro do programa COBOL | Fábrica de software | Antes de implantar o serviço de notas |
+| Gravação da tabela de saída do padrão Transactional Outbox na mesma transação da nota, hoje dentro do programa COBOL | Fábrica de software | Antes de implantar o serviço de notas |
 | Prazo de guarda do histórico escolar e a norma que o sustenta, ligado à retenção de 5 anos da trilha de auditoria (R9) | Encarregada de proteção de dados | Antes de fixar a retenção no data warehouse |
 | Ano e tecnologia do data warehouse, para fechar a classificação da aplicação | Diretoria de TI | Na Aula 5, definição tecnológica |
 | Volume e tempo de resposta de duas relações do diagrama de contêineres (as de número 12 e 13), que o dossiê não informa | Diretoria de TI | Antes de fechar o dimensionamento |
-| Data do ADR de plataforma e capacitação da equipe Java nos componentes da plataforma | Diretor de TI | Antes de aprovar o registro |
-| Observabilidade da plataforma, lacuna do dossiê | Diretoria de TI | Antes de aprovar o registro |
+| Data do ADR de plataforma e capacitação da equipe Java para operar os produtos da plataforma escolhida | Diretor de TI | Antes de aprovar o registro |
+| Observabilidade da plataforma, isto é, como a equipe monitora os serviços em produção, que o dossiê não descreve | Diretoria de TI | Antes de aprovar o registro |
 | Teste de carga com 5.800 sessões na plataforma escolhida | Diretoria de TI | Antes de aprovar o ADR de plataforma |
-| Gatilhos de reabertura do ADR de plataforma, valores propostos sem fonte no dossiê | Diretoria de TI | Na revisão do registro |
+| Gatilhos de reabertura, os valores que levam a rever o ADR de plataforma, propostos sem fonte no dossiê | Diretoria de TI | Na revisão do registro |
 | Requisito ou restrição que motive o índice de busca de disciplinas em memória (D6), ou revisão da necessidade da decisão | Arquiteto de software | Antes de validar as decisões propostas |
 | Decisão que atenda ao custo anual de R$ 11,0 milhões até o fim de 2029 (R15), hoje sem decisão registrada | Diretoria de TI | Antes de aprovar o roteiro em ondas |
 | Nome do segundo arquiteto que revisa as saídas de IA e assina o registro da assistência | Diretor de TI | Antes do primeiro uso de IA no projeto |

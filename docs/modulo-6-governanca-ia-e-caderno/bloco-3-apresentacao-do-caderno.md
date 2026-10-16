@@ -56,18 +56,18 @@ Os artefatos 1 a 4 vieram das Aulas 1 e 2, os artefatos 5 a 8 das Aulas 3 e 4, o
 
 ### O fio de um requisito pelo caderno inteiro
 
-Para mostrar o encadeamento, o professor acompanha na aula um único pedido da ACME, da primeira seção à última. Na abertura da matrícula, o Portal do Aluno chega a 5.800 sessões simultâneas, com 6,3% de erro, e a Diretoria de TI pediu que o portal sustente esse pico e confirme 95% das matrículas em até 4 segundos. O pedido tem o código R6 no dossiê, que é a descrição do caso ACME usada pelo curso, e nasceu de uma queixa vaga da representação discente, a de que o tempo de resposta precisava ser bom (R3). A tabela mostra o que acontece com o R6 em cada artefato.
+Para mostrar o encadeamento, o professor acompanha na aula um único pedido da ACME, da primeira seção à última. Na abertura da matrícula, o Portal do Aluno chega a 5.800 sessões simultâneas, com 6,3% de erro, e a Diretoria de TI pediu que o portal sustente esse pico e confirme 95% das matrículas em até 4 segundos. O pedido tem o código R6 no dossiê, que é a descrição do caso ACME usada pelo curso, e nasceu de uma queixa vaga da representação discente, a de que o tempo de resposta precisava ser bom, registrada no dossiê como requisito R3. A tabela mostra o que acontece com o R6 em cada artefato.
 
 | Etapa | O que acontece com o pedido | Seção do caderno |
 | --- | --- | --- |
-| Requisito | A Diretoria de TI declara o pedido, e a queixa do R3 é reescrita com a carga de 5.800 sessões e a medida de 4 segundos | 3 |
+| Requisito | A Diretoria de TI declara o pedido, e a queixa registrada como R3 é reescrita com a carga de 5.800 sessões e a medida de 4 segundos | 3 |
 | Cenário de qualidade | O pico de matrícula é descrito em seis partes, com taxa de erro abaixo de 1% verificada em teste de carga | 3 |
 | Lacuna | A diferença entre o portal atual, que erra 6,3% no pico, e o que o desenho exige é registrada para fechar em onda | 4 |
-| Decisão | O ADR 001 coloca uma fila entre o portal e o núcleo COBOL para absorver o pico sem alterar o núcleo | 7 |
+| Decisão | O registro de decisão ADR 001 coloca uma fila entre o portal e o núcleo COBOL para absorver o pico sem alterar o núcleo | 7 |
 | Contêiner | O serviço de matrícula e as relações 1, 3, 5 e 8 do diagrama de contêineres formam o caminho da confirmação | 7 |
 | Tecnologia | A plataforma de microsserviços na variante Java, com barramento de eventos, concretiza a fila | 8 |
-| Onda | O critério de conclusão da segunda onda exige a matrícula digital operando numa janela real, com o R6 medido em produção | 9 |
-| Controle | Uma função de aptidão, teste automático que avisa quando uma decisão deixa de ser cumprida, roda o teste de carga com 5.800 sessões antes de cada janela de matrícula (a FA2) | 9 |
+| Onda | O critério de conclusão da segunda onda exige a matrícula digital operando numa janela real, com o desempenho do R6 medido em produção | 9 |
+| Controle | Uma função de aptidão, teste automático que avisa quando uma decisão deixa de ser cumprida, roda o teste de carga com 5.800 sessões antes de cada janela de matrícula, a função de aptidão FA2 do caderno | 9 |
 
 A leitura em sentido inverso serve a quem propõe uma mudança. Se alguém sugerir ao conselho de revisão, apresentado no [bloco 1](bloco-1-governanca-da-mudanca.md), que a fila seja retirada para reduzir a latência, o arquiteto parte do teste de carga, passa pela decisão que o teste protege, pelo contêiner, pela lacuna e pelo cenário, e chega à Diretoria de TI, que declarou o pedido. Em cada parada ele encontra o que a proposta coloca em risco e quem precisa ser consultado antes da votação.
 
@@ -140,7 +140,7 @@ A conferência também orienta o trabalho depois da apresentação. A seção 10
 
 A ACME chega ao fim da disciplina com um caderno de onze seções, e antes de entregá-lo à Reitoria o arquiteto confere se ele cumpre as três regras de rastreabilidade apresentadas no Conceito. O enunciado traz a tabela de rastreabilidade que a equipe montou para essa conferência, com oito linhas numeradas de 1 a 8, e o exercício tem três itens. No item 1, o aluno aponta as inconsistências da tabela. No item 2, escreve a versão final do resumo de uma página, a seção 0 do caderno. No item 3, escreve a versão final das pendências, a seção 10.
 
-Os dados da tabela vêm dos gabaritos dos exercícios 1 a 20 e do [dossiê da ACME](../caso-acme/index.md), e a tabela foi alterada de propósito para conter erros. Nela, um código formado por R e um número, como R6, identifica um requisito do dossiê, a exigência que a solução precisa cumprir. Um código formado por RT e um número, como RT6, identifica uma restrição, e um código formado por D e um número, como D2, identifica uma das nove decisões levantadas na [Aula 1](../modulo-1-fundamentos/bloco-1-arquitetura-de-solucoes-e-de-software.md). ADR é o registro de decisão arquitetural, como o escrito no [Exercício 12](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md#exercicio-12) e o escrito no [Exercício 20](../modulo-5-frameworks-e-tecnologias/bloco-4-adr-de-plataforma.md#exercicio-20).
+Os dados da tabela vêm dos gabaritos dos exercícios 1 a 20 e do [dossiê da ACME](../caso-acme/index.md), e a tabela foi alterada de propósito para conter erros. Nela, um código formado por R e um número identifica um requisito do dossiê, a exigência que a solução precisa cumprir, como o R6, o portal sustentar 5.800 sessões simultâneas na abertura da matrícula. Um código formado por RT e um número identifica uma restrição, como o RT6, a manutenção do núcleo COBOL sob contrato da fábrica, e um código formado por D e um número identifica uma das nove decisões levantadas na [Aula 1](../modulo-1-fundamentos/bloco-1-arquitetura-de-solucoes-e-de-software.md). ADR é o registro de decisão arquitetural, como o escrito no [Exercício 12](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md#exercicio-12) e o escrito no [Exercício 20](../modulo-5-frameworks-e-tecnologias/bloco-4-adr-de-plataforma.md#exercicio-20).
 
 ### Item 1: Conferência da tabela de rastreabilidade
 
@@ -151,11 +151,11 @@ Uma tabela de rastreabilidade só ajuda quem decide se cada linha diz de onde a 
 | 1 | Fila entre o portal e o núcleo COBOL na entrada da matrícula, registrada no ADR 001 | O portal sustentar 5.800 sessões simultâneas na abertura da matrícula, com percentil 95 de até 4 segundos (R6) | Serviço de matrícula na frente do núcleo, relações 1 e 3 do diagrama de contêineres | Diretor de TI |
 | 2 | O índice de busca de disciplinas do portal passa a ficar em memória (D6) | Em branco | Funcionamento interno do portal, sem relação própria no diagrama de contêineres | Arquiteto de software |
 | 3 | A propagação da nota ao ambiente virtual de aprendizagem passa do lote diário a até 10 minutos (D2) | A nota lançada pelo professor chegar ao ambiente virtual em até 10 minutos (R7) | Serviço de notas, relações 2, 4 e 6 do diagrama de contêineres | Reitoria |
-| 4 | Pendência: ensaio de carga com 5.800 sessões em ambiente equivalente ao de produção, a resolver antes de aceitar o ADR 001 | R6 | Ambiente de teste de carga, que a ACME ainda não tem | Em branco |
-| 5 | Gravação da tabela de saída do padrão Transactional Outbox na mesma transação da nota, dentro do programa COBOL | R7 e a restrição de manutenção do núcleo COBOL sob contrato da fábrica até 30/09/2027 (RT6) | Relação 4, do serviço de notas ao núcleo | Fábrica de software |
+| 4 | Pendência: ensaio de carga com 5.800 sessões em ambiente equivalente ao de produção, a resolver antes de aceitar o ADR 001 | O portal sustentar 5.800 sessões simultâneas (R6) | Ambiente de teste de carga, que a ACME ainda não tem | Em branco |
+| 5 | Gravação da tabela de saída do padrão Transactional Outbox na mesma transação da nota, dentro do programa COBOL | A nota chegar ao ambiente virtual em até 10 minutos (R7) e a restrição de manutenção do núcleo COBOL sob contrato da fábrica até 30/09/2027 (RT6) | Relação 4, do serviço de notas ao núcleo | Fábrica de software |
 | 6 | Nenhuma decisão registrada | O custo anual de propriedade cair de R$ 15,83 milhões para R$ 11,0 milhões até o fim de 2029 (R15) | Nenhum contêiner nem relação do diagrama | Diretoria de TI |
 | 7 | Nenhum dado pessoal de aluno é processado fora do território nacional (D4) | O parecer do Jurídico de 28/04/2026, restrição RT5 | Região nacional de implantação dos contêineres em nuvem, na zona de pouso | Jurídico |
-| 8 | Plataforma de microsserviços na variante Java, com o Kafka, produto de mensageria, como barramento de eventos (ADR de plataforma) | R6, R7 e a restrição dos dois provedores de nuvem pré-aprovados (RT3) | Serviços de matrícula e de notas do diagrama de contêineres | Diretor de TI |
+| 8 | Plataforma de microsserviços na variante Java, com o Kafka, produto de mensageria, como barramento de eventos (ADR de plataforma) | As 5.800 sessões simultâneas (R6), a nota em até 10 minutos (R7) e a restrição dos dois provedores de nuvem pré-aprovados (RT3) | Serviços de matrícula e de notas do diagrama de contêineres | Diretor de TI |
 
 A tabela traz uma inconsistência de cada um dos três tipos, e as outras cinco linhas estão corretas, inclusive as que citam uma restrição como origem, porque a restrição motiva decisões tanto quanto um requisito.
 
@@ -183,7 +183,7 @@ Suas respostas viram os campos O problema, A pergunta, A decisão, O que mais pe
 
 ### Item 3: Pendências finais
 
-Cada pendência do caderno precisa dizer quem a resolve e quando, porque uma pendência sem responsável permanece parada. Um exemplo já presente na lista do [Exercício 20](../modulo-5-frameworks-e-tecnologias/bloco-4-adr-de-plataforma.md#exercicio-20) é a data e os decisores do ADR 001, que o Diretor de TI define antes da aprovação do registro. O item pede a lista final, que reúne as pendências do seu caderno com as que a conferência do item 1 acrescenta.
+Cada pendência do caderno precisa dizer quem a resolve e quando, porque uma pendência sem responsável permanece parada. Um exemplo já presente na lista do [Exercício 20](../modulo-5-frameworks-e-tecnologias/bloco-4-adr-de-plataforma.md#exercicio-20) é a data e os decisores do registro que coloca a fila entre o portal e o núcleo (ADR 001), que o Diretor de TI define antes da aprovação do registro. O item pede a lista final, que reúne as pendências do seu caderno com as que a conferência do item 1 acrescenta.
 
 1. Escreva a lista final de pendências em uma tabela, com uma frase que se entenda sozinha para cada pendência, o responsável por resolvê-la e o marco ou a data em que deve estar resolvida.
 
