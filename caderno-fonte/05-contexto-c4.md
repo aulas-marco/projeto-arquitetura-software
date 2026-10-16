@@ -26,25 +26,25 @@ modo: acumula
 <!--gabarito-->
 #### Portfólio de aplicações
 
-Diante das onze aplicações do catálogo, a pergunta do arquiteto é qual delas ainda merece investimento e qual deve sair. Os quatro portais usam tecnologia que o fornecedor deixou de apoiar e por isso ficam em vermelho, o núcleo ainda sustenta a operação e continua sob contrato, o que o deixa em âmbar, e o ERP financeiro e o ambiente virtual ficam em verde por decisão da Reitoria. A tabela dá a cor de cada aplicação e o fato do caso que a sustenta.
+Diante das onze aplicações do catálogo, a pergunta do arquiteto é qual delas ainda merece investimento e qual deve sair. Os quatro portais usam tecnologia que o fornecedor deixou de apoiar e por isso ficam em vermelho, o núcleo transacional, que é o sistema em COBOL onde se registram matrícula e nota, ainda sustenta a operação e continua sob contrato, o que o deixa em âmbar, e o ERP financeiro e o ambiente virtual ficam em verde por decisão da Reitoria. A tabela dá a cor de cada aplicação e o fato do caso que a sustenta.
 
 | Aplicação | Cor | Justificativa |
 | --- | --- | --- |
-| Portal do Aluno | Vermelho | JSF 1.2 e EJB 2.0 de 2007, sobre servidor sem suporte desde 2018, sem versão responsiva, o que impede o R1, e com acesso direto ao banco |
+| Portal do Aluno | Vermelho | Tecnologia Java JSF 1.2 e EJB 2.0 de 2007, sobre servidor sem suporte desde 2018, sem versão responsiva, o que impede a renovação da matrícula pelo celular pedida pelo requisito R1, e com acesso direto ao banco |
 | Portal do Professor | Vermelho | JSF 1.2 e EJB 2.0 de 2008, sobre o mesmo servidor sem suporte |
 | Portal da Secretaria | Vermelho | JSF 1.2 e EJB 2.0 de 2008, sobre o mesmo servidor sem suporte |
 | Portal do Gestor | Vermelho | JSF 1.2 e EJB 2.0 de 2009, sobre o mesmo servidor sem suporte, e com acesso direto ao banco |
-| Núcleo transacional | Âmbar | COBOL sobre CICS, com manutenção sob contrato até 30/09/2027. Vermelho também é aceito quando a resposta cita o horizonte de retirada |
+| Núcleo transacional | Âmbar | Programas COBOL executados no servidor de transações CICS, com manutenção sob contrato até 30/09/2027. Vermelho também é aceito quando a resposta cita o horizonte de retirada |
 | ERP financeiro | Verde | Permanece por decisão da Reitoria de 12/03/2026 |
 | Ambiente virtual de aprendizagem | Verde | Permanece por decisão da Reitoria de 12/03/2026 |
-| Data warehouse institucional | Âmbar | O dossiê não informa ano nem tecnologia, e a cópia integral de 140 tabelas por lote é o único dado disponível. A cor é provisória, e a Diretoria de TI precisa confirmá-la |
-| Assinador digital ICP-Brasil | Verde | Serviço externo exigido pelo R5, que pede histórico escolar com assinatura nesse padrão |
+| Data warehouse institucional | Âmbar | O data warehouse, que é o armazém de dados para análises, não tem ano nem tecnologia informados no dossiê, e a cópia integral de 140 tabelas por lote é o único dado disponível. A cor é provisória, e a Diretoria de TI precisa confirmá-la |
+| Assinador digital ICP-Brasil | Verde | Serviço externo exigido pelo requisito R5, que pede histórico escolar com assinatura digital no padrão ICP-Brasil, a infraestrutura brasileira de certificados |
 | Gateway de pagamento | Verde | Serviço externo chamado pelo Portal do Aluno, sem problema registrado no dossiê. A cor é provisória pelo mesmo motivo do data warehouse |
-| Diretório corporativo | Âmbar | Autentica todos os perfis por LDAP, mas o R8 pede padrões abertos de identidade, e o diretório atende só os portais atuais |
+| Diretório corporativo | Âmbar | Autentica todos os perfis por LDAP, mas o requisito R8 pede padrões abertos de identidade, e o diretório atende só os portais atuais |
 
 #### Contrato da integração de notas
 
-Quando o professor lança a nota, ela nasce no núcleo transacional, que é o dono da nota consolidada pela decisão do exercício 14. Hoje ela segue para o ambiente virtual num arquivo gerado às 05h10, e como o R7 pede que chegue em até 10 minutos, o contrato abaixo descreve a troca nova campo a campo, com o modo assíncrono.
+Quando o professor lança a nota, ela nasce no núcleo transacional, que é o dono da nota consolidada pela decisão do exercício 14. Hoje ela segue para o ambiente virtual num arquivo gerado às 05h10, e como a nota precisa chegar ao ambiente virtual em até 10 minutos (requisito R7), o contrato abaixo descreve a troca nova campo a campo, com o modo assíncrono.
 
 | Campo | Resposta |
 | --- | --- |
@@ -55,13 +55,13 @@ Quando o professor lança a nota, ela nasce no núcleo transacional, que é o do
 | Sequência | Publicação do evento, recebimento pelo ambiente virtual e confirmação do processamento |
 | Pré e pós-condições | Antes, o aluno está matriculado numa turma já enviada ao ambiente virtual. Depois, a nota está visível ao aluno no ambiente virtual |
 | Protocolo | HTTPS ou mensageria, conforme o plano do ambiente virtual que oferece interfaces de programação, com acréscimo de 38% sobre o valor anual do contrato |
-| Formato e esquema | Mensagem estruturada, com esquema versionado e descrito em AsyncAPI |
+| Formato e esquema | Mensagem estruturada, com esquema versionado e descrito em AsyncAPI, a especificação que documenta o formato das mensagens |
 | Semântica de erro | Aluno ou turma inexistente vai para uma fila de exceção, tratada pela Secretaria Acadêmica. Indisponibilidade do destino gera nova tentativa, com limite |
 | Versionamento | Cada versão do esquema é compatível com a anterior, e uma mudança incompatível sai em versão nova |
 | Garantia de entrega e idempotência | Entrega pelo menos uma vez, com chave de idempotência formada por aluno, avaliação e versão, de modo que a repetição de uma mensagem não duplica a nota |
-| Nível de serviço | Até 10 minutos entre o lançamento e a visibilidade, conforme o R7, com capacidade para 360.000 lançamentos na janela de fechamento |
+| Nível de serviço | Até 10 minutos entre o lançamento e a visibilidade, conforme o requisito R7, com capacidade para 360.000 lançamentos na janela de fechamento |
 
-A integração é assíncrona, porque a indisponibilidade do ambiente virtual não pode impedir o professor de lançar a nota. O padrão Transactional Outbox garante que a nota e o evento sejam gravados na mesma transação, e o consumidor idempotente absorve a entrega repetida. A gravação do evento junto com a nota ocorre hoje dentro do programa COBOL de avaliação e notas, que só a fábrica pode alterar até 30/09/2027, e por isso a forma de capturá-la fica como decisão pendente, a definir com a fábrica contratada. O modo síncrono também é aceito quando a resposta declara tempo limite, nova tentativa com limite e Circuit Breaker.
+A integração é assíncrona, porque a indisponibilidade do ambiente virtual não pode impedir o professor de lançar a nota. O padrão Transactional Outbox, que grava o evento numa tabela na mesma transação da nota, garante que um registro nunca exista sem o outro, e o consumidor idempotente, que ignora a mensagem recebida mais de uma vez, absorve a entrega repetida. A gravação do evento junto com a nota ocorre hoje dentro do programa COBOL de avaliação e notas, que só a fábrica pode alterar até 30/09/2027, e por isso a forma de capturá-la fica como decisão pendente, a definir com a fábrica contratada. O modo síncrono também é aceito quando a resposta declara tempo limite, nova tentativa com limite e Circuit Breaker, o mecanismo que interrompe as chamadas enquanto o destino falha.
 
 Quando o professor corrige uma nota já enviada, o serviço publica uma nova versão da mesma nota, com a mesma chave de aluno e avaliação e uma versão maior. O ambiente virtual substitui o valor anterior pelo da versão mais recente.
 

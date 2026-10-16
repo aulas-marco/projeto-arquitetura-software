@@ -41,7 +41,7 @@ O risco de perda de competência tem as duas faces. Só 1 dos 6 especialistas em
 
 #### Fatores externos pela análise PESTLE
 
-Para olhar o ambiente externo, o arquiteto partiu dos três fatos que o dossiê já registra, que cobrem as dimensões Legal, Tecnológica e Sociocultural. Como o dossiê não diz nada sobre as outras três, elas receberam fatores plausíveis, marcados como acréscimo do aluno.
+Para olhar o ambiente externo, o arquiteto partiu dos três fatos que o dossiê já registra (F1, F2 e F3), que cobrem as dimensões Legal, Tecnológica e Sociocultural. Como o dossiê não diz nada sobre as outras três, elas receberam fatores plausíveis, marcados como acréscimo do aluno.
 
 | Dimensão | Fator externo | Origem do fator |
 | --- | --- | --- |
@@ -54,7 +54,7 @@ Para olhar o ambiente externo, o arquiteto partiu dos três fatos que o dossiê 
 
 #### Meta de custo e contrato do mainframe
 
-A meta de R$ 11,0 milhões depende de um contrato que só termina em 31/12/2028, e por isso a tabela ordena no tempo os marcos que prendem o custo.
+A meta de R$ 11,0 milhões depende do contrato de capacidade do mainframe, que obriga a ACME a pagar um volume mínimo de uso mesmo que a carga diminua e só termina em 31/12/2028. Por isso a tabela ordena no tempo os marcos que prendem o custo.
 
 | Marco | Efeito sobre a meta |
 | --- | --- |
@@ -62,7 +62,7 @@ A meta de R$ 11,0 milhões depende de um contrato que só termina em 31/12/2028,
 | 31/12/2028, fim do contrato de capacidade com piso de volume | O piso de volume contratado é devido mesmo com menos carga, e a nuvem soma seu custo ao que já existe |
 | Fim de 2029, meta de R$ 11,0 milhões | É o primeiro exercício em que a redução pode aparecer, depois do fim do contrato |
 
-Por isso o projeto só pode prometer, dentro do primeiro ciclo, a construção das condições para reduzir o custo, e não a redução em si. A meta tem prazo em 2029 porque o contrato termina em 31/12/2028.
+Por isso o projeto só pode prometer, dentro do primeiro ciclo, a construção das condições para reduzir o custo. A redução propriamente dita só pode aparecer depois do contrato, e a meta tem prazo em 2029 porque o contrato termina em 31/12/2028.
 <!--/gabarito-->
 <!--/ex-->
 
@@ -93,7 +93,7 @@ As entrevistas trouxeram declarações com graus diferentes de clareza, e antes 
 
 #### Reescritas mensuráveis
 
-Uma declaração como a matrícula não pode cair só se torna requisito quando se sabe em que situação ela vale, quanto uso o sistema recebe e que valor deve atingir. Por isso o R2 e o R3 foram reescritos com contexto, carga e medida, e o R11 aparece à parte, porque uma metade dele não pode ser reescrita.
+Uma declaração como a matrícula não pode cair só se torna requisito quando se sabe em que situação ela vale, quanto uso o sistema recebe e que valor deve atingir. Por isso as declarações sobre a matrícula não poder cair (R2) e sobre o tempo de resposta ser bom (R3) foram reescritas com contexto, carga e medida, e a declaração sobre o sistema ser moderno e escalável (R11) aparece à parte, porque uma metade dela não pode ser reescrita.
 
 | Elemento | R2, a matrícula não pode cair | R3, o tempo de resposta precisa ser bom |
 | --- | --- | --- |
@@ -168,7 +168,7 @@ Para decidir se os dois cenários merecem análise de arquitetura, o roteiro de 
 
 #### Origem das restrições
 
-Cada restrição foi decidida por alguém de fora do projeto, e saber quem decidiu mostra a quem recorrer se uma delas precisar mudar. Nenhuma das sete é técnica.
+Cada restrição foi decidida por alguém de fora do projeto, e saber quem decidiu mostra a quem recorrer se uma delas precisar mudar. Nenhuma das sete restrições da seção 1 (RT1 a RT7) é técnica.
 
 | Restrição | Origem | Quem pode revê-la |
 | --- | --- | --- |

@@ -7,7 +7,7 @@ modo: acumula
 | Campo | Conteúdo |
 | --- | --- |
 | Para que serve | Daqui a alguns meses alguém vai perguntar por que a ACME decidiu assim, e a resposta precisa estar escrita. Esta seção guarda as escolhas principais da solução, cada uma com a razão que levou a ela, o requisito que atende e o que se aceitou perder. |
-| Pergunta que responde | O que foi decidido, que requisito cada decisão atende e o que se aceita perder com ela? |
+| Pergunta que responde | O que foi decidido, que requisito cada decisão atende e que consequências ela traz? |
 | O que você escreve | Você registra as escolhas principais em grupos: as decisões de desenho, como o estilo da solução, as decisões sobre o sistema antigo e os dados, os blocos em que a solução se divide e as interfaces entre eles. Cada escolha importante recebe um registro de decisão arquitetural (ADR), um texto curto que guarda o contexto, as alternativas consideradas e as consequências. |
 | Vem de onde | Das seções 3 e 6, porque toda decisão atende a um requisito e obedece a um princípio. |
 | Quando se preenche | Você preenche esta seção nas Aulas 3 e 4, nos exercícios 10, 11, 12, 13, 14 e 16. |
@@ -31,9 +31,9 @@ O pico de matrícula, com 5.800 sessões simultâneas e meta de erro abaixo de 1
 
 | Estilo | Cenário 1, pico de matrícula | Cenário 2, incidente de 04/02/2026 |
 | --- | --- | --- |
-| Arquitetura orientada a eventos | Favorável. A fila absorve a razão de 7,1 entre o pico e a média, e o núcleo processa no ritmo que sustenta | Neutro. O defeito é a falta de tempo limite de sessão, que se corrige em qualquer estilo, e a fila só ajuda a limitar as tarefas concorrentes |
-| Arquitetura de microsserviços | Neutro. A escalabilidade seletiva só existe depois de extrair a matrícula do núcleo, trabalho de mais de um ciclo de 12 meses | Neutro. O isolamento de falha entre serviços ajuda, mas o abandono de sessão acontece no núcleo, que continua em operação |
-| Arquitetura hexagonal | Neutro. Organiza a solução nova, mas não reduz sozinha a carga que chega ao núcleo | Favorável. O acesso ao núcleo passa por uma porta, e é nela que se declaram o tempo limite e o limite de tarefas concorrentes abaixo do limite do CICS |
+| Arquitetura orientada a eventos | Favorável. A fila absorve o pico, que é 7,1 vezes a média, e o núcleo processa no ritmo que sustenta | Neutro. O defeito foi a falta de tempo limite para sessões abandonadas, que continuavam ocupando o núcleo, e isso se corrige em qualquer estilo, enquanto a fila só ajuda a limitar as tarefas concorrentes |
+| Arquitetura de microsserviços | Neutro. A escalabilidade seletiva, que amplia só a parte sob carga, só existe depois de extrair a matrícula do núcleo, trabalho de mais de um ciclo de 12 meses | Neutro. O isolamento de falha entre serviços ajuda, mas o abandono de sessão acontece no núcleo, que continua em operação |
+| Arquitetura hexagonal | Neutro. Organiza a solução nova, mas não reduz sozinha a carga que chega ao núcleo | Favorável. O acesso ao núcleo passa por uma porta, que é o ponto único de entrada, e é nela que se declaram o tempo limite e o limite de tarefas concorrentes abaixo do limite do CICS |
 
 #### Princípios, risco e recomendação
 
@@ -41,11 +41,11 @@ Depois dos cenários, cada estilo foi lido à luz dos quatro princípios prioriz
 
 | Estilo | Princípios | Risco para a ACME | Mecanismo compensatório |
 | --- | --- | --- | --- |
-| Arquitetura orientada a eventos | Sustenta separação de responsabilidades e baixo acoplamento, e preserva o núcleo, o que atende a evolução incremental | Perda de rastreabilidade ponta a ponta, numa equipe que hoje não opera componente assíncrono | Identificador de correlação e observabilidade do fluxo |
+| Arquitetura orientada a eventos | Sustenta separação de responsabilidades e baixo acoplamento, e preserva o núcleo, o que atende a evolução incremental | Dificuldade de acompanhar uma operação do início ao fim, numa equipe que hoje não opera componente assíncrono | Identificador de correlação, um código que acompanha cada operação por todas as partes, e observabilidade do fluxo, que registra o que cada parte faz |
 | Arquitetura de microsserviços | Sustenta separação de responsabilidades, mas contraria o baixo acoplamento com o núcleo, porque exige extrair a matrícula do COBOL | Extração do núcleo em conflito com a restrição do contrato de sustentação | Adiar a extração para depois de 30/09/2027 |
-| Arquitetura hexagonal | Sustenta baixo acoplamento e evolução incremental, porque o núcleo passa a ser acessado por uma porta | Custo de indireção em cada chamada | Limitar as portas às integrações que de fato serão substituídas |
+| Arquitetura hexagonal | Sustenta baixo acoplamento e evolução incremental, porque o núcleo passa a ser acessado por uma porta | Custo de uma chamada intermediária a mais em cada acesso | Limitar as portas às integrações que de fato serão substituídas |
 
-O estilo recomendado é a arquitetura orientada a eventos na borda, com o núcleo preservado. O atributo favorecido é a escalabilidade elástica na entrada, que absorve o pico de matrícula, e o atributo prejudicado é a simplicidade de rastrear uma operação de ponta a ponta. A comparação se desempata pelo primeiro princípio, a evolução incremental, porque os eventos atendem o pico sem exigir alteração do COBOL.
+O estilo recomendado é a arquitetura orientada a eventos na borda, com o núcleo preservado. O atributo favorecido é a escalabilidade elástica na entrada, que cresce e encolhe conforme a demanda e absorve o pico de matrícula, e o atributo prejudicado é a simplicidade de rastrear uma operação de ponta a ponta. A comparação se desempata pelo primeiro princípio, a evolução incremental, porque os eventos atendem o pico sem exigir alteração do COBOL.
 <!--/gabarito-->
 <!--/ex-->
 
@@ -62,15 +62,15 @@ O estilo recomendado é a arquitetura orientada a eventos na borda, com o núcle
 <!--gabarito-->
 #### Padrões escolhidos para os três problemas
 
-Cada problema da ACME pediu um padrão diferente. A tabela liga cada um ao padrão escolhido, ao elemento do esboço lógico que o recebe e ao que a escolha traz e custa.
+Cada problema da ACME pediu um padrão diferente. A tabela liga cada um ao padrão escolhido, ao elemento do esboço lógico que o recebe e ao que a escolha traz e custa. O Strangler Fig substitui o sistema antigo por partes, e o Anti-Corruption Layer traduz as chamadas entre o sistema novo e o antigo. O Timeout encerra a espera por uma resposta que demora, o Circuit Breaker interrompe as chamadas a um destino que falha, e o Bulkhead separa os recursos de cada chamador. O Transactional Outbox grava o evento na mesma transação do dado.
 
 | Problema | Padrão e nível | Elemento afetado | Consequência favorável | Custo aceito |
 | --- | --- | --- | --- | --- |
 | Coexistência entre o legado e a solução nova | Strangler Fig e Anti-Corruption Layer, padrões arquiteturais, com Adapter, padrão de design, para implementar a tradução | Entrada da matrícula e Registro acadêmico | Cada funcionalidade é ativada por vez, com retorno ao legado, e a camada de tradução usa as transações CICS que já existem, sem depender da fábrica antes de 30/09/2027 | Duas implementações mantidas e dado sincronizado enquanto os 2.300 pontos de acesso direto existirem |
 | Proteção contra falha de integração | Timeout, Circuit Breaker e Bulkhead, padrões arquiteturais | Entrada da matrícula | O tempo limite ataca a causa registrada do incidente de 04/02/2026, o disjuntor contém a falha do núcleo e a separação de conexões protege os demais portais | Desenhar o comportamento degradado da matrícula e ajustar limites sem ambiente de teste de carga, ausência registrada na linha de base |
-| Publicação confiável de mudança acadêmica | Transactional Outbox, padrão arquitetural, com consumidor idempotente | Registro acadêmico e Publicação de notas | Toda nota gravada gera a sua mensagem, o que sustenta o R7 de 10 minutos sem esperar o lote das 05h10 | Entrega ao menos uma vez, volume de até 360.000 lançamentos no fechamento e plano do ambiente virtual com interfaces de programação, com acréscimo de 38% sobre o contrato |
+| Publicação confiável de mudança acadêmica | Transactional Outbox, padrão arquitetural, com consumidor idempotente | Registro acadêmico e Publicação de notas | Toda nota gravada gera a sua mensagem, o que sustenta a entrega da nota em 10 minutos (requisito R7) sem esperar o lote das 05h10 | Entrega ao menos uma vez, volume de até 360.000 lançamentos no fechamento e plano do ambiente virtual com interfaces de programação, com acréscimo de 38% sobre o contrato |
 
-A tabela de saída do Transactional Outbox precisa ser gravada na mesma transação da nota, e hoje essa gravação ocorre dentro do programa COBOL. Essa dependência fica registrada como risco e como decisão pendente, a confirmar com a fábrica de software.
+A tabela de saída do Transactional Outbox, onde o evento espera para ser publicado, precisa ser gravada na mesma transação da nota, e hoje essa gravação ocorre dentro do programa COBOL. Essa dependência fica registrada como risco e como decisão pendente, a confirmar com a fábrica de software.
 
 #### Padrões descartados
 
@@ -78,8 +78,8 @@ Dois padrões foram considerados e deixados de fora, porque não combinam com o 
 
 | Problema | Padrão descartado | Motivo |
 | --- | --- | --- |
-| Proteção contra falha de integração | Retry com limite na confirmação de matrícula | A operação não é idempotente e pode duplicar a inscrição, e a repetição simultânea no pico amplia a sobrecarga que se quer conter |
-| Publicação confiável de mudança acadêmica | Saga | A operação é uma gravação seguida de notificação, sem etapas em serviços distintos que exijam compensação |
+| Proteção contra falha de integração | Retry com limite na confirmação de matrícula | A operação não é idempotente, ou seja, repeti-la duplica o efeito, e pode duplicar a inscrição, e a repetição simultânea no pico amplia a sobrecarga que se quer conter |
+| Publicação confiável de mudança acadêmica | Saga | A operação é uma gravação seguida de notificação, sem etapas em serviços distintos que exijam compensação, isto é, desfazer o que já foi feito |
 <!--/gabarito-->
 <!--/ex-->
 
@@ -97,20 +97,20 @@ Dois padrões foram considerados e deixados de fora, porque não combinam com o 
 - **Revisão:** escreva um gatilho que dá para observar, com valor e prazo.
 <!--/campos-->
 <!--gabarito-->
-#### ADR 001, estilo orientado a eventos com padrões de convivência e de resiliência
+#### O registro da decisão sobre o estilo, orientado a eventos com padrões de convivência e de resiliência
 
-O registro abaixo junta o que os exercícios 9 a 11 decidiram, nos dez campos do modelo da aula. O estado é proposta porque o caso ainda não traz a data nem quem decide, e por isso esses dois pontos ficam marcados como a definir.
+O registro abaixo, o primeiro registro de decisão arquitetural (ADR) do caderno, junta o que os exercícios 9 a 11 decidiram, nos dez campos do modelo da aula. O estado é proposta porque o caso ainda não traz a data nem quem decide, e por isso esses dois pontos ficam marcados como a definir.
 
 | Campo | Conteúdo |
 | --- | --- |
 | Título | ADR 001, adoção da arquitetura orientada a eventos na entrada da matrícula, com Strangler Fig, Anti-Corruption Layer, Timeout, Circuit Breaker, Bulkhead e Transactional Outbox |
 | Estado | Proposta |
 | Data | A definir, com o Diretor de TI |
-| Contexto | O Portal do Aluno recebe em média 815 sessões simultâneas e chega a 5.800 na abertura da matrícula, com erro de 6,3% contra a meta de 1%. Em 04/02/2026, sessões abandonadas esgotaram as tarefas do CICS, com 4h20 de indisponibilidade e 62% de erro na matrícula. O núcleo COBOL não pode ser alterado nem substituído durante a transição. Fica fora deste registro a escolha do produto de mensageria |
-| Forças | Absorver a razão de 7,1 entre o pico e a média, princípio da evolução incremental. Levar o erro de 6,3% a menos de 1%. Conter a indisponibilidade nos 43 minutos mensais do acordo de nível de serviço. Preservar o núcleo, princípio do baixo acoplamento e restrição do contrato de sustentação. Entregar a nota em 10 minutos, princípio da separação de responsabilidades. Manter o dado pessoal em território nacional, princípio da segurança por desenho |
+| Contexto | O Portal do Aluno recebe em média 815 sessões simultâneas e chega a 5.800 na abertura da matrícula, com erro de 6,3% contra a meta de 1%. Em 04/02/2026, sessões abandonadas esgotaram as tarefas simultâneas que o servidor de transações CICS aceita, com 4h20 de indisponibilidade e 62% de erro na matrícula. O núcleo COBOL não pode ser alterado nem substituído durante a transição. Fica fora deste registro a escolha do produto de mensageria |
+| Forças | Absorver o pico, que é 7,1 vezes a média, princípio da evolução incremental. Levar o erro de 6,3% a menos de 1%. Conter a indisponibilidade nos 43 minutos mensais de indisponibilidade que o acordo de nível de serviço, o compromisso de disponibilidade, permite. Preservar o núcleo, princípio do baixo acoplamento e restrição do contrato de sustentação. Entregar a nota em 10 minutos, princípio da separação de responsabilidades. Manter o dado pessoal em território nacional, princípio da segurança por desenho |
 | Alternativas | Manter a arquitetura em camadas atual atende a preservação do núcleo, mas não as três primeiras forças, porque é a configuração que produz os 6,3% de erro. Microsserviços atenderiam a escalabilidade seletiva, mas exigem extrair a matrícula do COBOL, trabalho de mais de um ciclo de 12 meses em conflito com a preservação do núcleo. A arquitetura hexagonal protegeria o acesso ao núcleo, mas não reduz a carga do pico e acrescenta indireção |
 | Decisão | Adotar a arquitetura orientada a eventos na entrada da matrícula, com fila entre o portal e o núcleo. Usar Strangler Fig e Anti-Corruption Layer para a convivência com o legado, Timeout, Circuit Breaker e Bulkhead contra a falha de integração e Transactional Outbox para publicar a nota. A fila absorve o pico sem tocar o núcleo, e os padrões atendem as forças de erro, de disponibilidade e de 10 minutos |
-| Consequências | Positiva: o núcleo deixa de receber a rajada direta e processa no ritmo que sustenta. Negativa: a confirmação deixa de ser síncrona para o aluno, e a equipe passa a operar um componente assíncrono, com os custos de cada padrão, entre eles a manutenção de duas implementações, o ajuste de limites sem teste de carga e a entrega ao menos uma vez. Neutra: o tratamento de erro sai do horário de pico e passa para o processamento da fila |
+| Consequências | Positiva: o núcleo deixa de receber a rajada direta e processa no ritmo que sustenta. Negativa: o aluno deixa de receber a confirmação na hora, e a equipe passa a operar um componente assíncrono, em que quem envia segue adiante sem esperar resposta, com os custos de cada padrão, entre eles a manutenção de duas implementações, o ajuste de limites sem teste de carga e a entrega ao menos uma vez. Neutra: o tratamento de erro sai do horário de pico e passa para o processamento da fila |
 | Evidências | Não existe teste de carga, porque a linha de base registra a ausência desse ambiente. A evidência disponível é o histórico do incidente de 04/02/2026, reproduzível pelos registros de operação do CICS. A evidência desejável e ausente é um ensaio de carga com 5.800 sessões em ambiente equivalente ao de produção |
 | Revisão | Reabrir o registro se a taxa de erro na janela de matrícula seguinte ficar acima de 2%, ou se o percentil 95 do intervalo entre o lançamento e a chegada da nota ao ambiente virtual passar de 10 minutos por duas semanas seguidas |
 
@@ -123,7 +123,7 @@ Campos incompletos: a data e os decisores dependem do Diretor de TI, e a evidên
 - **Classificação da capacidade:** diga se cada uma das dez capacidades acadêmicas é estratégica, quando orienta a oferta e a qualidade do serviço, operacional, quando entrega o serviço ao aluno, ou de apoio, quando sustenta as demais.
 - **Capacidade afetada:** marque as capacidades que o primeiro ciclo altera, conforme a declaração de escopo do exercício 8, e escreva uma linha de justificativa para cada marcação.
 - **Etapa com problema:** aponte as etapas do fluxo de valor do aluno em que ele percebe atraso, restrição de acesso ou falta de função.
-- **Requisito da etapa:** para cada etapa apontada, diga se o problema é o do R1, do R7 ou do R13, ou registre que nenhum dos três se aplica.
+- **Requisito da etapa:** para cada etapa apontada, diga se o problema é o da renovação pelo celular (R1), o da nota em até 10 minutos (R7) ou o da consulta do resultado de aproveitamento pelo portal (R13), ou registre que nenhum dos três se aplica.
 - **Atividade que muda:** aponte as atividades do processo de lançamento de nota que mudam quando a nota passa a chegar ao ambiente virtual em até 10 minutos.
 - **Unidade afetada:** diga qual unidade da organização sente essa mudança e qual atividade deixa de existir.
 <!--/campos-->
@@ -136,8 +136,8 @@ O arquiteto começa por saber onde a mudança toca o trabalho da universidade. D
 | --- | --- | --- | --- |
 | Admissão e ingresso | Operacional | Não | Fica fora do escopo declarado no exercício 8 |
 | Oferta e grade curricular | Operacional | Não | Fica fora do escopo declarado no exercício 8 |
-| Matrícula em disciplinas | Estratégica | Sim | O R1 pede a renovação pelo celular, o R6 fixa o tempo de confirmação, e o incidente de 04/02/2026 ocorreu na abertura da matrícula |
-| Avaliação e registro de notas | Estratégica | Sim | O R7 pede a nota no ambiente virtual em até 10 minutos |
+| Matrícula em disciplinas | Estratégica | Sim | O requisito R1 pede a renovação pelo celular, o R6 fixa em 4 segundos o tempo de confirmação com 5.800 sessões simultâneas, e o incidente de 04/02/2026 ocorreu na abertura da matrícula |
+| Avaliação e registro de notas | Estratégica | Sim | O requisito R7 pede a nota no ambiente virtual em até 10 minutos |
 | Controle de frequência | Operacional | Não | Nenhum dos três requisitos do exercício a atinge |
 | Emissão de documentos acadêmicos | Operacional | Não | Fica fora do escopo declarado no exercício 8 |
 | Gestão de bolsas e descontos | Operacional | Indiretamente | A matrícula depende do cálculo da parcela feito por esse módulo, que não muda, mas precisa continuar acessível |
@@ -147,7 +147,7 @@ O arquiteto começa por saber onde a mudança toca o trabalho da universidade. D
 
 #### Etapas do fluxo de valor com problema
 
-Ao percorrer o fluxo de valor do aluno, o arquiteto encontra problema em quatro das seis etapas. Três delas têm um requisito que pede a melhoria, e a etapa 3 mostra um atraso que nenhum requisito do exercício cobre.
+Ao percorrer o fluxo de valor do aluno, o arquiteto encontra problema em quatro das seis etapas. Três delas têm um requisito que pede a melhoria, a saber a renovação pelo celular (R1), a nota em até 10 minutos (R7) e a consulta do aproveitamento pelo portal (R13), e a etapa 3 mostra um atraso que nenhum requisito do exercício cobre.
 
 | Etapa | Problema | Requisito |
 | --- | --- | --- |
@@ -160,7 +160,7 @@ A etapa 2, a confirmação da matrícula, não entra na lista, porque ocorre no 
 
 #### Processo de lançamento de nota
 
-Quando a nota passa a chegar em até 10 minutos, o arquivo gerado no lote das 05h10 perde a razão de existir, e a importação desse arquivo no ambiente virtual muda junto com ele. As demais atividades permanecem.
+Quando a nota passa a chegar em até 10 minutos, o arquivo gerado no lote das 05h10, a rotina noturna que processa os registros acumulados, perde a razão de existir, e a importação desse arquivo no ambiente virtual muda junto com ele. As demais atividades permanecem.
 
 | Atividade | Situação | Motivo |
 | --- | --- | --- |
@@ -169,7 +169,7 @@ Quando a nota passa a chegar em até 10 minutos, o arquivo gerado no lote das 05
 | 3. Gerar o arquivo de notas no lote das 05h10 | Muda e deixa de existir | A nota passa a ser publicada a cada lançamento |
 | 4. Importar o arquivo de notas no ambiente virtual | Muda | O ambiente virtual passa a receber cada nota publicada |
 | 5. Consultar a nota | Permanece | O aluno continua consultando no ambiente virtual |
-| Retorno das 06h15 | Permanece | A devolução de nota de atividade e presença fica fora do alcance do R7 |
+| Retorno das 06h15 | Permanece | A devolução de nota de atividade e presença fica fora do alcance do requisito de 10 minutos (R7) |
 
 A unidade afetada é a equipe de integrações e execução de lotes, que hoje gera o arquivo das 05h10. A Coordenação de Educação a Distância percebe o efeito, porque deixa de esperar o dia seguinte pela nota.
 <!--/gabarito-->
@@ -184,7 +184,7 @@ A unidade afetada é a equipe de integrações e execução de lotes, que hoje g
 - **Registro da escolha do dado mestre:** escreva em três linhas o contexto, a decisão e uma consequência da escolha.
 - **Classificação dos atributos:** diga, para cada um dos seis atributos do aluno, se é dado pessoal ou dado pessoal sensível.
 - **Destino com excesso de dado:** indique o destino que recebe mais atributos do que a finalidade exige.
-- **Hipótese de conservação e origem do R14:** diga qual hipótese do art. 16 da LGPD autoriza guardar o histórico dos egressos e se o R14 vem da lei ou de decisão da instituição.
+- **Hipótese de conservação e origem do R14:** diga qual hipótese do art. 16 da LGPD autoriza guardar o histórico dos egressos e se a exigência de dado pessoal em território nacional (R14) vem da lei ou de decisão da instituição.
 - **Motivo contra o acesso direto ao banco:** explique em até três linhas por que os 2.300 acessos diretos contrariam a propriedade do dado.
 <!--/campos-->
 <!--gabarito-->
@@ -204,7 +204,7 @@ Os portais Java não são donos de nenhuma entidade, embora gravem nas tabelas, 
 
 #### Regime de consistência por consumidor
 
-Na abertura da matrícula o aluno espera resposta rápida de quem lê a fonte, e a Educação a Distância quer a nota no ambiente virtual em até 10 minutos, que são o R6 e o R7 do dossiê. Para os demais consumidores nenhum requisito pede prazo menor do que o lote atual, então o prazo declarado é o do lote que já existe.
+Na abertura da matrícula a confirmação ao aluno deve ficar em até 4 segundos (requisito R6), e a Educação a Distância quer a nota no ambiente virtual em até 10 minutos (requisito R7). Consistência forte significa que a leitura reflete a gravação na hora, e eventual significa que a leitura reflete a gravação dentro de um prazo. Para os demais consumidores nenhum requisito pede prazo menor do que o lote atual, então o prazo declarado é o do lote que já existe.
 
 | Entidade | Núcleo transacional | Portais Java | ERP financeiro | Ambiente virtual | Data warehouse |
 | --- | --- | --- | --- | --- | --- |
@@ -222,14 +222,14 @@ O aluno é a entidade compartilhada da ACME, com 38.400 alunos ativos e 214.000 
 
 | Campo | Registro |
 | --- | --- |
-| Estilo | Centralizado, com o cadastro acadêmico do núcleo como sistema de registro |
+| Estilo | Centralizado, com o cadastro acadêmico do núcleo como sistema de registro, isto é, a fonte oficial do dado |
 | Contexto | Ambiente virtual, ERP financeiro e data warehouse recebem cópia do aluno por lote, e o aplicativo do aluno vai gravar endereço e telefone |
 | Decisão | A escrita ocorre só no cadastro acadêmico, e o aplicativo grava por meio dele, pelas transações existentes do núcleo |
 | Consequência | Endereço e telefone deixam de divergir entre as cópias. O aplicativo depende das transações do núcleo, que não podem ser alteradas até 30/09/2027 |
 
 #### Obrigações do dado pessoal do aluno
 
-A tabela classifica os seis atributos pelo art. 5º da LGPD. Origem racial ou étnica e dado referente à saúde são dados pessoais sensíveis, e por isso cor ou raça e condição de deficiência exigem controle mais estrito.
+A tabela classifica os seis atributos pelo art. 5º da Lei Geral de Proteção de Dados (LGPD). Origem racial ou étnica e dado referente à saúde são dados pessoais sensíveis, e por isso cor ou raça e condição de deficiência exigem controle mais estrito.
 
 | Atributo | Classificação | Destinos | Situação perante a necessidade |
 | --- | --- | --- | --- |
@@ -240,7 +240,7 @@ A tabela classifica os seis atributos pelo art. 5º da LGPD. Origem racial ou é
 | Condição de deficiência | Dado pessoal sensível | Data warehouse | Coletada para o censo, como o atributo anterior |
 | Histórico escolar de egresso | Dado pessoal | Data warehouse | Guardado para emissão de histórico com validade legal |
 
-O destino que recebe mais do que a finalidade exige é o data warehouse, porque a cópia integral de 140 tabelas leva os dois atributos sensíveis, e o dossiê não registra finalidade analítica para eles. A hipótese do art. 16 que autoriza guardar o histórico dos 214.000 egressos é o cumprimento de obrigação legal ou regulatória pelo controlador (inciso I), já que a ACME emite histórico com validade legal. O dossiê não informa a norma que fixa o prazo de guarda, e a Encarregada de proteção de dados precisa confirmá-la. O R14 decorre de decisão da instituição, apoiada no parecer do Jurídico de 28/04/2026, e não da LGPD, que não exige que o dado permaneça no território nacional.
+O destino que recebe mais do que a finalidade exige é o data warehouse, porque a cópia integral de 140 tabelas leva os dois atributos sensíveis, e o dossiê não registra finalidade analítica para eles. A hipótese do art. 16 que autoriza guardar o histórico dos 214.000 egressos é o cumprimento de obrigação legal ou regulatória pelo controlador (inciso I), já que a ACME emite histórico com validade legal. O dossiê não informa a norma que fixa o prazo de guarda, e a Encarregada de proteção de dados precisa confirmá-la. A exigência de que nenhum dado pessoal de aluno seja processado fora do território nacional (R14) decorre de decisão da instituição, apoiada no parecer do Jurídico de 28/04/2026, e não da LGPD, que não exige que o dado permaneça no território nacional.
 
 #### Acesso direto ao banco
 
@@ -252,14 +252,14 @@ O banco Oracle, com 740 tabelas, é compartilhado entre o núcleo COBOL e a cama
 <!--campos-->
 - **Modo de comunicação:** para cada uma das 15 relações do diagrama de contêineres, diga se é síncrona, quando quem chama espera a resposta, ou assíncrona, quando segue adiante.
 - **Volume e latência:** para cada relação, escreva quanto passa por ela e quanto tempo a troca pode levar, usando os fatos dos dados operacionais, e escreva "não informado" quando o dossiê não trouxer o dado.
-- **Relações do R6:** indique, pelo número, as relações que fazem parte do caminho da confirmação da matrícula em até 4 segundos.
-- **Relações do R7:** indique, pelo número, as relações que fazem parte do caminho da nota até o ambiente virtual em até 10 minutos.
+- **Relações do R6:** indique, pelo número, as relações que fazem parte do caminho da confirmação da matrícula em até 4 segundos (requisito R6).
+- **Relações do R7:** indique, pelo número, as relações que fazem parte do caminho da nota até o ambiente virtual em até 10 minutos (requisito R7).
 - **Posição do núcleo transacional:** diga se o núcleo COBOL fica dentro ou fora da fronteira da solução, e por quê.
 <!--/campos-->
 <!--gabarito-->
 #### Contêineres da arquitetura alvo e suas relações
 
-Ao fim do primeiro ciclo, o aluno renova a matrícula pelo aplicativo, o professor lança a nota pelo portal, e dois serviços novos, o de matrícula e o de notas, chamam o núcleo COBOL pelas transações que ele já tem. Cada serviço novo tem banco próprio, e o núcleo continua gravando no banco Oracle existente. A figura mostra os contêineres e as 15 relações numeradas, e a tabela dá o que cada relação exige da comunicação.
+Ao fim do primeiro ciclo, o aluno renova a matrícula pelo aplicativo, o professor lança a nota pelo portal, e dois serviços novos, o de matrícula e o de notas, chamam o núcleo COBOL pelas transações que ele já tem. Cada serviço novo tem banco próprio, e o núcleo continua gravando no banco Oracle existente. A figura mostra os contêineres e as 15 relações numeradas, e a tabela dá o que cada relação exige da comunicação. Contêiner, no modelo C4, é uma parte executável da solução, como um portal, um serviço ou um banco. O R6 é o requisito de confirmar a matrícula em até 4 segundos com 5.800 sessões simultâneas, e o R7 é o de entregar a nota em até 10 minutos.
 
 ![Diagrama de contêineres da arquitetura alvo do primeiro ciclo da ACME. No alto, professor, aluno e secretaria acadêmica. Dentro da fronteira do sistema acadêmico, o Portal do Professor e o Portal da Secretaria existentes, o aplicativo do aluno, os serviços de notas e de matrícula com banco próprio cada um e tecnologia a definir, e o núcleo transacional COBOL existente com o banco Oracle existente. À direita, fora da fronteira, provedor de identidade, assinador digital ICP-Brasil, ambiente virtual de aprendizagem, gateway de pagamento, ERP financeiro e órgão regulador. As relações estão numeradas de 1 a 15.](../assets/images/acme-ex16-diagrama-de-conteineres.svg){ .module-diagram }
 
@@ -281,7 +281,7 @@ Ao fim do primeiro ciclo, o aluno renova a matrícula pelo aplicativo, o profess
 | 14 | Aplicativo do aluno para serviço de notas | Síncrono | Não informado | Não informado |
 | 15 | Portal da Secretaria para núcleo | Síncrono | Não informado | Tempo limite atual de 30 segundos do conector dos portais |
 
-O R6 é sustentado pelas relações 1, 3, 5 e 8, que formam o caminho da confirmação, da entrada do aluno ao banco. As relações 3 e 5 herdam o orçamento de 4 segundos, o que faz do núcleo o ponto provável de gargalo da matrícula. O R7 é sustentado pelas relações 2, 4 e 6, que levam a nota do portal ao ambiente virtual. A relação 12 fica fora da lista do R6, porque o dossiê não diz se a gravação no banco do serviço entra no tempo da confirmação, e a 13 fica fora da lista do R7 pelo mesmo motivo.
+O requisito de confirmação em até 4 segundos (R6) é sustentado pelas relações 1, 3, 5 e 8, que formam o caminho da confirmação, da entrada do aluno ao banco. As relações 3 e 5 precisam caber nos mesmos 4 segundos, o que faz do núcleo o ponto provável de gargalo da matrícula. O requisito de nota em até 10 minutos (R7) é sustentado pelas relações 2, 4 e 6, que levam a nota do portal ao ambiente virtual. A relação 12 fica fora da lista do R6, porque o dossiê não diz se a gravação no banco do serviço entra no tempo da confirmação, e a 13 fica fora da lista do R7 pelo mesmo motivo.
 
 O núcleo transacional fica dentro da fronteira, como contêiner. A ACME detém a responsabilidade pelo núcleo e terceiriza à fábrica apenas a manutenção dos programas COBOL, e o critério que decide a posição de um elemento é a fronteira de responsabilidade sobre ele. O contrato de sustentação até 30/09/2027 impede que a equipe interna altere o núcleo, e por isso os serviços novos o acessam pelas transações existentes.
 <!--/gabarito-->

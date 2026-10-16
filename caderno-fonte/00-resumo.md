@@ -8,7 +8,7 @@ modo: substitui
 | --- | --- |
 | Para que serve | Quem decide sobre o projeto da ACME raramente lê o caderno inteiro e, mesmo assim, precisa apoiá-lo ou questioná-lo depois de poucos minutos de leitura. Por isso este resumo de uma página reúne o essencial, e a decisão pode ser tomada sem percorrer as outras seções. |
 | Pergunta que responde | Se alguém lesse só esta página, entenderia o projeto? |
-| O que você escreve | Você escreve seis parágrafos curtos, que contam nesta ordem qual é o problema, que pergunta o projeto responde, qual é a decisão central, que requisito mais pesa no desenho, o que a ACME aceita perder em troca e em que estágio está o trabalho. |
+| O que você escreve | Você escreve seis parágrafos curtos, que contam nesta ordem qual é o problema, que pergunta o projeto responde, qual é a decisão central, que exigência mais pesa no desenho, quais são as consequências da decisão para a ACME e em que estágio está o trabalho. |
 | Vem de onde | O resumo não traz informação nova, porque retoma em poucas linhas o que as outras seções já registram, e por isso ele é escrito depois delas. |
 | Quando se preenche | Ao fim de cada aula você reescreve o resumo, nos exercícios 4, 8, 12, 16, 20 e 24, e cada versão substitui a anterior. |
 <!--/orientacao-->
@@ -19,13 +19,13 @@ modo: substitui
 
 **A pergunta.** Diante desse quadro, o projeto pergunta como evoluir o sistema acadêmico de forma segura e incremental, com o núcleo em operação durante a transição e respeitando os contratos já assumidos.
 
-**A decisão central.** Ainda não há decisão central, porque o processo está na fase de descoberta. A Reitoria já descartou a substituição integral e a reescrita em entrega única, de modo que nenhuma das duas volta à discussão.
+**A decisão.** Ainda não há. O processo está na fase de descoberta, e a Reitoria já descartou a substituição integral e a reescrita em entrega única.
 
-**O requisito que guia o desenho.** Ainda indefinido, e a definição fica para a Aula 2, quando os requisitos declarados forem classificados e medidos.
+**O que mais pesa no desenho.** A definir na Aula 2, quando as exigências do projeto forem classificadas e medidas.
 
-**O que a organização aceita em troca.** Ainda indefinido, porque a troca só aparece depois da escolha do estilo na Aula 3.
+**Consequências.** A definir, depois da escolha do estilo de arquitetura na Aula 3.
 
-**Como está o trabalho.** As decisões D1 a D9 estão classificadas por nível, e as decisões D2, D3, D5, D6, D8 e D9 e as sete premissas estão **propostas**, aguardando validação. A data de conclusão do ciclo só pode ser dada na fase 7 do processo.
+**Como está o trabalho.** As nove decisões levantadas estão classificadas por nível. Seis delas, assim como as sete premissas, ainda são propostas e precisam de validação das partes interessadas. A data de conclusão do ciclo depende da fase 7 do processo.
 <!--/gabarito-->
 <!--/ex-->
 
@@ -35,13 +35,13 @@ modo: substitui
 
 **A pergunta.** Diante desse quadro, o projeto pergunta como evoluir o sistema acadêmico de forma segura e incremental, com o núcleo em operação durante a transição e respeitando os contratos já assumidos.
 
-**A decisão central.** Ainda não há decisão central. A Reitora pede resultado em 12 meses, e por isso o primeiro ciclo já tem o escopo registrado na seção 2, com a lista dos elementos que mudam e dos que permanecem, mas a escolha do estilo fica para a Aula 3.
+**A decisão.** Ainda não há. A Reitora pede resultado em 12 meses, e o primeiro ciclo já tem o escopo registrado na seção 2, com a lista do que muda e do que permanece. A escolha do estilo de arquitetura fica para a Aula 3.
 
-**O requisito que guia o desenho.** O R6 exige 5.800 sessões simultâneas na abertura da matrícula, com percentil 95 do tempo de confirmação em até 4 segundos, e os cenários do pico de matrícula e do incidente de sessão foram julgados significativos para a arquitetura. O R7, que pede a nota no ambiente virtual em até 10 minutos, completa o par que mais pesa.
+**O que mais pesa no desenho.** A matrícula. Na abertura, o Portal do Aluno precisa sustentar 5.800 sessões simultâneas, com o tempo de confirmação em até 4 segundos para 95% das requisições (o requisito R6 do dossiê). O segundo ponto de atenção é a nota: o professor lança e o aluno precisa vê-la no ambiente virtual de aprendizagem em até 10 minutos (o R7). Os cenários do pico de matrícula e do incidente de sessão foram julgados significativos para a arquitetura.
 
-**O que a organização aceita em troca.** Ainda indefinido, porque a troca só aparece depois da escolha do estilo na Aula 3.
+**Consequências.** A definir, depois da escolha do estilo de arquitetura na Aula 3.
 
-**Como está o trabalho.** Os direcionadores de mudança, os requisitos, os cenários, as restrições e as partes interessadas estão registrados, e as decisões D2, D3, D5, D6, D8 e D9 e as sete premissas continuam **propostas**.
+**Como está o trabalho.** Os direcionadores de mudança, os requisitos, os cenários, as restrições e as partes interessadas estão registrados. As nove decisões levantadas na Aula 1 e as sete premissas continuam propostas.
 <!--/gabarito-->
 <!--/ex-->
 
@@ -51,13 +51,13 @@ modo: substitui
 
 **A pergunta.** Diante desse quadro, o projeto pergunta como evoluir o sistema acadêmico de forma segura e incremental, com o núcleo em operação durante a transição e respeitando os contratos já assumidos.
 
-**A decisão central.** Para a entrada da matrícula, o projeto propõe a arquitetura orientada a eventos, com fila entre o portal e o núcleo, e os padrões Strangler Fig, Anti-Corruption Layer, Timeout, Circuit Breaker, Bulkhead e Transactional Outbox. A decisão está registrada no ADR 001, em estado de proposta.
+**A decisão.** A ACME adota a arquitetura orientada a eventos na entrada da matrícula, com uma fila entre o portal e o núcleo COBOL. Para a convivência com o sistema antigo e para a falha de integração, a decisão traz seis padrões de projeto, listados no registro ADR 001, que está em estado de proposta.
 
-**O requisito que guia o desenho.** O R6 guia o desenho porque o Portal do Aluno chega a 5.800 sessões simultâneas, 7,1 vezes a média de 815, com erro de 6,3% contra a meta de 1%. A fila absorve esse pico sem alterar o núcleo.
+**O que mais pesa no desenho.** A abertura da matrícula. O Portal do Aluno recebe em média 815 sessões simultâneas e chega a 5.800, 7,1 vezes a média, com erro de 6,3% contra a meta de 1%. A fila absorve esse pico sem alterar o núcleo.
 
-**O que a organização aceita em troca.** Para absorver o pico, a confirmação da matrícula deixa de ser síncrona para o aluno, e a equipe passa a operar um componente assíncrono, com os custos de cada padrão e a entrega ao menos uma vez.
+**Consequências.** A confirmação da matrícula deixa de ser imediata para o aluno, porque o pedido entra na fila e o núcleo o processa depois. A equipe também passa a operar uma fila e os seis padrões, o que exige manter duas implementações, ajustar limites sem teste de carga e tratar mensagens entregues mais de uma vez.
 
-**Como está o trabalho.** O estilo e os padrões estão decididos como proposta, mas faltam a data e os decisores do ADR 001, e não existe ensaio de carga com 5.800 sessões.
+**Como está o trabalho.** O estilo e os padrões estão decididos como proposta. Faltam a data e os decisores do ADR 001, e a ACME ainda não tem ambiente para um ensaio de carga com 5.800 sessões.
 <!--/gabarito-->
 <!--/ex-->
 
@@ -67,13 +67,13 @@ modo: substitui
 
 **A pergunta.** Diante desse quadro, o projeto pergunta como evoluir o sistema acadêmico de forma segura e incremental, com o núcleo em operação durante a transição e respeitando os contratos já assumidos.
 
-**A decisão central.** Continua sendo a do ADR 001, a arquitetura orientada a eventos na entrada da matrícula. Depois dela, os domínios de negócio, de dados, de aplicações e de integração passaram a ter o efeito do primeiro ciclo registrado, com o diagrama de contexto e o de contêineres da arquitetura alvo.
+**A decisão.** A mesma do ADR 001, a arquitetura orientada a eventos na entrada da matrícula. Esta versão acrescenta o efeito da solução nos quatro domínios de arquitetura: o negócio, os dados, as aplicações com suas integrações e a infraestrutura, com o diagrama de contexto e o de contêineres da arquitetura alvo.
 
-**O requisito que guia o desenho.** O R6 guia a matrícula e o R7 guia a nota. Como o núcleo COBOL, que a equipe da ACME não pode alterar até 30/09/2027, permanece como sistema de registro, a relação entre o serviço de notas e o ambiente virtual é assíncrona.
+**O que mais pesa no desenho.** A matrícula, com 5.800 sessões simultâneas na abertura, e a nota, que precisa chegar ao ambiente virtual em até 10 minutos. Por isso o envio da nota entre o serviço de notas e o ambiente virtual é assíncrono. O núcleo COBOL permanece como sistema de registro, porque a equipe da ACME não pode alterá-lo até 30/09/2027.
 
-**O que a organização aceita em troca.** A ACME aceita a confirmação assíncrona da matrícula e a dependência da fábrica de software, a única que pode gravar o evento junto com a nota no programa COBOL.
+**Consequências.** A confirmação da matrícula continua assíncrona. Além disso, para publicar o evento da nota na mesma transação em que ela é gravada, a ACME depende da fábrica de software, a única que pode alterar o programa COBOL de avaliação e notas.
 
-**Como está o trabalho.** A arquitetura de negócio, de dados, de aplicações e de integração está registrada, e faltam a infraestrutura e a tecnologia. Os pontos sem informação no dossiê constam como pendências.
+**Como está o trabalho.** Os domínios de negócio, de dados, de aplicações e de integração estão registrados, e o de infraestrutura já tem o diagrama de contêineres. A tecnologia de cada contêiner ainda está por definir, e os pontos sem informação no dossiê constam na seção de pendências.
 <!--/gabarito-->
 <!--/ex-->
 
@@ -83,12 +83,12 @@ modo: substitui
 
 **A pergunta.** Diante desse quadro, o projeto pergunta como evoluir o sistema acadêmico de forma segura e incremental, com o núcleo em operação durante a transição e respeitando os contratos já assumidos.
 
-**A decisão central.** São duas decisões em estado de proposta. O ADR 001 adota a arquitetura orientada a eventos na entrada da matrícula, e o ADR de plataforma, que vem depois dele, adota a plataforma de microsserviços na variante Java, com Kafka como barramento de eventos, por aproveitar a camada Java já existente.
+**A decisão.** Há duas decisões em estado de proposta. A primeira, o ADR 001, adota a arquitetura orientada a eventos na entrada da matrícula. A segunda, o ADR de plataforma, escolhe a plataforma de microsserviços na variante Java, com o Kafka como barramento de eventos, porque a ACME já tem 9 pessoas na camada Java e porque essa plataforma convive com o núcleo pelas transações CICS existentes.
 
-**O requisito que guia o desenho.** O R6 e o R7 continuam guiando o desenho, agora com o R14 como limite: nenhum dado pessoal de aluno é processado fora do território nacional, e a zona de pouso na nuvem precisa respeitar essa região.
+**O que mais pesa no desenho.** A matrícula (5.800 sessões simultâneas) e a nota (10 minutos até o ambiente virtual), com um limite legal. Nenhum dado pessoal de aluno pode ser processado fora do território nacional, e por isso a região escolhida para a nuvem precisa ficar no Brasil.
 
-**O que a organização aceita em troca.** A ACME aceita a confirmação assíncrona da matrícula, a capacitação da equipe em componentes que o dossiê não registra e uma superfície de observação maior, absorvida pelo mesmo time.
+**Consequências.** A confirmação da matrícula continua assíncrona. A equipe Java precisará de capacitação em tecnologias cuja experiência o dossiê não registra. Além disso, a plataforma nova aumenta o que a equipe precisa observar em produção, e o mesmo time absorve esse trabalho.
 
-**Como está o trabalho.** A tecnologia, a plataforma, a segurança e o registro da plataforma estão decididos como proposta, e restam as pendências da seção 10, entre elas o ensaio de carga com 5.800 sessões e a data dos dois registros.
+**Como está o trabalho.** A tecnologia, a plataforma, a segurança dos dados e o registro da plataforma estão decididos como proposta. Restam as pendências da seção 10, entre elas o ensaio de carga com 5.800 sessões e a data dos dois registros.
 <!--/gabarito-->
 <!--/ex-->

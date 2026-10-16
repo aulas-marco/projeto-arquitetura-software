@@ -29,7 +29,7 @@ A comunicação com essas pessoas tem quatro motivos distintos, e confundi-los g
 | Patrocinador de negócio | Responsável único pela solução, que decide a passagem de cada fase | Sucesso da solução dentro do prazo e do orçamento aprovados |
 | Usuários finais e atores de negócio | Quem opera o processo alterado pela solução | Viabilidade da rotina nova e continuidade do trabalho |
 | Clientes e usuários dos serviços | Quem recebe o serviço afetado | Qualidade percebida do serviço |
-| Arquitetura corporativa e subdomínios | Quem responde pelos domínios de negócio, dados, aplicações, infraestrutura e segurança | Aderência às diretrizes e reúso do que já existe |
+| Arquitetura corporativa e subdomínios | Quem responde pelos domínios de negócio, dados, aplicações, infraestrutura e segurança | Aderência às diretrizes e reuso do que já existe |
 | Participantes do desenho | Quem desenha partes da solução | Consistência entre as partes desenhadas |
 | Participantes da implantação | Quem constrói, implanta e sustenta | Exequibilidade do desenho e condições de sustentação |
 | Fornecedores de produto e serviço | Quem provê tecnologia ou serviço contratado | Escopo contratual e continuidade da receita |

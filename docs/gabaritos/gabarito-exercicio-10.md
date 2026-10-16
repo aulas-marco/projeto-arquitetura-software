@@ -10,13 +10,13 @@ Depois do exercício 10, o caderno da ACME reúne o que os exercícios 1 a 10 pr
 
 **A pergunta.** Diante desse quadro, o projeto pergunta como evoluir o sistema acadêmico de forma segura e incremental, com o núcleo em operação durante a transição e respeitando os contratos já assumidos.
 
-**A decisão central.** Ainda não há decisão central. A Reitora pede resultado em 12 meses, e por isso o primeiro ciclo já tem o escopo registrado na seção 2, com a lista dos elementos que mudam e dos que permanecem, mas a escolha do estilo fica para a Aula 3.
+**A decisão.** Ainda não há. A Reitora pede resultado em 12 meses, e o primeiro ciclo já tem o escopo registrado na seção 2, com a lista do que muda e do que permanece. A escolha do estilo de arquitetura fica para a Aula 3.
 
-**O requisito que guia o desenho.** O R6 exige 5.800 sessões simultâneas na abertura da matrícula, com percentil 95 do tempo de confirmação em até 4 segundos, e os cenários do pico de matrícula e do incidente de sessão foram julgados significativos para a arquitetura. O R7, que pede a nota no ambiente virtual em até 10 minutos, completa o par que mais pesa.
+**O que mais pesa no desenho.** A matrícula. Na abertura, o Portal do Aluno precisa sustentar 5.800 sessões simultâneas, com o tempo de confirmação em até 4 segundos para 95% das requisições (o requisito R6 do dossiê). O segundo ponto de atenção é a nota: o professor lança e o aluno precisa vê-la no ambiente virtual de aprendizagem em até 10 minutos (o R7). Os cenários do pico de matrícula e do incidente de sessão foram julgados significativos para a arquitetura.
 
-**O que a organização aceita em troca.** Ainda indefinido, porque a troca só aparece depois da escolha do estilo na Aula 3.
+**Consequências.** A definir, depois da escolha do estilo de arquitetura na Aula 3.
 
-**Como está o trabalho.** Os direcionadores de mudança, os requisitos, os cenários, as restrições e as partes interessadas estão registrados, e as decisões D2, D3, D5, D6, D8 e D9 e as sete premissas continuam **propostas**.
+**Como está o trabalho.** Os direcionadores de mudança, os requisitos, os cenários, as restrições e as partes interessadas estão registrados. As nove decisões levantadas na Aula 1 e as sete premissas continuam propostas.
 
 ## 1. Contexto
 
@@ -69,7 +69,7 @@ A tabela traz as nove decisões que a ACME já tomou ou propôs, cada uma com o 
 | D8 | O histórico escolar é emitido com assinatura digital no padrão ICP-Brasil | Solução | Muda o procedimento de emissão do histórico e depende de certificado de terceiro, mas não vale para iniciativas futuras |
 | D9 | A transição ocorre por extração incremental de módulos, com o núcleo em operação | Solução | Afeta o contrato de sustentação, o calendário acadêmico e a rotina das equipes |
 
-As decisões da tabela não têm todas o mesmo estado. D1, D4 e D7 apenas repetem restrições que chegaram prontas (RT4, RT5 e RT6). As outras seis, D2, D3, D5, D6, D8 e D9, estão **propostas**: ainda dependem de validação com as partes interessadas.
+As decisões da tabela não têm todas o mesmo estado. Três apenas repetem restrições que chegaram prontas: os padrões abertos de identidade (D1, vinda da restrição RT4), o dado pessoal em território nacional (D4, vinda da RT5) e o núcleo COBOL sob contrato (D7, vinda da RT6). As outras seis estão **propostas** e ainda dependem de validação com as partes interessadas: a nota em até 10 minutos (D2), o reenvio com intervalo crescente (D3), a correção cadastral pela Secretaria Acadêmica (D5), o índice de busca em memória (D6), a assinatura digital do histórico (D8) e a extração incremental de módulos (D9).
 
 #### Componente da solução afetado
 
@@ -85,7 +85,7 @@ Quando a ACME decide algo como mudar o prazo da nota, a decisão quase nunca é 
 
 #### Dependência entre decisões
 
-A D3 só faz sentido depois da D2. Imagine decidir o reenvio com intervalo crescente quando a nota ainda segue por um lote noturno: cada nova tentativa só aconteceria na janela seguinte, e esperar mais entre as tentativas não aproximaria a nota do aluno, que continuaria chegando no dia seguinte. Só depois que a D2 fixa o prazo de 10 minutos o intervalo entre as tentativas passa a ter o que o justifique.
+O reenvio com intervalo crescente (D3) só faz sentido depois da decisão de levar a nota ao ambiente virtual em até 10 minutos (D2). Imagine decidir o reenvio com intervalo crescente quando a nota ainda segue por um lote noturno: cada nova tentativa só aconteceria na janela seguinte, e esperar mais entre as tentativas não aproximaria a nota do aluno, que continuaria chegando no dia seguinte. Só depois que essa decisão fixa o prazo de 10 minutos o intervalo entre as tentativas passa a ter o que o justifique.
 
 ### 1.2 Os componentes da solução, num exemplo da ACME
 
@@ -106,7 +106,7 @@ Um exemplo da ACME mostra como uma solução se reúne em componentes da soluç�
 | CP9 | Tecnologia | Serviço de notas que publica um evento a cada lançamento |
 | CP10 | Pessoas | Responsável na Coordenação de Educação a Distância pelas falhas de envio |
 
-Nenhum dos cinco tipos ficou vazio, o que mostra que a solução não depende só de tecnologia. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o CP4 e o CP5 mexem na rotina de fechamento e de correção de nota de professores, coordenações e Secretaria, e por isso trocar apenas a tecnologia não altera o prazo que o aluno percebe.
+Nenhum dos cinco tipos ficou vazio, o que mostra que a solução não depende só de tecnologia. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o procedimento de correção de nota já publicada (CP4) e o fechamento sem dependência da janela noturna (CP5) mexem na rotina de professores, coordenações e Secretaria, e por isso trocar apenas a tecnologia não altera o prazo que o aluno percebe.
 
 #### Os fatos da situação atual, em três níveis
 
@@ -144,9 +144,9 @@ Para dividir as tarefas, vale a mesma pergunta usada nas decisões: até onde o 
 
 Dividido o ciclo, seis tarefas cabem ao arquiteto de solução, três ao arquiteto de software ou à equipe de desenvolvimento e uma à arquitetura corporativa. As seis tarefas do arquiteto de solução usam os quatro grupos de competência, o que mostra o quanto o papel exige de habilidades diferentes.
 
-#### Benefício por trás da tarefa T10
+#### A justificativa de reaproveitar um componente de software de envio de mensagem
 
-A tarefa T10 se justifica pelo benefício do **reúso**. Antes de especificar algo novo, o arquiteto consulta o catálogo de aplicações e a arquitetura de software para saber se já existe um componente de software que sirva ao novo uso. Sem essa verificação, a ACME acabaria construindo um segundo componente de envio de mensagem, pagaria duas vezes pela manutenção e pela integração e faria uma mudança maior do que o necessário.
+A tarefa de verificar se já existe componente de software de envio de mensagem reaproveitável (T10) se justifica pelo benefício do **reuso**. Antes de especificar algo novo, o arquiteto consulta o catálogo de aplicações e a arquitetura de software para saber se já existe um componente de software que sirva ao novo uso. Sem essa verificação, a ACME acabaria construindo um segundo componente de envio de mensagem, pagaria duas vezes pela manutenção e pela integração e faria uma mudança maior do que o necessário.
 
 ### 1.4 Artefatos nas fases do processo, premissas e escopo
 
@@ -167,7 +167,7 @@ Para dar um papel a cada artefato, ajuda pensar no caminho que ele faz. Alguns j
 | A9 | Documento que autoriza a equipe a iniciar a investigação | 1. Iniciação | Entrada | Não | 1 |
 | A10 | Modelos da solução implantada, devolvidos ao repositório | 8. Conclusão | Entregável | Não | Todas |
 
-Três artefatos já existiam antes de o processo começar e descrevem parte da situação atual: A1, A2 e A4. Eles formam a linha de base. Quanto à data de conclusão, o pedido chega logo depois do A9, ainda na iniciação, mas a data só pode ser dada com precisão depois da fase 7, quando saem as estimativas de prazo e de custo. Até lá, o caderno registra a data como pendência na seção 10.
+Três artefatos já existiam antes de o processo começar e descrevem parte da situação atual: o mapa de atores (A1), o inventário dos componentes de software atuais (A2) e o registro da decisão da Reitoria de 12/03/2026 (A4). Eles formam a linha de base. Quanto à data de conclusão do trabalho, o pedido da Reitoria chega logo depois do documento que autoriza a investigação (A9), ainda na iniciação, mas a data só pode ser dada com precisão depois da fase 7, de desenvolvimento do roteiro, quando saem as estimativas de prazo e de custo. Até lá, o caderno registra a data como pendência na seção 10, a de pendências.
 
 #### Premissas
 
@@ -233,7 +233,7 @@ Depois de classificar os papéis, o arquiteto fez o caminho inverso e perguntou 
 
 | Categoria sem representante | Risco da ausência |
 | --- | --- |
-| Participantes da implantação | O desenho pode sair sem quem o construa e o sustente depois da internalização, e a operação só recusa o que foi desenhado quando já é tarde para mudar |
+| Participantes da implantação | Ninguém da equipe que vai construir e manter a solução participa do desenho, e as objeções dessa equipe só aparecem quando mudar o desenho já custa caro |
 | Reguladores e entidades setoriais | A exigência externa chega depois da decisão, quando o custo de mudar o desenho já é alto |
 
 #### Pontos de vista de três papéis
@@ -244,11 +244,11 @@ O Diretor Financeiro, a Pró-Reitora e o Gerente de sustentação olham para o m
 | --- | --- | --- | --- | --- |
 | Diretor Financeiro | Pagar o legado e a nuvem no mesmo exercício | Componentes com custo e contrato associados | Tabela de desembolso por exercício | Comparação com o plano plurianual já provisionado |
 | Pró-Reitora de Graduação | Repetir o incidente na janela de matrícula e prorrogar de novo o prazo | Componentes que estão no caminho crítico da matrícula | Fluxo do processo com os pontos de falha marcados | Duas versões comparáveis, a atual e a pretendida |
-| Gerente de sustentação da fábrica | Perder receita e escopo com a internalização do conhecimento do núcleo | Programas sob contrato e interfaces afetadas | Lista de programas com as chamadas que mudam | Marcação do que muda antes e depois de 30/09/2027 |
+| Gerente de sustentação da fábrica | Perder receita e escopo se a ACME passar a dominar o núcleo COBOL sem depender da fábrica | Programas sob contrato e interfaces afetadas | Lista de programas com as chamadas que mudam | Marcação do que muda antes e depois de 30/09/2027 |
 
 #### Declaração de escopo do primeiro ciclo
 
-Para o primeiro ciclo caber nos R$ 6,2 milhões e nos 12 meses, o arquiteto separou o que a mudança toca do que ela deixa como está, e anotou quem decidiu cada exclusão para que ninguém a reabra sem saber de onde veio. A correção do dado cadastral de aluno (E10) muda porque a Aula 1 decidiu, na decisão D5, passá-la da equipe de sustentação à Secretaria Acadêmica.
+Para o primeiro ciclo caber nos R$ 6,2 milhões e nos 12 meses, o arquiteto separou o que a mudança toca do que ela deixa como está, e anotou quem decidiu cada exclusão para que ninguém a reabra sem saber de onde veio. Os dez elementos recebem os códigos E1 a E10, e a coluna de origem cita as restrições da seção 1: RT2 (o ambiente virtual e o ERP financeiro permanecem), RT5 (dado pessoal de aluno em território nacional) e RT6 (núcleo COBOL sob contrato até 30/09/2027). A correção do dado cadastral de aluno (E10) muda porque a Aula 1 decidiu passá-la da equipe de sustentação à Secretaria Acadêmica (decisão D5).
 
 | Código | Elemento | Muda ou permanece | Origem da exclusão |
 | --- | --- | --- | --- |
@@ -285,7 +285,7 @@ O risco de perda de competência tem as duas faces. Só 1 dos 6 especialistas em
 
 #### Fatores externos pela análise PESTLE
 
-Para olhar o ambiente externo, o arquiteto partiu dos três fatos que o dossiê já registra, que cobrem as dimensões Legal, Tecnológica e Sociocultural. Como o dossiê não diz nada sobre as outras três, elas receberam fatores plausíveis, marcados como acréscimo do aluno.
+Para olhar o ambiente externo, o arquiteto partiu dos três fatos que o dossiê já registra (F1, F2 e F3), que cobrem as dimensões Legal, Tecnológica e Sociocultural. Como o dossiê não diz nada sobre as outras três, elas receberam fatores plausíveis, marcados como acréscimo do aluno.
 
 | Dimensão | Fator externo | Origem do fator |
 | --- | --- | --- |
@@ -298,7 +298,7 @@ Para olhar o ambiente externo, o arquiteto partiu dos três fatos que o dossiê 
 
 #### Meta de custo e contrato do mainframe
 
-A meta de R$ 11,0 milhões depende de um contrato que só termina em 31/12/2028, e por isso a tabela ordena no tempo os marcos que prendem o custo.
+A meta de R$ 11,0 milhões depende do contrato de capacidade do mainframe, que obriga a ACME a pagar um volume mínimo de uso mesmo que a carga diminua e só termina em 31/12/2028. Por isso a tabela ordena no tempo os marcos que prendem o custo.
 
 | Marco | Efeito sobre a meta |
 | --- | --- |
@@ -306,7 +306,7 @@ A meta de R$ 11,0 milhões depende de um contrato que só termina em 31/12/2028,
 | 31/12/2028, fim do contrato de capacidade com piso de volume | O piso de volume contratado é devido mesmo com menos carga, e a nuvem soma seu custo ao que já existe |
 | Fim de 2029, meta de R$ 11,0 milhões | É o primeiro exercício em que a redução pode aparecer, depois do fim do contrato |
 
-Por isso o projeto só pode prometer, dentro do primeiro ciclo, a construção das condições para reduzir o custo, e não a redução em si. A meta tem prazo em 2029 porque o contrato termina em 31/12/2028.
+Por isso o projeto só pode prometer, dentro do primeiro ciclo, a construção das condições para reduzir o custo. A redução propriamente dita só pode aparecer depois do contrato, e a meta tem prazo em 2029 porque o contrato termina em 31/12/2028.
 
 ### 3.2 Catálogo de requisitos e reescritas mensuráveis
 
@@ -327,7 +327,7 @@ As entrevistas trouxeram declarações com graus diferentes de clareza, e antes 
 
 #### Reescritas mensuráveis
 
-Uma declaração como a matrícula não pode cair só se torna requisito quando se sabe em que situação ela vale, quanto uso o sistema recebe e que valor deve atingir. Por isso o R2 e o R3 foram reescritos com contexto, carga e medida, e o R11 aparece à parte, porque uma metade dele não pode ser reescrita.
+Uma declaração como a matrícula não pode cair só se torna requisito quando se sabe em que situação ela vale, quanto uso o sistema recebe e que valor deve atingir. Por isso as declarações sobre a matrícula não poder cair (R2) e sobre o tempo de resposta ser bom (R3) foram reescritas com contexto, carga e medida, e a declaração sobre o sistema ser moderno e escalável (R11) aparece à parte, porque uma metade dela não pode ser reescrita.
 
 | Elemento | R2, a matrícula não pode cair | R3, o tempo de resposta precisa ser bom |
 | --- | --- | --- |
@@ -389,7 +389,7 @@ Para decidir se os dois cenários merecem análise de arquitetura, o roteiro de 
 
 #### Origem das restrições
 
-Cada restrição foi decidida por alguém de fora do projeto, e saber quem decidiu mostra a quem recorrer se uma delas precisar mudar. Nenhuma das sete é técnica.
+Cada restrição foi decidida por alguém de fora do projeto, e saber quem decidiu mostra a quem recorrer se uma delas precisar mudar. Nenhuma das sete restrições da seção 1 (RT1 a RT7) é técnica.
 
 | Restrição | Origem | Quem pode revê-la |
 | --- | --- | --- |
@@ -407,12 +407,12 @@ Cada restrição foi decidida por alguém de fora do projeto, e saber quem decid
 
 #### Artefatos de linha de base dos cenários
 
-Os cenários do pico e do incidente só são confiáveis se os números que os sustentam estiverem corretos, e esses números vêm dos artefatos da linha de base, os documentos e as medições que descrevem o sistema atual. Quatro dos seis artefatos sustentam os cenários, mas o L3, o prazo de 34 dias úteis, e o L4, o custo de R$ 15,83 milhões, não aparecem em nenhum deles.
+Os cenários do pico de matrícula, com 5.800 sessões simultâneas, e do incidente de 04/02/2026 só são confiáveis se os números que os sustentam estiverem corretos, e esses números vêm dos artefatos da linha de base, os documentos e as medições que descrevem o sistema atual. Quatro dos seis artefatos (L1, L2, L5 e L6) sustentam os cenários, mas o prazo de 34 dias úteis (L3) e o custo anual de R$ 15,83 milhões (L4) não aparecem em nenhum deles.
 
 | Artefato | Dado que fornece | Efeito de um dado desatualizado |
 | --- | --- | --- |
-| L6, série de medição de sessões simultâneas e de taxa de erro do portal | A média anual de 815 sessões, o pico de 5.800 e a taxa de erro de 6,3% no pico | A razão de 7,1 e a meta de erro ficariam erradas, e o teste de carga simularia um pico diferente do real |
-| L2, registro dos três incidentes graves dos últimos 18 meses | A sequência do incidente de 04/02/2026, com 4h20 de duração e 62% das tentativas com erro | O cenário do incidente trataria uma causa que não aconteceu, e a medida de 260 minutos perderia o ponto de comparação |
+| L6, série de medição de sessões simultâneas e de taxa de erro do portal | A média anual de 815 sessões, o pico de 5.800 e a taxa de erro de 6,3% no pico | A razão de 7,1 entre o pico e a média e a meta de erro ficariam erradas, e o teste de carga simularia um pico diferente do real |
+| L2, registro dos três incidentes graves dos últimos 18 meses | A sequência do incidente de 04/02/2026, com 4h20 de duração e 62% das tentativas com erro | O cenário do incidente trataria uma causa que não aconteceu, e a medida de 260 minutos de indisponibilidade perderia o ponto de comparação |
 | L1, inventário de componentes do sistema acadêmico | O monitor CICS, o limite de tarefas e as camadas que o estímulo atravessa | O campo Artefato apontaria uma parte do sistema que já mudou, e a resposta seria desenhada para o lugar errado |
 | L5, contratos de sustentação e de capacidade | O prazo de 30/09/2027 para qualquer alteração no núcleo COBOL | A resposta poderia prever alteração no núcleo sem que o contrato permita, e o tempo limite teria de ficar na camada web |
 
@@ -428,10 +428,10 @@ A ACME levantou quatro exigências na Aula 2, e cada uma originou um princípio.
 | --- | --- | --- | --- | --- |
 | 1 | Evolução incremental | Continuidade operacional: o sistema acadêmico não pode parar em período letivo (RT1) | Todo elemento novo entra em produção por ativação gradual, convive com o núcleo e pode voltar ao caminho legado se falhar. Fica proibida a virada de um módulo inteiro em uma única data | Nenhuma parada em período letivo e plano de retorno executado em homologação a cada entrega |
 | 2 | Segurança por desenho | Residência de dados: o parecer jurídico de 28/04/2026 exige dado pessoal de aluno em território nacional (RT5) | Todo elemento que lê ou grava dado pessoal de aluno é marcado como tal e só pode ser implantado em região nacional. Fica proibido o serviço gerenciado sem região no Brasil | Inventário dos fluxos de dado pessoal com a região de execução de cada elemento |
-| 3 | Baixo acoplamento | Dependência do legado: o núcleo COBOL fica sob contrato de sustentação até 30/09/2027 (RT6), com 6 especialistas, 2 deles aposentados em 2027, e só 1 domina o módulo de matrícula | Os elementos novos acessam o núcleo apenas pelas transações que ele já oferece e não dependem de alteração de programa COBOL. Fica proibido ler ou gravar as tabelas do núcleo diretamente | Nenhuma entrega do primeiro ciclo depende de demanda aberta com a fábrica de software |
-| 4 | Separação de responsabilidades | Propagação de notas: o requisito R7 pede a nota no ambiente virtual em até 10 minutos, contra o lote diário das 05h10 | Registrar a nota e entregá-la ao ambiente virtual são responsabilidades de elementos distintos, e a entrega passa a ocorrer no ritmo do lançamento, não no do lote | Intervalo entre o lançamento e a chegada da nota, com percentil 95 abaixo de 10 minutos |
+| 3 | Baixo acoplamento, que mantém cada parte pouco dependente das outras | Dependência do legado: o núcleo COBOL fica sob contrato de sustentação até 30/09/2027 (RT6), com 6 especialistas, 2 deles aposentados em 2027, e só 1 domina o módulo de matrícula | Os elementos novos acessam o núcleo apenas pelas transações que ele já oferece e não dependem de alteração de programa COBOL. Fica proibido ler ou gravar as tabelas do núcleo diretamente | Nenhuma entrega do primeiro ciclo depende de demanda aberta com a fábrica de software |
+| 4 | Separação de responsabilidades | Propagação de notas: o requisito R7 pede a nota no ambiente virtual em até 10 minutos, contra o lote diário das 05h10 | Registrar a nota e entregá-la ao ambiente virtual são responsabilidades de elementos distintos, e a entrega passa a ocorrer no ritmo do lançamento, não no do lote | Intervalo entre o lançamento e a chegada da nota, com percentil 95, o valor abaixo do qual ficam 95% dos casos, inferior a 10 minutos |
 
-A evolução incremental ocupa o primeiro lugar porque vem de uma restrição fechada, que o arquiteto não negocia. A residência de dados, também de natureza legal, vem logo depois. A propagação de notas fica por último porque é um requisito de uma parte interessada, e prazo e alcance podem ser negociados. Quando a nota em 10 minutos entrar em conflito com a continuidade, a continuidade prevalece.
+A evolução incremental ocupa o primeiro lugar porque nasce da restrição de que o sistema acadêmico não pode parar em período letivo (RT1), que o arquiteto não negocia. A residência de dados, regra de que o dado pessoal de aluno fique em território nacional (RT5), também é de natureza legal e vem logo depois. A propagação de notas fica por último porque é um requisito de uma parte interessada, e prazo e alcance podem ser negociados. Quando a nota em 10 minutos entrar em conflito com a continuidade, a continuidade prevalece.
 
 #### Esboço lógico
 
@@ -441,7 +441,7 @@ Com os princípios definidos, as oito responsabilidades foram distribuídas entr
 | --- | --- | --- | --- |
 | Entrada da matrícula | RS1 | Novo | Recebe o pedido na frente do núcleo e permite ativar a mudança aos poucos, como pede a evolução incremental |
 | Registro acadêmico | RS2, RS3, RS8 | Permanece no núcleo | A regra de prioridade de vaga e o registro da nota estão no núcleo, e tirá-los dali exigiria alterar o COBOL, o que o contrato de sustentação impede até 30/09/2027. O histórico escolar não tem exigência de mudança e fica onde está |
-| Publicação de notas | RS4 | Novo | Entrega cada nota ao ambiente virtual sem esperar o lote, o que atende o R7 |
+| Publicação de notas | RS4 | Novo | Entrega cada nota ao ambiente virtual sem esperar o lote, o que atende o requisito de 10 minutos para a nota (R7) |
 | Integração financeira | RS5 | Permanece no núcleo | Nenhuma das quatro exigências pede mudança no envio dos lançamentos ao ERP financeiro, então o lote do núcleo continua |
 | Identidade e auditoria | RS6, RS7 | Novo | O registro de toda leitura de dado pessoal precisa ficar fora do núcleo, que não pode ser alterado, e o elemento trata dado pessoal em região nacional |
 
@@ -459,9 +459,9 @@ O pico de matrícula, com 5.800 sessões simultâneas e meta de erro abaixo de 1
 
 | Estilo | Cenário 1, pico de matrícula | Cenário 2, incidente de 04/02/2026 |
 | --- | --- | --- |
-| Arquitetura orientada a eventos | Favorável. A fila absorve a razão de 7,1 entre o pico e a média, e o núcleo processa no ritmo que sustenta | Neutro. O defeito é a falta de tempo limite de sessão, que se corrige em qualquer estilo, e a fila só ajuda a limitar as tarefas concorrentes |
-| Arquitetura de microsserviços | Neutro. A escalabilidade seletiva só existe depois de extrair a matrícula do núcleo, trabalho de mais de um ciclo de 12 meses | Neutro. O isolamento de falha entre serviços ajuda, mas o abandono de sessão acontece no núcleo, que continua em operação |
-| Arquitetura hexagonal | Neutro. Organiza a solução nova, mas não reduz sozinha a carga que chega ao núcleo | Favorável. O acesso ao núcleo passa por uma porta, e é nela que se declaram o tempo limite e o limite de tarefas concorrentes abaixo do limite do CICS |
+| Arquitetura orientada a eventos | Favorável. A fila absorve o pico, que é 7,1 vezes a média, e o núcleo processa no ritmo que sustenta | Neutro. O defeito foi a falta de tempo limite para sessões abandonadas, que continuavam ocupando o núcleo, e isso se corrige em qualquer estilo, enquanto a fila só ajuda a limitar as tarefas concorrentes |
+| Arquitetura de microsserviços | Neutro. A escalabilidade seletiva, que amplia só a parte sob carga, só existe depois de extrair a matrícula do núcleo, trabalho de mais de um ciclo de 12 meses | Neutro. O isolamento de falha entre serviços ajuda, mas o abandono de sessão acontece no núcleo, que continua em operação |
+| Arquitetura hexagonal | Neutro. Organiza a solução nova, mas não reduz sozinha a carga que chega ao núcleo | Favorável. O acesso ao núcleo passa por uma porta, que é o ponto único de entrada, e é nela que se declaram o tempo limite e o limite de tarefas concorrentes abaixo do limite do CICS |
 
 #### Princípios, risco e recomendação
 
@@ -469,11 +469,11 @@ Depois dos cenários, cada estilo foi lido à luz dos quatro princípios prioriz
 
 | Estilo | Princípios | Risco para a ACME | Mecanismo compensatório |
 | --- | --- | --- | --- |
-| Arquitetura orientada a eventos | Sustenta separação de responsabilidades e baixo acoplamento, e preserva o núcleo, o que atende a evolução incremental | Perda de rastreabilidade ponta a ponta, numa equipe que hoje não opera componente assíncrono | Identificador de correlação e observabilidade do fluxo |
+| Arquitetura orientada a eventos | Sustenta separação de responsabilidades e baixo acoplamento, e preserva o núcleo, o que atende a evolução incremental | Dificuldade de acompanhar uma operação do início ao fim, numa equipe que hoje não opera componente assíncrono | Identificador de correlação, um código que acompanha cada operação por todas as partes, e observabilidade do fluxo, que registra o que cada parte faz |
 | Arquitetura de microsserviços | Sustenta separação de responsabilidades, mas contraria o baixo acoplamento com o núcleo, porque exige extrair a matrícula do COBOL | Extração do núcleo em conflito com a restrição do contrato de sustentação | Adiar a extração para depois de 30/09/2027 |
-| Arquitetura hexagonal | Sustenta baixo acoplamento e evolução incremental, porque o núcleo passa a ser acessado por uma porta | Custo de indireção em cada chamada | Limitar as portas às integrações que de fato serão substituídas |
+| Arquitetura hexagonal | Sustenta baixo acoplamento e evolução incremental, porque o núcleo passa a ser acessado por uma porta | Custo de uma chamada intermediária a mais em cada acesso | Limitar as portas às integrações que de fato serão substituídas |
 
-O estilo recomendado é a arquitetura orientada a eventos na borda, com o núcleo preservado. O atributo favorecido é a escalabilidade elástica na entrada, que absorve o pico de matrícula, e o atributo prejudicado é a simplicidade de rastrear uma operação de ponta a ponta. A comparação se desempata pelo primeiro princípio, a evolução incremental, porque os eventos atendem o pico sem exigir alteração do COBOL.
+O estilo recomendado é a arquitetura orientada a eventos na borda, com o núcleo preservado. O atributo favorecido é a escalabilidade elástica na entrada, que cresce e encolhe conforme a demanda e absorve o pico de matrícula, e o atributo prejudicado é a simplicidade de rastrear uma operação de ponta a ponta. A comparação se desempata pelo primeiro princípio, a evolução incremental, porque os eventos atendem o pico sem exigir alteração do COBOL.
 
 {{/novo}}
 
@@ -483,8 +483,8 @@ O estilo recomendado é a arquitetura orientada a eventos na borda, com o núcle
 | --- | --- | --- |
 | Data de conclusão do ciclo | Reitoria, candidata a patrocinadora, com o roteiro autorizado | Fase 7, desenvolvimento do roteiro |
 | Nomeação do patrocinador de negócio | Reitoria | Antes da fase 3, definição do esboço da solução |
-| Validação das decisões propostas D2, D3, D5, D6, D8 e D9 | Partes interessadas da seção 2 | Fase 6, validação |
-| Confirmação das premissas PR1 a PR7 | Responsáveis indicados na coluna Como verificar | Fase 2, descoberta |
-| Aprovação da Reitoria ao plano superior do ambiente virtual, condição para o elemento E1 mudar | Reitoria | Antes do início do primeiro ciclo |
+| Validação das seis decisões ainda propostas (D2, D3, D5, D6, D8 e D9) | Partes interessadas da seção 2 | Fase 6, validação |
+| Confirmação das sete premissas (PR1 a PR7), as hipóteses assumidas sem confirmação | Responsáveis indicados na coluna Como verificar | Fase 2, descoberta |
+| Aprovação da Reitoria à troca do plano do ambiente virtual de aprendizagem para o que oferece interfaces de programação, condição para mudar o envio de notas (elemento E1 do escopo) | Reitoria | Antes do início do primeiro ciclo |
 
 Ainda em branco, para os próximos exercícios: 5. Contexto do sistema (C4, nível 1), 8. Tecnologia e plataforma, 9. Roteiro e governança

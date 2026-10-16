@@ -21,21 +21,21 @@ modo: acumula
 - **Tecnologias sob plano de migração:** entre as vermelhas, diga quais continuam em uso hoje e só podem ficar enquanto houver plano de migração documentado.
 - **Aderência e portabilidade das alternativas:** para cada forma de obter o provedor de identidade (A, B e C), escreva o dado do caso que sustenta a aderência ao requisito e a portabilidade, citando o código do requisito ou da restrição.
 - **Dado que falta por critério:** para maturidade, suporte, custo total de propriedade e competência da equipe, diga qual informação o caso não traz e precisa ser levantada.
-- **Alternativa eliminada pela restrição:** escolha o R8 ou o R14, diga qual alternativa a restrição elimina antes da comparação e qual documento do fornecedor comprova o atendimento.
+- **Alternativa eliminada pela restrição:** escolha a exigência de padrões abertos de identidade (R8) ou a de nenhum dado pessoal de aluno fora do território nacional (R14), diga qual alternativa a restrição elimina antes da comparação e qual documento do fornecedor comprova o atendimento.
 <!--/campos-->
 <!--gabarito-->
 #### Contêineres novos e linhas do modelo técnico de referência
 
-Cada equipe da ACME precisa saber qual padrão respeitar antes de escolher um produto, e a linha do modelo técnico que trata da função do contêiner diz exatamente isso. O provedor de identidade segue a linha de identidade e acesso, e o evento de nota segue a de mensageria.
+Cada equipe da ACME precisa saber qual padrão respeitar antes de escolher um produto, e a linha do modelo técnico que trata da função do contêiner diz exatamente isso. O provedor de identidade segue a linha de identidade e acesso, que exige o OpenID Connect, protocolo aberto de autenticação, e o evento de nota segue a de mensageria, que exige um contrato AsyncAPI, a especificação das mensagens trocadas.
 
 | Elemento | Linha do modelo técnico | Padrão ou protocolo obrigatório |
 | --- | --- | --- |
 | Provedor de identidade | Segurança transversal, identidade e acesso | OpenID Connect obrigatório, com OAuth 2.0 e SAML 2.0 |
 | Serviço de matrícula | API e integração, exposição de serviços | REST com OpenAPI 3.x |
 | Banco do serviço de notas | Dados, banco de serviço novo | SQL, um banco por serviço e região nacional |
-| Evento de nota do serviço de notas para o ambiente virtual de aprendizagem (R7) | API e integração, mensageria | Tópico com retenção e contrato AsyncAPI |
+| Evento de nota do serviço de notas para o ambiente virtual de aprendizagem, que atende a nota em até 10 minutos (R7) | API e integração, mensageria | Tópico com retenção e contrato AsyncAPI |
 
-Duas linhas valem para todos os contêineres novos, a de infraestrutura como código e a de observabilidade, porque toda implantação e toda operação passam por elas, e por isso nenhuma equipe pode dispensá-las. As demais dependem do que o serviço faz: só quem autentica usa a linha de identidade, só quem expõe interface usa a de exposição, só quem publica evento usa a de mensageria e só quem guarda dado usa a de banco.
+Duas linhas valem para todos os contêineres novos, a de infraestrutura como código, que descreve a infraestrutura em arquivos versionados, e a de observabilidade, que mede e registra o que o serviço faz em operação, porque toda implantação e toda operação passam por elas, e por isso nenhuma equipe pode dispensá-las. As demais dependem do que o serviço faz: só quem autentica usa a linha de identidade, só quem expõe interface usa a de exposição, só quem publica evento usa a de mensageria e só quem guarda dado usa a de banco.
 
 #### Classificação das tecnologias da linha de base
 
@@ -44,23 +44,23 @@ Para decidir a cor de cada tecnologia, o arquiteto lê o dado da linha de base e
 | Tecnologia | Cor | Justificativa |
 | --- | --- | --- |
 | JSF 1.2 e EJB 2.0 | Vermelho | 410.000 linhas de 2007 a 2009 sobre servidor sem suporte do fornecedor desde 2018, com 220 telas em quatro aplicações que precisam de plano de migração |
-| Oracle 12c Release 2 | Âmbar | O recorte só aceita Oracle em projeto novo com ADR de desvio, e os 11 TB e as 740 tabelas seguem em uso, com suporte estendido encerrado em 31/03/2022 |
+| Oracle 12c Release 2 | Âmbar | O recorte só aceita Oracle em projeto novo com um registro de decisão arquitetural (ADR) de desvio, que justifica o uso de tecnologia fora do padrão, e os 11 TB e as 740 tabelas seguem em uso, com suporte estendido encerrado em 31/03/2022 |
 | Acesso direto ao banco | Vermelho | 2.300 pontos de código contornam as transações do CICS e impedem a extração por partes |
 | COBOL sob CICS | Vermelho em projeto novo, com permanência por contrato | Manutenção sob contrato exclusivo até 30/09/2027, com 6 especialistas e 2 aposentadorias previstas para 2027 |
-| Diretório corporativo | Âmbar | A autenticação de todos os perfis por LDAP síncrono, com tempo limite de 10 s, permanece até o último portal migrar para o provedor de identidade |
-| Arquivo posicional sem versão | Vermelho | A mudança de layout causou o incidente de 09/07/2026, com 61.400 lançamentos de nota que não chegaram ao ambiente virtual |
+| Diretório corporativo | Âmbar | A autenticação de todos os perfis por LDAP, protocolo de consulta ao diretório de usuários, de forma síncrona e com tempo limite de 10 s, permanece até o último portal migrar para o provedor de identidade |
+| Arquivo posicional sem versão | Vermelho | O arquivo posicional grava cada campo em posições fixas da linha, e a mudança de layout causou o incidente de 09/07/2026, com 61.400 lançamentos de nota que não chegaram ao ambiente virtual |
 
 Entre as vermelhas, continuam em uso e só ficam sob plano de migração documentado o JSF e o EJB (as 220 telas ainda atendem os usuários), o acesso direto ao banco (os 2.300 pontos ainda existem no código Java) e o arquivo posicional (o lote de exportação de notas ainda o utiliza).
 
 #### Matriz de seleção do provedor de identidade
 
-Para escolher o provedor de identidade, a ACME compara três caminhos: a A, um software instalado e operado pela própria equipe, a B, um serviço contratado de terceiro, e a C, um recurso gerenciado do provedor de nuvem. Cada célula cita o requisito ou a restrição que a sustenta e diz o que o dossiê não informa, porque inventar um valor tiraria a confiança da comparação.
+Para escolher o provedor de identidade, a ACME compara três caminhos: a A, um software instalado e operado pela própria equipe, a B, um serviço contratado de terceiro, e a C, um recurso gerenciado do provedor de nuvem. Os requisitos citados são o R6, de 5.800 sessões simultâneas, o R8, de padrões abertos de identidade, o R12, de disponibilidade de 99,9% na matrícula, e o R14, de dado pessoal de aluno só em território nacional. Cada célula cita o requisito ou a restrição que a sustenta e diz o que o dossiê não informa, porque inventar um valor tiraria a confiança da comparação.
 
 | Alternativa | Aderência ao requisito | Portabilidade |
 | --- | --- | --- |
-| A, instalado e operado pela equipe | R8 atendido se o produto implementa OpenID Connect e R14 atendido pelo controle da região, enquanto R6 e R12 dependem do dimensionamento e da operação da própria equipe | Alta se o produto roda nos dois provedores pré-aprovados, conforme a restrição de nuvem, e o dossiê não nomeia o produto |
+| A, instalado e operado pela equipe | R8 atendido se o produto implementa OpenID Connect e R14 atendido pelo controle da região, enquanto R6 e R12 dependem do dimensionamento e da operação da própria equipe | Alta se o produto roda nos dois provedores pré-aprovados, conforme a restrição dos dois provedores de nuvem aprovados (R4), e o dossiê não nomeia o produto |
 | B, serviço de terceiro | R8 depende do produto do terceiro, R14 só é atendido se o contrato fixar o processamento em território nacional e R12 depende do nível de serviço contratado | Depende do padrão aberto exigido pelo R8 e da exportação dos dados, e o dossiê não traz dado sobre o terceiro |
-| C, gerenciado da nuvem | R14 atendido se a região do serviço for nacional, R6 apoiado na elasticidade do provedor e R12 dependente do nível de serviço do serviço gerenciado | Limitada pela restrição de nuvem, porque o serviço precisa existir nos dois provedores pré-aprovados, e mitigada pelo OpenID Connect do R8, que preserva o contrato de autenticação |
+| C, gerenciado da nuvem | R14 atendido se a região do serviço for nacional, R6 apoiado na elasticidade do provedor e R12 dependente do nível de serviço do serviço gerenciado | Limitada pela restrição dos dois provedores de nuvem aprovados (R4), porque o serviço precisa existir nos dois provedores pré-aprovados, e mitigada pelo OpenID Connect do R8, que preserva o contrato de autenticação |
 
 Os outros quatro critérios ficam sem valor, porque o dossiê não traz dado sobre eles, e por isso o caderno registra o que precisa ser levantado antes da comparação.
 
@@ -97,8 +97,8 @@ O estilo de referência vem do exercício 10, eventos na borda com o núcleo COB
 
 | Plataforma candidata | Ferramentas |
 | --- | --- |
-| Plataforma orientada a eventos | Apache Kafka como fluxo de eventos, Kafka Streams para processamento contínuo, Apache Camel como mediador de integração e gateway de API |
-| Plataforma de microsserviços, variante Java | Spring Boot, Spring Cloud Config, Spring Cloud Gateway, Keycloak, Kubernetes, Docker, Kafka como barramento de eventos, Prometheus, Grafana e OpenTelemetry na observabilidade |
+| Plataforma orientada a eventos | Apache Kafka como fluxo de eventos, Kafka Streams para processamento contínuo, Apache Camel como mediador de integração e gateway de API, que é a porta de entrada das chamadas |
+| Plataforma de microsserviços, variante Java | Spring Boot, Spring Cloud Config, Spring Cloud Gateway, Keycloak para identidade, Kubernetes, Docker, Kafka como barramento de eventos, Prometheus, Grafana e OpenTelemetry na observabilidade |
 
 #### Quadro comparativo e plataforma escolhida
 
@@ -106,17 +106,17 @@ O quadro usa só o dado que o dossiê traz. O orçamento de R$ 6,2 milhões e o 
 
 | Critério | Leitura |
 | --- | --- |
-| Aderência ao requisito | Empate. As duas sustentam o R4 em um dos dois provedores aprovados, e o desempate para o R6 exige um teste de carga que o dossiê não registra |
+| Aderência ao requisito | Empate. As duas operam em um dos dois provedores de nuvem aprovados (R4), e o desempate quanto às 5.800 sessões simultâneas (R6) exige um teste de carga que o dossiê não registra |
 | Custo total de propriedade | Empate. O orçamento de R$ 6,2 milhões e o licenciamento Oracle por núcleos físicos pesam igualmente enquanto o banco compartilhado existir |
 | Competência da equipe | Microsserviços na variante Java, porque a camada web tem 9 pessoas em Java sem escassez, e o dossiê não registra experiência em Kafka nem em Kubernetes |
 | Portabilidade | Empate. Kafka, Kubernetes e OpenID Connect são abertos, e as decisões precisam ser portáveis entre os dois provedores pré-aprovados |
 | Maturidade e suporte | Sem valor. Falta saber há quanto tempo cada plataforma está em produção e quem responde por falhas, o que o fornecedor de cada produto, a comunidade ou a equipe de plataforma pode informar |
 
-A plataforma escolhida é a de microsserviços na variante Java, porque os serviços de matrícula e de notas acessam o núcleo pelas transações CICS existentes, sem alterar programa COBOL, convivem com o Oracle compartilhado e com os lotes noturnos durante o primeiro ciclo e aproveitam a competência Java já existente. A escolha da plataforma orientada a eventos também é aceita quando a justificativa cita a convivência com os lotes e a publicação imediata de nota exigida pelo R7.
+A plataforma escolhida é a de microsserviços na variante Java, porque os serviços de matrícula e de notas acessam o núcleo pelas transações CICS existentes, sem alterar programa COBOL, convivem com o Oracle compartilhado e com os lotes noturnos durante o primeiro ciclo e aproveitam a competência Java já existente. A escolha da plataforma orientada a eventos também é aceita quando a justificativa cita a convivência com os lotes e a publicação da nota em até 10 minutos exigida pelo R7.
 
 #### Zona de pouso: pilares, etiquetas e requisito
 
-Cada elemento do diagrama realiza um dos cinco pilares da zona de pouso, mas alguns não têm pilar próprio, como a organização na nuvem, que só agrupa as contas.
+A zona de pouso é a base em nuvem, organizada com contas, rede, identidade e regras antes de a solução rodar nela. Cada elemento do diagrama realiza um dos cinco pilares da zona de pouso, e a topologia hub-spoke é uma rede central ligada às redes de cada ambiente, mas alguns não têm pilar próprio, como a organização na nuvem, que só agrupa as contas.
 
 | Elemento do diagrama | Pilar |
 | --- | --- |
@@ -138,20 +138,20 @@ Cada elemento do diagrama realiza um dos cinco pilares da zona de pouso, mas alg
 | Fila de eventos de notas | Time e centro de custo |
 | Bucket de trilha de auditoria | Time |
 
-A conta de segurança e registros existe por causa do R9, que exige trilha de auditoria de toda leitura de dado pessoal, com retenção de 5 anos, guardada fora da conta de produção. O R14 limita a região e o R4 limita o provedor, e nenhum dos dois explica essa conta.
+A conta de segurança e registros existe por causa do requisito R9, que exige trilha de auditoria de toda leitura de dado pessoal, com retenção de 5 anos, guardada fora da conta de produção. O requisito de região nacional (R14) e o de provedor aprovado (R4) não explicam essa conta.
 <!--/gabarito-->
 <!--/ex-->
 
 <!--ex n=19 titulo="Segurança dos dados, permissões e ameaças"-->
 <!--campos-->
-- **Classificação LGPD do ativo:** classifique cada um dos seis ativos em não pessoal, pessoal ou pessoal sensível, conforme o art. 5º da LGPD.
+- **Classificação LGPD do ativo:** classifique cada um dos seis ativos em não pessoal, pessoal ou pessoal sensível, conforme o art. 5º da Lei Geral de Proteção de Dados (LGPD).
 - **Nível de confidencialidade:** atribua nível baixo, médio ou alto a cada ativo e justifique em uma linha o nível do ativo pessoal sensível.
-- **Ativos restritos pelo R14:** diga quais ativos não podem ser processados fora do território nacional e qual sistema externo recebe hoje um deles.
+- **Ativos restritos pelo R14:** diga quais ativos não podem ser processados fora do território nacional, conforme a exigência R14, e qual sistema externo recebe hoje um deles.
 - **Células que violam o menor privilégio:** aponte as três células da grade de permissões que dão acesso maior que o necessário, com o perfil e o recurso.
 - **Acesso correto:** escreva o acesso correto de cada uma das três células, com a condição quando houver.
-- **Categoria STRIDE da ameaça:** classifique cada ameaça, de T1 a T6, em uma das seis categorias do STRIDE.
+- **Categoria STRIDE da ameaça:** classifique cada ameaça, de T1 a T6, em uma das seis categorias do STRIDE, modelo que classifica ameaças em falsificação, adulteração, repúdio, divulgação de informação, negação de serviço e elevação de privilégio.
 - **Controle da ameaça:** associe a cada ameaça a letra do controle que a trata.
-- **Controle que também atende ao R9:** indique qual dos seis controles também atende ao requisito de trilha de auditoria.
+- **Controle que também atende ao R9:** indique qual dos seis controles também atende ao requisito de trilha de auditoria (R9).
 <!--/campos-->
 <!--gabarito-->
 #### Classificação dos ativos de dado
@@ -167,11 +167,11 @@ Todo ativo ligado a um aluno identificado é dado pessoal, e só o laudo, por tr
 | A5, laudo de necessidade educacional específica | Pessoal sensível | Alta | Dado referente à saúde, art. 5º, II, cuja violação expõe o titular a discriminação |
 | A6, oferta de turmas | Não pessoal | Baixa | Informação institucional, sem vínculo a pessoa natural |
 
-O R14 impede o processamento fora do território nacional de A1 a A5, e só a oferta de turmas fica livre. O sistema externo do diagrama do exercício 16 que recebe hoje um desses ativos é o ambiente virtual de aprendizagem, que recebe a nota consolidada no lote das 05h10. O dossiê não registra a região de processamento do fornecedor do ambiente virtual, e por isso essa verificação fica como lacuna a conferir no contrato.
+A exigência de dado pessoal de aluno em território nacional (R14) impede o processamento fora do país de A1 a A5, e só a oferta de turmas fica livre. O sistema externo do diagrama do exercício 16 que recebe hoje um desses ativos é o ambiente virtual de aprendizagem, que recebe a nota consolidada no lote das 05h10. O dossiê não registra a região de processamento do fornecedor do ambiente virtual, e por isso essa verificação fica como lacuna a conferir no contrato.
 
 #### Grade de permissões corrigida
 
-Três células concedem mais acesso do que o trabalho exige. As demais têm necessidade de negócio no dossiê, porque o aluno que grava a própria matrícula pelo telefone (R1) e a secretaria acadêmica que lê e grava matrícula e histórico para o ajuste de vaga e a emissão.
+Três células concedem mais acesso do que o trabalho exige, o que contraria o princípio do menor privilégio, pelo qual cada perfil recebe só o acesso de que precisa. Na grade, L significa leitura. As demais têm necessidade de negócio no dossiê, porque o aluno que grava a própria matrícula pelo telefone (requisito R1, renovação pelo celular) e a secretaria acadêmica que lê e grava matrícula e histórico para o ajuste de vaga e a emissão.
 
 | Perfil e recurso | Problema | Acesso correto |
 | --- | --- | --- |
@@ -192,7 +192,7 @@ Cada ameaça pertence a uma categoria do STRIDE e é tratada por um dos seis con
 | T5, parâmetro trocado para executar ajuste de vaga | Elevação de privilégio | (b) autorização por papel no serviço de matrícula |
 | T6, lista de turmas alterada no caminho | Adulteração | (f) assinatura e verificação de integridade |
 
-O controle que também atende ao R9 é o (e), registro de auditoria imutável, porque ele guarda o autor e o horário de cada acesso. A retenção de 5 anos exigida pelo R9 é um parâmetro a configurar nesse controle.
+O controle que também atende ao requisito de trilha de auditoria (R9) é o (e), registro de auditoria imutável, porque ele guarda o autor e o horário de cada acesso. A retenção de 5 anos exigida pelo R9 é um parâmetro a configurar nesse controle.
 <!--/gabarito-->
 <!--/ex-->
 
@@ -219,9 +219,9 @@ O ADR de plataforma usa os dez campos do ADR de estilo e se apoia nos exercício
 | Título, estado e data | ADR de plataforma, escolha da plataforma de microsserviços na variante Java. Estado proposto. Data a definir pelo arquiteto, no dia do registro |
 | Contexto | O ADR de estilo, adoção de arquitetura orientada a eventos na borda com o núcleo preservado, fixou o estilo. Falta escolher a plataforma que o concretiza, com o núcleo COBOL sobre CICS em operação durante toda a transição |
 | Alternativas | A plataforma orientada a eventos e a de microsserviços na variante Java, avaliadas pelos seis critérios no quadro da seção anterior, com empate em aderência, custo e portabilidade e vantagem de microsserviços em competência da equipe |
-| Forças | Aderência ao requisito, com R6 e R7. Competência da equipe, com 9 pessoas na camada Java sem escassez. Portabilidade, com dois provedores aprovados e decisões portáveis entre eles. Dependência de fornecedor na dimensão de API proprietária, pelo conector transacional do CICS com tempo limite de 30 s, e na de habilidades da equipe, pelos 6 especialistas COBOL com 2 aposentadorias em 2027. Observabilidade fica registrada como lacuna do dossiê |
+| Forças | Aderência ao requisito, com as 5.800 sessões simultâneas (R6) e a nota em até 10 minutos (R7). Competência da equipe, com 9 pessoas na camada Java sem escassez. Portabilidade, com dois provedores aprovados e decisões portáveis entre eles. Dependência de fornecedor em duas dimensões: a interface proprietária, pelo conector transacional do CICS com tempo limite de 30 s, e as habilidades da equipe, pelos 6 especialistas COBOL com 2 aposentadorias em 2027. O dossiê não registra ferramenta de observabilidade, e isso fica como lacuna |
 | Decisão | Adotar a plataforma de microsserviços na variante Java, com Kafka como barramento de eventos, porque aproveita a competência Java existente e convive com o núcleo pelas transações CICS atuais |
-| Consequências | Positiva: a camada Java existente opera a plataforma, e a grade de permissões corrigida entra como requisito dos serviços novos. Negativa: a equipe precisa de capacitação em componentes cuja experiência o dossiê não registra. Neutra: a superfície de observação aumenta e o mesmo time a absorve. Como consequências de implementação entram o registro de auditoria imutável, pelo R9, e a identidade por OpenID Connect, pelo R8 |
+| Consequências | Positiva: a camada Java existente opera a plataforma, e a grade de permissões corrigida entra como requisito dos serviços novos. Negativa: as 9 pessoas da camada Java precisam aprender Kafka e Kubernetes, porque o dossiê não registra experiência com essas ferramentas, o que torna necessário treinar a equipe. Neutra: a ACME passa a monitorar mais peças, como o barramento de eventos e os serviços novos, e a equipe existente assume esse trabalho. Como consequências de implementação entram o registro de auditoria imutável, que atende a trilha exigida pelo R9, e a identidade por OpenID Connect, que atende os padrões abertos do R8 |
 | Evidências | Desejáveis e inexistentes: um teste de carga com 5.800 sessões em ambiente a criar. Disponível: uma prova de conceito de publicação de nota contra uma transação CICS de teste, reproduzível em homologação, único ambiente além de produção |
 | Revisão | Reabrir quando o tempo limite de 30 s do conector for atingido com a plataforma em operação, quando o percentil 95 do intervalo entre lançamento e chegada da nota ao ambiente virtual passar de 10 minutos por duas semanas seguidas, ou ao se aproximar 30/09/2027, fim da exclusividade da fábrica |
 
@@ -231,10 +231,10 @@ Para medir o tamanho do trabalho, cada item da definição tecnológica consider
 
 | Item da definição tecnológica | Tipo | Justificativa pela situação atual |
 | --- | --- | --- |
-| Provedor de identidade com OpenID Connect | Nova | Existe só o diretório por LDAP, e nenhum provedor implementa o padrão exigido pelo R8 |
-| Troca de notas em até 10 minutos | Substituição | O lote das 05h10 por arquivo posicional dá lugar à publicação a cada lançamento, por R7 |
+| Provedor de identidade com OpenID Connect | Nova | Existe só o diretório por LDAP, e nenhum provedor implementa os padrões abertos de identidade exigidos pelo R8 |
+| Troca de notas em até 10 minutos | Substituição | O lote das 05h10 por arquivo posicional dá lugar à publicação a cada lançamento, como pede o requisito R7 de 10 minutos |
 | Autenticação dos portais pelo provedor de identidade | Modificação | O diretório continua existindo atrás do provedor e passa a ser reconfigurado como fonte de identidade |
-| Acesso ao núcleo por camada anticorrupção | Remoção | Os 2.300 pontos de acesso direto da camada Java ao banco deixam de existir |
+| Acesso ao núcleo por camada anticorrupção | Remoção | Os 2.300 pontos de acesso direto da camada Java ao banco deixam de existir, e a camada anticorrupção, que traduz as chamadas ao núcleo, passa a ser o único caminho |
 | Capacidade para 5.800 sessões | Modificação | A camada web e o CICS existem e precisam de capacidade ampliada, e em 04/02/2026 o limite de tarefas concorrentes foi atingido |
 | Observabilidade de ponta a ponta | Nova | O dossiê não registra ferramenta de observabilidade |
 

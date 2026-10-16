@@ -34,7 +34,7 @@ Quando um projeto começa, três artefatos de entrada costumam estar na mesa. A 
 
 ### Benefícios da abordagem
 
-Percorrer o processo inteiro custa tempo, e é por isso que a abordagem arquitetural precisa se justificar por sete benefícios. O primeiro é a **visão do todo**, porque a solução é tratada como sistema que reúne os cinco tipos de componente da solução descritos no [bloco 2](bloco-2-a-solucao-como-sistema.md#os-cinco-tipos-de-componente-da-solucao), pessoas, estruturas organizacionais, processos, informação e tecnologia, e são raras as soluções bem-sucedidas que não mudam algo em cada uma dessas áreas. O segundo é o **alinhamento estratégico**, com a identificação do que é estratégico na fase de descoberta e o registro como dívida estratégica daquilo que precisou ser feito contra a estratégia por urgência. O terceiro é o **reúso**, favorecido pelo uso de modelos de componente de software e de interface, que aumentam a chance de um componente de software existente ser identificado como adequado a mais de um uso.
+Percorrer o processo inteiro custa tempo, e é por isso que a abordagem arquitetural precisa se justificar por sete benefícios. O primeiro é a **visão do todo**, porque a solução é tratada como sistema que reúne os cinco tipos de componente da solução descritos no [bloco 2](bloco-2-a-solucao-como-sistema.md#os-cinco-tipos-de-componente-da-solucao), pessoas, estruturas organizacionais, processos, informação e tecnologia, e são raras as soluções bem-sucedidas que não mudam algo em cada uma dessas áreas. O segundo é o **alinhamento estratégico**, com a identificação do que é estratégico na fase de descoberta e o registro como dívida estratégica daquilo que precisou ser feito contra a estratégia por urgência. O terceiro é o **reuso**, favorecido pelo uso de modelos de componente de software e de interface, que aumentam a chance de um componente de software existente ser identificado como adequado a mais de um uso.
 
 O quarto é a **decisão baseada em evidência**, porque a modelagem da área do problema permite localizar a causa raiz e testar se a solução proposta de fato a resolve, em lugar de decidir por opinião. O quinto é o **custo e a perturbação mínimos**, obtidos pela comparação de alternativas por análise de lacunas, que procura a menor mudança capaz de produzir o resultado desejado, e por análise de impacto, que limita os efeitos colaterais. O sexto é a **redução de dependência**, obtida pelo encapsulamento de componentes de software com interfaces definidas, de modo que o interior de um componente de software mude sem repercussão sobre os demais. O sétimo é a **resolução precoce de conflito e de duplicação**, porque o escopo declarado e as análises de lacuna e de impacto revelam cedo quais outras iniciativas em curso tocam a mesma área.
 
@@ -59,7 +59,7 @@ Quando alguém questiona o tempo gasto nas fases anteriores ao desenho, o arquit
 | Responsável | Diga se a tarefa é do arquiteto de solução, do arquiteto de software ou da arquitetura corporativa, pelo mesmo critério do exercício 1: até onde o efeito da tarefa chega | 1 |
 | Justificativa | Explique em uma frase por que a tarefa é desse responsável | 1 |
 | Grupo de competência | Nas tarefas do arquiteto de solução, diga qual habilidade a tarefa pede mais: de negócio, técnica, de entrega ou prática (comunicação, relacionamento com as partes interessadas, requisitos) | 2 |
-| Benefício da tarefa T10 | Escolha, entre os sete benefícios da abordagem arquitetural, o que justifica verificar se já existe um componente de software reaproveitável | 3 |
+| Benefício de reaproveitar um componente de software | Escolha, entre os sete benefícios da abordagem arquitetural, o que justifica verificar se já existe um componente de software reaproveitável | 3 |
 
 **O que você já tem.** A classificação por nível do exercício 1, porque o mesmo critério de alcance separa as decisões e as tarefas.
 
@@ -124,7 +124,7 @@ Competência é uma habilidade que o papel exige, e cada tarefa recorre mais a u
 
 Sua resposta vira o campo Grupo de competência da mesma tabela, no caderno.
 
-### Item 3: Benefício por trás da tarefa T10
+### Item 3: A justificativa de reaproveitar um componente de software de envio de mensagem
 
 A abordagem arquitetural traz benefícios que justificam o trabalho extra do arquiteto, e cada tarefa de um projeto bem conduzido serve a algum deles. A tarefa T10 consiste em verificar com a Diretoria de TI se já existe na universidade um componente de software de envio de mensagem, isto é, um programa que transmite avisos de um sistema a outro, que possa ser reaproveitado. O item pede que você diga qual benefício está por trás dessa verificação. O quadro abaixo lista os sete benefícios da abordagem arquitetural apresentados na seção [Benefícios da abordagem](#beneficios-da-abordagem) deste bloco.
 
@@ -132,7 +132,7 @@ A abordagem arquitetural traz benefícios que justificam o trabalho extra do arq
 | --- | --- |
 | Visão do todo | A solução é tratada como sistema que reúne pessoas, estruturas organizacionais, processos, informação e tecnologia |
 | Alinhamento estratégico | O que é estratégico é identificado na descoberta, e o que foi feito contra a estratégia é registrado como dívida estratégica |
-| Reúso | Modelos de componente de software e de interface aumentam a chance de um componente de software existente servir a mais de um uso |
+| Reuso | Modelos de componente de software e de interface aumentam a chance de um componente de software existente servir a mais de um uso |
 | Decisão baseada em evidência | A modelagem da área do problema localiza a causa raiz e testa se a solução proposta a resolve |
 | Custo e perturbação mínimos | Análise de lacunas e análise de impacto procuram a menor mudança capaz de produzir o resultado |
 | Redução de dependência | Componentes de software encapsulados com interfaces definidas mudam por dentro sem repercussão sobre os demais |
@@ -140,7 +140,7 @@ A abordagem arquitetural traz benefícios que justificam o trabalho extra do arq
 
 1. Identifique qual dos sete benefícios justifica a existência da tarefa T10, e explique em três linhas o que a instituição perde se essa verificação não for feita antes de especificar componente de software novo.
 
-Sua resposta vira o campo Benefício da tarefa T10 da tabela de papéis, no caderno.
+Sua resposta vira o campo Benefício de reaproveitar um componente de software da tabela de papéis, no caderno.
 
 ## Fontes
 

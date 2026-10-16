@@ -10,13 +10,13 @@ Depois do exercício 5, o caderno da ACME reúne o que os exercícios 1 a 5 prod
 
 **A pergunta.** Diante desse quadro, o projeto pergunta como evoluir o sistema acadêmico de forma segura e incremental, com o núcleo em operação durante a transição e respeitando os contratos já assumidos.
 
-**A decisão central.** Ainda não há decisão central, porque o processo está na fase de descoberta. A Reitoria já descartou a substituição integral e a reescrita em entrega única, de modo que nenhuma das duas volta à discussão.
+**A decisão.** Ainda não há. O processo está na fase de descoberta, e a Reitoria já descartou a substituição integral e a reescrita em entrega única.
 
-**O requisito que guia o desenho.** Ainda indefinido, e a definição fica para a Aula 2, quando os requisitos declarados forem classificados e medidos.
+**O que mais pesa no desenho.** A definir na Aula 2, quando as exigências do projeto forem classificadas e medidas.
 
-**O que a organização aceita em troca.** Ainda indefinido, porque a troca só aparece depois da escolha do estilo na Aula 3.
+**Consequências.** A definir, depois da escolha do estilo de arquitetura na Aula 3.
 
-**Como está o trabalho.** As decisões D1 a D9 estão classificadas por nível, e as decisões D2, D3, D5, D6, D8 e D9 e as sete premissas estão **propostas**, aguardando validação. A data de conclusão do ciclo só pode ser dada na fase 7 do processo.
+**Como está o trabalho.** As nove decisões levantadas estão classificadas por nível. Seis delas, assim como as sete premissas, ainda são propostas e precisam de validação das partes interessadas. A data de conclusão do ciclo depende da fase 7 do processo.
 
 ## 1. Contexto
 
@@ -69,7 +69,7 @@ A tabela traz as nove decisões que a ACME já tomou ou propôs, cada uma com o 
 | D8 | O histórico escolar é emitido com assinatura digital no padrão ICP-Brasil | Solução | Muda o procedimento de emissão do histórico e depende de certificado de terceiro, mas não vale para iniciativas futuras |
 | D9 | A transição ocorre por extração incremental de módulos, com o núcleo em operação | Solução | Afeta o contrato de sustentação, o calendário acadêmico e a rotina das equipes |
 
-As decisões da tabela não têm todas o mesmo estado. D1, D4 e D7 apenas repetem restrições que chegaram prontas (RT4, RT5 e RT6). As outras seis, D2, D3, D5, D6, D8 e D9, estão **propostas**: ainda dependem de validação com as partes interessadas.
+As decisões da tabela não têm todas o mesmo estado. Três apenas repetem restrições que chegaram prontas: os padrões abertos de identidade (D1, vinda da restrição RT4), o dado pessoal em território nacional (D4, vinda da RT5) e o núcleo COBOL sob contrato (D7, vinda da RT6). As outras seis estão **propostas** e ainda dependem de validação com as partes interessadas: a nota em até 10 minutos (D2), o reenvio com intervalo crescente (D3), a correção cadastral pela Secretaria Acadêmica (D5), o índice de busca em memória (D6), a assinatura digital do histórico (D8) e a extração incremental de módulos (D9).
 
 #### Componente da solução afetado
 
@@ -85,7 +85,7 @@ Quando a ACME decide algo como mudar o prazo da nota, a decisão quase nunca é 
 
 #### Dependência entre decisões
 
-A D3 só faz sentido depois da D2. Imagine decidir o reenvio com intervalo crescente quando a nota ainda segue por um lote noturno: cada nova tentativa só aconteceria na janela seguinte, e esperar mais entre as tentativas não aproximaria a nota do aluno, que continuaria chegando no dia seguinte. Só depois que a D2 fixa o prazo de 10 minutos o intervalo entre as tentativas passa a ter o que o justifique.
+O reenvio com intervalo crescente (D3) só faz sentido depois da decisão de levar a nota ao ambiente virtual em até 10 minutos (D2). Imagine decidir o reenvio com intervalo crescente quando a nota ainda segue por um lote noturno: cada nova tentativa só aconteceria na janela seguinte, e esperar mais entre as tentativas não aproximaria a nota do aluno, que continuaria chegando no dia seguinte. Só depois que essa decisão fixa o prazo de 10 minutos o intervalo entre as tentativas passa a ter o que o justifique.
 
 ### 1.2 Os componentes da solução, num exemplo da ACME
 
@@ -106,7 +106,7 @@ Um exemplo da ACME mostra como uma solução se reúne em componentes da soluç�
 | CP9 | Tecnologia | Serviço de notas que publica um evento a cada lançamento |
 | CP10 | Pessoas | Responsável na Coordenação de Educação a Distância pelas falhas de envio |
 
-Nenhum dos cinco tipos ficou vazio, o que mostra que a solução não depende só de tecnologia. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o CP4 e o CP5 mexem na rotina de fechamento e de correção de nota de professores, coordenações e Secretaria, e por isso trocar apenas a tecnologia não altera o prazo que o aluno percebe.
+Nenhum dos cinco tipos ficou vazio, o que mostra que a solução não depende só de tecnologia. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o procedimento de correção de nota já publicada (CP4) e o fechamento sem dependência da janela noturna (CP5) mexem na rotina de professores, coordenações e Secretaria, e por isso trocar apenas a tecnologia não altera o prazo que o aluno percebe.
 
 #### Os fatos da situação atual, em três níveis
 
@@ -144,9 +144,9 @@ Para dividir as tarefas, vale a mesma pergunta usada nas decisões: até onde o 
 
 Dividido o ciclo, seis tarefas cabem ao arquiteto de solução, três ao arquiteto de software ou à equipe de desenvolvimento e uma à arquitetura corporativa. As seis tarefas do arquiteto de solução usam os quatro grupos de competência, o que mostra o quanto o papel exige de habilidades diferentes.
 
-#### Benefício por trás da tarefa T10
+#### A justificativa de reaproveitar um componente de software de envio de mensagem
 
-A tarefa T10 se justifica pelo benefício do **reúso**. Antes de especificar algo novo, o arquiteto consulta o catálogo de aplicações e a arquitetura de software para saber se já existe um componente de software que sirva ao novo uso. Sem essa verificação, a ACME acabaria construindo um segundo componente de envio de mensagem, pagaria duas vezes pela manutenção e pela integração e faria uma mudança maior do que o necessário.
+A tarefa de verificar se já existe componente de software de envio de mensagem reaproveitável (T10) se justifica pelo benefício do **reuso**. Antes de especificar algo novo, o arquiteto consulta o catálogo de aplicações e a arquitetura de software para saber se já existe um componente de software que sirva ao novo uso. Sem essa verificação, a ACME acabaria construindo um segundo componente de envio de mensagem, pagaria duas vezes pela manutenção e pela integração e faria uma mudança maior do que o necessário.
 
 ### 1.4 Artefatos nas fases do processo, premissas e escopo
 
@@ -167,7 +167,7 @@ Para dar um papel a cada artefato, ajuda pensar no caminho que ele faz. Alguns j
 | A9 | Documento que autoriza a equipe a iniciar a investigação | 1. Iniciação | Entrada | Não | 1 |
 | A10 | Modelos da solução implantada, devolvidos ao repositório | 8. Conclusão | Entregável | Não | Todas |
 
-Três artefatos já existiam antes de o processo começar e descrevem parte da situação atual: A1, A2 e A4. Eles formam a linha de base. Quanto à data de conclusão, o pedido chega logo depois do A9, ainda na iniciação, mas a data só pode ser dada com precisão depois da fase 7, quando saem as estimativas de prazo e de custo. Até lá, o caderno registra a data como pendência na seção 10.
+Três artefatos já existiam antes de o processo começar e descrevem parte da situação atual: o mapa de atores (A1), o inventário dos componentes de software atuais (A2) e o registro da decisão da Reitoria de 12/03/2026 (A4). Eles formam a linha de base. Quanto à data de conclusão do trabalho, o pedido da Reitoria chega logo depois do documento que autoriza a investigação (A9), ainda na iniciação, mas a data só pode ser dada com precisão depois da fase 7, de desenvolvimento do roteiro, quando saem as estimativas de prazo e de custo. Até lá, o caderno registra a data como pendência na seção 10, a de pendências.
 
 #### Premissas
 
@@ -218,7 +218,7 @@ O risco de perda de competência tem as duas faces. Só 1 dos 6 especialistas em
 
 #### Fatores externos pela análise PESTLE
 
-Para olhar o ambiente externo, o arquiteto partiu dos três fatos que o dossiê já registra, que cobrem as dimensões Legal, Tecnológica e Sociocultural. Como o dossiê não diz nada sobre as outras três, elas receberam fatores plausíveis, marcados como acréscimo do aluno.
+Para olhar o ambiente externo, o arquiteto partiu dos três fatos que o dossiê já registra (F1, F2 e F3), que cobrem as dimensões Legal, Tecnológica e Sociocultural. Como o dossiê não diz nada sobre as outras três, elas receberam fatores plausíveis, marcados como acréscimo do aluno.
 
 | Dimensão | Fator externo | Origem do fator |
 | --- | --- | --- |
@@ -231,7 +231,7 @@ Para olhar o ambiente externo, o arquiteto partiu dos três fatos que o dossiê 
 
 #### Meta de custo e contrato do mainframe
 
-A meta de R$ 11,0 milhões depende de um contrato que só termina em 31/12/2028, e por isso a tabela ordena no tempo os marcos que prendem o custo.
+A meta de R$ 11,0 milhões depende do contrato de capacidade do mainframe, que obriga a ACME a pagar um volume mínimo de uso mesmo que a carga diminua e só termina em 31/12/2028. Por isso a tabela ordena no tempo os marcos que prendem o custo.
 
 | Marco | Efeito sobre a meta |
 | --- | --- |
@@ -239,7 +239,7 @@ A meta de R$ 11,0 milhões depende de um contrato que só termina em 31/12/2028,
 | 31/12/2028, fim do contrato de capacidade com piso de volume | O piso de volume contratado é devido mesmo com menos carga, e a nuvem soma seu custo ao que já existe |
 | Fim de 2029, meta de R$ 11,0 milhões | É o primeiro exercício em que a redução pode aparecer, depois do fim do contrato |
 
-Por isso o projeto só pode prometer, dentro do primeiro ciclo, a construção das condições para reduzir o custo, e não a redução em si. A meta tem prazo em 2029 porque o contrato termina em 31/12/2028.
+Por isso o projeto só pode prometer, dentro do primeiro ciclo, a construção das condições para reduzir o custo. A redução propriamente dita só pode aparecer depois do contrato, e a meta tem prazo em 2029 porque o contrato termina em 31/12/2028.
 
 {{/novo}}
 
@@ -249,7 +249,7 @@ Por isso o projeto só pode prometer, dentro do primeiro ciclo, a construção d
 | --- | --- | --- |
 | Data de conclusão do ciclo | Reitoria, candidata a patrocinadora, com o roteiro autorizado | Fase 7, desenvolvimento do roteiro |
 | Nomeação do patrocinador de negócio | Reitoria | Antes da fase 3, definição do esboço da solução |
-| Validação das decisões propostas D2, D3, D5, D6, D8 e D9 | Partes interessadas da seção 2 | Fase 6, validação |
-| Confirmação das premissas PR1 a PR7 | Responsáveis indicados na coluna Como verificar | Fase 2, descoberta |
+| Validação das seis decisões ainda propostas (D2, D3, D5, D6, D8 e D9) | Partes interessadas da seção 2 | Fase 6, validação |
+| Confirmação das sete premissas (PR1 a PR7), as hipóteses assumidas sem confirmação | Responsáveis indicados na coluna Como verificar | Fase 2, descoberta |
 
 Ainda em branco, para os próximos exercícios: 2. Partes interessadas, 4. Linha de base e lacunas, 5. Contexto do sistema (C4, nível 1), 6. Princípios, 7. Decisões, 8. Tecnologia e plataforma, 9. Roteiro e governança

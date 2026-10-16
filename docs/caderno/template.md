@@ -12,7 +12,7 @@ Ao longo do curso, a arquitetura da solução da ACME vai sendo registrada num �
 | --- | --- |
 | Para que serve | Quem decide sobre o projeto da ACME raramente lê o caderno inteiro e, mesmo assim, precisa apoiá-lo ou questioná-lo depois de poucos minutos de leitura. Por isso este resumo de uma página reúne o essencial, e a decisão pode ser tomada sem percorrer as outras seções. |
 | Pergunta que responde | Se alguém lesse só esta página, entenderia o projeto? |
-| O que você escreve | Você escreve seis parágrafos curtos, que contam nesta ordem qual é o problema, que pergunta o projeto responde, qual é a decisão central, que requisito mais pesa no desenho, o que a ACME aceita perder em troca e em que estágio está o trabalho. |
+| O que você escreve | Você escreve seis parágrafos curtos, que contam nesta ordem qual é o problema, que pergunta o projeto responde, qual é a decisão central, que exigência mais pesa no desenho, quais são as consequências da decisão para a ACME e em que estágio está o trabalho. |
 | Vem de onde | O resumo não traz informação nova, porque retoma em poucas linhas o que as outras seções já registram, e por isso ele é escrito depois delas. |
 | Quando se preenche | Ao fim de cada aula você reescreve o resumo, nos exercícios 4, 8, 12, 16, 20 e 24, e cada versão substitui a anterior. |
 
@@ -26,7 +26,7 @@ Ao longo do curso, a arquitetura da solução da ACME vai sendo registrada num �
 | --- | --- |
 | Para que serve | Antes de desenhar qualquer coisa, o arquiteto da ACME precisou descobrir de onde partia: qual era a situação da universidade, o que outras pessoas já tinham decidido e o que o projeto não podia mudar. Esta seção reúne esse ponto de partida para que o desenho comece em terreno conhecido. |
 | Pergunta que responde | Que organização é esta, que problema ela quer resolver e o que já está decidido antes de desenhar qualquer coisa? |
-| O que você escreve | Você registra cinco coisas, cada uma numa tabela. Primeiro vêm as restrições, que são decisões de outras pessoas que o projeto precisa aceitar, e depois as decisões da modernização, classificadas por nível de arquitetura. Em seguida entram os componentes da solução, que são as peças de que ela precisa, como pessoas, processos e tecnologia, e as tarefas do projeto, com o responsável por cada uma. Por fim, os documentos do trabalho são ligados às fases do processo. Cada item recebe um código curto, como RT1 ou D2, explicado na página de convenções. |
+| O que você escreve | Você registra cinco coisas, cada uma numa tabela. Primeiro vêm as restrições, que são decisões de outras pessoas que o projeto precisa aceitar, e depois as decisões da modernização, classificadas por nível de arquitetura. Em seguida entram os componentes da solução, que são as peças de que ela precisa, como pessoas, processos e tecnologia, e as tarefas do projeto, com o responsável por cada uma. Por fim, os documentos do trabalho são ligados às fases do processo. Cada item recebe um código curto, como RT1 para a primeira restrição ou D2 para a segunda decisão, explicado na página de convenções. |
 | Vem de onde | Os números da instituição, a pergunta central e as restrições estão no dossiê do caso ACME, e é dele que você retira o conteúdo desta seção. |
 | Quando se preenche | Você preenche esta seção na Aula 1, ao resolver os exercícios 1 a 4. |
 
@@ -62,7 +62,7 @@ Você escreve:
 - **Responsável:** diga se a tarefa é do arquiteto de solução, do arquiteto de software ou da arquitetura corporativa, pelo mesmo critério do exercício 1: até onde o efeito da tarefa chega.
 - **Justificativa:** explique em uma frase por que a tarefa é desse responsável.
 - **Grupo de competência:** nas tarefas do arquiteto de solução, diga qual habilidade a tarefa pede mais: de negócio, técnica, de entrega ou prática (comunicação, relacionamento com as partes interessadas, requisitos).
-- **Benefício da tarefa T10:** escolha, entre os sete benefícios da abordagem arquitetural, o que justifica verificar se já existe um componente de software reaproveitável.
+- **Benefício de reaproveitar um componente de software:** escolha, entre os sete benefícios da abordagem arquitetural, o que justifica verificar se já existe um componente de software reaproveitável.
 
 ### 1.4 Artefatos nas fases do processo, premissas e escopo
 
@@ -238,7 +238,7 @@ Você escreve:
 - **Implicação no desenho:** descreva o que muda na solução quando o princípio é seguido e o que passa a ser proibido.
 - **Evidência esperada:** diga o que se poderia medir ou conferir para provar que o princípio foi aplicado.
 - **Prioridade:** numere os princípios do mais importante ao menos importante e explique qual deles vence quando dois entram em conflito.
-- **Elemento lógico:** agrupe as oito responsabilidades do enunciado (RS1 a RS8) em três a cinco elementos e dê a cada um um nome que diga o que ele faz, sem citar produto, linguagem ou provedor.
+- **Elemento lógico:** agrupe as oito responsabilidades que o enunciado numera de RS1 a RS8, como receber o pedido de renovação de matrícula, em três a cinco elementos e dê a cada um um nome que diga o que ele faz, sem citar produto, linguagem ou provedor.
 - **Situação do elemento:** diga se o elemento continua sendo atendido pelo núcleo legado durante a transição ou se passa a ser um elemento novo.
 - **Risco:** aponte ao menos uma coisa que pode dar errado no esboço e o princípio que ela ameaça.
 - **Decisão pendente:** aponte ao menos uma escolha que ainda não pode ser feita e o princípio que ela afeta.
@@ -252,7 +252,7 @@ Você escreve:
 | Campo | Conteúdo |
 | --- | --- |
 | Para que serve | Daqui a alguns meses alguém vai perguntar por que a ACME decidiu assim, e a resposta precisa estar escrita. Esta seção guarda as escolhas principais da solução, cada uma com a razão que levou a ela, o requisito que atende e o que se aceitou perder. |
-| Pergunta que responde | O que foi decidido, que requisito cada decisão atende e o que se aceita perder com ela? |
+| Pergunta que responde | O que foi decidido, que requisito cada decisão atende e que consequências ela traz? |
 | O que você escreve | Você registra as escolhas principais em grupos: as decisões de desenho, como o estilo da solução, as decisões sobre o sistema antigo e os dados, os blocos em que a solução se divide e as interfaces entre eles. Cada escolha importante recebe um registro de decisão arquitetural (ADR), um texto curto que guarda o contexto, as alternativas consideradas e as consequências. |
 | Vem de onde | Das seções 3 e 6, porque toda decisão atende a um requisito e obedece a um princípio. |
 | Quando se preenche | Você preenche esta seção nas Aulas 3 e 4, nos exercícios 10, 11, 12, 13, 14 e 16. |
@@ -312,7 +312,7 @@ Você escreve:
 - **Classificação da capacidade:** diga se cada uma das dez capacidades acadêmicas é estratégica, quando orienta a oferta e a qualidade do serviço, operacional, quando entrega o serviço ao aluno, ou de apoio, quando sustenta as demais.
 - **Capacidade afetada:** marque as capacidades que o primeiro ciclo altera, conforme a declaração de escopo do exercício 8, e escreva uma linha de justificativa para cada marcação.
 - **Etapa com problema:** aponte as etapas do fluxo de valor do aluno em que ele percebe atraso, restrição de acesso ou falta de função.
-- **Requisito da etapa:** para cada etapa apontada, diga se o problema é o do R1, do R7 ou do R13, ou registre que nenhum dos três se aplica.
+- **Requisito da etapa:** para cada etapa apontada, diga se o problema é o da renovação pelo celular (R1), o da nota em até 10 minutos (R7) ou o da consulta do resultado de aproveitamento pelo portal (R13), ou registre que nenhum dos três se aplica.
 - **Atividade que muda:** aponte as atividades do processo de lançamento de nota que mudam quando a nota passa a chegar ao ambiente virtual em até 10 minutos.
 - **Unidade afetada:** diga qual unidade da organização sente essa mudança e qual atividade deixa de existir.
 
@@ -329,7 +329,7 @@ Você escreve:
 - **Registro da escolha do dado mestre:** escreva em três linhas o contexto, a decisão e uma consequência da escolha.
 - **Classificação dos atributos:** diga, para cada um dos seis atributos do aluno, se é dado pessoal ou dado pessoal sensível.
 - **Destino com excesso de dado:** indique o destino que recebe mais atributos do que a finalidade exige.
-- **Hipótese de conservação e origem do R14:** diga qual hipótese do art. 16 da LGPD autoriza guardar o histórico dos egressos e se o R14 vem da lei ou de decisão da instituição.
+- **Hipótese de conservação e origem do R14:** diga qual hipótese do art. 16 da LGPD autoriza guardar o histórico dos egressos e se a exigência de dado pessoal em território nacional (R14) vem da lei ou de decisão da instituição.
 - **Motivo contra o acesso direto ao banco:** explique em até três linhas por que os 2.300 acessos diretos contrariam a propriedade do dado.
 
 ### 7.6 Contêineres e relações da arquitetura alvo
@@ -340,8 +340,8 @@ Você escreve:
 
 - **Modo de comunicação:** para cada uma das 15 relações do diagrama de contêineres, diga se é síncrona, quando quem chama espera a resposta, ou assíncrona, quando segue adiante.
 - **Volume e latência:** para cada relação, escreva quanto passa por ela e quanto tempo a troca pode levar, usando os fatos dos dados operacionais, e escreva "não informado" quando o dossiê não trouxer o dado.
-- **Relações do R6:** indique, pelo número, as relações que fazem parte do caminho da confirmação da matrícula em até 4 segundos.
-- **Relações do R7:** indique, pelo número, as relações que fazem parte do caminho da nota até o ambiente virtual em até 10 minutos.
+- **Relações do R6:** indique, pelo número, as relações que fazem parte do caminho da confirmação da matrícula em até 4 segundos (requisito R6).
+- **Relações do R7:** indique, pelo número, as relações que fazem parte do caminho da nota até o ambiente virtual em até 10 minutos (requisito R7).
 - **Posição do núcleo transacional:** diga se o núcleo COBOL fica dentro ou fora da fronteira da solução, e por quê.
 
 {{/folha}}
@@ -370,7 +370,7 @@ Você escreve:
 - **Tecnologias sob plano de migração:** entre as vermelhas, diga quais continuam em uso hoje e só podem ficar enquanto houver plano de migração documentado.
 - **Aderência e portabilidade das alternativas:** para cada forma de obter o provedor de identidade (A, B e C), escreva o dado do caso que sustenta a aderência ao requisito e a portabilidade, citando o código do requisito ou da restrição.
 - **Dado que falta por critério:** para maturidade, suporte, custo total de propriedade e competência da equipe, diga qual informação o caso não traz e precisa ser levantada.
-- **Alternativa eliminada pela restrição:** escolha o R8 ou o R14, diga qual alternativa a restrição elimina antes da comparação e qual documento do fornecedor comprova o atendimento.
+- **Alternativa eliminada pela restrição:** escolha a exigência de padrões abertos de identidade (R8) ou a de nenhum dado pessoal de aluno fora do território nacional (R14), diga qual alternativa a restrição elimina antes da comparação e qual documento do fornecedor comprova o atendimento.
 
 ### 8.2 Plataforma escolhida e zona de pouso
 
@@ -392,14 +392,14 @@ Esta parte é preenchida no exercício 19.
 
 Você escreve:
 
-- **Classificação LGPD do ativo:** classifique cada um dos seis ativos em não pessoal, pessoal ou pessoal sensível, conforme o art. 5º da LGPD.
+- **Classificação LGPD do ativo:** classifique cada um dos seis ativos em não pessoal, pessoal ou pessoal sensível, conforme o art. 5º da Lei Geral de Proteção de Dados (LGPD).
 - **Nível de confidencialidade:** atribua nível baixo, médio ou alto a cada ativo e justifique em uma linha o nível do ativo pessoal sensível.
-- **Ativos restritos pelo R14:** diga quais ativos não podem ser processados fora do território nacional e qual sistema externo recebe hoje um deles.
+- **Ativos restritos pelo R14:** diga quais ativos não podem ser processados fora do território nacional, conforme a exigência R14, e qual sistema externo recebe hoje um deles.
 - **Células que violam o menor privilégio:** aponte as três células da grade de permissões que dão acesso maior que o necessário, com o perfil e o recurso.
 - **Acesso correto:** escreva o acesso correto de cada uma das três células, com a condição quando houver.
-- **Categoria STRIDE da ameaça:** classifique cada ameaça, de T1 a T6, em uma das seis categorias do STRIDE.
+- **Categoria STRIDE da ameaça:** classifique cada ameaça, de T1 a T6, em uma das seis categorias do STRIDE, modelo que classifica ameaças em falsificação, adulteração, repúdio, divulgação de informação, negação de serviço e elevação de privilégio.
 - **Controle da ameaça:** associe a cada ameaça a letra do controle que a trata.
-- **Controle que também atende ao R9:** indique qual dos seis controles também atende ao requisito de trilha de auditoria.
+- **Controle que também atende ao R9:** indique qual dos seis controles também atende ao requisito de trilha de auditoria (R9).
 
 ### 8.4 ADR de plataforma e lacunas de provisão
 

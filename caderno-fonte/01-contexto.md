@@ -8,7 +8,7 @@ modo: acumula
 | --- | --- |
 | Para que serve | Antes de desenhar qualquer coisa, o arquiteto da ACME precisou descobrir de onde partia: qual era a situação da universidade, o que outras pessoas já tinham decidido e o que o projeto não podia mudar. Esta seção reúne esse ponto de partida para que o desenho comece em terreno conhecido. |
 | Pergunta que responde | Que organização é esta, que problema ela quer resolver e o que já está decidido antes de desenhar qualquer coisa? |
-| O que você escreve | Você registra cinco coisas, cada uma numa tabela. Primeiro vêm as restrições, que são decisões de outras pessoas que o projeto precisa aceitar, e depois as decisões da modernização, classificadas por nível de arquitetura. Em seguida entram os componentes da solução, que são as peças de que ela precisa, como pessoas, processos e tecnologia, e as tarefas do projeto, com o responsável por cada uma. Por fim, os documentos do trabalho são ligados às fases do processo. Cada item recebe um código curto, como RT1 ou D2, explicado na página de convenções. |
+| O que você escreve | Você registra cinco coisas, cada uma numa tabela. Primeiro vêm as restrições, que são decisões de outras pessoas que o projeto precisa aceitar, e depois as decisões da modernização, classificadas por nível de arquitetura. Em seguida entram os componentes da solução, que são as peças de que ela precisa, como pessoas, processos e tecnologia, e as tarefas do projeto, com o responsável por cada uma. Por fim, os documentos do trabalho são ligados às fases do processo. Cada item recebe um código curto, como RT1 para a primeira restrição ou D2 para a segunda decisão, explicado na página de convenções. |
 | Vem de onde | Os números da instituição, a pergunta central e as restrições estão no dossiê do caso ACME, e é dele que você retira o conteúdo desta seção. |
 | Quando se preenche | Você preenche esta seção na Aula 1, ao resolver os exercícios 1 a 4. |
 <!--/orientacao-->
@@ -69,7 +69,7 @@ A tabela traz as nove decisões que a ACME já tomou ou propôs, cada uma com o 
 | D8 | O histórico escolar é emitido com assinatura digital no padrão ICP-Brasil | Solução | Muda o procedimento de emissão do histórico e depende de certificado de terceiro, mas não vale para iniciativas futuras |
 | D9 | A transição ocorre por extração incremental de módulos, com o núcleo em operação | Solução | Afeta o contrato de sustentação, o calendário acadêmico e a rotina das equipes |
 
-As decisões da tabela não têm todas o mesmo estado. D1, D4 e D7 apenas repetem restrições que chegaram prontas (RT4, RT5 e RT6). As outras seis, D2, D3, D5, D6, D8 e D9, estão **propostas**: ainda dependem de validação com as partes interessadas.
+As decisões da tabela não têm todas o mesmo estado. Três apenas repetem restrições que chegaram prontas: os padrões abertos de identidade (D1, vinda da restrição RT4), o dado pessoal em território nacional (D4, vinda da RT5) e o núcleo COBOL sob contrato (D7, vinda da RT6). As outras seis estão **propostas** e ainda dependem de validação com as partes interessadas: a nota em até 10 minutos (D2), o reenvio com intervalo crescente (D3), a correção cadastral pela Secretaria Acadêmica (D5), o índice de busca em memória (D6), a assinatura digital do histórico (D8) e a extração incremental de módulos (D9).
 
 #### Componente da solução afetado
 
@@ -85,7 +85,7 @@ Quando a ACME decide algo como mudar o prazo da nota, a decisão quase nunca é 
 
 #### Dependência entre decisões
 
-A D3 só faz sentido depois da D2. Imagine decidir o reenvio com intervalo crescente quando a nota ainda segue por um lote noturno: cada nova tentativa só aconteceria na janela seguinte, e esperar mais entre as tentativas não aproximaria a nota do aluno, que continuaria chegando no dia seguinte. Só depois que a D2 fixa o prazo de 10 minutos o intervalo entre as tentativas passa a ter o que o justifique.
+O reenvio com intervalo crescente (D3) só faz sentido depois da decisão de levar a nota ao ambiente virtual em até 10 minutos (D2). Imagine decidir o reenvio com intervalo crescente quando a nota ainda segue por um lote noturno: cada nova tentativa só aconteceria na janela seguinte, e esperar mais entre as tentativas não aproximaria a nota do aluno, que continuaria chegando no dia seguinte. Só depois que essa decisão fixa o prazo de 10 minutos o intervalo entre as tentativas passa a ter o que o justifique.
 <!--/gabarito-->
 <!--/ex-->
 
@@ -114,7 +114,7 @@ Um exemplo da ACME mostra como uma solução se reúne em componentes da soluç�
 | CP9 | Tecnologia | Serviço de notas que publica um evento a cada lançamento |
 | CP10 | Pessoas | Responsável na Coordenação de Educação a Distância pelas falhas de envio |
 
-Nenhum dos cinco tipos ficou vazio, o que mostra que a solução não depende só de tecnologia. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o CP4 e o CP5 mexem na rotina de fechamento e de correção de nota de professores, coordenações e Secretaria, e por isso trocar apenas a tecnologia não altera o prazo que o aluno percebe.
+Nenhum dos cinco tipos ficou vazio, o que mostra que a solução não depende só de tecnologia. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o procedimento de correção de nota já publicada (CP4) e o fechamento sem dependência da janela noturna (CP5) mexem na rotina de professores, coordenações e Secretaria, e por isso trocar apenas a tecnologia não altera o prazo que o aluno percebe.
 
 #### Os fatos da situação atual, em três níveis
 
@@ -138,7 +138,7 @@ Imagine uma solução que atue só no nível de sistema de TI. Ela troca o lote 
 - **Responsável:** diga se a tarefa é do arquiteto de solução, do arquiteto de software ou da arquitetura corporativa, pelo mesmo critério do exercício 1: até onde o efeito da tarefa chega.
 - **Justificativa:** explique em uma frase por que a tarefa é desse responsável.
 - **Grupo de competência:** nas tarefas do arquiteto de solução, diga qual habilidade a tarefa pede mais: de negócio, técnica, de entrega ou prática (comunicação, relacionamento com as partes interessadas, requisitos).
-- **Benefício da tarefa T10:** escolha, entre os sete benefícios da abordagem arquitetural, o que justifica verificar se já existe um componente de software reaproveitável.
+- **Benefício de reaproveitar um componente de software:** escolha, entre os sete benefícios da abordagem arquitetural, o que justifica verificar se já existe um componente de software reaproveitável.
 <!--/campos-->
 <!--gabarito-->
 #### Responsável por cada tarefa
@@ -160,9 +160,9 @@ Para dividir as tarefas, vale a mesma pergunta usada nas decisões: até onde o 
 
 Dividido o ciclo, seis tarefas cabem ao arquiteto de solução, três ao arquiteto de software ou à equipe de desenvolvimento e uma à arquitetura corporativa. As seis tarefas do arquiteto de solução usam os quatro grupos de competência, o que mostra o quanto o papel exige de habilidades diferentes.
 
-#### Benefício por trás da tarefa T10
+#### A justificativa de reaproveitar um componente de software de envio de mensagem
 
-A tarefa T10 se justifica pelo benefício do **reúso**. Antes de especificar algo novo, o arquiteto consulta o catálogo de aplicações e a arquitetura de software para saber se já existe um componente de software que sirva ao novo uso. Sem essa verificação, a ACME acabaria construindo um segundo componente de envio de mensagem, pagaria duas vezes pela manutenção e pela integração e faria uma mudança maior do que o necessário.
+A tarefa de verificar se já existe componente de software de envio de mensagem reaproveitável (T10) se justifica pelo benefício do **reuso**. Antes de especificar algo novo, o arquiteto consulta o catálogo de aplicações e a arquitetura de software para saber se já existe um componente de software que sirva ao novo uso. Sem essa verificação, a ACME acabaria construindo um segundo componente de envio de mensagem, pagaria duas vezes pela manutenção e pela integração e faria uma mudança maior do que o necessário.
 <!--/gabarito-->
 <!--/ex-->
 
@@ -192,7 +192,7 @@ Para dar um papel a cada artefato, ajuda pensar no caminho que ele faz. Alguns j
 | A9 | Documento que autoriza a equipe a iniciar a investigação | 1. Iniciação | Entrada | Não | 1 |
 | A10 | Modelos da solução implantada, devolvidos ao repositório | 8. Conclusão | Entregável | Não | Todas |
 
-Três artefatos já existiam antes de o processo começar e descrevem parte da situação atual: A1, A2 e A4. Eles formam a linha de base. Quanto à data de conclusão, o pedido chega logo depois do A9, ainda na iniciação, mas a data só pode ser dada com precisão depois da fase 7, quando saem as estimativas de prazo e de custo. Até lá, o caderno registra a data como pendência na seção 10.
+Três artefatos já existiam antes de o processo começar e descrevem parte da situação atual: o mapa de atores (A1), o inventário dos componentes de software atuais (A2) e o registro da decisão da Reitoria de 12/03/2026 (A4). Eles formam a linha de base. Quanto à data de conclusão do trabalho, o pedido da Reitoria chega logo depois do documento que autoriza a investigação (A9), ainda na iniciação, mas a data só pode ser dada com precisão depois da fase 7, de desenvolvimento do roteiro, quando saem as estimativas de prazo e de custo. Até lá, o caderno registra a data como pendência na seção 10, a de pendências.
 
 #### Premissas
 

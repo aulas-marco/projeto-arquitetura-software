@@ -66,7 +66,7 @@ class ModuloUmCadernoTest(unittest.TestCase):
     def test_item_3_do_exercicio_3_vira_campo_da_tabela_de_papeis(self):
         pagina = texto("bloco-3-papel-do-arquiteto-de-solucao.md")
         item = [corpo for titulo, corpo in itens(pagina) if titulo.startswith("Item 3")][0]
-        self.assertIn("campo Benefício da tarefa T10", item)
+        self.assertIn("campo Benefício de reaproveitar um componente de software", item)
 
     def test_exercicio_4_associa_artefato_a_secao_e_registra_a_pendencia(self):
         pagina = texto("bloco-4-processo-de-definicao-da-arquitetura.md")

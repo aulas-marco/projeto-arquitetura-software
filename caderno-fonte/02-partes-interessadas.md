@@ -62,7 +62,7 @@ Depois de classificar os papéis, o arquiteto fez o caminho inverso e perguntou 
 
 | Categoria sem representante | Risco da ausência |
 | --- | --- |
-| Participantes da implantação | O desenho pode sair sem quem o construa e o sustente depois da internalização, e a operação só recusa o que foi desenhado quando já é tarde para mudar |
+| Participantes da implantação | Ninguém da equipe que vai construir e manter a solução participa do desenho, e as objeções dessa equipe só aparecem quando mudar o desenho já custa caro |
 | Reguladores e entidades setoriais | A exigência externa chega depois da decisão, quando o custo de mudar o desenho já é alto |
 
 #### Pontos de vista de três papéis
@@ -73,11 +73,11 @@ O Diretor Financeiro, a Pró-Reitora e o Gerente de sustentação olham para o m
 | --- | --- | --- | --- | --- |
 | Diretor Financeiro | Pagar o legado e a nuvem no mesmo exercício | Componentes com custo e contrato associados | Tabela de desembolso por exercício | Comparação com o plano plurianual já provisionado |
 | Pró-Reitora de Graduação | Repetir o incidente na janela de matrícula e prorrogar de novo o prazo | Componentes que estão no caminho crítico da matrícula | Fluxo do processo com os pontos de falha marcados | Duas versões comparáveis, a atual e a pretendida |
-| Gerente de sustentação da fábrica | Perder receita e escopo com a internalização do conhecimento do núcleo | Programas sob contrato e interfaces afetadas | Lista de programas com as chamadas que mudam | Marcação do que muda antes e depois de 30/09/2027 |
+| Gerente de sustentação da fábrica | Perder receita e escopo se a ACME passar a dominar o núcleo COBOL sem depender da fábrica | Programas sob contrato e interfaces afetadas | Lista de programas com as chamadas que mudam | Marcação do que muda antes e depois de 30/09/2027 |
 
 #### Declaração de escopo do primeiro ciclo
 
-Para o primeiro ciclo caber nos R$ 6,2 milhões e nos 12 meses, o arquiteto separou o que a mudança toca do que ela deixa como está, e anotou quem decidiu cada exclusão para que ninguém a reabra sem saber de onde veio. A correção do dado cadastral de aluno (E10) muda porque a Aula 1 decidiu, na decisão D5, passá-la da equipe de sustentação à Secretaria Acadêmica.
+Para o primeiro ciclo caber nos R$ 6,2 milhões e nos 12 meses, o arquiteto separou o que a mudança toca do que ela deixa como está, e anotou quem decidiu cada exclusão para que ninguém a reabra sem saber de onde veio. Os dez elementos recebem os códigos E1 a E10, e a coluna de origem cita as restrições da seção 1: RT2 (o ambiente virtual e o ERP financeiro permanecem), RT5 (dado pessoal de aluno em território nacional) e RT6 (núcleo COBOL sob contrato até 30/09/2027). A correção do dado cadastral de aluno (E10) muda porque a Aula 1 decidiu passá-la da equipe de sustentação à Secretaria Acadêmica (decisão D5).
 
 | Código | Elemento | Muda ou permanece | Origem da exclusão |
 | --- | --- | --- | --- |
