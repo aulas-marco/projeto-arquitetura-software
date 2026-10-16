@@ -24,7 +24,7 @@ Cada código é a inicial do item seguida de um número, na ordem em que o item 
 | C | Um controle de segurança | 8 |
 | LG | Uma ligação entre duas partes executáveis da solução, com protocolo e contrato | 7 |
 | FA | Uma função de aptidão: teste automático que avisa quando uma decisão deixa de ser cumprida | 9 |
-| CP | Um componente candidato da solução, classificado por tipo | 1 |
+| CP | Um candidato a componente da solução, classificado por tipo | 1 |
 | N | Um elemento da situação atual, lido nos três níveis de sistema | 1 |
 | T | Uma tarefa do ciclo de modernização, atribuída a um papel | 1 |
 | A | Um artefato do caso, ligado a uma fase, a um papel e a uma seção | 1 |

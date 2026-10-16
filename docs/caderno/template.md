@@ -37,9 +37,9 @@ Esta parte é preenchida no exercício 1.
 Você escreve:
 
 - **Dado do dossiê:** a instituição, a pergunta central e as restrições já vêm preenchidas, porque são dados do caso.
-- **Nível:** escolha entre arquitetura corporativa, quando a decisão vale para a universidade inteira, de solução, quando vale para este projeto como um todo, e de software, quando vale só dentro de um componente.
+- **Nível:** escolha entre arquitetura corporativa, quando a decisão vale para a universidade inteira, de solução, quando vale para este projeto como um todo, e de software, quando vale só dentro de um componente de software.
 - **Justificativa:** explique por que escolheu esse nível. Ajuda perguntar até onde o efeito da decisão chega e quem precisa ser avisado quando ela mudar.
-- **Componente não tecnológico afetado:** nas decisões de solução, diga que parte da organização a decisão atinge além da tecnologia: as pessoas, a estrutura (áreas e contratos), os processos ou as informações.
+- **Componente da solução afetado:** nas decisões de solução, diga que componentes da solução a decisão atinge além da tecnologia: pessoas, estruturas organizacionais (áreas e contratos), processos ou informação.
 - **Dependência entre decisões:** veja se uma decisão só faz sentido depois de outra e, se fizer, diga qual vem primeiro e o que daria errado se a ordem fosse invertida.
 
 ### 1.2 Componentes da solução do R7
@@ -48,8 +48,8 @@ Esta parte é preenchida no exercício 2.
 
 Você escreve:
 
-- **Tipo do componente:** classifique cada componente em um dos cinco tipos: pessoas, estruturas organizacionais (áreas, contratos e acordos), processos, informação ou tecnologia.
-- **Tipo sem componente:** confira se algum tipo ficou sem nenhum componente, o que indicaria algo esquecido na solução, e diga qual tipo mais muda a rotina de quem trabalha na instituição.
+- **Tipo do componente da solução:** classifique cada componente da solução em um dos cinco tipos: pessoas, estruturas organizacionais (áreas, contratos e acordos), processos, informação ou tecnologia.
+- **Tipo de componente da solução ausente:** confira se algum tipo ficou sem nenhum componente da solução, o que indicaria algo esquecido na solução, e diga qual tipo mais muda a rotina de quem trabalha na instituição.
 - **Nível do elemento:** diga se cada elemento da situação atual pertence ao sistema de negócio (o que a universidade oferece), ao sistema de informação (pessoas, processos e registros) ou ao sistema de TI (equipamentos e programas).
 - **Prazo percebido:** explique por que trocar só a tecnologia pode não encurtar o prazo que o aluno percebe.
 
@@ -62,7 +62,7 @@ Você escreve:
 - **Responsável:** diga se a tarefa é do arquiteto de solução, do arquiteto de software ou da arquitetura corporativa, pelo mesmo critério do exercício 1: até onde o efeito da tarefa chega.
 - **Justificativa:** explique em uma frase por que a tarefa é desse responsável.
 - **Grupo de competência:** nas tarefas do arquiteto de solução, diga qual habilidade a tarefa pede mais: de negócio, técnica, de entrega ou prática (comunicação, relacionamento com as partes interessadas, requisitos).
-- **Benefício da tarefa T10:** escolha, entre os sete benefícios da abordagem arquitetural, o que justifica verificar se já existe um componente reaproveitável.
+- **Benefício da tarefa T10:** escolha, entre os sete benefícios da abordagem arquitetural, o que justifica verificar se já existe um componente de software reaproveitável.
 
 ### 1.4 Artefatos nas fases do processo, premissas e escopo
 

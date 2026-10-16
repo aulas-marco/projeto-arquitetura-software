@@ -11,7 +11,7 @@ Este bloco responde à questão que organiza a disciplina inteira, o que disting
 
 ## O que é Arquitetura de Solução?
 
-Uma abordagem arquitetural de um problema faz três movimentos. Vê o problema inteiro e como ele pode ser resolvido de forma **conceitual**, decompõe o problema em componentes e constrói modelos que mostram como eles funcionam juntos de forma **lógica**, e enumera as mudanças **físicas** necessárias para sair da situação atual e chegar à solução, possivelmente em etapas. Essa abordagem se opõe ao ajuste pontual, que resolve o sintoma imediato de forma estreita e costuma precisar ser desfeito quando a organização retoma o caminho de longo prazo.
+Uma abordagem arquitetural de um problema faz três movimentos. Vê o problema inteiro e como ele pode ser resolvido de forma **conceitual**, decompõe o problema em componentes da solução e constrói modelos que mostram como eles funcionam juntos de forma **lógica**, e enumera as mudanças **físicas** necessárias para sair da situação atual e chegar à solução, possivelmente em etapas. Essa abordagem se opõe ao ajuste pontual, que resolve o sintoma imediato de forma estreita e costuma precisar ser desfeito quando a organização retoma o caminho de longo prazo.
 
 Arquitetura, nesse enquadramento, é a estrutura e o comportamento inerentes de um sistema, que existem como resultado de projeto, de evolução, ou dos dois. A estrutura são os componentes e suas conexões, e o comportamento são os efeitos da operação do sistema. Dizer que a arquitetura é inerente significa que todo sistema tem uma, mesmo quando ninguém a analisou, projetou ou documentou. O documento que descreve essa estrutura e esse comportamento é a descrição de arquitetura, objeto da norma ISO/IEC/IEEE 42010, uma norma internacional que define o que essa descrição deve conter.
 
@@ -20,15 +20,15 @@ Arquitetura, nesse enquadramento, é a estrutura e o comportamento inerentes de 
 
 A **arquitetura de software**, por sua vez, é o desenvolvimento e a documentação da estrutura e do comportamento de um sistema ou componente de software, incluindo suas interfaces internas e externas. Ela atua em vários níveis, da unidade de granularidade fina ao sistema inteiro, e responde por manter o software em linha com as diretrizes estratégicas, por modularidade, por cumprimento de acordos de nível de serviço, que são os compromissos formais de desempenho e disponibilidade assumidos com quem usa o sistema, e por manutenibilidade, a facilidade de corrigir e alterar o software.
 
-As duas definições não se contradizem, e a diferença entre elas está no alcance. Uma solução resolve um problema de negócio e depende de pessoas, estruturas organizacionais, processos, informação e tecnologia, os cinco tipos de componente que o arquiteto de solução usa como lista de verificação. O software é um desses componentes. Uma solução que troque um formulário em papel por um aplicativo, sem mudar quem aprova o pedido nem o prazo do processo, não resolveu o problema de negócio, ainda que o software esteja bem construído.
+As duas definições não se contradizem, e a diferença entre elas está no alcance. Uma solução resolve um problema de negócio e depende de pessoas, estruturas organizacionais, processos, informação e tecnologia, os cinco tipos de componente da solução que o arquiteto de solução usa como lista de verificação. O software está contido em um desses componentes da solução, a tecnologia. Uma solução que troque um formulário em papel por um aplicativo, sem mudar quem aprova o pedido nem o prazo do processo, não resolveu o problema de negócio, ainda que o software esteja bem construído.
 
 ## Componentes de uma Solução
 
-![Infográfico dos componentes de uma solução. Pessoas, processos, informação, tecnologia e estruturas organizacionais se conectam ao centro, a solução completa. Abaixo, a abordagem arquitetural em três movimentos, ver o problema inteiro, decompor em componentes e planejar as mudanças, contraposta ao ajuste pontual.](../assets/images/modulo-1-componentes-solucao.png){ .module-diagram }
+![Infográfico dos componentes de uma solução. Pessoas, processos, informação, tecnologia e estruturas organizacionais se conectam ao centro, a solução completa. Abaixo, a abordagem arquitetural em três movimentos, ver o problema inteiro, decompor em componentes da solução e planejar as mudanças, contraposta ao ajuste pontual.](../assets/images/modulo-1-componentes-solucao.png){ .module-diagram }
 
-Figura 1. Os cinco tipos de componente da solução e os três movimentos da abordagem arquitetural. A tecnologia é um dos cinco componentes, e o software é apenas uma parte dela.
+Figura 1. Os cinco tipos de componente da solução e os três movimentos da abordagem arquitetural. A tecnologia é um dos cinco tipos de componente da solução, e o software é apenas uma parte dela.
 
-O infográfico reúne os dois conceitos apresentados nesta seção, a lista de verificação dos cinco componentes e a sequência conceitual, lógica e física descrita no primeiro parágrafo. A leitura recomendada parte do círculo central, percorre os cinco componentes e só então desce para a faixa dos três movimentos.
+O infográfico reúne os dois conceitos apresentados nesta seção, a lista de verificação dos cinco tipos de componente da solução e a sequência conceitual, lógica e física descrita no primeiro parágrafo. A leitura recomendada parte do círculo central, percorre os cinco tipos de componente da solução e só então desce para a faixa dos três movimentos.
 
 ## Granularidade da arquitetura
 
@@ -66,7 +66,7 @@ O diagrama usa o TOGAF, um modelo de referência muito adotado para organizar a 
 
 Duas ressalvas evitam confusão com o infográfico da Figura 2. O diagrama usa os quatro domínios de arquitetura do TOGAF, que são negócio, dados, aplicações e tecnologia, enquanto a Figura 2 lista cinco domínios de referência, porque separa segurança e infraestrutura dentro do que o TOGAF reúne sob tecnologia. Nenhuma das duas divisões é canônica para toda organização, e a escolha entre elas depende de como a arquitetura corporativa daquela instituição está estruturada. O diagrama também é uma leitura didática montada para este curso, e não reproduz notação oficial do framework, cujo ciclo de desenvolvimento de arquitetura tem representação própria.
 
-A relação típica entre as duas disciplinas mais próximas segue quatro passos. A arquitetura de solução produz um desenho que contém requisitos passíveis de realização por software, esses requisitos são entregues à arquitetura de software para projeto, a equipe de desenvolvimento constrói ou adquire os componentes conforme o projeto, e as duas funções governam o processo. Há um passo anterior que costuma ser esquecido, e ele decorre do objetivo de minimizar o impacto sobre o negócio: antes de especificar componente novo, o arquiteto de solução precisa descobrir se o componente já existe na organização, consultando o catálogo de aplicações e, quando o catálogo não basta, a própria função de arquitetura de software.
+A relação típica entre as duas disciplinas mais próximas segue quatro passos. A arquitetura de solução produz um desenho que contém requisitos passíveis de realização por software, esses requisitos são entregues à arquitetura de software para projeto, a equipe de desenvolvimento constrói ou adquire os componentes de software conforme o projeto, e as duas funções governam o processo. Há um passo anterior que costuma ser esquecido, e ele decorre do objetivo de minimizar o impacto sobre o negócio: antes de especificar componente de software novo, o arquiteto de solução precisa descobrir se o componente de software já existe na organização, consultando o catálogo de aplicações e, quando o catálogo não basta, a própria função de arquitetura de software.
 
 ### Como aplicar o grão correto
 
@@ -76,9 +76,9 @@ Na ACME, decidir que a matrícula não pode parar em período letivo é uma rest
 
 ## Uso pelo arquiteto
 
-O arquiteto usa essa distinção para saber de quem é a decisão que tem diante de si, e para não responder sozinho por escolhas que pertencem a outro nível. Levar uma decisão de arquitetura corporativa para dentro de uma solução isolada produz divergência entre iniciativas, e tratar uma decisão de solução como se fosse de software costuma deixar de fora exatamente os componentes que não são técnicos, o processo que precisa mudar e a área que precisa assumir uma responsabilidade nova.
+O arquiteto usa essa distinção para saber de quem é a decisão que tem diante de si, e para não responder sozinho por escolhas que pertencem a outro nível. Levar uma decisão de arquitetura corporativa para dentro de uma solução isolada produz divergência entre iniciativas, e tratar uma decisão de solução como se fosse de software costuma deixar de fora exatamente os componentes da solução que não são técnicos (pessoas, estruturas organizacionais e processos), o processo que precisa mudar e a área que precisa assumir uma responsabilidade nova.
 
-A distinção também organiza a conversa com as partes interessadas. O patrocinador de negócio decide sobre a solução, e o desenho interno dos componentes fica fora do alcance dele, de modo que cobrar-lhe uma escolha técnica desloca a decisão para quem não tem elementos para tomá-la. A recíproca vale: pedir ao time de desenvolvimento que decida quem passa a ser dono de um dado transfere ao time uma decisão de alcance organizacional.
+A distinção também organiza a conversa com as partes interessadas. O patrocinador de negócio decide sobre a solução, e o desenho interno dos componentes de software fica fora do alcance dele, de modo que cobrar-lhe uma escolha técnica desloca a decisão para quem não tem elementos para tomá-la. A recíproca vale: pedir ao time de desenvolvimento que decida quem passa a ser dono de um dado transfere ao time uma decisão de alcance organizacional.
 
 ## No caderno arquitetural
 
@@ -86,13 +86,13 @@ A distinção também organiza a conversa com as partes interessadas. O patrocin
 
 **Para que serve.** A seção 1 do caderno, **Contexto**, guarda o ponto de partida do projeto: quem é a ACME, que problema ela quer resolver e o que já foi decidido. Parte dessas decisões vem das conversas do arquiteto com as partes interessadas, que são as pessoas com interesse no projeto, como a Reitoria, a Diretoria de TI e a Secretaria Acadêmica. Antes de desenhar qualquer coisa, o arquiteto precisa saber de quem é cada decisão, porque só responde pelas que pertencem à solução. As demais são da organização inteira ou da equipe que programa.
 
-**O que você faz neste exercício.** Nas conversas com as partes interessadas, o arquiteto da ACME reuniu nove decisões, e o enunciado as traz numeradas de D1 a D9. Uma delas diz que a identidade dos usuários segue padrões abertos em qualquer iniciativa da universidade, e outra diz que o serviço de notas repete o envio quando o ambiente virtual não confirma o recebimento. A primeira vale para a universidade toda, e a segunda só mexe dentro de um componente. Você faz essa mesma separação para as nove: diz de que nível é cada decisão, explica por quê e registra o resultado na tabela de decisões do caderno.
+**O que você faz neste exercício.** Nas conversas com as partes interessadas, o arquiteto da ACME reuniu nove decisões, e o enunciado as traz numeradas de D1 a D9. Uma delas diz que a identidade dos usuários segue padrões abertos em qualquer iniciativa da universidade, e outra diz que o serviço de notas repete o envio quando o ambiente virtual não confirma o recebimento. A primeira vale para a universidade toda, e a segunda só mexe dentro de um componente de software. Você faz essa mesma separação para as nove: diz de que nível é cada decisão, explica por quê e registra o resultado na tabela de decisões do caderno.
 
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
-| Nível | Escolha entre arquitetura corporativa, quando a decisão vale para a universidade inteira, de solução, quando vale para este projeto como um todo, e de software, quando vale só dentro de um componente | 1 |
+| Nível | Escolha entre arquitetura corporativa, quando a decisão vale para a universidade inteira, de solução, quando vale para este projeto como um todo, e de software, quando vale só dentro de um componente de software | 1 |
 | Justificativa | Explique por que escolheu esse nível. Ajuda perguntar até onde o efeito da decisão chega e quem precisa ser avisado quando ela mudar | 1 |
-| Componente não tecnológico afetado | Nas decisões de solução, diga que parte da organização a decisão atinge além da tecnologia: as pessoas, a estrutura (áreas e contratos), os processos ou as informações | 2 |
+| Componente da solução afetado | Nas decisões de solução, diga que componentes da solução a decisão atinge além da tecnologia: pessoas, estruturas organizacionais (áreas e contratos), processos ou informação | 2 |
 | Dependência entre decisões | Veja se uma decisão só faz sentido depois de outra. Se fizer, diga qual vem primeiro e o que daria errado se a ordem fosse invertida | 3 |
 
 **O que você já tem.** O caderno já traz o porte da ACME, as restrições e a pergunta central, porque são dados do caso. Falta a classificação das decisões.
@@ -108,7 +108,7 @@ A distinção também organiza a conversa com as partes interessadas. O patrocin
 
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 2.150 professores e 4 campi, cujo sistema acadêmico entrou em operação em 2004 e sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro, o sistema de gestão das finanças da universidade. O custo anual de propriedade do sistema é de R$ 15,83 milhões, o prazo médio entre pedido aprovado e entrega em produção é de 34 dias úteis, e a manutenção do núcleo em COBOL depende de 6 especialistas, dos quais 2 se aposentam em 2027. A instituição decidiu modernizar o sistema de forma incremental, sem substituí-lo por produto de mercado e sem reescrita em entrega única.
 
-Este exercício treina uma pergunta que o arquiteto faz antes de qualquer desenho: de quem é esta decisão? Num projeto de modernização, parte das decisões vale para a universidade inteira, parte vale para o projeto como um todo e parte só interessa à equipe que programa um componente. O arquiteto de solução responde pelas decisões do segundo grupo e precisa reconhecer as outras para não decidir o que não é dele. O exercício tem três itens. O primeiro separa nove decisões por nível, o segundo identifica o que as decisões de solução afetam além da tecnologia e o terceiro examina se duas decisões dependem uma da outra. As respostas dos três itens vão para o caderno arquitetural, o documento em que o curso reúne, seção por seção, a arquitetura da solução da ACME, apresentado no [bloco 4](bloco-4-processo-de-definicao-da-arquitetura.md#o-caderno-arquitetural).
+Este exercício treina uma pergunta que o arquiteto faz antes de qualquer desenho: de quem é esta decisão? Num projeto de modernização, parte das decisões vale para a universidade inteira, parte vale para o projeto como um todo e parte só interessa à equipe que programa um componente de software. O arquiteto de solução responde pelas decisões do segundo grupo e precisa reconhecer as outras para não decidir o que não é dele. O exercício tem três itens. O primeiro separa nove decisões por nível, o segundo identifica os componentes da solução que as decisões de solução afetam além da tecnologia e o terceiro examina se duas decisões dependem uma da outra. As respostas dos três itens vão para o caderno arquitetural, o documento em que o curso reúne, seção por seção, a arquitetura da solução da ACME, apresentado no [bloco 4](bloco-4-processo-de-definicao-da-arquitetura.md#o-caderno-arquitetural).
 
 ### Item 1: Nível de cada decisão
 
@@ -126,24 +126,24 @@ Uma decisão, neste exercício, é uma escolha que define como parte da moderniz
 | D8     | O histórico escolar é emitido com assinatura digital no padrão ICP-Brasil                                                            |
 | D9     | A transição ocorre por extração incremental de módulos, com o núcleo em operação durante todo o percurso                             |
 
-1. Classifique cada uma das nove decisões em arquitetura corporativa, quando vale para a universidade inteira, arquitetura de solução, quando vale para este projeto como um todo, ou arquitetura de software, quando vale só dentro de um componente, com uma linha de justificativa por decisão.
+1. Classifique cada uma das nove decisões em arquitetura corporativa, quando vale para a universidade inteira, arquitetura de solução, quando vale para este projeto como um todo, ou arquitetura de software, quando vale só dentro de um componente de software, com uma linha de justificativa por decisão.
 
 Sua resposta vira as colunas Nível e Justificativa da tabela de decisões, na seção 1 do caderno.
 
-### Item 2: Componentes não tecnológicos afetados
+### Item 2: Componentes da solução afetados
 
-Uma decisão de solução quase nunca é só técnica. Ela costuma exigir que alguém aprenda algo, que uma área mude de função, que um processo seja refeito ou que uma informação ganhe dono, e são essas partes que costumam ficar sem responsável. Este item pede que você identifique quais dessas partes cada decisão atinge. Treinar os professores para um novo procedimento, por exemplo, mexe com pessoas, e guardar um registro de auditoria por 5 anos mexe com informação. O quadro abaixo reproduz quatro dos cinco tipos de [componentes da solução](../referencia/glossario.md#componentes-da-solucao), detalhados no [bloco 2](bloco-2-a-solucao-como-sistema.md#os-cinco-tipos-de-componente) desta aula, sem o tipo tecnologia, porque o objetivo é enxergar o que está além dela.
+Uma decisão de solução quase nunca é só técnica. Ela costuma exigir que alguém aprenda algo, que uma área mude de função, que um processo seja refeito ou que uma informação ganhe dono, e são essas partes que costumam ficar sem responsável. Este item pede que você identifique quais componentes da solução, além da tecnologia, cada decisão atinge. Treinar os professores para um novo procedimento, por exemplo, mexe com o componente da solução pessoas, e guardar um registro de auditoria por 5 anos mexe com o componente da solução informação. O quadro abaixo reproduz quatro dos cinco tipos de [componentes da solução](../referencia/glossario.md#componentes-da-solucao) (pessoas, estruturas organizacionais, processos e informação), detalhados no [bloco 2](bloco-2-a-solucao-como-sistema.md#os-cinco-tipos-de-componente-da-solucao) desta aula, sem o tipo tecnologia, porque o objetivo é enxergar o que está além dela.
 
-| Tipo de componente | O que abrange |
+| Tipo de componente da solução | O que abrange |
 | --- | --- |
 | Pessoas | Funcionários, clientes, parceiros, papéis, capacidades, habilidades e descrições de cargo |
 | Estruturas organizacionais | Unidades, estruturas de gestão, terceirização, organizações parceiras, metas e acordos de nível de serviço |
 | Processos | Serviços de negócio, cadeia de valor, processos, políticas, regras de negócio e procedimentos |
 | Informação | Entrada, saída, gatilho, retorno, auditoria e informação como produto |
 
-1. Escolha duas decisões que você classificou no Item 1 como de arquitetura de solução e indique, para cada uma, qual dos quatro tipos de componente do quadro ela afeta, com uma linha de justificativa.
+1. Escolha duas decisões que você classificou no Item 1 como de arquitetura de solução e indique, para cada uma, qual dos quatro tipos de componente da solução do quadro ela afeta, com uma linha de justificativa.
 
-Sua resposta vira a coluna Componente não tecnológico afetado da mesma tabela, no caderno.
+Sua resposta vira a coluna Componente da solução afetado da mesma tabela, no caderno.
 
 ### Item 3: Dependência entre D2 e D3
 

@@ -47,21 +47,21 @@ A tabela reúne as nove decisões que a ACME já tomou ou propôs. Para classifi
 | --- | --- | --- | --- |
 | D1 | Identidade e autorização seguem padrões abertos, sem produto proprietário | Corporativa | Vale para qualquer iniciativa da universidade, inclusive as que ainda não existem |
 | D2 | A propagação de nota ao ambiente virtual passa de lote diário a até 10 minutos | Solução | Muda o processo de fechamento de notas, o contrato com o fornecedor do ambiente virtual e a integração entre os sistemas |
-| D3 | O serviço de notas repete o envio sem confirmação, com intervalo crescente | Software | Muda só o comportamento de um componente, e ninguém fora da equipe que o constrói precisa ser avisado |
+| D3 | O serviço de notas repete o envio sem confirmação, com intervalo crescente | Software | Muda só o comportamento de um componente de software, e ninguém fora da equipe que o constrói precisa ser avisado |
 | D4 | Nenhum dado pessoal de aluno é processado fora do território nacional | Corporativa | É regra do Jurídico para qualquer iniciativa que trate dado de aluno, hoje ou no futuro |
 | D5 | A Secretaria Acadêmica passa a responder pela correção de dado cadastral | Solução | Muda quem responde pelo dado cadastral: sai a equipe de sustentação e entra a Secretaria Acadêmica |
-| D6 | O índice de busca de disciplinas do portal passa a ficar em memória | Software | Muda só como um componente do portal funciona por dentro, sem efeito sobre processo, papel ou fornecedor |
+| D6 | O índice de busca de disciplinas do portal passa a ficar em memória | Software | Muda só como um componente de software do portal funciona por dentro, sem efeito sobre processo, papel ou fornecedor |
 | D7 | O núcleo COBOL permanece sob o contrato da fábrica até 30/09/2027 | Solução | Define quem pode mexer no núcleo: toda alteração passa pela fábrica de software, por contrato |
 | D8 | O histórico escolar é emitido com assinatura digital no padrão ICP-Brasil | Solução | Muda o procedimento de emissão do histórico e depende de certificado de terceiro, mas não vale para iniciativas futuras |
 | D9 | A transição ocorre por extração incremental de módulos, com o núcleo em operação | Solução | Afeta o contrato de sustentação, o calendário acadêmico e a rotina das equipes |
 
 As decisões D1, D4 e D7 reproduzem as restrições fechadas RT4, RT5 e RT6. As decisões D2, D3, D5, D6, D8 e D9 estão **propostas** e dependem de validação com as partes interessadas.
 
-#### Componente não tecnológico afetado
+#### Componente da solução afetado
 
-Nas decisões de solução, a tabela mostra que parte da organização é atingida além da tecnologia.
+Nas decisões de solução, a tabela mostra quais componentes da solução são atingidos além da tecnologia (pessoas, estruturas organizacionais, processos e informação).
 
-| Código | Tipo de componente | Efeito |
+| Código | Tipo de componente da solução | Efeito |
 | --- | --- | --- |
 | D2 | Processos | O fechamento de notas deixa de depender da janela noturna de lote |
 | D5 | Estruturas organizacionais | A correção de dado cadastral sai da equipe de sustentação, terceirizada, e passa à Secretaria Acadêmica |
@@ -79,9 +79,9 @@ A decisão D3 depende da D2. Sem a D2, o reenvio seria desenhado para um percurs
 
 #### Componentes da solução do R7
 
-O R7 pede que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. Dez componentes candidatos atendem a esse pedido, e juntos eles ocupam os cinco tipos.
+O R7 pede que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. Dez candidatos a componente da solução atendem a esse pedido, e juntos eles ocupam os cinco tipos (pessoas, estruturas organizacionais, processos, informação e tecnologia).
 
-| Código | Componente | Tipo |
+| Código | Componente da solução | Tipo |
 | --- | --- | --- |
 | CP1 | Treinamento dos professores para publicação imediata da nota | Pessoas |
 | CP2 | Aditivo ao contrato do ambiente virtual, com troca para o plano que oferece interfaces de programação | Estruturas organizacionais |
@@ -94,7 +94,7 @@ O R7 pede que a nota lançada pelo professor chegue ao ambiente virtual de apren
 | CP9 | Serviço de notas que publica um evento a cada lançamento | Tecnologia |
 | CP10 | Responsável na Coordenação de Educação a Distância pelas falhas de envio | Pessoas |
 
-Nenhum tipo ficou sem componente. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o CP4 e o CP5 mudam a rotina de fechamento e de correção de nota de professores, coordenações e Secretaria. Só a mudança de tecnologia não altera o prazo que o aluno percebe.
+Nenhum tipo ficou sem componente da solução. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o CP4 e o CP5 mudam a rotina de fechamento e de correção de nota de professores, coordenações e Secretaria. Só a mudança de tecnologia não altera o prazo que o aluno percebe.
 
 #### Os três níveis do R7
 

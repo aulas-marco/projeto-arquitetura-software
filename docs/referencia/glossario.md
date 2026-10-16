@@ -20,7 +20,7 @@ Disciplina que define diretrizes, princípios e modelos válidos para a organiza
 
 ## Componentes da solução
 
-Os cinco tipos de elemento que formam uma solução: pessoas, estruturas organizacionais, processos, informação e tecnologia. O arquiteto os usa como lista de conferência para que nenhum fique de fora do desenho.
+Os cinco tipos de elemento que formam uma solução: pessoas, estruturas organizacionais, processos, informação e tecnologia. O arquiteto os usa como lista de conferência para que nenhum fique de fora do desenho. Neste curso, "componente" sozinho quer dizer peça de TI, como um serviço, um banco de dados ou uma mensageria, e "componente da solução" é o sentido amplo, que abrange os cinco tipos.
 
 ## Bloco de construção da solução
 

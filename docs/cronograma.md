@@ -12,7 +12,7 @@ As duas primeiras aulas enquadram o problema, com a disciplina e seu processo, d
 
 | Aula | Tema |
 | --- | --- |
-| 1 | Arquitetura de soluções e arquitetura de software, componentes da solução, papel do arquiteto e processo de definição da arquitetura |
+| 1 | Arquitetura de soluções e arquitetura de software, componentes da solução (pessoas, áreas, processos, informação e tecnologia), papel do arquiteto e processo de definição da arquitetura |
 | 2 | Direcionadores de mudança, requisitos e atributos de qualidade, artefatos de linha de base, restrições e partes interessadas |
 | 3 | Princípios de design, estilos arquiteturais, padrões de design e registro de decisão arquitetural |
 | 4 | Arquitetura de negócio, de dados, de aplicações e de infraestrutura da solução, com contrato de integração e modelagem C4 |
@@ -28,7 +28,7 @@ As aulas seguem a ordem natural de um projeto, que parte do enquadramento, passa
 | Bloco | Tema | Exercício |
 | --- | --- | --- |
 | 1 | Arquitetura de soluções e arquitetura de software | 1 |
-| 2 | A solução como sistema e seus componentes | 2 |
+| 2 | A solução como sistema e seus componentes (pessoas, áreas, processos, informação e tecnologia) | 2 |
 | 3 | O papel do arquiteto de solução | 3 |
 | 4 | O processo de definição da arquitetura | 4 |
 

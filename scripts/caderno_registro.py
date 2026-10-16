@@ -35,7 +35,7 @@ PLANO = {
 # Os arquivos da Aula 6 ainda não existem, e o gerador só cria link para arquivo existente.
 EXERCICIOS = {
     1: (1, "modulo-1-fundamentos/bloco-1-arquitetura-de-solucoes-e-de-software.md", "Arquitetura de soluções e arquitetura de software"),
-    2: (1, "modulo-1-fundamentos/bloco-2-a-solucao-como-sistema.md", "A solução como sistema e seus componentes"),
+    2: (1, "modulo-1-fundamentos/bloco-2-a-solucao-como-sistema.md", "A solução como sistema e seus componentes (pessoas, áreas, processos, informação e tecnologia)"),
     3: (1, "modulo-1-fundamentos/bloco-3-papel-do-arquiteto-de-solucao.md", "O papel do arquiteto de solução"),
     4: (1, "modulo-1-fundamentos/bloco-4-processo-de-definicao-da-arquitetura.md", "O processo de definição da arquitetura"),
     5: (2, "modulo-2-requisitos-e-partes-interessadas/bloco-1-direcionadores-de-mudanca.md", "Direcionadores de mudança"),

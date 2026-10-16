@@ -82,7 +82,7 @@ O contraste mostra que o ponto de vista seleciona conteúdo diferente para cada 
 
 ### Definição do escopo
 
-O escopo da solução é declarado por componentes. Entram na declaração os componentes de negócio, os de informação e tecnologia, e os blocos de construção, com a distinção entre bloco de construção de arquitetura, que é genérico e reutilizável, e bloco de construção da solução, que é a realização daquele bloco naquela solução. A declaração é documentada e aprovada formalmente, porque é ela que delimita o que será mudado e, por exclusão, o que permanece.
+O escopo da solução é declarado por componentes da solução (pessoas, estruturas organizacionais, processos, informação e tecnologia). Entram na declaração os componentes da solução de negócio, os de informação e os de tecnologia, e os blocos de construção, com a distinção entre bloco de construção de arquitetura, que é genérico e reutilizável, e bloco de construção da solução, que é a realização daquele bloco naquela solução. A declaração é documentada e aprovada formalmente, porque é ela que delimita o que será mudado e, por exclusão, o que permanece.
 
 Na ACME, universidade privada brasileira fictícia com 38.400 alunos ativos e sistema acadêmico em operação desde 2004, a declaração de escopo precisa registrar que o ambiente virtual de aprendizagem e o ERP financeiro permanecem, por decisão da Reitoria de 12/03/2026, e que o trabalho sobre eles é de integração e de governança.
 

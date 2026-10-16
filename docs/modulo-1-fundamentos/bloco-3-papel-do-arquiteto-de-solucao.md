@@ -34,9 +34,9 @@ Três artefatos de entrada aparecem no início de quase todo processo. A declara
 
 ### Benefícios da abordagem
 
-A abordagem arquitetural traz sete benefícios que justificam o custo do processo. O primeiro é a **visão do todo**, porque a solução é tratada como sistema que reúne os cinco tipos de componente descritos no [bloco 2](bloco-2-a-solucao-como-sistema.md#os-cinco-tipos-de-componente), pessoas, estruturas organizacionais, processos, informação e tecnologia, e são raras as soluções bem-sucedidas que não mudam algo em cada uma dessas áreas. O segundo é o **alinhamento estratégico**, com a identificação do que é estratégico na fase de descoberta e o registro como dívida estratégica daquilo que precisou ser feito contra a estratégia por urgência. O terceiro é o **reúso**, favorecido pelo uso de modelos de componente e interface, que aumentam a chance de um componente existente ser identificado como adequado a mais de um uso.
+A abordagem arquitetural traz sete benefícios que justificam o custo do processo. O primeiro é a **visão do todo**, porque a solução é tratada como sistema que reúne os cinco tipos de componente da solução descritos no [bloco 2](bloco-2-a-solucao-como-sistema.md#os-cinco-tipos-de-componente-da-solucao), pessoas, estruturas organizacionais, processos, informação e tecnologia, e são raras as soluções bem-sucedidas que não mudam algo em cada uma dessas áreas. O segundo é o **alinhamento estratégico**, com a identificação do que é estratégico na fase de descoberta e o registro como dívida estratégica daquilo que precisou ser feito contra a estratégia por urgência. O terceiro é o **reúso**, favorecido pelo uso de modelos de componente de software e de interface, que aumentam a chance de um componente de software existente ser identificado como adequado a mais de um uso.
 
-O quarto é a **decisão baseada em evidência**, porque a modelagem da área do problema permite localizar a causa raiz e testar se a solução proposta de fato a resolve, em lugar de decidir por opinião. O quinto é o **custo e a perturbação mínimos**, obtidos pela comparação de alternativas por análise de lacunas, que procura a menor mudança capaz de produzir o resultado desejado, e por análise de impacto, que limita os efeitos colaterais. O sexto é a **redução de dependência**, obtida pelo encapsulamento de componentes com interfaces definidas, de modo que o interior de um componente mude sem repercussão sobre os demais. O sétimo é a **resolução precoce de conflito e de duplicação**, porque o escopo declarado e as análises de lacuna e de impacto revelam cedo quais outras iniciativas em curso tocam a mesma área.
+O quarto é a **decisão baseada em evidência**, porque a modelagem da área do problema permite localizar a causa raiz e testar se a solução proposta de fato a resolve, em lugar de decidir por opinião. O quinto é o **custo e a perturbação mínimos**, obtidos pela comparação de alternativas por análise de lacunas, que procura a menor mudança capaz de produzir o resultado desejado, e por análise de impacto, que limita os efeitos colaterais. O sexto é a **redução de dependência**, obtida pelo encapsulamento de componentes de software com interfaces definidas, de modo que o interior de um componente de software mude sem repercussão sobre os demais. O sétimo é a **resolução precoce de conflito e de duplicação**, porque o escopo declarado e as análises de lacuna e de impacto revelam cedo quais outras iniciativas em curso tocam a mesma área.
 
 ## Uso pelo arquiteto
 
@@ -48,7 +48,7 @@ A separação entre entradas, produtos intermediários e entregáveis organiza a
 
 {{ficha:1}}
 
-**Para que serve.** O caderno precisa deixar claro quem faz o quê. Num projeto de modernização, parte das tarefas é do arquiteto de solução, que cuida da solução como um todo. Outra parte é do arquiteto de software ou da equipe de desenvolvimento, que cuidam do interior de cada componente. E uma terceira é da arquitetura corporativa, que define regras para a organização inteira. Quando essa divisão não está escrita, o arquiteto acaba decidindo o que não é dele ou deixa sem dono o que é.
+**Para que serve.** O caderno precisa deixar claro quem faz o quê. Num projeto de modernização, parte das tarefas é do arquiteto de solução, que cuida da solução como um todo. Outra parte é do arquiteto de software ou da equipe de desenvolvimento, que cuidam do interior de cada componente de software. E uma terceira é da arquitetura corporativa, que define regras para a organização inteira. Quando essa divisão não está escrita, o arquiteto acaba decidindo o que não é dele ou deixa sem dono o que é.
 
 **O que você faz neste exercício.** O enunciado lista dez tarefas do ciclo de modernização da ACME, numeradas de T1 a T10. Entre elas estão entrevistar a Pró-Reitoria de Graduação (T1), estimar o custo da mudança (T3) e escolher a estrutura de dados do serviço de matrícula (T4). Você diz de quem é cada tarefa, que tipo de habilidade ela pede do arquiteto de solução e, no caso da T10, que benefício ela traz. O resultado vira a tabela de papéis do caderno.
 
@@ -57,7 +57,7 @@ A separação entre entradas, produtos intermediários e entregáveis organiza a
 | Responsável | Diga se a tarefa é do arquiteto de solução, do arquiteto de software ou da arquitetura corporativa, pelo mesmo critério do exercício 1: até onde o efeito da tarefa chega | 1 |
 | Justificativa | Explique em uma frase por que a tarefa é desse responsável | 1 |
 | Grupo de competência | Nas tarefas do arquiteto de solução, diga qual habilidade a tarefa pede mais: de negócio, técnica, de entrega ou prática (comunicação, relacionamento com as partes interessadas, requisitos) | 2 |
-| Benefício da tarefa T10 | Escolha, entre os sete benefícios da abordagem arquitetural, o que justifica verificar se já existe um componente reaproveitável | 3 |
+| Benefício da tarefa T10 | Escolha, entre os sete benefícios da abordagem arquitetural, o que justifica verificar se já existe um componente de software reaproveitável | 3 |
 
 **O que você já tem.** A classificação por nível do exercício 1, porque o mesmo critério de alcance separa as decisões e as tarefas.
 
@@ -76,7 +76,7 @@ Em um projeto de modernização, muita gente trabalha ao mesmo tempo, e cada tar
 
 ### Item 1: Responsável por cada tarefa
 
-Tarefa é uma atividade do ciclo de modernização, que pode ser de levantamento, de decisão, de redação ou de configuração. O diagrama abaixo situa as áreas e os sistemas envolvidos no ciclo, que dura 12 meses e conta com R$ 6,2 milhões, e o quadro seguinte lista as dez tarefas. Três responsáveis são possíveis. O arquiteto de solução cuida da solução inteira, o arquiteto de software ou a equipe de desenvolvimento cuida do interior de um componente, e a arquitetura corporativa define regras que valem para a organização toda. O ambiente virtual de aprendizagem é a plataforma on-line em que o aluno acompanha as disciplinas e consulta a nota.
+Tarefa é uma atividade do ciclo de modernização, que pode ser de levantamento, de decisão, de redação ou de configuração. O diagrama abaixo situa as áreas e os sistemas envolvidos no ciclo, que dura 12 meses e conta com R$ 6,2 milhões, e o quadro seguinte lista as dez tarefas. Três responsáveis são possíveis. O arquiteto de solução cuida da solução inteira, o arquiteto de software ou a equipe de desenvolvimento cuida do interior de um componente de software, e a arquitetura corporativa define regras que valem para a organização toda. O ambiente virtual de aprendizagem é a plataforma on-line em que o aluno acompanha as disciplinas e consulta a nota.
 
 ```mermaid
 flowchart TB
@@ -101,7 +101,7 @@ flowchart TB
 | T7 | Produzir o roteiro de entrega do ciclo, com a ordem em que os módulos são extraídos |
 | T8 | Decidir que a Secretaria Acadêmica passa a responder pela correção de dado cadastral de aluno |
 | T9 | Configurar o servidor de integração contínua que compila e publica o serviço extraído |
-| T10 | Verificar com a Diretoria de TI se já existe na universidade um componente de envio de mensagem que possa ser reaproveitado |
+| T10 | Verificar com a Diretoria de TI se já existe na universidade um componente de software de envio de mensagem que possa ser reaproveitado |
 
 1. Separe as dez tarefas em três grupos, as que cabem ao arquiteto de solução, as que cabem ao arquiteto de software ou à equipe de desenvolvimento, e as que cabem à arquitetura corporativa, usando o critério de alcance apresentado no [bloco 1](bloco-1-arquitetura-de-solucoes-e-de-software.md#como-aplicar-o-grao-correto). Justifique cada tarefa em uma linha.
 
@@ -124,19 +124,19 @@ Sua resposta vira o campo Grupo de competência da mesma tabela, no caderno.
 
 ### Item 3: Benefício por trás da tarefa T10
 
-A abordagem arquitetural traz benefícios que justificam o trabalho extra do arquiteto, e cada tarefa de um projeto bem conduzido serve a algum deles. A tarefa T10 consiste em verificar com a Diretoria de TI se já existe na universidade um componente de envio de mensagem, isto é, um programa que transmite avisos de um sistema a outro, que possa ser reaproveitado. O item pede que você diga qual benefício está por trás dessa verificação. O quadro abaixo lista os sete benefícios da abordagem arquitetural apresentados na seção [Benefícios da abordagem](#beneficios-da-abordagem) deste bloco.
+A abordagem arquitetural traz benefícios que justificam o trabalho extra do arquiteto, e cada tarefa de um projeto bem conduzido serve a algum deles. A tarefa T10 consiste em verificar com a Diretoria de TI se já existe na universidade um componente de software de envio de mensagem, isto é, um programa que transmite avisos de um sistema a outro, que possa ser reaproveitado. O item pede que você diga qual benefício está por trás dessa verificação. O quadro abaixo lista os sete benefícios da abordagem arquitetural apresentados na seção [Benefícios da abordagem](#beneficios-da-abordagem) deste bloco.
 
 | Benefício | Como ele se produz |
 | --- | --- |
 | Visão do todo | A solução é tratada como sistema que reúne pessoas, estruturas organizacionais, processos, informação e tecnologia |
 | Alinhamento estratégico | O que é estratégico é identificado na descoberta, e o que foi feito contra a estratégia é registrado como dívida estratégica |
-| Reúso | Modelos de componente e de interface aumentam a chance de um componente existente servir a mais de um uso |
+| Reúso | Modelos de componente de software e de interface aumentam a chance de um componente de software existente servir a mais de um uso |
 | Decisão baseada em evidência | A modelagem da área do problema localiza a causa raiz e testa se a solução proposta a resolve |
 | Custo e perturbação mínimos | Análise de lacunas e análise de impacto procuram a menor mudança capaz de produzir o resultado |
-| Redução de dependência | Componentes encapsulados com interfaces definidas mudam por dentro sem repercussão sobre os demais |
+| Redução de dependência | Componentes de software encapsulados com interfaces definidas mudam por dentro sem repercussão sobre os demais |
 | Resolução precoce de conflito e de duplicação | Escopo declarado e análises de lacuna e de impacto revelam cedo outras iniciativas que tocam a mesma área |
 
-1. Identifique qual dos sete benefícios justifica a existência da tarefa T10, e explique em três linhas o que a instituição perde se essa verificação não for feita antes de especificar componente novo.
+1. Identifique qual dos sete benefícios justifica a existência da tarefa T10, e explique em três linhas o que a instituição perde se essa verificação não for feita antes de especificar componente de software novo.
 
 Sua resposta vira o campo Benefício da tarefa T10 da tabela de papéis, no caderno.
 

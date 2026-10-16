@@ -31,12 +31,12 @@ O [template do caderno](../caderno/template.md) mostra o caderno vazio, seção 
 Ao final da aula, o aluno é capaz de
 
 - diferenciar arquitetura corporativa, arquitetura de solução e arquitetura de software pelo alcance da decisão que cada uma toma
-- descrever uma solução como sistema, identificando seus componentes nos cinco tipos, pessoas, estruturas organizacionais, processos, informação e tecnologia
+- descrever uma solução como sistema, identificando seus componentes da solução nos cinco tipos, pessoas, estruturas organizacionais, processos, informação e tecnologia
 - situar uma exigência de negócio nos três níveis de sistema de negócio, sistema de informação e sistema de TI
 - descrever o papel do arquiteto de solução, suas competências e o que a disciplina entrega ao fim do trabalho
 - descrever as oito fases do processo de definição da arquitetura, com a entrada e a saída de cada uma
 - classificar artefatos de um caso real entre entrada, produto intermediário e entregável do processo
-- registrar o contexto do projeto na seção 1 do caderno arquitetural, com as decisões classificadas por nível, os componentes da solução, as tarefas de cada papel e os artefatos de cada fase
+- registrar o contexto do projeto na seção 1 do caderno arquitetural, com as decisões classificadas por nível, os componentes da solução (pessoas, estruturas organizacionais, processos, informação e tecnologia), as tarefas de cada papel e os artefatos de cada fase
 
 ## Grade de tempo
 
@@ -45,7 +45,7 @@ A aula ocorre das 19h00 às 22h30, com intervalo das 20h30 às 20h45, e o tempo 
 | Bloco | Conceito | Apresentação (min) |
 | --- | --- | --- |
 | 1 | Arquitetura de soluções e arquitetura de software | 40 |
-| 2 | A solução como sistema e seus componentes | 40 |
+| 2 | A solução como sistema e seus componentes (pessoas, áreas, processos, informação e tecnologia) | 40 |
 | 3 | O papel do arquiteto de solução | 40 |
 | 4 | O processo de definição da arquitetura | 40 |
 
@@ -55,7 +55,7 @@ Os quatro blocos somam 160 minutos. Os 15 minutos restantes do tempo útil de 17
 
 O [bloco 1](bloco-1-arquitetura-de-solucoes-e-de-software.md) apresenta a distinção que organiza o curso inteiro, entre arquitetura corporativa, de solução e de software, e o critério para saber a quem pertence cada decisão: até onde o efeito dela chega. No exercício, você classifica nove decisões da ACME nesses três níveis e registra o resultado na seção 1 do caderno.
 
-O [bloco 2](bloco-2-a-solucao-como-sistema.md) mostra com o que o arquiteto de solução trabalha: a solução vista como um sistema, com cinco tipos de componente e três níveis em que uma organização pode ser descrita. No exercício, você classifica os componentes da solução que atende ao requisito R7 da ACME, a nota lançada chegar ao ambiente virtual em até 10 minutos, e situa esse requisito nos três níveis. O resultado também entra na seção 1, e o inventário de componentes será usado no bloco 4, porque as fases do processo trabalham sobre componentes já identificados.
+O [bloco 2](bloco-2-a-solucao-como-sistema.md) mostra com o que o arquiteto de solução trabalha: a solução vista como um sistema, com cinco tipos de componente da solução e três níveis em que uma organização pode ser descrita. No exercício, você classifica os componentes da solução (pessoas, estruturas organizacionais, processos, informação e tecnologia) que atendem ao requisito R7 da ACME, a nota lançada chegar ao ambiente virtual em até 10 minutos, e situa esse requisito nos três níveis. O resultado também entra na seção 1, e o inventário de componentes da solução será usado no bloco 4, porque as fases do processo trabalham sobre componentes da solução já identificados.
 
 O [bloco 3](bloco-3-papel-do-arquiteto-de-solucao.md) descreve o papel do arquiteto de solução: as competências que ele precisa ter, as três coisas que o trabalho entrega e os sete benefícios da abordagem arquitetural. No exercício, você separa dez tarefas do ciclo de modernização da ACME entre o arquiteto de solução, o arquiteto de software e a arquitetura corporativa, e registra a divisão na seção 1.
 
@@ -71,11 +71,11 @@ Os quatro exercícios desta aula preenchem a seção 1, Contexto, que registra o
 
 | Bloco | Exercício | O que entra no caderno | Gabarito |
 | --- | --- | --- | --- |
-| 1 | 1 | A classificação das nove decisões da ACME por nível de arquitetura (D1 a D9), com o componente afetado e a dependência entre elas | [Gabarito 1](../gabaritos/gabarito-exercicio-01.md) |
-| 2 | 2 | O tipo de cada um dos dez componentes da solução (CP1 a CP10) e o nível de cada um dos seis elementos da situação atual (N1 a N6) | [Gabarito 2](../gabaritos/gabarito-exercicio-02.md) |
+| 1 | 1 | A classificação das nove decisões da ACME por nível de arquitetura (D1 a D9), com o componente da solução afetado e a dependência entre elas | [Gabarito 1](../gabaritos/gabarito-exercicio-01.md) |
+| 2 | 2 | O tipo de cada um dos dez candidatos a componente da solução (CP1 a CP10) e o nível de cada um dos seis elementos da situação atual (N1 a N6) | [Gabarito 2](../gabaritos/gabarito-exercicio-02.md) |
 | 3 | 3 | A divisão das dez tarefas do ciclo (T1 a T10) entre os papéis, o grupo de competência de cada uma e o benefício da tarefa T10 | [Gabarito 3](../gabaritos/gabarito-exercicio-03.md) |
 | 4 | 4 | A fase, o papel e a seção do caderno de cada um dos dez artefatos do caso (A1 a A10), mais a data de conclusão como primeira pendência | [Gabarito 4](../gabaritos/gabarito-exercicio-04.md) |
 
 ## Preparação para a Aula 2
 
-A Aula 2 trata do que entra no processo antes de qualquer desenho: os requisitos e as partes interessadas, que correspondem à fase de descoberta do bloco 4. Dois pontos desta aula voltam lá. O critério de alcance do bloco 1 ajuda a separar o requisito da solução do requisito de software, e os cinco tipos de componente do bloco 2 servem de roteiro de perguntas no levantamento, porque cada tipo gera exigências próprias.
+A Aula 2 trata do que entra no processo antes de qualquer desenho: os requisitos e as partes interessadas, que correspondem à fase de descoberta do bloco 4. Dois pontos desta aula voltam lá. O critério de alcance do bloco 1 ajuda a separar o requisito da solução do requisito de software, e os cinco tipos de componente da solução do bloco 2 servem de roteiro de perguntas no levantamento, porque cada tipo gera exigências próprias.

@@ -38,7 +38,7 @@ No caso do curso, o encadeamento funciona assim. O bloco 1 localiza o lançament
 
 ### A ordem dos domínios
 
-Todos os componentes da solução sustentam, em última instância, um ou mais serviços de negócio. A hierarquia de serviços vai do serviço de negócio, realizado por processos de negócio, ao serviço de aplicação, oferecido por componentes de aplicação, e ao serviço de tecnologia, que executa esses componentes, e os dados atravessam a hierarquia como a informação que os serviços consomem e produzem. A ordem dos domínios acompanha essa hierarquia de cima para baixo, porque cada domínio se justifica pelo serviço que sustenta no domínio acima, e o [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#hierarquia-de-servicos) retoma a hierarquia ao tratar dos contratos de integração.
+Todos os componentes da solução (pessoas, estruturas organizacionais, processos, informação e tecnologia) sustentam, em última instância, um ou mais serviços de negócio. A hierarquia de serviços vai do serviço de negócio, realizado por processos de negócio, ao serviço de aplicação, oferecido por componentes de aplicação, e ao serviço de tecnologia, que executa esses componentes, e os dados atravessam a hierarquia como a informação que os serviços consomem e produzem. A ordem dos domínios acompanha essa hierarquia de cima para baixo, porque cada domínio se justifica pelo serviço que sustenta no domínio acima, e o [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#hierarquia-de-servicos) retoma a hierarquia ao tratar dos contratos de integração.
 
 ## Uso pelo arquiteto
 

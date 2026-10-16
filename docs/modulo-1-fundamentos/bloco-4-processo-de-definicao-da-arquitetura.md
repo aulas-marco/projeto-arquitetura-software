@@ -31,7 +31,7 @@ A tabela abaixo repete o conteúdo do infográfico em texto, para consulta e par
 | Descoberta | Descrição da área do problema | Investigar requisitos de negócio, arquitetura existente e partes interessadas | Base factual completa para o desenho, com causas identificadas |
 | Definição do esboço da solução | Insumos da descoberta | Produzir um ou mais desenhos conceituais de alto nível para estimular retorno do negócio | Esboços de solução, também chamados de desenho conceitual |
 | Análise | Esboços de solução | Comparar alternativas no caso de negócio, escolher uma e definir o escopo da mudança | Opção única escolhida, com catálogo de blocos de construção e interfaces |
-| Desenho lógico | Catálogo de blocos e interfaces | Reunir as saídas da análise em um modelo único de componentes e interações | Desenho lógico da solução, com mudanças organizacionais, de informação, de processo e de tecnologia |
+| Desenho lógico | Catálogo de blocos e interfaces | Reunir as saídas da análise em um modelo único de componentes da solução e interações | Desenho lógico da solução, com mudanças organizacionais, de informação, de processo e de tecnologia |
 | Validação | Desenho lógico | Verificar o desenho com pontos de vista e visões, análise de impacto e análise de lacunas | Desenho validado, ou lista de correções que exigem retrabalho |
 | Desenvolvimento do roteiro | Desenho validado e resultado das análises | Ordenar as mudanças em sequência viável, tratando risco e prioridade das partes interessadas | Roteiro de entrega autorizado pelo patrocinador de negócio |
 | Conclusão | Roteiro autorizado | Implementar o desenho com as disciplinas de execução, com a arquitetura em papel de governança | Artefatos da solução implantada nos níveis conceitual, lógico e físico |
@@ -40,7 +40,7 @@ A fase de iniciação tem custo baixo de propósito, porque seu produto é a dec
 
 O termo problema, nesse processo, cobre três categorias: problemas imediatos que a organização precisa tratar, problemas antecipados que exigem redução de risco e oportunidades que a organização deve aproveitar. O espaço do problema delimita o escopo da investigação, e é a área do negócio que precisa ser examinada primeiro para estabelecer a causa raiz.
 
-A fase de validação usa três técnicas que reaparecem ao longo do curso. Um **ponto de vista** é o modelo que se aplica como filtro sobre o modelo de arquitetura, e o resultado é uma **visão**. Aplicar o mesmo ponto de vista às descrições anterior e posterior da arquitetura permite ver o efeito da mudança sob uma perspectiva específica. A **análise de impacto** examina cada bloco de construção e enumera o impacto da mudança, avaliado por alcance, tamanho e direção. A **análise de lacunas** compara duas descrições de arquitetura e lista os componentes acrescentados, removidos ou alterados.
+A fase de validação usa três técnicas que reaparecem ao longo do curso. Um **ponto de vista** é o modelo que se aplica como filtro sobre o modelo de arquitetura, e o resultado é uma **visão**. Aplicar o mesmo ponto de vista às descrições anterior e posterior da arquitetura permite ver o efeito da mudança sob uma perspectiva específica. A **análise de impacto** examina cada bloco de construção e enumera o impacto da mudança, avaliado por alcance, tamanho e direção. A **análise de lacunas** compara duas descrições de arquitetura e lista os componentes da solução acrescentados, removidos ou alterados (pessoas, estruturas organizacionais, processos, informação e tecnologia).
 
 ### Adaptação do processo
 
@@ -84,7 +84,7 @@ O ciclo também organiza a conversa sobre incerteza. Quando o patrocinador pergu
 
 **Para que serve.** O arquiteto trabalha em fases, e cada fase deixa documentos que a seguinte usa. O caderno é onde esses documentos se encontram. Saber em que fase cada documento nasce, que papel ele cumpre e em que seção do caderno ele entra evita cobrar do arquiteto, cedo demais, algo que só existe mais adiante, como a data de conclusão do projeto.
 
-**O que você faz neste exercício.** O enunciado lista dez artefatos do caso ACME, numerados de A1 a A10. Artefato é qualquer documento ou modelo que o trabalho usa ou produz, como o mapa de atores ou o inventário dos componentes atuais do sistema. Alguns já existiam antes de o processo começar e outros ainda serão produzidos. Você liga cada um à fase do processo em que aparece, ao papel que ele cumpre e à seção do caderno em que seu resultado fica. Depois, registra na seção 10 a data de conclusão do ciclo como pendência, porque ela ainda não pode ser prometida. O gabarito mostra também a primeira versão do resumo, na seção 0.
+**O que você faz neste exercício.** O enunciado lista dez artefatos do caso ACME, numerados de A1 a A10. Artefato é qualquer documento ou modelo que o trabalho usa ou produz, como o mapa de atores ou o inventário dos componentes de software atuais do sistema. Alguns já existiam antes de o processo começar e outros ainda serão produzidos. Você liga cada um à fase do processo em que aparece, ao papel que ele cumpre e à seção do caderno em que seu resultado fica. Depois, registra na seção 10 a data de conclusão do ciclo como pendência, porque ela ainda não pode ser prometida. O gabarito mostra também a primeira versão do resumo, na seção 0.
 
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
@@ -111,18 +111,18 @@ O arquiteto trabalha em fases, e cada fase usa documentos produzidos pelas anter
 
 ### Item 1: Fase e papel de cada artefato
 
-Artefato é qualquer documento ou modelo que o trabalho usa ou produz, como o mapa de atores, que registra o que cada área da universidade quer e teme, ou o inventário dos componentes atuais do sistema. O quadro abaixo traz dez artefatos do caso, numerados de A1 a A10, alguns já existentes e outros ainda por produzir. Cada artefato tem um papel: entrada, quando a fase o recebe pronto, produto intermediário, quando ele é produzido para alimentar uma fase seguinte, ou entregável, quando é o resultado entregue ao patrocinador de negócio, o responsável último pela solução. Um [artefato de linha de base](../referencia/glossario.md#artefato-de-linha-de-base) é aquele que já descreve a situação atual antes do início do processo, conforme a seção [Conceito](#conceito) deste bloco.
+Artefato é qualquer documento ou modelo que o trabalho usa ou produz, como o mapa de atores, que registra o que cada área da universidade quer e teme, ou o inventário dos componentes de software atuais do sistema. O quadro abaixo traz dez artefatos do caso, numerados de A1 a A10, alguns já existentes e outros ainda por produzir. Cada artefato tem um papel: entrada, quando a fase o recebe pronto, produto intermediário, quando ele é produzido para alimentar uma fase seguinte, ou entregável, quando é o resultado entregue ao patrocinador de negócio, o responsável último pela solução. Um [artefato de linha de base](../referencia/glossario.md#artefato-de-linha-de-base) é aquele que já descreve a situação atual antes do início do processo, conforme a seção [Conceito](#conceito) deste bloco.
 
 | Código | Artefato |
 | --- | --- |
 | A1 | Mapa de atores com o que cada área quer e o que teme |
-| A2 | Inventário dos componentes atuais do sistema acadêmico, com idade, responsável e tipo de integração |
+| A2 | Inventário dos componentes de software atuais do sistema acadêmico, com idade, responsável e tipo de integração |
 | A3 | Catálogo de blocos de construção da solução escolhida, com as interfaces entre eles |
 | A4 | Registro da decisão da Reitoria de 12/03/2026 que descartou a substituição por produto de mercado |
 | A5 | Comparação de duas alternativas de modernização apresentadas ao Conselho Universitário |
 | A6 | Modelo único de componentes da solução, com as mudanças de processo e de propriedade de dado |
 | A7 | Sequência de extração dos módulos ao longo dos 12 meses, com marcos e riscos |
-| A8 | Lista de componentes acrescentados, removidos e alterados em relação ao sistema atual |
+| A8 | Lista de componentes da solução acrescentados, removidos e alterados em relação ao sistema atual |
 | A9 | Documento que autoriza a equipe de arquitetura a iniciar a investigação, com prazo e entregáveis |
 | A10 | Conjunto de modelos da solução implantada, devolvido ao repositório de arquitetura corporativa |
 

@@ -16,9 +16,9 @@ modo: acumula
 <!--ex n=1 titulo="Instituição, restrições e decisões por nível"-->
 <!--campos-->
 - **Dado do dossiê:** a instituição, a pergunta central e as restrições já vêm preenchidas, porque são dados do caso.
-- **Nível:** escolha entre arquitetura corporativa, quando a decisão vale para a universidade inteira, de solução, quando vale para este projeto como um todo, e de software, quando vale só dentro de um componente.
+- **Nível:** escolha entre arquitetura corporativa, quando a decisão vale para a universidade inteira, de solução, quando vale para este projeto como um todo, e de software, quando vale só dentro de um componente de software.
 - **Justificativa:** explique por que escolheu esse nível. Ajuda perguntar até onde o efeito da decisão chega e quem precisa ser avisado quando ela mudar.
-- **Componente não tecnológico afetado:** nas decisões de solução, diga que parte da organização a decisão atinge além da tecnologia: as pessoas, a estrutura (áreas e contratos), os processos ou as informações.
+- **Componente da solução afetado:** nas decisões de solução, diga que componentes da solução a decisão atinge além da tecnologia: pessoas, estruturas organizacionais (áreas e contratos), processos ou informação.
 - **Dependência entre decisões:** veja se uma decisão só faz sentido depois de outra e, se fizer, diga qual vem primeiro e o que daria errado se a ordem fosse invertida.
 <!--/campos-->
 <!--gabarito-->
@@ -61,21 +61,21 @@ A tabela reúne as nove decisões que a ACME já tomou ou propôs. Para classifi
 | --- | --- | --- | --- |
 | D1 | Identidade e autorização seguem padrões abertos, sem produto proprietário | Corporativa | Vale para qualquer iniciativa da universidade, inclusive as que ainda não existem |
 | D2 | A propagação de nota ao ambiente virtual passa de lote diário a até 10 minutos | Solução | Muda o processo de fechamento de notas, o contrato com o fornecedor do ambiente virtual e a integração entre os sistemas |
-| D3 | O serviço de notas repete o envio sem confirmação, com intervalo crescente | Software | Muda só o comportamento de um componente, e ninguém fora da equipe que o constrói precisa ser avisado |
+| D3 | O serviço de notas repete o envio sem confirmação, com intervalo crescente | Software | Muda só o comportamento de um componente de software, e ninguém fora da equipe que o constrói precisa ser avisado |
 | D4 | Nenhum dado pessoal de aluno é processado fora do território nacional | Corporativa | É regra do Jurídico para qualquer iniciativa que trate dado de aluno, hoje ou no futuro |
 | D5 | A Secretaria Acadêmica passa a responder pela correção de dado cadastral | Solução | Muda quem responde pelo dado cadastral: sai a equipe de sustentação e entra a Secretaria Acadêmica |
-| D6 | O índice de busca de disciplinas do portal passa a ficar em memória | Software | Muda só como um componente do portal funciona por dentro, sem efeito sobre processo, papel ou fornecedor |
+| D6 | O índice de busca de disciplinas do portal passa a ficar em memória | Software | Muda só como um componente de software do portal funciona por dentro, sem efeito sobre processo, papel ou fornecedor |
 | D7 | O núcleo COBOL permanece sob o contrato da fábrica até 30/09/2027 | Solução | Define quem pode mexer no núcleo: toda alteração passa pela fábrica de software, por contrato |
 | D8 | O histórico escolar é emitido com assinatura digital no padrão ICP-Brasil | Solução | Muda o procedimento de emissão do histórico e depende de certificado de terceiro, mas não vale para iniciativas futuras |
 | D9 | A transição ocorre por extração incremental de módulos, com o núcleo em operação | Solução | Afeta o contrato de sustentação, o calendário acadêmico e a rotina das equipes |
 
 As decisões D1, D4 e D7 reproduzem as restrições fechadas RT4, RT5 e RT6. As decisões D2, D3, D5, D6, D8 e D9 estão **propostas** e dependem de validação com as partes interessadas.
 
-#### Componente não tecnológico afetado
+#### Componente da solução afetado
 
-Nas decisões de solução, a tabela mostra que parte da organização é atingida além da tecnologia.
+Nas decisões de solução, a tabela mostra quais componentes da solução são atingidos além da tecnologia (pessoas, estruturas organizacionais, processos e informação).
 
-| Código | Tipo de componente | Efeito |
+| Código | Tipo de componente da solução | Efeito |
 | --- | --- | --- |
 | D2 | Processos | O fechamento de notas deixa de depender da janela noturna de lote |
 | D5 | Estruturas organizacionais | A correção de dado cadastral sai da equipe de sustentação, terceirizada, e passa à Secretaria Acadêmica |
@@ -91,17 +91,17 @@ A decisão D3 depende da D2. Sem a D2, o reenvio seria desenhado para um percurs
 
 <!--ex n=2 titulo="Componentes da solução do R7"-->
 <!--campos-->
-- **Tipo do componente:** classifique cada componente em um dos cinco tipos: pessoas, estruturas organizacionais (áreas, contratos e acordos), processos, informação ou tecnologia.
-- **Tipo sem componente:** confira se algum tipo ficou sem nenhum componente, o que indicaria algo esquecido na solução, e diga qual tipo mais muda a rotina de quem trabalha na instituição.
+- **Tipo do componente da solução:** classifique cada componente da solução em um dos cinco tipos: pessoas, estruturas organizacionais (áreas, contratos e acordos), processos, informação ou tecnologia.
+- **Tipo de componente da solução ausente:** confira se algum tipo ficou sem nenhum componente da solução, o que indicaria algo esquecido na solução, e diga qual tipo mais muda a rotina de quem trabalha na instituição.
 - **Nível do elemento:** diga se cada elemento da situação atual pertence ao sistema de negócio (o que a universidade oferece), ao sistema de informação (pessoas, processos e registros) ou ao sistema de TI (equipamentos e programas).
 - **Prazo percebido:** explique por que trocar só a tecnologia pode não encurtar o prazo que o aluno percebe.
 <!--/campos-->
 <!--gabarito-->
 #### Componentes da solução do R7
 
-O R7 pede que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. Dez componentes candidatos atendem a esse pedido, e juntos eles ocupam os cinco tipos.
+O R7 pede que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. Dez candidatos a componente da solução atendem a esse pedido, e juntos eles ocupam os cinco tipos (pessoas, estruturas organizacionais, processos, informação e tecnologia).
 
-| Código | Componente | Tipo |
+| Código | Componente da solução | Tipo |
 | --- | --- | --- |
 | CP1 | Treinamento dos professores para publicação imediata da nota | Pessoas |
 | CP2 | Aditivo ao contrato do ambiente virtual, com troca para o plano que oferece interfaces de programação | Estruturas organizacionais |
@@ -114,7 +114,7 @@ O R7 pede que a nota lançada pelo professor chegue ao ambiente virtual de apren
 | CP9 | Serviço de notas que publica um evento a cada lançamento | Tecnologia |
 | CP10 | Responsável na Coordenação de Educação a Distância pelas falhas de envio | Pessoas |
 
-Nenhum tipo ficou sem componente. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o CP4 e o CP5 mudam a rotina de fechamento e de correção de nota de professores, coordenações e Secretaria. Só a mudança de tecnologia não altera o prazo que o aluno percebe.
+Nenhum tipo ficou sem componente da solução. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o CP4 e o CP5 mudam a rotina de fechamento e de correção de nota de professores, coordenações e Secretaria. Só a mudança de tecnologia não altera o prazo que o aluno percebe.
 
 #### Os três níveis do R7
 
@@ -138,7 +138,7 @@ Uma solução só no nível de sistema de TI troca o lote noturno por envio em m
 - **Responsável:** diga se a tarefa é do arquiteto de solução, do arquiteto de software ou da arquitetura corporativa, pelo mesmo critério do exercício 1: até onde o efeito da tarefa chega.
 - **Justificativa:** explique em uma frase por que a tarefa é desse responsável.
 - **Grupo de competência:** nas tarefas do arquiteto de solução, diga qual habilidade a tarefa pede mais: de negócio, técnica, de entrega ou prática (comunicação, relacionamento com as partes interessadas, requisitos).
-- **Benefício da tarefa T10:** escolha, entre os sete benefícios da abordagem arquitetural, o que justifica verificar se já existe um componente reaproveitável.
+- **Benefício da tarefa T10:** escolha, entre os sete benefícios da abordagem arquitetural, o que justifica verificar se já existe um componente de software reaproveitável.
 <!--/campos-->
 <!--gabarito-->
 #### Responsável por cada tarefa
@@ -150,19 +150,19 @@ O critério é o mesmo da classificação das decisões: até onde o efeito da t
 | T1 | Entrevistar a Pró-Reitoria de Graduação e a Educação a Distância | Arquiteto de solução | Prático | Levantar o que cada área precisa é tratamento de requisitos e gestão de partes interessadas |
 | T2 | Definir a consistência de dado entre o serviço extraído e o núcleo | Arquiteto de software | | Decide como o módulo extraído se comporta por dentro durante a coexistência |
 | T3 | Estimar o custo da mudança tecnológica do primeiro ciclo | Arquiteto de solução | Entrega | A estimativa de custo é uma das três saídas da arquitetura de solução |
-| T4 | Escolher a estrutura de dados do serviço de matrícula | Arquiteto de software | | Altera só a estrutura interna de um componente |
+| T4 | Escolher a estrutura de dados do serviço de matrícula | Arquiteto de software | | Altera só a estrutura interna de um componente de software |
 | T5 | Negociar com a fábrica a abertura de interfaces no núcleo | Arquiteto de solução | Prático | Muda a relação com o fornecedor e exige negociação com partes interessadas |
 | T6 | Redigir a política institucional de dado pessoal de aluno | Arquitetura corporativa | | Vale para qualquer sistema da universidade, presente ou futuro |
 | T7 | Produzir o roteiro de entrega do ciclo | Arquiteto de solução | Entrega | O roteiro de entrega é uma das três saídas da arquitetura de solução |
 | T8 | Decidir que a Secretaria responde pela correção de dado cadastral | Arquiteto de solução | Negócio | Muda papel e propriedade de dado, o que exige leitura do modelo operacional |
 | T9 | Configurar o servidor de integração contínua | Arquiteto de software | | É configuração de ferramenta da equipe de desenvolvimento |
-| T10 | Verificar se já existe componente de envio de mensagem reaproveitável | Arquiteto de solução | Técnico | Exige conhecer a tecnologia vigente antes de especificar componente novo |
+| T10 | Verificar se já existe componente de software de envio de mensagem reaproveitável | Arquiteto de solução | Técnico | Exige conhecer a tecnologia vigente antes de especificar componente de software novo |
 
 Seis tarefas cabem ao arquiteto de solução, três ao arquiteto de software ou à equipe de desenvolvimento e uma à arquitetura corporativa. As seis tarefas do arquiteto de solução usam os quatro grupos de competência.
 
 #### Benefício por trás da tarefa T10
 
-A tarefa T10 se justifica pelo benefício do **reúso**: consultar o catálogo de aplicações e a arquitetura de software mostra se já existe um componente que serve ao novo uso. Sem essa verificação, a ACME especificaria e construiria um segundo componente de envio de mensagem, pagaria a duplicação de manutenção e de integração e perderia o custo e a perturbação mínimos que a análise de lacunas busca.
+A tarefa T10 se justifica pelo benefício do **reúso**: consultar o catálogo de aplicações e a arquitetura de software mostra se já existe um componente de software que serve ao novo uso. Sem essa verificação, a ACME especificaria e construiria um segundo componente de software de envio de mensagem, pagaria a duplicação de manutenção e de integração e perderia o custo e a perturbação mínimos que a análise de lacunas busca.
 <!--/gabarito-->
 <!--/ex-->
 
@@ -182,13 +182,13 @@ Para dar um papel a cada artefato, use o critério do bloco 3. Entrada é o arte
 | Código | Artefato | Fase | Papel | Linha de base | Seção do caderno |
 | --- | --- | --- | --- | --- | --- |
 | A1 | Mapa de atores | 2. Descoberta | Entrada | Sim | 2 |
-| A2 | Inventário dos componentes atuais | 2. Descoberta | Entrada | Sim | 4 |
+| A2 | Inventário dos componentes de software atuais | 2. Descoberta | Entrada | Sim | 4 |
 | A3 | Catálogo de blocos de construção e interfaces | 4. Análise | Produto intermediário | Não | 7 |
 | A4 | Registro da decisão da Reitoria de 12/03/2026 | 1. Iniciação | Entrada | Sim | 1 |
 | A5 | Comparação de duas alternativas de modernização | 4. Análise | Entregável | Não | 7 |
 | A6 | Modelo único de componentes da solução | 5. Desenho lógico | Entregável | Não | 7 |
 | A7 | Sequência de extração dos módulos | 7. Desenvolvimento do roteiro | Entregável | Não | 9 |
-| A8 | Lista de componentes acrescentados, removidos e alterados | 6. Validação | Produto intermediário | Não | 4 |
+| A8 | Lista de componentes da solução acrescentados, removidos e alterados | 6. Validação | Produto intermediário | Não | 4 |
 | A9 | Documento que autoriza a equipe a iniciar a investigação | 1. Iniciação | Entrada | Não | 1 |
 | A10 | Modelos da solução implantada, devolvidos ao repositório | 8. Conclusão | Entregável | Não | Todas |
 

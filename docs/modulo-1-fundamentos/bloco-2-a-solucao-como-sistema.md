@@ -1,6 +1,6 @@
-# A solução como sistema e seus componentes
+# A solução como sistema e seus componentes (pessoas, áreas, processos, informação e tecnologia)
 
-Este bloco trata do objeto sobre o qual o arquiteto de solução trabalha, a solução vista como sistema, com seus cinco tipos de componente, os três níveis em que uma organização é modelada e o alinhamento com a estratégia.
+Este bloco trata do objeto sobre o qual o arquiteto de solução trabalha, a solução vista como sistema, com seus cinco tipos de componente da solução, os três níveis em que uma organização é modelada e o alinhamento com a estratégia.
 
 ## Antes de começar
 
@@ -29,9 +29,9 @@ Na ACME, universidade privada brasileira fictícia com 38.400 alunos ativos e si
 
 A arquitetura de solução ocupa-se de soluções que são sistemas de negócio contendo dentro de si sistemas de informação e sistemas de TI. Algumas soluções têm como foco um sistema de informação ou de TI novo ou modificado, e é raro que não haja envolvimento ou impacto mais amplo do negócio.
 
-### Os cinco tipos de componente
+### Os cinco tipos de componente da solução
 
-Os componentes de uma solução classificam-se em cinco áreas, usadas como lista de verificação para que nenhuma delas fique de fora do desenho. Mudança, nesse contexto, inclui acrescentar componente novo, alterar um existente ou retirá-lo.
+Os componentes da solução (pessoas, estruturas organizacionais, processos, informação e tecnologia) classificam-se em cinco áreas, usadas como lista de verificação para que nenhuma delas fique de fora do desenho. Mudança, nesse contexto, inclui acrescentar um componente da solução novo, alterar um existente ou retirá-lo.
 
 | Tipo | O que abrange | Exemplo na ACME |
 | --- | --- | --- |
@@ -43,7 +43,7 @@ Os componentes de uma solução classificam-se em cinco áreas, usadas como list
 
 O valor da lista está no que ela impede de esquecer. Uma solução que troque o lote diário por propagação em minutos, sem mudar a rotina de quem lança a nota nem o acordo de nível de serviço com o fornecedor do ambiente virtual, entrega tecnologia nova sobre processo antigo, e o resultado percebido pelo aluno tende a não mudar.
 
-Nem todo tipo de componente precisa mudar em toda solução. O desenho declara explicitamente quando um tipo permanece como está, e essa declaração é diferente de esquecimento, porque registra que a análise foi feita e concluiu pela permanência.
+Nem todo tipo de componente da solução precisa mudar em toda solução. O desenho declara explicitamente quando um tipo permanece como está, e essa declaração é diferente de esquecimento, porque registra que a análise foi feita e concluiu pela permanência.
 
 ### Alinhamento com a estratégia
 
@@ -53,7 +53,7 @@ Para o arquiteto, a utilidade prática dessa cadeia é o teste de coerência. Um
 
 ## Uso pelo arquiteto
 
-O arquiteto usa os cinco tipos de componente em dois momentos. No levantamento, eles funcionam como roteiro de investigação, e cada tipo gera perguntas que a conversa técnica sozinha não faria, como quem passa a fazer o quê e qual política precisa mudar. No desenho, eles funcionam como conferência de completude, porque uma solução que só lista componentes de tecnologia é uma solução incompleta ou uma solução cuja parte organizacional foi deixada implicitamente para outra pessoa resolver.
+O arquiteto usa os cinco tipos de componente da solução em dois momentos. No levantamento, eles funcionam como roteiro de investigação, e cada tipo gera perguntas que a conversa técnica sozinha não faria, como quem passa a fazer o quê e qual política precisa mudar. No desenho, eles funcionam como conferência de completude, porque uma solução que só lista componentes da solução do tipo tecnologia é uma solução incompleta ou uma solução cuja parte organizacional foi deixada implicitamente para outra pessoa resolver.
 
 Os três níveis servem para situar o alcance do que está sendo desenhado e para evitar um erro comum, o de tratar um problema de sistema de negócio como se fosse problema de sistema de TI. Quando a queixa é de que a nota demora a aparecer para o aluno, o nível de TI mostra o lote noturno, e o nível de negócio mostra que o calendário de fechamento e a rotina de conferência manual também determinam o prazo percebido.
 
@@ -61,20 +61,20 @@ Os três níveis servem para situar o alcance do que está sendo desenhado e par
 
 {{ficha:1}}
 
-**Para que serve.** Uma solução não é só tecnologia. Para o sistema funcionar, alguém precisa aprender a usá-lo, uma área pode ter de mudar a rotina, um contrato pode precisar de aditivo e só então entra o programa. Cada uma dessas peças é um componente da solução, e todas precisam aparecer no caderno para que nenhuma fique sem responsável. Esta parte da seção 1 lista os componentes e mostra em que nível da organização cada fato do problema aparece.
+**Para que serve.** Uma solução não é só tecnologia. Para o sistema funcionar, alguém precisa aprender a usá-lo, uma área pode ter de mudar a rotina, um contrato pode precisar de aditivo e só então entra o programa. Cada uma dessas peças é um componente da solução, e todas precisam aparecer no caderno para que nenhuma fique sem responsável. Esta parte da seção 1 lista os componentes da solução e mostra em que nível da organização cada fato do problema aparece.
 
-**O que você faz neste exercício.** O exercício parte de um pedido real da ACME. A Coordenação de Educação a Distância quer que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos, e hoje ela chega no dia seguinte, por um envio noturno. Esse pedido é o requisito R7. O enunciado reúne dez componentes que poderiam atender ao pedido, numerados de CP1 a CP10, como treinar os professores para publicar a nota na hora (pessoas) ou criar uma mensageria entre os dois sistemas (tecnologia). Traz também seis fatos sobre a situação atual, numerados de N1 a N6, como o calendário que fixa a data de fechamento das notas. Você diz de que tipo é cada componente, em que nível da organização está cada fato, e registra as respostas no caderno.
+**O que você faz neste exercício.** O exercício parte de um pedido real da ACME. A Coordenação de Educação a Distância quer que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos, e hoje ela chega no dia seguinte, por um envio noturno. Esse pedido é o requisito R7. O enunciado reúne dez candidatos a componente da solução, que poderiam atender ao pedido, numerados de CP1 a CP10, como treinar os professores para publicar a nota na hora (pessoas) ou criar uma mensageria entre os dois sistemas (tecnologia). Traz também seis fatos sobre a situação atual, numerados de N1 a N6, como o calendário que fixa a data de fechamento das notas. Você diz de que tipo é cada componente da solução, em que nível da organização está cada fato, e registra as respostas no caderno.
 
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
-| Tipo do componente | Classifique cada componente em um dos cinco tipos: pessoas (quem faz ou aprende algo), estruturas organizacionais (áreas, contratos e acordos), processos (como o trabalho é feito), informação (dados e registros) ou tecnologia (equipamentos e programas) | 1 |
-| Tipo sem componente | Confira se algum tipo ficou sem nenhum componente, o que indicaria algo esquecido na solução, e diga qual tipo mais muda a rotina de quem trabalha na instituição | 1 |
+| Tipo do componente da solução | Classifique cada componente da solução em um dos cinco tipos: pessoas (quem faz ou aprende algo), estruturas organizacionais (áreas, contratos e acordos), processos (como o trabalho é feito), informação (dados e registros) ou tecnologia (equipamentos e programas) | 1 |
+| Tipo de componente da solução ausente | Confira se algum dos cinco tipos ficou sem nenhum componente da solução, o que indicaria algo esquecido, e diga qual tipo mais muda a rotina de quem trabalha na instituição | 1 |
 | Nível do elemento | Diga se cada fato da situação atual pertence ao sistema de negócio (o que a universidade oferece, como o serviço de avaliação), ao sistema de informação (as pessoas, os processos e os registros que cuidam da informação) ou ao sistema de TI (equipamentos e programas) | 2 |
 | Prazo percebido | Explique em até cinco linhas por que trocar só a tecnologia pode não encurtar o prazo que o aluno percebe | 2 |
 
-**O que você já tem.** A tabela de decisões do exercício 1, que mostra quais decisões mexem em componentes além da tecnologia.
+**O que você já tem.** A tabela de decisões do exercício 1, que mostra quais decisões mexem em componentes da solução além da tecnologia.
 
-**Quando está pronto.** Os dez componentes têm tipo, os seis fatos têm nível e a explicação do prazo percebido está escrita.
+**Quando está pronto.** Os dez componentes da solução têm tipo, os seis fatos têm nível e a explicação do prazo percebido está escrita.
 
 [Ver esta seção no template](../caderno/template.md#1-contexto){ .caderno-botao }
 [Ver o gabarito do exercício 2](../gabaritos/gabarito-exercicio-02.md){ .caderno-botao }
@@ -85,7 +85,7 @@ Os três níveis servem para situar o alcance do que está sendo desenhado e par
 
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, dos quais 10.200 na graduação a distância, 2.150 professores e 4 campi em 3 cidades. O sistema acadêmico está em operação desde 2004 e sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro, o sistema de gestão das finanças da universidade.
 
-Uma solução não é só tecnologia. Para o sistema funcionar, alguém precisa aprender a usá-lo, uma área pode ter de mudar a rotina e um contrato pode precisar de aditivo. Cada uma dessas peças é um componente da solução, e o arquiteto os separa em cinco tipos para conferir que nenhum ficou esquecido: pessoas, estruturas organizacionais, processos, informação e tecnologia. Uma universidade também pode ser vista em três níveis encaixados, o sistema de negócio, o sistema de informação e o sistema de TI, descritos na seção [Os três níveis de uma organização](#os-tres-niveis-de-uma-organizacao) deste bloco. Este exercício usa um pedido real da ACME, o requisito R7, para praticar as duas ideias. Requisito é aquilo que uma área da organização exige da solução, e R7 é o código com que esse pedido consta no dossiê do caso. No Item 1 você classifica os componentes por tipo e no Item 2 você situa os fatos da situação atual em cada nível. As respostas dos dois itens vão para o caderno arquitetural, o documento em que o curso reúne, seção por seção, a arquitetura da solução da ACME, apresentado no [bloco 4](bloco-4-processo-de-definicao-da-arquitetura.md#o-caderno-arquitetural).
+Uma solução não é só tecnologia. Para o sistema funcionar, alguém precisa aprender a usá-lo, uma área pode ter de mudar a rotina e um contrato pode precisar de aditivo. Cada uma dessas peças é um componente da solução, e o arquiteto os separa em cinco tipos para conferir que nenhum ficou esquecido: pessoas, estruturas organizacionais, processos, informação e tecnologia. Uma universidade também pode ser vista em três níveis encaixados, o sistema de negócio, o sistema de informação e o sistema de TI, descritos na seção [Os três níveis de uma organização](#os-tres-niveis-de-uma-organizacao) deste bloco. Este exercício usa um pedido real da ACME, o requisito R7, para praticar as duas ideias. Requisito é aquilo que uma área da organização exige da solução, e R7 é o código com que esse pedido consta no dossiê do caso. No Item 1 você classifica os componentes da solução por tipo e no Item 2 você situa os fatos da situação atual em cada nível. As respostas dos dois itens vão para o caderno arquitetural, o documento em que o curso reúne, seção por seção, a arquitetura da solução da ACME, apresentado no [bloco 4](bloco-4-processo-de-definicao-da-arquitetura.md#o-caderno-arquitetural).
 
 ### Item 1: Componentes da solução do R7
 
@@ -99,9 +99,9 @@ flowchart TB
     EAD["Coordenação de Educação a Distância"] -.->|"R7, nota no ambiente virtual em até 10 minutos"| AVA
 ```
 
-O enunciado reúne dez componentes que poderiam atender ao R7, numerados de CP1 a CP10, sem classificação. Dois deles são o treinamento dos professores (CP1), que trata de pessoas, e a mensageria entre os dois sistemas (CP8), que é tecnologia, e os demais você classifica por conta própria. Mensageria é o mecanismo que permite a um sistema enviar mensagens a outro assim que algo acontece.
+O enunciado reúne dez candidatos a componente da solução, que poderiam atender ao R7, numerados de CP1 a CP10, sem classificação. Dois deles são o treinamento dos professores (CP1), que trata de pessoas, e a mensageria entre os dois sistemas (CP8), que é tecnologia, e os demais você classifica por conta própria. Mensageria é o mecanismo que permite a um sistema enviar mensagens a outro assim que algo acontece.
 
-| Código | Componente candidato |
+| Código | Candidato a componente da solução |
 | --- | --- |
 | CP1 | Treinamento dos professores para o lançamento de nota com publicação imediata |
 | CP2 | Aditivo ao contrato com o fornecedor do ambiente virtual, com a troca para o plano que oferece interfaces de programação |
@@ -114,10 +114,10 @@ O enunciado reúne dez componentes que poderiam atender ao R7, numerados de CP1 
 | CP9 | Serviço de notas que publica um evento a cada lançamento |
 | CP10 | Responsável na Coordenação de Educação a Distância pelo acompanhamento das falhas de envio |
 
-1. Classifique cada um dos dez componentes em um dos cinco tipos de [componentes da solução](../referencia/glossario.md#componentes-da-solucao), pessoas, estruturas organizacionais, processos, informação e tecnologia, e indique se algum tipo ficou sem componente.
+1. Classifique cada um dos dez candidatos a componente da solução em um dos cinco tipos de [componentes da solução](../referencia/glossario.md#componentes-da-solucao), pessoas, estruturas organizacionais, processos, informação e tecnologia, e indique se algum tipo ficou sem componente da solução.
 2. Indique qual dos cinco tipos exige a mudança de maior impacto sobre quem trabalha na instituição, e justifique em duas linhas.
 
-Suas respostas viram os campos Tipo do componente e Tipo sem componente, na seção 1 do caderno.
+Suas respostas viram os campos Tipo do componente da solução e Tipo de componente da solução ausente, na seção 1 do caderno.
 
 ### Item 2: Os três níveis do R7
 

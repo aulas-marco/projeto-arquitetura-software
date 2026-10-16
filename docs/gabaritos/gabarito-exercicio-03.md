@@ -47,21 +47,21 @@ A tabela reúne as nove decisões que a ACME já tomou ou propôs. Para classifi
 | --- | --- | --- | --- |
 | D1 | Identidade e autorização seguem padrões abertos, sem produto proprietário | Corporativa | Vale para qualquer iniciativa da universidade, inclusive as que ainda não existem |
 | D2 | A propagação de nota ao ambiente virtual passa de lote diário a até 10 minutos | Solução | Muda o processo de fechamento de notas, o contrato com o fornecedor do ambiente virtual e a integração entre os sistemas |
-| D3 | O serviço de notas repete o envio sem confirmação, com intervalo crescente | Software | Muda só o comportamento de um componente, e ninguém fora da equipe que o constrói precisa ser avisado |
+| D3 | O serviço de notas repete o envio sem confirmação, com intervalo crescente | Software | Muda só o comportamento de um componente de software, e ninguém fora da equipe que o constrói precisa ser avisado |
 | D4 | Nenhum dado pessoal de aluno é processado fora do território nacional | Corporativa | É regra do Jurídico para qualquer iniciativa que trate dado de aluno, hoje ou no futuro |
 | D5 | A Secretaria Acadêmica passa a responder pela correção de dado cadastral | Solução | Muda quem responde pelo dado cadastral: sai a equipe de sustentação e entra a Secretaria Acadêmica |
-| D6 | O índice de busca de disciplinas do portal passa a ficar em memória | Software | Muda só como um componente do portal funciona por dentro, sem efeito sobre processo, papel ou fornecedor |
+| D6 | O índice de busca de disciplinas do portal passa a ficar em memória | Software | Muda só como um componente de software do portal funciona por dentro, sem efeito sobre processo, papel ou fornecedor |
 | D7 | O núcleo COBOL permanece sob o contrato da fábrica até 30/09/2027 | Solução | Define quem pode mexer no núcleo: toda alteração passa pela fábrica de software, por contrato |
 | D8 | O histórico escolar é emitido com assinatura digital no padrão ICP-Brasil | Solução | Muda o procedimento de emissão do histórico e depende de certificado de terceiro, mas não vale para iniciativas futuras |
 | D9 | A transição ocorre por extração incremental de módulos, com o núcleo em operação | Solução | Afeta o contrato de sustentação, o calendário acadêmico e a rotina das equipes |
 
 As decisões D1, D4 e D7 reproduzem as restrições fechadas RT4, RT5 e RT6. As decisões D2, D3, D5, D6, D8 e D9 estão **propostas** e dependem de validação com as partes interessadas.
 
-#### Componente não tecnológico afetado
+#### Componente da solução afetado
 
-Nas decisões de solução, a tabela mostra que parte da organização é atingida além da tecnologia.
+Nas decisões de solução, a tabela mostra quais componentes da solução são atingidos além da tecnologia (pessoas, estruturas organizacionais, processos e informação).
 
-| Código | Tipo de componente | Efeito |
+| Código | Tipo de componente da solução | Efeito |
 | --- | --- | --- |
 | D2 | Processos | O fechamento de notas deixa de depender da janela noturna de lote |
 | D5 | Estruturas organizacionais | A correção de dado cadastral sai da equipe de sustentação, terceirizada, e passa à Secretaria Acadêmica |
@@ -77,9 +77,9 @@ A decisão D3 depende da D2. Sem a D2, o reenvio seria desenhado para um percurs
 
 #### Componentes da solução do R7
 
-O R7 pede que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. Dez componentes candidatos atendem a esse pedido, e juntos eles ocupam os cinco tipos.
+O R7 pede que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. Dez candidatos a componente da solução atendem a esse pedido, e juntos eles ocupam os cinco tipos (pessoas, estruturas organizacionais, processos, informação e tecnologia).
 
-| Código | Componente | Tipo |
+| Código | Componente da solução | Tipo |
 | --- | --- | --- |
 | CP1 | Treinamento dos professores para publicação imediata da nota | Pessoas |
 | CP2 | Aditivo ao contrato do ambiente virtual, com troca para o plano que oferece interfaces de programação | Estruturas organizacionais |
@@ -92,7 +92,7 @@ O R7 pede que a nota lançada pelo professor chegue ao ambiente virtual de apren
 | CP9 | Serviço de notas que publica um evento a cada lançamento | Tecnologia |
 | CP10 | Responsável na Coordenação de Educação a Distância pelas falhas de envio | Pessoas |
 
-Nenhum tipo ficou sem componente. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o CP4 e o CP5 mudam a rotina de fechamento e de correção de nota de professores, coordenações e Secretaria. Só a mudança de tecnologia não altera o prazo que o aluno percebe.
+Nenhum tipo ficou sem componente da solução. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o CP4 e o CP5 mudam a rotina de fechamento e de correção de nota de professores, coordenações e Secretaria. Só a mudança de tecnologia não altera o prazo que o aluno percebe.
 
 #### Os três níveis do R7
 
@@ -122,19 +122,19 @@ O critério é o mesmo da classificação das decisões: até onde o efeito da t
 | T1 | Entrevistar a Pró-Reitoria de Graduação e a Educação a Distância | Arquiteto de solução | Prático | Levantar o que cada área precisa é tratamento de requisitos e gestão de partes interessadas |
 | T2 | Definir a consistência de dado entre o serviço extraído e o núcleo | Arquiteto de software | | Decide como o módulo extraído se comporta por dentro durante a coexistência |
 | T3 | Estimar o custo da mudança tecnológica do primeiro ciclo | Arquiteto de solução | Entrega | A estimativa de custo é uma das três saídas da arquitetura de solução |
-| T4 | Escolher a estrutura de dados do serviço de matrícula | Arquiteto de software | | Altera só a estrutura interna de um componente |
+| T4 | Escolher a estrutura de dados do serviço de matrícula | Arquiteto de software | | Altera só a estrutura interna de um componente de software |
 | T5 | Negociar com a fábrica a abertura de interfaces no núcleo | Arquiteto de solução | Prático | Muda a relação com o fornecedor e exige negociação com partes interessadas |
 | T6 | Redigir a política institucional de dado pessoal de aluno | Arquitetura corporativa | | Vale para qualquer sistema da universidade, presente ou futuro |
 | T7 | Produzir o roteiro de entrega do ciclo | Arquiteto de solução | Entrega | O roteiro de entrega é uma das três saídas da arquitetura de solução |
 | T8 | Decidir que a Secretaria responde pela correção de dado cadastral | Arquiteto de solução | Negócio | Muda papel e propriedade de dado, o que exige leitura do modelo operacional |
 | T9 | Configurar o servidor de integração contínua | Arquiteto de software | | É configuração de ferramenta da equipe de desenvolvimento |
-| T10 | Verificar se já existe componente de envio de mensagem reaproveitável | Arquiteto de solução | Técnico | Exige conhecer a tecnologia vigente antes de especificar componente novo |
+| T10 | Verificar se já existe componente de software de envio de mensagem reaproveitável | Arquiteto de solução | Técnico | Exige conhecer a tecnologia vigente antes de especificar componente de software novo |
 
 Seis tarefas cabem ao arquiteto de solução, três ao arquiteto de software ou à equipe de desenvolvimento e uma à arquitetura corporativa. As seis tarefas do arquiteto de solução usam os quatro grupos de competência.
 
 #### Benefício por trás da tarefa T10
 
-A tarefa T10 se justifica pelo benefício do **reúso**: consultar o catálogo de aplicações e a arquitetura de software mostra se já existe um componente que serve ao novo uso. Sem essa verificação, a ACME especificaria e construiria um segundo componente de envio de mensagem, pagaria a duplicação de manutenção e de integração e perderia o custo e a perturbação mínimos que a análise de lacunas busca.
+A tarefa T10 se justifica pelo benefício do **reúso**: consultar o catálogo de aplicações e a arquitetura de software mostra se já existe um componente de software que serve ao novo uso. Sem essa verificação, a ACME especificaria e construiria um segundo componente de software de envio de mensagem, pagaria a duplicação de manutenção e de integração e perderia o custo e a perturbação mínimos que a análise de lacunas busca.
 
 {{/novo}}
 
