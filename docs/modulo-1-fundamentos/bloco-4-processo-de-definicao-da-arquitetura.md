@@ -50,11 +50,11 @@ Na ACME, universidade privada brasileira fictícia com 38.400 alunos ativos e si
 
 ### O caderno arquitetural
 
-O resultado do processo, ao longo da disciplina, é registrado num único documento, o [caderno arquitetural](../referencia/glossario.md#caderno-arquitetural), que é a descrição da arquitetura da solução da ACME. O caderno tem dez seções, mais o resumo de uma página, e cada seção é preenchida por exercícios das seis aulas.
+Ao longo do curso, o resultado do seu trabalho se junta num único documento, o [caderno arquitetural](../referencia/glossario.md#caderno-arquitetural), que descreve a arquitetura da solução da ACME. Ele tem dez seções, mais um resumo de uma página, e cada exercício das seis aulas completa um pedaço.
 
 {{trilha:todas}}
 
-Cada fase do processo produz ou usa seções específicas do caderno. A tabela abaixo liga uma coisa à outra e é a ligação adotada pelo curso.
+A tabela mostra em que fase do processo cada seção nasce. É a ligação adotada pelo curso, e você vai usá-la no exercício deste bloco.
 
 | Seção do caderno | Fase que a produz | O que a fase deixa registrado |
 | --- | --- | --- |
@@ -70,7 +70,7 @@ Cada fase do processo produz ou usa seções específicas do caderno. A tabela a
 | 9. Roteiro e governança | 7. Desenvolvimento do roteiro e 8. Conclusão | Ondas de entrega e governança da execução |
 | 10. O que ainda falta decidir | Todas, em revisão ao fim de cada aula | Pendências e quem decide |
 
-O [template do caderno](../caderno/template.md) mostra o que vai em cada seção, e o exercício deste bloco pede ao aluno que associe os artefatos do caso a fase, papel e seção.
+O [template do caderno](../caderno/template.md) mostra, seção por seção, o que vai em cada uma. O exercício deste bloco pede que você ligue os artefatos do caso a uma fase, a um papel e a uma seção.
 
 ## Uso pelo arquiteto
 
@@ -82,22 +82,22 @@ O ciclo também organiza a conversa sobre incerteza. Quando o patrocinador pergu
 
 {{ficha:1}}
 
-O exercício deste bloco fecha a Aula 1 com o mapa dos artefatos do caso nas fases do processo, registra a primeira pendência na seção 10 e leva a primeira versão do resumo da seção 0.
+Este exercício fecha a Aula 1. Você liga os artefatos do caso às fases do processo e registra a primeira pendência na seção 10. O gabarito mostra também a primeira versão do resumo da seção 0.
 
-| Campo do caderno | O que preencher | Item |
+| Campo do caderno | O que escrever | Item |
 | --- | --- | --- |
-| Fase | A fase do ciclo em que cada artefato de A1 a A10 é produzido ou usado | 1 |
-| Papel | Entrada, produto intermediário ou entregável | 1 |
-| Linha de base | Se o artefato já existia antes do início do processo | 1 |
-| Seção do caderno | A seção em que o resultado de cada artefato fica registrado | 1 |
-| Pendência da data de conclusão | Quem decide e em que fase a data se resolve, na seção 10 | 2 |
+| Fase | Para cada artefato, de A1 a A10, escreva em que fase do processo ele é produzido ou usado | 1 |
+| Papel | Diga se o artefato é entrada, produto intermediário ou entregável | 1 |
+| Linha de base | Marque os artefatos que já existiam antes de o processo começar | 1 |
+| Seção do caderno | Escreva em que seção do caderno o resultado de cada artefato fica registrado | 1 |
+| Pendência da data de conclusão | Na seção 10, escreva quem decide a data de conclusão do ciclo e em que fase ela pode ser dada com precisão | 2 |
 
-**Entrada.** As tarefas e os papéis do exercício 3, porque cada artefato nasce do trabalho de algum deles.
+**O que você já tem.** As tarefas e os papéis do exercício 3, porque cada artefato nasce do trabalho de algum deles.
 
-**Critério de seção completa.** Os dez artefatos têm fase, papel, indicação de linha de base e seção do caderno, e a data de conclusão consta como pendência com responsável.
+**Quando está pronto.** Os dez artefatos têm fase, papel, indicação de linha de base e seção do caderno, e a data de conclusão consta como pendência com responsável.
 
-[Ver a seção 1 no template](../caderno/template.md#1-contexto){ .caderno-botao }
-[Gabarito do exercício 4](../gabaritos/gabarito-exercicio-04.md){ .caderno-botao }
+[Ver esta seção no template](../caderno/template.md#1-contexto){ .caderno-botao }
+[Ver o gabarito do exercício 4](../gabaritos/gabarito-exercicio-04.md){ .caderno-botao }
 
 {{/ficha}}
 
@@ -124,9 +124,9 @@ O quadro abaixo traz dez artefatos do caso, alguns já existentes e outros ainda
 
 1. Associe cada um dos dez artefatos à fase do ciclo em que ele é produzido ou usado como entrada, e indique se ele é entrada, produto intermediário ou entregável.
 2. Identifique quais artefatos do quadro são artefatos de linha de base, isto é, já existiam antes do início do processo.
-3. Indique a seção do caderno arquitetural, entre as dez do [template](../caderno/template.md), em que cada artefato fica registrado.
+3. Indique a seção do caderno, entre as do [template](../caderno/template.md), em que cada artefato fica registrado.
 
-As respostas preenchem as colunas Fase, Papel, Linha de base e Seção do caderno da tabela de artefatos, na seção 1 do caderno arquitetural.
+Suas respostas viram os campos Fase, Papel, Linha de base e Seção do caderno da tabela de artefatos, na seção 1 do caderno.
 
 ### Item 2: Data de conclusão do ciclo
 
@@ -151,7 +151,7 @@ flowchart TB
 1. Explique, em até cinco linhas, por que a data de conclusão ainda não pode ser dada com precisão no momento do pedido, e indique qual fase produz a informação que a sustenta.
 2. Registre a data de conclusão como pendência do ciclo, com quem decide e em que fase ela se resolve.
 
-As respostas preenchem a seção 10 do caderno, O que ainda falta decidir.
+Suas respostas viram o campo Pendência da data de conclusão, na seção 10 do caderno, O que ainda falta decidir.
 
 ## Fontes
 

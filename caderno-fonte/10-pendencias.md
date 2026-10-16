@@ -6,16 +6,16 @@ modo: substitui
 <!--orientacao-->
 | Campo | Conteúdo |
 | --- | --- |
-| O que vai | As pendências que impedem fechar uma decisão e a pessoa ou o grupo com autoridade para resolvê-las |
-| Pergunta que responde | O que ainda depende de decisão ou de verificação e quem decide |
-| Artefatos e códigos | Tabela de pendência e responsável, com a tendência tecnológica avaliada no encerramento |
-| Entrada | Todas as seções anteriores, porque cada premissa não confirmada gera uma pendência |
-| Preenchida em | Revista ao fim de cada aula, nos exercícios 4, 8, 12, 16, 20 e 24, e fechada no exercício 24 |
+| O que é esta seção | O que ainda não foi decidido ou confirmado, e quem pode decidir. |
+| Pergunta que responde | O que ainda impede o projeto de seguir, e quem resolve? |
+| O que você escreve | Uma tabela com cada pendência, quem decide e quando ela deve ser resolvida. Na versão final entra também a avaliação de uma tendência tecnológica. |
+| Vem de onde | De todas as seções: toda premissa ainda não confirmada vira uma pendência. |
+| Quando se preenche | Ao fim de cada aula, nos exercícios 4, 8, 12, 16, 20 e 24. Cada versão substitui a anterior. |
 <!--/orientacao-->
 
 <!--ex n=4 titulo="Pendências ao fim da Aula 1"-->
 <!--campos-->
-- Pendência da data de conclusão: quem decide e em que fase a data se resolve
+- **Pendência da data de conclusão:** registre quem decide a data de conclusão do ciclo e em que fase ela se resolve.
 <!--/campos-->
 <!--gabarito-->
 | Pendência | Quem decide | Quando se resolve |

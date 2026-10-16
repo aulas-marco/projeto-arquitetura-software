@@ -6,7 +6,7 @@ O dossiê é cumulativo. A maior parte dos exercícios produz um artefato que se
 
 ## Aula 1, arquitetura de soluções e seu processo
 
-A tabela abaixo cobre os quatro blocos da aula. Os quatro exercícios preenchem a seção 1 do [caderno arquitetural](../caderno/template.md), com a classificação das decisões, dos componentes, das tarefas e dos artefatos, mas nenhum deles produz artefato de projeto no sentido das aulas seguintes, porque a aula estabelece o enquadramento da disciplina e do processo antes do levantamento propriamente dito.
+A tabela abaixo cobre os quatro blocos da aula. Os quatro exercícios preenchem a seção 1 do [caderno arquitetural](../caderno/template.md), com a classificação das decisões, dos componentes, das tarefas e dos artefatos. Nenhum deles produz ainda um artefato de projeto, como os das aulas seguintes, porque esta aula trata do enquadramento da disciplina e do processo, antes do levantamento propriamente dito.
 
 | Bloco | Artefato produzido | Entrada usada do dossiê | Critério de aceitação |
 | --- | --- | --- | --- |

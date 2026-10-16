@@ -6,9 +6,9 @@ modo: acumula
 <!--orientacao-->
 | Campo | Conteúdo |
 | --- | --- |
-| O que vai | Os direcionadores de mudança classificados, o catálogo de requisitos com tipo, medida e prioridade, os requisitos vagos reescritos de forma mensurável, os cenários de qualidade e os requisitos derivados |
-| Pergunta que responde | O que a solução precisa entregar e com que medida se verifica que entregou |
-| Artefatos e códigos | Direcionadores com evidência, catálogo R1 a Rn, requisitos derivados RD1 a RDn, cenários CQ com seis elementos (fonte, estímulo, ambiente, artefato, resposta, medida) |
-| Entrada | Seções 1 e 2, porque restrição e parte interessada delimitam o que é requisito |
-| Preenchida em | Aula 2, exercícios 5, 6 e 7 |
+| O que é esta seção | O que o sistema precisa fazer, escrito de um jeito que dá para verificar. |
+| Pergunta que responde | O que a solução precisa entregar, e como saberemos que entregou? |
+| O que você escreve | A lista de requisitos do caso (R1 a R15), cada um com tipo, medida e prioridade, e os requisitos vagos reescritos com um número que dá para medir. Também os fatores que empurram a mudança, os direcionadores, e os cenários de qualidade (CQ1, CQ2 e assim por diante), que descrevem uma situação de uso em seis partes: quem provoca, o que provoca, em que situação, o que é afetado, o que o sistema faz e como se mede. |
+| Vem de onde | Das seções 1 e 2, porque restrições e partes interessadas dizem o que pode virar requisito. |
+| Quando se preenche | Na Aula 2, nos exercícios 5, 6 e 7. |
 <!--/orientacao-->

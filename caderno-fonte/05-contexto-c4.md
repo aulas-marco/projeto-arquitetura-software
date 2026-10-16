@@ -6,9 +6,9 @@ modo: acumula
 <!--orientacao-->
 | Campo | Conteúdo |
 | --- | --- |
-| O que vai | O diagrama de contexto do sistema, com a fronteira da solução, os perfis de usuário e os sistemas externos, e a razão de cada elemento ficar dentro ou fora da fronteira |
-| Pergunta que responde | O que está dentro da solução, o que fica fora e com quem ela se relaciona |
-| Artefatos e códigos | Diagrama C4 de nível 1 com legenda e um parágrafo que justifica a fronteira |
-| Entrada | Seções 2 e 4, porque as partes interessadas e a linha de base definem usuários e sistemas externos |
-| Preenchida em | Aula 4, exercício 15 |
+| O que é esta seção | Um desenho simples que mostra a solução como uma caixa só, quem a usa e com quais outros sistemas ela conversa. |
+| Pergunta que responde | O que está dentro da solução, o que está fora e com quem ela se relaciona? |
+| O que você escreve | Um diagrama de contexto no formato C4, nível 1, com legenda, e um parágrafo que explica por que cada sistema ficou dentro ou fora. |
+| Vem de onde | Das seções 2 e 4: as partes interessadas mostram quem usa a solução, e o sistema atual mostra com quem ela conversa. |
+| Quando se preenche | Na Aula 4, no exercício 15. |
 <!--/orientacao-->

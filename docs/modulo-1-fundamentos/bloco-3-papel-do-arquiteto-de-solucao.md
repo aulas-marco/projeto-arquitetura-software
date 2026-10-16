@@ -48,21 +48,21 @@ A separação entre entradas, produtos intermediários e entregáveis organiza a
 
 {{ficha:1}}
 
-O exercício deste bloco acrescenta à seção 1 do caderno a tabela de papéis e responsabilidades do ciclo de modernização.
+Este exercício acrescenta à seção 1 a tabela de papéis do ciclo de modernização, que diz quem cuida de cada tarefa e por quê.
 
-| Campo da seção 1 | O que preencher | Item |
+| Campo do caderno | O que escrever | Item |
 | --- | --- | --- |
-| Responsável | Arquiteto de solução, arquiteto de software ou arquitetura corporativa, para cada tarefa de T1 a T10 | 1 |
-| Justificativa | Uma linha pelo alcance da tarefa | 1 |
-| Grupo de competência | Negócio, técnico, entrega ou prático, para as tarefas do arquiteto de solução | 2 |
-| Benefício da tarefa T10 | O benefício da abordagem que justifica a verificação de reúso | 3 |
+| Responsável | Para cada tarefa, de T1 a T10, escreva se ela cabe ao arquiteto de solução, ao arquiteto de software ou à arquitetura corporativa | 1 |
+| Justificativa | Explique em uma frase por que a tarefa é desse responsável | 1 |
+| Grupo de competência | Nas tarefas do arquiteto de solução, diga se elas pedem competência de negócio, técnica, de entrega ou prática | 2 |
+| Benefício da tarefa T10 | Escolha o benefício da abordagem arquitetural que justifica verificar se já existe um componente reaproveitável | 3 |
 
-**Entrada.** As decisões classificadas por nível no exercício 1, cujo critério de alcance também separa as tarefas.
+**O que você já tem.** A classificação por nível do exercício 1, porque o mesmo critério de alcance separa as decisões e as tarefas.
 
-**Critério de seção completa.** As dez tarefas têm responsável e justificativa, as tarefas do arquiteto de solução têm grupo de competência e a tarefa T10 tem o benefício que a justifica.
+**Quando está pronto.** As dez tarefas têm responsável e justificativa, as tarefas do arquiteto de solução têm grupo de competência e a tarefa T10 tem o benefício que a justifica.
 
-[Ver a seção 1 no template](../caderno/template.md#1-contexto){ .caderno-botao }
-[Gabarito do exercício 3](../gabaritos/gabarito-exercicio-03.md){ .caderno-botao }
+[Ver esta seção no template](../caderno/template.md#1-contexto){ .caderno-botao }
+[Ver o gabarito do exercício 3](../gabaritos/gabarito-exercicio-03.md){ .caderno-botao }
 
 {{/ficha}}
 
@@ -101,7 +101,7 @@ flowchart TB
 
 1. Separe as dez tarefas em três grupos, as que cabem ao arquiteto de solução, as que cabem ao arquiteto de software ou à equipe de desenvolvimento, e as que cabem à arquitetura corporativa, usando o critério de alcance apresentado no [bloco 1](bloco-1-arquitetura-de-solucoes-e-de-software.md#como-aplicar-o-grao-correto). Justifique cada tarefa em uma linha.
 
-A resposta preenche as colunas Responsável e Justificativa da tabela de papéis, na seção 1 do caderno arquitetural.
+Sua resposta vira os campos Responsável e Justificativa da tabela de papéis, na seção 1 do caderno.
 
 ### Item 2: Grupo de competência de cada tarefa
 
@@ -116,7 +116,7 @@ O quadro abaixo resume os quatro grupos de competência do arquiteto de soluçã
 
 1. Para as tarefas que você atribuiu ao arquiteto de solução no Item 1, indique a qual dos quatro grupos de competência cada uma recorre principalmente.
 
-A resposta preenche a coluna Grupo de competência da mesma tabela, no caderno.
+Sua resposta vira o campo Grupo de competência da mesma tabela, no caderno.
 
 ### Item 3: Benefício por trás da tarefa T10
 
@@ -134,7 +134,7 @@ A tarefa T10 consiste em verificar com a Diretoria de TI se já existe na univer
 
 1. Identifique qual dos sete benefícios justifica a existência da tarefa T10, e explique em três linhas o que a instituição perde se essa verificação não for feita antes de especificar componente novo.
 
-A resposta preenche o campo Benefício da tarefa T10 da tabela de papéis, no caderno.
+Sua resposta vira o campo Benefício da tarefa T10 da tabela de papéis, no caderno.
 
 ## Fontes
 

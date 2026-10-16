@@ -144,13 +144,13 @@ class GeradorTest(unittest.TestCase):
 
     def test_secoes_sem_trecho_visivel_ficam_em_pendentes(self):
         texto = self.ger.render_gabarito(self.secoes, 5, self.docs)
-        self.assertIn("Seções que os exercícios seguintes preenchem: 9. Roteiro e governança", texto)
+        self.assertIn("Ainda em branco, para os próximos exercícios: 9. Roteiro e governança", texto)
 
     def test_exercicio_sem_gabarito_aparece_como_a_publicar(self):
         saidas = self.ger.saidas(self.secoes, self.docs)
         self.assertNotIn(self.docs / "gabaritos" / "gabarito-exercicio-07.md", saidas)
         mapa = saidas[self.docs / "caderno" / "mapa.md"]
-        self.assertRegex(mapa, r"Exercício 7 \| A publicar")
+        self.assertRegex(mapa, r"Exercício 7 \| Ainda não publicado")
 
     def test_saidas_gera_um_gabarito_por_exercicio_com_trecho(self):
         saidas = self.ger.saidas(self.secoes, self.docs)

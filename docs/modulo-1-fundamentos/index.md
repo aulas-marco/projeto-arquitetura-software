@@ -42,16 +42,16 @@ A [síntese](sintese.md) fecha o módulo com o checklist do que precisa permanec
 
 ## O caderno arquitetural nesta aula
 
-A Aula 1 abre o [caderno arquitetural](../caderno/template.md) da ACME, o documento de arquitetura da solução que o curso constrói exercício a exercício. Os quatro exercícios preenchem a seção 1, Contexto, e a aula deixa as seções 0 e 10 na primeira versão, de modo que o caderno ao fim da aula é o do [gabarito do exercício 4](../gabaritos/gabarito-exercicio-04.md).
+A Aula 1 abre o [caderno arquitetural](../caderno/template.md) da ACME, o documento que o curso constrói exercício a exercício. Os quatro exercícios desta aula preenchem a seção 1, Contexto, e deixam a primeira versão das seções 0 e 10. O resultado completo está no [gabarito do exercício 4](../gabaritos/gabarito-exercicio-04.md).
 
 {{trilha:1}}
 
-| Bloco | Exercício | O que preenche na seção 1 | Gabarito |
+| Bloco | Exercício | O que você registra na seção 1 | Gabarito |
 | --- | --- | --- | --- |
-| 1 | 1 | Nível de cada decisão D1 a D9, com componente afetado e dependência | [Gabarito 1](../gabaritos/gabarito-exercicio-01.md) |
-| 2 | 2 | Tipo de cada componente CP1 a CP10 e nível de cada elemento N1 a N6 | [Gabarito 2](../gabaritos/gabarito-exercicio-02.md) |
-| 3 | 3 | Responsável, justificativa e grupo de competência de cada tarefa T1 a T10 | [Gabarito 3](../gabaritos/gabarito-exercicio-03.md) |
-| 4 | 4 | Fase, papel, linha de base e seção do caderno de cada artefato A1 a A10, mais a pendência da seção 10 | [Gabarito 4](../gabaritos/gabarito-exercicio-04.md) |
+| 1 | 1 | O nível de arquitetura de cada decisão (D1 a D9), o componente afetado e a dependência entre decisões | [Gabarito 1](../gabaritos/gabarito-exercicio-01.md) |
+| 2 | 2 | O tipo de cada componente (CP1 a CP10) e o nível de cada elemento da situação atual (N1 a N6) | [Gabarito 2](../gabaritos/gabarito-exercicio-02.md) |
+| 3 | 3 | Quem cuida de cada tarefa (T1 a T10), o grupo de competência e o benefício da tarefa T10 | [Gabarito 3](../gabaritos/gabarito-exercicio-03.md) |
+| 4 | 4 | A fase, o papel e a seção do caderno de cada artefato (A1 a A10), mais a primeira pendência, na seção 10 | [Gabarito 4](../gabaritos/gabarito-exercicio-04.md) |
 
 ## Preparação para a Aula 2
 

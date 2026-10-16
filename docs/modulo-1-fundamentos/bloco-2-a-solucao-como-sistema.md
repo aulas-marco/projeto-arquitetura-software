@@ -61,21 +61,21 @@ Os três níveis servem para situar o alcance do que está sendo desenhado e par
 
 {{ficha:1}}
 
-O exercício deste bloco acrescenta à seção 1 do caderno a tabela dos componentes da solução que atende ao R7 e a leitura do requisito nos três níveis.
+Este exercício acrescenta à seção 1 duas tabelas: os componentes da solução que atende ao requisito R7 e a leitura da situação atual em três níveis.
 
-| Campo da seção 1 | O que preencher | Item |
+| Campo do caderno | O que escrever | Item |
 | --- | --- | --- |
-| Tipo do componente | Pessoas, estruturas organizacionais, processos, informação ou tecnologia, para cada componente de CP1 a CP10 | 1 |
-| Tipo sem componente | Se algum dos cinco tipos ficou vazio, e o tipo de maior impacto sobre quem trabalha | 1 |
-| Nível do elemento | Sistema de negócio, de informação ou de TI, para cada elemento de N1 a N6 | 2 |
-| Prazo percebido | Por que uma solução só de TI pode não reduzir o prazo que o aluno percebe | 2 |
+| Tipo do componente | Para cada componente, de CP1 a CP10, escreva se é pessoas, estruturas organizacionais, processos, informação ou tecnologia | 1 |
+| Tipo sem componente | Confira se algum dos cinco tipos ficou vazio e diga qual tipo mais muda o trabalho de quem está na instituição | 1 |
+| Nível do elemento | Para cada elemento, de N1 a N6, escreva se pertence ao sistema de negócio, ao sistema de informação ou ao sistema de TI | 2 |
+| Prazo percebido | Explique em até cinco linhas por que trocar só a tecnologia pode não encurtar o prazo que o aluno percebe | 2 |
 
-**Entrada.** A tabela de decisões do exercício 1, porque os componentes dependem de decisões de solução já classificadas.
+**O que você já tem.** A tabela de decisões do exercício 1, que mostra quais decisões mexem em componentes não tecnológicos.
 
-**Critério de seção completa.** Os dez componentes têm tipo, os seis elementos têm nível e o impacto de cada tipo sobre as pessoas está justificado.
+**Quando está pronto.** Os dez componentes têm tipo, os seis elementos têm nível e a explicação do prazo percebido está escrita.
 
-[Ver a seção 1 no template](../caderno/template.md#1-contexto){ .caderno-botao }
-[Gabarito do exercício 2](../gabaritos/gabarito-exercicio-02.md){ .caderno-botao }
+[Ver esta seção no template](../caderno/template.md#1-contexto){ .caderno-botao }
+[Ver o gabarito do exercício 2](../gabaritos/gabarito-exercicio-02.md){ .caderno-botao }
 
 {{/ficha}}
 
@@ -113,7 +113,7 @@ O quadro abaixo lista dez componentes candidatos da solução que atende ao R7, 
 1. Classifique cada um dos dez componentes em um dos cinco tipos de [componentes da solução](../referencia/glossario.md#componentes-da-solucao), pessoas, estruturas organizacionais, processos, informação e tecnologia, e indique se algum tipo ficou sem componente.
 2. Indique qual dos cinco tipos exige a mudança de maior impacto sobre quem trabalha na instituição, e justifique em duas linhas.
 
-As duas respostas preenchem a coluna Tipo da tabela de componentes do R7 e o comentário de impacto, na seção 1 do caderno arquitetural.
+Suas respostas viram os campos Tipo do componente e Tipo sem componente, na seção 1 do caderno.
 
 ### Item 2: Os três níveis do R7
 
@@ -131,7 +131,7 @@ O quadro abaixo lista seis elementos da situação atual que determinam o prazo 
 1. Situe cada um dos seis elementos em um dos três níveis apresentados neste bloco, sistema de negócio, sistema de informação ou sistema de TI.
 2. Explique, em até cinco linhas, por que uma solução construída apenas no nível de sistema de TI pode não reduzir o prazo percebido pelo aluno.
 
-A resposta preenche a coluna Nível e o comentário sobre o prazo percebido, na seção 1 do caderno.
+Suas respostas viram os campos Nível do elemento e Prazo percebido, na seção 1 do caderno.
 
 ## Fontes
 

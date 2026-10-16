@@ -86,21 +86,21 @@ A distinção também organiza a conversa com as partes interessadas. O patrocin
 
 {{ficha:1}}
 
-O exercício deste bloco abre a seção 1 do caderno, **Contexto**, com a tabela das decisões da ACME classificadas por nível de arquitetura.
+Este exercício começa a seção 1 do caderno, **Contexto**. Você classifica as decisões da ACME por nível de arquitetura e registra o resultado numa tabela do caderno.
 
-| Campo da seção 1 | O que preencher | Item |
+| Campo do caderno | O que escrever | Item |
 | --- | --- | --- |
-| Nível | Arquitetura corporativa, de solução ou de software, para cada decisão de D1 a D9 | 1 |
-| Justificativa | Uma linha pelo alcance do efeito da decisão | 1 |
-| Componente não tecnológico afetado | Pessoas, estruturas organizacionais, processos ou informação, nas decisões de solução | 2 |
-| Dependência entre decisões | A decisão de que cada uma depende e o motivo | 3 |
+| Nível | Para cada decisão, de D1 a D9, escreva se ela é de arquitetura corporativa, de solução ou de software | 1 |
+| Justificativa | Explique em uma frase o que a decisão muda e quem é afetado por ela | 1 |
+| Componente não tecnológico afetado | Nas decisões de solução, diga se a mudança atinge pessoas, estruturas organizacionais, processos ou informação | 2 |
+| Dependência entre decisões | Diga qual decisão precisa vir antes de outra e o que acontece se a ordem for invertida | 3 |
 
-**Entrada.** O dossiê do caso ACME, que já traz na seção o porte da instituição, as restrições fechadas e a pergunta central.
+**O que você já tem.** O caderno já traz o porte da ACME, as restrições e a pergunta central, porque são dados do caso. Você só acrescenta a classificação.
 
-**Critério de seção completa.** As nove decisões têm nível e justificativa, as decisões de solução têm o tipo de componente afetado e a dependência entre D2 e D3 está explicada.
+**Quando está pronto.** As nove decisões têm nível e justificativa, as decisões de solução dizem qual tipo de componente afetam e a dependência entre D2 e D3 está explicada.
 
-[Ver a seção 1 no template](../caderno/template.md#1-contexto){ .caderno-botao }
-[Gabarito do exercício 1](../gabaritos/gabarito-exercicio-01.md){ .caderno-botao }
+[Ver esta seção no template](../caderno/template.md#1-contexto){ .caderno-botao }
+[Ver o gabarito do exercício 1](../gabaritos/gabarito-exercicio-01.md){ .caderno-botao }
 
 {{/ficha}}
 
@@ -126,7 +126,7 @@ O quadro abaixo lista nove decisões tomadas ou propostas no ciclo de moderniza�
 
 1. Classifique cada uma das nove decisões em arquitetura corporativa, arquitetura de solução ou arquitetura de software, com uma linha de justificativa por decisão.
 
-A resposta preenche as colunas Nível e Justificativa da tabela de decisões da seção 1 do caderno arquitetural.
+Sua resposta vira as colunas Nível e Justificativa da tabela de decisões, na seção 1 do caderno.
 
 ### Item 2: Componentes não tecnológicos afetados
 
@@ -141,7 +141,7 @@ O quadro abaixo reproduz quatro dos cinco tipos de [componentes da solução](..
 
 1. Escolha duas decisões que você classificou no Item 1 como de arquitetura de solução e indique, para cada uma, qual dos quatro tipos de componente do quadro ela afeta, com uma linha de justificativa.
 
-A resposta preenche a coluna Componente não tecnológico afetado da mesma tabela, no caderno.
+Sua resposta vira a coluna Componente não tecnológico afetado da mesma tabela, no caderno.
 
 ### Item 3: Dependência entre D2 e D3
 
@@ -161,7 +161,7 @@ flowchart TB
 
 1. Explique o que aconteceria se a decisão D3 fosse tomada sem que a decisão D2 tivesse sido decidida antes, considerando o percurso mostrado no diagrama.
 
-A resposta preenche o campo Dependência entre decisões da seção 1 do caderno.
+Sua resposta vira o campo Dependência entre decisões, na seção 1 do caderno.
 
 ## Fontes
 

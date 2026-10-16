@@ -2,7 +2,7 @@
 
 {{progresso:1}}
 
-O caderno abaixo reúne o resultado dos exercícios 1 a 1, e o trecho em destaque é o que o exercício 1 preenche. O [enunciado do exercício 1](../modulo-1-fundamentos/bloco-1-arquitetura-de-solucoes-e-de-software.md#exercicio-1) está na página do bloco.
+Este é o caderno da ACME depois do exercício 1, e a moldura âmbar marca o que ele acrescentou. Compare com o seu caderno e veja onde as respostas diferem. O [enunciado do exercício 1](../modulo-1-fundamentos/bloco-1-arquitetura-de-solucoes-e-de-software.md#exercicio-1) está na página do bloco.
 
 ## 1. Contexto
 
@@ -23,7 +23,7 @@ O caderno abaixo reúne o resultado dos exercícios 1 a 1, e o trecho em destaqu
 | Equipe do núcleo | 6 especialistas em COBOL, 2 deles com aposentadoria prevista para 2027 |
 | Orçamento do primeiro ciclo | R$ 6,2 milhões em 12 meses |
 
-A pergunta central é como evoluir o sistema acadêmico de forma segura e incremental, mantendo o núcleo em operação durante a transição. A Reitoria descartou em 12/03/2026 duas respostas, a substituição integral por produto de mercado, pelo custo de migrar os históricos de 214.000 egressos, e a reescrita em entrega única, porque nenhuma janela do calendário acadêmico comporta a virada de todos os módulos.
+A pergunta central é como evoluir o sistema acadêmico de forma segura e incremental, mantendo o núcleo em operação durante a transição. Em 12/03/2026, a Reitoria descartou duas respostas: a substituição integral por produto de mercado, que exigiria migrar os históricos de 214.000 egressos, e a reescrita em entrega única, porque nenhuma janela do calendário acadêmico comporta a virada de todos os módulos.
 
 #### Restrições que chegam fechadas
 
@@ -39,18 +39,18 @@ A pergunta central é como evoluir o sistema acadêmico de forma segura e increm
 
 #### Decisões por nível de arquitetura
 
-O critério de classificação é o alcance do efeito da decisão. Decisão que muda só a estrutura interna de um componente é de software, a que muda processo, papel, propriedade de dado ou relação com fornecedor é de solução, e a que vale para iniciativas que ainda não existem é corporativa.
+Para classificar, pergunte até onde o efeito da decisão chega. Se ela muda só o funcionamento interno de um componente de software, é de arquitetura de software. Se muda um processo, um papel, a responsabilidade por um dado ou a relação com um fornecedor, é de arquitetura de solução. Se vale para iniciativas que ainda nem existem, é de arquitetura corporativa.
 
-| Código | Decisão | Nível | Justificativa pelo alcance |
+| Código | Decisão | Nível | Justificativa |
 | --- | --- | --- | --- |
 | D1 | Identidade e autorização seguem padrões abertos, sem produto proprietário | Corporativa | Vale para qualquer iniciativa da universidade, inclusive as que ainda não existem |
-| D2 | A propagação de nota ao ambiente virtual passa de lote diário a até 10 minutos | Solução | Muda o processo de fechamento de notas, o contrato com o fornecedor do ambiente virtual e a integração |
-| D3 | O serviço de notas repete o envio sem confirmação, com intervalo crescente | Software | Altera o comportamento de um componente, sem que outra parte da organização precise ser avisada |
-| D4 | Nenhum dado pessoal de aluno é processado fora do território nacional | Corporativa | É regra do Jurídico que vale para toda iniciativa que trate dado de aluno, presente ou futura |
-| D5 | A Secretaria Acadêmica passa a responder pela correção de dado cadastral | Solução | Muda papel e propriedade de dado, porque a correção sai da equipe de sustentação |
-| D6 | O índice de busca de disciplinas do portal passa a ficar em memória | Software | Altera a estrutura interna de um componente do portal, sem efeito sobre processo, papel ou fornecedor |
-| D7 | O núcleo COBOL permanece sob o contrato da fábrica até 30/09/2027 | Solução | Muda a relação com o fornecedor, porque toda alteração no núcleo depende da fábrica |
-| D8 | O histórico escolar é emitido com assinatura digital no padrão ICP-Brasil | Solução | Muda o procedimento de emissão e depende de certificado de terceiro, sem valer para iniciativas futuras |
+| D2 | A propagação de nota ao ambiente virtual passa de lote diário a até 10 minutos | Solução | Muda o processo de fechamento de notas, o contrato com o fornecedor do ambiente virtual e a integração entre os sistemas |
+| D3 | O serviço de notas repete o envio sem confirmação, com intervalo crescente | Software | Muda só o comportamento de um componente, e ninguém fora da equipe que o constrói precisa ser avisado |
+| D4 | Nenhum dado pessoal de aluno é processado fora do território nacional | Corporativa | É regra do Jurídico para qualquer iniciativa que trate dado de aluno, hoje ou no futuro |
+| D5 | A Secretaria Acadêmica passa a responder pela correção de dado cadastral | Solução | Muda quem responde pelo dado cadastral: sai a equipe de sustentação e entra a Secretaria Acadêmica |
+| D6 | O índice de busca de disciplinas do portal passa a ficar em memória | Software | Muda só como um componente do portal funciona por dentro, sem efeito sobre processo, papel ou fornecedor |
+| D7 | O núcleo COBOL permanece sob o contrato da fábrica até 30/09/2027 | Solução | Define quem pode mexer no núcleo: toda alteração passa pela fábrica de software, por contrato |
+| D8 | O histórico escolar é emitido com assinatura digital no padrão ICP-Brasil | Solução | Muda o procedimento de emissão do histórico e depende de certificado de terceiro, mas não vale para iniciativas futuras |
 | D9 | A transição ocorre por extração incremental de módulos, com o núcleo em operação | Solução | Afeta o contrato de sustentação, o calendário acadêmico e a rotina das equipes |
 
 As decisões D1, D4 e D7 reproduzem as restrições fechadas RT4, RT5 e RT6. As decisões D2, D3, D5, D6, D8 e D9 estão **propostas** e dependem de validação com as partes interessadas.
@@ -67,8 +67,8 @@ As decisões D1, D4 e D7 reproduzem as restrições fechadas RT4, RT5 e RT6. As 
 
 #### Dependência entre decisões
 
-A decisão D3 depende da D2. Sem a D2, o reenvio com intervalo crescente seria desenhado para um percurso em lote diário noturno, em que cada tentativa só ocorre na janela seguinte, de modo que o intervalo crescente não tem prazo de propagação que o justifique e a nota continua chegando ao aluno no dia seguinte.
+A decisão D3 depende da D2. Sem a D2, o reenvio seria desenhado para um percurso em lote noturno, em que cada nova tentativa só acontece na janela seguinte. Nesse percurso, o intervalo crescente entre tentativas não tem prazo de propagação que o justifique, e a nota continua chegando ao aluno no dia seguinte.
 
 {{/novo}}
 
-Seções que os exercícios seguintes preenchem: A solução em uma página, 2. Partes interessadas, 3. Requisitos, 4. Linha de base e lacunas, 5. Contexto do sistema (C4, nível 1), 6. Princípios, 7. Decisões, 8. Tecnologia e plataforma, 9. Roteiro e governança, 10. O que ainda falta decidir
+Ainda em branco, para os próximos exercícios: A solução em uma página, 2. Partes interessadas, 3. Requisitos, 4. Linha de base e lacunas, 5. Contexto do sistema (C4, nível 1), 6. Princípios, 7. Decisões, 8. Tecnologia e plataforma, 9. Roteiro e governança, 10. O que ainda falta decidir

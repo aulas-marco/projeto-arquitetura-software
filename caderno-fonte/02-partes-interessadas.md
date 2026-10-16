@@ -6,9 +6,9 @@ modo: acumula
 <!--orientacao-->
 | Campo | Conteúdo |
 | --- | --- |
-| O que vai | Os papéis envolvidos, o que cada um quer e teme, o tratamento dado a cada um, os conflitos de expectativa, os pontos de vista e a declaração de escopo do primeiro ciclo |
-| Pergunta que responde | Quem precisa ser envolvido nas decisões e onde as expectativas se chocam |
-| Artefatos e códigos | Matriz de partes interessadas com tratamento (envolver, consultar, manter informado), pontos de vista, declaração de escopo com o que muda, o que permanece e a origem de cada exclusão |
-| Entrada | Seção 1, em particular as restrições fechadas e o mapa de atores |
-| Preenchida em | Aula 2, exercício 8 |
+| O que é esta seção | As pessoas e os grupos com interesse no projeto. |
+| Pergunta que responde | Quem precisa participar das decisões e onde os interesses entram em conflito? |
+| O que você escreve | Uma tabela com o que cada pessoa ou grupo quer, o que teme e como o arquiteto vai tratá-lo (envolver nas decisões, consultar ou manter informado). Depois, os pontos de vista de cada grupo e a declaração de escopo: o que muda no primeiro ciclo, o que fica como está e por que cada item ficou de fora. |
+| Vem de onde | Da seção 1 e do mapa de atores do dossiê. |
+| Quando se preenche | Na Aula 2, no exercício 8. |
 <!--/orientacao-->

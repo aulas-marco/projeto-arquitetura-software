@@ -28,12 +28,12 @@ GABARITO = re.compile(r"<!--gabarito-->[ \t]*\n(.*?)<!--/gabarito-->", re.DOTALL
 CERCA = re.compile(r"^\s*(```|~~~)")
 
 INTRO_TEMPLATE = (
-    "O caderno arquitetural é o documento de arquitetura da solução da ACME. Ele reúne, em dez "
-    "seções, as decisões que o curso ensina a tomar, cada uma ligada ao requisito que a motivou. "
-    "A tabela de cada seção indica o que vai nela, a pergunta que responde, os artefatos que a "
-    "compõem, a entrada de que depende e o exercício que a preenche. As "
-    "[convenções](convencoes.md) definem os códigos dos artefatos, e o [mapa](mapa.md) relaciona "
-    "seção, bloco e exercício."
+    "O caderno arquitetural da ACME é o documento em que a arquitetura da solução fica registrada, "
+    "seção por seção, ao longo do curso. Cada seção responde a uma pergunta e é preenchida por um ou "
+    "mais exercícios. A trilha abaixo mostra as onze partes, e cada ficha explica o que entra na "
+    "seção, de onde vêm as informações e quando ela é preenchida. Se um código como D1 ou R6 não for "
+    "familiar, a página de [convenções](convencoes.md) explica todos, e o [mapa](mapa.md) mostra qual "
+    "exercício preenche cada seção."
 )
 
 
@@ -144,19 +144,26 @@ def render_template(secoes: list[Secao]) -> str:
         if secao.modo == "acumula":
             for i, fragmento in enumerate(secao.fragmentos, start=1):
                 partes += [f"### {secao.numero}.{i} {fragmento.titulo}", "",
-                           f"Preenchida no exercício {fragmento.n}.", ""]
+                           f"Esta parte é preenchida no exercício {fragmento.n}.", ""]
                 if fragmento.campos:
-                    partes += ["Campos a preencher:", "", fragmento.campos, ""]
+                    partes += ["Você escreve:", "", fragmento.campos, ""]
         partes += ["{{/folha}}", ""]
     return "\n".join(partes).rstrip() + "\n"
 
 
 def render_gabarito(secoes: list[Secao], n: int, docs: Path = DOCS) -> str:
     partes = [f"# Gabarito do exercício {n}", "", f"{{{{progresso:{n}}}}}", ""]
-    intro = (
-        f"O caderno abaixo reúne o resultado dos exercícios 1 a {n}, e o trecho em destaque é o "
-        f"que o exercício {n} preenche."
-    )
+    if n == 1:
+        intro = (
+            "Este é o caderno da ACME depois do exercício 1, e a moldura âmbar marca o que ele acrescentou. "
+            "Compare com o seu caderno e veja onde as respostas diferem."
+        )
+    else:
+        intro = (
+            f"Este é o caderno da ACME depois do exercício {n}. Ele reúne o que os exercícios 1 a {n} produziram, "
+            f"e a moldura âmbar marca o que o exercício {n} acrescentou. Compare com o seu caderno e veja onde "
+            "as respostas diferem."
+        )
     pagina = _pagina(n, docs)
     if pagina:
         intro += f" O [enunciado do exercício {n}](../{pagina}#exercicio-{n}) está na página do bloco."
@@ -178,7 +185,7 @@ def render_gabarito(secoes: list[Secao], n: int, docs: Path = DOCS) -> str:
             else:
                 partes += [fragmento.gabarito, ""]
     if pendentes:
-        partes += ["Seções que os exercícios seguintes preenchem: " + ", ".join(pendentes), ""]
+        partes += ["Ainda em branco, para os próximos exercícios: " + ", ".join(pendentes), ""]
     return "\n".join(partes).rstrip() + "\n"
 
 
@@ -190,9 +197,9 @@ def render_mapa(secoes: list[Secao], existentes: set[int], docs: Path = DOCS) ->
     linhas = [
         "# Mapa do caderno arquitetural",
         "",
-        "A tabela relaciona cada seção do caderno ao bloco que a ensina, ao exercício que a "
-        "preenche e ao gabarito em que o resultado aparece. As seções 0 e 10 são revistas ao fim "
-        "de cada aula, nos exercícios 4, 8, 12, 16, 20 e 24.",
+        "A tabela mostra, para cada seção do caderno, o bloco que ensina o assunto, o exercício que "
+        "preenche a seção e o gabarito em que o resultado aparece. As seções 0 e 10 são revistas ao "
+        "fim de cada aula, nos exercícios 4, 8, 12, 16, 20 e 24.",
         "",
         "| Seção | Aula | Bloco | Exercício | Gabarito |",
         "| --- | --- | --- | --- | --- |",
@@ -206,7 +213,7 @@ def render_mapa(secoes: list[Secao], existentes: set[int], docs: Path = DOCS) ->
         bloco = f"[Bloco {numero_bloco}, {titulo}](../{arquivo})" if existe else f"Bloco {numero_bloco}, {titulo}"
         exercicio = f"[Exercício {n}](../{arquivo}#exercicio-{n})" if existe else f"Exercício {n}"
         gabarito = (
-            f"[Gabarito {n}](../gabaritos/gabarito-exercicio-{n:02d}.md)" if n in existentes else "A publicar"
+            f"[Gabarito {n}](../gabaritos/gabarito-exercicio-{n:02d}.md)" if n in existentes else "Ainda não publicado"
         )
         linhas.append(f"| {_rotulo(secao)} | Aula {aula} | {bloco} | {exercicio} | {gabarito} |")
     return "\n".join(linhas) + "\n"
@@ -216,10 +223,10 @@ def render_indice(existentes: set[int]) -> str:
     partes = [
         "# Gabaritos",
         "",
-        "Cada gabarito é o caderno arquitetural da ACME com o resultado dos exercícios até aquele "
-        "ponto, e o trecho que o exercício preenche aparece em destaque. O "
-        "[template](../caderno/template.md) mostra o caderno vazio, e o "
-        "[mapa](../caderno/mapa.md) relaciona seção, bloco e exercício.",
+        "Cada gabarito mostra o caderno arquitetural da ACME como ele fica depois de um exercício. "
+        "As respostas dos exercícios anteriores já estão lá, e o trecho do exercício atual aparece em "
+        "destaque. Use o [template](../caderno/template.md) para ver o caderno vazio e o "
+        "[mapa](../caderno/mapa.md) para saber qual exercício preenche cada seção.",
         "",
     ]
     if not existentes:

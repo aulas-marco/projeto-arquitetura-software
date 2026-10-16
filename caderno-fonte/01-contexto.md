@@ -6,20 +6,20 @@ modo: acumula
 <!--orientacao-->
 | Campo | Conteúdo |
 | --- | --- |
-| O que vai | A instituição e os números do problema, as restrições que chegam fechadas, as respostas já excluídas, as decisões classificadas por nível de arquitetura, os componentes da solução nos cinco tipos e os papéis de quem decide |
-| Pergunta que responde | Que organização é esta, que problema ela precisa resolver e quem decide cada parte |
-| Artefatos e códigos | Tabela de porte, tabela de restrições com origem e efeito, decisões D1 a Dn pelo nível que cada uma toma, componentes CP1 a CPn e elementos N1 a Nn do requisito em análise, tarefas T1 a Tn, artefatos A1 a An e premissas PR1 a PRn |
-| Entrada | O dossiê do caso ACME, em particular a página inicial do caso e os dados operacionais |
-| Preenchida em | Aula 1, exercícios 1 a 4 |
+| O que é esta seção | A situação da ACME e o que a modernização precisa respeitar. |
+| Pergunta que responde | Que organização é esta, que problema ela quer resolver e o que já está decidido antes de desenhar qualquer coisa? |
+| O que você escreve | Tabelas com as restrições (RT1 a RT7), as decisões (D1 a D9), os componentes da solução (CP1 a CP10), as tarefas do ciclo (T1 a T10), os artefatos do processo (A1 a A10) e as premissas (PR1 a PR7). A página de convenções explica cada código. |
+| Vem de onde | Do dossiê do caso ACME, que traz os números da instituição, a pergunta central e as restrições. |
+| Quando se preenche | Na Aula 1, com os exercícios 1 a 4. |
 <!--/orientacao-->
 
 <!--ex n=1 titulo="Instituição, restrições e decisões por nível"-->
 <!--campos-->
-- Dado do dossiê: instituição, pergunta central e restrições fechadas, já preenchidos
-- Nível: arquitetura corporativa, de solução ou de software, para cada decisão de D1 a D9
-- Justificativa: uma linha pelo alcance do efeito da decisão
-- Componente não tecnológico afetado: pessoas, estruturas organizacionais, processos ou informação, nas decisões de solução
-- Dependência entre decisões: a decisão de que cada uma depende e o motivo
+- **Dado do dossiê:** a instituição, a pergunta central e as restrições já vêm preenchidas, porque são dados do caso.
+- **Nível:** diga se cada decisão, de D1 a D9, é de arquitetura corporativa, de solução ou de software.
+- **Justificativa:** explique em uma frase o que a decisão muda e quem é afetado por ela.
+- **Componente não tecnológico afetado:** nas decisões de solução, diga se a mudança atinge pessoas, estruturas organizacionais, processos ou informação.
+- **Dependência entre decisões:** diga qual decisão precisa vir antes de outra e o que acontece se a ordem for invertida.
 <!--/campos-->
 <!--gabarito-->
 #### Instituição e pergunta central
@@ -35,7 +35,7 @@ modo: acumula
 | Equipe do núcleo | 6 especialistas em COBOL, 2 deles com aposentadoria prevista para 2027 |
 | Orçamento do primeiro ciclo | R$ 6,2 milhões em 12 meses |
 
-A pergunta central é como evoluir o sistema acadêmico de forma segura e incremental, mantendo o núcleo em operação durante a transição. A Reitoria descartou em 12/03/2026 duas respostas, a substituição integral por produto de mercado, pelo custo de migrar os históricos de 214.000 egressos, e a reescrita em entrega única, porque nenhuma janela do calendário acadêmico comporta a virada de todos os módulos.
+A pergunta central é como evoluir o sistema acadêmico de forma segura e incremental, mantendo o núcleo em operação durante a transição. Em 12/03/2026, a Reitoria descartou duas respostas: a substituição integral por produto de mercado, que exigiria migrar os históricos de 214.000 egressos, e a reescrita em entrega única, porque nenhuma janela do calendário acadêmico comporta a virada de todos os módulos.
 
 #### Restrições que chegam fechadas
 
@@ -51,18 +51,18 @@ A pergunta central é como evoluir o sistema acadêmico de forma segura e increm
 
 #### Decisões por nível de arquitetura
 
-O critério de classificação é o alcance do efeito da decisão. Decisão que muda só a estrutura interna de um componente é de software, a que muda processo, papel, propriedade de dado ou relação com fornecedor é de solução, e a que vale para iniciativas que ainda não existem é corporativa.
+Para classificar, pergunte até onde o efeito da decisão chega. Se ela muda só o funcionamento interno de um componente de software, é de arquitetura de software. Se muda um processo, um papel, a responsabilidade por um dado ou a relação com um fornecedor, é de arquitetura de solução. Se vale para iniciativas que ainda nem existem, é de arquitetura corporativa.
 
-| Código | Decisão | Nível | Justificativa pelo alcance |
+| Código | Decisão | Nível | Justificativa |
 | --- | --- | --- | --- |
 | D1 | Identidade e autorização seguem padrões abertos, sem produto proprietário | Corporativa | Vale para qualquer iniciativa da universidade, inclusive as que ainda não existem |
-| D2 | A propagação de nota ao ambiente virtual passa de lote diário a até 10 minutos | Solução | Muda o processo de fechamento de notas, o contrato com o fornecedor do ambiente virtual e a integração |
-| D3 | O serviço de notas repete o envio sem confirmação, com intervalo crescente | Software | Altera o comportamento de um componente, sem que outra parte da organização precise ser avisada |
-| D4 | Nenhum dado pessoal de aluno é processado fora do território nacional | Corporativa | É regra do Jurídico que vale para toda iniciativa que trate dado de aluno, presente ou futura |
-| D5 | A Secretaria Acadêmica passa a responder pela correção de dado cadastral | Solução | Muda papel e propriedade de dado, porque a correção sai da equipe de sustentação |
-| D6 | O índice de busca de disciplinas do portal passa a ficar em memória | Software | Altera a estrutura interna de um componente do portal, sem efeito sobre processo, papel ou fornecedor |
-| D7 | O núcleo COBOL permanece sob o contrato da fábrica até 30/09/2027 | Solução | Muda a relação com o fornecedor, porque toda alteração no núcleo depende da fábrica |
-| D8 | O histórico escolar é emitido com assinatura digital no padrão ICP-Brasil | Solução | Muda o procedimento de emissão e depende de certificado de terceiro, sem valer para iniciativas futuras |
+| D2 | A propagação de nota ao ambiente virtual passa de lote diário a até 10 minutos | Solução | Muda o processo de fechamento de notas, o contrato com o fornecedor do ambiente virtual e a integração entre os sistemas |
+| D3 | O serviço de notas repete o envio sem confirmação, com intervalo crescente | Software | Muda só o comportamento de um componente, e ninguém fora da equipe que o constrói precisa ser avisado |
+| D4 | Nenhum dado pessoal de aluno é processado fora do território nacional | Corporativa | É regra do Jurídico para qualquer iniciativa que trate dado de aluno, hoje ou no futuro |
+| D5 | A Secretaria Acadêmica passa a responder pela correção de dado cadastral | Solução | Muda quem responde pelo dado cadastral: sai a equipe de sustentação e entra a Secretaria Acadêmica |
+| D6 | O índice de busca de disciplinas do portal passa a ficar em memória | Software | Muda só como um componente do portal funciona por dentro, sem efeito sobre processo, papel ou fornecedor |
+| D7 | O núcleo COBOL permanece sob o contrato da fábrica até 30/09/2027 | Solução | Define quem pode mexer no núcleo: toda alteração passa pela fábrica de software, por contrato |
+| D8 | O histórico escolar é emitido com assinatura digital no padrão ICP-Brasil | Solução | Muda o procedimento de emissão do histórico e depende de certificado de terceiro, mas não vale para iniciativas futuras |
 | D9 | A transição ocorre por extração incremental de módulos, com o núcleo em operação | Solução | Afeta o contrato de sustentação, o calendário acadêmico e a rotina das equipes |
 
 As decisões D1, D4 e D7 reproduzem as restrições fechadas RT4, RT5 e RT6. As decisões D2, D3, D5, D6, D8 e D9 estão **propostas** e dependem de validação com as partes interessadas.
@@ -79,21 +79,21 @@ As decisões D1, D4 e D7 reproduzem as restrições fechadas RT4, RT5 e RT6. As 
 
 #### Dependência entre decisões
 
-A decisão D3 depende da D2. Sem a D2, o reenvio com intervalo crescente seria desenhado para um percurso em lote diário noturno, em que cada tentativa só ocorre na janela seguinte, de modo que o intervalo crescente não tem prazo de propagação que o justifique e a nota continua chegando ao aluno no dia seguinte.
+A decisão D3 depende da D2. Sem a D2, o reenvio seria desenhado para um percurso em lote noturno, em que cada nova tentativa só acontece na janela seguinte. Nesse percurso, o intervalo crescente entre tentativas não tem prazo de propagação que o justifique, e a nota continua chegando ao aluno no dia seguinte.
 <!--/gabarito-->
 <!--/ex-->
 
 <!--ex n=2 titulo="Componentes da solução do R7"-->
 <!--campos-->
-- Tipo do componente: pessoas, estruturas organizacionais, processos, informação ou tecnologia, para cada componente de CP1 a CP10
-- Tipo sem componente: se algum dos cinco tipos ficou vazio, e o tipo de maior impacto sobre quem trabalha
-- Nível do elemento: sistema de negócio, de informação ou de TI, para cada elemento de N1 a N6
-- Prazo percebido: por que uma solução só de TI pode não reduzir o prazo que o aluno percebe
+- **Tipo do componente:** classifique cada componente, de CP1 a CP10, em pessoas, estruturas organizacionais, processos, informação ou tecnologia.
+- **Tipo sem componente:** confira se algum dos cinco tipos ficou vazio e diga qual tipo mais muda o trabalho de quem está na instituição.
+- **Nível do elemento:** diga se cada elemento da situação atual, de N1 a N6, pertence ao sistema de negócio, ao sistema de informação ou ao sistema de TI.
+- **Prazo percebido:** explique por que uma solução só de TI pode não reduzir o prazo que o aluno percebe.
 <!--/campos-->
 <!--gabarito-->
 #### Componentes da solução do R7
 
-O R7, nota no ambiente virtual de aprendizagem em até 10 minutos, é atendido por dez componentes candidatos, que ocupam os cinco tipos.
+O R7 pede que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos. Dez componentes candidatos atendem a esse pedido, e juntos eles ocupam os cinco tipos.
 
 | Código | Componente | Tipo |
 | --- | --- | --- |
@@ -108,7 +108,7 @@ O R7, nota no ambiente virtual de aprendizagem em até 10 minutos, é atendido p
 | CP9 | Serviço de notas que publica um evento a cada lançamento | Tecnologia |
 | CP10 | Responsável na Coordenação de Educação a Distância pelas falhas de envio | Pessoas |
 
-Nenhum tipo ficou sem componente. O tipo de maior impacto sobre quem trabalha na instituição é Processos, porque o CP5 e o CP4 mudam a rotina de fechamento e de correção de nota de professores, coordenações e Secretaria, e a mudança tecnológica sozinha não altera o prazo percebido.
+Nenhum tipo ficou sem componente. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o CP4 e o CP5 mudam a rotina de fechamento e de correção de nota de professores, coordenações e Secretaria. Só a mudança de tecnologia não altera o prazo que o aluno percebe.
 
 #### Os três níveis do R7
 
@@ -121,21 +121,21 @@ Nenhum tipo ficou sem componente. O tipo de maior impacto sobre quem trabalha na
 | N5 | Portal do professor e núcleo COBOL que calcula a situação do aluno | Sistema de TI |
 | N6 | Exportação noturna por lote ao ambiente virtual | Sistema de TI |
 
-Uma solução construída apenas no nível de sistema de TI troca o lote noturno por propagação em minutos e mantém o calendário de fechamento e a conferência manual, que determinam quando a nota está pronta para publicar, de modo que o prazo percebido pelo aluno continua sendo o do fechamento.
+Uma solução só no nível de sistema de TI troca o lote noturno por envio em minutos, mas deixa intactos o calendário de fechamento e a conferência manual, que decidem quando a nota está pronta para publicar. Por isso o aluno continua vendo a nota no prazo do fechamento.
 <!--/gabarito-->
 <!--/ex-->
 
 <!--ex n=3 titulo="Papéis e responsabilidades do ciclo"-->
 <!--campos-->
-- Responsável: arquiteto de solução, arquiteto de software ou arquitetura corporativa, para cada tarefa de T1 a T10
-- Justificativa: uma linha pelo alcance da tarefa
-- Grupo de competência: negócio, técnico, entrega ou prático, para as tarefas do arquiteto de solução
-- Benefício da tarefa T10: o benefício da abordagem que justifica a verificação de reúso
+- **Responsável:** diga se cada tarefa, de T1 a T10, cabe ao arquiteto de solução, ao arquiteto de software ou à arquitetura corporativa.
+- **Justificativa:** explique em uma frase por que a tarefa é desse responsável.
+- **Grupo de competência:** nas tarefas do arquiteto de solução, diga se elas pedem competência de negócio, técnica, de entrega ou prática.
+- **Benefício da tarefa T10:** escolha o benefício da abordagem arquitetural que justifica verificar se já existe um componente reaproveitável.
 <!--/campos-->
 <!--gabarito-->
 #### Responsável por cada tarefa
 
-O critério é o alcance do efeito, o mesmo da decisão por nível.
+O critério é o mesmo da classificação das decisões: até onde o efeito da tarefa chega.
 
 | Código | Tarefa | Responsável | Grupo de competência | Justificativa |
 | --- | --- | --- | --- | --- |
@@ -150,26 +150,26 @@ O critério é o alcance do efeito, o mesmo da decisão por nível.
 | T9 | Configurar o servidor de integração contínua | Arquiteto de software | | É configuração de ferramenta da equipe de desenvolvimento |
 | T10 | Verificar se já existe componente de envio de mensagem reaproveitável | Arquiteto de solução | Técnico | Exige conhecer a tecnologia vigente antes de especificar componente novo |
 
-Seis tarefas cabem ao arquiteto de solução, três ao arquiteto de software ou à equipe de desenvolvimento e uma à arquitetura corporativa, e os quatro grupos de competência aparecem nas tarefas do arquiteto de solução.
+Seis tarefas cabem ao arquiteto de solução, três ao arquiteto de software ou à equipe de desenvolvimento e uma à arquitetura corporativa. As seis tarefas do arquiteto de solução usam os quatro grupos de competência.
 
 #### Benefício por trás da tarefa T10
 
-A tarefa T10 se justifica pelo benefício do **reúso**, porque a consulta ao catálogo de aplicações e à arquitetura de software revela se um componente existente serve ao novo uso. Sem a verificação, a instituição especifica e constrói um segundo componente de envio de mensagem, paga a duplicação de manutenção e de integração e perde o custo e a perturbação mínimos que a análise de lacunas procura.
+A tarefa T10 se justifica pelo benefício do **reúso**: consultar o catálogo de aplicações e a arquitetura de software mostra se já existe um componente que serve ao novo uso. Sem essa verificação, a ACME especificaria e construiria um segundo componente de envio de mensagem, pagaria a duplicação de manutenção e de integração e perderia o custo e a perturbação mínimos que a análise de lacunas busca.
 <!--/gabarito-->
 <!--/ex-->
 
 <!--ex n=4 titulo="Artefatos nas fases do processo, premissas e escopo"-->
 <!--campos-->
-- Fase: a fase do ciclo em que cada artefato de A1 a A10 é produzido ou usado
-- Papel: entrada, produto intermediário ou entregável
-- Linha de base: se o artefato já existia antes do início do processo
-- Seção do caderno: a seção em que o resultado de cada artefato fica registrado
-- Dado do caso: premissas e exclusões do escopo, propostas pelo curso para confirmação na descoberta
+- **Fase:** diga em que fase do processo cada artefato, de A1 a A10, é produzido ou usado.
+- **Papel:** diga se o artefato é entrada, produto intermediário ou entregável.
+- **Linha de base:** marque os artefatos que já existiam antes de o processo começar.
+- **Seção do caderno:** diga em que seção do caderno o resultado de cada artefato fica registrado.
+- **Dado do caso:** as premissas e as exclusões do escopo já vêm prontas, propostas pelo curso para você confirmar na descoberta.
 <!--/campos-->
 <!--gabarito-->
 #### Artefatos nas fases do processo
 
-Os papéis seguem o bloco 3. Entrada é o artefato que a fase recebe, produto intermediário é a saída que alimenta outra fase de trabalho e entregável é a saída que o patrocinador recebe como resultado do trabalho do arquiteto. O documento de iniciação é artefato de entrada, e a comparação de alternativas é o caso de negócio levado ao Conselho, por isso entregável da análise.
+Para dar um papel a cada artefato, use o critério do bloco 3. Entrada é o artefato que a fase recebe. Produto intermediário é a saída que alimenta uma fase seguinte. Entregável é a saída que o patrocinador recebe como resultado do trabalho do arquiteto. O documento de iniciação conta como entrada, e a comparação de alternativas é o caso de negócio levado ao Conselho, por isso é entregável da análise.
 
 | Código | Artefato | Fase | Papel | Linha de base | Seção do caderno |
 | --- | --- | --- | --- | --- | --- |
@@ -184,11 +184,11 @@ Os papéis seguem o bloco 3. Entrada é o artefato que a fase recebe, produto in
 | A9 | Documento que autoriza a equipe a iniciar a investigação | 1. Iniciação | Entrada | Não | 1 |
 | A10 | Modelos da solução implantada, devolvidos ao repositório | 8. Conclusão | Entregável | Não | Todas |
 
-Os artefatos de linha de base são A1, A2 e A4, porque já descreviam parte da situação atual antes do início do processo. O pedido da data de conclusão chega depois do A9, na iniciação, e a data só pode ser dada com precisão depois da fase 7, em que sai a estimativa de prazo e de custo. Até lá, o caderno registra a pendência na seção 10.
+Os artefatos de linha de base são A1, A2 e A4, porque já descreviam parte da situação atual antes de o processo começar. O pedido da data de conclusão chega depois do A9, ainda na iniciação, e a data só pode ser dada com precisão depois da fase 7, em que saem as estimativas de prazo e de custo. Até lá, o caderno registra a data como pendência na seção 10.
 
 #### Premissas
 
-As premissas e as exclusões a seguir são dados do caso, propostos pelo curso para confirmação na descoberta, e não resposta do exercício.
+As premissas e as exclusões a seguir são dados do caso. O curso as propõe para você confirmar na fase de descoberta, e elas não fazem parte da resposta do exercício.
 
 | Código | Premissa | Se for falsa | Como verificar |
 | --- | --- | --- | --- |

@@ -1,6 +1,6 @@
 # Gabaritos
 
-Cada gabarito é o caderno arquitetural da ACME com o resultado dos exercícios até aquele ponto, e o trecho que o exercício preenche aparece em destaque. O [template](../caderno/template.md) mostra o caderno vazio, e o [mapa](../caderno/mapa.md) relaciona seção, bloco e exercício.
+Cada gabarito mostra o caderno arquitetural da ACME como ele fica depois de um exercício. As respostas dos exercícios anteriores já estão lá, e o trecho do exercício atual aparece em destaque. Use o [template](../caderno/template.md) para ver o caderno vazio e o [mapa](../caderno/mapa.md) para saber qual exercício preenche cada seção.
 
 | Exercício | Gabarito |
 | --- | --- |

@@ -6,9 +6,9 @@ modo: acumula
 <!--orientacao-->
 | Campo | Conteúdo |
 | --- | --- |
-| O que vai | A descrição da arquitetura atual, com camadas, integrações, incidentes e dívida técnica, e a lista das lacunas entre a linha de base e a arquitetura alvo |
-| Pergunta que responde | Como o sistema é hoje, onde ele é frágil e o que falta para chegar ao alvo |
-| Artefatos e códigos | Descrição da linha de base, tabela de incidentes com causa e impacto, relatório de lacunas L1 a Ln com domínio, forma de fechamento e onda |
-| Entrada | Seção 3 para a linha de base, e as seções 5 a 8 para a arquitetura alvo com que a linha de base é comparada |
-| Preenchida em | Linha de base na Aula 2, exercício 7, e lacunas na Aula 6, exercício 21 |
+| O que é esta seção | Como o sistema é hoje e o que falta para chegar à solução desenhada. Linha de base é o nome da situação atual. |
+| Pergunta que responde | Onde o sistema atual é frágil, e o que é preciso mudar para chegar ao que se quer construir? |
+| O que você escreve | A descrição do sistema atual, com camadas, integrações e incidentes. Depois, a lista de lacunas (L1, L2 e assim por diante): cada diferença entre o sistema atual e o desenhado, com a forma de fechá-la. |
+| Vem de onde | Do dossiê e da seção 3. Para as lacunas, também das seções 5 a 8, que descrevem a solução desenhada. |
+| Quando se preenche | A descrição do sistema atual, na Aula 2 (exercício 7). A lista de lacunas, na Aula 6 (exercício 21). |
 <!--/orientacao-->

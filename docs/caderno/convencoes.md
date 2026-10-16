@@ -1,38 +1,40 @@
 # Convenções do caderno arquitetural
 
-O caderno usa códigos curtos para que uma decisão, um requisito e uma lacuna possam ser citados de qualquer seção sem ambiguidade. Esta página define os códigos, os marcadores de estado e a regra de rastreabilidade que liga uma decisão ao requisito que a motivou.
+O caderno dá um código curto a cada item que pode ser citado em outra seção, como R6 para o sexto requisito. Esta página lista os códigos, explica os dois marcadores de estado e mostra como uma decisão se liga ao requisito que a motivou.
 
-## Códigos de artefato
+## Códigos
 
-Cada código é a inicial do artefato seguida de um número sequencial dentro do caderno, como R6 para o sexto requisito declarado. Os códigos CP, N, T e A têm numeração própria em cada exercício da seção 1 e não colidem com os controles de segurança, que usam C.
+Cada código é a inicial do item seguida de um número, na ordem em que o item aparece no caderno.
 
-| Código | Artefato | Seção |
+| Código | O que identifica | Seção |
 | --- | --- | --- |
-| D | Decisão classificada por nível de arquitetura | 1 |
-| PR | Premissa adotada na ausência de dado | 1 |
-| RT | Restrição que chega fechada | 1 |
-| R | Requisito declarado pelas partes interessadas | 3 |
-| RD | Requisito derivado de outro requisito ou de uma restrição | 3 |
-| CQ | Cenário de atributo de qualidade | 3 |
-| L | Lacuna entre a linha de base e a arquitetura alvo | 4 |
-| P | Princípio de design | 6 |
-| DD | Decisão de design | 7 |
-| DL | Decisão de legado e de dados | 7 |
-| B | Bloco de construção da solução | 7 |
-| I | Interface entre blocos | 7 |
-| ADR | Registro de decisão arquitetural | 7 e 8 |
-| C | Controle de segurança | 8 |
-| LG | Ligação entre contêineres, com protocolo e contrato | 7 |
-| FA | Função de aptidão que verifica uma decisão na esteira | 9 |
-| CP | Componente candidato da solução, classificado por tipo | 1 |
-| N | Elemento da situação atual, lido nos três níveis de sistema | 1 |
-| T | Tarefa do ciclo de modernização, atribuída a um papel | 1 |
-| A | Artefato do caso, associado a fase, papel e seção | 1 |
+| D | Uma decisão, classificada pelo nível de arquitetura de quem a toma | 1 |
+| PR | Uma premissa: algo que o projeto assume como verdadeiro sem ter confirmado | 1 |
+| RT | Uma restrição: decisão tomada fora do projeto, que o arquiteto não pode mudar | 1 |
+| R | Um requisito declarado pelas pessoas envolvidas | 3 |
+| RD | Um requisito derivado de outro requisito ou de uma restrição | 3 |
+| CQ | Um cenário de qualidade: uma situação de uso descrita em seis partes, com meta que dá para medir | 3 |
+| L | Uma lacuna entre o sistema atual e o que se quer construir | 4 |
+| P | Um princípio de design: regra que as decisões precisam respeitar | 6 |
+| DD | Uma decisão de design, como o estilo da solução ou os padrões adotados | 7 |
+| DL | Uma decisão sobre o sistema antigo e sobre os dados | 7 |
+| B | Um bloco de construção da solução | 7 |
+| I | Uma interface entre dois blocos | 7 |
+| ADR | Um registro de decisão arquitetural: texto curto com o contexto, as alternativas e as consequências de uma escolha | 7 e 8 |
+| C | Um controle de segurança | 8 |
+| LG | Uma ligação entre duas partes executáveis da solução, com protocolo e contrato | 7 |
+| FA | Uma função de aptidão: teste automático que avisa quando uma decisão deixa de ser cumprida | 9 |
+| CP | Um componente candidato da solução, classificado por tipo | 1 |
+| N | Um elemento da situação atual, lido nos três níveis de sistema | 1 |
+| T | Uma tarefa do ciclo de modernização, atribuída a um papel | 1 |
+| A | Um artefato do caso, ligado a uma fase, a um papel e a uma seção | 1 |
+
+Os códigos CP, N, T e A numeram os itens dos exercícios da seção 1. O C é só dos controles de segurança, por isso os componentes usam CP.
 
 ## Marcadores de estado
 
-Uma decisão ou um artefato que ainda depende de validação com as partes interessadas recebe o marcador **proposto**. Um valor que o caso não registra recebe o marcador **a definir**, com a pessoa que o fornece. Os dois marcadores saem quando a validação ocorre, e a seção 10 do caderno lista tudo o que ainda os carrega.
+O marcador **proposto** indica uma decisão ou um artefato que ainda precisa ser validado por quem tem autoridade para aprová-lo. O marcador **a definir** indica um valor que o caso ainda não traz, junto com a pessoa que pode informá-lo. Os dois saem quando a validação acontece, e a seção 10 do caderno lista tudo o que ainda os carrega.
 
-## Rastreabilidade
+## Como uma decisão se liga ao requisito
 
-Toda decisão das seções 6 a 8 cita o requisito ou a restrição que a motivou, e todo requisito da seção 3 aponta a decisão que o atende e a medida que verifica o atendimento. A leitura de uma decisão sem requisito de origem indica decisão sem justificativa, e a leitura de um requisito sem decisão indica lacuna a registrar na seção 4.
+Toda decisão das seções 6 a 8 diz qual requisito ou restrição a motivou. Todo requisito da seção 3 diz qual decisão o atende e como se mede esse atendimento. Uma decisão sem requisito de origem não tem justificativa, e um requisito sem decisão é uma lacuna que deve entrar na seção 4.

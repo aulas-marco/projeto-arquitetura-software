@@ -52,7 +52,7 @@ class ModuloUmCadernoTest(unittest.TestCase):
         for nome in BLOCOS:
             for titulo, corpo in itens(texto(nome)):
                 with self.subTest(bloco=nome, item=titulo):
-                    self.assertRegex(corpo, r"(A resposta preenche|As (duas )?respostas preenchem)")
+                    self.assertRegex(corpo, r"(Sua resposta vira|Suas respostas viram)")
                     self.assertIn("caderno", corpo)
 
     def test_componentes_do_exercicio_2_usam_codigo_cp(self):

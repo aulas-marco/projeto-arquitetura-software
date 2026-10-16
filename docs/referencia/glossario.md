@@ -300,20 +300,20 @@ Classificação de ameaças em seis categorias, falsificação de identidade, ad
 
 ## Descrição de arquitetura
 
-Produto de trabalho que expressa a arquitetura de um sistema num determinado estado, como uma organização, uma aplicação ou uma solução. Cada descrição compõe-se de ao menos um entregável. A arquitetura de linha de base e a arquitetura alvo de uma solução têm descrições distintas, e a análise de lacunas compara as duas.
+Conjunto de documentos e modelos que mostra como é a arquitetura de um sistema num determinado momento, seja uma organização, uma aplicação ou uma solução. A arquitetura de linha de base e a arquitetura alvo de uma solução têm descrições diferentes, e a análise de lacunas compara as duas.
 
 ## Entregável de arquitetura
 
-Documento ou relatório composto, produzido por uma equipe de arquitetura por solicitação ou como parte do ciclo de vida, para uma descrição de arquitetura específica. Reúne informação estruturada, em artefatos, e informação não estruturada, em comentário e análise. São exemplos a declaração de requisitos, o caso de negócio, o esboço da solução, o desenho lógico e o relatório de impacto.
+Documento ou relatório produzido pela equipe de arquitetura para uma descrição de arquitetura. Reúne artefatos, que são as informações organizadas, e comentários e análises em texto livre. São exemplos a declaração de requisitos, o caso de negócio, o esboço da solução, o desenho lógico e o relatório de impacto.
 
 ## Artefato de arquitetura
 
-Catálogo, mapa, tabela, diagrama ou modelo que trata de um aspecto específico da arquitetura de um sistema e mostra a relação entre entidades ou outros componentes. A visão é um tipo de artefato, produzido a partir de um ponto de vista. O mesmo artefato pode compor vários entregáveis, e são exemplos o catálogo de interfaces, o diagrama de contexto e o modelo de dados.
+Catálogo, mapa, tabela, diagrama ou modelo que trata de um aspecto da arquitetura e mostra como as entidades se relacionam. A visão é um tipo de artefato, feito a partir de um ponto de vista. O mesmo artefato pode aparecer em vários entregáveis, como o catálogo de interfaces, o diagrama de contexto e o modelo de dados.
 
 ## Entidade de arquitetura
 
-Elemento discreto que faz parte da arquitetura de um sistema e interessa a quem analisa e projeta, como um requisito, uma interface ou um componente. Uma entidade pode aparecer em mais de um artefato e relacionar-se com outras por abstração, que a generaliza em categoria, ou por composição, que a forma a partir de várias.
+Elemento que faz parte da arquitetura de um sistema e interessa a quem a analisa, como um requisito, uma interface ou um componente. Uma entidade pode aparecer em mais de um artefato e se relacionar com outras: por abstração, quando é generalizada numa categoria, ou por composição, quando é formada por várias.
 
 ## Caderno arquitetural
 
-Documento de arquitetura da solução do caso ACME, construído ao longo do curso em dez seções, do contexto ao roteiro e à governança. Funciona como a descrição de arquitetura da solução alvo, e cada exercício preenche uma seção. O [template](../caderno/template.md) mostra o caderno vazio, e a seção Gabaritos traz o caderno preenchido a cada exercício.
+Documento em que a arquitetura da solução da ACME vai sendo registrada ao longo do curso, em dez seções mais um resumo, do contexto ao roteiro e à governança. Cada exercício preenche uma parte dele. O [template](../caderno/template.md) mostra o caderno vazio, e a seção Gabaritos mostra o caderno preenchido a cada exercício.

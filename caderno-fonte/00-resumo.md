@@ -6,11 +6,11 @@ modo: substitui
 <!--orientacao-->
 | Campo | Conteúdo |
 | --- | --- |
-| O que vai | O problema, a pergunta, a decisão central, o requisito que guia o desenho, o que a organização aceita em troca e o estado das decisões |
-| Pergunta que responde | O que um leitor que lesse só esta página precisaria saber para apoiar ou questionar o projeto |
-| Artefatos | Cinco parágrafos curtos, um para cada item acima, e uma linha de estado que diz o que está proposto e o que depende de prova |
-| Entrada | Todas as seções seguintes, porque o resumo só repete o que elas já registram |
-| Preenchida em | Revista ao fim de cada aula, nos exercícios 4, 8, 12, 16, 20 e 24, e fechada no exercício 24 |
+| O que é esta seção | Um resumo de uma página, para quem não vai ler o caderno inteiro. |
+| Pergunta que responde | Se alguém lesse só esta página, entenderia o projeto? |
+| O que você escreve | Seis parágrafos curtos: o problema, a pergunta, a decisão central, o requisito que mais pesa, o que a ACME aceita perder em troca e como está o trabalho. |
+| Vem de onde | Das outras seções. O resumo só repete, em poucas linhas, o que o caderno já registra. |
+| Quando se preenche | Ao fim de cada aula, nos exercícios 4, 8, 12, 16, 20 e 24. Cada versão substitui a anterior. |
 <!--/orientacao-->
 
 <!--ex n=4 titulo="Resumo ao fim da Aula 1"-->
@@ -25,6 +25,6 @@ modo: substitui
 
 **O que a organização aceita em troca.** A definir, depois da escolha do estilo na Aula 3.
 
-**Estado.** As decisões D1 a D9 estão classificadas por nível, as decisões D2, D3, D5, D6, D8 e D9 e as sete premissas estão **propostas**, e a data de conclusão do ciclo depende da fase 7 do processo.
+**Como está o trabalho.** As decisões D1 a D9 estão classificadas por nível, as decisões D2, D3, D5, D6, D8 e D9 e as sete premissas estão **propostas**, e a data de conclusão do ciclo depende da fase 7 do processo.
 <!--/gabarito-->
 <!--/ex-->
