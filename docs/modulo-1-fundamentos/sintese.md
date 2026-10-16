@@ -11,10 +11,11 @@ Esta página fecha o módulo de abertura com o que precisa permanecer depois da 
 - As três saídas da arquitetura de solução, o desenho implementável, o roteiro de entrega e a estimativa de custo da mudança tecnológica
 - As oito fases do processo, iniciação, descoberta, definição do esboço, análise, desenho lógico, validação, desenvolvimento do roteiro e conclusão, com a entrada e a saída de cada uma
 - A distinção entre artefato de linha de base, produto intermediário e entregável, que determina o que pode ser cobrado do arquiteto em cada momento
+- O [caderno arquitetural](../referencia/glossario.md#caderno-arquitetural) como descrição da arquitetura da solução, com dez seções, e o estado dele ao fim da Aula 1, com a seção 1 preenchida e as seções 0 e 10 na primeira versão
 
 ## Autoavaliação
 
-As perguntas abaixo são para o aluno responder a si mesmo, sem gabarito público, como verificação de retenção antes da Aula 2.
+As perguntas abaixo são para o aluno responder a si mesmo, como verificação de retenção antes da Aula 2. Os gabaritos dos exercícios, em forma de caderno arquitetural cumulativo, estão na seção [Gabaritos](../gabaritos/index.md).
 
 1. Dada uma decisão qualquer de um projeto, eu digo se ela pertence à arquitetura corporativa, à arquitetura de solução ou à arquitetura de software, e justifico pelo alcance do efeito.
 2. Eu enumero os cinco tipos de componente de uma solução e dou um exemplo de cada um em um caso concreto.

@@ -119,6 +119,10 @@ nav:
       - Mapa: caderno/mapa.md
   - Gabaritos:
       - Visão geral: gabaritos/index.md
+      - "Exercício 1": gabaritos/gabarito-exercicio-01.md
+      - "Exercício 2": gabaritos/gabarito-exercicio-02.md
+      - "Exercício 3": gabaritos/gabarito-exercicio-03.md
+      - "Exercício 4": gabaritos/gabarito-exercicio-04.md
   - Referência:
       - Glossário: referencia/glossario.md
       - Bibliografia: referencia/bibliografia.md

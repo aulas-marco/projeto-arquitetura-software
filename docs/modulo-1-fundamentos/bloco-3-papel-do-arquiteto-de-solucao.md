@@ -44,6 +44,28 @@ O arquiteto usa a lista de competências como diagnóstico da própria atuação
 
 A separação entre entradas, produtos intermediários e entregáveis organiza a negociação de prazo. O patrocinador costuma cobrar o desenho final desde a primeira semana, e é o arquiteto quem precisa mostrar que a declaração de visão e o documento de iniciação vêm antes, com custo baixo, e que a decisão de seguir ou parar é tomada sobre eles.
 
+## No caderno arquitetural
+
+{{ficha:1}}
+
+O exercício deste bloco acrescenta à seção 1 do caderno a tabela de papéis e responsabilidades do ciclo de modernização.
+
+| Campo da seção 1 | O que preencher | Item |
+| --- | --- | --- |
+| Responsável | Arquiteto de solução, arquiteto de software ou arquitetura corporativa, para cada tarefa de T1 a T10 | 1 |
+| Justificativa | Uma linha pelo alcance da tarefa | 1 |
+| Grupo de competência | Negócio, técnico, entrega ou prático, para as tarefas do arquiteto de solução | 2 |
+| Benefício da tarefa T10 | O benefício da abordagem que justifica a verificação de reúso | 3 |
+
+**Entrada.** As decisões classificadas por nível no exercício 1, cujo critério de alcance também separa as tarefas.
+
+**Critério de seção completa.** As dez tarefas têm responsável e justificativa, as tarefas do arquiteto de solução têm grupo de competência e a tarefa T10 tem o benefício que a justifica.
+
+[Ver a seção 1 no template](../caderno/template.md#1-contexto){ .caderno-botao }
+[Gabarito do exercício 3](../gabaritos/gabarito-exercicio-03.md){ .caderno-botao }
+
+{{/ficha}}
+
 ## Exercício 3
 
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 2.150 professores e 4 campi, cujo sistema acadêmico está em operação desde 2004. A instituição aprovou um ciclo de modernização de 12 meses com orçamento de R$ 6,2 milhões, mantendo o ambiente virtual de aprendizagem e o ERP financeiro em operação, e o núcleo em COBOL permanece sob contrato de sustentação de uma fábrica de software até 30/09/2027.
@@ -79,6 +101,8 @@ flowchart TB
 
 1. Separe as dez tarefas em três grupos, as que cabem ao arquiteto de solução, as que cabem ao arquiteto de software ou à equipe de desenvolvimento, e as que cabem à arquitetura corporativa, usando o critério de alcance apresentado no [bloco 1](bloco-1-arquitetura-de-solucoes-e-de-software.md#como-aplicar-o-grao-correto). Justifique cada tarefa em uma linha.
 
+A resposta preenche as colunas Responsável e Justificativa da tabela de papéis, na seção 1 do caderno arquitetural.
+
 ### Item 2: Grupo de competência de cada tarefa
 
 O quadro abaixo resume os quatro grupos de competência do arquiteto de solução apresentados na seção [Competências exigidas](#competencias-exigidas) deste bloco.
@@ -91,6 +115,8 @@ O quadro abaixo resume os quatro grupos de competência do arquiteto de soluçã
 | Prático | Comunicação, gestão de partes interessadas, tratamento de requisitos, resolução de problemas, inovação e liderança |
 
 1. Para as tarefas que você atribuiu ao arquiteto de solução no Item 1, indique a qual dos quatro grupos de competência cada uma recorre principalmente.
+
+A resposta preenche a coluna Grupo de competência da mesma tabela, no caderno.
 
 ### Item 3: Benefício por trás da tarefa T10
 
@@ -107,6 +133,8 @@ A tarefa T10 consiste em verificar com a Diretoria de TI se já existe na univer
 | Resolução precoce de conflito e de duplicação | Escopo declarado e análises de lacuna e de impacto revelam cedo outras iniciativas que tocam a mesma área |
 
 1. Identifique qual dos sete benefícios justifica a existência da tarefa T10, e explique em três linhas o que a instituição perde se essa verificação não for feita antes de especificar componente novo.
+
+A resposta preenche o campo Benefício da tarefa T10 da tabela de papéis, no caderno.
 
 ## Fontes
 

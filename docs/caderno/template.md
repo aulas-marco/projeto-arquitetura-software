@@ -30,6 +30,46 @@ O caderno arquitetural é o documento de arquitetura da solução da ACME. Ele r
 | Entrada | O dossiê do caso ACME, em particular a página inicial do caso e os dados operacionais |
 | Preenchida em | Aula 1, exercícios 1 a 4 |
 
+### 1.1 Instituição, restrições e decisões por nível
+
+Preenchida no exercício 1.
+
+Campos a preencher:
+
+- Instituição, pergunta central e restrições fechadas, fornecidas pelo dossiê
+- Nível de arquitetura de cada decisão D1 a D9, com a justificativa pelo alcance do efeito
+- Tipo de componente não tecnológico afetado pelas decisões de solução
+- Dependência entre decisões
+
+### 1.2 Componentes da solução do R7
+
+Preenchida no exercício 2.
+
+Campos a preencher:
+
+- Tipo de cada componente candidato CP1 a CP10
+- Nível de cada elemento da situação atual N1 a N6
+
+### 1.3 Papéis e responsabilidades do ciclo
+
+Preenchida no exercício 3.
+
+Campos a preencher:
+
+- Nível de arquitetura responsável por cada tarefa T1 a T10
+- Grupo de competência das tarefas do arquiteto de solução
+- Benefício da abordagem que justifica a tarefa T10
+
+### 1.4 Artefatos nas fases do processo, premissas e escopo
+
+Preenchida no exercício 4.
+
+Campos a preencher:
+
+- Fase, papel e seção do caderno de cada artefato A1 a A10
+- Artefatos de linha de base
+- Premissas e exclusões do escopo, fornecidas pelo caderno de referência
+
 {{/folha}}
 
 {{folha:2}}

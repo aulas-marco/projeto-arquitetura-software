@@ -68,7 +68,7 @@ def _ficha(secao):
     return (
         '<div class="caderno-ficha" markdown="1">\n\n'
         f'<div class="cabeca"><span class="numero">{secao}</span><div class="titulo">'
-        f'<p class="marca">No caderno arquitetural</p><p class="nome">{titulo}</p>'
+        f'<p class="marca">Seção do caderno</p><p class="nome">{titulo}</p>'
         f'<p class="etiquetas"><span>Aula {aula}</span><span>{_lista_de_exercicios(exercicios)}</span></p>'
         f'</div></div>\n\n{trilha(secao)}\n\n'
     )

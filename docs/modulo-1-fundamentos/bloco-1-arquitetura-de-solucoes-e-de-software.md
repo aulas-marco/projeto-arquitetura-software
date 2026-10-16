@@ -82,6 +82,28 @@ O arquiteto usa essa distinção para saber de quem é a decisão que tem diante
 
 A distinção também organiza a conversa com as partes interessadas. O patrocinador de negócio decide sobre a solução, não sobre o desenho interno dos componentes, e cobrar dele uma escolha técnica desloca a decisão para quem não tem elementos para tomá-la. A recíproca vale: pedir ao time de desenvolvimento que decida quem passa a ser dono de um dado transfere ao time uma decisão de alcance organizacional.
 
+## No caderno arquitetural
+
+{{ficha:1}}
+
+O exercício deste bloco abre a seção 1 do caderno, **Contexto**, com a tabela das decisões da ACME classificadas por nível de arquitetura.
+
+| Campo da seção 1 | O que preencher | Item |
+| --- | --- | --- |
+| Nível | Arquitetura corporativa, de solução ou de software, para cada decisão de D1 a D9 | 1 |
+| Justificativa | Uma linha pelo alcance do efeito da decisão | 1 |
+| Componente não tecnológico afetado | Pessoas, estruturas organizacionais, processos ou informação, nas decisões de solução | 2 |
+| Dependência entre decisões | A decisão de que cada uma depende e o motivo | 3 |
+
+**Entrada.** O dossiê do caso ACME, que já traz na seção o porte da instituição, as restrições fechadas e a pergunta central.
+
+**Critério de seção completa.** As nove decisões têm nível e justificativa, as decisões de solução têm o tipo de componente afetado e a dependência entre D2 e D3 está explicada.
+
+[Ver a seção 1 no template](../caderno/template.md#1-contexto){ .caderno-botao }
+[Gabarito do exercício 1](../gabaritos/gabarito-exercicio-01.md){ .caderno-botao }
+
+{{/ficha}}
+
 ## Exercício 1
 
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 2.150 professores e 4 campi, cujo sistema acadêmico entrou em operação em 2004 e sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro. O custo anual de propriedade do sistema é de R$ 15,83 milhões, o prazo médio entre pedido aprovado e entrega em produção é de 34 dias úteis, e a manutenção do núcleo em COBOL depende de 6 especialistas, dos quais 2 se aposentam em 2027. A instituição decidiu modernizar o sistema de forma incremental, sem substituí-lo por produto de mercado e sem reescrita em entrega única.
@@ -104,6 +126,8 @@ O quadro abaixo lista nove decisões tomadas ou propostas no ciclo de moderniza�
 
 1. Classifique cada uma das nove decisões em arquitetura corporativa, arquitetura de solução ou arquitetura de software, com uma linha de justificativa por decisão.
 
+A resposta preenche as colunas Nível e Justificativa da tabela de decisões da seção 1 do caderno arquitetural.
+
 ### Item 2: Componentes não tecnológicos afetados
 
 O quadro abaixo reproduz quatro dos cinco tipos de [componentes da solução](../referencia/glossario.md#componentes-da-solucao), detalhados no [bloco 2](bloco-2-a-solucao-como-sistema.md#os-cinco-tipos-de-componente) desta aula, sem o tipo tecnologia.
@@ -116,6 +140,8 @@ O quadro abaixo reproduz quatro dos cinco tipos de [componentes da solução](..
 | Informação | Entrada, saída, gatilho, retorno, auditoria e informação como produto |
 
 1. Escolha duas decisões que você classificou no Item 1 como de arquitetura de solução e indique, para cada uma, qual dos quatro tipos de componente do quadro ela afeta, com uma linha de justificativa.
+
+A resposta preenche a coluna Componente não tecnológico afetado da mesma tabela, no caderno.
 
 ### Item 3: Dependência entre D2 e D3
 
@@ -134,6 +160,8 @@ flowchart TB
 | D3 | O serviço de notas repete o envio ao ambiente virtual quando não recebe confirmação, com intervalo crescente entre tentativas |
 
 1. Explique o que aconteceria se a decisão D3 fosse tomada sem que a decisão D2 tivesse sido decidida antes, considerando o percurso mostrado no diagrama.
+
+A resposta preenche o campo Dependência entre decisões da seção 1 do caderno.
 
 ## Fontes
 

@@ -18,7 +18,7 @@ A disciplina utiliza um caso corporativo contínuo, a instituição fictícia AC
 
 ## O caderno arquitetural
 
-O curso produz, exercício a exercício, o caderno arquitetural da ACME, documento de arquitetura da solução com dez seções. O [template](caderno/template.md) apresenta o caderno vazio, com o que vai em cada seção, e o [mapa](caderno/mapa.md) relaciona seção, bloco e exercício. A seção Gabaritos traz, para cada exercício, o caderno preenchido até aquele ponto.
+O curso produz, exercício a exercício, o caderno arquitetural da ACME, documento de arquitetura da solução com dez seções. O [template](caderno/template.md) apresenta o caderno vazio, com o que vai em cada seção, e o [mapa](caderno/mapa.md) relaciona seção, bloco e exercício. A seção Gabaritos traz o caderno preenchido até o exercício 4, o último da Aula 1, e os demais gabaritos entram com os módulos das aulas seguintes.
 
 ## Avaliação
 

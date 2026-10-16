@@ -57,6 +57,28 @@ O arquiteto usa os cinco tipos de componente em dois momentos. No levantamento, 
 
 Os três níveis servem para situar o alcance do que está sendo desenhado e para evitar um erro comum, o de tratar um problema de sistema de negócio como se fosse problema de sistema de TI. Quando a queixa é de que a nota demora a aparecer para o aluno, o nível de TI mostra o lote noturno, e o nível de negócio mostra que o calendário de fechamento e a rotina de conferência manual também determinam o prazo percebido.
 
+## No caderno arquitetural
+
+{{ficha:1}}
+
+O exercício deste bloco acrescenta à seção 1 do caderno a tabela dos componentes da solução que atende ao R7 e a leitura do requisito nos três níveis.
+
+| Campo da seção 1 | O que preencher | Item |
+| --- | --- | --- |
+| Tipo do componente | Pessoas, estruturas organizacionais, processos, informação ou tecnologia, para cada componente de CP1 a CP10 | 1 |
+| Tipo sem componente | Se algum dos cinco tipos ficou vazio, e o tipo de maior impacto sobre quem trabalha | 1 |
+| Nível do elemento | Sistema de negócio, de informação ou de TI, para cada elemento de N1 a N6 | 2 |
+| Prazo percebido | Por que uma solução só de TI pode não reduzir o prazo que o aluno percebe | 2 |
+
+**Entrada.** A tabela de decisões do exercício 1, porque os componentes dependem de decisões de solução já classificadas.
+
+**Critério de seção completa.** Os dez componentes têm tipo, os seis elementos têm nível e o impacto de cada tipo sobre as pessoas está justificado.
+
+[Ver a seção 1 no template](../caderno/template.md#1-contexto){ .caderno-botao }
+[Gabarito do exercício 2](../gabaritos/gabarito-exercicio-02.md){ .caderno-botao }
+
+{{/ficha}}
+
 ## Exercício 2
 
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, dos quais 10.200 na graduação a distância, 2.150 professores e 4 campi em 3 cidades. O sistema acadêmico está em operação desde 2004 e sustenta matrícula, avaliação, emissão de documentos e integração com o ERP financeiro.
@@ -77,19 +99,21 @@ O quadro abaixo lista dez componentes candidatos da solução que atende ao R7, 
 
 | Código | Componente candidato |
 | --- | --- |
-| C1 | Treinamento dos professores para o lançamento de nota com publicação imediata |
-| C2 | Aditivo ao contrato com o fornecedor do ambiente virtual, com a troca para o plano que oferece interfaces de programação |
-| C3 | Acordo de nível de serviço de 10 minutos entre a Diretoria de TI e a Coordenação de Educação a Distância |
-| C4 | Procedimento de correção de nota já publicada no ambiente virtual |
-| C5 | Fechamento de notas sem dependência da janela noturna de lote |
-| C6 | Registro de cada envio de nota com o horário de lançamento e o horário de confirmação pelo ambiente virtual |
-| C7 | Mensagem de nota lançada, com aluno, turma, avaliação e valor |
-| C8 | Mensageria entre o núcleo acadêmico e o ambiente virtual |
-| C9 | Serviço de notas que publica um evento a cada lançamento |
-| C10 | Responsável na Coordenação de Educação a Distância pelo acompanhamento das falhas de envio |
+| CP1 | Treinamento dos professores para o lançamento de nota com publicação imediata |
+| CP2 | Aditivo ao contrato com o fornecedor do ambiente virtual, com a troca para o plano que oferece interfaces de programação |
+| CP3 | Acordo de nível de serviço de 10 minutos entre a Diretoria de TI e a Coordenação de Educação a Distância |
+| CP4 | Procedimento de correção de nota já publicada no ambiente virtual |
+| CP5 | Fechamento de notas sem dependência da janela noturna de lote |
+| CP6 | Registro de cada envio de nota com o horário de lançamento e o horário de confirmação pelo ambiente virtual |
+| CP7 | Mensagem de nota lançada, com aluno, turma, avaliação e valor |
+| CP8 | Mensageria entre o núcleo acadêmico e o ambiente virtual |
+| CP9 | Serviço de notas que publica um evento a cada lançamento |
+| CP10 | Responsável na Coordenação de Educação a Distância pelo acompanhamento das falhas de envio |
 
 1. Classifique cada um dos dez componentes em um dos cinco tipos de [componentes da solução](../referencia/glossario.md#componentes-da-solucao), pessoas, estruturas organizacionais, processos, informação e tecnologia, e indique se algum tipo ficou sem componente.
 2. Indique qual dos cinco tipos exige a mudança de maior impacto sobre quem trabalha na instituição, e justifique em duas linhas.
+
+As duas respostas preenchem a coluna Tipo da tabela de componentes do R7 e o comentário de impacto, na seção 1 do caderno arquitetural.
 
 ### Item 2: Os três níveis do R7
 
@@ -106,6 +130,8 @@ O quadro abaixo lista seis elementos da situação atual que determinam o prazo 
 
 1. Situe cada um dos seis elementos em um dos três níveis apresentados neste bloco, sistema de negócio, sistema de informação ou sistema de TI.
 2. Explique, em até cinco linhas, por que uma solução construída apenas no nível de sistema de TI pode não reduzir o prazo percebido pelo aluno.
+
+A resposta preenche a coluna Nível e o comentário sobre o prazo percebido, na seção 1 do caderno.
 
 ## Fontes
 

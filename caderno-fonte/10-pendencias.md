@@ -12,3 +12,14 @@ modo: substitui
 | Entrada | Todas as seções anteriores, porque cada premissa não confirmada gera uma pendência |
 | Preenchida em | Revista ao fim de cada aula, nos exercícios 4, 8, 12, 16, 20 e 24, e fechada no exercício 24 |
 <!--/orientacao-->
+
+<!--ex n=4 titulo="Pendências ao fim da Aula 1"-->
+<!--gabarito-->
+| Pendência | Quem decide | Quando se resolve |
+| --- | --- | --- |
+| Data de conclusão do ciclo | Reitoria, como patrocinadora, com o roteiro autorizado | Fase 7, desenvolvimento do roteiro |
+| Nomeação do patrocinador de negócio | Reitoria | Fase 1, iniciação |
+| Validação das decisões D4 a D9, propostas | Partes interessadas da seção 2 | Fase 6, validação |
+| Confirmação das premissas PR1 a PR7 | Responsáveis indicados na coluna Como verificar | Fase 2, descoberta |
+<!--/gabarito-->
+<!--/ex-->

@@ -44,7 +44,12 @@ BLOCK_SECTIONS = (
 # arquivos de cada módulo. Em qualquer bloco, quando existe, a seção precisa
 # estar entre "Uso pelo arquiteto" e "Exercício".
 CADERNO_SECTION = "No caderno arquitetural"
-CADERNO_BLOCKS: set[str] = set()
+CADERNO_BLOCKS: set[str] = {
+    "bloco-1-arquitetura-de-solucoes-e-de-software.md",
+    "bloco-2-a-solucao-como-sistema.md",
+    "bloco-3-papel-do-arquiteto-de-solucao.md",
+    "bloco-4-processo-de-definicao-da-arquitetura.md",
+}
 
 FORBIDDEN_MARKERS = ("TODO", "TBD", "PLACEHOLDER", "PREENCHER")
 

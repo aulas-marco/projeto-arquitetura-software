@@ -40,6 +40,19 @@ O [bloco 4](bloco-4-processo-de-definicao-da-arquitetura.md) apresenta o ciclo d
 
 A [síntese](sintese.md) fecha o módulo com o checklist do que precisa permanecer, a autoavaliação e as fontes da aula inteira.
 
+## O caderno arquitetural nesta aula
+
+A Aula 1 abre o [caderno arquitetural](../caderno/template.md) da ACME, o documento de arquitetura da solução que o curso constrói exercício a exercício. Os quatro exercícios preenchem a seção 1, Contexto, e a aula deixa as seções 0 e 10 na primeira versão, de modo que o caderno ao fim da aula é o do [gabarito do exercício 4](../gabaritos/gabarito-exercicio-04.md).
+
+{{trilha:1}}
+
+| Bloco | Exercício | O que preenche na seção 1 | Gabarito |
+| --- | --- | --- | --- |
+| 1 | 1 | Nível de cada decisão D1 a D9, com componente afetado e dependência | [Gabarito 1](../gabaritos/gabarito-exercicio-01.md) |
+| 2 | 2 | Tipo de cada componente CP1 a CP10 e nível de cada elemento N1 a N6 | [Gabarito 2](../gabaritos/gabarito-exercicio-02.md) |
+| 3 | 3 | Responsável, justificativa e grupo de competência de cada tarefa T1 a T10 | [Gabarito 3](../gabaritos/gabarito-exercicio-03.md) |
+| 4 | 4 | Fase, papel, linha de base e seção do caderno de cada artefato A1 a A10, mais a pendência da seção 10 | [Gabarito 4](../gabaritos/gabarito-exercicio-04.md) |
+
 ## Preparação para a Aula 2
 
 A Aula 2 trata das entradas do processo, dos requisitos e das partes interessadas, que correspondem à fase de descoberta apresentada no bloco 4 desta aula. A distinção de granularidade do bloco 1 é pré-condição, porque separar requisito de solução de requisito de software depende dela. O inventário de componentes do bloco 2 também é insumo, porque cada tipo de componente gera exigências próprias que aparecem no levantamento.

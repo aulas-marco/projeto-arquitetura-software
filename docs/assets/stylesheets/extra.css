@@ -263,6 +263,24 @@
   text-transform: uppercase;
 }
 
+/* Gabaritos: títulos de seção como faixas de projeto */
+.md-typeset:has(.caderno-progresso) h2 {
+  margin: 2.6rem 0 1rem;
+  padding: 0.65rem 1.1rem;
+  border-left: 0.35rem solid var(--caderno-ciano);
+  border-radius: 0.7rem;
+  background: var(--caderno-noite);
+  color: #FFFFFF;
+  font-weight: 700;
+}
+.md-typeset:has(.caderno-progresso) h2 .headerlink { color: var(--caderno-ciano); }
+.md-typeset:has(.caderno-progresso) h3 {
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid #D8E5F1;
+  color: var(--course-cobalt);
+  font-weight: 700;
+}
+
 @media (max-width: 44.9375em) {
   .md-typeset .caderno-trilha:not(.solta) .no { width: 1.35rem; height: 1.35rem; font-size: 0.55rem; }
   .md-typeset .caderno-trilha:not(.solta) ol::before { top: 0.65rem; }

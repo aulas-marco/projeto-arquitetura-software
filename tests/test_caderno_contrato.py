@@ -70,3 +70,17 @@ class ContratoDoCadernoTest(unittest.TestCase):
                     if fragmento.gabarito and fragmento.n <= anterior:
                         with self.subTest(de=anterior, para=seguinte, secao=secao.numero):
                             self.assertIn(fragmento.gabarito, texto_n)
+
+    def test_exercicios_1_a_4_tem_gabarito_e_as_secoes_de_substituicao_tem_a_versao_4(self):
+        por_numero = {s.numero: s for s in self.secoes}
+        com_gabarito = {f.n for f in por_numero[1].fragmentos if f.gabarito}
+        self.assertEqual({1, 2, 3, 4}, com_gabarito)
+        for numero in (0, 10):
+            with self.subTest(secao=numero):
+                versoes = {f.n for f in por_numero[numero].fragmentos if f.gabarito}
+                self.assertIn(4, versoes)
+
+    def test_gabaritos_1_a_4_existem_como_paginas(self):
+        for n in (1, 2, 3, 4):
+            with self.subTest(exercicio=n):
+                self.assertTrue((DOCS / "gabaritos" / f"gabarito-exercicio-{n:02d}.md").is_file())
