@@ -297,3 +297,23 @@ Princípio segundo o qual cada entidade recebe acesso ao conjunto mínimo de rec
 ## STRIDE
 
 Classificação de ameaças em seis categorias, falsificação de identidade, adulteração, repúdio, divulgação de informação, negação de serviço e elevação de privilégio, cada uma associada a uma propriedade de segurança violada e usada para examinar cada fronteira de confiança de uma solução.
+
+## Descrição de arquitetura
+
+Produto de trabalho que expressa a arquitetura de um sistema num determinado estado, como uma organização, uma aplicação ou uma solução. Cada descrição compõe-se de ao menos um entregável. A arquitetura de linha de base e a arquitetura alvo de uma solução têm descrições distintas, e a análise de lacunas compara as duas.
+
+## Entregável de arquitetura
+
+Documento ou relatório composto, produzido por uma equipe de arquitetura por solicitação ou como parte do ciclo de vida, para uma descrição de arquitetura específica. Reúne informação estruturada, em artefatos, e informação não estruturada, em comentário e análise. São exemplos a declaração de requisitos, o caso de negócio, o esboço da solução, o desenho lógico e o relatório de impacto.
+
+## Artefato de arquitetura
+
+Catálogo, mapa, tabela, diagrama ou modelo que trata de um aspecto específico da arquitetura de um sistema e mostra a relação entre entidades ou outros componentes. A visão é um tipo de artefato, produzido a partir de um ponto de vista. O mesmo artefato pode compor vários entregáveis, e são exemplos o catálogo de interfaces, o diagrama de contexto e o modelo de dados.
+
+## Entidade de arquitetura
+
+Elemento discreto que faz parte da arquitetura de um sistema e interessa a quem analisa e projeta, como um requisito, uma interface ou um componente. Uma entidade pode aparecer em mais de um artefato e relacionar-se com outras por abstração, que a generaliza em categoria, ou por composição, que a forma a partir de várias.
+
+## Caderno arquitetural
+
+Documento de arquitetura da solução do caso ACME, construído ao longo do curso em dez seções, do contexto ao roteiro e à governança. Funciona como a descrição de arquitetura da solução alvo, e cada exercício preenche uma seção. O [template](../caderno/template.md) mostra o caderno vazio, e a seção Gabaritos traz o caderno preenchido a cada exercício.
