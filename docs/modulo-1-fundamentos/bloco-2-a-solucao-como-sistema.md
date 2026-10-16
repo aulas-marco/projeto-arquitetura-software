@@ -68,7 +68,7 @@ Os três níveis servem para situar o alcance do que está sendo desenhado e par
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
 | Tipo do componente da solução | Classifique cada componente da solução em um dos cinco tipos: pessoas (quem faz ou aprende algo), estruturas organizacionais (áreas, contratos e acordos), processos (como o trabalho é feito), informação (dados e registros) ou tecnologia (equipamentos e programas) | 1 |
-| Tipo de componente da solução ausente | Confira se algum dos cinco tipos ficou sem nenhum componente da solução, o que indicaria algo esquecido, e diga qual tipo mais muda a rotina de quem trabalha na instituição | 1 |
+| Tipo do componente da solução ausente | Confira se algum dos cinco tipos ficou sem nenhum componente da solução, o que indicaria algo esquecido, e diga qual tipo mais muda a rotina de quem trabalha na instituição | 1 |
 | Nível do elemento | Diga se cada fato da situação atual pertence ao sistema de negócio (o que a universidade oferece, como o serviço de avaliação), ao sistema de informação (as pessoas, os processos e os registros que cuidam da informação) ou ao sistema de TI (equipamentos e programas) | 2 |
 | Prazo percebido | Explique em até cinco linhas por que trocar só a tecnologia pode não encurtar o prazo que o aluno percebe | 2 |
 

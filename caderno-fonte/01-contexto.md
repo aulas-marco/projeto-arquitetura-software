@@ -92,7 +92,7 @@ A D3 só faz sentido depois da D2. Imagine decidir o reenvio com intervalo cresc
 <!--ex n=2 titulo="Os componentes da solução, num exemplo da ACME"-->
 <!--campos-->
 - **Tipo do componente da solução:** classifique cada componente da solução em um dos cinco tipos: pessoas, estruturas organizacionais (áreas, contratos e acordos), processos, informação ou tecnologia.
-- **Tipo de componente da solução ausente:** confira se algum tipo ficou sem nenhum componente da solução, o que indicaria algo esquecido na solução, e diga qual tipo mais muda a rotina de quem trabalha na instituição.
+- **Tipo do componente da solução ausente:** confira se algum tipo ficou sem nenhum componente da solução, o que indicaria algo esquecido na solução, e diga qual tipo mais muda a rotina de quem trabalha na instituição.
 - **Nível do elemento:** diga se cada elemento da situação atual pertence ao sistema de negócio (o que a universidade oferece), ao sistema de informação (pessoas, processos e registros) ou ao sistema de TI (equipamentos e programas).
 - **Prazo percebido:** explique por que trocar só a tecnologia pode não encurtar o prazo que o aluno percebe.
 <!--/campos-->

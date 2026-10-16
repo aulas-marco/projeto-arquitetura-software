@@ -145,7 +145,7 @@ Uma decisão de solução quase nunca é só técnica. Ela costuma exigir que al
 
 Sua resposta vira a coluna Componente da solução afetado da mesma tabela, no caderno.
 
-### Item 3: Dependência entre D2 e D3
+### Item 3: Dependência entre a nota enviada por evento e o reenvio com intervalo crescente
 
 Uma decisão depende de outra quando só faz sentido depois que a outra foi tomada. Reconhecer essa ordem evita que uma equipe implemente algo que não tem efeito prático ou que cria um problema novo. O item examina um par, D2 e D3, já presentes no Item 1. D2 muda a frequência com que a nota segue do núcleo acadêmico ao ambiente virtual de aprendizagem, a plataforma on-line em que o aluno consulta a nota, e D3 define o que o serviço de notas faz quando um envio individual não é confirmado. O diagrama abaixo mostra o percurso atual da nota lançada pelo professor até o aluno, que hoje passa por um lote diário noturno. As duas decisões são reproduzidas logo depois do diagrama.
 
