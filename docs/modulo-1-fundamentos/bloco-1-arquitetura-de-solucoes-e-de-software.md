@@ -86,18 +86,20 @@ A distinção também organiza a conversa com as partes interessadas. O patrocin
 
 {{ficha:1}}
 
-Este exercício começa a seção 1 do caderno, **Contexto**. Você classifica as decisões da ACME por nível de arquitetura e registra o resultado numa tabela do caderno.
+**Para que serve.** A seção 1 do caderno, **Contexto**, guarda o ponto de partida do projeto: quem é a ACME, que problema ela quer resolver e o que já foi decidido. Parte dessas decisões vem das conversas do arquiteto com as partes interessadas, como a Reitoria, a Diretoria de TI e a Secretaria Acadêmica. Antes de desenhar qualquer coisa, o arquiteto precisa saber de quem é cada decisão, porque só responde pelas que pertencem à solução. As demais são da organização inteira ou da equipe que programa.
 
-| Campo do caderno | O que escrever | Item |
+**O que você faz neste exercício.** Nas conversas com as partes interessadas, o arquiteto da ACME reuniu nove decisões, numeradas de D1 a D9, que aparecem no enunciado. Você classifica cada uma por nível de arquitetura e registra o resultado na tabela de decisões do caderno.
+
+| Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
-| Nível | Para cada decisão, de D1 a D9, escreva se ela é de arquitetura corporativa, de solução ou de software | 1 |
-| Justificativa | Explique em uma frase o que a decisão muda e quem é afetado por ela | 1 |
-| Componente não tecnológico afetado | Nas decisões de solução, diga se a mudança atinge pessoas, estruturas organizacionais, processos ou informação | 2 |
-| Dependência entre decisões | Diga qual decisão precisa vir antes de outra e o que acontece se a ordem for invertida | 3 |
+| Nível | Escolha entre arquitetura corporativa, quando a decisão vale para a universidade inteira, de solução, quando vale para este projeto como um todo, e de software, quando vale só dentro de um componente | 1 |
+| Justificativa | Explique por que escolheu esse nível. Ajuda perguntar até onde o efeito da decisão chega e quem precisa ser avisado quando ela mudar | 1 |
+| Componente não tecnológico afetado | Nas decisões de solução, diga que parte da organização a decisão atinge além da tecnologia: as pessoas, a estrutura (áreas e contratos), os processos ou as informações | 2 |
+| Dependência entre decisões | Veja se uma decisão só faz sentido depois de outra. Se fizer, diga qual vem primeiro e o que daria errado se a ordem fosse invertida | 3 |
 
-**O que você já tem.** O caderno já traz o porte da ACME, as restrições e a pergunta central, porque são dados do caso. Você só acrescenta a classificação.
+**O que você já tem.** O caderno já traz o porte da ACME, as restrições e a pergunta central, porque são dados do caso. Falta a classificação das decisões.
 
-**Quando está pronto.** As nove decisões têm nível e justificativa, as decisões de solução dizem qual tipo de componente afetam e a dependência entre D2 e D3 está explicada.
+**Quando está pronto.** As nove decisões têm nível e justificativa, as decisões de solução dizem qual parte da organização afetam e a dependência entre D2 e D3 está explicada.
 
 [Ver esta seção no template](../caderno/template.md#1-contexto){ .caderno-botao }
 [Ver o gabarito do exercício 1](../gabaritos/gabarito-exercicio-01.md){ .caderno-botao }

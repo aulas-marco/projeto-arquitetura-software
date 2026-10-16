@@ -28,6 +28,8 @@ Este é o caderno da ACME depois do exercício 4. Ele reúne o que os exercício
 
 #### Instituição e pergunta central
 
+Estes são os dados do caso que abrem o caderno. Eles já vêm preenchidos, porque não são resposta do exercício.
+
 | Dimensão | Valor |
 | --- | --- |
 | Alunos ativos | 38.400, dos quais 10.200 na graduação a distância |
@@ -43,6 +45,8 @@ A pergunta central é como evoluir o sistema acadêmico de forma segura e increm
 
 #### Restrições que chegam fechadas
 
+Restrição é uma decisão tomada por outra pessoa ou área, que o arquiteto precisa aceitar. As sete abaixo já chegam prontas ao projeto.
+
 | Código | Restrição | Origem | Consequência para a arquitetura |
 | --- | --- | --- | --- |
 | RT1 | O sistema acadêmico não pode parar em período letivo | Pró-Reitoria de Graduação | Toda estratégia é incremental, com o legado em operação durante a transição |
@@ -55,7 +59,7 @@ A pergunta central é como evoluir o sistema acadêmico de forma segura e increm
 
 #### Decisões por nível de arquitetura
 
-Para classificar, pergunte até onde o efeito da decisão chega. Se ela muda só o funcionamento interno de um componente de software, é de arquitetura de software. Se muda um processo, um papel, a responsabilidade por um dado ou a relação com um fornecedor, é de arquitetura de solução. Se vale para iniciativas que ainda nem existem, é de arquitetura corporativa.
+A tabela reúne as nove decisões que a ACME já tomou ou propôs. Para classificar cada uma, pergunte até onde o efeito da decisão chega. Se ela muda só o funcionamento interno de um componente de software, é de arquitetura de software. Se muda um processo, um papel, a responsabilidade por um dado ou a relação com um fornecedor, é de arquitetura de solução. Se vale para iniciativas que ainda nem existem, é de arquitetura corporativa.
 
 | Código | Decisão | Nível | Justificativa |
 | --- | --- | --- | --- |
@@ -72,6 +76,8 @@ Para classificar, pergunte até onde o efeito da decisão chega. Se ela muda só
 As decisões D1, D4 e D7 reproduzem as restrições fechadas RT4, RT5 e RT6. As decisões D2, D3, D5, D6, D8 e D9 estão **propostas** e dependem de validação com as partes interessadas.
 
 #### Componente não tecnológico afetado
+
+Nas decisões de solução, a tabela mostra que parte da organização é atingida além da tecnologia.
 
 | Código | Tipo de componente | Efeito |
 | --- | --- | --- |
@@ -107,6 +113,8 @@ O R7 pede que a nota lançada pelo professor chegue ao ambiente virtual de apren
 Nenhum tipo ficou sem componente. O tipo que mais muda o trabalho de quem está na instituição é Processos, porque o CP4 e o CP5 mudam a rotina de fechamento e de correção de nota de professores, coordenações e Secretaria. Só a mudança de tecnologia não altera o prazo que o aluno percebe.
 
 #### Os três níveis do R7
+
+Cada elemento da situação atual pertence a um destes três níveis: o negócio, a informação ou a TI.
 
 | Código | Elemento da situação atual | Nível |
 | --- | --- | --- |

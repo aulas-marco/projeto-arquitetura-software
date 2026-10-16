@@ -6,7 +6,7 @@ modo: acumula
 <!--orientacao-->
 | Campo | Conteúdo |
 | --- | --- |
-| O que é esta seção | A situação da ACME e o que a modernização precisa respeitar. |
+| Para que serve | Antes de desenhar a solução, o arquiteto precisa conhecer o ponto de partida: a situação da ACME, o que outras pessoas já decidiram e o que o projeto não pode mudar. Esta seção reúne esse ponto de partida. |
 | Pergunta que responde | Que organização é esta, que problema ela quer resolver e o que já está decidido antes de desenhar qualquer coisa? |
 | O que você escreve | Tabelas com as restrições (RT1 a RT7), as decisões (D1 a D9), os componentes da solução (CP1 a CP10), as tarefas do ciclo (T1 a T10), os artefatos do processo (A1 a A10) e as premissas (PR1 a PR7). A página de convenções explica cada código. |
 | Vem de onde | Do dossiê do caso ACME, que traz os números da instituição, a pergunta central e as restrições. |
@@ -16,13 +16,15 @@ modo: acumula
 <!--ex n=1 titulo="Instituição, restrições e decisões por nível"-->
 <!--campos-->
 - **Dado do dossiê:** a instituição, a pergunta central e as restrições já vêm preenchidas, porque são dados do caso.
-- **Nível:** diga se cada decisão, de D1 a D9, é de arquitetura corporativa, de solução ou de software.
-- **Justificativa:** explique em uma frase o que a decisão muda e quem é afetado por ela.
-- **Componente não tecnológico afetado:** nas decisões de solução, diga se a mudança atinge pessoas, estruturas organizacionais, processos ou informação.
-- **Dependência entre decisões:** diga qual decisão precisa vir antes de outra e o que acontece se a ordem for invertida.
+- **Nível:** escolha entre arquitetura corporativa, quando a decisão vale para a universidade inteira, de solução, quando vale para este projeto como um todo, e de software, quando vale só dentro de um componente.
+- **Justificativa:** explique por que escolheu esse nível. Ajuda perguntar até onde o efeito da decisão chega e quem precisa ser avisado quando ela mudar.
+- **Componente não tecnológico afetado:** nas decisões de solução, diga que parte da organização a decisão atinge além da tecnologia: as pessoas, a estrutura (áreas e contratos), os processos ou as informações.
+- **Dependência entre decisões:** veja se uma decisão só faz sentido depois de outra e, se fizer, diga qual vem primeiro e o que daria errado se a ordem fosse invertida.
 <!--/campos-->
 <!--gabarito-->
 #### Instituição e pergunta central
+
+Estes são os dados do caso que abrem o caderno. Eles já vêm preenchidos, porque não são resposta do exercício.
 
 | Dimensão | Valor |
 | --- | --- |
@@ -39,6 +41,8 @@ A pergunta central é como evoluir o sistema acadêmico de forma segura e increm
 
 #### Restrições que chegam fechadas
 
+Restrição é uma decisão tomada por outra pessoa ou área, que o arquiteto precisa aceitar. As sete abaixo já chegam prontas ao projeto.
+
 | Código | Restrição | Origem | Consequência para a arquitetura |
 | --- | --- | --- | --- |
 | RT1 | O sistema acadêmico não pode parar em período letivo | Pró-Reitoria de Graduação | Toda estratégia é incremental, com o legado em operação durante a transição |
@@ -51,7 +55,7 @@ A pergunta central é como evoluir o sistema acadêmico de forma segura e increm
 
 #### Decisões por nível de arquitetura
 
-Para classificar, pergunte até onde o efeito da decisão chega. Se ela muda só o funcionamento interno de um componente de software, é de arquitetura de software. Se muda um processo, um papel, a responsabilidade por um dado ou a relação com um fornecedor, é de arquitetura de solução. Se vale para iniciativas que ainda nem existem, é de arquitetura corporativa.
+A tabela reúne as nove decisões que a ACME já tomou ou propôs. Para classificar cada uma, pergunte até onde o efeito da decisão chega. Se ela muda só o funcionamento interno de um componente de software, é de arquitetura de software. Se muda um processo, um papel, a responsabilidade por um dado ou a relação com um fornecedor, é de arquitetura de solução. Se vale para iniciativas que ainda nem existem, é de arquitetura corporativa.
 
 | Código | Decisão | Nível | Justificativa |
 | --- | --- | --- | --- |
@@ -69,6 +73,8 @@ As decisões D1, D4 e D7 reproduzem as restrições fechadas RT4, RT5 e RT6. As 
 
 #### Componente não tecnológico afetado
 
+Nas decisões de solução, a tabela mostra que parte da organização é atingida além da tecnologia.
+
 | Código | Tipo de componente | Efeito |
 | --- | --- | --- |
 | D2 | Processos | O fechamento de notas deixa de depender da janela noturna de lote |
@@ -85,10 +91,10 @@ A decisão D3 depende da D2. Sem a D2, o reenvio seria desenhado para um percurs
 
 <!--ex n=2 titulo="Componentes da solução do R7"-->
 <!--campos-->
-- **Tipo do componente:** classifique cada componente, de CP1 a CP10, em pessoas, estruturas organizacionais, processos, informação ou tecnologia.
-- **Tipo sem componente:** confira se algum dos cinco tipos ficou vazio e diga qual tipo mais muda o trabalho de quem está na instituição.
-- **Nível do elemento:** diga se cada elemento da situação atual, de N1 a N6, pertence ao sistema de negócio, ao sistema de informação ou ao sistema de TI.
-- **Prazo percebido:** explique por que uma solução só de TI pode não reduzir o prazo que o aluno percebe.
+- **Tipo do componente:** classifique cada componente em um dos cinco tipos: pessoas, estruturas organizacionais (áreas, contratos e acordos), processos, informação ou tecnologia.
+- **Tipo sem componente:** confira se algum tipo ficou sem nenhum componente, o que indicaria algo esquecido na solução, e diga qual tipo mais muda a rotina de quem trabalha na instituição.
+- **Nível do elemento:** diga se cada elemento da situação atual pertence ao sistema de negócio (o que a universidade oferece), ao sistema de informação (pessoas, processos e registros) ou ao sistema de TI (equipamentos e programas).
+- **Prazo percebido:** explique por que trocar só a tecnologia pode não encurtar o prazo que o aluno percebe.
 <!--/campos-->
 <!--gabarito-->
 #### Componentes da solução do R7
@@ -112,6 +118,8 @@ Nenhum tipo ficou sem componente. O tipo que mais muda o trabalho de quem está 
 
 #### Os três níveis do R7
 
+Cada elemento da situação atual pertence a um destes três níveis: o negócio, a informação ou a TI.
+
 | Código | Elemento da situação atual | Nível |
 | --- | --- | --- |
 | N1 | Serviço de avaliação com resultado publicado no calendário acadêmico | Sistema de negócio |
@@ -127,10 +135,10 @@ Uma solução só no nível de sistema de TI troca o lote noturno por envio em m
 
 <!--ex n=3 titulo="Papéis e responsabilidades do ciclo"-->
 <!--campos-->
-- **Responsável:** diga se cada tarefa, de T1 a T10, cabe ao arquiteto de solução, ao arquiteto de software ou à arquitetura corporativa.
+- **Responsável:** diga se a tarefa é do arquiteto de solução, do arquiteto de software ou da arquitetura corporativa, pelo mesmo critério do exercício 1: até onde o efeito da tarefa chega.
 - **Justificativa:** explique em uma frase por que a tarefa é desse responsável.
-- **Grupo de competência:** nas tarefas do arquiteto de solução, diga se elas pedem competência de negócio, técnica, de entrega ou prática.
-- **Benefício da tarefa T10:** escolha o benefício da abordagem arquitetural que justifica verificar se já existe um componente reaproveitável.
+- **Grupo de competência:** nas tarefas do arquiteto de solução, diga qual habilidade a tarefa pede mais: de negócio, técnica, de entrega ou prática (comunicação, relacionamento com as partes interessadas, requisitos).
+- **Benefício da tarefa T10:** escolha, entre os sete benefícios da abordagem arquitetural, o que justifica verificar se já existe um componente reaproveitável.
 <!--/campos-->
 <!--gabarito-->
 #### Responsável por cada tarefa
@@ -160,10 +168,10 @@ A tarefa T10 se justifica pelo benefício do **reúso**: consultar o catálogo d
 
 <!--ex n=4 titulo="Artefatos nas fases do processo, premissas e escopo"-->
 <!--campos-->
-- **Fase:** diga em que fase do processo cada artefato, de A1 a A10, é produzido ou usado.
-- **Papel:** diga se o artefato é entrada, produto intermediário ou entregável.
-- **Linha de base:** marque os artefatos que já existiam antes de o processo começar.
-- **Seção do caderno:** diga em que seção do caderno o resultado de cada artefato fica registrado.
+- **Fase:** diga em que fase do processo o artefato é produzido ou usado.
+- **Papel:** diga se o artefato é entrada (a fase o recebe), produto intermediário (alimenta uma fase seguinte) ou entregável (é o resultado entregue ao patrocinador).
+- **Linha de base:** marque os artefatos que já existiam antes de o processo começar e descrevem a situação atual.
+- **Seção do caderno:** escreva em que seção do caderno o resultado do artefato fica registrado, consultando o template.
 - **Dado do caso:** as premissas e as exclusões do escopo já vêm prontas, propostas pelo curso para você confirmar na descoberta.
 <!--/campos-->
 <!--gabarito-->

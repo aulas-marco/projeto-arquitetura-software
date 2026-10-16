@@ -61,16 +61,18 @@ Os três níveis servem para situar o alcance do que está sendo desenhado e par
 
 {{ficha:1}}
 
-Este exercício acrescenta à seção 1 duas tabelas: os componentes da solução que atende ao requisito R7 e a leitura da situação atual em três níveis.
+**Para que serve.** Uma solução não é só tecnologia. Ela também muda pessoas, áreas, processos e informações, e tudo isso precisa estar visível no caderno para que nada fique sem responsável. Esta parte da seção 1 reúne os componentes de uma solução e mostra em que nível da organização cada elemento do problema aparece: no negócio, na informação ou na TI.
 
-| Campo do caderno | O que escrever | Item |
+**O que você faz neste exercício.** A Coordenação de Educação a Distância pediu que a nota lançada pelo professor chegue ao ambiente virtual em até 10 minutos, o requisito R7. O enunciado traz dez componentes que poderiam atender a esse pedido, de CP1 a CP10, e seis elementos da situação atual, de N1 a N6. Você classifica uns e outros e registra o resultado no caderno.
+
+| Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
-| Tipo do componente | Para cada componente, de CP1 a CP10, escreva se é pessoas, estruturas organizacionais, processos, informação ou tecnologia | 1 |
-| Tipo sem componente | Confira se algum dos cinco tipos ficou vazio e diga qual tipo mais muda o trabalho de quem está na instituição | 1 |
-| Nível do elemento | Para cada elemento, de N1 a N6, escreva se pertence ao sistema de negócio, ao sistema de informação ou ao sistema de TI | 2 |
+| Tipo do componente | Classifique cada componente em um dos cinco tipos: pessoas, estruturas organizacionais (áreas, contratos e acordos), processos, informação ou tecnologia | 1 |
+| Tipo sem componente | Confira se algum tipo ficou sem nenhum componente, o que indicaria algo esquecido na solução, e diga qual tipo mais muda a rotina de quem trabalha na instituição | 1 |
+| Nível do elemento | Diga se cada elemento da situação atual pertence ao sistema de negócio (o que a universidade oferece), ao sistema de informação (pessoas, processos e registros) ou ao sistema de TI (equipamentos e programas) | 2 |
 | Prazo percebido | Explique em até cinco linhas por que trocar só a tecnologia pode não encurtar o prazo que o aluno percebe | 2 |
 
-**O que você já tem.** A tabela de decisões do exercício 1, que mostra quais decisões mexem em componentes não tecnológicos.
+**O que você já tem.** A tabela de decisões do exercício 1, que mostra quais decisões mexem em componentes além da tecnologia.
 
 **Quando está pronto.** Os dez componentes têm tipo, os seis elementos têm nível e a explicação do prazo percebido está escrita.
 

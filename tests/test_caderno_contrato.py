@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
-CAMPOS_DA_TABELA = ("O que é esta seção", "Pergunta que responde", "O que você escreve", "Vem de onde", "Quando se preenche")
+CAMPOS_DA_TABELA = ("Para que serve", "Pergunta que responde", "O que você escreve", "Vem de onde", "Quando se preenche")
 
 
 def carregar(nome):

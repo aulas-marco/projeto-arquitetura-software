@@ -6,7 +6,7 @@ modo: substitui
 <!--orientacao-->
 | Campo | Conteúdo |
 | --- | --- |
-| O que é esta seção | Um resumo de uma página, para quem não vai ler o caderno inteiro. |
+| Para que serve | Quem decide sobre o projeto raramente lê o caderno inteiro. Este resumo de uma página dá a essa pessoa o essencial para apoiar o projeto ou questioná-lo. |
 | Pergunta que responde | Se alguém lesse só esta página, entenderia o projeto? |
 | O que você escreve | Seis parágrafos curtos: o problema, a pergunta, a decisão central, o requisito que mais pesa, o que a ACME aceita perder em troca e como está o trabalho. |
 | Vem de onde | Das outras seções. O resumo só repete, em poucas linhas, o que o caderno já registra. |

@@ -82,14 +82,16 @@ O ciclo também organiza a conversa sobre incerteza. Quando o patrocinador pergu
 
 {{ficha:1}}
 
-Este exercício fecha a Aula 1. Você liga os artefatos do caso às fases do processo e registra a primeira pendência na seção 10. O gabarito mostra também a primeira versão do resumo da seção 0.
+**Para que serve.** O arquiteto trabalha em fases, e cada fase deixa documentos que a seguinte usa. O caderno é onde esses documentos se encontram. Saber em que fase cada artefato nasce, que papel ele cumpre e em que seção do caderno ele entra evita cobrar do arquiteto, cedo demais, algo que só existe mais adiante, como a data de conclusão do projeto.
 
-| Campo do caderno | O que escrever | Item |
+**O que você faz neste exercício.** O enunciado lista dez artefatos do caso ACME, de A1 a A10, alguns que já existiam e outros que ainda serão produzidos. Você liga cada um à fase do processo, ao papel que ele cumpre e à seção do caderno em que seu resultado fica. Depois, registra na seção 10 a data de conclusão do ciclo como pendência, porque ela ainda não pode ser prometida. O gabarito mostra também a primeira versão do resumo, na seção 0.
+
+| Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
-| Fase | Para cada artefato, de A1 a A10, escreva em que fase do processo ele é produzido ou usado | 1 |
-| Papel | Diga se o artefato é entrada, produto intermediário ou entregável | 1 |
-| Linha de base | Marque os artefatos que já existiam antes de o processo começar | 1 |
-| Seção do caderno | Escreva em que seção do caderno o resultado de cada artefato fica registrado | 1 |
+| Fase | Diga em que fase do processo o artefato é produzido ou usado | 1 |
+| Papel | Diga se o artefato é entrada (a fase o recebe), produto intermediário (alimenta uma fase seguinte) ou entregável (é o resultado entregue ao patrocinador) | 1 |
+| Linha de base | Marque os artefatos que já existiam antes de o processo começar e descrevem a situação atual | 1 |
+| Seção do caderno | Escreva em que seção do caderno o resultado do artefato fica registrado, consultando o template | 1 |
 | Pendência da data de conclusão | Na seção 10, escreva quem decide a data de conclusão do ciclo e em que fase ela pode ser dada com precisão | 2 |
 
 **O que você já tem.** As tarefas e os papéis do exercício 3, porque cada artefato nasce do trabalho de algum deles.

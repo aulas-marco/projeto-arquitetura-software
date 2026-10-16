@@ -48,14 +48,16 @@ A separação entre entradas, produtos intermediários e entregáveis organiza a
 
 {{ficha:1}}
 
-Este exercício acrescenta à seção 1 a tabela de papéis do ciclo de modernização, que diz quem cuida de cada tarefa e por quê.
+**Para que serve.** O caderno precisa deixar claro quem faz o quê. Num projeto de modernização, parte das tarefas é do arquiteto de solução, parte é do arquiteto de software ou da equipe de desenvolvimento e parte é da arquitetura corporativa. Quando essa divisão não está escrita, o arquiteto acaba decidindo o que não é dele ou deixa sem dono o que é.
 
-| Campo do caderno | O que escrever | Item |
+**O que você faz neste exercício.** O enunciado lista dez tarefas do ciclo de modernização da ACME, de T1 a T10. Você diz de quem é cada tarefa, que tipo de habilidade ela pede do arquiteto de solução e, no caso da T10, que benefício ela traz. O resultado vira a tabela de papéis do caderno.
+
+| Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
-| Responsável | Para cada tarefa, de T1 a T10, escreva se ela cabe ao arquiteto de solução, ao arquiteto de software ou à arquitetura corporativa | 1 |
+| Responsável | Diga se a tarefa é do arquiteto de solução, do arquiteto de software ou da arquitetura corporativa, pelo mesmo critério do exercício 1: até onde o efeito da tarefa chega | 1 |
 | Justificativa | Explique em uma frase por que a tarefa é desse responsável | 1 |
-| Grupo de competência | Nas tarefas do arquiteto de solução, diga se elas pedem competência de negócio, técnica, de entrega ou prática | 2 |
-| Benefício da tarefa T10 | Escolha o benefício da abordagem arquitetural que justifica verificar se já existe um componente reaproveitável | 3 |
+| Grupo de competência | Nas tarefas do arquiteto de solução, diga qual habilidade a tarefa pede mais: de negócio, técnica, de entrega ou prática (comunicação, relacionamento com as partes interessadas, requisitos) | 2 |
+| Benefício da tarefa T10 | Escolha, entre os sete benefícios da abordagem arquitetural, o que justifica verificar se já existe um componente reaproveitável | 3 |
 
 **O que você já tem.** A classificação por nível do exercício 1, porque o mesmo critério de alcance separa as decisões e as tarefas.
 

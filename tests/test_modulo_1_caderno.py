@@ -90,3 +90,15 @@ class ModuloUmCadernoTest(unittest.TestCase):
         self.assertIn("{{trilha:1}}", indice)
         self.assertNotIn("sem gabarito público", sintese)
         self.assertIn("../gabaritos/index.md", sintese)
+
+    def test_ficha_explica_para_que_serve_e_o_que_se_faz_antes_de_pedir_o_preenchimento(self):
+        for nome in BLOCOS:
+            pagina = texto(nome)
+            ficha = pagina[pagina.index("{{ficha:"):pagina.index("{{/ficha}}")]
+            with self.subTest(bloco=nome):
+                para_que_serve = ficha.index("**Para que serve.**")
+                o_que_faz = ficha.index("**O que você faz neste exercício.**")
+                tabela = ficha.index("| Campo do caderno |")
+                self.assertLess(para_que_serve, o_que_faz)
+                self.assertLess(o_que_faz, tabela)
+                self.assertGreater(len(ficha[para_que_serve:o_que_faz].split()), 40)

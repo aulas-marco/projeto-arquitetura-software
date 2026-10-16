@@ -19,6 +19,8 @@ FORMULAS_VAZIAS = (
     "preenchida em",
     "de que cada uma depende",
     "campos a preencher",
+    "o que a decisão muda",
+    "o que a tarefa muda",
     "seções que os exercícios seguintes preenchem",
 )
 

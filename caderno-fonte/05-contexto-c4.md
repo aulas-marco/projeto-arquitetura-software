@@ -6,7 +6,7 @@ modo: acumula
 <!--orientacao-->
 | Campo | Conteúdo |
 | --- | --- |
-| O que é esta seção | Um desenho simples que mostra a solução como uma caixa só, quem a usa e com quais outros sistemas ela conversa. |
+| Para que serve | Mostra os limites da solução num único desenho: o que está dentro, quem a usa e com quais outros sistemas ela conversa. É o desenho que qualquer pessoa consegue ler em um minuto. |
 | Pergunta que responde | O que está dentro da solução, o que está fora e com quem ela se relaciona? |
 | O que você escreve | Um diagrama de contexto no formato C4, nível 1, com legenda, e um parágrafo que explica por que cada sistema ficou dentro ou fora. |
 | Vem de onde | Das seções 2 e 4: as partes interessadas mostram quem usa a solução, e o sistema atual mostra com quem ela conversa. |

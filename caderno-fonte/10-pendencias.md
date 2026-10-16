@@ -6,7 +6,7 @@ modo: substitui
 <!--orientacao-->
 | Campo | Conteúdo |
 | --- | --- |
-| O que é esta seção | O que ainda não foi decidido ou confirmado, e quem pode decidir. |
+| Para que serve | Nem tudo está decidido. Esta seção lista o que ainda falta, para que ninguém trate como certo o que ainda é dúvida, e diz quem pode resolver cada ponto. |
 | Pergunta que responde | O que ainda impede o projeto de seguir, e quem resolve? |
 | O que você escreve | Uma tabela com cada pendência, quem decide e quando ela deve ser resolvida. Na versão final entra também a avaliação de uma tendência tecnológica. |
 | Vem de onde | De todas as seções: toda premissa ainda não confirmada vira uma pendência. |
@@ -15,7 +15,7 @@ modo: substitui
 
 <!--ex n=4 titulo="Pendências ao fim da Aula 1"-->
 <!--campos-->
-- **Pendência da data de conclusão:** registre quem decide a data de conclusão do ciclo e em que fase ela se resolve.
+- **Pendência da data de conclusão:** na seção 10, escreva quem decide a data de conclusão do ciclo e em que fase ela pode ser dada com precisão.
 <!--/campos-->
 <!--gabarito-->
 | Pendência | Quem decide | Quando se resolve |
