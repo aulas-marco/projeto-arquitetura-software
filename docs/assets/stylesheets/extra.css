@@ -42,3 +42,9 @@
   box-shadow: 0 0.4rem 1.2rem rgb(22 36 58 / 8%);
 }
 
+.md-typeset .caderno-novo {
+  border-left: 0.25rem solid var(--course-cobalt);
+  background: #EEF4FA;
+  padding: 0.1rem 1rem;
+  margin: 1rem 0;
+}

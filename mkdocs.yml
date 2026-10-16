@@ -45,7 +45,7 @@ plugins:
         modulo-6-riscos-e-provas-de-conceito/index.md: modulo-6-lacunas-e-governanca/index.md
 
 extra_css:
-  - assets/stylesheets/extra.css?v=20261003-3
+  - assets/stylesheets/extra.css?v=20261016-1
 
 extra_javascript:
   - assets/javascripts/mermaid.mjs
@@ -110,6 +110,12 @@ nav:
       - Arquitetura de linha de base: caso-acme/linha-de-base.md
       - Dados operacionais: caso-acme/dados-operacionais.md
       - Artefatos por aula: caso-acme/artefatos.md
+  - Caderno arquitetural:
+      - Template: caderno/template.md
+      - Convenções: caderno/convencoes.md
+      - Mapa: caderno/mapa.md
+  - Gabaritos:
+      - Visão geral: gabaritos/index.md
   - Referência:
       - Glossário: referencia/glossario.md
       - Bibliografia: referencia/bibliografia.md

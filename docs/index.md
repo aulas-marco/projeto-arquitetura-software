@@ -16,6 +16,10 @@ Cada aula corresponde a um módulo do site. A página de visão geral do módulo
 
 A disciplina utiliza um caso corporativo contínuo, a instituição fictícia ACME. O caso não aparece nas páginas de conceito. Ele fica em trilha própria, acessível pelo menu Caso ACME, e é retomado no enunciado de cada exercício, com o extrato de dados necessário à resolução.
 
+## O caderno arquitetural
+
+O curso produz, exercício a exercício, o caderno arquitetural da ACME, documento de arquitetura da solução com dez seções. O [template](caderno/template.md) apresenta o caderno vazio, com o que vai em cada seção, e o [mapa](caderno/mapa.md) relaciona seção, bloco e exercício. A seção Gabaritos traz, para cada exercício, o caderno preenchido até aquele ponto.
+
 ## Avaliação
 
 Os exercícios de cada aula são o instrumento de avaliação, somados à participação nos encontros ao vivo. A distribuição de pontos está no [cronograma](cronograma.md).
