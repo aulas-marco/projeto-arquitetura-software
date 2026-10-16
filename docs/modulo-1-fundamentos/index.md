@@ -63,7 +63,7 @@ O [bloco 4](bloco-4-processo-de-definicao-da-arquitetura.md) apresenta o process
 
 A [síntese](sintese.md) fecha a aula com o resumo do que precisa ficar, perguntas para você conferir o que aprendeu e as fontes usadas nos quatro blocos.
 
-## O que a Aula 1 constrói no caderno
+## Adições no Caderno Arquitetural da Aula 1
 
 Os quatro exercícios desta aula preenchem a seção 1, Contexto, que registra o ponto de partida do projeto. A aula deixa também a primeira versão do resumo, na seção 0, e da lista de pendências, na seção 10. O caderno que sai da Aula 1 é o do [gabarito do exercício 4](../gabaritos/gabarito-exercicio-04.md).
 

@@ -47,7 +47,7 @@ Por fim, a decisão precisa ficar registrada para quem chegar depois, e o [bloco
 
 A [síntese](sintese.md) fecha o módulo com o checklist do que precisa permanecer, a cadeia dos exercícios 16 a 20, a autoavaliação e a lista das referências citadas nos quatro blocos.
 
-## O que a Aula 5 constrói no caderno
+## Adições no Caderno Arquitetural da Aula 5
 
 Ao fim da Aula 4, o caderno da ACME já dizia o que a universidade quer construir, mas ainda não dizia com que tecnologia nem como proteger o resultado, e os contêineres novos seguiam marcados como tecnologia a definir. Os quatro exercícios desta aula preenchem por isso a seção 8, Tecnologia e plataforma, que fecha essa lacuna: primeiro os produtos e a comparação do provedor de identidade, depois a plataforma e a zona de pouso, em seguida a proteção dos dados e, por último, o ADR de plataforma com as lacunas de provisão. O caderno que sai da Aula 5 é o do [gabarito do exercício 20](../gabaritos/gabarito-exercicio-20.md), e ele parte do que as aulas anteriores deixaram nas seções 1 a 7.
 

@@ -47,7 +47,7 @@ Por fim, a decisão precisa sobreviver a quem a tomou, e o [bloco 4](bloco-4-reg
 
 A [síntese](sintese.md) fecha o módulo com o checklist do que precisa permanecer, a cadeia da decisão construída na aula, a autoavaliação e as fontes da aula inteira.
 
-## O que a Aula 3 constrói no caderno
+## Adições no Caderno Arquitetural da Aula 3
 
 A Aula 2 deixou o caderno com os requisitos, os cenários de qualidade e as restrições da ACME, e agora é hora de usá-los para desenhar. Os quatro exercícios desta aula preenchem a seção 6, Princípios, e abrem a seção 7, Decisões, porque o desenho nasce das regras e termina numa escolha registrada. A seção 6 recebe os princípios e o esboço lógico do exercício 9, e a seção 7 acumula a comparação de estilos (10), os padrões para os três problemas (11) e o ADR do estilo (12). O caderno que sai da Aula 3 é o do [gabarito do exercício 12](../gabaritos/gabarito-exercicio-12.md).
 

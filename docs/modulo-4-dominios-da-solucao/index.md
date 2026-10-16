@@ -52,7 +52,7 @@ O [bloco 4](bloco-4-arquitetura-de-infraestrutura.md) fecha o percurso com a per
 
 Depois dos quatro blocos, a [síntese](sintese.md) fecha o módulo com o checklist do que precisa permanecer, a cadeia dos domínios construída na aula, a autoavaliação e as fontes principais, e as demais constam das Fontes de cada bloco e da bibliografia.
 
-## O que a Aula 4 constrói no caderno
+## Adições no Caderno Arquitetural da Aula 4
 
 Nas aulas anteriores, o caderno arquitetural da ACME ganhou o contexto do caso, as partes interessadas, os requisitos e os princípios, e a Aula 3 deixou nele as primeiras decisões de estilo e de padrões. Com esse material em mãos, a Aula 4 detalha a solução domínio por domínio, e cada exercício acrescenta ao caderno o que o domínio decidiu: o efeito da solução no negócio, as decisões sobre dados, a decisão sobre as aplicações com o desenho da fronteira na seção 5 e, na seção 7, o desenho dos contêineres com as relações rotuladas. O caderno que sai da Aula 4 é o do [gabarito do exercício 16](../gabaritos/gabarito-exercicio-16.md).
 

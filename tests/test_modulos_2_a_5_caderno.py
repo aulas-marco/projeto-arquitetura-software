@@ -90,7 +90,7 @@ class ModulosDoisACincoTest(unittest.TestCase):
         for modulo, aula in MODULOS.items():
             pagina = (DOCS / modulo / "index.md").read_text(encoding="utf-8")
             with self.subTest(modulo=modulo):
-                self.assertIn(f"## O que a Aula {aula} constrói no caderno", pagina)
+                self.assertIn(f"## Adições no Caderno Arquitetural da Aula {aula}", pagina)
                 self.assertIn("{{trilha:", pagina)
                 self.assertIn("../gabaritos/", pagina)
 

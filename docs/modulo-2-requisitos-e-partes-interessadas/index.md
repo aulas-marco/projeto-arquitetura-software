@@ -39,7 +39,7 @@ Por fim, o [bloco 4](bloco-4-partes-interessadas-e-pontos-de-vista.md) trata das
 
 A [síntese](sintese.md) fecha o módulo com o checklist do que precisa permanecer, a autoavaliação e as fontes da aula inteira.
 
-## O que a Aula 2 constrói no caderno
+## Adições no Caderno Arquitetural da Aula 2
 
 Na Aula 1 o caderno ganhou a seção 1, Contexto, com as restrições, as decisões, os componentes da solução e as tarefas do projeto. A Aula 2 parte dessa base, porque as restrições dizem o que já está decidido e as decisões dizem quem precisa ser ouvido, e acrescenta o que o arquiteto descobre antes de desenhar: as pressões que levaram à mudança, os requisitos e cenários de qualidade, o ponto de partida do sistema e as partes interessadas com o escopo do primeiro ciclo. O caderno que sai da Aula 2 é o do [gabarito do exercício 8](../gabaritos/gabarito-exercicio-08.md).
 
