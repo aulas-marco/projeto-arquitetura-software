@@ -118,9 +118,9 @@ Com o conteúdo classificado, o cuidado seguinte é com o próprio prompt, que p
 
 O último cuidado é o registro, no próprio ADR, de que houve assistência de IA. A proposta do curso é usar o campo de evidências, que já reúne o que sustenta a decisão, para abrir a subseção Assistência de IA, com as partes rascunhadas pelo modelo, o prompt e a versão usados, as verificações aplicadas e o nome do revisor. Esse registro serve a quem lê o ADR depois da decisão e responde, numa auditoria futura, se algum dado pessoal foi enviado a um modelo durante o projeto.
 
-### Três exemplos de prompt
+### Quatro exemplos de prompt
 
-Um prompt bem escrito diz ao modelo o que fazer, o que usar e o que não decidir, e três exemplos da ACME mostram a diferença. Os textos abaixo são exemplos de forma. Cada equipe ajusta os nomes, os dados e o formato de saída ao seu projeto, e a conferência da resposta continua sendo do arquiteto.
+Um prompt bem escrito diz ao modelo o que fazer, o que usar e o que não decidir, e quatro exemplos da ACME mostram a diferença. Os textos abaixo são exemplos de forma. Cada equipe ajusta os nomes, os dados e o formato de saída ao seu projeto, e a conferência da resposta continua sendo do arquiteto.
 
 O primeiro exemplo é o do modelo como redator. O arquiteto quer um rascunho do ADR da fila na entrada da matrícula e entrega ao modelo apenas fatos que ele mesmo conferiu, cada um com a sua origem. O prompt proíbe duas coisas que levaram ao erro do início do bloco: completar dado que falta e declarar o estado do registro.
 
@@ -200,7 +200,101 @@ estímulo, artefato, ambiente, resposta e medida), usando só os fatos
 deste trecho. Onde faltar dado, escreva 'a definir'."
 ```
 
-Nos três casos o arquiteto guarda o prompt no repositório, anota a versão no registro de assistência do ADR e confere a resposta contra a fonte antes de usá-la. Se a resposta trouxer um número ou um fato que o prompt não permitia, ele a descarta, porque o modelo acrescentou o que não foi pedido.
+O quarto exemplo é o do Desenhador de Modelos em PlantUML, o assistente que converte as tabelas do desenho em código de diagrama no [modelo C4](../referencia/glossario.md#modelo-c4). A ACME entrega ao modelo as tabelas de contêineres e de ligações do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16), as mesmas que o arquiteto já conferiu, e pede o código mais uma lista do que foi desenhado. A lista existe para a conferência: o arquiteto a compara com as tabelas, porque elemento a mais é invenção do modelo e elemento a menos é omissão.
+
+```text
+Você converte tabelas de arquitetura em código PlantUML no modelo C4,
+nível de contêineres. Não decida nada sobre a arquitetura: desenhe somente
+o que as tabelas trazem.
+
+Biblioteca: use a C4-PlantUML com
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Pessoas (use Person):
+- Aluno, que usa o Aplicativo do aluno
+- Professor, que usa o Portal do Professor
+- Secretaria acadêmica, que usa o Portal da Secretaria
+
+Contêineres da ACME, dentro da fronteira "Sistema acadêmico" (System_Boundary):
+- Aplicativo do aluno (Container, tecnologia a definir)
+- Portal do Professor (Container, Java com JSF)
+- Portal da Secretaria (Container, Java com JSF)
+- Serviço de matrícula (Container, tecnologia a definir)
+- Serviço de notas (Container, tecnologia a definir)
+- Banco do serviço de matrícula (ContainerDb, tecnologia a definir)
+- Banco do serviço de notas (ContainerDb, tecnologia a definir)
+- Núcleo transacional COBOL (Container, COBOL sobre CICS)
+- Banco Oracle (ContainerDb, Oracle)
+
+Sistemas externos, fora da fronteira (System_Ext):
+- Ambiente virtual de aprendizagem, Gateway de pagamento, Provedor de
+  identidade, Assinador digital ICP-Brasil, ERP financeiro, Órgão regulador
+
+Relações (use Rel, com uma frase curta de rótulo em cada uma):
+1. Aplicativo do aluno -> Serviço de matrícula
+2. Portal do Professor -> Serviço de notas
+3. Serviço de matrícula -> Núcleo transacional COBOL
+4. Serviço de notas -> Núcleo transacional COBOL
+5. Núcleo transacional COBOL -> Banco Oracle
+6. Serviço de notas -> Ambiente virtual de aprendizagem
+7. Serviço de matrícula -> Gateway de pagamento
+8. Aplicativo do aluno -> Provedor de identidade
+9. Portal da Secretaria -> Assinador digital ICP-Brasil
+10. Núcleo transacional COBOL -> ERP financeiro
+11. Núcleo transacional COBOL -> Órgão regulador
+12. Serviço de matrícula -> Banco do serviço de matrícula
+13. Serviço de notas -> Banco do serviço de notas
+14. Aplicativo do aluno -> Serviço de notas
+15. Portal da Secretaria -> Núcleo transacional COBOL
+
+Regras:
+1. Desenhe cada elemento e cada relação da lista, uma vez, e nenhum outro.
+2. Use identificadores sem acento e sem espaço, e o título
+   "Contêineres do sistema acadêmico da ACME, arquitetura alvo".
+3. Onde a tecnologia estiver a definir, escreva exatamente "tecnologia a definir".
+4. Se faltar dado para desenhar algo, não invente: liste o item em
+   "Não consegui desenhar".
+
+Formato de saída:
+1. O código PlantUML completo, entre @startuml e @enduml.
+2. "Elementos desenhados": a lista, com a contagem.
+3. "Relações desenhadas": a lista numerada como acima, com a contagem.
+4. "Não consegui desenhar": a lista, ou "nenhum item".
+```
+
+Um trecho do código que o modelo deve devolver mostra o que o arquiteto confere. Cada linha de `Rel` corresponde a uma linha da tabela de relações, e o arquiteto a procura na lista numerada do prompt.
+
+```plantuml
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+title Contêineres do sistema acadêmico da ACME, arquitetura alvo
+
+Person(aluno, "Aluno")
+Person(professor, "Professor")
+
+System_Boundary(sistema, "Sistema acadêmico") {
+  Container(app_aluno, "Aplicativo do aluno", "tecnologia a definir")
+  Container(portal_professor, "Portal do Professor", "Java com JSF")
+  Container(servico_matricula, "Serviço de matrícula", "tecnologia a definir")
+  Container(servico_notas, "Serviço de notas", "tecnologia a definir")
+  Container(nucleo, "Núcleo transacional COBOL", "COBOL sobre CICS")
+  ContainerDb(banco_oracle, "Banco Oracle", "Oracle")
+}
+
+System_Ext(ava, "Ambiente virtual de aprendizagem")
+
+Rel(aluno, app_aluno, "Usa")
+Rel(professor, portal_professor, "Usa")
+Rel(app_aluno, servico_matricula, "Pede a confirmação da matrícula")
+Rel(portal_professor, servico_notas, "Lança a nota")
+Rel(servico_matricula, nucleo, "Grava a matrícula")
+Rel(servico_notas, nucleo, "Grava a nota")
+Rel(nucleo, banco_oracle, "Lê e grava")
+Rel(servico_notas, ava, "Envia a nota")
+@enduml
+```
+
+Nos quatro casos o arquiteto guarda o prompt no repositório, anota a versão no registro de assistência do ADR e confere a resposta contra a fonte antes de usá-la. Se a resposta trouxer um número ou um fato que o prompt não permitia, ele a descarta, porque o modelo acrescentou o que não foi pedido.
 
 ## Uso pelo arquiteto
 
