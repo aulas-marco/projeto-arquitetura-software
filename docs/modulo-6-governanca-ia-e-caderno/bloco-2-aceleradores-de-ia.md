@@ -118,6 +118,90 @@ Com o conteúdo classificado, o cuidado seguinte é com o próprio prompt, que p
 
 O último cuidado é o registro, no próprio ADR, de que houve assistência de IA. A proposta do curso é usar o campo de evidências, que já reúne o que sustenta a decisão, para abrir a subseção Assistência de IA, com as partes rascunhadas pelo modelo, o prompt e a versão usados, as verificações aplicadas e o nome do revisor. Esse registro serve a quem lê o ADR depois da decisão e responde, numa auditoria futura, se algum dado pessoal foi enviado a um modelo durante o projeto.
 
+### Três exemplos de prompt
+
+Um prompt bem escrito diz ao modelo o que fazer, o que usar e o que não decidir, e três exemplos da ACME mostram a diferença. Os textos abaixo são exemplos de forma. Cada equipe ajusta os nomes, os dados e o formato de saída ao seu projeto, e a conferência da resposta continua sendo do arquiteto.
+
+O primeiro exemplo é o do modelo como redator. O arquiteto quer um rascunho do ADR da fila na entrada da matrícula e entrega ao modelo apenas fatos que ele mesmo conferiu, cada um com a sua origem. O prompt proíbe duas coisas que levaram ao erro do início do bloco: completar dado que falta e declarar o estado do registro.
+
+```text
+Você é um assistente que redige rascunhos de ADR (registro de decisão arquitetural).
+
+Tarefa: escreva um rascunho de ADR com os dez campos do modelo abaixo,
+sobre a decisão de colocar uma fila entre o portal e o núcleo COBOL na
+entrada da matrícula.
+
+Campos do modelo: título, estado, data, contexto, forças, alternativas,
+decisão, consequências, evidências, revisão.
+
+Fatos permitidos (use somente estes, cada número com a origem entre parênteses):
+- O portal recebe em média 815 sessões simultâneas e chega a 5.800 na
+  abertura da matrícula (dados operacionais da ACME).
+- O requisito vigente pede percentil 95 do tempo de confirmação em até
+  4 segundos (requisito R6, Diretoria de TI).
+- Em 04/02/2026 houve 4h20 de indisponibilidade (registro do incidente).
+- O núcleo COBOL não pode ser alterado até 30/09/2027 (contrato de
+  sustentação com a fábrica de software).
+
+Regras:
+1. Não use nenhum número que não esteja na lista de fatos permitidos.
+2. Se um campo exigir dado que a lista não traz, escreva "a definir" e
+   diga que dado falta.
+3. Escreva o estado como "Proposta" e a data como "a definir". A decisão
+   de aceitar o registro pertence ao Diretor de TI.
+4. Inclua ao menos uma consequência negativa.
+
+Formato de saída: uma tabela com duas colunas, Campo e Conteúdo.
+```
+
+O segundo exemplo é o do modelo como crítico, no formato de arquivo versionado que a seção anterior descreveu. O cabeçalho identifica a versão e o revisor, e o corpo declara o critério contra o qual o texto será confrontado, porque o crítico sem critério declarado inventa os seus. A regra de descartar o desvio sem fonte é a mesma que o par humano aplica na conferência.
+
+```text
+---
+prompt: critico-adr
+versao: 1.0
+usado em: ADR 001, fila na entrada da matrícula
+revisor: segundo arquiteto da equipe
+---
+Você é um revisor crítico de arquitetura. Não reescreva o texto: aponte desvios.
+
+Artefato: o ADR abaixo.
+Critérios (os únicos que valem):
+- Requisito R6: 5.800 sessões simultâneas, percentil 95 do tempo de
+  confirmação em até 4 segundos.
+- Requisito R14: nenhum dado pessoal de aluno é processado fora do
+  território nacional.
+- Restrição: o núcleo COBOL não pode ser alterado até 30/09/2027.
+- Modelo de ADR: todo registro traz ao menos uma consequência negativa.
+
+Para cada desvio, responda em uma linha da tabela:
+trecho do ADR | critério violado | por que viola | gravidade (alta, média ou baixa).
+
+Se o ADR não violar nenhum critério, escreva "nenhum desvio encontrado".
+Não aponte desvio que não cite um dos critérios acima.
+
+[cole aqui o ADR, sem nomes de pessoas nem dados pessoais]
+```
+
+O terceiro exemplo mostra o cuidado com o conteúdo antes do envio, o da classificação. O arquiteto quer usar o modelo para escrever um cenário de qualidade a partir da ata da entrevista com a Representação discente, e a ata traz nomes e matrículas. A versão da esquerda envia o documento como está, e a da direita troca os dados pessoais por rótulos e entrega só o que o cenário precisa.
+
+```text
+ERRADO: o dado pessoal sai do documento de origem junto com o pedido
+"Segue a ata da entrevista de 14/09. Participantes: Ana Beatriz Souza
+(matrícula 20231045) e Carlos Lima (matrícula 20221877). Ana disse que o
+portal cai toda vez que ela tenta renovar. Escreva o cenário de qualidade."
+
+CERTO: só o que o cenário precisa, com rótulos no lugar dos nomes
+"Segue um trecho da entrevista com a Representação discente.
+Participantes: Aluna 1 e Aluno 2. A Aluna 1 relata que o portal fica
+indisponível quando ela tenta renovar a matrícula na abertura da janela.
+Escreva um cenário de qualidade com os seis elementos (fonte do estímulo,
+estímulo, artefato, ambiente, resposta e medida), usando só os fatos
+deste trecho. Onde faltar dado, escreva 'a definir'."
+```
+
+Nos três casos o arquiteto guarda o prompt no repositório, anota a versão no registro de assistência do ADR e confere a resposta contra a fonte antes de usá-la. Se a resposta trouxer um número ou um fato que o prompt não permitia, ele a descarta, porque o modelo acrescentou o que não foi pedido.
+
 ## Uso pelo arquiteto
 
 O arquiteto consulta a verificação de três etapas no momento em que um rascunho de modelo chega às suas mãos, antes de copiar qualquer trecho para o caderno. A dúvida que ela resolve é se o texto, que parece completo, pode seguir para a fase seguinte. Quando o arquiteto da ACME rastreou o número de 4.000 usuários e não encontrou um requisito vigente que o sustentasse, descartou o trecho antes que ele chegasse às forças do ADR, e levou ao Diretor de TI um registro com as 5.800 sessões do requisito vigente (R6). Se tivesse aceitado o rascunho, o número errado passaria às forças do ADR e ao teste de carga planejado.
