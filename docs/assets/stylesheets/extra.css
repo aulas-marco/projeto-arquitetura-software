@@ -298,14 +298,24 @@
   border: 1px solid var(--md-default-fg-color--lightest);
   border-radius: 0.6rem;
   padding: 0 1rem;
+  background: none;
+  box-shadow: none;
 }
 .md-typeset details.caderno-secao > summary {
   cursor: pointer;
-  padding: 0.6rem 0;
+  margin: 0;
+  padding: 0.6rem 2rem 0.6rem 0;
+  background: none;
   font-size: 0.8rem;
   color: var(--md-default-fg-color--light);
 }
 .md-typeset details.caderno-secao[open] > summary {
   border-bottom: 1px solid var(--md-default-fg-color--lightest);
   margin-bottom: 0.8rem;
+}
+.md-typeset details.caderno-secao > summary::before {
+  display: none;
+}
+.md-typeset details.caderno-secao > summary::after {
+  right: 0;
 }
