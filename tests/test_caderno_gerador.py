@@ -198,3 +198,32 @@ class GeradorTest(unittest.TestCase):
         )
         with self.assertRaisesRegex(ValueError, "exercício 4 repetido"):
             self.ger.carregar(self.fonte)
+
+    def test_carregar_rejeita_fragmento_mal_formado(self):
+        (self.fonte / "03-requisitos.md").write_text(
+            SEC_REQ.replace('titulo="Direcionadores"', "titulo='Direcionadores'"), encoding="utf-8"
+        )
+        with self.assertRaisesRegex(ValueError, "03-requisitos.md.*mal formado"):
+            self.ger.carregar(self.fonte)
+
+    def test_carregar_rejeita_gabarito_sem_fechamento(self):
+        (self.fonte / "03-requisitos.md").write_text(
+            SEC_REQ.replace("<!--/gabarito-->", "", 1), encoding="utf-8"
+        )
+        with self.assertRaisesRegex(ValueError, "03-requisitos.md.*gabarito.*sem fechamento"):
+            self.ger.carregar(self.fonte)
+
+    def test_carregar_aceita_espaco_depois_do_marcador(self):
+        (self.fonte / "03-requisitos.md").write_text(
+            SEC_REQ.replace("<!--gabarito-->\n", "<!--gabarito--> \n", 1), encoding="utf-8"
+        )
+        secoes = self.ger.carregar(self.fonte)
+        self.assertEqual("Texto do gabarito cinco.", secoes[1].fragmentos[0].gabarito)
+
+    def test_carregar_aceita_comentario_dentro_de_cerca_de_codigo(self):
+        corpo = "Antes.\n\n```bash\n# comentário do shell\nls\n```\n\n~~~\n# outro\n~~~"
+        (self.fonte / "03-requisitos.md").write_text(
+            SEC_REQ.replace("Texto do gabarito cinco.", corpo), encoding="utf-8"
+        )
+        secoes = self.ger.carregar(self.fonte)
+        self.assertIn("# comentário do shell", secoes[1].fragmentos[0].gabarito)

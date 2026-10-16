@@ -19,10 +19,13 @@ DOCS = ROOT / "docs"
 FONTE = ROOT / "caderno-fonte"
 
 FRONT = re.compile(r"\A---\n(.*?)\n---\n", re.DOTALL)
-ORIENTACAO = re.compile(r"<!--orientacao-->\n(.*?)<!--/orientacao-->", re.DOTALL)
-FRAGMENTO = re.compile(r'<!--ex n=(\d+) titulo="([^"]+)"-->\n(.*?)<!--/ex-->', re.DOTALL)
-CAMPOS = re.compile(r"<!--campos-->\n(.*?)<!--/campos-->", re.DOTALL)
-GABARITO = re.compile(r"<!--gabarito-->\n(.*?)<!--/gabarito-->", re.DOTALL)
+ORIENTACAO = re.compile(r"<!--orientacao-->[ \t]*\n(.*?)<!--/orientacao-->", re.DOTALL)
+FRAGMENTO = re.compile(
+    r'<!--ex[ \t]+n=(\d+)[ \t]+titulo="([^"]+)"[ \t]*-->[ \t]*\n(.*?)<!--/ex-->', re.DOTALL
+)
+CAMPOS = re.compile(r"<!--campos-->[ \t]*\n(.*?)<!--/campos-->", re.DOTALL)
+GABARITO = re.compile(r"<!--gabarito-->[ \t]*\n(.*?)<!--/gabarito-->", re.DOTALL)
+CERCA = re.compile(r"^\s*(```|~~~)")
 
 INTRO_TEMPLATE = (
     "O caderno arquitetural é o documento de arquitetura da solução da ACME. Ele reúne, em dez "
@@ -67,8 +70,13 @@ def carregar(fonte: Path = FONTE) -> list[Secao]:
         if "secao" not in meta or "titulo" not in meta:
             raise ValueError(f"{caminho.name}: o cabeçalho precisa de secao e titulo")
         corpo = texto[front.end():]
-        if corpo.count("<!--ex ") != corpo.count("<!--/ex-->"):
+        if corpo.count("<!--ex") != corpo.count("<!--/ex-->"):
             raise ValueError(f"{caminho.name}: marcador ex sem fechamento")
+        if corpo.count("<!--ex") != len(FRAGMENTO.findall(corpo)):
+            raise ValueError(
+                f"{caminho.name}: marcador ex mal formado, o formato é "
+                '<!--ex n=NN titulo="Título"--> com aspas duplas'
+            )
         orientacao = _extrair(ORIENTACAO, corpo).strip()
         if not orientacao:
             raise ValueError(f"{caminho.name}: falta a orientação da seção")
@@ -79,11 +87,22 @@ def carregar(fonte: Path = FONTE) -> list[Secao]:
             if n in vistos:
                 raise ValueError(f"{caminho.name}: exercício {n} repetido na seção")
             vistos.add(n)
+            for marcador in ("campos", "gabarito"):
+                abre = achado.group(3).count(f"<!--{marcador}-->")
+                fecha = achado.group(3).count(f"<!--/{marcador}-->")
+                if abre != fecha:
+                    raise ValueError(
+                        f"{caminho.name}: marcador {marcador} sem fechamento no exercício {n}"
+                    )
             gabarito = _extrair(GABARITO, achado.group(3)).strip()
-            # O gabarito usa títulos de nível 4 ou maior. Bloco de código com
-            # comentário iniciado por # deve usar a cerca ```, que o teste não distingue.
+            # O gabarito usa títulos de nível 4 ou maior. Linhas dentro de cerca de
+            # código (``` ou ~~~) não contam, porque o # delas é comentário.
+            dentro_da_cerca = False
             for linha in gabarito.splitlines():
-                if re.match(r"#{1,3}\s", linha):
+                if CERCA.match(linha):
+                    dentro_da_cerca = not dentro_da_cerca
+                    continue
+                if not dentro_da_cerca and re.match(r"#{1,3}\s", linha):
                     raise ValueError(
                         f"{caminho.name}: título de nível 1 a 3 no gabarito do exercício {n}"
                     )
