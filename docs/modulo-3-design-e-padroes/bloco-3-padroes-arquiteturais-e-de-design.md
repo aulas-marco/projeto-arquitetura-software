@@ -34,11 +34,11 @@ A seleção parte sempre do problema declarado. Um padrão acrescenta elementos,
 
 ### Modernização e integração
 
-O exemplo desta seção é a Varejista ACME, que opera há doze anos uma plataforma de comércio eletrônico construída como sistema único, com catálogo, carrinho, checkout e gestão de pedidos no mesmo processo, e que decidiu substituir essa plataforma sem interromper as vendas.
+O exemplo desta seção é ilustrativo e não usa dados do dossiê da ACME: um portal de serviços acadêmicos que opera há doze anos como sistema único, com consulta ao calendário, requerimentos, emissão de documentos e pedido de segunda chamada no mesmo processo, e que a universidade decidiu substituir sem interromper o atendimento aos alunos.
 
 #### Strangler Fig
 
-O Strangler Fig organiza a substituição gradual de um sistema existente por um sistema novo, com as duas implementações em operação simultânea e com o tráfego desviado para a nova à medida que cada funcionalidade é concluída (Fowler, 2024). Na Varejista ACME, o catálogo é a primeira funcionalidade migrada, e um ponto de interceptação encaminha as consultas de produto ao catálogo novo enquanto carrinho e checkout continuam atendidos pela plataforma antiga.
+O Strangler Fig organiza a substituição gradual de um sistema existente por um sistema novo, com as duas implementações em operação simultânea e com o tráfego desviado para a nova à medida que cada funcionalidade é concluída (Fowler, 2024). No portal de serviços acadêmicos, a consulta ao calendário é a primeira funcionalidade migrada, e um ponto de interceptação encaminha as consultas ao calendário novo enquanto os requerimentos e a emissão de documentos continuam atendidos pelo portal antigo.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -51,7 +51,7 @@ O Strangler Fig organiza a substituição gradual de um sistema existente por um
 
 #### Anti-Corruption Layer
 
-O Anti-Corruption Layer é uma camada de tradução entre dois contextos com modelos diferentes, que impede que os conceitos, os formatos e as regras de um contexto entrem no modelo do outro (Evans, 2003). Na Varejista ACME, a plataforma antiga representa um produto com trinta e dois campos de texto livre e códigos de categoria herdados, e o catálogo novo recebe esses dados por uma camada que os converte em atributos tipados e em uma árvore de categorias própria.
+O Anti-Corruption Layer é uma camada de tradução entre dois contextos com modelos diferentes, que impede que os conceitos, os formatos e as regras de um contexto entrem no modelo do outro (Evans, 2003). No portal de serviços acadêmicos, o portal antigo representa uma disciplina com trinta e dois campos de texto livre e códigos de curso herdados, e o serviço novo de oferta recebe esses dados por uma camada que os converte em atributos tipados e em uma árvore de cursos própria.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -64,7 +64,7 @@ O Anti-Corruption Layer é uma camada de tradução entre dois contextos com mod
 
 #### Adapter
 
-O Adapter converte a interface de um elemento na interface que o cliente espera, permitindo que elementos com interfaces incompatíveis colaborem sem alteração em nenhum dos dois (Gamma et al., 1994). Ele é o único padrão de design do repertório deste bloco, porque atua dentro de uma parte do sistema, e costuma ser a peça de implementação de um Anti-Corruption Layer ou de uma porta da [arquitetura hexagonal](bloco-2-estilos-arquiteturais.md#arquitetura-hexagonal). Na Varejista ACME, o serviço de cálculo de frete espera uma operação que recebe CEP e peso, e um adapter converte essa chamada no formato de requisição exigido por cada transportadora contratada.
+O Adapter converte a interface de um elemento na interface que o cliente espera, permitindo que elementos com interfaces incompatíveis colaborem sem alteração em nenhum dos dois (Gamma et al., 1994). Ele é o único padrão de design do repertório deste bloco, porque atua dentro de uma parte do sistema, e costuma ser a peça de implementação de um Anti-Corruption Layer ou de uma porta da [arquitetura hexagonal](bloco-2-estilos-arquiteturais.md#arquitetura-hexagonal). No portal de serviços acadêmicos, o serviço de emissão de documentos espera uma operação que recebe o identificador do aluno e o tipo de documento, e um adapter converte essa chamada no formato de requisição exigido por cada sistema que fornece os dados do documento.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -77,7 +77,7 @@ O Adapter converte a interface de um elemento na interface que o cliente espera,
 
 #### API Gateway
 
-O API Gateway é um ponto único de entrada para os clientes externos de um conjunto de serviços, que roteia cada requisição e concentra preocupações transversais como autenticação, limitação de taxa e registro de acesso (Richardson, 2018). Na Varejista ACME, o aplicativo móvel e o site consultam um gateway que encaminha as chamadas de catálogo ao serviço novo e as de checkout à plataforma antiga, e o mesmo gateway pode servir de ponto de interceptação do Strangler Fig.
+O API Gateway é um ponto único de entrada para os clientes externos de um conjunto de serviços, que roteia cada requisição e concentra preocupações transversais como autenticação, limitação de taxa e registro de acesso (Richardson, 2018). No portal de serviços acadêmicos, o aplicativo móvel e o site consultam um gateway que encaminha as chamadas de calendário ao serviço novo e as de requerimento ao portal antigo, e o mesmo gateway pode servir de ponto de interceptação do Strangler Fig.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -90,11 +90,11 @@ O API Gateway é um ponto único de entrada para os clientes externos de um conj
 
 ### Resiliência na integração
 
-O exemplo desta seção é a Transportadora ACME, empresa de cargas que atende 1.400 clientes corporativos e cujo portal de cotação consulta, a cada pedido, o serviço de tarifa de três parceiros de transporte e o serviço de rastreamento de um operador logístico externo. Nygard (2018) reúne sob o nome de padrões de estabilidade as soluções que impedem que a falha de uma dependência se propague ao sistema que a chama, e três dos quatro padrões abaixo, Timeout, Circuit Breaker e Bulkhead, pertencem a esse grupo. O Retry com limite completa o conjunto como prática de tratamento de falha transitória, segura apenas quando combinada com Timeout e aplicada a operações idempotentes, isto é, que podem ser repetidas sem alterar o resultado.
+O exemplo desta seção é ilustrativo e não usa dados do dossiê da ACME: um portal de documentos acadêmicos que consulta, a cada solicitação, a situação do aluno em três sistemas de apoio, o financeiro, a biblioteca e o ambiente virtual, e o serviço de um assinador digital externo. Nygard (2018) reúne sob o nome de padrões de estabilidade as soluções que impedem que a falha de uma dependência se propague ao sistema que a chama, e três dos quatro padrões abaixo, Timeout, Circuit Breaker e Bulkhead, pertencem a esse grupo. O Retry com limite completa o conjunto como prática de tratamento de falha transitória, segura apenas quando combinada com Timeout e aplicada a operações idempotentes, isto é, que podem ser repetidas sem alterar o resultado.
 
 #### Timeout
 
-O Timeout limita o tempo que um elemento espera pela resposta de uma dependência, devolvendo o controle ao chamador quando o limite é atingido (Nygard, 2018). No portal da Transportadora ACME, a consulta de tarifa a cada parceiro tem limite de 2 segundos, e a cotação é exibida com as tarifas que responderam dentro desse prazo.
+O Timeout limita o tempo que um elemento espera pela resposta de uma dependência, devolvendo o controle ao chamador quando o limite é atingido (Nygard, 2018). No portal de documentos acadêmicos, a consulta de situação a cada sistema de apoio tem limite de 2 segundos, e a tela da solicitação exibe a situação dos sistemas que responderam dentro desse prazo.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -107,7 +107,7 @@ O Timeout limita o tempo que um elemento espera pela resposta de uma dependênci
 
 #### Retry com limite
 
-O Retry com limite repete uma chamada que falhou por causa transitória, com número máximo de tentativas e intervalo crescente entre elas, e só se aplica a operações que podem ser repetidas sem efeito duplicado. No portal da Transportadora ACME, a consulta de rastreamento é repetida até duas vezes, com intervalos de 200 e 800 milissegundos, porque consultar o mesmo rastreamento duas vezes não altera nenhum estado.
+O Retry com limite repete uma chamada que falhou por causa transitória, com número máximo de tentativas e intervalo crescente entre elas, e só se aplica a operações que podem ser repetidas sem efeito duplicado. No portal de documentos acadêmicos, a consulta do andamento de uma assinatura ao assinador digital é repetida até duas vezes, com intervalos de 200 e 800 milissegundos, porque consultar o mesmo andamento duas vezes não altera nenhum estado.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -116,11 +116,11 @@ O Retry com limite repete uma chamada que falhou por causa transitória, com nú
 | Estrutura mínima | Um número máximo de tentativas, um intervalo crescente entre elas e a lista de erros que justificam repetição |
 | Consequência favorável | Falhas breves deixam de chegar ao usuário |
 | Custo | Latência maior no pior caso e carga adicional sobre a dependência que já está com dificuldade |
-| Sinal de uso inadequado | A operação repetida cria efeito duplicado, como cobrança ou pedido em dobro, ou todos os clientes repetem ao mesmo tempo e ampliam a sobrecarga |
+| Sinal de uso inadequado | A operação repetida cria efeito duplicado, como documento emitido ou nota lançada em dobro, ou todos os clientes repetem ao mesmo tempo e ampliam a sobrecarga |
 
 #### Circuit Breaker
 
-O Circuit Breaker interrompe as chamadas a uma dependência depois que a taxa de falha ultrapassa um limite, responde imediatamente com um comportamento alternativo durante um período e depois libera chamadas de teste para verificar se a dependência se recuperou (Nygard, 2018). No portal da Transportadora ACME, quando mais da metade das consultas a um parceiro falha em um minuto, o portal deixa de consultá-lo por 30 segundos e exibe a cotação sem aquela tarifa.
+O Circuit Breaker interrompe as chamadas a uma dependência depois que a taxa de falha ultrapassa um limite, responde imediatamente com um comportamento alternativo durante um período e depois libera chamadas de teste para verificar se a dependência se recuperou (Nygard, 2018). No portal de documentos acadêmicos, quando mais da metade das consultas a um sistema de apoio falha em um minuto, o portal deixa de consultá-lo por 30 segundos e exibe a solicitação sem a situação daquele sistema.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -133,7 +133,7 @@ O Circuit Breaker interrompe as chamadas a uma dependência depois que a taxa de
 
 #### Bulkhead
 
-O Bulkhead separa os recursos do sistema em compartimentos, de modo que o esgotamento de um compartimento por uma dependência ou por um tipo de carga não afete os demais (Nygard, 2018). No portal da Transportadora ACME, cada parceiro de tarifa tem seu próprio conjunto de conexões, e um parceiro lento esgota apenas as conexões que lhe foram reservadas.
+O Bulkhead separa os recursos do sistema em compartimentos, de modo que o esgotamento de um compartimento por uma dependência ou por um tipo de carga não afete os demais (Nygard, 2018). No portal de documentos acadêmicos, cada sistema de apoio tem seu próprio conjunto de conexões, e um sistema lento esgota apenas as conexões que lhe foram reservadas.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -146,11 +146,11 @@ O Bulkhead separa os recursos do sistema em compartimentos, de modo que o esgota
 
 ### Consistência entre partes distribuídas
 
-O exemplo desta seção volta à Varejista ACME, depois que pedido, estoque e pagamento passaram a ser serviços separados, cada um com seu próprio banco de dados, o que elimina a transação única que antes cobria os três.
+O exemplo desta seção também é ilustrativo e não usa dados do dossiê da ACME: a inscrição em cursos de extensão, que têm vagas limitadas e taxa de inscrição, depois que inscrição, vagas e cobrança passaram a ser serviços separados, cada um com seu próprio banco de dados, o que elimina a transação única que antes cobria os três.
 
 #### Transactional Outbox
 
-O Transactional Outbox grava a mudança de estado e a mensagem que a comunica na mesma transação local, em uma tabela de saída, e um processo separado publica as mensagens dessa tabela no intermediário de mensagens (Richardson, 2018). Na Varejista ACME, o serviço de pedidos grava o pedido e o evento de pedido criado na mesma transação, e o publicador entrega o evento ao estoque mesmo que o intermediário esteja indisponível no momento da gravação.
+O Transactional Outbox grava a mudança de estado e a mensagem que a comunica na mesma transação local, em uma tabela de saída, e um processo separado publica as mensagens dessa tabela no intermediário de mensagens (Richardson, 2018). Na inscrição em cursos de extensão, o serviço de inscrições grava a inscrição e o evento de inscrição criada na mesma transação, e o publicador entrega o evento ao serviço de vagas mesmo que o intermediário esteja indisponível no momento da gravação.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -163,7 +163,7 @@ O Transactional Outbox grava a mudança de estado e a mensagem que a comunica na
 
 #### Saga
 
-A Saga executa uma operação de negócio que atravessa vários serviços como uma sequência de transações locais, cada uma com uma ação de compensação que desfaz seu efeito se uma etapa posterior falhar (Richardson, 2018). Na Varejista ACME, a saga do pedido reserva o estoque, autoriza o pagamento e confirma o pedido, e uma recusa do pagamento aciona a compensação que libera a reserva de estoque.
+A Saga executa uma operação de negócio que atravessa vários serviços como uma sequência de transações locais, cada uma com uma ação de compensação que desfaz seu efeito se uma etapa posterior falhar (Richardson, 2018). Na inscrição em cursos de extensão, a saga da inscrição reserva a vaga, gera a cobrança da taxa e confirma a inscrição, e uma recusa da cobrança aciona a compensação que libera a reserva da vaga.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -176,7 +176,7 @@ A Saga executa uma operação de negócio que atravessa vários serviços como u
 
 ### Combinações
 
-Padrões se combinam quando cada um resolve um problema distinto. No portal da Transportadora ACME, o Timeout e o Circuit Breaker aplicados à mesma consulta de tarifa formam uma combinação legítima, porque o primeiro limita a espera de uma chamada isolada e o segundo evita que chamadas sucessivas insistam em uma dependência que já falhou. Na Varejista ACME, a Saga que coordena pedido, estoque e pagamento depende do Transactional Outbox em cada etapa, porque a saga precisa que cada transação local publique seu evento com garantia. Uma combinação redundante seria acrescentar um API Gateway diante de um único serviço consumido por um único cliente interno, porque o gateway resolveria um problema de múltiplos clientes e múltiplos serviços que esse contexto não tem, e o custo de um salto de rede e de um componente crítico adicional ficaria sem contrapartida.
+Padrões se combinam quando cada um resolve um problema distinto. No portal de documentos acadêmicos, o Timeout e o Circuit Breaker aplicados à mesma consulta de situação formam uma combinação legítima, porque o primeiro limita a espera de uma chamada isolada e o segundo evita que chamadas sucessivas insistam em uma dependência que já falhou. Na inscrição em cursos de extensão, a Saga que coordena inscrição, vagas e cobrança depende do Transactional Outbox em cada etapa, porque a saga precisa que cada transação local publique seu evento com garantia. Uma combinação redundante seria acrescentar um API Gateway diante de um único serviço consumido por um único cliente interno, porque o gateway resolveria um problema de múltiplos clientes e múltiplos serviços que esse contexto não tem, e o custo de um salto de rede e de um componente crítico adicional ficaria sem contrapartida.
 
 ## Uso pelo arquiteto
 

@@ -291,5 +291,45 @@ class ReviewFindingsTest(unittest.TestCase):
         self.assertIn("bloco-1-principios-de-design.md#exercicio-9", ex)
 
 
+class AcademicExamplesTest(unittest.TestCase):
+    """Decisao de 17/10/2026: os exemplos dos padroes se passam no sistema academico."""
+
+    OTHER_SECTORS = re.compile(
+        r"varejist|transportadora|comércio eletrônico|carrinho|checkout|estoque|frete|cotação"
+        r"|hospital|cl[ií]nica|banking|seguradora|produtora",
+        re.IGNORECASE,
+    )
+    PAGE = "bloco-3-padroes-arquiteturais-e-de-design.md"
+
+    def test_no_pattern_example_comes_from_another_sector(self):
+        for page in MODULE.glob("*.md"):
+            with self.subTest(page=page.name):
+                self.assertIsNone(self.OTHER_SECTORS.search(page.read_text(encoding="utf-8")))
+
+    def test_the_three_pattern_groups_use_academic_scenarios_labeled_as_illustrative(self):
+        text = read(self.PAGE)
+        for scenario in ("portal de serviços acadêmicos", "portal de documentos acadêmicos",
+                         "inscrição em cursos de extensão"):
+            with self.subTest(scenario=scenario):
+                self.assertIn(scenario, text)
+        self.assertEqual(3, text.count("ilustrativo e não usa dados do dossiê da ACME"))
+
+    def test_every_pattern_still_has_a_scenario_sentence(self):
+        text = read(self.PAGE)
+        for pattern in PATTERNS:
+            body = section_h4(text, pattern)
+            with self.subTest(pattern=pattern):
+                self.assertRegex(body, r"(?:No|Na) (portal|inscrição)")
+
+
+def section_h4(text: str, heading: str) -> str:
+    match = re.search(rf"^####\s+{re.escape(heading)}\s*$", text, re.MULTILINE)
+    if match is None:
+        return ""
+    rest = text[match.end():]
+    end = re.search(r"^#{1,4}\s", rest, re.MULTILINE)
+    return rest[: end.start()] if end else rest
+
+
 if __name__ == "__main__":
     unittest.main()

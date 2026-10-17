@@ -37,7 +37,7 @@ Um exemplo aplicado torna a estrutura concreta antes das três variações detal
 
 *Figura 2 — Exemplo aplicado da estrutura de seis elementos a um requisito de desempenho de um serviço de catálogo. Fonte: material do curso.*
 
-Os três exemplos seguintes usam serviços da Universidade ACME. Os valores servem para treinar a formulação de cenários e precisam de validação antes de entrar no projeto. O primeiro trata da consulta de notas. Compare sua estrutura com a progressão de contexto, carga e medida apresentada no [bloco 2](bloco-2-qualidade-e-tipos-de-requisito.md).
+Os três exemplos seguintes usam serviços da Universidade ACME, e seus valores servem para treinar a formulação de cenários e precisam de validação antes de entrar no projeto. O primeiro trata da consulta de notas, e sua estrutura pode ser comparada com a progressão de contexto, carga e medida apresentada no [bloco 2](bloco-2-qualidade-e-tipos-de-requisito.md).
 
 | Elemento | Especificação |
 | --- | --- |
@@ -48,7 +48,7 @@ Os três exemplos seguintes usam serviços da Universidade ACME. Os valores serv
 | Resposta | Validar a identidade, recuperar a nota e devolver a resposta |
 | Medida | p95 até 500 ms, p99 até 1 s, erros abaixo de 0,1% |
 
-Na medida, p95 e p99 são os tempos dentro dos quais terminam 95% e 99% das consultas. O segundo exemplo trata de modificabilidade: considere uma futura troca do gateway de pagamento usado na matrícula. A equipe quer incluir a integração nova sem alterar as existentes. Essa troca é uma situação de análise, sujeita à decisão de escopo.
+Na medida, p95 e p99 são os tempos dentro dos quais terminam 95% e 99% das consultas. O segundo exemplo trata de modificabilidade: considere uma futura troca do gateway de pagamento usado na matrícula, em que a equipe quer incluir a integração nova sem alterar as existentes, e é a decisão de escopo do primeiro ciclo que define se essa troca será feita.
 
 | Elemento | Especificação |
 | --- | --- |
@@ -59,7 +59,7 @@ Na medida, p95 e p99 são os tempos dentro dos quais terminam 95% e 99% das cons
 | Resposta | Implementar e ativar a nova integração sem alterar as integrações existentes |
 | Medida | Até dez dias úteis, alterações limitadas ao adaptador, configuração e testes contratuais |
 
-O terceiro exemplo trata da proteção da conta de aluno na Universidade ACME. Ele descreve a resposta proposta a tentativas repetidas de adivinhar a senha. A equipe de segurança precisa validar os limites antes da adoção.
+O terceiro exemplo trata da proteção da conta de aluno na Universidade ACME e descreve a resposta proposta a tentativas repetidas de adivinhar a senha, cujos limites a equipe de segurança precisa validar antes da adoção.
 
 | Elemento | Especificação |
 | --- | --- |
@@ -72,7 +72,7 @@ O terceiro exemplo trata da proteção da conta de aluno na Universidade ACME. E
 
 Um cenário bem escrito ainda não indica se o requisito é arquiteturalmente significativo, conceito definido a seguir. Depois de formulado, ele precisa ser priorizado e avaliado quanto ao impacto sobre a arquitetura.
 
-Nem todo requisito produz o mesmo efeito sobre a solução. Incluir um campo opcional em uma tela já existente costuma ser mudança local, contida em poucos componentes. Já a exigência de que um sistema de pagamentos permaneça disponível mesmo após a perda completa de uma região de nuvem pode alterar implantação, replicação de dados, comunicação entre serviços, tratamento de falha, monitoramento e custo operacional. A arquitetura passa a importar quando uma necessidade produz efeito amplo, envolve risco elevado ou exige escolha difícil de reverter.
+Nem todo requisito produz o mesmo efeito sobre a solução. Incluir um campo opcional em uma tela já existente costuma ser mudança local, contida em poucos componentes. Já a exigência de que o sistema de matrícula permaneça disponível mesmo após a perda completa de uma região de nuvem pode alterar implantação, replicação de dados, comunicação entre serviços, tratamento de falha, monitoramento e custo operacional. A arquitetura passa a importar quando uma necessidade produz efeito amplo, envolve risco elevado ou exige escolha difícil de reverter.
 
 Para nomear esse efeito amplo, usa-se o conceito de **requisito arquiteturalmente significativo**, ASR, um requisito cuja satisfação exerce influência importante sobre a arquitetura, podendo determinar estrutura, responsabilidade, interface, tecnologia, mecanismo, padrão de interação ou forma de implantação. Arquiteturalmente significativo designa um juízo sobre o impacto que aquele requisito produz sobre a arquitetura. Um requisito tende a ser um ASR quando sua satisfação apresenta ao menos uma das oito condições abaixo.
 
@@ -87,7 +87,7 @@ Para nomear esse efeito amplo, usa-se o conceito de **requisito arquiteturalment
 
 Um **direcionador arquitetural** é um fator prioritário que orienta a formação ou a avaliação da arquitetura. Dependendo do método e do autor, o termo pode incluir ASRs, objetivos de negócio, restrições e preocupações críticas. No processo QAW, o SEI inclui entre os direcionadores requisitos de alto nível, preocupações de negócio ou de missão, objetivos e atributos de qualidade, e cabe aos interessados e facilitadores estabelecer consenso sobre quais são decisivos para aquele sistema. Requisito arquiteturalmente significativo e direcionador arquitetural, portanto, também não são intercambiáveis. Um objetivo de negócio como entrar em cinco países em doze meses não é, por si, um requisito de sistema já formulado, mas funciona como direcionador de requisitos de configurabilidade, localização, conformidade e escalabilidade que ainda precisam ser decompostos.
 
-Atributo de qualidade e ASR não são equivalentes. O atributo é uma propriedade, como desempenho. O requisito de qualidade declara o comportamento esperado e sua medida. ASR indica que uma exigência afeta decisões importantes de arquitetura. Na Universidade ACME, renovar matrícula pelo celular é uma necessidade funcional, mas pode exigir novo canal, interfaces com o núcleo, autenticação e tratamento de falhas. Por isso pode ser um ASR funcional. Já oferecer a modernização em novos campi seria um objetivo de negócio que ainda precisaria ser decomposto em requisitos de capacidade e operação.
+Atributo de qualidade e ASR não são equivalentes, pois o atributo é uma propriedade, como desempenho, o requisito de qualidade declara o comportamento esperado e sua medida, e o ASR indica que uma exigência afeta decisões importantes de arquitetura. Na Universidade ACME, renovar matrícula pelo celular é uma necessidade funcional, mas pode exigir novo canal, interfaces com o núcleo, autenticação e tratamento de falhas, e por isso pode ser um ASR funcional. Já oferecer a modernização em novos campi seria um objetivo de negócio que ainda precisaria ser decomposto em requisitos de capacidade e operação.
 
 Os dois conjuntos, requisito de atributo de qualidade e ASR, se cruzam sem coincidir: há requisitos de qualidade que são ASR e outros que não são, há ASR funcionais e ASR que são restrição, e há ainda requisito funcional comum sem nenhuma significância arquitetural relevante.
 
@@ -103,7 +103,7 @@ Quando um requisito novo chega à mesa, o arquiteto precisa de um roteiro práti
 
 Uma heurística resume o roteiro: se uma alteração relevante no requisito obrigaria a reconsiderar decisões fundamentais, caras ou transversais da solução, há boa evidência de significância arquitetural. Ela não substitui julgamento, porque significância depende de escala, riscos, arquitetura existente, competências disponíveis e custo de mudança, e pode variar entre sistemas e entre estágios do ciclo de vida do mesmo sistema.
 
-Dois erros recorrentes aparecem neste ponto. O primeiro é tratar todo requisito não funcional como ASR. Nem todo requisito de qualidade altera a arquitetura, e alguns são satisfeitos por configuração local, implementação convencional ou capacidade já existente, como no exemplo da consulta administrativa, citado no parágrafo sobre a relação entre atributo de qualidade e ASR, nesta mesma seção Conceito. O segundo é tratar todo ASR como requisito não funcional. Funcionalidade, restrição regulatória, padrão corporativo e integração mandatória também podem condicionar a arquitetura, como mostra o exemplo do roteamento entre adquirentes de pagamento, apresentado no mesmo parágrafo sobre a relação entre atributo de qualidade e ASR, que é, no núcleo, um requisito funcional.
+Dois erros recorrentes aparecem neste ponto. O primeiro é tratar todo requisito não funcional como ASR. Nem todo requisito de qualidade altera a arquitetura, e alguns são satisfeitos por configuração local, implementação convencional ou capacidade já existente, como no exemplo do campo opcional em uma tela já existente, citado no parágrafo sobre o efeito de cada requisito na solução, nesta mesma seção Conceito. O segundo é tratar todo ASR como requisito não funcional. Funcionalidade, restrição regulatória, padrão corporativo e integração mandatória também podem condicionar a arquitetura, como mostra o exemplo da renovação de matrícula pelo celular, apresentado no parágrafo sobre a relação entre atributo de qualidade e ASR, que é, no núcleo, um requisito funcional.
 
 ### Artefatos de linha de base
 
@@ -115,7 +115,7 @@ Na ACME, universidade privada brasileira fictícia com sistema acadêmico em ope
 
 ### Restrições ao desenho
 
-Restrição é uma decisão tomada fora do processo de projeto que limita as alternativas do arquiteto. Ela difere do requisito em dois pontos. O requisito descreve o que a solução precisa entregar e admite discussão sobre a forma de atendê-lo, enquanto a restrição fecha alternativas antes da análise. Tratar restrição como requisito leva a comparar opções que a organização já descartou, e tratar requisito como restrição leva a aceitar como fechado o que ainda podia ser negociado. Se uma restrição impedir uma solução viável, o arquiteto registra o efeito e procura quem tem autoridade para revê-la. Ele não pode alterá-la sozinho.
+Restrição é uma decisão tomada fora do processo de projeto que limita as alternativas do arquiteto. Ela difere do requisito em dois pontos. O requisito descreve o que a solução precisa entregar e admite discussão sobre a forma de atendê-lo, enquanto a restrição fecha alternativas antes da análise. Tratar restrição como requisito leva a comparar opções que a organização já descartou, e tratar requisito como restrição leva a aceitar como fechado o que ainda podia ser negociado. Se uma restrição impedir uma solução viável, o arquiteto registra o efeito e procura quem tem autoridade para revê-la, porque não pode alterá-la sozinho.
 
 As restrições chegam de origens distintas, e a origem determina quem pode revê-las: a restrição regulatória vem de fora e só muda com mudança normativa, a contratual vem de acordo assinado e muda por negociação com o fornecedor dentro dos prazos previstos, a de política interna vem de decisão de governança e muda com nova decisão do mesmo nível, e a técnica vem do parque instalado e muda com investimento.
 
