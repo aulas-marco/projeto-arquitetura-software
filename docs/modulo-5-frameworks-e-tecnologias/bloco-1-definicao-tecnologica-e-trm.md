@@ -24,7 +24,7 @@ No desenho lógico, um bloco descreve uma responsabilidade, e não um produto. N
 
 ### Passo 1: identifique o que precisa ser realizado
 
-Comece pelo diagrama de contêineres do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16). A tabela transforma o desenho em uma lista de responsabilidades. Por exemplo, “serviço de matrícula” diz o que precisa existir. A escolha de como construí-lo vem nos próximos passos.
+Comece pelo diagrama de contêineres do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16). A tabela transforma o desenho em uma lista de responsabilidades, de modo que, por exemplo, “serviço de matrícula” diz o que precisa existir, e a escolha de como construí-lo fica para os passos 3 e 4.
 
 | ABB, bloco lógico | Responsabilidade | Situação no primeiro ciclo |
 | --- | --- | --- |
@@ -45,7 +45,7 @@ Evento de nota, camada anticorrupção e observabilidade atravessam mais de um c
 
 ### Passo 2: elimine o que não atende às restrições
 
-Uma equipe que compara produtos sem olhar o que já foi decidido perde tempo com opções inviáveis. Por isso, o arquiteto registra primeiro as [restrições que limitam as alternativas tecnológicas](../modulo-2-requisitos-e-partes-interessadas/bloco-3-cenarios-linha-de-base-e-restricoes.md#restricoes-ao-desenho). Elas vêm de decisões tomadas fora do processo de projeto e não podem ser alteradas pelo arquiteto sozinho. A lista abaixo traz os sete tipos de restrição tecnológica examinados nesta etapa.
+Uma equipe que compara produtos sem olhar o que já foi decidido perde tempo com opções inviáveis. Por isso, o arquiteto registra primeiro as [restrições que limitam as alternativas tecnológicas](../modulo-2-requisitos-e-partes-interessadas/bloco-3-cenarios-linha-de-base-e-restricoes.md#restricoes-ao-desenho). Elas vêm de decisões tomadas fora do processo de projeto, não podem ser alteradas pelo arquiteto sozinho e se dividem nos sete tipos de restrição tecnológica da lista abaixo.
 
 <figure markdown="span">
 ![Sete caixas numeradas à esquerda, uma para cada restrição tecnológica, de tecnologias aprovadas a competências da equipe, ligadas por uma barra comum a um funil que estreita as opções de produto. Do funil saem as opções que restam, que seguem para a comparação pelos seis critérios.](../assets/images/modulo-5-sete-restricoes.svg){ .module-diagram }
@@ -65,7 +65,7 @@ As restrições reduzem o conjunto de opções antes de qualquer comparação de
 
 #### Transforme a responsabilidade em uma necessidade técnica
 
-Para cada bloco da ACME, escreva o que a tecnologia precisa oferecer. O provedor de identidade deve autenticar pelos padrões do R8, atender à janela de matrícula e processar dados pessoais no Brasil. Os requisitos R6 e R12 orientam os testes de capacidade e disponibilidade. Depois verifique se a organização já oferece esse serviço, com os níveis necessários. Essa lista de serviços disponíveis é o catálogo de infraestrutura.
+Para cada bloco da ACME, escreva o que a tecnologia precisa oferecer: o provedor de identidade, por exemplo, deve autenticar pelos padrões do R8, atender à janela de matrícula e processar dados pessoais no Brasil, enquanto os requisitos R6 e R12 orientam os testes de capacidade e disponibilidade. Depois verifique se a organização já oferece esse serviço, com os níveis necessários, numa lista de serviços disponíveis que se chama catálogo de infraestrutura.
 
 Às vezes o catálogo simplesmente não tem o serviço de que o requisito precisa. Nesse caso o modelo registra uma **lacuna de provisão**, que pode exigir um serviço novo, a substituição, a modificação ou a remoção de um serviço existente, e a lacuna entra no custo da solução e no roteiro de entrega. A classificação das lacunas por tipo é tratada no [bloco 4](bloco-4-adr-de-plataforma.md) desta aula.
 
@@ -138,11 +138,13 @@ O arquiteto organiza a comparação numa **matriz de avaliação**, com as alter
 
 Uma restrição pode eliminar alternativas antes da comparação, e o registro precisa declarar essa eliminação para que a decisão não seja lida como resultado de uma soma de notas. O exemplo é a ferramenta de infraestrutura como código numa organização que opera em dois provedores de nuvem, AWS e Azure, com um modelo técnico que aprova Terraform, AWS CDK e Bicep. O AWS CDK descreve recursos da AWS, o Bicep descreve recursos da Azure e o Terraform descreve recursos dos dois provedores, de modo que a restrição de portabilidade entre os dois provedores elimina duas alternativas antes que custo e maturidade sejam comparados. A matriz preenchida, com a eliminação declarada, alimenta o campo de alternativas do [ADR](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), que é a parte do registro em que se listam as opções consideradas, e o campo de revisão do ADR define um gatilho observável para reavaliar a escolha.
 
+Versões anteriores da disciplina usavam outra lista, a dos sete fatores, e os seis critérios acima a substituem. Quem encontrar a lista antiga pode convertê-la assim: os requisitos funcionais, não funcionais e arquiteturais, juntos, formam a aderência ao requisito, o conhecimento técnico do time corresponde à competência da equipe, os custos de aquisição e de renovação formam o custo total de propriedade e a confiabilidade do fornecedor corresponde ao suporte. A portabilidade é um critério que a lista antiga não tinha, e a facilidade de uso, que constava da lista antiga, deixou de ter critério correspondente na lista atual.
+
 ### Passo 5: proponha e registre a realização
 
 #### Exemplos de ABB para SBB na ACME
 
-Agora que o método de comparação está definido, os exemplos ficam concretos. A coluna SBB traz candidatos permitidos pelo recorte do modelo técnico de referência ou exemplos de realização que a equipe precisa avaliar. Ela não declara que um produto já foi escolhido.
+Agora que o método de comparação está definido, os exemplos ficam concretos, e a coluna SBB traz candidatos permitidos pelo recorte do modelo técnico de referência ou exemplos de realização que a equipe precisa avaliar, sem declarar que um produto já foi escolhido.
 
 | ABB, bloco lógico | SBB candidato | Por que esse candidato entra na comparação | Evidência que precisa decidir |
 | --- | --- | --- | --- |
@@ -168,7 +170,7 @@ O critério de portabilidade leva ao risco de [dependência de fornecedor](../re
 
 #### Veja o caminho completo na ACME
 
-O provedor de identidade é uma boa primeira escolha para treinar o método. A responsabilidade é autenticar e autorizar alunos, professores e equipe. O R8 exige OpenID Connect, o R14 limita o processamento de dados pessoais ao território nacional e a restrição de nuvem exige que a decisão possa funcionar nos dois provedores aprovados. Essas condições retiram da comparação qualquer candidata que não comprove atendimento.
+O provedor de identidade é uma boa primeira escolha para treinar o método. A responsabilidade é autenticar e autorizar alunos, professores e equipe. O R8 exige OpenID Connect, o R14 limita o processamento de dados pessoais ao território nacional e a restrição de nuvem exige que a decisão possa funcionar nos dois provedores aprovados, e por isso uma candidata que não comprove atendimento ao R8, ao R14 ou à restrição de nuvem sai da comparação.
 
 As candidatas que restarem, como Keycloak, Auth0 e Azure AD B2C, entram na matriz. Para cada uma, a equipe procura evidência de disponibilidade na matrícula, suporte, custo, competência para operar e portabilidade. O ADR registra a candidata escolhida, as descartadas, as evidências usadas e o fato que exigiria rever a decisão. O exercício 17 faz esse percurso com os dados disponíveis e deixa explícito o que ainda precisa ser levantado.
 
@@ -275,7 +277,7 @@ Você vai começar a comparação do serviço que confirma a identidade dos usu�
 | B: serviço contratado | Uma empresa terceira | Produto oferecido, contrato, locais de processamento e formas de exportação |
 | C: serviço da nuvem | O provedor de nuvem | Recursos disponíveis, locais de processamento, contrato e possibilidade de troca de provedor |
 
-Ainda não há informações suficientes para escolher uma vencedora. Seu trabalho é dizer o que precisa ser comprovado em cada alternativa e quais dados faltam. A forma de contratação, sozinha, não comprova o atendimento a um requisito.
+Ainda não há informações suficientes para escolher uma vencedora, e seu trabalho é dizer o que precisa ser comprovado em cada alternativa e quais dados faltam, porque a forma de contratação (instalado, contratado ou gerenciado) não serve de prova de que um requisito foi atendido.
 
 | Código | Requisito ou restrição | Origem |
 | --- | --- | --- |

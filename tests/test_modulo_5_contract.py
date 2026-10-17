@@ -24,7 +24,7 @@ BLOCKS = {
           "modulo-5-iac-e-etiquetas.svg",
           "modulo-5-tres-sinais-observabilidade.svg"), 18, ("7.5",)),
     B3: (("modulo-5-quatro-formas-seguranca.svg",
-          "modulo-5-grade-de-permissoes.svg",
+          "modulo-5-grade-de-permissoes-academica.svg",
           "modulo-5-tres-fronteiras-zona-de-pouso.svg",
           "modulo-5-fronteira-de-confianca-stride.svg",
           "modulo-5-autoridade-seguranca.svg"), 19, ("2.9", "4.6.7", "7.7")),
@@ -46,6 +46,12 @@ EXERCISE_ITEMS = {17: 3, 18: 3, 19: 3, 20: 4}
 GAP_TYPES = ("nova", "substituição", "modificação", "remoção")
 
 FORBIDDEN_IN_VISUALS = ("ACME", "COBOL", "CICS", "Oracle", "matrícula", "Matrícula")
+
+OTHER_SECTORS = re.compile(
+    r"hospital|cl[ií]nica|internet banking|banking|varejist|seguradora|transportadora|produtora"
+    r"|paciente|prontu[aá]rio|laborat[oó]rio de apoio|agendamento (de consultas|ambulatorial)",
+    re.IGNORECASE,
+)
 CONSTRUCTION_VERBS = ("Desenhe", "Monte", "Construa", "Modele", "Mapeie")
 FIRST_PERSON = ("Em sala", "percorremos", "ficam para leitura posterior")
 
@@ -199,13 +205,19 @@ class ModuleFiveStructureTest(unittest.TestCase):
                 self.assertNotIn("sete fatores", text)
                 self.assertNotIn("fatores de adaptação", text)
 
-    def test_case_names_are_in_portuguese(self):
-        for name in (B1, B3):
-            with self.subTest(page=name):
-                self.assertIn("Hospital ACME", read(name))
+    def test_every_example_stays_in_the_academic_system(self):
+        """Decisao de 17/10/2026: nenhum exemplo de hospital, clinica, banco ou outro setor."""
         for page in MODULE.glob("*.md"):
+            text = without_sources(page.read_text(encoding="utf-8"))
             with self.subTest(page=page.name):
-                self.assertNotIn("Fallowdale", without_sources(page.read_text(encoding="utf-8")))
+                self.assertNotIn("Fallowdale", text)
+                self.assertIsNone(OTHER_SECTORS.search(text), OTHER_SECTORS.search(text))
+
+    def test_security_review_example_is_the_student_record_update(self):
+        text = without_sources(read(B3))
+        self.assertIn("Revisão do cadastro do aluno da Universidade ACME", text)
+        self.assertIn("modulo-5-grade-de-permissoes-academica.svg", text)
+        self.assertNotIn("paciente", text.lower())
 
 
 class BlockOneTest(unittest.TestCase):
