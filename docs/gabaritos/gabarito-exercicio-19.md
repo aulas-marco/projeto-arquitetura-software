@@ -876,11 +876,13 @@ O quadro usa só o dado que o dossiê traz. O orçamento de R$ 6,2 milhões e o 
 | --- | --- |
 | Aderência ao requisito | Empate. As duas operam em um dos dois provedores de nuvem aprovados (R4), e o desempate quanto às 5.800 sessões simultâneas (R6) exige um teste de carga que o dossiê não registra |
 | Custo total de propriedade | Empate. O orçamento de R$ 6,2 milhões e o licenciamento Oracle por núcleos físicos pesam igualmente enquanto o banco compartilhado existir |
-| Competência da equipe | Microsserviços na variante Java, porque a camada web tem 9 pessoas em Java sem escassez, e o dossiê não registra experiência em Kafka nem em Kubernetes |
+| Competência da equipe | Microsserviços na variante Java, porque a camada web tem 9 pessoas em Java sem escassez, e o dossiê não registra experiência em Kafka nem em Kubernetes, e sem dado de competência em Python ou em TypeScript |
 | Portabilidade | Empate. Kafka, Kubernetes e OpenID Connect são abertos, e as decisões precisam ser portáveis entre os dois provedores pré-aprovados |
 | Maturidade e suporte | Sem valor. Falta saber há quanto tempo cada plataforma está em produção e quem responde por falhas, o que o fornecedor de cada produto, a comunidade ou a equipe de plataforma pode informar |
 
 A plataforma escolhida é a de microsserviços na variante Java, porque os serviços de matrícula e de notas acessam o núcleo pelas transações CICS existentes, sem alterar programa COBOL, convivem com o Oracle compartilhado e com os lotes noturnos durante o primeiro ciclo e aproveitam a competência Java já existente. A escolha da plataforma orientada a eventos também é aceita quando a justificativa cita a convivência com os lotes e a publicação da nota em até 10 minutos exigida pelo R7.
+
+Os produtos que realizam blocos do catálogo vêm da tabela de ABB para SBB do bloco 1 da Aula 5. Na variante Java, o Spring Boot realiza o serviço de matrícula e o de notas, e o Kafka realiza o evento de nota. O FastAPI e o NestJS, aprovados na mesma linha de exposição de serviços, ficam fora da escolha porque o dossiê registra 9 pessoas em Java e traz competência em Python ou em TypeScript apenas como dado ausente, o que pesa no critério de competência da equipe. O RabbitMQ continua como alternativa para o evento de nota, porque o dossiê não traz dado de volume, de retenção ou de reentrega que o distinga do Kafka, e a escolha do Kafka decorre da plataforma e precisa de confirmação em prova de conceito. O Keycloak aparece entre as ferramentas da variante, mas o provedor de identidade segue aberto entre A, B e C, como no exercício 17. Kubernetes, Docker, Prometheus, Grafana e as demais ferramentas compõem a plataforma do bloco 2 e ficam fora do catálogo, e a observabilidade do catálogo tem como candidato os coletores compatíveis com OpenTelemetry.
 
 #### Zona de pouso: pilares, etiquetas e requisito
 
