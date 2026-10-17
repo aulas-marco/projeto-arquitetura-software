@@ -409,7 +409,7 @@ Você escreve:
 | --- | --- |
 | Para que serve | Só depois de tomadas as decisões estruturais faz sentido escolher a tecnologia. Esta seção mostra com que produtos e plataforma a solução será construída e como ela será protegida contra ameaças. |
 | Pergunta que responde | Que produtos e que plataforma atendem às decisões já tomadas, e que riscos de segurança precisam de resposta? |
-| O que você escreve | Você lista as tecnologias aprovadas, proibidas e em avaliação e compara as alternativas por seis critérios. Depois registra a plataforma e a zona de pouso escolhidas, que é a base em nuvem onde a solução roda, classifica os dados por sensibilidade e relaciona cada ameaça de segurança aos controles contra ela. A seção termina com o registro da decisão sobre a plataforma. |
+| O que você escreve | Você lista as tecnologias aprovadas, proibidas e em avaliação e compara as alternativas por seis critérios. Depois registra a plataforma e a zona de pouso escolhidas, que é a base em nuvem onde a solução roda, classifica os dados por sensibilidade, relaciona cada ameaça de segurança aos controles contra ela e registra, para cada controle, quem o executa e como se verifica. A seção termina com o registro da decisão sobre a plataforma. |
 | Vem de onde | Das seções 5 e 7, porque o desenho e as decisões já tomadas mostram o que a tecnologia precisa fazer. |
 | Quando se preenche | Você preenche esta seção na Aula 5, nos exercícios 17, 18, 19 e 20. |
 
@@ -455,6 +455,9 @@ Você escreve:
 - **Categoria STRIDE da ameaça:** classifique cada ameaça, de T1 a T6, em uma das seis categorias do STRIDE, modelo que classifica ameaças em falsificação, adulteração, repúdio, divulgação de informação, negação de serviço e elevação de privilégio.
 - **Controle da ameaça:** associe a cada ameaça a letra do controle que a trata.
 - **Controle que também atende ao R9:** indique qual dos seis controles também atende ao requisito de trilha de auditoria (R9).
+- **Decisão de segurança:** escreva em uma linha o que cada uma das cinco decisões, de D1 a D5, estabelece, usando as respostas dos itens 1 a 3.
+- **Quem executa a decisão:** indique, para cada decisão, a equipe ou o papel que a executa, e os dois quando a execução se divide.
+- **Como se verifica a decisão:** escreva em uma linha o teste ou a evidência que mostra o cumprimento de cada decisão.
 
 ### 8.4 ADR de plataforma e lacunas de provisão
 

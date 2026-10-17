@@ -10,7 +10,7 @@ Ao final da aula, o aluno é capaz de
 - classificar tecnologias em verde, âmbar e vermelho e escolher entre alternativas aprovadas pelos seis critérios de seleção
 - distinguir plataforma arquitetural de framework e relacionar a plataforma ao estilo escolhido na Aula 3
 - descrever os pilares de uma zona de pouso em nuvem e as etiquetas obrigatórias
-- classificar ativos de dado pela LGPD, corrigir uma grade de permissões e associar ameaças às categorias STRIDE
+- classificar ativos de dado pela LGPD, corrigir uma grade de permissões, associar ameaças às categorias STRIDE e registrar as decisões de segurança com executor e verificação
 - classificar lacunas de provisão de serviço em nova, substituição, modificação ou remoção
 
 ## Grade de tempo
@@ -41,7 +41,7 @@ O [bloco 1](bloco-1-definicao-tecnologica-e-trm.md) responde à primeira dúvida
 
 Com os produtos definidos, surge a pergunta sobre a plataforma, e o [bloco 2](bloco-2-plataforma-arquitetural.md) define plataforma arquitetural como a concretização de um estilo, apresenta quatro exemplos de plataforma por estilo e trata a zona de pouso como a fundação em nuvem da plataforma, com os cinco pilares, a infraestrutura como código, as etiquetas obrigatórias e a observabilidade. No exercício 18, o aluno escolhe, em três itens, duas plataformas candidatas para o estilo do exercício 10, monta o quadro comparativo pelos seis critérios sobre dados do dossiê e lê um diagrama de zona de pouso quanto aos pilares, às etiquetas que faltam em seis recursos e ao requisito que justifica a conta de segurança e registros.
 
-Escolhidas a plataforma e a zona de pouso, a ACME precisa saber se o conjunto protege os dados dos alunos, e o [bloco 3](bloco-3-seguranca-fim-a-fim.md), Segurança fim a fim, trata a segurança como passo final da definição tecnológica, com a classificação de ativos pelos três atributos de confidencialidade, integridade e disponibilidade, com nível para cada ativo, e pela LGPD, a grade de permissões e o menor privilégio, os controles da zona de pouso, a fronteira de confiança com as seis categorias STRIDE e a autoridade de design de segurança. No exercício 19, o aluno classifica, em três itens, seis ativos de dado, identifica as células de uma grade de permissões que violam o menor privilégio e associa seis ameaças à fronteira do aplicativo do aluno a categorias STRIDE e a controles.
+Escolhidas a plataforma e a zona de pouso, a ACME precisa saber se o conjunto protege os dados dos alunos, e o [bloco 3](bloco-3-seguranca-fim-a-fim.md), Segurança fim a fim, trata a segurança como passo final da definição tecnológica, com a classificação de ativos pelos três atributos de confidencialidade, integridade e disponibilidade, com nível para cada ativo, e pela LGPD, a grade de permissões e o menor privilégio, a fronteira de confiança com as seis categorias STRIDE, os controles da zona de pouso e o registro de decisões de segurança, que reúne o que o arquiteto decide, quem executa cada decisão e como se verifica. No exercício 19, o aluno classifica, em quatro itens, seis ativos de dado, identifica as células de uma grade de permissões que violam o menor privilégio, associa seis ameaças à fronteira do aplicativo do aluno a categorias STRIDE e a controles e consolida esses achados em cinco decisões de segurança, com executor e verificação.
 
 Por fim, a decisão precisa ficar registrada para quem chegar depois, e o [bloco 4](bloco-4-adr-de-plataforma.md) apresenta o ADR de plataforma como segundo registro do par iniciado na Aula 3, as seis dimensões de dependência de fornecedor, a classificação das lacunas de provisão em quatro tipos e a validação da definição tecnológica com as partes interessadas. O exercício 20 pede, em quatro itens, o encadeamento do ADR com o ADR de estilo, as forças e a dependência de fornecedor, as consequências, as evidências e o gatilho de revisão, e a classificação de seis itens da definição tecnológica considerada como lacuna nova, substituição, modificação ou remoção.
 
@@ -57,7 +57,7 @@ Ao fim da Aula 4, o caderno da ACME já dizia o que a universidade quer construi
 | --- | --- | --- | --- |
 | 1 | 17 | A linha do modelo técnico de cada contêiner novo, a cor de cada uma das seis tecnologias da linha de base e a matriz de seleção do provedor de identidade | [Gabarito 17](../gabaritos/gabarito-exercicio-17.md) |
 | 2 | 18 | As duas plataformas candidatas com o quadro de seis critérios, a plataforma escolhida, o pilar de cada elemento da zona de pouso e as etiquetas que faltam | [Gabarito 18](../gabaritos/gabarito-exercicio-18.md) |
-| 3 | 19 | A classificação dos seis ativos de dado pela LGPD, a grade de permissões corrigida e as seis ameaças (T1 a T6) com categoria STRIDE e controle | [Gabarito 19](../gabaritos/gabarito-exercicio-19.md) |
+| 3 | 19 | A classificação dos seis ativos de dado pela LGPD, a grade de permissões corrigida, as seis ameaças (T1 a T6) com categoria STRIDE e controle e as cinco decisões de segurança com executor e verificação | [Gabarito 19](../gabaritos/gabarito-exercicio-19.md) |
 | 4 | 20 | O ADR de plataforma, com os dez campos, e o tipo de cada uma das seis lacunas de provisão | [Gabarito 20](../gabaritos/gabarito-exercicio-20.md) |
 
 ## Preparação para a Aula 6

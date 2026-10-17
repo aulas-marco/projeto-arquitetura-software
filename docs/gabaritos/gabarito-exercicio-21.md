@@ -983,6 +983,18 @@ Cada ameaça pertence a uma categoria do STRIDE e é tratada por um dos seis con
 
 O controle que também atende ao requisito de trilha de auditoria (R9) é o (e), registro de auditoria imutável, porque ele guarda o autor e o horário de cada acesso. A retenção de 5 anos exigida pelo R9 é um parâmetro a configurar nesse controle.
 
+#### Registro de decisões de segurança
+
+Cada decisão consolida um achado dos itens 1 a 3, nomeia quem a executa e diz como a equipe verifica o cumprimento. As redações abaixo são de referência, e qualquer texto que cite o controle correto, o executor e uma verificação observável é aceito.
+
+| Decisão | O que estabelece | Quem executa | Como se verifica |
+| --- | --- | --- | --- |
+| D1 | Conferir no contrato do fornecedor do ambiente virtual a região em que a nota consolidada é processada e exigir território nacional (R14) | Jurídico e encarregada de proteção de dados | Cláusula de região nacional no contrato e declaração de região do fornecedor arquivada |
+| D2 | Corrigir a grade: o aluno lê somente a própria nota consolidada, o professor lê a matrícula só das turmas que leciona e o ambiente virtual lê a nota consolidada sem gravar | Equipe de solução, nos serviços | Testes automatizados em que o aluno e o ambiente virtual tentam gravar nota e o professor tenta ler a matrícula de turma alheia, todos recusados |
+| D3 | Autenticar o aluno por OpenID Connect no provedor de identidade aprovado, conforme o R8 | Equipe de infraestrutura configura o provedor, e a equipe de solução integra o aplicativo | Chamada ao serviço sem credencial válida é recusada, e a configuração do provedor mostra o padrão OpenID Connect |
+| D4 | Cifrar toda chamada entre o aplicativo e o serviço e aplicar limite de taxa por cliente, com reserva de capacidade, no ponto de entrada | Equipe de infraestrutura | Captura de tráfego sem conteúdo legível e teste de carga em que um cliente excede o limite e é recusado sem degradar as demais sessões |
+| D5 | Registrar autor e horário de cada acesso a dado pessoal em registro imutável, com retenção de 5 anos, guardado fora da conta de produção | Equipe de solução emite o registro, e a equipe de infraestrutura o guarda | Consulta de auditoria que recupera quem leu um dado e quando, e retenção de 5 anos na configuração do registro |
+
 ### 8.4 ADR de plataforma e lacunas de provisão
 
 #### ADR de plataforma

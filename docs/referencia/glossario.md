@@ -274,9 +274,9 @@ Base do ambiente em nuvem, preparada antes da primeira carga de trabalho, para q
 
 Descrição da infraestrutura em arquivos declarativos, versionados e revisados como o código da aplicação, de modo que o ambiente possa ser recriado a partir da descrição.
 
-## Autoridade de design de segurança
+## Registro de decisões de segurança
 
-Grupo que decide sobre os aspectos de segurança de todas as soluções da organização. Avalia cada desenho por dois testes: a conformidade com as diretivas de segurança adotadas e o teste de vulnerabilidade contra catálogos de ameaças e de fraquezas conhecidas.
+Tabela com uma linha por decisão de segurança da solução, com código, decisão, motivo, quem executa e como se verifica. O arquiteto de solução a produz ao fim da análise de segurança, e as equipes de solução e de infraestrutura e a revisão de segurança a usam como lista de trabalho.
 
 ## Dado pessoal sensível
 

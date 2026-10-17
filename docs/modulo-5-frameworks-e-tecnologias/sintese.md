@@ -13,9 +13,9 @@ Depois de cinco exercícios encadeados, o aluno tem a definição tecnológica d
 - A [dependência de fornecedor](../referencia/glossario.md#dependencia-de-fornecedor) em suas seis dimensões e o par de registros formado pelo ADR de estilo e pelo ADR de plataforma, com referência cruzada
 - A classificação dos ativos de dado por confidencialidade, integridade e disponibilidade e pela LGPD, com a distinção entre [dado pessoal sensível](../referencia/glossario.md#dado-pessoal-sensivel) e dado pessoal
 - A [grade de permissões](../referencia/glossario.md#grade-de-permissoes) preenchida pelo [menor privilégio](../referencia/glossario.md#menor-privilegio), com o tipo de acesso, a condição e o nível de segurança de cada recurso
-- A [fronteira de confiança](../referencia/glossario.md#fronteira-de-confianca), as seis categorias do [STRIDE](../referencia/glossario.md#stride) com a propriedade que cada uma viola e o controle típico, e os dois testes da [autoridade de design de segurança](../referencia/glossario.md#autoridade-de-design-de-seguranca)
+- A [fronteira de confiança](../referencia/glossario.md#fronteira-de-confianca), as seis categorias do [STRIDE](../referencia/glossario.md#stride) com a propriedade que cada uma viola e o controle típico, e o [registro de decisões de segurança](../referencia/glossario.md#registro-de-decisoes-de-seguranca), com decisão, motivo, quem executa e como se verifica, revisado pela segurança contra as diretivas e o OWASP Top 10
 - Os quatro tipos de lacuna de provisão, nova, substituição, modificação e remoção, a estimativa de tamanho, custo, recurso e tempo de cada uma e a entrada das lacunas confirmadas no roteiro de entrega da Aula 6
-- O estado do caderno ao fim da aula: a seção 8 preenchida, com o modelo técnico aplicado aos contêineres, a plataforma e a zona de pouso, a segurança dos dados e o ADR de plataforma, pronta para a análise de lacunas e o roteiro de entrega da Aula 6
+- O estado do caderno ao fim da aula: a seção 8 preenchida, com o modelo técnico aplicado aos contêineres, a plataforma e a zona de pouso, as decisões de segurança dos dados e o ADR de plataforma, pronta para a análise de lacunas e o roteiro de entrega da Aula 6
 
 ## Cadeia da definição tecnológica
 
@@ -24,7 +24,7 @@ A aula converte o desenho lógico em tecnologia por uma cadeia de cinco produtos
 1. O diagrama de contêineres do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16), recebido da Aula 4, mostra as partes executáveis da solução nova, como o serviço de matrícula e o banco do serviço de notas, com as relações rotuladas por modo de comunicação, volume e latência, e os contêineres novos ainda com o rótulo tecnologia a definir.
 2. O [exercício 17](bloco-1-definicao-tecnologica-e-trm.md#exercicio-17) associa os contêineres às categorias do modelo técnico de referência, classifica seis tecnologias da linha de base em verde, âmbar ou vermelho e preenche a parte da matriz de seleção do provedor de identidade que o dossiê permite.
 3. O [exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) escolhe a plataforma para o estilo do exercício 10 pelo quadro comparativo dos seis critérios e avalia a zona de pouso quanto aos pilares e às etiquetas obrigatórias.
-4. O [exercício 19](bloco-3-seguranca-fim-a-fim.md#exercicio-19) classifica os ativos de dado pela LGPD, corrige a grade de permissões pelo menor privilégio e associa as ameaças da fronteira do aplicativo do aluno às categorias STRIDE e aos controles.
+4. O [exercício 19](bloco-3-seguranca-fim-a-fim.md#exercicio-19) classifica os ativos de dado pela LGPD, corrige a grade de permissões pelo menor privilégio, associa as ameaças da fronteira do aplicativo do aluno às categorias STRIDE e aos controles e consolida os achados em cinco decisões de segurança, com executor e verificação.
 5. O [exercício 20](bloco-4-adr-de-plataforma.md#exercicio-20) registra a plataforma em ADR encadeado ao ADR de estilo, com as consequências que os achados de segurança trazem, e classifica as lacunas de provisão da definição tecnológica considerada.
 
 As lacunas classificadas no exercício 20 são a entrada que a análise de lacunas e o roteiro de entrega da Aula 6 recebem, e cada uma delas pode ser rastreada até uma exigência registrada nos exercícios 16 a 19.
@@ -36,7 +36,7 @@ As perguntas abaixo servem para o aluno conferir o que ficou antes da Aula 6. El
 1. Dado um bloco de construção, é possível indicar o requisito de serviço de infraestrutura, o serviço do catálogo e a categoria do modelo técnico de referência que o realizam, e o que se registra quando o catálogo não traz o serviço.
 2. Dadas duas alternativas aprovadas para a mesma categoria, é possível montar a matriz dos seis critérios com o dado que sustenta cada célula e declarar a restrição que elimina uma das alternativas.
 3. Dado um estilo arquitetural, é possível indicar duas plataformas que o concretizam, nomear as ferramentas de cada uma e apontar a dependência de fornecedor que a escolha cria.
-4. Dada uma grade de permissões, é possível apontar as células que violam o menor privilégio, e dada uma ameaça numa fronteira de confiança, é possível indicar a categoria STRIDE e o controle que a trata.
+4. Dada uma grade de permissões, é possível apontar as células que violam o menor privilégio, dada uma ameaça numa fronteira de confiança, é possível indicar a categoria STRIDE e o controle que a trata, e dado esse controle, é possível registrar quem o executa e como se verifica.
 5. Dado um item da definição tecnológica e a situação dele no catálogo atual, é possível classificar a lacuna em nova, substituição, modificação ou remoção e justificar com o dado da situação.
 
 ## Fontes da aula

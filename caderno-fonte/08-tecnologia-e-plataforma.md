@@ -8,7 +8,7 @@ modo: acumula
 | --- | --- |
 | Para que serve | Só depois de tomadas as decisões estruturais faz sentido escolher a tecnologia. Esta seção mostra com que produtos e plataforma a solução será construída e como ela será protegida contra ameaças. |
 | Pergunta que responde | Que produtos e que plataforma atendem às decisões já tomadas, e que riscos de segurança precisam de resposta? |
-| O que você escreve | Você lista as tecnologias aprovadas, proibidas e em avaliação e compara as alternativas por seis critérios. Depois registra a plataforma e a zona de pouso escolhidas, que é a base em nuvem onde a solução roda, classifica os dados por sensibilidade e relaciona cada ameaça de segurança aos controles contra ela. A seção termina com o registro da decisão sobre a plataforma. |
+| O que você escreve | Você lista as tecnologias aprovadas, proibidas e em avaliação e compara as alternativas por seis critérios. Depois registra a plataforma e a zona de pouso escolhidas, que é a base em nuvem onde a solução roda, classifica os dados por sensibilidade, relaciona cada ameaça de segurança aos controles contra ela e registra, para cada controle, quem o executa e como se verifica. A seção termina com o registro da decisão sobre a plataforma. |
 | Vem de onde | Das seções 5 e 7, porque o desenho e as decisões já tomadas mostram o que a tecnologia precisa fazer. |
 | Quando se preenche | Você preenche esta seção na Aula 5, nos exercícios 17, 18, 19 e 20. |
 <!--/orientacao-->
@@ -163,6 +163,9 @@ A conta de segurança e registros existe por causa do requisito R9, que exige tr
 - **Categoria STRIDE da ameaça:** classifique cada ameaça, de T1 a T6, em uma das seis categorias do STRIDE, modelo que classifica ameaças em falsificação, adulteração, repúdio, divulgação de informação, negação de serviço e elevação de privilégio.
 - **Controle da ameaça:** associe a cada ameaça a letra do controle que a trata.
 - **Controle que também atende ao R9:** indique qual dos seis controles também atende ao requisito de trilha de auditoria (R9).
+- **Decisão de segurança:** escreva em uma linha o que cada uma das cinco decisões, de D1 a D5, estabelece, usando as respostas dos itens 1 a 3.
+- **Quem executa a decisão:** indique, para cada decisão, a equipe ou o papel que a executa, e os dois quando a execução se divide.
+- **Como se verifica a decisão:** escreva em uma linha o teste ou a evidência que mostra o cumprimento de cada decisão.
 <!--/campos-->
 <!--gabarito-->
 #### Classificação dos ativos de dado
@@ -204,6 +207,18 @@ Cada ameaça pertence a uma categoria do STRIDE e é tratada por um dos seis con
 | T6, lista de turmas alterada no caminho | Adulteração | (f) assinatura e verificação de integridade |
 
 O controle que também atende ao requisito de trilha de auditoria (R9) é o (e), registro de auditoria imutável, porque ele guarda o autor e o horário de cada acesso. A retenção de 5 anos exigida pelo R9 é um parâmetro a configurar nesse controle.
+
+#### Registro de decisões de segurança
+
+Cada decisão consolida um achado dos itens 1 a 3, nomeia quem a executa e diz como a equipe verifica o cumprimento. As redações abaixo são de referência, e qualquer texto que cite o controle correto, o executor e uma verificação observável é aceito.
+
+| Decisão | O que estabelece | Quem executa | Como se verifica |
+| --- | --- | --- | --- |
+| D1 | Conferir no contrato do fornecedor do ambiente virtual a região em que a nota consolidada é processada e exigir território nacional (R14) | Jurídico e encarregada de proteção de dados | Cláusula de região nacional no contrato e declaração de região do fornecedor arquivada |
+| D2 | Corrigir a grade: o aluno lê somente a própria nota consolidada, o professor lê a matrícula só das turmas que leciona e o ambiente virtual lê a nota consolidada sem gravar | Equipe de solução, nos serviços | Testes automatizados em que o aluno e o ambiente virtual tentam gravar nota e o professor tenta ler a matrícula de turma alheia, todos recusados |
+| D3 | Autenticar o aluno por OpenID Connect no provedor de identidade aprovado, conforme o R8 | Equipe de infraestrutura configura o provedor, e a equipe de solução integra o aplicativo | Chamada ao serviço sem credencial válida é recusada, e a configuração do provedor mostra o padrão OpenID Connect |
+| D4 | Cifrar toda chamada entre o aplicativo e o serviço e aplicar limite de taxa por cliente, com reserva de capacidade, no ponto de entrada | Equipe de infraestrutura | Captura de tráfego sem conteúdo legível e teste de carga em que um cliente excede o limite e é recusado sem degradar as demais sessões |
+| D5 | Registrar autor e horário de cada acesso a dado pessoal em registro imutável, com retenção de 5 anos, guardado fora da conta de produção | Equipe de solução emite o registro, e a equipe de infraestrutura o guarda | Consulta de auditoria que recupera quem leu um dado e quando, e retenção de 5 anos na configuração do registro |
 <!--/gabarito-->
 <!--/ex-->
 

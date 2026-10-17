@@ -24,10 +24,10 @@ BLOCKS = {
           "modulo-5-iac-e-etiquetas.svg",
           "modulo-5-tres-sinais-observabilidade.svg"), 18, ("7.5",)),
     B3: (("modulo-5-quatro-formas-seguranca.svg",
+          "modulo-5-passos-decisoes-seguranca.svg",
           "modulo-5-grade-de-permissoes-academica.svg",
-          "modulo-5-tres-fronteiras-zona-de-pouso.svg",
           "modulo-5-fronteira-de-confianca-stride.svg",
-          "modulo-5-autoridade-seguranca.svg"), 19, ("2.9", "4.6.7", "7.7")),
+          "modulo-5-tres-fronteiras-zona-de-pouso.svg"), 19, ("2.9", "4.6.7", "7.7")),
     B4: (("modulo-5-campos-do-adr.svg",
           "modulo-5-seis-dimensoes-fornecedor.svg",
           "modulo-5-par-de-adrs.svg",
@@ -41,7 +41,7 @@ STRIDE = ("falsificação de identidade", "adulteração", "repúdio",
           "divulgação de informação", "negação de serviço", "elevação de privilégio")
 
 # Numero de itens `### Item N:` e blocos mermaid minimos de cada exercicio publicado.
-EXERCISE_ITEMS = {17: 3, 18: 3, 19: 3, 20: 4}
+EXERCISE_ITEMS = {17: 3, 18: 3, 19: 4, 20: 4}
 
 GAP_TYPES = ("nova", "substituição", "modificação", "remoção")
 
@@ -70,7 +70,7 @@ GLOSSARY_HEADINGS = (
     "Modelo técnico de referência", "Definição tecnológica da solução",
     "Lacuna de provisão", "Zona de pouso", "Infraestrutura como código",
     "Grade de permissões", "Menor privilégio", "Fronteira de confiança",
-    "STRIDE", "Autoridade de design de segurança", "Dado pessoal sensível",
+    "STRIDE", "Registro de decisões de segurança", "Dado pessoal sensível",
 )
 
 
@@ -409,7 +409,8 @@ class BlockThreeTest(unittest.TestCase):
                      "lei geral de proteção de dados", "dado pessoal sensível",
                      "base legal", "transferência internacional", "menor privilégio",
                      "grade de permissões", "fronteira de confiança", "stride",
-                     "autoridade de design de segurança", "iso/iec 27001", "owasp", "cwe", "raci"):
+                     "registro de decisões de segurança", "quem executa", "como se verifica",
+                     "iso/iec 27001", "owasp", "cwe"):
             with self.subTest(term=term):
                 self.assertIn(term, body)
 
@@ -432,9 +433,30 @@ class BlockThreeTest(unittest.TestCase):
         for fact in ("R9", "R14", "LGPD", "STRIDE"):
             with self.subTest(fact=fact):
                 self.assertIn(fact, ex)
-        for number in (1, 2, 3):
+        for number in (1, 2, 3, 4):
             with self.subTest(item=number):
                 self.assertTrue(item(ex, number))
+
+    def test_block_3_has_no_security_design_authority_and_ends_in_the_register(self):
+        for name in (B3, "index.md", "sintese.md"):
+            with self.subTest(page=name):
+                self.assertNotRegex(read(name).lower(), r"autoridade de design de seguran|\braci\b")
+        body = concept(read(B3))
+        for step in range(1, 6):
+            with self.subTest(step=step):
+                self.assertRegex(body, rf"(?m)^### Passo {step}: ")
+        for code in ("DS1", "DS2", "DS3", "DS4", "DS5"):
+            with self.subTest(code=code):
+                self.assertRegex(body, rf"(?m)^\| {code} \|")
+
+    def test_exercise_19_item_4_consolidates_five_decisions(self):
+        item4 = item(section(read(B3), "Exercício 19"), 4)
+        for code in ("D1", "D2", "D3", "D4", "D5"):
+            with self.subTest(code=code):
+                self.assertRegex(item4, rf"(?m)^\| {code} \|")
+        for phrase in ("quem executa", "teste ou a evidência"):
+            with self.subTest(phrase=phrase):
+                self.assertIn(phrase, item4)
 
     def test_exercise_19_stride_artifact_does_not_name_the_category(self):
         item3 = item(section(read(B3), "Exercício 19"), 3)

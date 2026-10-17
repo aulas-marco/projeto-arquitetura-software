@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 900" role="img" aria-labelledby="title desc">
+  <title id="title">Cinco passos até o registro de decisões de segurança</title>
+  <desc id="desc">Sequência de cinco passos, classificar os ativos, definir quem acessa, examinar as fronteiras, conferir a fundação e registrar e revisar, cada um com a pergunta que responde. O resultado é o registro de decisões de segurança, com decisão, motivo, quem executa e como se verifica.</desc>
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#254DB8"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="900" rx="28" fill="#F2F6FB"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" fill="#16243A">
+    <text x="24" y="46" style="font-size:26px;font-weight:700">Cinco passos até as decisões de segurança</text>
+
+    <rect x="24" y="76" width="952" height="96" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="82" cy="124" r="28" fill="#254DB8"/>
+    <text x="82" y="134" text-anchor="middle" style="font-size:28px;font-weight:700" fill="#FFFFFF">1</text>
+    <text x="136" y="116" style="font-size:24px;font-weight:700">Classificar os ativos</text>
+    <text x="136" y="150" style="font-size:21px">Quão sensível é cada dado e onde ele pode ser processado?</text>
+    <line x1="500" y1="172" x2="500" y2="202" stroke="#254DB8" stroke-width="4" marker-end="url(#seta)"/>
+
+    <rect x="24" y="206" width="952" height="96" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="82" cy="254" r="28" fill="#254DB8"/>
+    <text x="82" y="264" text-anchor="middle" style="font-size:28px;font-weight:700" fill="#FFFFFF">2</text>
+    <text x="136" y="246" style="font-size:24px;font-weight:700">Definir quem acessa</text>
+    <text x="136" y="280" style="font-size:21px">Quem lê e quem grava cada recurso, com o menor privilégio?</text>
+    <line x1="500" y1="302" x2="500" y2="332" stroke="#254DB8" stroke-width="4" marker-end="url(#seta)"/>
+
+    <rect x="24" y="336" width="952" height="96" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="82" cy="384" r="28" fill="#254DB8"/>
+    <text x="82" y="394" text-anchor="middle" style="font-size:28px;font-weight:700" fill="#FFFFFF">3</text>
+    <text x="136" y="376" style="font-size:24px;font-weight:700">Examinar as fronteiras</text>
+    <text x="136" y="410" style="font-size:21px">Que ataques cada travessia sofre e que controle responde a cada um?</text>
+    <line x1="500" y1="432" x2="500" y2="462" stroke="#254DB8" stroke-width="4" marker-end="url(#seta)"/>
+
+    <rect x="24" y="466" width="952" height="96" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="82" cy="514" r="28" fill="#254DB8"/>
+    <text x="82" y="524" text-anchor="middle" style="font-size:28px;font-weight:700" fill="#FFFFFF">4</text>
+    <text x="136" y="506" style="font-size:24px;font-weight:700">Conferir a fundação</text>
+    <text x="136" y="540" style="font-size:21px">Os controles escolhidos existem na zona de pouso e no catálogo?</text>
+    <line x1="500" y1="562" x2="500" y2="592" stroke="#254DB8" stroke-width="4" marker-end="url(#seta)"/>
+
+    <rect x="24" y="596" width="952" height="96" rx="16" fill="#FFFFFF" stroke="#254DB8" stroke-width="3"/>
+    <circle cx="82" cy="644" r="28" fill="#254DB8"/>
+    <text x="82" y="654" text-anchor="middle" style="font-size:28px;font-weight:700" fill="#FFFFFF">5</text>
+    <text x="136" y="636" style="font-size:24px;font-weight:700">Registrar e revisar</text>
+    <text x="136" y="670" style="font-size:21px">Quem executa cada decisão, como se verifica e o que a revisão aponta?</text>
+    <line x1="500" y1="692" x2="500" y2="722" stroke="#254DB8" stroke-width="4" marker-end="url(#seta)"/>
+
+    <rect x="24" y="726" width="952" height="150" rx="16" fill="#FFF7E6" stroke="#F2B84B" stroke-width="4"/>
+    <text x="48" y="762" style="font-size:21px;font-weight:700" fill="#254DB8">Saída</text>
+    <text x="48" y="802" style="font-size:25px;font-weight:700">Registro de decisões de segurança</text>
+    <text x="48" y="842" style="font-size:21px">uma linha por decisão: decisão, motivo, quem executa e como se verifica</text>
+  </g>
+</svg>

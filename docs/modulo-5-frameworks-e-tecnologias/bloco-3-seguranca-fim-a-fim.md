@@ -1,6 +1,6 @@
 # Segurança fim a fim
 
-A ACME já escolheu produtos, plataforma e zona de pouso. Ainda falta verificar se esse conjunto protege o que precisa ser protegido. É preciso decidir, por exemplo, quão sensível é o dado pessoal gravado no banco, quem pode lê-lo e como proteger uma chamada que atravessa a rede. Dados e chamadas são ativos, isto é, itens de valor para a organização. Este bloco apresenta a classificação de ativos, a grade de permissões, a fronteira de confiança, o STRIDE e a autoridade de design de segurança. O exercício 19 aplica essas ferramentas à ACME.
+A ACME já escolheu produtos, plataforma e zona de pouso, e o sistema novo vai guardar a nota, o histórico escolar e o CPF de 38.400 alunos. Antes da implementação, o arquiteto de solução precisa deixar registrado, em decisões que as equipes consigam executar, quão sensível é cada dado, quem pode lê-lo ou gravá-lo, o que protege cada chamada que atravessa a rede e em que lugar cada controle será implantado. Dados e chamadas são ativos, isto é, itens de valor para a organização. Este bloco apresenta cinco passos que levam a essas decisões, com a ferramenta de cada passo, e termina no registro de decisões de segurança, o artefato que o arquiteto entrega às equipes e à revisão de segurança. O exercício 19 aplica os passos à ACME.
 
 ## Antes de começar
 
@@ -8,28 +8,34 @@ A ACME já escolheu produtos, plataforma e zona de pouso. Ainda falta verificar 
 - [Fronteira de confiança](../referencia/glossario.md#fronteira-de-confianca)
 - [Grade de permissões](../referencia/glossario.md#grade-de-permissoes)
 - [STRIDE](../referencia/glossario.md#stride)
-- [Autoridade de design de segurança](../referencia/glossario.md#autoridade-de-design-de-seguranca)
+- [Registro de decisões de segurança](../referencia/glossario.md#registro-de-decisoes-de-seguranca)
 - [Dado pessoal sensível](../referencia/glossario.md#dado-pessoal-sensivel)
 - [Zona de pouso](../referencia/glossario.md#zona-de-pouso)
 
-## Segurança como passo da definição tecnológica
+## O que cabe ao arquiteto de solução
 
-A definição tecnológica apresentada no [bloco 1](bloco-1-definicao-tecnologica-e-trm.md) termina com um passo dedicado à segurança da solução de ponta a ponta, que examina o desenho inteiro depois que produtos, plataforma e zona de pouso já foram escolhidos. Esse passo consulta especialistas de fora da equipe de solução, porque as ameaças mudam com frequência e o conhecimento necessário para avaliá-las exige atualização constante.
+A definição tecnológica apresentada no [bloco 1](bloco-1-definicao-tecnologica-e-trm.md) termina com um passo dedicado à segurança da solução de ponta a ponta, que examina o desenho inteiro depois que produtos, plataforma e zona de pouso já foram escolhidos. Quando a ACME passa a guardar a nota de um aluno num sistema novo, duas preocupações aparecem nesse passo. A **segurança da informação** protege todos os ativos de informação da organização, em papel ou em meio digital, e a cibersegurança é a parte dela voltada a proteger os sistemas computacionais contra acesso não autorizado, dano ou indisponibilidade provocada por terceiros mal-intencionados. Toda solução que trata dados de alunos ou professores precisa das duas, e a cibersegurança aparece no desenho como proteção contra ataque a cada componente exposto.
 
-### Segurança da informação e arquitetura de segurança
-
-Quando a ACME passa a guardar a nota de um aluno num sistema novo, duas preocupações aparecem juntas. A **segurança da informação** protege todos os ativos de informação da organização, em papel ou em meio digital, e a cibersegurança é a parte dela voltada a proteger os sistemas computacionais contra acesso não autorizado, dano ou indisponibilidade provocada por terceiros mal-intencionados. Toda solução que trata dados de alunos ou professores precisa das duas, e a cibersegurança aparece no desenho como proteção contra ataque a cada componente exposto.
-
-Dentro da organização, esse trabalho se divide em dois domínios. A arquitetura de segurança incorpora o desenho de segurança a toda a organização e persegue os quatro objetivos mínimos da lista abaixo. As operações de segurança cuidam do dia a dia, com auditoria, testes, manutenção de componentes de infraestrutura e tratamento de incidentes, e a arquitetura cuida da mudança, garantindo que um componente, uma aplicação ou uma solução nova não comprometa a segurança por desenho inadequado.
+Dentro da organização, o trabalho de segurança se divide em dois domínios. As operações de segurança cuidam do dia a dia, com auditoria, testes, manutenção de componentes de infraestrutura e tratamento de incidentes. A arquitetura de segurança cuida da mudança, garantindo que um componente, uma aplicação ou uma solução nova não comprometa a segurança por desenho inadequado, e persegue os quatro objetivos da lista abaixo. Na solução, quem traduz esses objetivos em decisões de desenho é o arquiteto de solução, porque ele conhece os ativos, as chamadas e as equipes que implementam cada parte.
 
 1. Reduzir as vulnerabilidades de segurança desde o desenho.
 2. Fazer valer os padrões de segurança em toda a organização.
 3. Garantir que todos os desenhos sejam robustos contra ataque.
 4. Reduzir o efeito dos incidentes de segurança quando eles ocorrem.
 
+A segurança é um campo especializado e as ameaças mudam com frequência, de modo que o arquiteto consulta especialistas, e a tabela abaixo separa o que ele decide e registra do que outros papéis fornecem, aprovam ou executam. Neste curso, o papel de revisor de segurança é atribuído ao Comitê de Segurança da Informação do dossiê, que é a origem do requisito R8.
+
+| Responsabilidade | Quem responde | Exemplo na ACME |
+| --- | --- | --- |
+| Propor a classificação dos ativos, a grade de permissões e o controle de cada fronteira, e registrar as decisões no desenho | Arquiteto de solução | Registrar que a nota exige acesso do aluno somente ao próprio registro |
+| Implementar os controles no código dos serviços | Equipe de solução | Verificar a permissão de cada chamada no serviço de matrícula |
+| Informar os controles disponíveis e executar as mudanças de rede, de conta e de identidade | Equipe de infraestrutura | Manter a conta de segurança e registros e o provedor de identidade |
+| Fixar as diretivas e os padrões de segurança, revisar o desenho e aceitar exceções | Comitê de Segurança da Informação | Exigir autenticação por padrão aberto de identidade (R8) |
+| Confirmar a base legal e o contrato de tratamento de dado pessoal | Encarregada de proteção de dados e Jurídico | Confirmar que o dado do aluno permanece no território nacional (R14) |
+
 ### Quatro formas de especificar segurança
 
-Numa solução, a segurança chega ao desenho por quatro caminhos diferentes, e a tabela abaixo traz um exemplo de cada um. Os dois primeiros seguem a distinção entre requisito funcional e requisito não funcional apresentada no [bloco 2 da Aula 2](../modulo-2-requisitos-e-partes-interessadas/bloco-2-qualidade-e-tipos-de-requisito.md), e o último usa padrão técnico no sentido definido no [bloco 3 da Aula 4](../modulo-4-dominios-da-solucao/bloco-3-arquitetura-de-aplicacoes-e-integracao.md#padrao-tecnico-protocolo-especificacao-e-contrato), como especificação adotada pela organização e reconhecida fora dela.
+O arquiteto recebe os requisitos de segurança por quatro caminhos diferentes, e a tabela abaixo traz um exemplo de cada um. Os dois primeiros seguem a distinção entre requisito funcional e requisito não funcional apresentada no [bloco 2 da Aula 2](../modulo-2-requisitos-e-partes-interessadas/bloco-2-qualidade-e-tipos-de-requisito.md), e o último usa padrão técnico no sentido definido no [bloco 3 da Aula 4](../modulo-4-dominios-da-solucao/bloco-3-arquitetura-de-aplicacoes-e-integracao.md#padrao-tecnico-protocolo-especificacao-e-contrato), como especificação adotada pela organização e reconhecida fora dela.
 
 <figure markdown="span">
 ![Quatro cartões com as formas de especificar segurança: requisito funcional, requisito não funcional, diretiva corporativa e padrão técnico. Cada cartão traz o que a forma especifica e um exemplo curto.](../assets/images/modulo-5-quatro-formas-seguranca.svg){ .module-diagram }
@@ -46,7 +52,25 @@ Numa solução, a segurança chega ao desenho por quatro caminhos diferentes, e 
 
 Os requisitos funcionais de segurança costumam chegar a este passo já negociados com as partes interessadas, mas parte deles se sobrepõe aos requisitos não funcionais, e por isso a avaliação de ponta a ponta examina as quatro formas em conjunto.
 
-### Ativos e sua classificação
+## Cinco passos até as decisões de segurança
+
+O arquiteto percorre cinco passos, e cada um termina numa decisão que entra no registro de decisões de segurança. A Figura 2 mostra a sequência, e a tabela resume a pergunta, a ferramenta e o produto de cada passo, que as seções seguintes detalham um a um.
+
+<figure markdown="span">
+![Sequência vertical de cinco passos, cada um com a pergunta que responde: classificar os ativos, definir quem acessa, examinar as fronteiras, conferir a fundação e registrar e revisar. Abaixo, a saída, o registro de decisões de segurança, com decisão, motivo, quem executa e como se verifica.](../assets/images/modulo-5-passos-decisoes-seguranca.svg){ .module-diagram }
+</figure>
+
+*Figura 2 — Os cinco passos do arquiteto e o registro de decisões de segurança que eles produzem. Fonte: material do curso.*
+
+| Passo | Pergunta | Ferramenta | Produto |
+| --- | --- | --- | --- |
+| 1. Classificar os ativos | Quão sensível é cada dado e onde ele pode ser processado? | Confidencialidade, integridade, disponibilidade e LGPD | Classificação de cada ativo e restrição de região |
+| 2. Definir quem acessa | Quem lê e quem grava cada recurso? | Grade de permissões e menor privilégio | Grade preenchida, com o nível de segurança de cada recurso |
+| 3. Examinar as fronteiras | Que ataques cada travessia sofre? | Fronteira de confiança e STRIDE | Ameaças de cada fronteira, com o controle que responde a cada uma |
+| 4. Conferir a fundação | Os controles escolhidos existem na plataforma? | Controles da zona de pouso e catálogo de infraestrutura | Controles disponíveis e lacunas de provisão |
+| 5. Registrar e revisar | Quem executa cada decisão e como se verifica? | Registro de decisões, diretivas, OWASP Top 10 e CWE | Registro revisado pela segurança |
+
+### Passo 1: classificar os ativos
 
 Para decidir quanto proteger cada coisa, a organização começa por listar o que tem valor e pode, por isso, sofrer ataque ou comprometimento com efeito negativo sobre ela, e cada item dessa lista é um ativo. Os ativos existem em todos os domínios da arquitetura, entre eles os papéis e as unidades organizacionais no domínio de negócio, as definições de dado e de informação no domínio de dados, os sistemas e os sítios na internet no domínio de aplicações e os nós de servidor no domínio de infraestrutura. Uma diretiva válida em toda a organização exige que cada ativo seja avaliado e classificado, e os ativos de dado são classificados por três propriedades, a confidencialidade, a integridade e a disponibilidade, cada uma com um nível, como baixo, médio ou alto.
 
@@ -54,35 +78,23 @@ No Brasil, a classificação dos ativos de dado se completa com a Lei Geral de P
 
 A base legal é a hipótese que autoriza o tratamento do dado pessoal, e o art. 7º lista dez hipóteses, entre elas o consentimento do titular (inciso I), o cumprimento de obrigação legal ou regulatória pelo controlador (inciso II) e a execução de contrato (inciso V). A transferência internacional de dado pessoal só é permitida nos casos do art. 33, entre eles o país ou organismo internacional com grau de proteção adequado (inciso I) e a autorização da autoridade nacional (inciso V). Quando uma organização proíbe por decisão própria qualquer processamento fora do território nacional, essa decisão é mais restritiva do que a lei e entra na solução como restrição registrada, conforme o mesmo bloco 2 da Aula 4.
 
-### Grade de permissões e menor privilégio
+O produto do passo é uma linha de classificação por ativo, com a restrição de região quando houver, e a base legal fica para a encarregada de proteção de dados confirmar. Essa linha dá origem à primeira decisão do registro.
+
+### Passo 2: definir quem acessa
 
 Entre as especificações de segurança, a do controle de acesso é a que admite maior precisão, porque declara quais pessoas e sistemas podem executar cada tarefa e acessar cada recurso. Na forma mais simples, essa especificação é uma grade de permissões, uma tabela que cruza recursos ou tarefas num eixo com entidades no outro, e a entidade pode ser uma pessoa, um grupo, um papel ou um sistema. Toda entidade ausente da grade para um recurso fica impedida de acessá-lo, e cada interseção preenchida indica o tipo de acesso permitido, leitura ou gravação, e a condição que precisa ser satisfeita para que o acesso ocorra, como acessar somente o próprio registro.
 
-A grade recebe ainda o nível de segurança de cada recurso, baixo, médio ou alto, atribuído pela gravidade de uma violação. Esse nível é um requisito não funcional e orienta os especialistas de segurança e de infraestrutura na escolha da proteção, e a Figura 2 mostra uma grade ilustrativa de recursos acadêmicos, com três entidades, três recursos e o nível de cada recurso.
+A grade recebe ainda o nível de segurança de cada recurso, baixo, médio ou alto, atribuído pela gravidade de uma violação. Esse nível é um requisito não funcional e orienta os especialistas de segurança e de infraestrutura na escolha da proteção, e a Figura 3 mostra uma grade ilustrativa de recursos acadêmicos, com três entidades, três recursos e o nível de cada recurso.
 
 <figure markdown="span">
 ![Tabela ilustrativa com três recursos nas linhas, catálogo de disciplinas, cadastro do aluno e configuração do serviço, e três entidades nas colunas, usuário final, serviço de aplicação e administrador. Cada célula indica L para leitura, E para gravação ou traço para nenhum acesso, e a célula do usuário final no cadastro tem a condição de acessar somente o próprio cadastro. A última coluna atribui nível de segurança baixo ao catálogo, alto ao cadastro e médio à configuração.](../assets/images/modulo-5-grade-de-permissoes-academica.svg){ .module-diagram }
 </figure>
 
-*Figura 2 — Grade de permissões com tipo de acesso e nível de segurança. Fonte: material do curso, com base em Lovatt (2021, seção 4.6.7).*
+*Figura 3 — Grade de permissões com tipo de acesso e nível de segurança. Fonte: material do curso, com base em Lovatt (2021, seção 4.6.7).*
 
-O princípio que orienta o preenchimento da grade é o **menor privilégio**, segundo o qual cada entidade recebe o conjunto mínimo de recursos, com o menor nível de privilégio, que ainda permite executar as atividades de negócio que lhe cabem. Na prática, a leitura é concedida a quem precisa consultar, a gravação fica reservada a quem não consegue concluir a tarefa sem ela, e a condição restringe o alcance do acesso, como na célula do usuário final da Figura 2, que lê e grava somente o próprio pedido.
+O princípio que orienta o preenchimento da grade é o **menor privilégio**, segundo o qual cada entidade recebe o conjunto mínimo de recursos, com o menor nível de privilégio, que ainda permite executar as atividades de negócio que lhe cabem. Na prática, a leitura é concedida a quem precisa consultar, a gravação fica reservada a quem não consegue concluir a tarefa sem ela, e a condição restringe o alcance do acesso, como na célula do usuário final da Figura 3, que lê e grava somente o próprio pedido. O produto do passo é a grade preenchida, e cada célula corrigida em relação ao primeiro rascunho é uma decisão para o registro.
 
-### Controles da zona de pouso
-
-Três pilares da zona de pouso apresentada no [bloco 2](bloco-2-plataforma-arquitetural.md#zona-de-pouso-a-fundacao-da-plataforma) funcionam também como controles de segurança, e a avaliação de ponta a ponta confere se a solução os usa. A lista abaixo descreve o papel de segurança de cada um.
-
-<figure markdown="span">
-![Três fronteiras criadas pelos ambientes separados em contas ou assinaturas distintas: a fronteira de permissão, a fronteira de conformidade e a fronteira de efeito, cada uma com sua função. Abaixo, dois cartões: a sub-rede privada, que abriga os serviços de retaguarda e os bancos de dados, e a identidade centralizada por padrão aberto.](../assets/images/modulo-5-tres-fronteiras-zona-de-pouso.svg){ .module-diagram }
-</figure>
-
-*Figura 3 — As três fronteiras dos ambientes separados, a sub-rede privada e a identidade centralizada. Fonte: material do curso.*
-
-1. Os ambientes separados em contas ou assinaturas distintas criam três fronteiras. A fronteira de permissão impede que a credencial de desenvolvimento alcance os dados de produção, a fronteira de conformidade permite aplicar políticas diferentes a cada ambiente e restringir a produção a poucos perfis, e a fronteira de efeito mantém um erro de teste contido na conta onde ocorreu.
-2. A sub-rede privada abriga os serviços de retaguarda e os bancos de dados, que nunca ficam expostos diretamente à internet, e a sub-rede pública contém apenas o ponto de entrada, como o gateway de APIs ou o balanceador de carga.
-3. A identidade centralizada por padrão aberto, como o OpenID Connect da linha de identidade do [modelo técnico de referência](bloco-1-definicao-tecnologica-e-trm.md#estrutura-em-cinco-colunas), reúne num só lugar o controle de quem acessa cada conta e com qual perfil, o que permite auditar as operações sensíveis e trocar o provedor sem alterar as aplicações clientes.
-
-### Fronteira de confiança e STRIDE
+### Passo 3: examinar as fronteiras
 
 Quando o aluno envia um pedido pelo aplicativo do telefone, o pedido sai de um lugar que a ACME não controla e entra em outro que ela controla. A linha que separa partes de uma solução que operam sob níveis diferentes de confiança, como o aplicativo instalado no telefone do usuário e o serviço que executa na nuvem da organização, é a **fronteira de confiança**. Todo dado e toda chamada que a atravessam precisam ser autenticados, validados e protegidos, porque o lado de menor confiança pode estar sob controle de quem ataca.
 
@@ -105,53 +117,71 @@ A Figura 4 aplica as seis categorias a uma única fronteira, com cada seta numer
 
 *Figura 4 — Uma fronteira de confiança e as seis categorias STRIDE aplicadas a ela. Fonte: material do curso, com base em Shostack (2014).*
 
-### Autoridade de design de segurança
+O produto do passo é a lista das ameaças de cada fronteira, cada uma com a categoria e o controle escolhido. Quando mais de um controle trata a mesma ameaça, o arquiteto prefere o que a plataforma ou o modelo técnico de referência já oferecem.
 
-Como a avaliação de segurança é um campo especializado, as organizações reúnem cada vez mais uma **autoridade de design de segurança**, grupo que decide sobre os aspectos de segurança de todas as soluções e recebe boa parte da responsabilidade por assegurar a segurança de ponta a ponta. Ela aplica dois testes ao desenho de cada solução e entrega uma avaliação com recomendações, que a equipe de solução e a equipe de arquitetura de infraestrutura executam.
+### Passo 4: conferir a fundação
+
+Três pilares da zona de pouso apresentada no [bloco 2](bloco-2-plataforma-arquitetural.md#zona-de-pouso-a-fundacao-da-plataforma) funcionam também como controles de segurança, e o arquiteto confere se a solução os usa antes de contar com eles nas decisões. A lista abaixo descreve o papel de segurança de cada um.
 
 <figure markdown="span">
-![Fluxo da autoridade de design de segurança. O desenho da solução é a entrada, a conformidade com as diretivas e o teste de vulnerabilidade são os dois testes, e a avaliação com recomendações é a saída. Abaixo, três cartões da matriz RACI: a autoridade de design de segurança com R e A, o arquiteto de solução com C e R pela revisão e o arquiteto de infraestrutura com C e R pelas mudanças.](../assets/images/modulo-5-autoridade-seguranca.svg){ .module-diagram }
+![Três fronteiras criadas pelos ambientes separados em contas ou assinaturas distintas: a fronteira de permissão, a fronteira de conformidade e a fronteira de efeito, cada uma com sua função. Abaixo, dois cartões: a sub-rede privada, que abriga os serviços de retaguarda e os bancos de dados, e a identidade centralizada por padrão aberto.](../assets/images/modulo-5-tres-fronteiras-zona-de-pouso.svg){ .module-diagram }
 </figure>
 
-*Figura 5 — Do desenho da solução à avaliação com recomendações, com os três papéis da matriz RACI. Fonte: material do curso, com base em Lovatt (2021, seção 7.7).*
+*Figura 5 — As três fronteiras dos ambientes separados, a sub-rede privada e a identidade centralizada. Fonte: material do curso.*
 
-1. A conformidade com as diretivas audita o desenho contra os princípios, as políticas e os padrões de segurança adotados pela organização, como a ISO/IEC 27001, cuja edição de 2022 especifica os requisitos para estabelecer, implementar, manter e melhorar continuamente um sistema de gestão de segurança da informação.
-2. O teste de vulnerabilidade simula ameaças e atividades maliciosas para testar a resistência da solução, com apoio de catálogos públicos, como a lista OWASP Top 10, que reúne as dez categorias de vulnerabilidade mais frequentes em aplicações web e cuja edição de 2021 é usada neste bloco, e o CWE, lista de fraquezas de software e de hardware mantida pela MITRE que serve de linguagem comum para descrever falhas de segurança.
+1. Os ambientes separados em contas ou assinaturas distintas criam três fronteiras. A fronteira de permissão impede que a credencial de desenvolvimento alcance os dados de produção, a fronteira de conformidade permite aplicar políticas diferentes a cada ambiente e restringir a produção a poucos perfis, e a fronteira de efeito mantém um erro de teste contido na conta onde ocorreu.
+2. A sub-rede privada abriga os serviços de retaguarda e os bancos de dados, que nunca ficam expostos diretamente à internet, e a sub-rede pública contém apenas o ponto de entrada, como o gateway de APIs ou o balanceador de carga.
+3. A identidade centralizada por padrão aberto, como o OpenID Connect da linha de identidade do [modelo técnico de referência](bloco-1-definicao-tecnologica-e-trm.md#estrutura-em-cinco-colunas), reúne num só lugar o controle de quem acessa cada conta e com qual perfil, o que permite auditar as operações sensíveis e trocar o provedor sem alterar as aplicações clientes.
 
-A participação dos papéis nessa atividade pode ser registrada numa matriz RACI, que indica para cada papel se ele é responsável pela execução (R), se responde pelo resultado e o aprova (A), se é consultado (C) ou se é informado (I). A distribuição abaixo é a adotada pelo curso para a atividade de assegurar a segurança de ponta a ponta.
+O produto do passo é a lista dos controles que a fundação já entrega e dos que faltam. Um controle escolhido no passo 3 que não consta do catálogo de infraestrutura é uma lacuna de provisão, classificada no [bloco 4](bloco-4-adr-de-plataforma.md) desta aula e levada ao custo e ao roteiro de entrega.
 
-| Papel | Participação | Letra |
-| --- | --- | --- |
-| Autoridade de design de segurança | Executa os dois testes e aprova a avaliação final do desenho | R e A |
-| Arquiteto de solução | Apresenta o desenho, fornece ativos e permissões e executa a revisão recomendada | C e R pela revisão |
-| Arquiteto de infraestrutura | Informa os controles disponíveis na infraestrutura e executa as mudanças que cabem a ela | C e R pelas mudanças |
+### Passo 5: registrar as decisões e levar à revisão
 
-### Revisão do cadastro do aluno da Universidade ACME
+Classificações, grades e listas de ameaças só protegem a solução quando alguém as executa, e por isso o último passo reúne os resultados dos quatro anteriores no **registro de decisões de segurança**, uma tabela com uma linha por decisão. Cada linha tem os cinco campos da tabela abaixo.
 
-Considere a atualização de endereço e telefone pelo aplicativo do aluno da Universidade ACME. O serviço deve confirmar a identidade, autorizar a alteração apenas do próprio cadastro e registrar quem alterou cada dado. Neste exemplo de revisão de desenho, a equipe verifica se os controles propostos atendem ao R8, de identidade aberta, e ao R9, de rastreabilidade de acesso.
+| Campo | O que registra |
+| --- | --- |
+| Código | Identificador da decisão, como DS1, que o requisito do serviço e o teste citam |
+| Decisão | O controle adotado e o ativo ou a fronteira em que ele vale |
+| Motivo | O requisito, a ameaça, o artigo de lei ou a vulnerabilidade que a decisão responde |
+| Quem executa | O papel que altera o código, a infraestrutura ou o contrato |
+| Como se verifica | O teste ou a evidência que mostra que a decisão foi cumprida |
 
-A revisão de segurança verifica os quatro pontos abaixo. Eles são perguntas para avaliar o desenho proposto, e não resultados de testes já realizados na ACME.
+O registro tem três leitores. A equipe de solução transforma cada linha em critério de aceite do serviço, a infraestrutura transforma as linhas que lhe cabem em mudança planejada, e a revisão de segurança usa as linhas para saber o que conferir.
 
-1. O acesso a qualquer ativo, informação ou sistema, segue um processo definido de concessão.
-2. O segredo de autenticação, como a senha, é controlado por um processo formal de gestão.
-3. A identidade dos usuários finais e o nível de acesso de cada um são estabelecidos somente por controles de segurança aprovados, e a escolha do provedor de identidade respeita o modelo técnico de referência da universidade.
-4. Todo acesso a dado é registrado e fica disponível para auditoria.
+#### Revisão do cadastro do aluno da Universidade ACME
 
-A equipe também procura três tipos de vulnerabilidade, classificados pelo OWASP Top 10 de 2021. A primeira é o acesso além do necessário, que contraria o menor privilégio e corresponde a A01:2021, controle de acesso quebrado. A segunda é a injeção, porque o portal envia ao banco de dados a informação digitada pelo usuário, o que corresponde a A03:2021, injeção. A terceira é o registro e o monitoramento insuficientes, que correspondem a A09:2021, falhas de registro e monitoramento de segurança. Se algum desses problemas aparecer, a equipe revisa o desenho e apresenta evidências de correção antes da implementação.
+Considere a atualização de endereço e telefone pelo aplicativo do aluno da Universidade ACME. O serviço deve confirmar a identidade, autorizar a alteração apenas do próprio cadastro e registrar quem alterou cada dado, de modo a atender o R8, de identidade aberta, e o R9, de rastreabilidade de acesso. Percorridos os quatro primeiros passos, o arquiteto chega às cinco decisões da tabela abaixo, que são proposta de desenho com os testes da última coluna ainda por executar.
+
+| Código | Decisão | Motivo | Quem executa | Como se verifica |
+| --- | --- | --- | --- | --- |
+| DS1 | Tratar endereço e telefone como dado pessoal de confidencialidade média, processado somente em território nacional | LGPD, art. 5º, I, e R14 | Arquiteto de solução registra, e a encarregada de proteção de dados confirma a base legal | Conferência da classificação no caderno e da região no contrato |
+| DS2 | O aluno lê e grava somente o próprio cadastro, a secretaria acadêmica lê e grava, e nenhum outro perfil acessa | Menor privilégio e A01:2021 | Equipe de solução, no serviço de cadastro | Teste em que um aluno tenta alterar o cadastro de outro e recebe recusa |
+| DS3 | Autenticar o aluno por OpenID Connect no provedor de identidade aprovado no modelo técnico de referência | R8 e falsificação de identidade | Equipe de infraestrutura configura o provedor, e a equipe de solução integra o aplicativo | Chamada sem credencial válida é recusada |
+| DS4 | Cifrar toda chamada entre o aplicativo e o serviço, validar cada campo recebido e usar consultas parametrizadas no banco | Divulgação de informação e A03:2021 | Equipe de solução | Teste com entrada maliciosa e conferência da cifra no ponto de entrada |
+| DS5 | Registrar autor e horário de cada leitura e alteração do cadastro, com retenção de 5 anos, na conta de segurança e registros | R9, repúdio e A09:2021 | Equipe de solução emite o registro, e a infraestrutura o guarda | Consulta de auditoria que recupera quem alterou um telefone e quando |
+
+#### Revisão de segurança
+
+Antes da implementação, a revisão de segurança confere o registro por dois testes. O primeiro audita o desenho contra os princípios, as políticas e os padrões de segurança adotados pela organização, como o processo definido de concessão de acesso, a gestão formal do segredo de autenticação, a escolha do provedor de identidade conforme o modelo técnico de referência e o registro de todo acesso a dado. A referência mais usada para esse conjunto é a ISO/IEC 27001, cuja edição de 2022 especifica os requisitos para estabelecer, implementar, manter e melhorar continuamente um sistema de gestão de segurança da informação.
+
+O segundo teste simula ameaças e atividades maliciosas para avaliar a resistência da solução, com apoio de catálogos públicos, como a lista OWASP Top 10, que reúne as dez categorias de vulnerabilidade mais frequentes em aplicações web e cuja edição de 2021 é usada neste bloco, e o CWE, lista de fraquezas de software e de hardware mantida pela MITRE que serve de linguagem comum para descrever falhas de segurança. No exemplo, a revisão procura três vulnerabilidades. O acesso além do necessário contraria o menor privilégio e corresponde a A01:2021, controle de acesso quebrado, tratado por DS2. A injeção ocorre porque o portal envia ao banco de dados a informação digitada pelo usuário e corresponde a A03:2021, tratada por DS4. O registro e o monitoramento insuficientes correspondem a A09:2021, falhas de registro e monitoramento de segurança, tratadas por DS5.
+
+Cada achado aceito pela revisão altera uma linha do registro, e a equipe apresenta a evidência da correção antes da implementação. Uma vulnerabilidade sem decisão que a trate gera uma linha nova, com o executor e a verificação definidos.
 
 ## Uso pelo arquiteto
 
-O arquiteto usa estes artefatos quando produtos, plataforma e zona de pouso já estão definidos e falta saber se o desenho protege a nota do aluno e o dado pessoal gravado no banco. Ele leva à autoridade de design de segurança os ativos classificados por confidencialidade, integridade e disponibilidade e pela Lei Geral de Proteção de Dados, a grade de permissões preenchida pelo menor privilégio, as fronteiras de confiança identificadas e os controles da zona de pouso, porque com esse material a autoridade concentra os testes nos pontos em que o desenho pode falhar e dispensa o levantamento que cabe à equipe de solução.
+O arquiteto usa estes artefatos quando produtos, plataforma e zona de pouso já estão definidos e falta transformar a proteção da nota do aluno e do dado pessoal gravado no banco em trabalho que as equipes executem. Ele parte dos ativos classificados por confidencialidade, integridade e disponibilidade e pela Lei Geral de Proteção de Dados, da grade de permissões preenchida pelo menor privilégio, das ameaças examinadas em cada fronteira de confiança e dos controles que a zona de pouso oferece, e reúne esse material no registro de decisões de segurança.
 
-A recomendação da autoridade volta à equipe como revisão de desenho, e cada recomendação aceita altera um artefato concreto, como uma célula da grade de permissões, um controle na fronteira ou uma mudança de infraestrutura. Quando a recomendação exige serviço de infraestrutura ausente do catálogo, o arquiteto a registra como lacuna de provisão, classificada no [bloco 4](bloco-4-adr-de-plataforma.md) desta aula, e a leva ao custo e ao roteiro de entrega. Sem o material pronto, a autoridade precisa refazer o levantamento, a revisão atrasa e vulnerabilidades como o acesso além do necessário e a injeção podem chegar à implementação.
+O registro segue três caminhos. Cada linha da equipe de solução entra no serviço como critério de aceite, cada linha de infraestrutura entra no pedido de mudança, e a linha que exige serviço ausente do catálogo vira lacuna de provisão, classificada no [bloco 4](bloco-4-adr-de-plataforma.md) desta aula e levada ao custo e ao roteiro de entrega. A revisão de segurança recebe o registro completo e concentra os testes nas linhas em que o desenho pode falhar, e as vulnerabilidades como o acesso além do necessário e a injeção só chegam à implementação sem tratamento quando alguma linha deixa de existir. O arquiteto revisa o registro sempre que o desenho ganha um ativo ou uma fronteira nova.
 
 ## No caderno arquitetural
 
 {{ficha:8}}
 
-**Para que serve.** O sistema novo vai guardar a nota, o histórico escolar e o CPF de 38.400 alunos, e a lei brasileira trata esses dados de formas diferentes. Antes de decidir como proteger cada um, o arquiteto precisa saber quão sensível ele é, quem tem direito de lê-lo ou gravá-lo e que ataques a solução pode sofrer no ponto em que o aluno se conecta. Por isso o caderno guarda essas três respostas na seção 8, e quem revisa a segurança as lê para encontrar onde o desenho pode falhar, enquanto a equipe as usa para escolher os controles.
+**Para que serve.** O sistema novo vai guardar a nota, o histórico escolar e o CPF de 38.400 alunos, e a lei brasileira trata esses dados de formas diferentes. Antes da implementação, o arquiteto precisa deixar escrito quão sensível é cada dado, quem pode lê-lo ou gravá-lo, que ataques a solução pode sofrer no ponto em que o aluno se conecta e, para cada controle escolhido, quem o executa e como se verifica. A seção 8 do caderno guarda essas respostas, a equipe as usa como lista de trabalho e quem revisa a segurança as lê para encontrar onde o desenho pode falhar.
 
-**O que você faz neste exercício.** O enunciado traz seis ativos de dado, de A1 a A6, como a nota (A1) e o CPF (A3), uma grade de permissões com seis perfis e três recursos e seis ameaças, de T1 a T6, com seis controles identificados pelas letras de (a) a (f). Você classifica cada dado pela LGPD e dá a ele um nível de confidencialidade, porque o grau de proteção depende disso, e depois aponta e corrige as três células da grade que dão acesso maior que o necessário. Por fim associa cada ameaça a uma categoria do STRIDE e ao controle que a trata, e indica qual controle também atende ao requisito R9, de trilha de auditoria.
+**O que você faz neste exercício.** O enunciado traz seis ativos de dado, de A1 a A6, como a nota (A1) e o CPF (A3), uma grade de permissões com seis perfis e três recursos e seis ameaças, de T1 a T6, com seis controles identificados pelas letras de (a) a (f). Você classifica cada dado pela LGPD e dá a ele um nível de confidencialidade, aponta e corrige as três células da grade que dão acesso maior que o necessário e associa cada ameaça a uma categoria do STRIDE e ao controle que a trata. Por fim consolida esses achados em cinco decisões de segurança, escrevendo para cada uma o que será decidido, quem executa e como se verifica.
 
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
@@ -163,10 +193,13 @@ A recomendação da autoridade volta à equipe como revisão de desenho, e cada 
 | Categoria STRIDE da ameaça | Classifique cada ameaça, de T1 a T6, em uma das seis categorias do STRIDE | 3 |
 | Controle da ameaça | Associe a cada ameaça a letra do controle que a trata | 3 |
 | Controle que também atende ao R9 | Indique qual dos seis controles também atende ao requisito de trilha de auditoria | 3 |
+| Decisão de segurança | Escreva em uma linha o que será decidido em cada uma das cinco decisões, de D1 a D5 | 4 |
+| Quem executa a decisão | Indique, para cada decisão, a equipe ou o papel que a executa | 4 |
+| Como se verifica a decisão | Escreva em uma linha o teste ou a evidência que mostra o cumprimento de cada decisão | 4 |
 
-**O que você já tem.** A zona de pouso do exercício 18 e os requisitos R9 e R14 da seção 3, que o exercício cita para justificar a trilha de auditoria e a região dos dados.
+**O que você já tem.** A zona de pouso do exercício 18, os requisitos R9 e R14 da seção 3, que o exercício cita para justificar a trilha de auditoria e a região dos dados, e as respostas dos itens 1 a 3 do próprio exercício.
 
-**Quando está pronto.** Os seis ativos têm classificação e nível, as três células da grade estão corrigidas e as seis ameaças têm categoria e controle, com o controle do R9 indicado.
+**Quando está pronto.** Os seis ativos têm classificação e nível, as três células da grade estão corrigidas, as seis ameaças têm categoria e controle, com o controle do R9 indicado, e as cinco decisões têm texto, executor e verificação.
 
 [Ver esta seção no template](../caderno/template.md#8-tecnologia-e-plataforma){ .caderno-botao }
 [Ver o gabarito do exercício 19](../gabaritos/gabarito-exercicio-19.md){ .caderno-botao }
@@ -177,9 +210,9 @@ A recomendação da autoridade volta à equipe como revisão de desenho, e cada 
 
 A ACME é a universidade privada brasileira com 38.400 alunos ativos cujo sistema acadêmico passa por modernização incremental, com o núcleo transacional, o conjunto de programas que executa as operações acadêmicas, mantido em operação durante a transição. Como o sistema novo vai guardar nota, histórico escolar, CPF e outros dados dos alunos, o exercício verifica se a solução protege esses dados. Para isso, parte do diagrama de contêineres do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16), que mostra as partes executáveis da solução, e da zona de pouso do [exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18).
 
-A verificação tem três itens. No primeiro, o aluno classifica seis dados pela LGPD, a Lei Geral de Proteção de Dados Pessoais. No segundo, corrige uma grade de permissões, a tabela que diz quem pode ler e gravar cada recurso, aplicando o princípio do menor privilégio. No terceiro, associa seis ameaças a categorias do STRIDE, a classificação de ameaças apresentada na seção Fronteira de confiança e STRIDE. As respostas ficam registradas por item, cada uma com a linha da tabela ou o código do enunciado que a sustenta.
+A verificação tem quatro itens. No primeiro, o aluno classifica seis dados pela LGPD, a Lei Geral de Proteção de Dados Pessoais. No segundo, corrige uma grade de permissões, a tabela que diz quem pode ler e gravar cada recurso, aplicando o princípio do menor privilégio. No terceiro, associa seis ameaças a categorias do STRIDE, a classificação de ameaças apresentada na seção Fronteira de confiança e STRIDE. No quarto, consolida os achados anteriores em cinco decisões de segurança, dizendo quem executa cada uma e como se verifica. As respostas ficam registradas por item, cada uma com a linha da tabela ou o código do enunciado que a sustenta.
 
-Nos enunciados, um código formado por R e um número, como R9, identifica um requisito do dossiê da ACME, isto é, uma exigência que a solução precisa cumprir. Os dois requisitos e a restrição abaixo constam da [página inicial do caso](../caso-acme/index.md) e valem para os três itens. A trilha de auditoria citada no R9 é o registro que permite saber quem leu cada dado e quando, e a retenção de 5 anos é o prazo em que esse registro precisa ser guardado.
+Nos enunciados, um código formado por R e um número, como R9, identifica um requisito do dossiê da ACME, isto é, uma exigência que a solução precisa cumprir. Os dois requisitos e a restrição abaixo constam da [página inicial do caso](../caso-acme/index.md) e valem para os quatro itens. A trilha de auditoria citada no R9 é o registro que permite saber quem leu cada dado e quando, e a retenção de 5 anos é o prazo em que esse registro precisa ser guardado.
 
 | Código | Declaração | Origem |
 | --- | --- | --- |
@@ -294,15 +327,33 @@ Os controles disponíveis são os seis da lista abaixo.
 
 Suas respostas viram os campos Categoria STRIDE da ameaça, Controle da ameaça e Controle que também atende ao R9, na seção 8 do caderno.
 
+### Item 4: Registro de decisões de segurança
+
+Os itens 1 a 3 produziram achados, mas um achado só vira proteção quando alguém o executa e a equipe consegue verificá-lo. Este item consolida cinco achados em decisões do registro de decisões de segurança apresentado no passo 5, de D1 a D5. A tabela traz o motivo de cada decisão, isto é, o achado dos itens 1 a 3 que ela responde, e o executor pode ser um destes três: a equipe de solução, que altera o código dos serviços, a equipe de infraestrutura, que altera conta, rede, ponto de entrada ou provedor de identidade, e o Jurídico com a encarregada de proteção de dados, que decidem sobre contrato e tratamento legal do dado pessoal.
+
+| Decisão | Motivo |
+| --- | --- |
+| D1 | Os ativos A1 a A5 não podem ser processados fora do território nacional (R14), e o ambiente virtual de aprendizagem recebe a nota consolidada (item 1) |
+| D2 | Três células da grade de permissões dão acesso maior que o necessário (item 2) |
+| D3 | T2, senha de outro aluno, num serviço cujo R8 exige padrão aberto de identidade (item 3) |
+| D4 | T1 e T3, leitura dos dados do pedido na rede e esgotamento da capacidade na abertura da matrícula (item 3) |
+| D5 | T4 e R9, trilha de auditoria com retenção de 5 anos (item 3) |
+
+1. Escreva em uma linha o que cada decisão estabelece, usando as respostas dos itens 1 a 3.
+2. Indique quem executa cada decisão, escolhendo entre os três executores, e escreva os dois quando a execução se divide entre eles.
+3. Escreva em uma linha o teste ou a evidência que mostra o cumprimento de cada decisão.
+
+Suas respostas viram os campos Decisão de segurança, Quem executa a decisão e Como se verifica a decisão, na seção 8 do caderno.
+
 ## Fontes
 
 As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso. O trecho consultado aparece entre parênteses ao fim de cada entrada.
 
-- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.9, arquitetura de segurança, objetivos, diretivas e ativos, seção 4.6.7, segurança como requisito e grade de permissões, e seção 7.7, segurança de ponta a ponta, autoridade de design de segurança e exemplo de revisão de segurança adaptado aqui à Universidade ACME. O livro cita a ISO/IEC 27001 na edição de 2013 e numera as vulnerabilidades do caso como A1 e A10, numeração da edição de 2017 do OWASP Top 10, e esta página usa a edição de 2022 da norma e a numeração de 2021 do OWASP, A01, A03 e A09)
+- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.9, arquitetura de segurança, objetivos, diretivas e ativos, seção 4.6.7, segurança como requisito e grade de permissões, e seção 7.7, segurança de ponta a ponta, testes de revisão de segurança e exemplo de revisão adaptado aqui à Universidade ACME. O livro cita a ISO/IEC 27001 na edição de 2013 e numera as vulnerabilidades do caso como A1 e A10, numeração da edição de 2017 do OWASP Top 10, e esta página usa a edição de 2022 da norma e a numeração de 2021 do OWASP, A01, A03 e A09)
 - Brasil. (2018). *Lei nº 13.709, de 14 de agosto de 2018. Lei Geral de Proteção de Dados Pessoais (LGPD)*. https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm (art. 5º, I e II, art. 7º e art. 33, I e V, lidos no texto atualizado da base de legislação da Câmara dos Deputados)
 - Shostack, A. (2014). *Threat modeling: Designing for security*. Acesso em 15 de outubro de 2026. https://shostack.org/books/threat-modeling-book (categorias STRIDE e propriedade violada por cada uma, conforme https://shostack.org/resources/threat-modeling)
 - OWASP Foundation. (2021). *OWASP Top 10:2021*. Acesso em 15 de outubro de 2026. https://top10.owasp.org/2021 (A01:2021, A03:2021 e A09:2021)
 - MITRE Corporation. (n.d.). *Common Weakness Enumeration (CWE)*. Acesso em 15 de outubro de 2026. https://cwe.mitre.org/ (definição do CWE na página de perguntas frequentes)
 - International Organization for Standardization/International Electrotechnical Commission. (2022). *Information security, cybersecurity and privacy protection — Information security management systems — Requirements* (ISO/IEC 27001:2022). Acesso em 15 de outubro de 2026. https://webstore.iec.ch/publication/79694 (escopo da norma)
 
-**Material do curso.** Glossário, entradas [grade de permissões](../referencia/glossario.md#grade-de-permissoes), [menor privilégio](../referencia/glossario.md#menor-privilegio), [fronteira de confiança](../referencia/glossario.md#fronteira-de-confianca), [STRIDE](../referencia/glossario.md#stride), [autoridade de design de segurança](../referencia/glossario.md#autoridade-de-design-de-seguranca) e [dado pessoal sensível](../referencia/glossario.md#dado-pessoal-sensivel). Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md), sendo os exemplos da tabela das quatro formas, a matriz RACI, as figuras 2 e 4 e os ativos, a grade e as ameaças do exercício 19 convenções do curso.
+**Material do curso.** Glossário, entradas [grade de permissões](../referencia/glossario.md#grade-de-permissoes), [menor privilégio](../referencia/glossario.md#menor-privilegio), [fronteira de confiança](../referencia/glossario.md#fronteira-de-confianca), [STRIDE](../referencia/glossario.md#stride), [registro de decisões de segurança](../referencia/glossario.md#registro-de-decisoes-de-seguranca) e [dado pessoal sensível](../referencia/glossario.md#dado-pessoal-sensivel). Dossiê da instituição fictícia [ACME](../caso-acme/index.md) e [arquitetura de linha de base](../caso-acme/linha-de-base.md), sendo os exemplos da tabela das quatro formas, a divisão de responsabilidades, os cinco passos, o registro de decisões de segurança do exemplo, as figuras 2 e 4 e os ativos, a grade, as ameaças e as decisões do exercício 19 convenções do curso.
