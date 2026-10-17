@@ -1,6 +1,6 @@
 # Direcionadores de mudança
 
-Quando a ACME, a universidade fictícia do caso usado no curso, decidiu modernizar o sistema acadêmico, a primeira pergunta do arquiteto foi o que empurrava a instituição a mudar. O parecer jurídico que exige processar dados de alunos em território nacional vem de fora da universidade e por isso é um direcionador externo, enquanto o custo anual de R$ 15,83 milhões do sistema nasce da própria gestão e é um direcionador interno. Este bloco mostra como separar essas pressões e o que delas chega ao arquiteto como insumo do desenho, e o exercício do fim pede que o aluno classifique os sete direcionadores do caso.
+Quando a ACME, a universidade fictícia do caso usado no curso, decidiu modernizar o sistema acadêmico, a primeira pergunta do arquiteto foi: o que leva a instituição a mudar? A preocupação legal chega ao projeto por um parecer jurídico e apoia a exigência institucional de processar dados de alunos em território nacional. Já o custo anual de R$ 15,83 milhões do sistema nasce da própria gestão. Este bloco mostra como separar essas pressões e como usá-las como insumo do desenho. No exercício, o aluno classifica os sete direcionadores do caso.
 
 ## Antes de começar
 
@@ -10,7 +10,7 @@ Quando a ACME, a universidade fictícia do caso usado no curso, decidiu moderniz
 
 ## Conceito
 
-Uma organização só se move quando sente pressão, e essa pressão tem nome: direcionador é a força que a faz querer mudar parte do negócio, mudança que uma solução nova ou modificada pode alcançar. No início do ciclo de vida, o negócio entrega à equipe de arquitetura três coisas, a declaração do problema contida na declaração de visão da solução, qualquer documentação existente que ajude a entender a situação, e a autorização para investigar, contida no documento de iniciação da arquitetura. Os dois documentos são os artefatos de entrada descritos no [bloco 3 da Aula 1](../modulo-1-fundamentos/bloco-3-papel-do-arquiteto-de-solucao.md#o-que-o-trabalho-entrega).
+Um direcionador de mudança é um fato, uma necessidade ou uma oportunidade que leva a organização a mudar. Uma solução nova ou modificada pode responder a parte dessa mudança. No início do ciclo de vida, o negócio entrega à equipe de arquitetura a declaração do problema, os documentos que ajudam a entender a situação atual e a autorização para investigar. A declaração de visão da solução e o documento de iniciação da arquitetura são os artefatos de entrada descritos no [bloco 3 da Aula 1](../modulo-1-fundamentos/bloco-3-papel-do-arquiteto-de-solucao.md#o-que-o-trabalho-entrega).
 
 <figure markdown="span">
 ![Infográfico sobre direcionadores de mudança. À esquerda, os direcionadores internos estratégia de negócio, estratégia de TI e análise de negócio. Ao centro, a pressão para mudar passa pela análise e orienta decisões arquiteturais. À direita, a análise do macroambiente é organizada nas seis dimensões PESTLE, política, econômica, sociocultural, tecnológica, legal e ambiental.](../assets/images/modulo-2-direcionadores-mudanca.png){ .module-diagram }
@@ -20,7 +20,7 @@ Uma organização só se move quando sente pressão, e essa pressão tem nome: d
 
 Quem decide que uma universidade precisa mudar costuma ser a própria direção, e por isso a primeira das três fontes internas é a **estratégia de negócio**, que define a direção e as prioridades da operação e explica por que as coisas precisam mudar e em que parte do negócio a ação deve se concentrar. Dela vêm requisitos de negócio, objetivos e metas, resultados de investigações anteriores e artefatos como planos, mapas, modelos e cadeias de valor. Quando um plano já em curso se sobrepõe ao problema em análise, a mesma estratégia passa a ser também fonte de restrição.
 
-A **estratégia de TI** está ligada à estratégia de negócio, porque a tecnologia existe para sustentar os objetivos da organização, mas nem toda ideia de mudança nasce no negócio. Quando surge tecnologia nova ou evolui a existente, aparecem oportunidades e desafios com impacto relevante sobre a operação, e por isso quase toda estratégia de TI contém um esforço de racionalização do parque instalado em direção a padrões, sistemas e componentes preferidos, muitas vezes organizado em um radar tecnológico que classifica tecnologias por grau de adoção recomendada. As decisões registradas nessa estratégia viram requisitos técnicos da solução, e o calendário de implantação de um componente novo pode restringir o calendário da solução.
+A **estratégia de TI** está ligada à estratégia de negócio, porque a tecnologia sustenta os objetivos da organização. Nem toda mudança, porém, começa no negócio: tecnologias novas ou em evolução podem criar oportunidades e riscos para a operação. Por isso, a estratégia de TI costuma organizar as tecnologias já usadas pela instituição: identifica duplicações, define o que continua em uso e planeja a substituição do que deixou de atender às necessidades. Um radar tecnológico pode classificar essas tecnologias pelo grau de adoção recomendado. As decisões registradas nessa estratégia viram requisitos técnicos da solução, e o calendário de implantação de um componente novo pode restringir o calendário da solução.
 
 A terceira fonte é a **análise de negócio**, que conduz a mudança em cinco estágios: alinhar, definir, desenhar, implementar e realizar. Tudo começa em alinhar, quando o exame do ambiente externo e do interno revela desalinhamentos e as ideias de mudança aparecem. Definir e desenhar são os estágios em que a arquitetura de solução concentra seu trabalho, e só depois deles vêm implementar e realizar, que ficam com a gestão de projetos e com as equipes de entrega, cabendo à arquitetura a governança.
 
@@ -41,7 +41,7 @@ A organização responde a esses direcionadores de forma reativa quando eles já
 
 ### Análise PESTLE
 
-Como olhar para fora sem se prender aos fatores que a equipe já conhece? PESTLE é uma técnica de análise do macroambiente, isto é, das condições externas amplas que a organização não controla, mas que podem criar oportunidades, ameaças ou restrições. O nome reúne as iniciais de seis lentes, e usá-las como roteiro reduz o risco de observar apenas os fatores mais familiares, como tecnologia e legislação, e ignorar mudanças sociais, econômicas ou ambientais capazes de alterar o problema.
+PESTLE é um roteiro para investigar mudanças fora da organização que podem afetar o projeto. Ele ajuda a olhar para política, economia, comportamento das pessoas, tecnologia, legislação e ambiente. A organização não controla essas condições, mas elas podem criar oportunidades, ameaças ou restrições. Usar as seis lentes reduz o risco de observar apenas os fatores mais familiares, como tecnologia e legislação.
 
 | Dimensão | Pergunta orientadora | Exemplo para uma instituição de ensino |
 | --- | --- | --- |
@@ -49,12 +49,12 @@ Como olhar para fora sem se prender aos fatores que a equipe já conhece? PESTLE
 | **Econômica** | Que condições de renda, crédito, inflação ou custo podem afetar demanda e operação? | Redução da capacidade de pagamento dos alunos |
 | **Sociocultural** | Que mudanças de comportamento, expectativa ou perfil demográfico influenciam o serviço? | Preferência crescente por jornadas móveis e flexíveis |
 | **Tecnológica** | Que tecnologias emergentes, obsolescentes ou mais acessíveis alteram as possibilidades? | Oferta de serviços de nuvem previamente homologados |
-| **Legal** | Que leis, normas ou decisões regulatórias criam obrigações? | Exigência de residência de dados em território nacional |
+| **Legal** | Que leis, normas ou decisões regulatórias criam obrigações? | Parecer ou política institucional sobre processamento de dados |
 | **Ambiental** | Que condições ambientais ou compromissos de sustentabilidade afetam a operação? | Eventos climáticos que interrompem o acesso a um campus |
 
-PESTLE não produz requisitos automaticamente nem prevê o futuro com certeza, mas organiza a investigação: para cada fator relevante, a equipe registra a evidência, estima o possível impacto, identifica o horizonte de tempo e decide se deve monitorar o sinal, formular um requisito ou reconhecer uma restrição.
+PESTLE não produz requisitos automaticamente nem prevê o futuro com certeza. Ele organiza a investigação: para cada fator relevante, a equipe registra a evidência, estima o possível impacto, identifica o horizonte de tempo e decide se deve monitorar o sinal, formular um requisito ou reconhecer uma restrição.
 
-Na ACME, a análise começa pelos fatos que o dossiê já documenta: a dimensão legal aparece na exigência de processamento de dados no Brasil, a tecnológica nos provedores de nuvem pré-aprovados e a sociocultural na expectativa por acesso móvel. As outras dimensões exigem pesquisa adicional, e a diferença importa, porque um fator plausível levantado numa oficina ainda é hipótese, enquanto uma condição apoiada por fonte verificável pode orientar uma decisão.
+Na ACME, a análise começa pelos fatos que o dossiê já documenta: a preocupação legal aparece no parecer que embasa a exigência institucional de processamento de dados no Brasil, a tecnológica nos provedores de nuvem pré-aprovados e a sociocultural na expectativa por acesso móvel. As outras dimensões exigem pesquisa adicional. Um fator levantado numa oficina ainda é hipótese. Uma condição apoiada por fonte verificável pode orientar uma decisão.
 
 ### Os direcionadores da ACME
 

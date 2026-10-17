@@ -1,6 +1,6 @@
 # Arquitetura de dados da solução
 
-Quando a nota ou o endereço de um aluno aparecem diferentes em dois sistemas, ninguém sabe qual versão vale, e é esse problema que a arquitetura de dados da solução previne. Este bloco é o segundo dos quatro domínios da Aula 4 e trata dos dados que sustentam a mudança localizada no bloco 1. Uma entidade é um tipo de coisa sobre a qual o sistema guarda dados, como aluno, turma ou nota. O bloco responde a cinco perguntas sobre cada entidade: o que a solução recebe da arquitetura de dados da organização, a quem a entidade pertence, onde ela é registrada com autoridade, com que atraso cada cópia pode refleti-la e que obrigações o dado carrega.
+Quando a nota ou o endereço de um aluno aparecem diferentes em dois sistemas, ninguém sabe qual versão vale. A arquitetura de dados da solução evita esse problema. Este é o segundo dos quatro domínios da Aula 4 e trata dos dados que sustentam a mudança localizada no bloco 1. Uma entidade é um tipo de coisa sobre a qual o sistema guarda dados, como aluno, turma ou nota. Para cada entidade, o bloco responde: o que a solução recebe da arquitetura de dados da organização, a quem ela pertence, onde é registrada com autoridade, com que atraso cada cópia pode refletir a mudança e quais obrigações o dado carrega.
 
 ## Antes de começar
 
@@ -18,11 +18,11 @@ Quando a nota ou o endereço de um aluno aparecem diferentes em dois sistemas, n
 ![Mapa do bloco 0 com quatro faixas empilhadas, negócio, dados, aplicações e infraestrutura, e o que o arquiteto decide em cada uma, com a faixa de dados em destaque e as demais esmaecidas.](../assets/images/modulo-4-b0-mapa-dados.svg){ .module-diagram }
 </figure>
 
-No mapa do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), este bloco trata do domínio de dados. O arquiteto recebe as capacidades afetadas, localizadas no [bloco 1](bloco-1-arquitetura-de-negocio.md), e o modelo de dados corporativo, decide o dono, a fonte de verdade, o regime de consistência e as obrigações de cada entidade e entrega ao bloco 3 a grade dado × aplicação.
+No mapa do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), este bloco trata do domínio de dados. O arquiteto recebe as capacidades afetadas, localizadas no [bloco 1](bloco-1-arquitetura-de-negocio.md), e o modelo de dados corporativo. Para cada entidade, decide dono, fonte de verdade, regime de consistência e obrigações. A entrega ao bloco 3 é a grade dado × aplicação.
 
 Como toda solução nova mexe em dados que a organização já gerencia, o arquiteto precisa de uma referência comum, e a DAMA International, associação profissional que mantém o corpo de conhecimento em gestão de dados conhecido como DMBOK (*Data Management Body of Knowledge*), define a **arquitetura de dados** como a estrutura geral dos dados e dos recursos relacionados a dados, tratada como parte integrante da arquitetura corporativa. A referência vigente é a segunda edição revisada do DMBOK, publicada em 2024 e disponível em português, e a terceira edição está prevista para 2027 (DAMA International, 2024). Toda solução tem uma arquitetura de dados própria, mais específica que a corporativa, e essa arquitetura precisa ser consistente com a arquitetura de dados da organização, porque a inconsistência na definição ou no uso do dado produz erro em serviço de negócio.
 
-A Produtora ACME, empresa de produção de vídeo, ilustra essa inconsistência. A produtora mantém o cadastro dos autores do conteúdo, funcionários ou contratados externos, e a área comercial mantém o cadastro de clientes. Alguns contratados externos também são clientes, mas as definições de cliente e de autor são incompatíveis, de modo que a mudança de endereço informada por essa pessoa é registrada como cliente ou como autor, nunca nos dois, e a produtora passa a contatá-la com dados errados. O problema é de dado mestre, tratado adiante, e dele decorre a regra de que toda solução nova recebe como entrada os componentes relevantes da arquitetura de dados corporativa e devolve a ela, o quanto antes, todo dado novo que cria.
+Na Universidade ACME, o cadastro do aluno aparece no núcleo acadêmico, no ERP financeiro e no ambiente virtual. Quando endereço e telefone divergem entre as cópias, a equipe precisa descobrir qual registro vale. O exemplo mostra por que o projeto identifica uma fonte oficial e define como atualizar cada consumidor. O exercício 14 aplica essa análise aos dados do dossiê.
 
 A arquitetura de dados trata dado, informação e metadado num único domínio. Para o arquiteto de solução, o metadado aparece em forma concreta, como glossário de negócio, dicionário de dados, contrato de dados e registro de linhagem, e cada uma dessas formas é tratada nas seções seguintes.
 
@@ -38,11 +38,11 @@ O DMBOK organiza a gestão de dados em onze áreas de conhecimento, coordenadas 
 | Armazenamento e operações | Banco, cópias, retenção e recuperação |
 | Segurança de dados | Classificação, controle de acesso e trilha de auditoria |
 | Integração e interoperabilidade | Fluxos entre sistemas, por interface, evento ou lote |
-| Dados mestres e de referência | Entidades compartilhadas, como cliente, aluno ou paciente |
+| Dados mestres e de referência | Entidades compartilhadas, como aluno, professor ou disciplina |
 | Data warehousing e inteligência de negócio | Destino analítico das cópias derivadas |
 | Metadados | Glossário, dicionário, contrato e linhagem |
 | Qualidade de dados | Dimensões de qualidade convertidas em requisito mensurável |
-| Documentos e conteúdo | Dado não estruturado, como laudos e contratos digitalizados |
+| Documentos e conteúdo | Dado não estruturado, como históricos escolares e contratos digitalizados |
 
 A interação entre as áreas ocorre pelos processos de governança. Um exemplo dado pela própria DAMA é a governança de dados mestres e de referência, que inclui determinar o sistema de registro de cada dado e as regras de negócio que se aplicam a ele (DAMA Denmark, 2020), decisão que este bloco trata como fonte de verdade.
 
@@ -53,12 +53,12 @@ Antes de propor qualquer entidade nova, o arquiteto verifica o que a organizaç�
 A distinção entre os níveis de modelagem orienta o que o arquiteto de solução lê e o que ele decide. O modelo conceitual registra conceitos de negócio e seus relacionamentos, sem atributo técnico, o modelo lógico acrescenta atributos e chaves, ainda independente de tecnologia, e o modelo físico traduz o lógico em tabelas, tipos e índices de um gerenciador de banco específico, como o PostgreSQL.
 
 <figure markdown="span">
-![Modelo de dados corporativo de um hospital em quatro faixas empilhadas. No nível 1, as áreas de assunto paciente, atendimento, diagnóstico e faturamento. No nível 2, as entidades da área de diagnóstico, pedido de exame, amostra, resultado e laboratório. No nível 3, a entidade resultado parcialmente atribuída. No nível 4, a tabela de resultado no PostgreSQL e o recurso FHIR DiagnosticReport. Uma chave indica que os níveis 1 a 3 entram na solução e que o nível 4 é produzido por ela.](../assets/images/modulo-4-b2-modelo-corporativo.svg){ .module-diagram }
+![Modelo de dados acadêmicos em quatro níveis: áreas de assunto, entidades aluno, disciplina, matrícula e nota, atributos da nota e modelo físico e contrato de mensagem produzidos pelo projeto.](../assets/images/modulo-4-b2-modelo-corporativo.svg){ .module-diagram }
 </figure>
 
 *Figura 1 — Modelo de dados corporativo em quatro níveis, com o recorte que entra na solução e o que a solução produz. Fonte: material do curso, com base em DAMA Rocky Mountain Chapter (2023).*
 
-A Figura 1 aplica os quatro níveis à modernização da comunicação com laboratórios do Hospital ACME, descrita no [bloco 1](bloco-1-arquitetura-de-negocio.md). A solução recebe o recorte das áreas de assunto que estão na zona de impacto, aqui a área de diagnóstico, e reaproveita as entidades que já existem, como pedido de exame e resultado. Quando a solução encontra uma entidade que parece nova, o arquiteto verifica se ela é uma especialização ou um sinônimo de entidade já modelada, como laboratório de apoio em relação a prestador de serviço, antes de propor definição nova. A solução produz o nível 4, o modelo físico da tabela de resultado no PostgreSQL e o mapeamento para o recurso *DiagnosticReport* do HL7 FHIR, e devolve ao modelo corporativo a diferença entre o estado atual e o proposto, que alimenta a análise de lacunas da Aula 6.
+A Figura 1 aplica os quatro níveis à publicação de notas da Universidade ACME. A área de assunto é a vida acadêmica. As entidades incluem aluno, disciplina, matrícula e nota. O modelo lógico detalha os atributos e relacionamentos dessas entidades. O projeto produz o modelo físico do serviço e o contrato da mensagem de nota, enquanto a escolha do banco é feita na Aula 5. Uma entidade aparentemente nova deve ser comparada às definições existentes antes de receber outro nome.
 
 ### Panorama de dados e linhagem
 
@@ -67,7 +67,7 @@ A edição revisada do DMBOK substituiu o conceito de desenho de fluxo de dados 
 Para a solução, o panorama assume duas formas. A primeira é a grade dado × aplicação, uma matriz que cruza entidades com as aplicações que as gravam, leem ou recebem, e que torna visível, na análise de impacto, quais componentes são atingidos por uma mudança numa entidade. A segunda é o diagrama de fluxo entre sistemas, que mostra o sentido, o meio e o horário de cada troca, como os diagramas de integração do [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md).
 
 <figure markdown="span">
-![Grade genérica que cruza três entidades, cliente, pedido e fatura, com três aplicações, loja virtual, logística e faturamento. Cada célula indica se a aplicação grava, lê por interface ou recebe por evento. Uma coluna destacada indica o dono de cada entidade e outra coluna indica o regime de consistência de cada consumidor, forte ou eventual com prazo de cinco minutos.](../assets/images/modulo-4-grade-dado-aplicacao.svg){ .module-diagram }
+![Grade genérica que cruza três entidades, cliente, pedido e fatura, com três aplicações, loja virtual, logística e faturamento. Cada célula indica se a aplicação grava, lê por interface ou recebe por evento. Uma coluna destacada indica o dono de cada entidade e outra coluna indica o regime de consistência de cada consumidor, forte ou eventual com prazo de dez minutos.](../assets/images/modulo-4-grade-dado-aplicacao.svg){ .module-diagram }
 </figure>
 
 *Figura 2 — Grade dado × aplicação com dono, consumidores e regime de consistência. Fonte: material do curso, com base em Lovatt (2021).*
@@ -75,6 +75,17 @@ Para a solução, o panorama assume duas formas. A primeira é a grade dado × a
 A **linhagem de dados** registra de onde cada conjunto de dados veio e por quais transformações passou, e permite responder, diante de um número errado num relatório, qual origem e qual processamento o produziram. O OpenLineage, projeto da LF AI & Data Foundation, padroniza a coleta desse registro com três entidades, a execução (*run*), o trabalho (*job*) e o conjunto de dados (*dataset*), e o Marquez é sua implementação de referência (OpenLineage, n.d.).
 
 ### Fonte de verdade e regime de consistência
+
+Uma cópia não se torna fonte de verdade por ser a mais acessível. O esquema separa quem responde pelo dado, onde ele é gravado com autoridade, quem o consome e qual prazo de atualização foi combinado.
+
+```mermaid
+flowchart LR
+    R["Responsável de negócio"] -->|"define regras"| F["Fonte de verdade"]
+    A["Aplicação dona"] -->|"grava com autoridade"| F
+    F -->|"propaga no prazo acordado"| C1["Consumidor 1"]
+    F -->|"propaga no prazo acordado"| C2["Consumidor 2"]
+    F -.->|"controle de acesso e auditoria"| G["Obrigações do dado"]
+```
 
 Quando um dado existe em vários lugares, é preciso saber qual deles manda. Kleppmann (2017) distingue, para isso, dois tipos de sistema que guardam dado: o sistema de registro, que guarda a versão autoritativa e em que o dado é escrito primeiro, e o sistema de dado derivado, que guarda dado transformado ou processado a partir do sistema de registro, como um cache, um índice de busca ou uma base analítica, e pode ser reconstruído a partir da origem. Nesta disciplina, o termo **fonte de verdade** designa o lugar em que a entidade é registrada com autoridade, e toda outra ocorrência da entidade é cópia derivada.
 
@@ -93,28 +104,28 @@ A captura de mudanças de dados, conhecida pela sigla CDC, propaga cada alteraç
 
 *Figura 3 — Fonte de verdade e cópias derivadas alimentadas por captura de mudanças e por eventos. Fonte: material do curso, com base em Kleppmann (2017) e Debezium (n.d.-a).*
 
-Saber qual é a fonte não basta, porque cada consumidor lê a entidade num momento diferente. Por isso cada consumidor precisa de um **regime de consistência** declarado, que diz quando a leitura feita na fonte ou numa cópia reflete a fonte de verdade. O regime é forte quando a leitura reflete a fonte imediatamente, o que exige ler da própria fonte de verdade ou de cópia atualizada de forma síncrona, e eventual quando reflete dentro de um prazo declarado, por exemplo cinco minutos ou um dia. Um regime eventual sem prazo declarado não pode ser verificado, e por isso não é aceito como decisão. A Figura 4 coloca os dois regimes na mesma linha do tempo, com o resultado de exame do Hospital ACME gravado no prontuário e copiado para o painel de pendências do médico.
+Saber qual é a fonte não basta, porque cada consumidor lê a entidade num momento diferente. Por isso cada consumidor precisa de um **regime de consistência** declarado, que diz quando a leitura feita na fonte ou numa cópia reflete a fonte de verdade. O regime é forte quando a leitura reflete a fonte imediatamente, o que exige ler da própria fonte de verdade ou de cópia atualizada de forma síncrona, e eventual quando reflete dentro de um prazo declarado, por exemplo cinco minutos ou um dia. Um regime eventual sem prazo declarado não pode ser verificado, e por isso não é aceito como decisão. A Figura 4 coloca os dois regimes na mesma linha do tempo, com a nota da Universidade ACME gravada no núcleo acadêmico e copiada para o ambiente virtual.
 
 ```mermaid
 sequenceDiagram
     participant AP as Serviço de integração
-    participant SR as Prontuário, sistema de registro
-    participant CD as Painel do médico, cópia derivada
+    participant SR as Núcleo acadêmico, sistema de registro
+    participant CD as Ambiente virtual, cópia derivada
     rect rgb(216, 233, 255)
     Note over AP,SR: Consistência forte
-    AP->>SR: 1. grava o resultado de exame em transação
+    AP->>SR: 1. grava o nota em transação
     SR-->>AP: 2. transação confirmada
-    AP->>SR: 3. lê o pedido de exame
-    SR-->>AP: 4. devolve o pedido com resultado
+    AP->>SR: 3. lê o registro acadêmico
+    SR-->>AP: 4. devolve o registro com a nota
     end
     rect rgb(255, 244, 221)
-    Note over AP,CD: Consistência eventual com prazo de cinco minutos
+    Note over AP,CD: Consistência eventual com prazo de dez minutos
     AP->>CD: 5. lê as pendências logo após a confirmação
-    CD-->>AP: 6. devolve o pedido ainda pendente, dentro do prazo
+    CD-->>AP: 6. devolve o registro ainda sem a nota, dentro do prazo
     SR-)CD: 7. evento de mudança chega pela captura de mudanças
     Note over CD: cópia atualizada antes do fim do prazo
     AP->>CD: 8. lê as pendências de novo
-    CD-->>AP: 9. devolve o pedido com resultado
+    CD-->>AP: 9. devolve o registro com a nota
     end
 ```
 
@@ -124,7 +135,7 @@ Os produtos citados neste bloco são exemplos de cada categoria, e a escolha de 
 
 ### Dados mestres e de referência
 
-Algumas entidades, como o aluno, aparecem em várias aplicações ao mesmo tempo, e a gestão delas tem nome próprio. **Dados mestres** são as entidades de negócio compartilhadas por várias aplicações, como cliente, aluno, paciente, produto ou fornecedor, e dados de referência são os conjuntos de valores que classificam outros dados, como a tabela de países, de moedas ou de códigos de exame. O DMBOK define a gestão dessa área como a gestão do dado compartilhado para reduzir redundância e garantir melhor qualidade (DAMA Denmark, 2020). O caso da Produtora ACME é um problema típico de dado mestre, porque a mesma pessoa existe em dois cadastros com definições incompatíveis.
+Algumas entidades, como o aluno, aparecem em várias aplicações ao mesmo tempo, e a gestão delas tem nome próprio. **Dados mestres** são as entidades de negócio compartilhadas por várias aplicações, como aluno, professor ou fornecedor, e dados de referência são os conjuntos de valores que classificam outros dados, como a tabela de países, de moedas ou de códigos de disciplina. O DMBOK define a gestão dessa área como a gestão do dado compartilhado para reduzir redundância e garantir melhor qualidade (DAMA Denmark, 2020). O cadastro do aluno exemplifica esse problema quando endereço e telefone divergem entre o núcleo e suas cópias.
 
 As soluções de gestão de dados mestres seguem quatro estilos de implementação, que se distinguem pelo lugar em que a escrita ocorre e pelo papel do repositório central, chamado *hub* (Carr, 2026).
 
@@ -135,7 +146,7 @@ As soluções de gestão de dados mestres seguem quatro estilos de implementaç�
 | Coexistência | Nos sistemas de origem e no hub | Sincroniza o registro consolidado de volta para as origens |
 | Centralizado | No hub | É o sistema de registro, e as aplicações gravam e leem por ele |
 
-Para a solução, o estilo escolhido define a fonte de verdade da entidade mestre e, portanto, o dono e os contratos que a expõem. Na Produtora ACME, o estilo de registro resolve a identificação da mesma pessoa nos dois cadastros com custo baixo, e o estilo centralizado resolve também a divergência de endereço, ao custo de alterar as duas aplicações para gravarem pelo hub.
+Para a solução, o estilo escolhido define a fonte de verdade da entidade mestre e, portanto, o dono e os contratos que a expõem. Na Universidade ACME, um índice de identificação ajudaria a reconhecer o mesmo aluno nos sistemas. Para impedir que endereço e telefone voltem a divergir, é preciso também definir onde a alteração é feita e como chega às cópias. O gabarito do exercício 14 propõe escrita centralizada no cadastro acadêmico.
 
 ### Propriedade do dado
 
@@ -153,7 +164,7 @@ Quando o dono publica um conjunto de dados, o consumidor precisa saber o que pod
 
 ### Requisitos de dados: qualidade e proteção
 
-A qualidade de dados entra na solução como requisito mensurável. A edição revisada do DMBOK lista nove dimensões de qualidade, exatidão, validade, completude, integridade, unicidade, tempestividade, razoabilidade, consistência e atualidade (*currency*), esta última incluída na revisão (DAMA International, n.d.). Cada dimensão relevante recebe métrica e limite, como no requisito que exige o endereço do paciente confirmado nos últimos 12 meses, que é um requisito de atualidade.
+A qualidade de dados entra na solução como requisito mensurável. A edição revisada do DMBOK lista nove dimensões de qualidade, exatidão, validade, completude, integridade, unicidade, tempestividade, razoabilidade, consistência e atualidade (*currency*), esta última incluída na revisão (DAMA International, n.d.). Cada dimensão relevante recebe métrica e limite, como no requisito que exige o endereço do aluno confirmado nos últimos 12 meses, que é um requisito de atualidade.
 
 Quando a solução guarda dados do aluno, como a cor ou raça autodeclarada, a Lei Geral de Proteção de Dados Pessoais, Lei nº 13.709/2018, impõe a ela exigências que o arquiteto precisa traduzir em decisão de dados (Brasil, 2018).
 
@@ -358,7 +369,7 @@ As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](
 - Fowler, M. (2015). *Data lake*. https://martinfowler.com/bliki/DataLake.html (dado bruto na forma fornecida pela origem)
 - Kimball Group. (n.d.). *Dimensional modeling techniques*. https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/ (tabelas de fatos e de dimensões e esquema estrela)
 - Kleppmann, M. (2017). *Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems*. O'Reilly Media. (parte III, sistemas de registro e dado derivado)
-- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.5, arquitetura de dados corporativa e de solução, artefatos e grade de análise de impacto, generalização para reconhecer entidades existentes. O Hospital ACME é inspirado no caso Fallowdale Hospital, usado ao longo do livro, e a Produtora ACME é inspirada num caso de produção de conteúdo audiovisual apresentado na mesma obra)
+- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.5, arquitetura de dados corporativa e de solução, artefatos e grade de análise de impacto, generalização para reconhecer entidades existentes. Os conceitos foram adaptados ao caso da Universidade ACME)
 - OpenLineage. (n.d.). *OpenLineage* [Repositório]. LF AI & Data Foundation. https://github.com/OpenLineage/OpenLineage (entidades run, job e dataset e implementação de referência Marquez)
 - Richardson, C. (n.d.). *Pattern: Database per service*. Microservices.io. https://microservices.io/patterns/data/database-per-service.html (dado persistente privado ao serviço e acessível apenas pela interface dele)
 - Steenbeek, I. (2017, 10 de setembro). *New vision on data lineage/flow in DAMA-DMBOK2*. Data Crossroads. https://datacrossroads.nl/2017/09/10/new-vision-on-data-lineage-flow-in-dama-dm-bok-2/ (fluxos de dados como documentação de linhagem, segundo o capítulo 4 do DMBOK2)

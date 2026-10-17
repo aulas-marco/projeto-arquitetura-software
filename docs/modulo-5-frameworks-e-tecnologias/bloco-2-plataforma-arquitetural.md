@@ -1,6 +1,6 @@
 # Plataforma arquitetural
 
-Na Aula 3, o projeto escolheu um estilo arquitetural, a forma geral de organizar o sistema, como em camadas, em microsserviços ou orientado a eventos. Escolhido o estilo, surgem duas perguntas práticas: qual conjunto de tecnologias, chamado de plataforma arquitetural, concretiza esse estilo no desenvolvimento e na operação do sistema, e sobre qual fundação em nuvem, chamada de zona de pouso, esse conjunto vai executar. Este bloco responde às duas, e o exercício 18, no fim da página, aplica as respostas à ACME, a universidade fictícia que serve de caso ao curso.
+Na Aula 3, o projeto escolheu um estilo arquitetural, a forma geral de organizar o sistema, como camadas, microsserviços ou eventos. Agora surgem duas perguntas práticas: qual conjunto de tecnologias torna esse estilo viável no desenvolvimento e na operação, e sobre qual fundação em nuvem ele executará. Esse conjunto é a plataforma arquitetural. A fundação em nuvem é a zona de pouso. O exercício 18 aplica as duas decisões à ACME.
 
 ## Antes de começar
 
@@ -11,7 +11,7 @@ Na Aula 3, o projeto escolheu um estilo arquitetural, a forma geral de organizar
 
 ## Conceito
 
-Quando um estilo como microsserviços é escolhido, ainda falta decidir com que ferramentas ele será construído e operado, e esse conjunto de decisões forma a **plataforma arquitetural**: um conjunto estruturado e consistente de ferramentas, frameworks, bibliotecas e práticas de desenho, organizadas para implementar um ou mais [estilos arquiteturais](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md). Diferentemente de um framework isolado ou de uma biblioteca, a plataforma é um ambiente integrado que cobre todos os aspectos do ciclo de vida do software, incluindo desenvolvimento, integração, implantação e manutenção, e por isso funciona como a concretização prática do estilo, alinhando o princípio teórico às demandas operacionais de construir e executar o sistema.
+Depois de escolher um estilo, ainda falta decidir com que ferramentas ele será construído e operado. Esse conjunto de decisões forma a **plataforma arquitetural**: ferramentas, frameworks, bibliotecas e práticas que, juntas, realizam um ou mais [estilos arquiteturais](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md). A plataforma não é um framework isolado. Ela cobre desenvolvimento, integração, implantação e manutenção, traduzindo o estilo em condições reais de operação.
 
 Como a plataforma executa o estilo já escolhido, essa decisão vem depois da decisão de estilo. Se a equipe decidisse framework, banco de dados ou orquestrador de execução antes de fixar o padrão estrutural, inverteria a ordem de dependência entre as duas decisões.
 

@@ -16,7 +16,7 @@ A [arquitetura de solução](bloco-1-arquitetura-de-solucoes-e-de-software.md#o-
 
 ### Os três níveis de uma organização
 
-Quando um aluno da ACME reclama que a nota demora a aparecer, a causa pode estar em pontos diferentes da organização, e por isso ela é modelada em três níveis encaixados. O **sistema de negócio** é a organização, ou uma unidade dela, tratada como sistema, com estrutura e comportamento próprios, que oferece serviços a clientes e parceiros por interfaces externas. O **sistema de informação** é um híbrido de processos conduzidos por pessoas e sistemas computacionais que gerencia a informação do negócio, e pode incluir atividades manuais. O **sistema de TI** é a combinação de equipamento e software que trata dados e informação dentro do contexto de um sistema de informação.
+Quando um aluno da ACME reclama que a nota demora a aparecer, a causa pode estar em pontos diferentes da organização. Por isso, observamos três níveis encaixados. O **sistema de negócio** é a organização, ou uma unidade dela, realizando serviços para alunos, parceiros e outros públicos. O **sistema de informação** reúne as pessoas, as rotinas e os sistemas que cuidam da informação. Na ACME, isso inclui registrar, conferir e publicar notas, tanto nas etapas manuais quanto nas automatizadas. O **sistema de TI** reúne os equipamentos e programas que tratam esses dados dentro do sistema de informação.
 
 <figure markdown="span">
 ![Infográfico dos três níveis de uma organização, representados como elipses encaixadas. A externa é o sistema de negócio, a organização que oferece serviços a clientes e parceiros. A intermediária é o sistema de informação, com a sequência pessoas, processos, informação e sistemas. A interna é o sistema de TI, com equipamentos e software. Um eixo à esquerda vai do mais estratégico ao mais técnico, e a coluna à direita define cada nível e traz exemplos.](../assets/images/modulo-1-tres-niveis-organizacao.png){ .module-diagram }
@@ -30,6 +30,17 @@ Na ACME, universidade privada brasileira fictícia com 38.400 alunos ativos e si
 A arquitetura de solução ocupa-se de soluções que são sistemas de negócio contendo dentro de si sistemas de informação e sistemas de TI. Algumas soluções têm como foco um sistema de informação ou de TI novo ou modificado, e é raro que não haja envolvimento ou impacto mais amplo do negócio.
 
 ### Os cinco tipos de componente da solução
+
+O mesmo pedido de mudança pode afetar mais do que o software. No exemplo de publicação de nota, o quadro visual abaixo ajuda a verificar os cinco tipos de componente antes de concluir que a mudança é apenas técnica.
+
+```mermaid
+flowchart LR
+    N["Publicar nota"] --> PE["Pessoas<br/>professor e secretaria"]
+    N --> EO["Estrutura<br/>responsabilidades e aprovação"]
+    N --> PR["Processo<br/>lançar, conferir e publicar"]
+    N --> IN["Informação<br/>nota e situação da publicação"]
+    N --> TE["Tecnologia<br/>portal, núcleo e integração"]
+```
 
 Quando a ACME decidiu que a nota deveria chegar ao ambiente virtual em até 10 minutos, alguém precisaria aprender a lançar a nota na hora, uma área teria de mudar a rotina de fechamento e um contrato talvez precisasse de aditivo. Cada uma dessas peças é um componente da solução, e o arquiteto os reúne em cinco tipos, pessoas, estruturas organizacionais, processos, informação e tecnologia, como lista de verificação para que nenhum fique de fora do desenho. Mudança, nesse contexto, inclui acrescentar um componente da solução novo, alterar um existente ou retirá-lo.
 
@@ -47,7 +58,7 @@ Nem todo tipo de componente da solução precisa mudar em toda solução. O dese
 
 ### Alinhamento com a estratégia
 
-Uma solução não vive isolada da estratégia da organização, porque precisa sustentar e, idealmente, reforçar a estratégia de negócio e a estratégia de TI. Uma forma comum de planejar a estratégia organiza cinco níveis encaixados: visão, missão, objetivos, estratégia e táticas. A visão descreve a situação futura ideal, que nem sempre é alcançável, e serve para alinhar o entendimento de todos sobre o destino pretendido. Os objetivos tornam essa direção verificável, a estratégia define o caminho escolhido, e as táticas são as ações concretas que a realizam.
+Uma solução não vive isolada da estratégia da organização, porque precisa sustentar a estratégia de negócio e a estratégia de TI. Para entender essa direção, distinguimos cinco termos: visão, missão, objetivos, estratégia e táticas. Ao lê-los, pergunte que resultado o projeto deve ajudar a alcançar e que escolhas essa direção orienta. A visão descreve a situação futura pretendida. Os objetivos tornam essa direção verificável. A estratégia define o caminho escolhido, e as táticas são as ações concretas que o realizam.
 
 Para o arquiteto, a utilidade prática dessa cadeia é o teste de coerência. Uma solução proposta que não se ligue a nenhum objetivo declarado da organização, ou que contrarie uma estratégia vigente, precisa ser reformulada ou explicitamente negociada com quem responde pela estratégia. Na ACME, a meta de reduzir o custo anual de propriedade de R$ 15,83 milhões para R$ 11,0 milhões até o fim de 2029 é o objetivo ao qual qualquer decisão de plataforma precisa se ligar, e o contrato de capacidade do mainframe vigente até 31/12/2028 é o fato que impede tratar a redução como consequência automática da migração.
 

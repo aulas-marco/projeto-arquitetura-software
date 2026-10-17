@@ -1,6 +1,6 @@
 # Estilos arquiteturais e sua relação com atributo de qualidade
 
-Este bloco parte dos princípios priorizados no [bloco 1](bloco-1-principios-de-design.md#repertorio-de-principios) e dos cenários de qualidade do [bloco 3 da Aula 2](../modulo-2-requisitos-e-partes-interessadas/bloco-3-cenarios-linha-de-base-e-restricoes.md), e responde qual forma de organizar o sistema sustenta melhor essas exigências. Cada forma, chamada de estilo arquitetural, tem um compromisso: ao favorecer certas qualidades, prejudica outras.
+Este bloco parte dos princípios priorizados no [bloco 1](bloco-1-principios-de-design.md#repertorio-de-principios) e dos cenários de qualidade do [bloco 3 da Aula 2](../modulo-2-requisitos-e-partes-interessadas/bloco-3-cenarios-linha-de-base-e-restricoes.md). Ele responde qual forma de organizar o sistema sustenta melhor essas exigências. Cada forma, chamada de estilo arquitetural, traz compromissos: ao favorecer certas qualidades, torna outras mais difíceis de alcançar.
 
 ## Antes de começar
 
@@ -10,7 +10,7 @@ Este bloco parte dos princípios priorizados no [bloco 1](bloco-1-principios-de-
 
 ## Conceito
 
-Quando a ACME precisa decidir como organizar o sistema como um todo, a decisão é de estilo arquitetural. Um estilo arquitetural é um padrão de organização estrutural de um sistema, que define tipos de componentes, formas de conexão entre eles e restrições sobre essa organização. A definição tem três partes que merecem exame separado. Tipos de componentes significa que o estilo nomeia categorias recorrentes de elemento, como camada, serviço ou produtor de evento, não instâncias específicas de um sistema. Formas de conexão significa que o estilo fixa como esses elementos se comunicam, de forma síncrona ou assíncrona, direta ou mediada por um intermediário. Restrições sobre essa organização significa que o estilo proíbe certas relações, como uma camada inferior chamar uma camada superior, ou um serviço acessar diretamente o banco de outro serviço. Um estilo arquitetural descreve, portanto, a forma macro de um sistema inteiro, e a organização interna de uma camada ou de um componente fica para os padrões tratados no bloco 3.
+Quando a ACME decide como organizar o sistema como um todo, toma uma decisão de estilo arquitetural. Um estilo arquitetural define três coisas: os tipos de componentes, como eles se conectam e quais relações são proibidas. Tipos de componentes são categorias recorrentes, como camada, serviço ou produtor de evento, e não instâncias específicas. As formas de conexão definem se a comunicação é síncrona ou assíncrona, direta ou mediada. As restrições proíbem relações como uma camada inferior chamar uma camada superior ou um serviço acessar diretamente o banco de outro serviço. O estilo descreve a forma macro do sistema. A organização interna de cada parte fica para os padrões tratados no [bloco 3](bloco-3-padroes-arquiteturais-e-de-design.md).
 
 A arquitetura civil ajuda a fixar a ideia. Uma casa de madeira com telhado pontudo faz sentido em região de neve, porque a forma segue a função, já que o telhado inclinado impede o acúmulo de neve e a madeira funciona como isolamento térmico. Cada uma das duas escolhas responde a uma condição do ambiente em que a casa vai ser usada, e a mesma lógica vale em software, onde o estilo responde às condições de carga, de mudança e de falha em que o sistema vai executar.
 
@@ -46,7 +46,7 @@ As sete seções seguintes descrevem cada estilo na mesma ordem de aspectos, for
 
 ### Arquitetura em camadas
 
-A arquitetura em camadas é o estilo mais direto de descrever e o mais frequente em sistema corporativo de escopo estável. Como exemplo, tome um sistema de gestão de estoque industrial, em que a camada de apresentação exibe posição de inventário e ordem de reposição, a camada de negócio aplica regra de ponto de pedido e rateio entre depósitos, e a camada de persistência grava o saldo por item e por local. A dependência entre camadas segue sempre a mesma direção, o que simplifica o raciocínio sobre o sistema, mas concentra a implantação em uma unidade só, de modo que um pico de consulta de estoque em um único depósito força escalar o sistema inteiro, mesmo que os demais depósitos operem em carga normal.
+A arquitetura em camadas organiza apresentação, regras de negócio e persistência. Na Universidade ACME, uma proposta para o serviço de notas poderia separar a tela do professor, a validação do lançamento e o acesso aos dados. Isso facilita entender responsabilidades. Se todas as camadas forem implantadas juntas, porém, ampliar a capacidade da consulta de notas exige ampliar a unidade inteira. Os exemplos deste bloco são alternativas para analisar, e a escolha é feita no exercício 10.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -58,11 +58,11 @@ A arquitetura em camadas é o estilo mais direto de descrever e o mais frequente
 | Quando evitar | Partes do sistema com carga muito desigual ou com ritmos de mudança muito diferentes |
 | Anti-padrão e heurística de alerta | O **sumidouro**, quando uma camada apenas repassa a chamada adiante. Se mais de 80% das chamadas atravessam as camadas sem decisão, validação ou transformação, o estilo provavelmente deixou de ser adequado |
 
-A heurística do sumidouro vem de Ford e Richards (2020). A estrutura em camadas passa a cobrar latência de travessia sem devolver benefício quando a maior parte das chamadas apenas atravessa as camadas. No exemplo do sistema de gestão de estoque industrial, esse sinal apareceria se a camada de negócio apenas repassasse a consulta de saldo à persistência, sem aplicar a regra de ponto de pedido que justifica sua existência.
+A heurística do sumidouro vem de Ford e Richards (2020). A travessia de uma camada cobra tempo e esforço de manutenção. No serviço de notas, o sinal de alerta aparece quando a camada de negócio apenas repassa consultas ao banco, sem aplicar nenhuma regra que justifique sua presença.
 
 ### Arquitetura de microsserviços
 
-A arquitetura de microsserviços resolve a limitação de escalabilidade do estilo em camadas ao custo de outra. Como exemplo, a Plataforma de Streaming ACME, que oferece música por assinatura, pode separar o catálogo de faixas, o motor de recomendação e o processamento de pagamento de assinatura podem ser serviços separados, cada um escalado de acordo com sua própria demanda, o motor de recomendação crescendo em época de lançamento de grandes artistas sem exigir que o serviço de pagamento cresça junto. O preço dessa independência é a ausência de uma transação única que atravesse os três serviços, o que obriga a tratar inconsistência temporária entre catálogo e recomendação como situação prevista no desenho, com prazo máximo de convergência declarado.
+A arquitetura de microsserviços permite ampliar e implantar partes de forma independente. Na Universidade ACME, os serviços de matrícula e notas podem ter cargas e ciclos de mudança diferentes. Separá-los permite aumentar a capacidade da matrícula sem ampliar tudo. A divisão também cobra operação distribuída e cuidado com dados que precisam ser coerentes entre serviços. No primeiro ciclo, o núcleo continua responsável pelas transações acadêmicas existentes, o que limita a independência dos serviços novos.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -76,29 +76,20 @@ A arquitetura de microsserviços resolve a limitação de escalabilidade do esti
 
 A heurística olha para o comprimento da cadeia síncrona. Quando concluir uma operação exige a resposta de vários serviços em sequência, a falha de qualquer um deles interrompe a operação inteira, e nenhum serviço consegue evoluir sem considerar o comportamento dos demais na mesma cadeia.
 
-A fronteira dos serviços tem também uma explicação organizacional. A Lei de Conway descreve que organizações produzem arquiteturas que espelham sua própria estrutura de comunicação, e uma organização dividida em equipes autônomas responsáveis por uma capacidade de negócio inteira tende a produzir serviços com a mesma fronteira dessas equipes. No exemplo da Plataforma de Streaming ACME, a divisão em catálogo, recomendação e pagamento só se sustenta se houver equipes com essas mesmas responsabilidades, e uma divisão de serviços que contrarie a divisão de equipes tende a reintroduzir o acoplamento por coordenação entre pessoas.
+A fronteira dos serviços tem também uma explicação organizacional. A Lei de Conway descreve que organizações produzem arquiteturas que espelham sua própria estrutura de comunicação, e uma organização dividida em equipes autônomas responsáveis por uma capacidade de negócio inteira tende a produzir serviços com a mesma fronteira dessas equipes. Na Universidade ACME, a divisão em matrícula e notas só se sustenta se houver responsabilidades claras pela evolução e operação de cada serviço, e uma divisão de serviços que contrarie a divisão de equipes tende a reintroduzir o acoplamento por coordenação entre pessoas.
 
 ### Arquitetura orientada a eventos
 
-A arquitetura orientada a eventos favorece situação de pico e de integração entre partes que não precisam saber umas das outras. Como exemplo, no sistema de reservas da Companhia Aérea ACME o serviço de reserva publica um evento de confirmação de assento, e os serviços de emissão de bilhete, de acúmulo de milhas e de notificação ao passageiro consomem esse evento de forma independente, sem que o serviço de reserva conheça a existência deles, e o diagrama abaixo mostra os dois produtores, o barramento e os três consumidores.
+A arquitetura orientada a eventos liga quem publica um fato a quem precisa reagir a ele. Na Universidade ACME, o serviço de notas publica a nota e o ambiente virtual a recebe. Um consumidor analítico poderia ser acrescentado no futuro sem alterar o produtor, desde que autorizado e dentro do escopo. O desenho abaixo mostra essa possibilidade, sem transformar o consumidor futuro em entrega do primeiro ciclo.
 
 ```mermaid
 graph TD
-    RES["Serviço de Reserva"]
-    PAG["Serviço de Pagamento"]
-    BUS(["Barramento de eventos"])
-    EMI["Serviço de Emissão de Bilhete"]
-    MIL["Serviço de Acúmulo de Milhas"]
-    NOT["Serviço de Notificação ao Passageiro"]
-
-    RES -->|"publica ReservaConfirmada"| BUS
-    PAG -->|"publica PagamentoAprovado"| BUS
-    BUS -->|"consome ReservaConfirmada"| EMI
-    BUS -->|"consome ReservaConfirmada"| MIL
-    BUS -->|"consome PagamentoAprovado"| NOT
+    SN["Serviço de notas"] -->|"publica NotaPublicada"| BUS(["Barramento de eventos"])
+    BUS -->|"entrega a nota"| AVA["Ambiente virtual"]
+    BUS -.->|"possibilidade futura"| DW["Consumidor analítico autorizado"]
 ```
 
-O barramento absorve variação de carga entre produtor e consumidor, porque o evento fica retido até que cada consumidor tenha capacidade de processá-lo, o que favorece um pico de reservas na abertura de uma nova rota sem que o serviço de reserva espere a conclusão da emissão de bilhete. O custo aparece quando é preciso reconstruir, depois do fato, a sequência exata de eventos que levou a um estado incorreto, porque a ordem de entrega entre tópicos diferentes não é garantida e o fluxo completo está disperso entre vários consumidores.
+O barramento guarda a mensagem até que o consumidor possa processá-la. Na Universidade ACME, isso ajuda a absorver o fechamento de notas, mas o atraso precisa continuar dentro dos 10 minutos do R7. O custo é acompanhar o caminho de cada nota, tratar duplicidade e detectar mensagens que não chegaram ao destino.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -110,11 +101,11 @@ O barramento absorve variação de carga entre produtor e consumidor, porque o e
 | Quando evitar | Fluxo que exige resposta imediata ao usuário com o resultado de todos os consumidores, ou regra que depende de ordem garantida entre tópicos diferentes |
 | Anti-padrão e heurística de alerta | A ausência de identificador de correlação entre eventos relacionados. Se a lógica de negócio depende de ordem garantida entre eventos de tópicos diferentes, o estilo provavelmente não é adequado para essa parte do fluxo |
 
-O barramento garante ordem apenas dentro de cada tópico. No exemplo do sistema de reservas da Companhia Aérea ACME, a confirmação de assento e a aprovação de pagamento precisam carregar um identificador comum de reserva, para que os serviços de emissão de bilhete, de acúmulo de milhas e de notificação consigam correlacionar os dois eventos à mesma operação, mesmo sem garantia de que um chegue antes do outro.
+A garantia de ordem depende do intermediário e da forma de particionar as mensagens. No fluxo de notas da Universidade ACME, cada mensagem precisa identificar o aluno, a disciplina, o evento e a versão do lançamento. Assim o consumidor pode correlacionar mensagens, reconhecer uma repetição e evitar que uma nota antiga sobrescreva uma correção mais recente.
 
 ### Arquitetura microkernel
 
-A arquitetura microkernel serve bem quando a maior parte do sistema é estável e uma parte pequena precisa variar por cliente ou por mercado. Como exemplo, um sistema de gestão de estoque industrial que atende clientes com regras fiscais diferentes por estado pode manter o núcleo de controle de saldo fixo e tratar cada regra fiscal como um plugin acionado no momento da baixa de estoque. O ganho é liberar um plugin novo sem tocar no núcleo nem nos demais plugins. A limitação aparece quando duas regras fiscais de plugins diferentes precisam ser aplicadas na mesma operação em uma ordem específica, porque o núcleo não foi desenhado para coordenar plugins entre si.
+A arquitetura microkernel mantém um núcleo estável e oferece pontos de extensão para plugins. Como possibilidade de desenho na Universidade ACME, a emissão de documentos poderia ter extensões para formatos diferentes, mantendo fixas as regras de autorização e identificação do aluno. O ganho seria acrescentar um formato sem alterar o núcleo. Se os formatos precisarem interferir uns nos outros ou mudar as regras centrais, essa divisão deixa de ajudar. O exemplo não propõe ampliar o escopo do primeiro ciclo.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -126,11 +117,11 @@ A arquitetura microkernel serve bem quando a maior parte do sistema é estável 
 | Quando evitar | Variação que exige interação entre extensões ou que altera as regras essenciais com frequência |
 | Anti-padrão e heurística de alerta | O **core creep**, quando o núcleo absorve regra específica de um plugin. Se o núcleo precisa ser alterado a cada plugin novo, ele deixou de ser estável |
 
-No exemplo do sistema de gestão de estoque industrial com regras fiscais por estado, o core creep apareceria se o núcleo de controle de saldo passasse a conter uma condicional específica para a regra fiscal de um estado, regra que pertence ao plugin correspondente.
+Na emissão de documentos, o core creep apareceria se o núcleo passasse a conter regras específicas de cada formato. Acrescentar uma extensão exigiria então alterar o próprio núcleo, contrariando o motivo de usar plugins.
 
 ### Arquitetura hexagonal
 
-A arquitetura hexagonal, também chamada de portas e adaptadores, ataca um problema diferente dos anteriores. Ela protege a regra de negócio do que a cerca, e a distribuição do sistema fica fora do seu alcance. Como exemplo, em um sistema de concessão de crédito a política de risco e de limite fica no núcleo, e tudo o que é externo entra por adaptador, o serviço de consulta a bureau de crédito, o núcleo bancário que efetiva o desembolso e os canais pelos quais o cliente pede o empréstimo. O núcleo não conhece nenhum desses três, ele declara o que precisa, por exemplo obter a pontuação de crédito de um solicitante, e cada adaptador atende a essa declaração. Trocar de bureau passa a ser trocar um adaptador, sem tocar na política de risco, e testar a política deixa de exigir bureau, banco ou tela.
+A arquitetura hexagonal, ou portas e adaptadores, protege regras de negócio das tecnologias e integrações externas. Na Universidade ACME, o serviço de matrícula pode declarar uma porta para consultar a situação acadêmica. Um adaptador traduz essa operação para a transação do núcleo COBOL. A regra de matrícula usa a porta e pode ser testada com um substituto, sem acessar o CICS. Quando o acesso ao legado mudar, o adaptador pode mudar preservando o contrato da porta.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -142,11 +133,11 @@ A arquitetura hexagonal, também chamada de portas e adaptadores, ataca um probl
 | Quando evitar | Sistema pequeno, de regra trivial, em que as portas não teriam mais de uma implementação |
 | Anti-padrão e heurística de alerta | O vazamento do adaptador para dentro do núcleo. Se o núcleo não compila sem a biblioteca do fornecedor externo, a porta não existe de fato |
 
-No exemplo do sistema de concessão de crédito, o vazamento apareceria se a política de risco recebesse como parâmetro o objeto de resposta do bureau, com a estrutura definida pelo fornecedor, porque a partir daí trocar de bureau volta a exigir mexer na política.
+Na matrícula, o vazamento aparece se a regra de negócio recebe diretamente uma estrutura proprietária do conector CICS. A partir daí, trocar o conector exige alterar a regra, e a proteção oferecida pela porta deixa de funcionar.
 
 ### Pipes and filters
 
-O estilo pipes and filters organiza o sistema como uma sequência de etapas de transformação. Os filtros encapsulam uma função específica, como validar, estimar ou calcular, e os pipes transportam o dado de um para o outro na forma de fluxo. Como exemplo, no sistema de processamento de medições de consumo da Distribuidora de Energia ACME a leitura bruta do medidor passa por um filtro de validação, depois por um filtro que estima a leitura quando ela veio ausente ou implausível, depois pelo filtro que aplica a tarifa vigente e por fim pelo que gera a fatura. Mudar a regra de estimativa é trocar um filtro, e o filtro de tarifação não é afetado. Ferramentas modernas de fluxo de dados derivam desse estilo, e é por isso que ele é a base de sistemas de extração, transformação e carga.
+O estilo pipes and filters organiza uma sequência de transformações independentes. Na Universidade ACME, a extração anual para o órgão regulador pode ser analisada como filtros que selecionam os registros, validam campos, convertem códigos e geram o arquivo de entrega. Trocar a conversão de um código não deveria exigir alterar a seleção. O exemplo explica o estilo usando uma rotina existente, cuja modernização está fora do primeiro ciclo.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -158,11 +149,11 @@ O estilo pipes and filters organiza o sistema como uma sequência de etapas de t
 | Quando evitar | Interação com o usuário que exige resposta imediata ou regra que depende de várias etapas ao mesmo tempo |
 | Anti-padrão e heurística de alerta | O filtro que guarda estado entre execuções ou depende de saber qual filtro veio antes. Se um filtro precisa conhecer a etapa anterior para produzir o resultado correto, ele deixou de ser substituível |
 
-No exemplo do processamento de medições, esse sinal apareceria se o filtro de tarifação precisasse consultar o filtro de estimativa para saber se a leitura foi medida ou estimada, informação que deveria chegar como parte do próprio dado.
+Na extração acadêmica, o sinal de alerta apareceria se o filtro de geração do arquivo precisasse consultar o estado interno do filtro de validação. O resultado da validação deveria viajar junto com o registro, para manter as etapas independentes.
 
 ### Arquitetura orientada a APIs
 
-A arquitetura orientada a APIs organiza o sistema em torno de contratos formais publicados. Cada capacidade é exposta por uma interface declarada e versionada, e nenhum consumidor alcança o dado de outro por caminho que não seja essa interface. As APIs costumam ser classificadas em três tipos por alcance, as internas, que ligam sistemas da própria organização, as externas, expostas a parceiros identificados, e as públicas, abertas a qualquer desenvolvedor. Como exemplo, na Operadora de Telecomunicações ACME a consulta de saldo e a recarga de crédito podem ser a mesma capacidade oferecida nos três alcances, consumida internamente pelo aplicativo próprio, externamente pela rede de varejo que vende recarga no caixa, e publicamente por quem queira construir algo sobre ela. Um gateway centraliza o que seria repetido em cada serviço, a autenticação, a autorização, a limitação de taxa e a observabilidade.
+A arquitetura orientada a APIs oferece capacidades por contratos publicados e versionados. Na Universidade ACME, o aplicativo e os portais podem consultar serviços acadêmicos pelas mesmas interfaces, sem acessar suas tabelas. Uma integração com parceiro exige contrato e autorização próprios. APIs públicas só fazem sentido para informações abertas, como a oferta de cursos, após decisão explícita de escopo e proteção. Um gateway pode centralizar autenticação, autorização, limites de uso e registros.
 
 | Aspecto | Descrição |
 | --- | --- |
@@ -174,7 +165,7 @@ A arquitetura orientada a APIs organiza o sistema em torno de contratos formais 
 | Quando evitar | Integração interna única e estável, em que o custo de contrato formal e de gateway não tem retorno |
 | Anti-padrão e heurística de alerta | A mudança incompatível publicada sem nova versão. Se publicar uma alteração exige combinar a data com cada consumidor, o contrato não está desacoplando nada |
 
-No exemplo da Operadora de Telecomunicações ACME, esse sinal apareceria se acrescentar um campo à resposta de consulta de saldo obrigasse a rede de varejo a atualizar o sistema de caixa no mesmo dia. Este estilo raramente aparece sozinho, porque costuma organizar a fronteira de um sistema que por dentro segue microsserviços ou camadas.
+Na consulta de notas, uma mudança incompatível obrigaria aplicativo e portal a serem atualizados no mesmo dia. Esse é um sinal de que o contrato não permite evolução independente. A abordagem por APIs pode organizar a fronteira de uma solução que internamente usa camadas ou microsserviços.
 
 ## Uso pelo arquiteto
 

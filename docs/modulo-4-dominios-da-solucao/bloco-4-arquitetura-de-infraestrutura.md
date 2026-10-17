@@ -1,6 +1,6 @@
 # Arquitetura de infraestrutura da solução
 
-Quando 5.800 alunos tentam se matricular ao mesmo tempo, o que decide se a confirmação sai em até 4 segundos é onde cada parte da solução executa e como as partes se conectam. Este bloco é o quarto e último dos domínios da Aula 4. Infraestrutura é o conjunto de equipamentos, redes e serviços sobre o qual a solução executa. O bloco responde a três perguntas, onde a solução executa, como suas partes se conectam e o que cada interface exige da comunicação, e não escolhe produto nem provedor de nuvem, decisão reservada à Aula 5, em que se definem as tecnologias da solução.
+Quando 5.800 alunos tentam se matricular ao mesmo tempo, o tempo de confirmação depende de onde cada parte da solução executa e de como elas se conectam. Este é o quarto e último domínio da Aula 4. Infraestrutura é o conjunto de equipamentos, redes e serviços sobre o qual a solução executa. O bloco responde onde ela executa, como suas partes se conectam e o que cada interface exige da comunicação. A escolha de produto ou provedor de nuvem fica para a Aula 5.
 
 ## Antes de começar
 
@@ -24,6 +24,27 @@ Para dizer onde a solução executa, o arquiteto trabalha com a **arquitetura de
 Os objetivos da arquitetura de infraestrutura são maximizar a eficácia e a eficiência do provimento e do uso da infraestrutura, eliminar duplicação de componentes e manter a infraestrutura alinhada às necessidades operacionais do negócio, que mudam com a estratégia e com a tecnologia disponível. Muitos componentes de infraestrutura são invisíveis às partes interessadas de negócio, embora sustentem requisitos não funcionais como desempenho e confiabilidade, e por isso os modelos de infraestrutura servem de base para as visões de quem tem essas preocupações.
 
 Os artefatos do domínio incluem o catálogo de tecnologia de infraestrutura, o modelo técnico de referência, o catálogo de padrões técnicos, a visão de configuração, a matriz entre aplicação e tecnologia e o modelo de plataforma. A declaração formal da infraestrutura exigida por uma solução, chamada de definição tecnológica da solução, e o modelo técnico de referência são tratados na Aula 5. Este bloco permanece no nível lógico, com os contêineres que a solução precisa, no sentido do [diagrama de contêineres](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#diagrama-de-conteineres) do bloco 3, e as exigências de cada interface entre eles.
+
+### Catálogo de blocos da solução da ACME
+
+Antes de escolher tecnologia, o projeto precisa nomear as partes que serão realizadas. Esta é a lista de blocos lógicos do primeiro ciclo da ACME. Ela serve como entrada para a Aula 5: lá, cada linha receberá alternativas concretas de produto, serviço ou componente configurado.
+
+| Bloco lógico | Responsabilidade no projeto | Situação no primeiro ciclo |
+| --- | --- | --- |
+| Interface do aplicativo do aluno | Permitir matrícula e consulta de notas no canal móvel | Novo |
+| Portal do Professor | Permitir o lançamento de notas no canal já usado pelos professores | Modificado |
+| Portal da Secretaria | Sustentar as operações acadêmicas da secretaria durante a transição | Modificado |
+| Provedor de identidade | Autenticar e autorizar alunos, professores e equipe com padrões abertos | Novo, realizado por serviço contratado, gerenciado ou operado pela ACME |
+| Serviço de matrícula | Receber solicitações e aplicar regras acadêmicas | Novo |
+| Serviço de notas | Registrar, consultar e disponibilizar notas | Novo |
+| Banco do serviço de matrícula | Persistir os dados próprios da matrícula | Novo |
+| Banco do serviço de notas | Persistir os dados próprios das notas | Novo |
+| Evento de nota | Comunicar a publicação de notas ao ambiente virtual | Novo |
+| Camada anticorrupção | Isolar os serviços novos das particularidades do COBOL | Novo |
+| Observabilidade | Correlacionar eventos, métricas e registros dos serviços novos | Novo |
+| Núcleo transacional COBOL sob CICS | Executar regras acadêmicas durante a transição | Permanece |
+
+O catálogo não escolhe React, Keycloak, PostgreSQL ou outro produto. Ele só declara **o que a solução precisa ter e fazer**. Evento de nota, camada anticorrupção e observabilidade são blocos lógicos transversais. Podem aparecer dentro de contêineres ou nas relações entre eles, sem ganhar uma caixa própria no diagrama C4. O ambiente virtual, o gateway de pagamento, o ERP, o assinador digital e o órgão regulador são dependências externas. Eles entram no desenho de contexto e nas relações, mas não são blocos que a ACME realiza neste ciclo. A [Aula 5](../modulo-5-frameworks-e-tecnologias/bloco-1-definicao-tecnologica-e-trm.md#exemplos-de-abb-para-sbb-na-acme) transforma cada bloco novo ou modificado em opções concretas e registra por que uma delas foi escolhida.
 
 ### A solução como grafo
 
@@ -92,17 +113,17 @@ O diagrama de implantação segue quatro regras de construção, derivadas da de
 3. Cada instância de contêiner corresponde a um contêiner do [diagrama de contêineres](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#diagrama-de-conteineres) e leva o mesmo nome, e um contêiner com quatro réplicas aparece como quatro instâncias sem que o diagrama de contêineres mude.
 4. Os nós de infraestrutura, como DNS, balanceador de carga e firewall, aparecem como elementos de apoio, ligados às instâncias que atendem.
 
-O contêiner do modelo C4 é uma unidade executável ou de armazenamento de dados, como uma aplicação web, um serviço ou um banco, e pode ser implantado num contêiner Docker, numa máquina virtual ou numa função sem servidor, de modo que os dois usos da palavra contêiner precisam ser distinguidos no texto que acompanha o diagrama. A Aula 5 usa ainda um terceiro sentido, o contêiner Java EE, que é o ambiente do servidor de aplicação responsável pelo ciclo de vida de componentes web e de negócio. A Figura 4 mostra, em C4, o ambiente de produção do sistema de agendamento da Clínica Odontológica ACME, cujos contêineres aparecem no [exemplo em C4 do bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#diagrama-de-conteineres), com os nós aninhados da região até as instâncias de contêiner do painel da recepção, do serviço de agenda e do banco de agendamentos.
+O contêiner do modelo C4 é uma unidade executável ou de armazenamento, como aplicação, serviço ou banco. Ele pode executar em contêiner de sistema operacional, máquina virtual ou função sem servidor. A Figura 4 usa os serviços de matrícula e notas da Universidade ACME para mostrar essa distinção. É um esquema de implantação a detalhar na Aula 5, quando a equipe escolher tecnologias e confirmar capacidade, disponibilidade e recuperação.
 
 <figure markdown="span">
-![Diagrama de implantação em C4 do ambiente de produção do sistema de agendamento da clínica. No alto, o telefone do paciente executa o aplicativo e o computador da recepção executa o painel da recepção no navegador. O aplicativo consulta o DNS, e os dois clientes enviam requisições HTTPS ao balanceador de carga, dentro da região do provedor de nuvem. Cada uma das duas zonas de disponibilidade tem um nó do cluster Kubernetes em máquina virtual Linux com uma instância do serviço de agenda e um banco de agendamentos gerenciado, primário na zona A e réplica na zona B, ligados por replicação. As instâncias do serviço de agenda chamam por HTTPS a operadora de convênio e o serviço de mensagens, sistemas externos à direita.](../assets/images/modulo-4-b4-c4-implantacao-clinica-v2.svg){ .module-diagram }
+![Esquema de implantação da Universidade ACME: canais nos dispositivos dos usuários, serviços e bancos novos no ambiente de produção, núcleo existente e integrações externas. Tecnologia, capacidade e recuperação são decisões da Aula 5.](../assets/images/modulo-4-b4-c4-implantacao-clinica-v2.svg){ .module-diagram }
 </figure>
 
-*Figura 4 — Diagrama de implantação em C4 do ambiente de produção da Clínica Odontológica ACME, com nós aninhados, nós de infraestrutura, instâncias de contêiner, nós de cliente e sistemas externos. Fonte: material do curso, com base em Brown (n.d.).*
+*Figura 4 — Localização das partes da solução da Universidade ACME, a detalhar na definição tecnológica. Fonte: material do curso.*
 
-Os nós de cliente aparecem fora do ambiente de produção, porque o aplicativo do paciente executa no telefone de cada paciente e o painel da recepção é aberto no navegador do computador da recepção. A operadora de convênio e o serviço de mensagens permanecem como sistemas externos, com os mesmos nomes do diagrama de contexto do bloco 3, e cada instância de contêiner leva o nome do contêiner correspondente do diagrama de contêineres.
+O aplicativo do aluno executa no telefone, e os portais são abertos nos navegadores de professores e secretaria. Esses nós de cliente ficam fora do ambiente de produção da ACME. Os serviços novos acessam o núcleo pelas transações existentes e integram sistemas externos pelos contratos definidos. O diagrama mantém essas fronteiras mesmo ao mostrar onde as partes executam.
 
-As setas do diagrama de implantação repetem as relações do diagrama de contêineres da clínica no bloco 3, agora com a indicação do nó em que cada extremidade executa, e por isso o diagrama mostra quais interfaces atravessam a fronteira entre zonas, entre a região e o centro de dados local ou entre a solução e a internet. Na fase lógica, os nós recebem nomes genéricos, como máquina virtual Linux ou nó do cluster Kubernetes, e o nome do serviço do provedor só aparece depois da definição tecnológica da Aula 5.
+As relações repetem o caminho da arquitetura alvo: canal do usuário, serviço, banco e integração com o núcleo. Na implantação, o arquiteto acrescenta a localização de cada parte, as fronteiras de rede e os recursos necessários. Se a localização impedir o R14, de processamento nacional, ou o R12, de disponibilidade na matrícula, a proposta precisa ser revista antes de aprovada.
 
 ## Uso pelo arquiteto
 

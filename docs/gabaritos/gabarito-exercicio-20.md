@@ -736,6 +736,27 @@ O banco Oracle, com 740 tabelas, é compartilhado entre o núcleo COBOL e a cama
 
 Ao fim do primeiro ciclo, o aluno renova a matrícula pelo aplicativo, o professor lança a nota pelo portal, e dois serviços novos, o de matrícula e o de notas, chamam o núcleo COBOL pelas transações que ele já tem. Cada serviço novo tem banco próprio, e o núcleo continua gravando no banco Oracle existente. A figura mostra os contêineres e as 15 relações numeradas, e a tabela dá o que cada relação exige da comunicação. Contêiner, no modelo C4, é uma parte executável da solução, como um portal, um serviço ou um banco. O R6 é o requisito de confirmar a matrícula em até 4 segundos com 5.800 sessões simultâneas, e o R7 é o de entregar a nota em até 10 minutos.
 
+#### Catálogo de blocos lógicos da arquitetura alvo
+
+Esta é a lista de ABBs que a Aula 5 transforma em candidatos concretos. Ela declara responsabilidades, e não escolhe produto, framework ou provedor.
+
+| ABB, bloco lógico | Responsabilidade | Situação no primeiro ciclo |
+| --- | --- | --- |
+| Interface do aplicativo do aluno | Permitir matrícula e consulta de notas no canal móvel | Novo |
+| Portal do Professor | Permitir o lançamento de notas no canal já usado pelos professores | Modificado |
+| Portal da Secretaria | Sustentar as operações acadêmicas da secretaria durante a transição | Modificado |
+| Provedor de identidade | Autenticar e autorizar alunos, professores e equipe com padrões abertos | Novo, realizado por serviço contratado, gerenciado ou operado pela ACME |
+| Serviço de matrícula | Receber solicitações e aplicar regras acadêmicas | Novo |
+| Serviço de notas | Registrar, consultar e disponibilizar notas | Novo |
+| Banco do serviço de matrícula | Persistir os dados próprios da matrícula | Novo |
+| Banco do serviço de notas | Persistir os dados próprios das notas | Novo |
+| Evento de nota | Comunicar a publicação de notas ao ambiente virtual | Novo |
+| Camada anticorrupção | Isolar os serviços novos das particularidades do COBOL | Novo |
+| Observabilidade | Correlacionar eventos, métricas e registros dos serviços novos | Novo |
+| Núcleo transacional COBOL sob CICS | Executar regras acadêmicas durante a transição | Permanece |
+
+Evento de nota, camada anticorrupção e observabilidade são responsabilidades lógicas transversais e podem ficar dentro de contêineres ou nas relações entre eles. Por isso, não precisam ganhar uma caixa própria no C4. O ambiente virtual, o gateway de pagamento, o ERP, o assinador digital e o órgão regulador são dependências externas. Eles influenciam os contratos, mas não são blocos que a ACME realiza neste ciclo.
+
 ![Diagrama de contêineres da arquitetura alvo do primeiro ciclo da ACME. No alto, professor, aluno e secretaria acadêmica. Dentro da fronteira do sistema acadêmico, o Portal do Professor e o Portal da Secretaria existentes, o aplicativo do aluno, os serviços de notas e de matrícula com banco próprio cada um e tecnologia a definir, e o núcleo transacional COBOL existente com o banco Oracle existente. À direita, fora da fronteira, provedor de identidade, assinador digital ICP-Brasil, ambiente virtual de aprendizagem, gateway de pagamento, ERP financeiro e órgão regulador. As relações estão numeradas de 1 a 15.](../assets/images/acme-ex16-diagrama-de-conteineres.svg){ .module-diagram }
 
 | Relação | Origem e destino | Modo | Volume | Latência |

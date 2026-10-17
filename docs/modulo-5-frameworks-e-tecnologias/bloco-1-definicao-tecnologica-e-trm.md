@@ -1,6 +1,6 @@
 # Definição tecnológica e modelo técnico de referência
 
-Quando o desenho da Aula 4 ficou pronto, a ACME tinha oito caixas num diagrama e seis delas ainda levavam o rótulo tecnologia a definir. Essas caixas são os contêineres, as partes executáveis da solução, como um aplicativo, um serviço ou um banco de dados, e ninguém sabia com que produto cada uma seria construída. Este bloco mostra como o arquiteto sai desse ponto, registrando as restrições que já limitam a escolha, comparando as alternativas que restam por seis critérios e deixando anotado o motivo da alternativa escolhida. O exercício 17, no fim da página, aplica esse caminho à ACME, a universidade fictícia que serve de caso ao curso.
+Quando o desenho da Aula 4 ficou pronto, a ACME tinha oito caixas no diagrama. Seis ainda diziam “tecnologia a definir”. Essas caixas são contêineres, partes executáveis da solução, como aplicativo, serviço ou banco de dados. Este bloco mostra como escolher o produto que realizará cada uma: primeiro registra as restrições, depois compara as alternativas permitidas por seis critérios e documenta o motivo da escolha. O exercício 17 aplica esse caminho à ACME.
 
 ## Antes de começar
 
@@ -11,15 +11,41 @@ Quando o desenho da Aula 4 ficou pronto, a ACME tinha oito caixas num diagrama e
 - [Dependência de fornecedor](../referencia/glossario.md#dependencia-de-fornecedor)
 - [ADR](../referencia/glossario.md#adr)
 
-## Do bloco de construção ao produto
+## O que vamos fazer
 
-Imagine que a equipe escreveu no desenho um bloco chamado serviço de identidade. Esse bloco diz que a solução precisa da capacidade de confirmar quem é cada usuário, mas não informa se ela virá de um software instalado e operado pela equipe, de um serviço contratado de terceiro ou de um recurso gerenciado de um provedor de nuvem, e cada uma dessas realizações produz consequências de operação, de contrato e de manutenção que duram anos. O [bloco de construção da solução](../referencia/glossario.md#bloco-de-construcao-da-solucao) é essa descrição de capacidade, feita antes de se decidir qual produto ou serviço a realiza.
+Nesta aula, você vai transformar uma necessidade do desenho em uma escolha tecnológica que possa ser defendida no Projeto de Arquitetura de Solução. O caminho é sempre o mesmo: identificar o que a solução precisa fazer, eliminar opções que desrespeitam as restrições, comparar as candidatas que restaram e registrar a decisão.
 
-Para sair do bloco e chegar ao produto, o arquiteto faz a **definição tecnológica da solução**, etapa que responde a três perguntas: que tipo e que nível de infraestrutura técnica a solução exige para ser implantada, quais áreas da infraestrutura atual precisam mudar e quanto custo, tempo e recurso essas mudanças consomem. O risco mais comum aparece quando a equipe adota a tecnologia que já conhece ou a que o fornecedor recomendou, sem confrontar a escolha com os requisitos registrados. No caso da ACME, a etapa parte do diagrama de contêineres do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16), em que aparecem contêineres novos, como o aplicativo do aluno, o serviço de matrícula e o serviço de notas, todos com o rótulo tecnologia a definir na Aula 5.
+<figure markdown="span">
+![Infográfico colorido que mostra sete etapas para escolher tecnologia: bloco de construção com a responsabilidade, serviço necessário, requisitos e restrições, catálogo de alternativas permitidas, critérios e evidências, decisão de tecnologia e ADR com a definição tecnológica. A mensagem final explica que a tecnologia realiza uma necessidade comprovada, e não uma preferência.](../assets/images/modulo-5-da-responsabilidade-a-decisao-tecnologica.png){ .module-diagram }
+<figcaption>Da responsabilidade à decisão tecnológica: a escolha parte de uma necessidade comprovada e termina em uma decisão justificável.</figcaption>
+</figure>
 
-### Restrições antes da comparação
+No desenho lógico, um bloco descreve uma responsabilidade, e não um produto. Nesta aula, **ABB** (*Architecture Building Block*) é o mesmo nível lógico chamado de [bloco de construção da solução](../referencia/glossario.md#bloco-de-construcao-da-solucao) no restante do curso. A realização concreta é o **SBB** (*Solution Building Block*): o produto, serviço contratado ou componente configurado que executará aquela responsabilidade. O aluno parte de ABBs, aprende a comparar candidatos e só então propõe SBBs para cada bloco.
 
-Uma equipe que comparasse produtos sem olhar antes o que já está decidido perderia tempo avaliando opções que não podem ser usadas. Por isso o arquiteto registra primeiro as restrições tecnológicas, no sentido de [restrição](../modulo-2-requisitos-e-partes-interessadas/bloco-3-cenarios-linha-de-base-e-restricoes.md#restricoes-ao-desenho) apresentado no bloco 3 da Aula 2, que são decisões tomadas fora do processo de projeto e limitam as alternativas sem que o arquiteto possa negociá-las. A lista abaixo traz os sete tipos de restrição tecnológica que a definição tecnológica examina.
+### Passo 1: identifique o que precisa ser realizado
+
+Comece pelo diagrama de contêineres do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16). A tabela transforma o desenho em uma lista de responsabilidades. Por exemplo, “serviço de matrícula” diz o que precisa existir. A escolha de como construí-lo vem nos próximos passos.
+
+| ABB, bloco lógico | Responsabilidade | Situação no primeiro ciclo |
+| --- | --- | --- |
+| Interface do aplicativo do aluno | Permitir matrícula e consulta de notas no canal móvel | Novo |
+| Portal do Professor | Permitir o lançamento de notas no canal já usado pelos professores | Modificado |
+| Portal da Secretaria | Sustentar as operações acadêmicas da secretaria durante a transição | Modificado |
+| Provedor de identidade | Autenticar e autorizar alunos, professores e equipe com padrões abertos | Novo, realizado por serviço contratado, gerenciado ou operado pela ACME |
+| Serviço de matrícula | Receber solicitações e aplicar regras acadêmicas | Novo |
+| Serviço de notas | Registrar, consultar e disponibilizar notas | Novo |
+| Banco do serviço de matrícula | Persistir os dados próprios da matrícula | Novo |
+| Banco do serviço de notas | Persistir os dados próprios das notas | Novo |
+| Evento de nota | Comunicar a publicação de notas ao ambiente virtual | Novo |
+| Camada anticorrupção | Isolar os serviços novos das particularidades do COBOL | Novo |
+| Observabilidade | Correlacionar eventos, métricas e registros dos serviços novos | Novo |
+| Núcleo transacional COBOL sob CICS | Executar regras acadêmicas durante a transição | Permanece |
+
+Evento de nota, camada anticorrupção e observabilidade atravessam mais de um contêiner. Por isso, podem ficar nas relações ou dentro dos contêineres, sem uma caixa própria no C4. O ambiente virtual, o gateway de pagamento, o ERP, o assinador digital e o órgão regulador são sistemas externos. Eles influenciam os contratos e a escolha, mas a ACME não precisa construí-los neste ciclo.
+
+### Passo 2: elimine o que não atende às restrições
+
+Uma equipe que compara produtos sem olhar o que já foi decidido perde tempo com opções inviáveis. Por isso, o arquiteto registra primeiro as [restrições que limitam as alternativas tecnológicas](../modulo-2-requisitos-e-partes-interessadas/bloco-3-cenarios-linha-de-base-e-restricoes.md#restricoes-ao-desenho). Elas vêm de decisões tomadas fora do processo de projeto e não podem ser alteradas pelo arquiteto sozinho. A lista abaixo traz os sete tipos de restrição tecnológica examinados nesta etapa.
 
 <figure markdown="span">
 ![Sete caixas numeradas à esquerda, uma para cada restrição tecnológica, de tecnologias aprovadas a competências da equipe, ligadas por uma barra comum a um funil que estreita as opções de produto. Do funil saem as opções que restam, que seguem para a comparação pelos seis critérios.](../assets/images/modulo-5-sete-restricoes.svg){ .module-diagram }
@@ -37,9 +63,9 @@ Uma equipe que comparasse produtos sem olhar antes o que já está decidido perd
 
 As restrições reduzem o conjunto de opções antes de qualquer comparação de produto, de modo que a alternativa que viola uma delas sai da lista sem receber nota em nenhum dos seis critérios de seleção apresentados mais adiante neste bloco.
 
-### Do bloco ao serviço de infraestrutura
+#### Transforme a responsabilidade em uma necessidade técnica
 
-Depois das restrições, resta ligar cada bloco de construção ao que vai sustentá-lo na infraestrutura, e esse é o passo central da definição tecnológica. Cada bloco tem requisitos funcionais e não funcionais, e parte deles se converte em requisito de serviço de infraestrutura, sempre com o nível de serviço declarado, como disponibilidade, capacidade ou tempo de resposta. Quando médicos e enfermeiros precisam entrar uma só vez nos sistemas clínicos, por exemplo, o requisito se converte no de um serviço de identidade disponível 24 horas por dia. Esse requisito de serviço corresponde a um serviço de infraestrutura do catálogo de infraestrutura, a lista dos serviços que a organização já oferece ou planeja oferecer às equipes, e o serviço recebe um ou mais componentes de infraestrutura concretos que o entregam.
+Para cada bloco da ACME, escreva o que a tecnologia precisa oferecer. O provedor de identidade deve autenticar pelos padrões do R8, atender à janela de matrícula e processar dados pessoais no Brasil. Os requisitos R6 e R12 orientam os testes de capacidade e disponibilidade. Depois verifique se a organização já oferece esse serviço, com os níveis necessários. Essa lista de serviços disponíveis é o catálogo de infraestrutura.
 
 Às vezes o catálogo simplesmente não tem o serviço de que o requisito precisa. Nesse caso o modelo registra uma **lacuna de provisão**, que pode exigir um serviço novo, a substituição, a modificação ou a remoção de um serviço existente, e a lacuna entra no custo da solução e no roteiro de entrega. A classificação das lacunas por tipo é tratada no [bloco 4](bloco-4-adr-de-plataforma.md) desta aula.
 
@@ -49,7 +75,7 @@ Depois das restrições, resta ligar cada bloco de construção ao que vai suste
 
 *Figura 2 — Do bloco de construção ao componente de infraestrutura, com a saída para lacuna de provisão. Fonte: material do curso, com base em Lovatt (2021, seção 7.4, figura 7.1).*
 
-### O modelo técnico de referência
+### Passo 3: encontre candidatas permitidas
 
 Percorrida a cadeia da Figura 2, falta saber qual produto pode ocupar cada lugar, e para isso a organização consulta uma lista das tecnologias permitidas, chamada **modelo técnico de referência**. O nome tem a sigla TRM, do inglês Technical Reference Model, que aparece em textos em inglês, e esta página usa sempre o nome por extenso. A arquitetura de infraestrutura mantém esse modelo como um vocabulário comum dos componentes da infraestrutura. Na definição adotada pelo curso, o modelo cataloga, por camada arquitetural e por categoria tecnológica, quais padrões, protocolos e produtos estão aprovados, quais estão proibidos e quais estão em avaliação. Um padrão ou protocolo é um conjunto de regras de comunicação que os sistemas seguem, como o REST e o OpenID Connect, que aparecem nas tabelas adiante. Uma lista de tecnologias aprovadas limita a quantidade de tecnologias diferentes em uso e assegura que cada uma passou por avaliação e por teste antes de ser adotada, de modo que a escolha do provedor de identidade ou do banco de um serviço novo parte de uma lista que a organização já avaliou.
 
@@ -70,7 +96,7 @@ Percorrida a cadeia da Figura 2, falta saber qual produto pode ocupar cada lugar
 
 A dependência entre os dois artefatos é assimétrica, porque o blueprint pode existir sem o modelo técnico, já que a estrutura da solução pode ser entendida antes de se saber qual tecnologia a realiza. O modelo técnico sem o blueprint fica sem lugar de aplicação, porque informa que uma tecnologia de mensageria está aprovada e deixa em aberto o fluxo em que ela será usada. A coluna de padrão do modelo emprega padrão técnico no sentido de especificação adotada por uma organização ou por um organismo de normalização, conforme a distinção feita no [bloco 3 da Aula 4](../modulo-4-dominios-da-solucao/bloco-3-arquitetura-de-aplicacoes-e-integracao.md#padrao-tecnico-protocolo-especificacao-e-contrato) entre padrão técnico e padrão arquitetural.
 
-### Estrutura em cinco colunas
+#### Estrutura em cinco colunas
 
 Para que a consulta seja rápida, o modelo técnico de referência é organizado como uma tabela de cinco colunas. A camada agrupa as tecnologias por posição na arquitetura, como apresentação, API e integração, negócio, dados, infraestrutura e segurança transversal, e a categoria subdivide a camada em grupos como framework web, mensageria ou banco relacional. O padrão ou protocolo é a especificação obrigatória ou recomendada para a categoria, a coluna de exemplos aprovados lista produtos que atendem ao padrão e foram avaliados positivamente, e a coluna de exemplos não aprovados lista produtos excluídos de forma explícita, com uma justificativa breve. A tabela abaixo mostra duas linhas de exemplo, a de exposição de serviços, com REST e OpenAPI 3.x, e a de identidade e acesso, com OpenID Connect como padrão obrigatório.
 
@@ -89,7 +115,9 @@ Além das cinco colunas, cada tecnologia do modelo ou do catálogo recebe uma co
 
 *Figura 4 — O modelo técnico de referência em cinco colunas e, à parte da tabela, a classificação de cada tecnologia em verde, âmbar e vermelho, com as vermelhas reunidas na seção de tecnologias descontinuadas. Fonte: material do curso, com base em Lovatt (2021, seção 7.3).*
 
-### Seis critérios de seleção
+### Passo 4: compare as candidatas que restaram
+
+#### Seis critérios de seleção
 
 Quando a linha do modelo traz mais de um produto aprovado, como Keycloak, Auth0 e Azure AD B2C na linha de identidade, a escolha é feita em cada projeto, com os seis critérios de seleção definidos na lista abaixo.
 
@@ -110,23 +138,43 @@ O arquiteto organiza a comparação numa **matriz de avaliação**, com as alter
 
 Uma restrição pode eliminar alternativas antes da comparação, e o registro precisa declarar essa eliminação para que a decisão não seja lida como resultado de uma soma de notas. O exemplo é a ferramenta de infraestrutura como código numa organização que opera em dois provedores de nuvem, AWS e Azure, com um modelo técnico que aprova Terraform, AWS CDK e Bicep. O AWS CDK descreve recursos da AWS, o Bicep descreve recursos da Azure e o Terraform descreve recursos dos dois provedores, de modo que a restrição de portabilidade entre os dois provedores elimina duas alternativas antes que custo e maturidade sejam comparados. A matriz preenchida, com a eliminação declarada, alimenta o campo de alternativas do [ADR](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), que é a parte do registro em que se listam as opções consideradas, e o campo de revisão do ADR define um gatilho observável para reavaliar a escolha.
 
-Versões anteriores da disciplina e materiais mais antigos usavam outra lista, a dos sete fatores, e os seis critérios acima a substituem. Quem encontrar a lista antiga pode convertê-la assim. Os requisitos funcionais, não funcionais e arquiteturais, juntos, formam a aderência ao requisito. O conhecimento técnico do time corresponde à competência da equipe, e os custos de aquisição e de renovação formam o custo total de propriedade. A confiabilidade do fornecedor corresponde ao suporte. A portabilidade é critério novo, sem fator equivalente na lista antiga, e a facilidade de uso, que constava da lista antiga, não tem critério correspondente na lista atual.
+### Passo 5: proponha e registre a realização
 
-### Dependência de fornecedor
+#### Exemplos de ABB para SBB na ACME
+
+Agora que o método de comparação está definido, os exemplos ficam concretos. A coluna SBB traz candidatos permitidos pelo recorte do modelo técnico de referência ou exemplos de realização que a equipe precisa avaliar. Ela não declara que um produto já foi escolhido.
+
+| ABB, bloco lógico | SBB candidato | Por que esse candidato entra na comparação | Evidência que precisa decidir |
+| --- | --- | --- | --- |
+| Interface visual organizada em MVVM | React para web | Implementa a camada de apresentação e pode separar tela, estado e regras de apresentação | Acessibilidade, desempenho percebido, padrão aprovado e competência da equipe |
+| Interface visual móvel organizada em MVVM | React Native | Pode realizar o aplicativo do aluno em dispositivos móveis | Canal definido no escopo, suporte aos dispositivos dos alunos, desempenho e manutenção |
+| Provedor de identidade | Keycloak operado pela ACME | Implementa OpenID Connect e pode executar sob controle da instituição | Residência nacional, disponibilidade na matrícula, operação e custo |
+| Provedor de identidade | Auth0 contratado | Implementa padrões abertos como serviço de terceiro | Região de processamento, contrato, custo total e portabilidade |
+| Provedor de identidade | Azure AD B2C gerenciado | Realiza identidade como serviço do provedor de nuvem | Aderência à restrição de nuvem, região, custo de saída e dependência de fornecedor |
+| Serviço de matrícula | Spring Boot | Pode expor a API REST e implementar regras do serviço | Capacidade para o pico, competência Java, observabilidade e suporte |
+| Serviço de matrícula | FastAPI | Pode expor a API REST como serviço independente | Capacidade para o pico, competência Python, operação e integração existente |
+| Serviço de notas | NestJS | Pode expor API REST e publicar o evento de nota | Contrato OpenAPI e AsyncAPI, prazo do R7 e competência TypeScript |
+| Banco do serviço de notas | PostgreSQL em região nacional | Implementa o armazenamento SQL próprio do serviço | Proteção do dado, recuperação, custo e operação da base |
+| Evento de nota | Kafka ou compatível | Publica eventos com retenção e contrato AsyncAPI | Volume, retenção, reentrega e rastreabilidade da mensagem |
+| Evento de nota | RabbitMQ | Pode realizar mensageria entre produtor e consumidor | Garantias de entrega, operação, retenção e compatibilidade com o contrato |
+| Observabilidade | Coletores compatíveis com OpenTelemetry | Coletam métricas, logs e rastros para operar os serviços | Correlação, retenção, acesso aos dados e integração com a operação existente |
+| Provisionamento da infraestrutura | Terraform | Declara e versiona a infraestrutura, com possibilidade de atender aos dois provedores pré-aprovados | Portabilidade, competência, cobertura dos recursos e processo de aprovação |
+
+Leia cada linha da esquerda para a direita. “Interface visual em MVVM → React” ou “evento de nota → Kafka” é um ponto de partida para a comparação. Antes de escolher, o aluno verifica as restrições, procura evidências para os seis critérios e registra no ADR por que a opção escolhida atende melhor ao caso.
+
+#### Inclua o risco de dependência na comparação
 
 O critério de portabilidade leva ao risco de [dependência de fornecedor](../referencia/glossario.md#dependencia-de-fornecedor), que é a dificuldade de trocar ou de negociar uma dependência técnica ou organizacional adotada pelo sistema, e cujo registro em seis dimensões e cujas formas de mitigação são tratados no [bloco 4](bloco-4-adr-de-plataforma.md). O padrão aberto é a mitigação mais visível na escolha de tecnologia, porque, quando o modelo técnico de referência exige OpenID Connect na linha de identidade, um provedor de identidade pode ser substituído por outro que implemente o mesmo protocolo, e as aplicações clientes mantêm o mesmo contrato de autenticação.
 
-### O exemplo do Hospital ACME
+#### Veja o caminho completo na ACME
 
-O Hospital ACME precisa de um serviço de identidade para médicos e enfermeiros, com dois requisitos que se convertem em requisito de serviço de infraestrutura. O primeiro é o logon único, que permite ao profissional autenticar-se uma vez e acessar os sistemas clínicos, e o segundo é a operação contínua, vinte e quatro horas por dia e sete dias por semana, porque o atendimento hospitalar não é interrompido à noite nem no fim de semana. Esses requisitos apontam para o serviço de gestão de identidade e acesso do catálogo de infraestrutura, ainda sem produto escolhido, e a escolha do produto segue a linha de identidade do modelo técnico de referência e a matriz dos seis critérios.
+O provedor de identidade é uma boa primeira escolha para treinar o método. A responsabilidade é autenticar e autorizar alunos, professores e equipe. O R8 exige OpenID Connect, o R14 limita o processamento de dados pessoais ao território nacional e a restrição de nuvem exige que a decisão possa funcionar nos dois provedores aprovados. Essas condições retiram da comparação qualquer candidata que não comprove atendimento.
 
-Se o catálogo do hospital não tiver um serviço de gestão de identidade e acesso, o requisito de serviço gera uma lacuna de provisão do tipo serviço novo, que entra no custo da solução e no roteiro de entrega antes de qualquer comparação de produto. Se o catálogo tiver o serviço, mas sem operação contínua declarada, a lacuna é do tipo modificação, porque o serviço existente precisa ter o nível de serviço ampliado para vinte e quatro horas por dia.
+As candidatas que restarem, como Keycloak, Auth0 e Azure AD B2C, entram na matriz. Para cada uma, a equipe procura evidência de disponibilidade na matrícula, suporte, custo, competência para operar e portabilidade. O ADR registra a candidata escolhida, as descartadas, as evidências usadas e o fato que exigiria rever a decisão. O exercício 17 faz esse percurso com os dados disponíveis e deixa explícito o que ainda precisa ser levantado.
 
 ## Uso pelo arquiteto
 
-O arquiteto consulta o modelo técnico de referência e a matriz de avaliação quando o desenho de contêineres chega com o rótulo tecnologia a definir, como as oito caixas da ACME no exercício 16, porque é nesse ponto que cada equipe tende a escolher o produto que já conhece. A linha do modelo diz qual padrão o contêiner precisa respeitar, então ele localiza a linha de cada requisito de serviço de infraestrutura e registra as restrições que eliminam alternativas antes de qualquer comparação. Só depois preenche a matriz dos seis critérios, com o dado que sustenta cada célula, e a leva ao ADR de seleção, que o patrocinador e a equipe consultam para saber qual alternativa foi escolhida, quais foram descartadas e quando a escolha deve ser revista.
-
-Sem esse material, a escolha depende do hábito de cada equipe, e a ACME terminaria com padrões diferentes em cada serviço e com tecnologias antigas copiadas para o sistema novo. A lacuna de provisão que a comparação revelaria também só apareceria com o serviço já em construção, fora do custo e do roteiro de entrega aprovados.
+Ao concluir os cinco passos, o arquiteto registra no ADR a opção escolhida, as opções descartadas, as evidências e o evento que exigirá rever a decisão.
 
 ## No caderno arquitetural
 
@@ -144,11 +192,11 @@ Sem esse material, a escolha depende do hábito de cada equipe, e a ACME termina
 | Tecnologias sob plano de migração | Entre as vermelhas, diga quais continuam em uso hoje e só podem ficar enquanto houver plano de migração documentado | 2 |
 | Aderência e portabilidade das alternativas | Para cada forma de obter o provedor de identidade (A, B e C), escreva o dado do caso que sustenta a aderência ao requisito e a portabilidade, citando o código do requisito ou da restrição | 3 |
 | Dado que falta por critério | Para maturidade, suporte, custo total de propriedade e competência da equipe, diga qual informação o caso não traz e precisa ser levantada | 3 |
-| Alternativa eliminada pela restrição | Escolha o R8 ou o R14, diga qual alternativa a restrição elimina antes da comparação e qual documento do fornecedor comprova o atendimento | 3 |
+| Regra de eliminação pela restrição | Escolha R8 ou R14, escreva a condição que elimina uma candidata e indique o documento necessário para verificar o atendimento | 3 |
 
 **O que você já tem.** O diagrama de contêineres do exercício 16, com os contêineres novos ainda marcados como tecnologia a definir, e os requisitos e restrições registrados nas seções 1 e 3.
 
-**Quando está pronto.** Os quatro contêineres têm linha e padrão, as seis tecnologias têm cor e justificativa, as três alternativas têm aderência e portabilidade com o código de origem e cada critério sem dado diz o que falta.
+**Quando está pronto.** Os quatro elementos têm linha e padrão, as seis tecnologias têm cor e justificativa, as três alternativas têm exigências e evidências a confirmar, e a regra de eliminação informa qual documento verificar.
 
 [Ver esta seção no template](../caderno/template.md#8-tecnologia-e-plataforma){ .caderno-botao }
 [Ver o gabarito do exercício 17](../gabaritos/gabarito-exercicio-17.md){ .caderno-botao }
@@ -219,7 +267,15 @@ Suas respostas viram os campos Classificação da tecnologia e Tecnologias sob p
 
 ### Item 3: Matriz de seleção do provedor de identidade
 
-Para escolher o provedor de identidade da ACME, o serviço que autentica os usuários, a equipe tem três caminhos possíveis, e o item pede que a comparação comece usando apenas o que o dossiê registra, para ver até onde os dados do caso sustentam uma escolha. A primeira tabela reproduz quatro requisitos, R6, R8, R12 e R14, e uma restrição do caso que pesam na escolha, com a origem de cada um. Um requisito é uma exigência que a solução precisa cumprir, e a restrição é uma decisão já tomada pela organização que limita as alternativas. No R6, o percentil 95 do tempo de confirmação em até 4 segundos significa que 95% das confirmações levam no máximo 4 segundos. Neste exercício, o R8 é lido como exigência do protocolo aberto de identidade OpenID Connect, sem proibir produto que o implemente. A segunda tabela é a parte da matriz de avaliação que o caso permite preencher, com as células de aderência ao requisito e de portabilidade em branco para três alternativas: a A, em que o provedor é um software instalado e operado pela equipe da ACME, a B, em que é um serviço contratado de terceiro, e a C, em que é um recurso gerenciado do provedor de nuvem.
+Você vai começar a comparação do serviço que confirma a identidade dos usuários da Universidade ACME. Use os requisitos da primeira tabela e compare três formas de obter esse serviço:
+
+| Alternativa | Quem instala e opera | O que a equipe precisa verificar |
+| --- | --- | --- |
+| A: software operado pela ACME | A equipe da universidade | Produto, localização, capacidade, disponibilidade e pessoas para operar |
+| B: serviço contratado | Uma empresa terceira | Produto oferecido, contrato, locais de processamento e formas de exportação |
+| C: serviço da nuvem | O provedor de nuvem | Recursos disponíveis, locais de processamento, contrato e possibilidade de troca de provedor |
+
+Ainda não há informações suficientes para escolher uma vencedora. Seu trabalho é dizer o que precisa ser comprovado em cada alternativa e quais dados faltam. A forma de contratação, sozinha, não comprova o atendimento a um requisito.
 
 | Código | Requisito ou restrição | Origem |
 | --- | --- | --- |
@@ -235,7 +291,7 @@ Para escolher o provedor de identidade da ACME, o serviço que autentica os usu�
 | B, serviço de terceiro |  |  |
 | C, gerenciado da nuvem |  |  |
 
-A terceira tabela lista os quatro critérios restantes dos seis, para os quais o dossiê da ACME não registra dado sobre as alternativas, e o aluno indica nela o dado que faltaria.
+Use a tabela abaixo para pedir as informações dos quatro critérios restantes. Escreva o que perguntaria ao fornecedor ou à equipe da ACME.
 
 | Critério | Dado que o caso não traz e precisa ser levantado |
 | --- | --- |
@@ -244,16 +300,16 @@ A terceira tabela lista os quatro critérios restantes dos seis, para os quais o
 | Custo total de propriedade |  |
 | Competência da equipe |  |
 
-1. Preencha as três células de aderência ao requisito e as três de portabilidade com o dado do caso que as sustenta, citando o código do requisito ou a restrição de origem.
+1. Para A, B e C, preencha **Aderência ao requisito** com o que precisa ser comprovado para R6, R8, R12 e R14. Em **Portabilidade**, explique o que precisa ser verificado para trocar entre os dois provedores aprovados. Cite o código de origem e escreva “a confirmar” quando faltar evidência.
 2. Para cada um dos quatro critérios da terceira tabela, escreva uma frase que diga qual dado o caso não traz e precisaria ser levantado com o fornecedor ou com a equipe, sem atribuir valor às alternativas.
-3. Escolha uma das duas restrições, R8, que exige padrões abertos de identidade, ou R14, que proíbe processar dado pessoal de aluno fora do território nacional. Explique como ela elimina uma das alternativas A, B ou C antes da comparação e indique que documento do fornecedor comprova o atendimento.
+3. Escolha R8 ou R14. Escreva uma **regra de eliminação**: qual condição faria uma candidata ser descartada e qual documento você pediria para comprovar o atendimento. Exemplo: “Descartar a candidata que processa dados pessoais fora do Brasil. Pedir contrato e descrição dos locais de processamento, inclusive cópias e suporte”. Não é possível descartar A, B ou C apenas por sua forma de contratação.
 
-Suas respostas viram os campos Aderência e portabilidade das alternativas, Dado que falta por critério e Alternativa eliminada pela restrição, na seção 8 do caderno.
+Suas respostas viram os campos Aderência e portabilidade das alternativas, Dado que falta por critério e Regra de eliminação pela restrição, na seção 8 do caderno.
 
 ## Fontes
 
 As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso. O trecho consultado aparece entre parênteses ao fim de cada entrada.
 
-- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.7.2, modelo técnico de referência entre os artefatos da arquitetura de infraestrutura, seção 7.1, as três perguntas e os passos da definição tecnológica e a figura 7.1, seção 7.3, os sete tipos de restrição tecnológica, o benefício da lista de tecnologias aprovadas e a classificação em vermelho, âmbar e verde, e seção 7.4, o mapeamento dos blocos de construção em serviços de infraestrutura e o catálogo de serviços, com a gestão de identidade e acesso. O Hospital ACME é a versão portuguesa do caso Fallowdale Hospital, que o livro usa nas seções 7.1 a 7.4 com o serviço de comunicação com pacientes, adaptado aqui ao serviço de identidade.)
+- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.7.2, modelo técnico de referência entre os artefatos da arquitetura de infraestrutura, seção 7.1, as três perguntas e os passos da definição tecnológica e a figura 7.1, seção 7.3, os sete tipos de restrição tecnológica, o benefício da lista de tecnologias aprovadas e a classificação em vermelho, âmbar e verde, e seção 7.4, o mapeamento dos blocos de construção em serviços de infraestrutura e o catálogo de serviços, com a gestão de identidade e acesso. Os conceitos foram adaptados ao caso da Universidade ACME)
 
 **Material do curso.** A estrutura em cinco colunas do modelo técnico de referência, os três princípios, a nota de uso que exige ADR para a adoção fora da lista aprovada e os seis critérios de seleção são convenções do curso. O bloco usa as entradas [modelo técnico de referência](../referencia/glossario.md#modelo-tecnico-de-referencia), [definição tecnológica da solução](../referencia/glossario.md#definicao-tecnologica-da-solucao), [lacuna de provisão](../referencia/glossario.md#lacuna-de-provisao), [bloco de construção da solução](../referencia/glossario.md#bloco-de-construcao-da-solucao), [dependência de fornecedor](../referencia/glossario.md#dependencia-de-fornecedor) e [ADR](../referencia/glossario.md#adr) do glossário, além do dossiê da instituição fictícia [ACME](../caso-acme/index.md), da [arquitetura de linha de base](../caso-acme/linha-de-base.md) e dos [dados operacionais](../caso-acme/dados-operacionais.md).

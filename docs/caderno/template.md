@@ -387,6 +387,7 @@ Esta parte é preenchida no exercício 16.
 
 Você escreve:
 
+- **Catálogo de blocos lógicos:** liste os blocos da arquitetura alvo, a responsabilidade de cada um e se ele é novo, modificado ou permanece no primeiro ciclo. Não escolha produto nesta seção.
 - **Modo de comunicação:** para cada uma das 15 relações do diagrama de contêineres, diga se é síncrona, quando quem chama espera a resposta, ou assíncrona, quando segue adiante.
 - **Volume e latência:** para cada relação, escreva quanto passa por ela e quanto tempo a troca pode levar, usando os fatos dos dados operacionais, e escreva "não informado" quando o dossiê não trouxer o dado.
 - **Relações do R6:** indique, pelo número, as relações que fazem parte do caminho da confirmação da matrícula em até 4 segundos (requisito R6).

@@ -1,6 +1,6 @@
 # Arquitetura de aplicações e integração
 
-Quando a nota lançada por um professor precisa chegar ao ambiente virtual, alguém precisa dizer por onde ela passa e o que cada lado promete ao outro, e esse é o trabalho do domínio de aplicações e integração. Este bloco é o terceiro dos quatro domínios da Aula 4. Uma aplicação é um programa que oferece funções ao negócio, e uma interface é o ponto em que uma aplicação oferece suas funções a outra. O bloco identifica as aplicações e as interfaces que realizam a mudança, distingue o que governa uma integração entre padrão técnico, protocolo, especificação e contrato, e representa a fronteira da solução no diagrama de contexto do modelo C4.
+Quando a nota lançada por um professor precisa chegar ao ambiente virtual, alguém precisa definir por onde ela passa e o que cada lado promete ao outro. Esse é o trabalho do domínio de aplicações e integração, o terceiro da Aula 4. Uma aplicação é um programa que oferece funções ao negócio. Uma interface é o ponto pelo qual uma aplicação oferece suas funções a outra. O bloco identifica as aplicações e interfaces que realizam a mudança, distingue padrão técnico, protocolo, especificação e contrato, e representa a fronteira da solução no diagrama de contexto C4.
 
 ## Antes de começar
 
@@ -16,7 +16,7 @@ Quando a nota lançada por um professor precisa chegar ao ambiente virtual, algu
 ![Mapa do bloco 0 com quatro faixas empilhadas, negócio, dados, aplicações e infraestrutura, e o que o arquiteto decide em cada uma, com a faixa de aplicações em destaque e as demais esmaecidas.](../assets/images/modulo-4-b0-mapa-aplicacoes.svg){ .module-diagram }
 </figure>
 
-No mapa do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), este bloco trata do domínio de aplicações. O arquiteto recebe a grade dado × aplicação, produzida no [bloco 2](bloco-2-arquitetura-de-dados.md), e o portfólio de aplicações, decide que aplicações mudam, por quais interfaces e contratos elas trocam dados e onde passa a fronteira da solução, e entrega ao bloco 4 os diagramas de contexto e de contêineres e os contratos de integração.
+No mapa do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), este bloco trata do domínio de aplicações. O arquiteto recebe a grade dado × aplicação, produzida no [bloco 2](bloco-2-arquitetura-de-dados.md), e o portfólio de aplicações. Ele decide que aplicações mudam, por quais interfaces e contratos elas trocam dados e onde passa a fronteira da solução. Ao bloco 4, entrega os diagramas de contexto e de contêineres, além dos contratos de integração.
 
 Para dizer por onde a nota passa, o arquiteto parte da arquitetura de aplicações, que é o subdomínio da arquitetura corporativa que mantém a visão do portfólio de aplicações da organização e dos serviços que elas oferecem, e que liga a arquitetura de negócio à arquitetura de dados. Aplicação é um conjunto de capacidades tecnológicas que fornece funções de negócio e gerencia ativos de dados, e componente de aplicação é a unidade que encapsula uma funcionalidade e a oferece por interfaces claramente definidas. As aplicações são o principal meio de gerir o dado ao longo do seu ciclo de vida, da aquisição ao processamento, ao armazenamento, à apresentação, ao arquivamento e à exclusão.
 
@@ -26,37 +26,37 @@ O bloco apresenta primeiro os conceitos de aplicação e de integração, cada u
 
 Quando o professor lança uma nota, o Portal do Professor a entrega ao núcleo transacional por uma interface, que é o ponto pelo qual um componente de aplicação oferece sua funcionalidade a outro componente, a uma pessoa ou a um sistema externo, e a integração é a troca de dados e de chamadas que ocorre por essas interfaces. Cada aplicação expõe as entidades de que é dona, no sentido de [propriedade do dado](bloco-2-arquitetura-de-dados.md#propriedade-do-dado) apresentado no bloco 2, e consome por interface as entidades que pertencem a outras aplicações.
 
-O diagrama abaixo, em notação livre, mostra as interfaces da mudança apresentada no [bloco 1](bloco-1-arquitetura-de-negocio.md) para o Hospital ACME, em que o prontuário eletrônico troca pedidos de exame e resultados com o sistema de cada laboratório de apoio por meio de um serviço de integração.
+O diagrama abaixo acompanha a nota da Universidade ACME. O professor faz o lançamento, o serviço de notas o registra pelo núcleo e publica a mensagem que atualiza o ambiente virtual. Cada seta exige uma interface com dados, condições e tratamento de erro definidos.
 
 ```mermaid
 flowchart TB
-    PRO["Prontuário eletrônico"]
-    INT["Serviço de integração com laboratórios"]
-    LAB["Sistema do laboratório de apoio"]
-
-    PRO -->|"interface de pedido de exame"| INT
-    INT -->|"envia o pedido no padrão HL7 FHIR"| LAB
-    LAB -->|"devolve o resultado no padrão HL7 FHIR"| INT
-    INT -->|"interface de resultado de exame"| PRO
+    PRO["Portal do Professor"]
+    SN["Serviço de notas"]
+    NUC["Núcleo acadêmico COBOL"]
+    AVA["Ambiente virtual"]
+    PRO -->|"lança a nota"| SN
+    SN -->|"registra pela transação existente"| NUC
+    SN -->|"publica o evento de nota"| AVA
+    AVA -->|"confirma o recebimento"| SN
 ```
 
 ### Portfólio de aplicações
 
 Antes de mexer em qualquer aplicação, o arquiteto precisa saber o que a organização já tem, e o artefato principal do domínio para isso é o catálogo do portfólio de aplicações, que lista as aplicações em uso e planejadas, com quem as usa e como. O portfólio costuma ser um conjunto heterogêneo, adquirido ou construído em momentos diferentes da história da organização, e por isso a arquitetura de aplicações trabalha continuamente para racionalizá-lo. Para distinguir aplicações estratégicas de aplicações legadas, é frequente o uso de uma classificação em vermelho, âmbar e verde, que permite à arquitetura de solução escolher a opção mais estratégica. Nesta disciplina, verde indica aplicação estratégica a manter e evoluir, âmbar indica aplicação mantida por ora, com restrição de investimento, e vermelho indica aplicação a substituir ou a retirar.
 
-A Figura 1 aplica a classificação a um portfólio ilustrativo do Hospital ACME, com cores atribuídas para fins didáticos. O módulo de anexos de laudo em PDF, que a central de exames usa para anexar ao prontuário os laudos baixados dos portais dos laboratórios de apoio, aparece em vermelho porque a modernização descrita no [bloco 1](bloco-1-arquitetura-de-negocio.md) passa a receber o resultado como dado estruturado, integrado ao prontuário no padrão HL7 FHIR.
+A Figura 1 aplica a classificação ao portfólio da Universidade ACME. O ERP financeiro e o ambiente virtual permanecem, conforme a decisão de escopo. O núcleo COBOL continua durante a transição, sob contrato. Os portais legados e os acessos diretos ao banco exigem migração. A cor orienta o investimento, enquanto o roteiro define quando cada mudança pode ocorrer.
 
 <figure markdown="span">
-![Três colunas classificam aplicações do Hospital ACME. Em verde, prontuário eletrônico do paciente e barramento de serviços, com a ação manter e evoluir. Em âmbar, agendamento ambulatorial, com a ação manter por ora com investimento restrito. Em vermelho, módulo de anexos de laudo em PDF e planilha de priorização, com a ação substituir ou retirar. Uma linha inferior indica o uso de cada cor na nova solução.](../assets/images/modulo-4-b3-portfolio-hospital.svg){ .module-diagram }
+![Portfólio acadêmico: ERP e ambiente virtual permanecem, núcleo COBOL exige acompanhamento durante a transição e portais legados e acessos diretos ao banco exigem migração.](../assets/images/modulo-4-b3-portfolio-hospital.svg){ .module-diagram }
 </figure>
 
 *Figura 1 — Portfólio de aplicações classificado em vermelho, âmbar e verde, com a ação associada a cada cor. Fonte: material do curso, com base em Lovatt (2021, seção 2.6.1).*
 
-Para ler o catálogo, ajuda separar as aplicações em três tipos, ilustrados na tabela abaixo com exemplos do Hospital ACME.
+Para ler o catálogo, ajuda separar as aplicações em três tipos, ilustrados na tabela abaixo com exemplos da Universidade ACME.
 
-| Tipo | Definição | Exemplo no Hospital ACME |
+| Tipo | Definição | Exemplo na Universidade ACME |
 | --- | --- | --- |
-| Aplicação de negócio | Ligada diretamente à atividade do negócio, própria da organização ou adquirida, inclusive como serviço | Prontuário eletrônico do paciente e agendamento ambulatorial pelo aplicativo |
+| Aplicação de negócio | Ligada diretamente à atividade do negócio, própria da organização ou adquirida, inclusive como serviço | Sistema acadêmico e ambiente virtual de aprendizagem |
 | Aplicação genérica | Ferramenta usada para vários fins | Planilha para priorização eventual e correio eletrônico entre departamentos |
 | Plataforma de aplicação | Conjunto de componentes tecnológicos que sustenta outras aplicações, em geral tratado no domínio de infraestrutura | Sistema gerenciador de banco de dados e barramento de serviços |
 
@@ -75,22 +75,18 @@ Cada ponto de contato entre blocos de construção da solução é descrito por 
 | Sequência | A ordem das mensagens e das respostas |
 | Pré e pós-condições | O que precisa valer antes da troca e o que passa a valer depois dela |
 
-O diagrama de sequência abaixo, em notação livre, descreve uma interface genérica entre um serviço de agendamento e um serviço de lembretes, com uma nota para cada um dos seis atributos. A origem e o destino aparecem como participantes, o gatilho e as condições aparecem como notas, e a sequência corresponde à ordem vertical das três mensagens trocadas.
+O diagrama acompanha uma interface da Universidade ACME e indica onde registrar os seis atributos. O serviço de notas é a origem, o ambiente virtual é o destino e a publicação de uma nota validada dispara a troca.
 
 ```mermaid
 sequenceDiagram
-    participant AG as Serviço de agendamento
-    participant LE as Serviço de lembretes
-    Note over AG: Origem, quem inicia a troca
-    Note over LE: Destino, quem recebe a troca
-    Note over AG,LE: Pré-condição, paciente com telefone válido cadastrado
-    Note over AG: Gatilho, consulta confirmada pelo paciente
-    AG->>LE: 1. agendar lembrete
-    Note over AG,LE: Itens trocados, id da consulta, paciente, data, horário e canal
-    LE-->>AG: 2. recebimento confirmado com id do lembrete
-    LE-->>AG: 3. lembrete enviado na véspera da consulta
-    Note over AG,LE: Sequência, mensagens 1, 2 e 3 nesta ordem
-    Note over AG,LE: Pós-condição, lembrete registrado como enviado na consulta
+    participant SN as Serviço de notas
+    participant AV as Ambiente virtual
+    Note over SN,AV: Pré-condição: nota validada e aluno identificado
+    Note over SN: Gatilho: nota publicada
+    SN->>AV: 1. enviar evento de nota
+    Note over SN,AV: Dados: identificador do evento, aluno, disciplina, nota e versão
+    AV-->>SN: 2. confirmar recebimento
+    Note over SN,AV: Pós-condição: entrega registrada e nota disponível em até 10 minutos
 ```
 
 ### Padrão técnico, protocolo, especificação e contrato
@@ -162,6 +158,23 @@ Um exemplo em que os quatro níveis aparecem separados é a nota fiscal eletrôn
 *Figura 2 — Padrão técnico, protocolo, especificação e contrato na nota fiscal eletrônica. Fonte: material do curso, com base no manual de orientação do contribuinte, versão 7.00 (2020).*
 
 ### Estrutura de um contrato
+
+Além do caminho de sucesso, um contrato precisa dizer como a integração confirma, falha e se recupera. A sequência resume essas situações e aponta o que deve ficar explícito no contrato.
+
+```mermaid
+sequenceDiagram
+    participant P as Aplicação provedora
+    participant C as Aplicação consumidora
+    P->>C: Envio conforme operação e esquema
+    C-->>P: Confirmação com resultado
+    alt falha temporária
+        C-->>P: Erro e código de retorno
+        P->>C: Nova tentativa conforme política
+    else informação inválida
+        C-->>P: Rejeição com motivo
+        P->>P: Corrigir e registrar tratamento
+    end
+```
 
 O contrato de integração usado nesta disciplina parte dos seis atributos de interface e acrescenta seis campos, que respondem ao que a especificação sozinha deixa em aberto.
 
@@ -285,13 +298,13 @@ Quando a Reitoria da ACME quer saber o que está dentro da solução e o que est
 
 O roteiro para montar esse diagrama tem cinco etapas encadeadas. Primeiro se identifica o sistema de interesse, porque ele é o foco do modelo, e em seguida se definem os atores externos, que são as pessoas que interagem com ele. Depois se listam os sistemas externos que trocam informação diretamente com o sistema principal, e só então se desenham as relações, que conectam pessoas e sistemas ao sistema principal com descrição clara da interação e do protocolo. A última etapa acrescenta descrição a cada elemento, para que o diagrama seja compreensível por todos os interessados, inclusive os que não participaram do desenho.
 
-O exemplo em C4 abaixo aplica o mesmo nível ao sistema de agendamento de consultas da Clínica Odontológica ACME.
+O exemplo abaixo é o contexto do sistema acadêmico da Universidade ACME. Ele mostra pessoas, sistemas externos e a fronteira adotada no primeiro ciclo. O núcleo COBOL está dentro da solução porque sua convivência com os serviços novos faz parte do projeto.
 
 <figure markdown="span">
-![Diagrama de contexto em C4 do sistema de agendamento da Clínica Odontológica ACME. O paciente e a recepção da clínica, pessoas à esquerda, usam o sistema de agendamento para marcar e confirmar consultas e para gerenciar a agenda e os encaixes. O sistema consulta a elegibilidade na operadora de convênio e envia lembretes pelo serviço de mensagens, sistemas externos em cinza à direita, com o protocolo de cada relação.](../assets/images/modulo-4-b3-c4-clinica-contexto.svg){ .module-diagram }
+![Contexto da Universidade ACME, com alunos, professores, secretaria e sistemas externos relacionados ao sistema acadêmico.](../assets/images/acme-ex15-contexto-corrigido.svg){ .module-diagram }
 </figure>
 
-*Figura 7 — Diagrama de contexto em C4 do sistema de agendamento da Clínica Odontológica ACME, com pessoas, sistema, sistemas externos e relações rotuladas por interação e protocolo. Fonte: material do curso, com base em Brown (n.d.).*
+*Figura 7 — Contexto do sistema acadêmico da Universidade ACME. Fonte: material do curso.*
 
 ### Diagrama de contêineres
 
@@ -310,37 +323,23 @@ O roteiro de montagem do diagrama de contêineres tem quatro etapas:
 3. Descrever as relações entre contêineres e entre eles e os sistemas externos, especificando protocolo e direção.
 4. Acrescentar a cada contêiner uma descrição curta da responsabilidade e da tecnologia usada.
 
-No exemplo em C4 abaixo, o mesmo sistema de agendamento da Clínica Odontológica ACME se decompõe no nível de contêineres sem que os atores e os sistemas externos mudem.
+O diagrama seguinte detalha o mesmo sistema acadêmico. Os portais, o aplicativo, os serviços, os bancos e o núcleo ficam dentro da fronteira. O provedor de identidade, o ambiente virtual e as demais dependências permanecem externos. Compare os nomes com o contexto antes de acrescentar detalhes.
 
 <figure markdown="span">
-![Diagrama de contêineres em C4 do mesmo sistema de agendamento. Dentro da fronteira tracejada, o aplicativo do paciente em Flutter e o painel da recepção em React chamam a API do serviço de agenda em Spring Boot por HTTPS com JSON, e o serviço lê e grava no banco de agendamentos PostgreSQL por SQL sobre TLS. O serviço chama por HTTPS com REST a operadora de convênio e o serviço de mensagens, que permanecem fora da fronteira como sistemas externos.](../assets/images/modulo-4-b3-c4-clinica-conteineres.svg){ .module-diagram }
+![Contêineres da arquitetura alvo da Universidade ACME, com portais, aplicativo do aluno, serviços de matrícula e notas, seus bancos e núcleo COBOL. As tecnologias dos componentes novos serão escolhidas na Aula 5.](../assets/images/acme-ex16-diagrama-de-conteineres.svg){ .module-diagram }
 </figure>
 
-*Figura 9 — Diagrama de contêineres em C4 do sistema de agendamento da Clínica Odontológica ACME, com a tecnologia e a responsabilidade de cada contêiner e os mesmos sistemas externos da Figura 7. Fonte: material do curso, com base em Brown (n.d.).*
-
-O par de sistemas externos, operadora de convênio e serviço de mensagens, é o mesmo nos dois níveis. Mudar esse conjunto entre um nível e outro quebra o princípio da coerência entre níveis, e a conferência precisa ser repetida sempre que os dois diagramas forem desenhados em momentos diferentes.
+*Figura 9 — Contêineres do mesmo sistema acadêmico. Fonte: material do curso.*
 
 ### Tecnologia no contêiner antes da definição tecnológica
 
 O modelo C4 pede que cada contêiner declare sua tecnologia. Na arquitetura alvo construída nesta aula, a escolha de produto, de framework e de provedor ainda não foi feita, porque depende da plataforma arquitetural decidida na Aula 5. Por convenção do curso, os contêineres da arquitetura alvo levam o rótulo tecnologia a definir na Aula 5, e esse rótulo indica à Aula 5 exatamente quais decisões tecnológicas ela precisa tomar.
 
-### Um exemplo completo nos dois níveis
+### Confira a fronteira nos dois níveis
 
-O par de diagramas abaixo modela o sistema de internet banking do Banco ACME, primeiro no nível de contexto e depois no de contêineres. Ele interessa a esta disciplina por um detalhe, o sistema mainframe bancário aparece como sistema externo, fora da caixa do sistema modelado.
+O sistema de interesse é o mesmo nas Figuras 7 e 9. No contexto, o núcleo COBOL fica incluído na caixa do sistema acadêmico. No nível de contêineres, ele aparece como parte interna dessa caixa. O fato de uma fábrica externa fazer sua manutenção não o torna automaticamente um sistema externo: o projeto da ACME inclui sua continuidade e sua integração durante a transição.
 
-<figure markdown="span">
-![Diagrama de contexto do sistema de internet banking, com o cliente bancário como pessoa, o sistema de internet banking como sistema modelado, e o sistema mainframe bancário e o sistema de e-mail como sistemas externos, ligados por relações rotuladas.](../assets/images/modulo-4-b3-c4-banking-contexto-v2.svg){ .module-diagram }
-</figure>
-
-*Figura 10 — Nível de contexto do sistema de internet banking, com o mainframe tratado como sistema externo. Fonte: material do curso, com base em Brown (n.d.).*
-
-<figure markdown="span">
-![Diagrama de contêineres do mesmo sistema de internet banking, decomposto em aplicação web, aplicação de página única, aplicativo móvel, aplicação de API e banco de dados, cada um com sua tecnologia, mantendo o mainframe e o sistema de e-mail como sistemas externos.](../assets/images/modulo-4-b3-c4-banking-conteineres-v2.svg){ .module-diagram }
-</figure>
-
-*Figura 11 — Nível de contêineres do mesmo sistema, com a tecnologia declarada em cada contêiner e os mesmos dois sistemas externos do nível anterior. Fonte: material do curso, com base em Brown (n.d.).*
-
-A posição do mainframe fora da caixa resulta de uma decisão de escopo tomada pelo Banco ACME, que tratou o mainframe como sistema mantido por outra equipe, com o qual o internet banking apenas se comunica. O critério que decide a posição de um componente é a fronteira de responsabilidade sobre o sistema, definida pela equipe ou pela organização que responde pela evolução e pela operação do componente.
+Em ambos os níveis, o ERP financeiro e o ambiente virtual continuam externos porque serão usados sem terem sua evolução assumida pelo projeto. A fronteira representa a responsabilidade definida no escopo. Confira essa regra ao comparar os diagramas com a declaração do primeiro ciclo no caderno.
 
 ## Uso pelo arquiteto
 
@@ -463,7 +462,7 @@ O diagrama de contexto corrigido neste item é a base do diagrama de contêinere
 
 As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso. O trecho consultado aparece entre parênteses ao fim de cada entrada.
 
-- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.6, arquitetura de aplicações, hierarquia de serviços, catálogo do portfólio, classificação em vermelho, âmbar e verde e tipos de aplicação, seção 2.8, interfaces na arquitetura de software, seção 3.6.4, análise de interfaces, e seção 4.3.1, padrões técnicos. O Hospital ACME é inspirado no caso Fallowdale Hospital, usado ao longo do livro)
+- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.6, arquitetura de aplicações, hierarquia de serviços, catálogo do portfólio, classificação em vermelho, âmbar e verde e tipos de aplicação, seção 2.8, interfaces na arquitetura de software, seção 3.6.4, análise de interfaces, e seção 4.3.1, padrões técnicos. Os conceitos foram adaptados ao caso da Universidade ACME)
 - Fielding, R., Nottingham, M., & Reschke, J. (Eds.). (2022). *HTTP semantics* (RFC 9110). RFC Editor. https://www.rfc-editor.org/rfc/rfc9110 (semântica do HTTP)
 - OpenAPI Initiative. (2026). *OpenAPI specification* (Versão 3.2.1). https://spec.openapis.org/oas/latest.html (finalidade e estrutura da descrição de interface HTTP)
 - AsyncAPI Initiative. (n.d.). *AsyncAPI specification* (Versão 3.1.0). https://www.asyncapi.com/docs/reference/specification/latest (descrição de interfaces orientadas a mensagens, independente de protocolo)

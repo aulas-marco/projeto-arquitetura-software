@@ -24,7 +24,7 @@ Quando a ACME decidiu que a nota deveria chegar ao ambiente virtual em até 10 m
 
 ## Bloco de construção da solução
 
-Unidade do desenho que representa uma capacidade de que a solução precisa, antes de estar decidido qual produto ou serviço a realiza. Um bloco de granularidade grossa, isto é, mais abrangente, agrupa vários blocos de granularidade fina, mais detalhados.
+Unidade do desenho que representa uma capacidade de que a solução precisa, antes de estar decidido qual produto ou serviço a realiza. Um bloco de granularidade grossa, isto é, mais abrangente, agrupa vários blocos de granularidade fina, mais detalhados. Na Aula 5, o mesmo nível lógico recebe a sigla ABB. O produto, serviço contratado ou componente configurado que o realiza recebe a sigla SBB. A escolha do SBB só acontece depois de comparar candidatos pelas restrições e evidências do projeto.
 
 ## Direcionador de mudança
 
@@ -164,7 +164,7 @@ Conjunto de modelos que descreve, de forma consistente, as entidades, os atribut
 
 ## Dados mestres
 
-Entidades de negócio compartilhadas por várias aplicações, como cliente, aluno ou paciente. São geridos para reduzir redundância e melhorar a qualidade, por um de quatro estilos de implementação: registro, consolidação, coexistência ou centralizado.
+Entidades de negócio compartilhadas por várias aplicações, como aluno, professor ou disciplina. São geridos para reduzir redundância e melhorar a qualidade, por um de quatro estilos de implementação: registro, consolidação, coexistência ou centralizado.
 
 ## Linhagem de dados
 

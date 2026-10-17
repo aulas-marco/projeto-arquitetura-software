@@ -11,7 +11,7 @@ Quando a ACME decidiu modernizar o sistema acadêmico, a Reitora, o Diretor Fina
 
 ## Conceito
 
-Uma solução só tem valor se o negócio a quer, e quem diz o que o negócio quer são as partes interessadas, a ligação entre a solução e o negócio. Escolhidas corretamente, elas representam o negócio e decidem em seu nome, de modo que uma solução que as satisfaça é a solução que o negócio quer. A norma ISO/IEC/IEEE 42010 define parte interessada como o indivíduo, a equipe, a organização ou a classe desses que tem interesse em um sistema, definição já adotada no [bloco 3 da Aula 1](../modulo-1-fundamentos/bloco-3-papel-do-arquiteto-de-solucao.md#conceito).
+Uma solução precisa responder às necessidades e aos limites das partes interessadas. Elas trazem conhecimento, usam ou sustentam a solução, sofrem seus efeitos ou possuem autoridade sobre decisões específicas. Nem toda parte interessada aprova decisões: a autoridade de cada pessoa ou grupo deve estar declarada. A norma ISO/IEC/IEEE 42010 define parte interessada como o indivíduo, a equipe, a organização ou a classe desses que tem interesse em um sistema, definição já adotada no [bloco 3 da Aula 1](../modulo-1-fundamentos/bloco-3-papel-do-arquiteto-de-solucao.md#conceito).
 
 <figure markdown="span">
 ![Infográfico sobre partes interessadas, pontos de vista e escopo. À esquerda, as partes são agrupadas entre quem patrocina e decide, usa e opera, constrói e mantém, e regula e audita. Ao centro, o interesse da parte gera uma preocupação, que orienta um ponto de vista e resulta em uma visão. À direita, o escopo pergunta o que está dentro, o que fica fora e quais interfaces atravessam a fronteira.](../assets/images/modulo-2-partes-interessadas-pontos-vista.png){ .module-diagram }
@@ -39,13 +39,21 @@ A responsabilidade pela seleção correta é dos donos do negócio e dos gestore
 
 ### Preocupações, pontos de vista e visões
 
-Toda preocupação identificada é registrada em um registro de preocupações e ligada a uma ou mais partes interessadas. A equipe de arquitetura mantém esse registro, e o patrocinador responde por assegurar que as preocupações sejam levantadas e tratadas. As preocupações são atendidas por decisões de desenho, e é por isso que elas reaparecem nas reuniões de decisão.
+Registre o que cada pessoa precisa saber ou teme que aconteça. Essa preocupação entra no registro de preocupações, fica ligada a uma ou mais partes interessadas e orienta as decisões de desenho que precisam respondê-la. A equipe de arquitetura mantém o registro, e o patrocinador responde por assegurar que as preocupações sejam levantadas e tratadas.
 
-A técnica que organiza esse tratamento tem dois termos que não são sinônimos, apresentados na fase de validação do [bloco 4 da Aula 1](../modulo-1-fundamentos/bloco-4-processo-de-definicao-da-arquitetura.md#as-oito-fases) e detalhados a seguir. O **ponto de vista** define três coisas, o critério de seleção que filtra o que será extraído da descrição de arquitetura, a estrutura do artefato que organiza essa informação, e as instruções de apresentação que a tornam compreensível para aquela audiência. A **visão** é o resultado concreto de aplicar um ponto de vista à descrição de arquitetura.
+A técnica que organiza esse tratamento tem dois termos que não são sinônimos, apresentados na fase de validação do [bloco 4 da Aula 1](../modulo-1-fundamentos/bloco-4-processo-de-definicao-da-arquitetura.md#as-oito-fases) e detalhados a seguir. O **ponto de vista** define como preparar uma representação para responder a certas preocupações: o que selecionar da descrição de arquitetura, como organizar a informação e como apresentá-la para aquela audiência. A **visão** é o resultado concreto de aplicar um ponto de vista à descrição de arquitetura.
 
 A consequência prática aparece na validação do desenho. Aplicar o mesmo ponto de vista à [arquitetura de linha de base](../referencia/glossario.md#arquitetura-de-linha-de-base) e à [arquitetura alvo](../referencia/glossario.md#arquitetura-alvo) produz duas visões comparáveis, e a comparação mostra o efeito da mudança sob a perspectiva daquela parte interessada, sem obrigá-la a ler o modelo inteiro.
 
 ### Pontos de vista na prática
+
+Antes de escolher uma representação, o arquiteto identifica quem vai lê-la, qual preocupação ela precisa responder e qual decisão aquela pessoa pode apoiar. Interesse na solução não significa autoridade para aprová-la.
+
+| Leitor | Preocupação | Representação | Decisão apoiada |
+| --- | --- | --- | --- |
+| Patrocinador | Escopo, valor e dependências | Contexto C1 | Priorizar e aprovar o recorte da mudança |
+| Equipe de segurança | Dados, exposições e controles | Contêineres C2 | Definir ou revisar controles necessários |
+| Gestor | Cobertura das preocupações | Matriz de rastreabilidade | Acompanhar lacunas, evidências e responsáveis |
 
 As três visões a seguir descrevem a mesma solução da ACME para audiências diferentes, e por isso não são intercambiáveis: cada uma seleciona os elementos, as relações e as informações adequados a uma preocupação, e o detalhe indispensável para uma equipe pode ser ruído para outra.
 
@@ -82,7 +90,7 @@ O contraste mostra que o ponto de vista seleciona conteúdo diferente para cada 
 
 ### Definição do escopo
 
-Para dizer o que a mudança altera e o que permanece, o escopo da solução é declarado por componentes da solução (pessoas, estruturas organizacionais, processos, informação e tecnologia). Entram na declaração os componentes da solução de negócio, os de informação e os de tecnologia, e os blocos de construção, com a distinção entre bloco de construção de arquitetura, que é genérico e reutilizável, e bloco de construção da solução, que é a realização daquele bloco naquela solução. A declaração é documentada e aprovada formalmente, porque é ela que delimita o que será mudado e, por exclusão, o que permanece.
+O escopo da solução registra o que a mudança altera e o que permanece. Para isso, considera pessoas, estruturas organizacionais, processos, informação e tecnologia, além dos blocos de construção. Um bloco de construção de arquitetura é genérico e reutilizável. O bloco de construção da solução realiza esse bloco no projeto concreto. A declaração é documentada e aprovada formalmente, porque delimita o que será mudado e, por exclusão, o que permanece. Cada exclusão deve apontar sua origem e quem a aprovou.
 
 Na ACME, universidade privada brasileira fictícia com 38.400 alunos ativos e sistema acadêmico em operação desde 2004, a declaração de escopo precisa registrar que o ambiente virtual de aprendizagem e o ERP financeiro permanecem, por decisão da Reitoria de 12/03/2026, e que o trabalho sobre eles é de integração e de governança.
 

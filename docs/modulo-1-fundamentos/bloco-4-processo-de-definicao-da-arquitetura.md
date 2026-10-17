@@ -18,6 +18,16 @@ O ciclo não é obrigatoriamente percorrido até o fim. Durante qualquer fase, o
 
 ### As oito fases
 
+Em cada fase, além de consultar entradas e produzir saídas, o arquiteto precisa responder a uma pergunta de trabalho. Esse roteiro curto acompanha a figura e a tabela detalhada desta seção.
+
+```mermaid
+flowchart LR
+    A["Iniciar<br/>Por que investigar?"] --> B["Descobrir<br/>O que já sabemos?"]
+    B --> C["Definir<br/>O que precisa mudar?"] --> D["Desenhar<br/>Como a solução responde?"]
+    D --> E["Validar<br/>Quem confirma?"] --> F["Planejar<br/>Como realizar?"]
+    F --> G["Entregar<br/>O que construir e acompanhar?"] --> H["Encerrar<br/>O que registrar para continuidade?"]
+```
+
 <figure markdown="span">
 ![Infográfico do processo de definição da arquitetura de solução em oito fases sequenciais, iniciação, descoberta, definição do esboço da solução, análise, desenho lógico, validação, desenvolvimento do roteiro e conclusão. Cada fase traz a entrada principal, a atividade central e a saída principal. Abaixo das fases, uma seta vai da ideia inicial à solução implantada, com retorno de aprendizado e realimentação, e a observação de que o escopo pode ser revisado ou o processo encerrado em qualquer fase. Na faixa inferior, as definições de artefatos de linha de base, blocos de construção da solução e resultado do processo.](../assets/images/modulo-1-processo-oito-fases.png){ .module-diagram }
 <figcaption>Entrada, atividade central e saída de cada uma das oito fases, com o percurso da ideia inicial até a solução implantada.</figcaption>
@@ -38,7 +48,7 @@ A tabela abaixo repete o conteúdo do infográfico em texto, para consulta e par
 
 A fase de iniciação tem custo baixo de propósito, porque seu produto é a decisão de prosseguir ou não, e nenhum desenho é produzido nela. O que ela exige é tempo e atenção de [partes interessadas](bloco-3-papel-do-arquiteto-de-solucao.md#conceito) seniores, conceito definido no bloco 3, e é nela que costuma ser identificado o patrocinador de negócio, o responsável último pela solução, que responde pelo sucesso dela e decide sobre a passagem de cada fase.
 
-Antes de investigar, o arquiteto precisa saber o que conta como problema, e o processo cobre três categorias: problemas imediatos que a organização precisa tratar, problemas antecipados que exigem redução de risco e oportunidades que a organização deve aproveitar. O espaço do problema delimita o escopo da investigação, e é a área do negócio que precisa ser examinada primeiro para estabelecer a causa raiz.
+Antes de investigar, o arquiteto precisa saber o que conta como problema. O processo cobre problemas imediatos, problemas antecipados que exigem redução de risco e oportunidades que a organização deve aproveitar. O **espaço do problema** é a parte da situação que será investigada: o que está acontecendo, quem é afetado e quais causas precisam ser entendidas antes de propor uma solução. Ele delimita o escopo da investigação.
 
 Quando o desenho lógico fica pronto, a fase de validação o verifica com três técnicas que reaparecem ao longo do curso. Um **ponto de vista** é o modelo que se aplica como filtro sobre o modelo de arquitetura, e o resultado é uma **visão**. Aplicar o mesmo ponto de vista às descrições anterior e posterior da arquitetura permite ver o efeito da mudança sob uma perspectiva específica. A **análise de impacto** examina cada bloco de construção e enumera o impacto da mudança, avaliado por alcance, tamanho e direção. A **análise de lacunas** compara duas descrições de arquitetura e lista os componentes da solução acrescentados, removidos ou alterados (pessoas, estruturas organizacionais, processos, informação e tecnologia).
 
@@ -50,7 +60,7 @@ Na ACME, universidade privada brasileira fictícia com 38.400 alunos ativos e si
 
 ### O caderno arquitetural
 
-Ao longo do curso, o resultado do seu trabalho se junta num único documento, o [caderno arquitetural](../referencia/glossario.md#caderno-arquitetural), que descreve a arquitetura da solução da ACME. Ele tem dez seções, mais um resumo de uma página, e cada exercício das seis aulas completa um pedaço.
+Ao longo do curso, o resultado do seu trabalho se junta no [caderno arquitetural](../referencia/glossario.md#caderno-arquitetural), o documento que reúne o Projeto de Arquitetura de Solução da ACME. Ele tem dez seções, mais um resumo de uma página, e cada exercício das seis aulas completa uma parte do projeto.
 
 {{trilha:todas}}
 

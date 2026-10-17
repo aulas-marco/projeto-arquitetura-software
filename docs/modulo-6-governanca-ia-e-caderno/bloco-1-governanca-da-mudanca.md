@@ -1,6 +1,6 @@
 # Governança da mudança
 
-Antes de gastar o primeiro real dos R$ 6,2 milhões que a Reitoria aprovou para o primeiro ciclo de 12 meses, a ACME precisa responder a duas perguntas. A primeira é o que separa o sistema de hoje do sistema desenhado nas aulas anteriores, e a segunda é quem garante que a obra, quando começar, siga o desenho mesmo sob pressão de prazo. Tome a matrícula como exemplo: em 04/02/2026 o portal caiu na abertura, com 62% das tentativas de matrícula retornando erro, e a solução desenhada existe para suportar as 5.800 sessões simultâneas do pico, de modo que a distância entre as duas situações é um trabalho a planejar e a vigiar.
+Antes de gastar os R$ 6,2 milhões aprovados para o primeiro ciclo, a ACME precisa responder a duas perguntas: o que separa o sistema atual do sistema desenhado e como garantir que a implementação siga o desenho sob pressão de prazo. Na abertura de matrícula de 04/02/2026, o portal caiu e 62% das tentativas retornaram erro. A solução foi desenhada para suportar 5.800 sessões simultâneas. A distância entre essas situações é o trabalho que precisa ser planejado e acompanhado.
 
 Este bloco ensina a medir essa distância com a análise de lacunas, a ordenar o fechamento das lacunas em ondas de entrega e a vigiar a execução com os mecanismos de governança. Mostra também o ciclo ADM do TOGAF, um método de arquitetura corporativa mantido pelo The Open Group, para situar o arquiteto de solução nas fases em que ele governa a mudança. O aluno faz dois exercícios, o 21, que classifica lacunas e ordena ondas, e o 22, que associa situações de desvio aos mecanismos de governança e a quem decide.
 
@@ -63,6 +63,18 @@ Com o relatório pronto, a ACME passa do desenho à execução, e o arquiteto de
 
 ### Roteiro de entrega em ondas
 
+As ondas precisam coordenar tecnologia, trabalho das pessoas e contratos. O esquema mostra que uma frente só avança quando suas dependências técnicas e organizacionais estiverem prontas. Datas propostas permanecem sujeitas à confirmação das autoridades do projeto.
+
+```mermaid
+flowchart LR
+    O1["Onda 1<br/>fundação técnica"] --> O2["Onda 2<br/>serviço e mudança operacional"] --> O3["Onda 3<br/>migração e redução do legado"]
+    T["Tecnologia"] --- O1
+    P["Processos e equipes"] --- O2
+    C["Contratos e orçamento"] --- O3
+    O1 -.->|"dependências confirmadas"| O2
+    O2 -.->|"critérios e transição concluídos"| O3
+```
+
 Com as lacunas listadas, a ACME precisa decidir o que entregar primeiro, e a resposta é o **roteiro arquitetural**, a visão estratégica de como a solução evolui no tempo. Ele mostra só as entregas que todas as partes interessadas reconhecem, distribuídas em períodos amplos e ligadas a um benefício de negócio. O cronograma do projeto fica por trás do roteiro, com as tarefas, as datas e as pessoas, sob responsabilidade da gestão de programas e projetos. O roteiro usa o formato agora, em seguida e depois, porque a diretoria o lê sem conhecimento técnico.
 
 Cada período do roteiro é uma **onda de entrega**, e cada onda tem valor de negócio e um critério de conclusão. O **critério de conclusão** é o que precisa estar em produção, validado e operando para que a onda seja considerada completa, e ele impede que se declare concluída uma onda só porque o prazo acabou. A ordem das ondas acompanha as dependências técnicas, e por isso a primeira costuma entregar a fundação de que as seguintes precisam, junto com uma entrega visível ao usuário. A técnica da **arquitetura mínima viável** ajuda a montar cada onda, porque pergunta qual é a menor arquitetura que entrega valor e permite aprender com o uso real.
@@ -82,6 +94,24 @@ O calendário e os contratos limitam o roteiro. O dossiê não registra a data d
 Com início em janeiro de 2027, a onda 2 começa em julho, e a janela de matrícula do segundo semestre abre antes de a matrícula digital ficar pronta. A primeira janela real para medir o critério dessa onda seria a do primeiro semestre de 2028, fora dos 12 meses do primeiro ciclo. A escolha entre antecipar o início, aceitar o teste de carga como critério provisório ou colocar a frente da matrícula em produção antes da janela de julho cabe ao patrocinador.
 
 ### Desvio arquitetural e os cinco mecanismos de governança
+
+Quando a implementação pede uma exceção ou uma mudança de decisão, a equipe pode usar o fluxo abaixo para localizar o momento de cada mecanismo de governança. Ele complementa as tabelas da seção e não substitui as autoridades nem os critérios definidos para o caso.
+
+```mermaid
+flowchart TD
+    A["Equipe propõe uma alteração"] --> B["Consultar ADR e regra vigente"]
+    B --> C["Analisar impacto em requisitos, modelos, operação, custo e prazo"]
+    C --> D{"Há exceção ou mudança de decisão?"}
+    D -->|"Não"| E["Executar verificações previstas"]
+    D -->|"Sim"| F["Registrar proposta e encaminhar à autoridade responsável"]
+    F --> G{"Decisão"}
+    G -->|"Recusar ou revisar"| A
+    G -->|"Aprovar"| H["Atualizar ADR e partes afetadas do projeto"]
+    H --> I["Registrar risco, responsável e prazo do desvio temporário"]
+    I --> E
+    E --> J["Acompanhar o resultado"]
+    J -.-> B
+```
 
 Aprovado o roteiro, a obra começa, e com ela o risco de **desvio arquitetural**, que é a construção se afastar do desenho. Imagine que a abertura da matrícula se aproxima e a equipe do serviço de matrícula descobre que ler as tabelas do banco do núcleo diretamente é mais rápido do que chamar o núcleo pela camada anticorrupção. A decisão parece pequena e isolada, mas repetiria no serviço novo os 2.300 pontos de acesso direto ao banco que o código Java já tem e que a camada foi desenhada para eliminar. Pressão de prazo, corte de orçamento e decisão tática isolada são as causas mais comuns desse desvio, e sem governança a arquitetura planejada se afasta aos poucos até se tornar irreconhecível.
 

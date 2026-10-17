@@ -6,7 +6,7 @@ Quando a ACME decidiu modernizar o sistema acadêmico, o arquiteto de solução 
 
 ## O fio condutor do curso: o caderno arquitetural
 
-Imagine que o arquiteto de solução deixa o projeto da ACME no meio do caminho. Quem fica precisa saber qual é o problema, o que já está decidido, o que a solução precisa fazer, como ela se organiza, com que tecnologia será construída e em que ordem será entregue. O caderno arquitetural é o documento em que o arquiteto registra, num só lugar, essas respostas e as razões por trás delas, e é ele que explica as decisões a quem assume o projeto.
+Imagine que o arquiteto de solução deixa o projeto da ACME no meio do caminho. Quem fica precisa saber qual é o problema, o que já está decidido, o que a solução precisa fazer, como ela se organiza, com que tecnologia será construída e em que ordem será entregue. O caderno arquitetural é o documento que reúne o Projeto de Arquitetura de Solução: nele o arquiteto registra essas respostas e as razões por trás delas, para que outra pessoa consiga entender, avaliar e dar continuidade ao projeto.
 
 Neste curso, você monta o caderno da ACME aos poucos. Cada exercício preenche um pedaço, e ao fim das seis aulas os 24 exercícios formam um único documento, com a arquitetura completa da solução. O caderno tem um resumo de uma página e dez seções, e cada uma tem um objetivo:
 
@@ -21,7 +21,7 @@ Neste curso, você monta o caderno da ACME aos poucos. Cada exercício preenche 
 | 6. Princípios | Fixa as regras que todas as decisões de desenho precisam respeitar |
 | 7. Decisões | Guarda as escolhas principais da solução, cada uma com a razão que levou a ela |
 | 8. Tecnologia e plataforma | Define com que tecnologia a solução será construída e como será protegida |
-| 9. Roteiro e governança | Define a ordem das entregas e como acompanhar a obra depois de aprovada |
+| 9. Roteiro e governança | Define a ordem das entregas e como acompanhar a implementação depois de aprovada |
 | 10. O que ainda falta decidir | Lista o que ainda é dúvida e quem pode resolver cada ponto |
 
 O [template do caderno](../caderno/template.md) mostra o caderno vazio, seção por seção. O [mapa](../caderno/mapa.md) diz qual exercício preenche cada parte, e a seção [Gabaritos](../gabaritos/index.md) mostra o caderno preenchido a cada exercício.

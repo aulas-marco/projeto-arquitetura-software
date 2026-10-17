@@ -12,7 +12,7 @@ Quando a ACME diz que a matrícula não pode cair, o arquiteto precisa transform
 
 ## Conceito
 
-Um [requisito de atributo de qualidade](bloco-2-qualidade-e-tipos-de-requisito.md#conceito), definido no bloco 2 desta aula, mesmo bem formulado, ainda deixa dúvida sobre em que situação exata ele vale e sobre como equipes diferentes devem interpretá-lo. O Software Engineering Institute usa cenários para reduzir essa ambiguidade. O relatório CMU/SEI-2003-TR-016 descreve o Quality Attribute Workshop, QAW, como método conduzido com os interessados para descobrir atributos de qualidade importantes e esclarecer requisitos antes mesmo de existir uma arquitetura detalhada. No QAW, os interessados geram, consolidam, priorizam e refinam cenários que representam os requisitos de qualidade do sistema. Esse trabalho também revela suposições e conflitos que permaneceriam ocultos em expressões genéricas como rápido, seguro ou flexível.
+Mesmo um [requisito de atributo de qualidade](bloco-2-qualidade-e-tipos-de-requisito.md#conceito) bem formulado pode levar equipes diferentes a entendimentos distintos. O cenário descreve a situação em que ele vale, o que acontece e como a resposta será medida. O Software Engineering Institute usa cenários para reduzir essa ambiguidade. O relatório CMU/SEI-2003-TR-016 descreve o Quality Attribute Workshop, QAW, como método conduzido com os interessados para descobrir atributos de qualidade importantes e esclarecer requisitos antes mesmo de existir uma arquitetura detalhada. No QAW, os interessados geram, consolidam, priorizam e refinam cenários que representam os requisitos de qualidade do sistema. Esse trabalho também revela suposições e conflitos que permaneceriam ocultos em expressões genéricas como rápido, seguro ou flexível.
 
 Para eliminar essa dúvida, o **cenário de atributo de qualidade** organiza a expectativa em seis elementos, que a tabela abaixo apresenta com a pergunta que cada um responde.
 
@@ -37,37 +37,37 @@ Um exemplo aplicado torna a estrutura concreta antes das três variações detal
 
 *Figura 2 — Exemplo aplicado da estrutura de seis elementos a um requisito de desempenho de um serviço de catálogo. Fonte: material do curso.*
 
-Para ver a estrutura em outro domínio, o primeiro exemplo traz um requisito de desempenho do aplicativo de rastreamento de encomendas da Transportadora ACME, na mesma progressão de contexto e medida vista no exemplo de desempenho da plataforma de vídeo da Produtora ACME, apresentado na seção Conceito do [bloco 2](bloco-2-qualidade-e-tipos-de-requisito.md).
+Os três exemplos seguintes usam serviços da Universidade ACME. Os valores servem para treinar a formulação de cenários e precisam de validação antes de entrar no projeto. O primeiro trata da consulta de notas. Compare sua estrutura com a progressão de contexto, carga e medida apresentada no [bloco 2](bloco-2-qualidade-e-tipos-de-requisito.md).
 
 | Elemento | Especificação |
 | --- | --- |
-| Fonte | Usuários autenticados do aplicativo de rastreamento de encomendas da Transportadora ACME |
-| Estímulo | Submissão de consulta de status de uma encomenda |
+| Fonte | Alunos autenticados no aplicativo da Universidade ACME |
+| Estímulo | Submissão de consulta de nota |
 | Ambiente | Pico mensal de 2.000 requisições por segundo |
-| Artefato | API de rastreamento e dependências necessárias |
-| Resposta | Validar a identidade, recuperar o status da encomenda e devolver a resposta |
+| Artefato | API de consulta de notas e suas dependências |
+| Resposta | Validar a identidade, recuperar a nota e devolver a resposta |
 | Medida | p95 até 500 ms, p99 até 1 s, erros abaixo de 0,1% |
 
-Na medida, p95 e p99 indicam o tempo dentro do qual terminam 95% e 99% das consultas, de modo que p95 até 500 ms quer dizer que no máximo 5% das consultas demoram mais que isso. O exemplo seguinte aplica a mesma estrutura a um requisito de modificabilidade: o sistema de pagamentos da Varejista ACME trabalha com múltiplos adquirentes, as empresas que processam os pagamentos de cartão da loja, e precisa incluir um novo sem mexer nas integrações existentes.
+Na medida, p95 e p99 são os tempos dentro dos quais terminam 95% e 99% das consultas. O segundo exemplo trata de modificabilidade: considere uma futura troca do gateway de pagamento usado na matrícula. A equipe quer incluir a integração nova sem alterar as existentes. Essa troca é uma situação de análise, sujeita à decisão de escopo.
 
 | Elemento | Especificação |
 | --- | --- |
 | Fonte | Equipe de produto |
-| Estímulo | Solicitação de inclusão de novo adquirente |
+| Estímulo | Solicitação de inclusão de novo gateway de pagamento |
 | Ambiente | Sistema em evolução normal |
 | Artefato | Componente de roteamento de pagamentos |
 | Resposta | Implementar e ativar a nova integração sem alterar as integrações existentes |
 | Medida | Até dez dias úteis, alterações limitadas ao adaptador, configuração e testes contratuais |
 
-No terceiro exemplo, o portal de sinistros da Seguradora ACME precisa resistir a quem tenta adivinhar a senha de um segurado, e a mesma estrutura descreve esse requisito de segurança, em um domínio ainda não usado nesta aula.
+O terceiro exemplo trata da proteção da conta de aluno na Universidade ACME. Ele descreve a resposta proposta a tentativas repetidas de adivinhar a senha. A equipe de segurança precisa validar os limites antes da adoção.
 
 | Elemento | Especificação |
 | --- | --- |
-| Fonte | Agente que tenta acesso não autorizado a uma conta de segurado |
+| Fonte | Agente que tenta acesso não autorizado a uma conta de aluno |
 | Estímulo | Cinco tentativas de autenticação inválida para a mesma conta em dez minutos |
-| Ambiente | Operação normal do portal de sinistros |
-| Artefato | Serviço de identidade do portal de sinistros |
-| Resposta | Bloquear novas tentativas, registrar o evento e notificar o segurado |
+| Ambiente | Operação normal do aplicativo do aluno |
+| Artefato | Serviço de identidade do aplicativo do aluno |
+| Resposta | Bloquear novas tentativas, registrar o evento e notificar o aluno |
 | Medida | Bloqueio por quinze minutos, registro em log de auditoria, notificação em até um minuto |
 
 Um cenário bem escrito ainda não indica se o requisito é arquiteturalmente significativo, conceito definido a seguir. Depois de formulado, ele precisa ser priorizado e avaliado quanto ao impacto sobre a arquitetura.
@@ -87,7 +87,7 @@ Para nomear esse efeito amplo, usa-se o conceito de **requisito arquiteturalment
 
 Um **direcionador arquitetural** é um fator prioritário que orienta a formação ou a avaliação da arquitetura. Dependendo do método e do autor, o termo pode incluir ASRs, objetivos de negócio, restrições e preocupações críticas. No processo QAW, o SEI inclui entre os direcionadores requisitos de alto nível, preocupações de negócio ou de missão, objetivos e atributos de qualidade, e cabe aos interessados e facilitadores estabelecer consenso sobre quais são decisivos para aquele sistema. Requisito arquiteturalmente significativo e direcionador arquitetural, portanto, também não são intercambiáveis. Um objetivo de negócio como entrar em cinco países em doze meses não é, por si, um requisito de sistema já formulado, mas funciona como direcionador de requisitos de configurabilidade, localização, conformidade e escalabilidade que ainda precisam ser decompostos.
 
-Atributo de qualidade e ASR não são equivalentes. Um atributo de qualidade é uma propriedade, como desempenho ou disponibilidade. Um requisito de atributo de qualidade estabelece o comportamento esperado em relação a essa propriedade. Um ASR é um requisito que influencia materialmente a arquitetura, e essa influência decorre do efeito que ele produz sobre decisões estruturais. Um requisito de atributo de qualidade pode ser arquiteturalmente significativo, mas não necessariamente será, como acontece com uma consulta administrativa de baixo volume que continua sendo requisito de desempenho válido sem provocar qualquer decisão arquitetural nova. Um ASR, por sua vez, não precisa ser um requisito de atributo de qualidade. No sistema de pagamentos da Varejista ACME, o requisito de escolher dinamicamente entre cinco adquirentes, considerando custo, disponibilidade, risco e regra contratual, sem duplicar cobrança durante tentativa de contingência, tem núcleo funcional. Ainda assim ele pode exigir estratégia intercambiável entre adquirentes, normalização de contrato, idempotência, gerenciamento de estado, tratamento de falha parcial, auditoria e observabilidade distribuída, o que o torna um ASR funcional. Na expansão internacional, o objetivo de disponibilizar o produto em cinco países em doze meses ainda não especifica comportamento de software, mas pode gerar ASRs de localização, configurabilidade, extensibilidade e conformidade regulatória, sem que nenhum desses ASRs seja, sozinho, um requisito de qualidade nomeado como tal.
+Atributo de qualidade e ASR não são equivalentes. O atributo é uma propriedade, como desempenho. O requisito de qualidade declara o comportamento esperado e sua medida. ASR indica que uma exigência afeta decisões importantes de arquitetura. Na Universidade ACME, renovar matrícula pelo celular é uma necessidade funcional, mas pode exigir novo canal, interfaces com o núcleo, autenticação e tratamento de falhas. Por isso pode ser um ASR funcional. Já oferecer a modernização em novos campi seria um objetivo de negócio que ainda precisaria ser decomposto em requisitos de capacidade e operação.
 
 Os dois conjuntos, requisito de atributo de qualidade e ASR, se cruzam sem coincidir: há requisitos de qualidade que são ASR e outros que não são, há ASR funcionais e ASR que são restrição, e há ainda requisito funcional comum sem nenhuma significância arquitetural relevante.
 
@@ -107,7 +107,7 @@ Dois erros recorrentes aparecem neste ponto. O primeiro é tratar todo requisito
 
 ### Artefatos de linha de base
 
-Cenário e julgamento de significância não são os únicos insumos da [fase de descoberta](../modulo-1-fundamentos/bloco-4-processo-de-definicao-da-arquitetura.md#as-oito-fases), segunda fase do processo apresentado na Aula 1. Parte do que o arquiteto precisa já existe na organização, descrita como situação atual, e recebe o nome de [artefato de linha de base](../referencia/glossario.md#artefato-de-linha-de-base). Usá-los evita refazer levantamento e, mais importante, evita que a solução seja desenhada sobre uma leitura inventada do sistema existente.
+Antes de fazer um levantamento novo, a equipe procura os registros da situação atual. Eles são insumos da [fase de descoberta](../modulo-1-fundamentos/bloco-4-processo-de-definicao-da-arquitetura.md#as-oito-fases), segunda fase do processo apresentado na Aula 1, e recebem o nome de [artefatos de linha de base](../referencia/glossario.md#artefato-de-linha-de-base). Usá-los evita refazer levantamento e, mais importante, evita que a solução seja desenhada sobre uma leitura inventada do sistema existente.
 
 Os artefatos de linha de base mais frequentes são a descrição da arquitetura atual, com componentes e integrações, o catálogo de aplicações, os modelos de processo de negócio, os modelos de dados, os contratos vigentes com fornecedores e os registros de incidente e de capacidade. Cada um deles tem data, dono e grau de confiabilidade, e parte do trabalho de descoberta é justamente estabelecer quanto de cada artefato ainda descreve a realidade.
 
@@ -115,7 +115,7 @@ Na ACME, universidade privada brasileira fictícia com sistema acadêmico em ope
 
 ### Restrições ao desenho
 
-Restrição é decisão tomada fora do processo de projeto, que limita as alternativas do arquiteto sem ser negociável por ele. Ela difere do requisito em dois pontos. O requisito descreve o que a solução precisa entregar e admite discussão sobre a forma de atendê-lo, enquanto a restrição fecha alternativas antes da análise. Tratar restrição como requisito leva a comparar opções que a organização já descartou, e tratar requisito como restrição leva a aceitar como fechado o que ainda podia ser negociado.
+Restrição é uma decisão tomada fora do processo de projeto que limita as alternativas do arquiteto. Ela difere do requisito em dois pontos. O requisito descreve o que a solução precisa entregar e admite discussão sobre a forma de atendê-lo, enquanto a restrição fecha alternativas antes da análise. Tratar restrição como requisito leva a comparar opções que a organização já descartou, e tratar requisito como restrição leva a aceitar como fechado o que ainda podia ser negociado. Se uma restrição impedir uma solução viável, o arquiteto registra o efeito e procura quem tem autoridade para revê-la. Ele não pode alterá-la sozinho.
 
 As restrições chegam de origens distintas, e a origem determina quem pode revê-las: a restrição regulatória vem de fora e só muda com mudança normativa, a contratual vem de acordo assinado e muda por negociação com o fornecedor dentro dos prazos previstos, a de política interna vem de decisão de governança e muda com nova decisão do mesmo nível, e a técnica vem do parque instalado e muda com investimento.
 

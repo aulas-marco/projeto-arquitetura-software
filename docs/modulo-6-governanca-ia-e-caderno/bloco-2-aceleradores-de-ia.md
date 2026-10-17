@@ -1,6 +1,6 @@
 # Aceleradores de IA
 
-Um modelo de linguagem é um programa que recebe um texto e devolve outro, e por isso consegue rascunhar em poucos minutos os documentos estruturados que o arquiteto produz, como o catálogo de requisitos, o cenário de qualidade e o ADR, o registro de decisão arquitetural. A rapidez traz um risco, porque o rascunho chega com a estrutura completa e a linguagem correta mesmo quando o conteúdo está errado. Este bloco mostra em que ponto de cada fase do trabalho o modelo ajuda, quais tarefas o arquiteto não pode delegar, como conferir cada saída em três etapas, o que não pode entrar em uma instrução enviada ao modelo e como registrar no próprio ADR que houve assistência. O exercício do bloco usa o caso da ACME, a universidade privada fictícia descrita no [dossiê do caso](../caso-acme/index.md).
+Um modelo de linguagem recebe um texto e devolve outro. Por isso, consegue rascunhar rapidamente documentos estruturados, como catálogo de requisitos, cenário de qualidade e ADR. A rapidez traz um risco: o rascunho pode parecer completo e correto mesmo quando o conteúdo está errado. Este bloco mostra em que fase o modelo ajuda, o que o arquiteto não pode delegar, como conferir cada saída em três etapas, o que não pode entrar em um prompt e como registrar a assistência no ADR. O exercício usa o caso da ACME, descrito no [dossiê](../caso-acme/index.md).
 
 ## Antes de começar
 
@@ -81,6 +81,14 @@ O erro plausível aparece em qualquer artefato, e a tabela traz quatro casos da 
 O custo do erro cresce com a distância entre a fase em que ele entra e a fase em que é encontrado. O número de 3 segundos, se aceito no cenário da análise, passaria para as forças do ADR no projeto lógico, para o contrato do serviço de matrícula e para o acordo de nível de serviço, e uma descoberta na validação obrigaria a refazer o trabalho das fases intermediárias.
 
 ### A verificação em três etapas
+
+O quadro abaixo transforma as três etapas em uma conferência que pode ser aplicada a qualquer saída de IA. Ele ajuda a verificar o texto sem separar a resposta do Projeto de Arquitetura de Solução que ela pode afetar.
+
+| Afirmação produzida | Fonte vigente | Parte do projeto afetada | Conferência | Responsável |
+| --- | --- | --- | --- | --- |
+| Número, nome, requisito ou decisão citado | Dossiê, entrevista, requisito, ADR ou medição | Cenário, modelo, contrato, ADR ou roteiro | Localizar a origem e conferir se ela ainda vale | Autor da saída |
+| Proposta de mudança | Restrição, contrato ou decisão aprovada | Escopo, tecnologia, custo ou roteiro | Conferir autoridade, limite e impacto | Arquiteto e autoridade competente |
+| Texto revisado | Artefato e modelo de destino | Seção correspondente do caderno | Revisar por par com conhecimento do contexto | Revisor independente |
 
 A resposta ao risco é um procedimento aplicado a toda saída do modelo, sem exceção para o texto que parece correto. Cada etapa faz uma pergunta diferente, e a terceira cabe a uma pessoa que não participou do pedido.
 

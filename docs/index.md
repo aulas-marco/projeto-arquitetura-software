@@ -24,6 +24,17 @@ Quando um arquiteto sai de um projeto, quem chega depois precisa entender o que 
 
 A [Aula 1](modulo-1-fundamentos/index.md#o-fio-condutor-do-curso-o-caderno-arquitetural) explica o que é o caderno e para que serve cada uma das suas seções. Para acompanhar o trabalho, há três páginas. O [template](caderno/template.md) mostra o caderno ainda vazio, com o que vai em cada seção. O [mapa](caderno/mapa.md) diz qual exercício preenche cada parte. A seção Gabaritos traz, para cada exercício, o caderno preenchido até aquele ponto. Estão publicados os gabaritos dos 24 exercícios, e o do exercício 24 é o caderno completo da disciplina.
 
+### Como as partes do projeto se conectam
+
+O caderno não é uma sequência de respostas isoladas. O mapa abaixo mostra relações de consulta e coerência entre as seções. As setas não criam uma nova ordem de produção: o aluno volta às seções anteriores sempre que uma decisão nova revelar uma lacuna.
+
+<figure markdown="span">
+![Mapa das relações de consulta e coerência entre as seções do caderno arquitetural. O contexto alimenta partes interessadas e linha de base. Partes interessadas orientam requisitos, contexto C4 e princípios. Requisitos, contexto C4, princípios, linha de base e o resumo em uma página convergem para decisões e modelos. As decisões orientam tecnologia e plataforma, que orienta roteiro e governança. Decisões e roteiro alimentam pendências.](assets/images/mapa-relacoes-caderno.png){ .module-diagram }
+<figcaption>Relações de consulta e coerência entre as seções do caderno.</figcaption>
+</figure>
+
+Use o [template](caderno/template.md) para consultar o conteúdo completo de cada seção e o [mapa de exercícios](caderno/mapa.md) para localizar em que momento cada uma é preenchida.
+
 ## Avaliação
 
 Como o aluno aplica cada conceito ao caso da ACME em um exercício, são os exercícios de cada aula, somados à participação nos encontros ao vivo, que formam a avaliação. A distribuição de pontos está no [cronograma](cronograma.md).

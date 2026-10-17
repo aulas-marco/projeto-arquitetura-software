@@ -1,6 +1,6 @@
 # Segurança fim a fim
 
-A ACME já sabe com que produtos, em que plataforma e sobre que zona de pouso vai construir o sistema novo, mas ainda não sabe se esse conjunto protege o que precisa proteger. Falta decidir, por exemplo, quão sensível é o dado pessoal gravado no banco, quem pode lê-lo e o que protege a chamada que atravessa a rede, e tanto o dado quanto a chamada são ativos, isto é, coisas de valor para a organização. Este bloco apresenta as ferramentas dessa conferência, que são a classificação dos ativos, a grade de permissões, a fronteira de confiança, o STRIDE e a autoridade de design de segurança, e o exercício 19, no fim da página, as aplica ao caso da ACME, a universidade fictícia do curso.
+A ACME já escolheu produtos, plataforma e zona de pouso. Ainda falta verificar se esse conjunto protege o que precisa ser protegido. É preciso decidir, por exemplo, quão sensível é o dado pessoal gravado no banco, quem pode lê-lo e como proteger uma chamada que atravessa a rede. Dados e chamadas são ativos, isto é, itens de valor para a organização. Este bloco apresenta a classificação de ativos, a grade de permissões, a fronteira de confiança, o STRIDE e a autoridade de design de segurança. O exercício 19 aplica essas ferramentas à ACME.
 
 ## Antes de começar
 
@@ -18,7 +18,7 @@ A definição tecnológica apresentada no [bloco 1](bloco-1-definicao-tecnologic
 
 ### Segurança da informação e arquitetura de segurança
 
-Quando a ACME passa a guardar a nota de um aluno num sistema novo, duas preocupações aparecem juntas. A **segurança da informação** protege todos os ativos de informação da organização, em papel ou em meio digital, e a cibersegurança é a parte dela voltada a proteger os sistemas computacionais contra acesso não autorizado, dano ou indisponibilidade provocada por terceiros mal-intencionados. Toda solução que trata dado de cliente, de paciente ou de aluno precisa das duas, e a cibersegurança aparece no desenho como proteção contra ataque a cada componente exposto.
+Quando a ACME passa a guardar a nota de um aluno num sistema novo, duas preocupações aparecem juntas. A **segurança da informação** protege todos os ativos de informação da organização, em papel ou em meio digital, e a cibersegurança é a parte dela voltada a proteger os sistemas computacionais contra acesso não autorizado, dano ou indisponibilidade provocada por terceiros mal-intencionados. Toda solução que trata dados de alunos ou professores precisa das duas, e a cibersegurança aparece no desenho como proteção contra ataque a cada componente exposto.
 
 Dentro da organização, esse trabalho se divide em dois domínios. A arquitetura de segurança incorpora o desenho de segurança a toda a organização e persegue os quatro objetivos mínimos da lista abaixo. As operações de segurança cuidam do dia a dia, com auditoria, testes, manutenção de componentes de infraestrutura e tratamento de incidentes, e a arquitetura cuida da mudança, garantindo que um componente, uma aplicação ou uma solução nova não comprometa a segurança por desenho inadequado.
 
@@ -126,18 +126,18 @@ A participação dos papéis nessa atividade pode ser registrada numa matriz RAC
 | Arquiteto de solução | Apresenta o desenho, fornece ativos e permissões e executa a revisão recomendada | C e R pela revisão |
 | Arquiteto de infraestrutura | Informa os controles disponíveis na infraestrutura e executa as mudanças que cabem a ela | C e R pelas mudanças |
 
-### O exemplo do Hospital ACME
+### Revisão do cadastro do aluno da Universidade ACME
 
-O Hospital ACME, hospital geral fictício usado no bloco 1, criou um portal em que o paciente informa suas preferências de contato, como canal e horário. Para associar a preferência ao registro correto, o paciente fornece credenciais que o portal cruza com os dados demográficos do hospital, e esses dados demográficos estão classificados como dado pessoal, com nível alto de confidencialidade.
+Considere a atualização de endereço e telefone pelo aplicativo do aluno da Universidade ACME. O serviço deve confirmar a identidade, autorizar a alteração apenas do próprio cadastro e registrar quem alterou cada dado. Neste exemplo de revisão de desenho, a equipe verifica se os controles propostos atendem ao R8, de identidade aberta, e ao R9, de rastreabilidade de acesso.
 
-A autoridade de design de segurança avaliou essa parte do desenho no teste de conformidade e registrou os achados da lista abaixo, todos derivados de políticas do hospital.
+A revisão de segurança verifica os quatro pontos abaixo. Eles são perguntas para avaliar o desenho proposto, e não resultados de testes já realizados na ACME.
 
 1. O acesso a qualquer ativo, informação ou sistema, segue um processo definido de concessão.
 2. O segredo de autenticação, como a senha, é controlado por um processo formal de gestão.
-3. A identidade dos usuários finais e o nível de acesso de cada um são estabelecidos somente por controles de segurança aprovados, e o modelo técnico de referência do hospital já lista um serviço de identidade aprovado para usuários externos.
+3. A identidade dos usuários finais e o nível de acesso de cada um são estabelecidos somente por controles de segurança aprovados, e a escolha do provedor de identidade respeita o modelo técnico de referência da universidade.
 4. Todo acesso a dado é registrado e fica disponível para auditoria.
 
-A mesma avaliação apontou três vulnerabilidades, classificadas pelo OWASP Top 10 de 2021. A primeira é o acesso além do necessário, que contraria o menor privilégio e corresponde a A01:2021, controle de acesso quebrado. A segunda é a injeção, porque o portal envia ao banco de dados a informação digitada pelo usuário, o que corresponde a A03:2021, injeção. A terceira é o registro e o monitoramento insuficientes, que correspondem a A09:2021, falhas de registro e monitoramento de segurança. A recomendação da autoridade foi revisar o desenho para atender aos quatro achados e às três vulnerabilidades antes da implementação.
+A equipe também procura três tipos de vulnerabilidade, classificados pelo OWASP Top 10 de 2021. A primeira é o acesso além do necessário, que contraria o menor privilégio e corresponde a A01:2021, controle de acesso quebrado. A segunda é a injeção, porque o portal envia ao banco de dados a informação digitada pelo usuário, o que corresponde a A03:2021, injeção. A terceira é o registro e o monitoramento insuficientes, que correspondem a A09:2021, falhas de registro e monitoramento de segurança. Se algum desses problemas aparecer, a equipe revisa o desenho e apresenta evidências de correção antes da implementação.
 
 ## Uso pelo arquiteto
 
@@ -298,7 +298,7 @@ Suas respostas viram os campos Categoria STRIDE da ameaça, Controle da ameaça 
 
 As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso. O trecho consultado aparece entre parênteses ao fim de cada entrada.
 
-- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.9, arquitetura de segurança, objetivos, diretivas e ativos, seção 4.6.7, segurança como requisito e grade de permissões, e seção 7.7, segurança de ponta a ponta, autoridade de design de segurança e caso do Fallowdale Hospital, aqui vertido como Hospital ACME. O livro cita a ISO/IEC 27001 na edição de 2013 e numera as vulnerabilidades do caso como A1 e A10, numeração da edição de 2017 do OWASP Top 10, e esta página usa a edição de 2022 da norma e a numeração de 2021 do OWASP, A01, A03 e A09)
+- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.9, arquitetura de segurança, objetivos, diretivas e ativos, seção 4.6.7, segurança como requisito e grade de permissões, e seção 7.7, segurança de ponta a ponta, autoridade de design de segurança e exemplo de revisão de segurança adaptado aqui à Universidade ACME. O livro cita a ISO/IEC 27001 na edição de 2013 e numera as vulnerabilidades do caso como A1 e A10, numeração da edição de 2017 do OWASP Top 10, e esta página usa a edição de 2022 da norma e a numeração de 2021 do OWASP, A01, A03 e A09)
 - Brasil. (2018). *Lei nº 13.709, de 14 de agosto de 2018. Lei Geral de Proteção de Dados Pessoais (LGPD)*. https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm (art. 5º, I e II, art. 7º e art. 33, I e V, lidos no texto atualizado da base de legislação da Câmara dos Deputados)
 - Shostack, A. (2014). *Threat modeling: Designing for security*. Acesso em 15 de outubro de 2026. https://shostack.org/books/threat-modeling-book (categorias STRIDE e propriedade violada por cada uma, conforme https://shostack.org/resources/threat-modeling)
 - OWASP Foundation. (2021). *OWASP Top 10:2021*. Acesso em 15 de outubro de 2026. https://top10.owasp.org/2021 (A01:2021, A03:2021 e A09:2021)

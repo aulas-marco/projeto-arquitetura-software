@@ -21,6 +21,20 @@ A Figura 1 organiza esse percurso em quatro camadas, cada uma com a forma curta 
 
 *Figura 1 — O que o arquiteto de solução recebe, decide e entrega em cada domínio, com o encadeamento entre os domínios. Fonte: material do curso, com base em Lovatt (2021).*
 
+O diagrama seguinte enfatiza as conexões com as demais partes do projeto. Cada seta nomeia a informação reutilizada, para que o aluno veja por que uma decisão de um domínio se torna entrada do próximo.
+
+```mermaid
+flowchart LR
+    E["Escopo e partes interessadas"] -->|"mudanças e limites"| N["Negócio"]
+    ADR["ADR, princípios e cenários"] -->|"critérios de desenho"| N
+    N -->|"capacidades e atividades afetadas"| D["Dados"]
+    D -->|"dono, fonte e consistência"| A["Aplicações"]
+    A -->|"interfaces e contratos"| I["Infraestrutura"]
+    I -->|"topologia e exigências"| T["Tecnologia e plataforma"]
+    T -->|"custo, risco e viabilidade"| G["Roteiro e governança"]
+    G -.->|"resultado e desvios observados"| ADR
+```
+
 ### O que o arquiteto faz em cada domínio
 
 A tabela detalha as três colunas da Figura 1 e acrescenta o limite do papel, isto é, o trabalho que o arquiteto de solução consulta ou solicita, sem assumir como tarefa própria. Ela usa termos que o bloco de cada domínio define com calma, e um resumo ajuda a ler as linhas. Uma capacidade é o que a organização precisa conseguir fazer, uma etapa é cada passo do fluxo de valor pelo qual o cliente recebe o serviço e uma atividade é cada tarefa de um processo. Nos dados, o dono é quem tem autorização para gravar uma entidade, a fonte de verdade é o lugar em que a entidade é registrada com autoridade e o regime de consistência é o atraso com que uma cópia reflete a fonte, e nas aplicações o contêiner é cada aplicação, serviço ou banco de dados executável que compõe o sistema.

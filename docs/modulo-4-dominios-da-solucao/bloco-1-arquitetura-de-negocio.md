@@ -1,6 +1,6 @@
 # Arquitetura de negócio da solução
 
-Antes de decidir qualquer coisa sobre dados, aplicações ou infraestrutura, o arquiteto da ACME precisa saber onde a modernização mexe no trabalho da universidade. Este bloco é o primeiro dos quatro domínios em que a Aula 4 detalha a solução, que são negócio, dados, aplicações e infraestrutura, e a pergunta dele vem antes das outras três porque trata do que a solução muda no trabalho da organização e de quais modelos permitem localizar essa mudança. Ao fim do bloco, o aluno aplica esses modelos ao sistema acadêmico da ACME, no exercício 13.
+Antes de decidir sobre dados, aplicações ou infraestrutura, o arquiteto da ACME precisa saber onde a modernização muda o trabalho da universidade. Este é o primeiro dos quatro domínios da Aula 4: negócio, dados, aplicações e infraestrutura. Ele trata do que a solução muda na organização e dos modelos que permitem localizar essa mudança. No exercício 13, o aluno aplica esses modelos ao sistema acadêmico da ACME.
 
 ## Antes de começar
 
@@ -16,7 +16,7 @@ Antes de decidir qualquer coisa sobre dados, aplicações ou infraestrutura, o a
 ![Mapa do bloco 0 com quatro faixas empilhadas, negócio, dados, aplicações e infraestrutura, e o que o arquiteto decide em cada uma, com a faixa do negócio em destaque e as demais esmaecidas.](../assets/images/modulo-4-b0-mapa-negocio.svg){ .module-diagram }
 </figure>
 
-No mapa do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), este bloco trata do domínio de negócio, o primeiro dos quatro. O arquiteto recebe o mapa de capacidades, o fluxo de valor e o modelo de processo mantidos pela arquitetura corporativa e pela análise de negócio, decide em que capacidades, etapas e atividades a mudança incide e entrega ao bloco 2 as capacidades afetadas, sobre a forma estrutural registrada no registro de decisão arquitetural, o [ADR](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md), da Aula 3.
+No mapa do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), este bloco trata do domínio de negócio. O arquiteto recebe o mapa de capacidades, o fluxo de valor e o modelo de processo mantidos pela arquitetura corporativa e pela análise de negócio. Ele decide quais capacidades, etapas e atividades a mudança afeta. Depois, entrega essa lista ao bloco 2, junto com a forma estrutural registrada no [ADR](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md) da Aula 3.
 
 Para localizar o que a solução muda, o arquiteto precisa de uma representação da organização que não dependa de nenhum sistema em particular, e é isso que a arquitetura de negócio oferece. A **arquitetura de negócio** é definida pelo Business Architecture Guild, associação profissional da área, como uma representação da organização que oferece entendimento comum sobre ela e serve para alinhar objetivos estratégicos e demandas táticas. O TOGAF, método de arquitetura corporativa mantido pela The Open Group, descreve a mesma arquitetura como um conjunto de visões do negócio sobre capacidades, entrega de valor de ponta a ponta, informação e estrutura organizacional, com as relações entre essas visões e as estratégias, os produtos, as políticas e as partes interessadas. As duas definições atribuem ao domínio dois papéis na arquitetura de solução, o de origem da necessidade de mudança, já tratada como [direcionador de mudança](../modulo-2-requisitos-e-partes-interessadas/bloco-1-direcionadores-de-mudanca.md) na Aula 2, e o de alvo da mudança que a solução entrega.
 
@@ -41,6 +41,23 @@ A Figura 1 organiza as quatro perguntas como árvore de decisão com três saíd
 
 ### Quatro modelos
 
+Os quatro modelos podem examinar o mesmo assunto sem significar a mesma coisa. No exemplo da publicação de nota, o esquema abaixo separa a capacidade da universidade, o valor percebido pelo aluno, o processo de trabalho e os sistemas que o apoiam.
+
+```mermaid
+flowchart TB
+    T["Assunto: publicação da nota"]
+    T --> A["Capacidade: avaliar e registrar notas"]
+    T --> V["Fluxo de valor: resultado disponível ao aluno"]
+    T --> P["Processo: registrar, conferir, publicar e corrigir"]
+    T --> S["Sistemas: apoiar registro e troca da informação"]
+    A --> A1["O que a universidade precisa conseguir fazer?"]
+    V --> V1["Que resultado o aluno recebe?"]
+    P --> P1["Quem faz o quê e sob quais regras?"]
+    S --> S1["Que aplicações, dados e interfaces apoiam o trabalho?"]
+```
+
+Uma capacidade pode apoiar mais de um processo, um processo pode envolver vários sistemas e um sistema pode apoiar vários processos. O esquema serve para distinguir os recortes. Os modelos completos continuam nas seções seguintes.
+
 Para saber onde a mudança incide, o arquiteto de solução consulta modelos que a arquitetura de negócio já mantém, cada um com uma pergunta própria. A tabela abaixo resume os quatro mais usados, a pergunta que cada um responde e o que ele oferece ao arquiteto.
 
 | Modelo | Pergunta que responde | O que oferece ao arquiteto |
@@ -62,29 +79,29 @@ A Figura 2 reúne os quatro modelos com a pergunta de cada um e os situa sobre o
 
 Quando o arquiteto pergunta o que a organização precisa conseguir fazer, a resposta organizada é o **mapa de capacidades**, que decompõe as capacidades de topo em capacidades menores. Uma **capacidade** é aquilo que a organização precisa conseguir fazer para entregar seus serviços e executar sua estratégia, e pode ainda não existir, constando apenas do plano. O nome da capacidade descreve uma habilidade da organização e omite quem a exerce e com qual sistema, o que mantém o mapa estável quando a estrutura organizacional ou as aplicações mudam. Cada capacidade tem dois atributos adicionais, o volume, que é quanto se entrega em paralelo, e a competência, que é o nível de habilidade exigido, e é habilitada por recursos como pessoas, unidades organizacionais, tecnologia e conhecimento especializado. O mapa classifica as capacidades em estratégicas, operacionais e de apoio, e outras classificações, como maturidade ou núcleo e periferia, também são usadas.
 
-A Figura 3 mostra um mapa de capacidades genérico de um hospital, em dois níveis. As capacidades estratégicas orientam a oferta e a qualidade do serviço, as operacionais entregam o atendimento e o cuidado ao paciente, e as de apoio sustentam as demais, como o prontuário eletrônico, o faturamento e os suprimentos.
+A Figura 3 organiza as dez capacidades acadêmicas da Universidade ACME, as mesmas usadas no exercício 13. A oferta e a grade curricular orientam o serviço acadêmico, matrícula e notas entregam o serviço ao aluno, e cobrança e biblioteca apoiam a operação. O mapa permite discutir a mudança com as áreas de negócio antes de falar em software.
 
 <figure markdown="span">
-![Mapa de capacidades de um hospital em dois níveis, com quatro capacidades de topo, gestão estratégica, relacionamento, cuidado clínico e apoio, e catorze capacidades menores coloridas como estratégicas, operacionais ou de apoio.](../assets/images/modulo-4-b1-mapa-capacidades-hospital.svg){ .module-diagram }
+![Mapa das dez capacidades acadêmicas da Universidade ACME, agrupadas em estratégicas, operacionais e de apoio, com os mesmos nomes do exercício 13.](../assets/images/modulo-4-b1-mapa-capacidades-hospital.svg){ .module-diagram }
 </figure>
 
-*Figura 3 — Mapa de capacidades genérico de um hospital, com a classificação de cada capacidade em estratégica, operacional ou de apoio. Fonte: material do curso.*
+*Figura 3 — Capacidades acadêmicas da Universidade ACME. Fonte: material do curso.*
 
-### Uma mudança no Hospital ACME
+### Uma mudança na Universidade ACME
 
-O Hospital ACME, hospital geral fictício usado como exemplo nesta aula, tem as capacidades da Figura 3 e já opera com prontuário eletrônico, agendamento por aplicativo e aviso ao paciente por mensagem no telefone celular. Os exames que o laboratório interno não realiza seguem para dois laboratórios de apoio externos. Hoje a central de exames do hospital redigita cada pedido no portal web do laboratório e, quando o resultado é liberado, baixa o laudo em PDF e o anexa ao prontuário do paciente, o que acrescenta horas ao prazo do resultado e abre espaço para erro de transcrição.
+Na Universidade ACME, o professor registra a nota no sistema acadêmico, mas ela chega ao ambiente virtual apenas pelo lote diário das 05h10. No incidente de 09/07/2026, uma mudança de layout deixou 61.400 lançamentos fora do ambiente virtual. A mudança pretende fazer a nota chegar em até 10 minutos, como pede o R7, preservando o núcleo COBOL durante a transição.
 
-A mudança proposta moderniza a comunicação com os laboratórios de apoio. O pedido de exame passa a sair do prontuário como mensagem estruturada, o resultado volta como dado estruturado associado ao pedido e ao paciente, e o valor crítico, que é o resultado fora da faixa de segurança e exige ação imediata, gera alerta automático ao médico responsável. A troca usa o HL7 FHIR (*Fast Healthcare Interoperability Resources*), padrão de interoperabilidade em saúde mantido pela HL7 International, que define o recurso *ServiceRequest* para o pedido e o recurso *DiagnosticReport* para o laudo (HL7 International, 2023).
+A proposta troca o envio diário por uma mensagem a cada publicação de nota. O serviço de notas envia a identificação do aluno, da disciplina e da nota, e o ambiente virtual confirma o recebimento. A interface precisa prever versão da mensagem, reenvio e tratamento de duplicidade. O professor continua responsável pelo lançamento, enquanto a equipe de TI acompanha as entregas e trata falhas de integração.
 
-A Figura 4 repete o mapa da Figura 3 e destaca as quatro capacidades afetadas pela mudança. A prescrição e pedido de exames muda porque o pedido sai do prontuário já estruturado, o diagnóstico laboratorial é a capacidade central da mudança, a gestão do prontuário eletrônico passa a receber o resultado como dado estruturado associado ao pedido, e a comunicação com o paciente passa a avisar o resultado assim que ele chega. O faturamento de exames externos entraria na lista se o hospital decidisse conciliar pela mesma integração as cobranças dos laboratórios, decisão que pertence à declaração de escopo da iniciativa.
+A Figura 4 destaca duas capacidades afetadas por esse recorte: Avaliação e registro de notas e Controle de frequência, quando a situação acadêmica usa os resultados recebidos. A relação com o ambiente virtual é uma integração que sustenta essas capacidades. O exercício 13 amplia a análise para todas as capacidades do primeiro ciclo, incluindo matrícula e documentos.
 
 <figure markdown="span">
-![O mesmo mapa de capacidades do hospital, com quatro capacidades destacadas em âmbar como afetadas pela modernização da comunicação com laboratórios, comunicação com o paciente, prescrição e pedido de exames, diagnóstico laboratorial e gestão do prontuário eletrônico, e as demais esmaecidas. Uma anotação registra o volume e a competência que a mudança exige do diagnóstico laboratorial.](../assets/images/modulo-4-b1-mapa-de-capacidades-afetadas.svg){ .module-diagram }
+![Mapa das capacidades da Universidade ACME com destaque para avaliação e registro de notas e controle de frequência, no recorte da publicação de notas.](../assets/images/modulo-4-b1-mapa-de-capacidades-afetadas.svg){ .module-diagram }
 </figure>
 
-*Figura 4 — Capacidades do Hospital ACME afetadas pela modernização da comunicação com laboratórios, com os atributos de volume e competência da capacidade central. Fonte: material do curso.*
+*Figura 4 — Recorte de capacidades afetadas pela publicação de notas. Fonte: material do curso.*
 
-A anotação da figura usa os dois atributos da capacidade para descrever a mudança. O volume aumenta porque todos os pedidos externos passam a trafegar por integração, sem redigitação, e a competência muda porque o hospital precisa trocar pedido e resultado estruturados, rastrear a amostra e alertar o valor crítico.
+Os dois atributos ajudam a dimensionar a mudança. O volume considera até 360.000 lançamentos na janela de fechamento. A competência inclui publicar a nota, acompanhar a confirmação, tratar duplicidades e recuperar falhas, para cumprir o prazo de 10 minutos do R7.
 
 ### Capacidade e fluxo de valor em ArchiMate
 
@@ -92,44 +109,44 @@ Em repositórios de arquitetura corporativa, o mapa de capacidades e o fluxo de 
 
 ### Fluxo de valor
 
-O mapa de capacidades diz o que a organização sabe fazer, mas não diz por onde o cliente percebe o serviço, e essa lacuna é coberta pelo **fluxo de valor**, o conjunto de etapas de ponta a ponta que entrega valor a um cliente, do primeiro contato com a organização até a realização desse valor. Cada etapa é nomeada por um verbo no infinitivo seguido do objeto, como solicitar exame ou coletar amostra, porque a etapa descreve o que acontece para que o valor avance. A técnica tem origem na produção enxuta, que procura eliminar as etapas que não acrescentam valor suficiente, e combina bem com a arquitetura de solução porque as duas analisam o problema em termos de estrutura e de comportamento.
+O mapa de capacidades diz o que a organização sabe fazer, mas não diz por onde o cliente percebe o serviço, e essa lacuna é coberta pelo **fluxo de valor**, o conjunto de etapas de ponta a ponta que entrega valor a um cliente, do primeiro contato com a organização até a realização desse valor. Cada etapa é nomeada por um verbo no infinitivo seguido do objeto, como lançar a nota ou consultar o resultado, porque a etapa descreve o que acontece para que o valor avance. A técnica tem origem na produção enxuta, que procura eliminar as etapas que não acrescentam valor suficiente, e combina bem com a arquitetura de solução porque as duas analisam o problema em termos de estrutura e de comportamento.
 
-A Figura 5 mostra o fluxo de valor do diagnóstico laboratorial do Hospital ACME, da solicitação do exame à comunicação do resultado, em seis etapas. As etapas 3, enviar o pedido, e 5, integrar o resultado, dependem hoje de trabalho manual da central de exames, e o tempo de redigitação do pedido e de anexação do laudo se soma ao prazo entre a coleta e o resultado disponível para o médico.
+A Figura 5 acompanha a nota em seis etapas: avaliar o aluno, lançar a nota, validar o lançamento, registrar no núcleo, entregar ao ambiente virtual e consultar o resultado. Hoje a entrega depende do lote diário. A proposta altera essa etapa para que o aluno veja a nota em até 10 minutos, sem confundir esse prazo com o tempo que o professor leva para corrigir a avaliação.
 
 <figure markdown="span">
-![Fluxo de valor do diagnóstico laboratorial do hospital em seis etapas nomeadas por verbos, solicitar exame, coletar amostra, enviar o pedido, analisar amostra, integrar resultado e comunicar resultado, com as etapas 3 e 5 destacadas em âmbar porque dependem hoje de redigitação no portal do laboratório e de anexação manual do laudo em PDF.](../assets/images/modulo-4-b1-fluxo-valor-laboratorio.svg){ .module-diagram }
+![Fluxo da nota na Universidade ACME em seis etapas: avaliar, lançar, validar, registrar, entregar ao ambiente virtual e consultar. A entrega muda do lote diário para até dez minutos.](../assets/images/modulo-4-b1-fluxo-valor-laboratorio.svg){ .module-diagram }
 </figure>
 
-*Figura 5 — Fluxo de valor do diagnóstico laboratorial do Hospital ACME, com as etapas que dependem de trabalho manual destacadas em âmbar. Fonte: material do curso.*
+*Figura 5 — Fluxo de valor da nota na Universidade ACME. Fonte: material do curso.*
 
-O fluxo de valor e o mapa de capacidades se ligam etapa a etapa. A etapa de solicitar exame depende da capacidade de prescrição e pedido de exames, as etapas de enviar o pedido, analisar a amostra e integrar o resultado dependem do diagnóstico laboratorial e da gestão do prontuário eletrônico, e a etapa de comunicar o resultado depende da comunicação com o paciente, o que explica por que as quatro capacidades da Figura 4 foram marcadas.
+O fluxo e o mapa se ligam pela responsabilidade de cada etapa. Avaliar, lançar e validar dependem da capacidade Avaliação e registro de notas. Registrar no núcleo e entregar ao ambiente virtual dependem também das aplicações e da integração. Consultar o resultado mostra o valor percebido pelo aluno. Essa ligação ajuda a localizar o que muda em pessoas, processos, dados e tecnologia.
 
 ### Decomposição funcional e modelo de processo
 
 Depois das capacidades e das etapas, falta saber quem realiza cada função e em que atividades o trabalho se divide, e é isso que a decomposição funcional e o modelo de processo de negócio mostram. Nesta disciplina, os dois são tratados como artefatos que o arquiteto de solução lê e consulta, mantidos pela área de negócio ou pela análise de processos, que respondem pela elaboração deles. O modelo de motivação de negócio, que liga direcionadores de mudança a fins e meios, também pertence à arquitetura de negócio e foi tratado, pelo lado dos direcionadores, no [bloco 1 da Aula 2](../modulo-2-requisitos-e-partes-interessadas/bloco-1-direcionadores-de-mudanca.md).
 
-O modelo de processo de negócio é desenhado com frequência em BPMN (*Business Process Model and Notation*), notação padronizada pelo Object Management Group (OMG), cuja versão 2.0.2 foi publicada em janeiro de 2014 e que a própria OMG descreve como padrão de fato para diagramas de processo de negócio (Object Management Group, 2014). A notação distribui o processo em raias, uma por participante ou unidade responsável, e usa um conjunto básico de símbolos, o evento de início, a tarefa, o gateway de decisão e o evento de fim, ligados por fluxos de sequência. A Figura 6 reproduz em notação simplificada o processo atual de recebimento de resultado de exame do Hospital ACME, que detalha a etapa 5 do fluxo de valor da Figura 5.
+O modelo de processo de negócio é desenhado com frequência em BPMN (*Business Process Model and Notation*), notação padronizada pelo Object Management Group (OMG), cuja versão 2.0.2 foi publicada em janeiro de 2014 e que a própria OMG descreve como padrão de fato para diagramas de processo de negócio (Object Management Group, 2014). A notação distribui o processo em raias, uma por participante ou unidade responsável, e usa um conjunto básico de símbolos, o evento de início, a tarefa, o gateway de decisão e o evento de fim, ligados por fluxos de sequência. A Figura 6 representa, em notação simplificada, o processo proposto para entregar a nota ao ambiente virtual. O desenho detalha a etapa 5 do fluxo da Figura 5.
 
 <figure markdown="span">
-![Processo de recebimento de resultado de exame em BPMN simplificado, com raias para laboratório, central de exames e prontuário eletrônico, evento de início resultado liberado, tarefas de publicar, baixar, conferir e anexar o laudo, um gateway que pergunta se há valor crítico e leva a telefonar ao médico, a tarefa de registrar o laudo e notificar o médico na raia do prontuário e o evento de fim resultado disponível.](../assets/images/modulo-4-b1-processo-resultado-exame-v2.svg){ .module-diagram }
+![Processo proposto de entrega da nota ao ambiente virtual, com raias do serviço de notas, ambiente virtual e operação. Uma decisão separa recebimento confirmado de falha que exige reenvio e acompanhamento.](../assets/images/modulo-4-b1-processo-resultado-exame-v2.svg){ .module-diagram }
 </figure>
 
-*Figura 6 — Processo atual de recebimento de resultado de exame do Hospital ACME em notação BPMN simplificada, com raias para laboratório, central de exames e prontuário eletrônico. Fonte: material do curso.*
+*Figura 6 — Processo proposto de entrega da nota, em BPMN simplificado. Fonte: material do curso.*
 
 O arquiteto de solução lê um modelo de processo como esse em quatro passos:
 
 1. Identificar as raias, que indicam os papéis e as unidades envolvidos, e confrontá-las com a decomposição funcional da organização.
-2. Localizar as tarefas que dependem de troca de informação com o laboratório, aqui publicar, baixar e anexar o laudo, que são as candidatas a mudança.
-3. Examinar cada gateway e a regra de negócio que o governa, como o critério de valor crítico, porque essa regra entra na solução como requisito.
-4. Marcar as tarefas da raia do sistema, que indicam as interfaces com o prontuário eletrônico tratadas no bloco 3.
+2. Localizar as tarefas de publicação, envio e confirmação da nota, que dependem de troca de informação entre sistemas.
+3. Examinar cada decisão e sua regra, como a confirmação de recebimento, para definir quando o envio pode ser encerrado.
+4. Marcar as tarefas de cada sistema, que indicam as interfaces entre o serviço de notas e o ambiente virtual tratadas no bloco 3.
 
-Com a integração, as tarefas de baixar o laudo do portal e de anexá-lo ao prontuário deixam de existir, porque o resultado entra no prontuário pela interface com o laboratório. A regra de valor crítico passa a ser avaliada pelo sistema, que dispara o alerta ao médico, e o telefonema da central de exames permanece como confirmação de recebimento, o que reduz o trabalho manual da central sem retirar dela a responsabilidade pelo valor crítico.
+Com a integração proposta, a nota deixa de esperar pelo lote diário. O sistema acompanha cada entrega, repete envios que falharam e evita lançar a mesma mensagem duas vezes. A equipe de operação trata as pendências que não foram resolvidas automaticamente. Automatizar o envio exige definir essa rotina de recuperação e quem responde por ela.
 
 Nesta disciplina, o arquiteto de solução obtém esses modelos do repositório de arquitetura corporativa da organização ou da área de análise de processos, sem desenhá-los. Ferramentas como o Camunda Modeler e o Bizagi Modeler editam diagramas BPMN e permitem exportá-los no formato XML de intercâmbio definido pela especificação, o que permite abrir o mesmo modelo em ferramentas diferentes, e o Archi cumpre papel equivalente para os modelos ArchiMate. A escolha de ferramenta ou de produto para a ACME não é objeto deste bloco e pertence à Aula 5.
 
-### O que os modelos revelam no Hospital ACME
+### O que os modelos revelam na Universidade ACME
 
-Os quatro modelos delimitam a mudança do Hospital ACME sem que o arquiteto precise criá-los. O mapa de capacidades indica as quatro capacidades afetadas da Figura 4. O fluxo de valor indica as etapas de enviar o pedido e de integrar o resultado como aquelas em que o paciente e o médico percebem a mudança. O modelo de processo indica as atividades afetadas, que são a solicitação de exame externo, o envio do pedido ao laboratório, o recebimento e a conferência do resultado, a comunicação do valor crítico e o acompanhamento de pedidos pendentes. A decomposição funcional indica as unidades afetadas, entre elas a central de exames, que deixa de redigitar pedidos e de anexar laudos, o corpo clínico, que passa a receber alerta automático, e a equipe de tecnologia, que assume a operação das interfaces com os laboratórios.
+Os quatro modelos explicam a mesma mudança por ângulos diferentes. O mapa localiza as capacidades afetadas. O fluxo mostra onde o aluno percebe o atraso. O processo detalha lançamento, validação, envio, confirmação e recuperação de falha. A decomposição funcional identifica professores, Secretaria Acadêmica, Educação a Distância e TI como participantes. Esses modelos orientam os blocos de dados, aplicações e infraestrutura que vêm a seguir.
 
 ### Componentes de negócio da solução
 
@@ -293,8 +310,7 @@ As capacidades marcadas como afetadas no item 1 são a entrada da grade de dados
 
 As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso. O trecho consultado aparece entre parênteses ao fim de cada entrada.
 
-- HL7 International. (2023). *FHIR release 5*. https://hl7.org/fhir/R5/ (finalidade do padrão e recursos *ServiceRequest* e *DiagnosticReport*)
-- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.3, definições de arquitetura de negócio do Business Architecture Guild e do TOGAF, quatro perguntas de aplicabilidade, modelos de arquitetura de negócio e ciclo de mudança de negócio, e seção 2.4, componentes de negócio da solução. O Hospital ACME e a mudança na comunicação com laboratórios são exemplo do material do curso, inspirado no caso Fallowdale Hospital do livro)
+- Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seção 2.3, definições de arquitetura de negócio do Business Architecture Guild e do TOGAF, quatro perguntas de aplicabilidade, modelos de arquitetura de negócio e ciclo de mudança de negócio, e seção 2.4, componentes de negócio da solução. Os exemplos de capacidades, fluxo e processo foram adaptados ao caso da Universidade ACME)
 - Object Management Group. (2014). *Business process model and notation (BPMN)* (Versão 2.0.2, formal/13-12-09). https://www.omg.org/spec/BPMN/2.0.2 (finalidade da notação, versão vigente e data de publicação)
 - The Open Group. (2022). *ArchiMate® 3.2 specification: Reference cards* (N221). https://www.opengroup.org/sites/default/files/docs/downloads/n221p.pdf (definições dos elementos de estratégia *capability* e *value stream*)
 - The Open Group. (2026, 27 de abril). *The Open Group announces ArchiMate® 4 specification* (C260). https://www.opengroup.org/The-Open-Group-Announces-ArchiMate%C2%AE-4-Specification (publicação da versão 4 e compatibilidade com as versões anteriores)
