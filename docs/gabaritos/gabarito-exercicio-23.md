@@ -846,13 +846,13 @@ Entre as vermelhas, continuam em uso e só ficam sob plano de migração documen
 
 #### Matriz de seleção do provedor de identidade
 
-Para escolher o provedor de identidade, a ACME compara três caminhos: a A, um software instalado e operado pela própria equipe, a B, um serviço contratado de terceiro, e a C, um recurso gerenciado do provedor de nuvem. Os requisitos citados são o R6, de 5.800 sessões simultâneas, o R8, de padrões abertos de identidade, o R12, de disponibilidade de 99,9% na matrícula, e o R14, de dado pessoal de aluno só em território nacional. Cada célula cita o requisito ou a restrição que a sustenta e diz o que o dossiê não informa, porque inventar um valor tiraria a confiança da comparação.
+A Universidade ACME compara três formas de obter o serviço de identidade. O dossiê informa o que ele deve cumprir, mas não apresenta produtos, contratos ou medições de A, B e C. Por isso a matriz registra as verificações necessárias. Nenhuma alternativa recebe uma vantagem sem evidência.
 
 | Alternativa | Aderência ao requisito | Portabilidade |
 | --- | --- | --- |
-| A, instalado e operado pela equipe | R8 atendido se o produto implementa OpenID Connect e R14 atendido pelo controle da região, enquanto R6 e R12 dependem do dimensionamento e da operação da própria equipe | Alta se o produto roda nos dois provedores pré-aprovados, conforme a restrição dos dois provedores de nuvem aprovados (R4), e o dossiê não nomeia o produto |
-| B, serviço de terceiro | R8 depende do produto do terceiro, R14 só é atendido se o contrato fixar o processamento em território nacional e R12 depende do nível de serviço contratado | Depende do padrão aberto exigido pelo R8 e da exportação dos dados, e o dossiê não traz dado sobre o terceiro |
-| C, gerenciado da nuvem | R14 atendido se a região do serviço for nacional, R6 apoiado na elasticidade do provedor e R12 dependente do nível de serviço do serviço gerenciado | Limitada pela restrição dos dois provedores de nuvem aprovados (R4), porque o serviço precisa existir nos dois provedores pré-aprovados, e mitigada pelo OpenID Connect do R8, que preserva o contrato de autenticação |
+| A, instalado e operado pela equipe | Confirmar OpenID Connect (R8), processamento nacional de dados, cópias e suporte (R14), teste de carga para o pico (R6) e capacidade de operação para o R12 | Verificar instalação e recuperação nos dois provedores aprovados, exportação de dados e esforço de migração. A confirmar |
+| B, serviço de terceiro | Pedir documentação de OpenID Connect (R8), contrato e locais de processamento (R14), limites de capacidade (R6) e acordo de disponibilidade (R12) | Verificar exportação, substituição por outro serviço e mudanças necessárias nas aplicações. A confirmar |
+| C, gerenciado da nuvem | Pedir documentação de OpenID Connect (R8), locais de processamento de todos os dados (R14), quotas e teste de carga (R6), acordo e desenho de disponibilidade (R12) | Verificar como substituir o serviço no outro provedor aprovado, incluindo migração de usuários, credenciais e configuração. A confirmar |
 
 Os outros quatro critérios ficam sem valor, porque o dossiê não traz dado sobre eles, e por isso o caderno registra o que precisa ser levantado antes da comparação.
 
@@ -863,9 +863,9 @@ Os outros quatro critérios ficam sem valor, porque o dossiê não traz dado sob
 | Custo total de propriedade | Licença ou assinatura, operação, treinamento e custo de saída |
 | Competência da equipe | Quantas pessoas conhecem o produto e o protocolo, dado que o dossiê não registra para identidade |
 
-Antes de comparar, uma restrição pode eliminar alternativas, e o item pede que se escolha uma só. Qualquer das duas respostas abaixo é aceita.
+Escolha uma das regras abaixo. Ela só elimina uma candidata quando há evidência de descumprimento. Sem documento ou medição, registre a pendência e peça comprovação. A, B e C podem atender ou falhar, dependendo da oferta concreta.
 
-| Restrição | Alternativa eliminada | Documento que comprova |
+| Restrição | Regra de eliminação | Documento que comprova |
 | --- | --- | --- |
 | R8, lido como exigência do protocolo aberto OpenID Connect | A alternativa cujo produto não implementa o protocolo | Declaração de conformidade do produto com o OpenID Connect |
 | R14, nenhum dado pessoal de aluno fora do território nacional | A alternativa que processa dado fora do território nacional | Cláusula contratual da região de processamento e relação de regiões do provedor |

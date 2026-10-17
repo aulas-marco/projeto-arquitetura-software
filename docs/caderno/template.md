@@ -425,7 +425,7 @@ Você escreve:
 - **Tecnologias sob plano de migração:** entre as vermelhas, diga quais continuam em uso hoje e só podem ficar enquanto houver plano de migração documentado.
 - **Aderência e portabilidade das alternativas:** para cada forma de obter o provedor de identidade (A, B e C), escreva o dado do caso que sustenta a aderência ao requisito e a portabilidade, citando o código do requisito ou da restrição.
 - **Dado que falta por critério:** para maturidade, suporte, custo total de propriedade e competência da equipe, diga qual informação o caso não traz e precisa ser levantada.
-- **Alternativa eliminada pela restrição:** escolha a exigência de padrões abertos de identidade (R8) ou a de nenhum dado pessoal de aluno fora do território nacional (R14), diga qual alternativa a restrição elimina antes da comparação e qual documento do fornecedor comprova o atendimento.
+- **Regra de eliminação pela restrição:** escolha R8 ou R14, diga qual condição elimina uma candidata e qual documento pediria para comprovar atendimento. Não descarte A, B ou C apenas pela forma de contratação.
 
 ### 8.2 Plataforma escolhida e zona de pouso
 
