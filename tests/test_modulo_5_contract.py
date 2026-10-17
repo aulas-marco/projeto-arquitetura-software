@@ -260,6 +260,106 @@ class BlockOneTest(unittest.TestCase):
                     self.assertNotIn(word, row.lower())
 
 
+def table_rows(text: str, first_header: str) -> list[list[str]]:
+    """Linhas de dados da tabela cujo cabecalho comeca por `first_header`."""
+    lines = text.splitlines()
+    for index, line in enumerate(lines):
+        if line.startswith("|") and line.split("|")[1].strip() == first_header:
+            rows = []
+            for row in lines[index + 2:]:
+                if not row.startswith("|"):
+                    break
+                rows.append([cell.strip() for cell in row.strip().strip("|").split("|")])
+            return rows
+    return []
+
+
+M4_B4 = DOCS / "modulo-4-dominios-da-solucao" / "bloco-4-arquitetura-de-infraestrutura.md"
+SOURCE_08 = ROOT / "caderno-fonte" / "08-tecnologia-e-plataforma.md"
+SOURCE_07 = ROOT / "caderno-fonte" / "07-decisoes.md"
+PENDING_CANDIDATE = "candidato a levantar"
+
+
+class AbbSbbMirrorTest(unittest.TestCase):
+    """A tabela ABB para SBB do bloco 1 e a referencia dos gabaritos e do catalogo."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.b1 = read(B1)
+        cls.catalog = [row[0] for row in table_rows(
+            M4_B4.read_text(encoding="utf-8"), "Bloco lógico")]
+        cls.sbb_table = table_rows(
+            cls.b1[cls.b1.index("#### Exemplos de ABB para SBB na ACME"):],
+            "ABB, bloco lógico")
+        cls.answer_key = SOURCE_08.read_text(encoding="utf-8")
+        start = cls.answer_key.index('<!--ex n=17')
+        cls.key_17 = cls.answer_key[start:cls.answer_key.index("<!--/ex-->", start)]
+
+    def test_the_three_catalogs_use_the_same_block_names(self):
+        self.assertEqual(len(self.catalog), 12)
+        passo_1 = [row[0] for row in table_rows(self.b1, "ABB, bloco lógico")]
+        source_07 = [row[0] for row in table_rows(
+            SOURCE_07.read_text(encoding="utf-8"), "ABB, bloco lógico")]
+        self.assertEqual(passo_1, self.catalog)
+        self.assertEqual(source_07, self.catalog)
+
+    def test_every_abb_of_the_sbb_table_exists_in_the_catalog(self):
+        self.assertTrue(self.sbb_table)
+        for row in self.sbb_table:
+            with self.subTest(abb=row[0], sbb=row[1]):
+                self.assertIn(row[0], self.catalog)
+
+    def test_every_catalog_block_is_in_the_table_or_in_the_sentence_of_absence(self):
+        in_table = {row[0] for row in self.sbb_table}
+        sentence = next((p for p in self.b1.split("\n\n")
+                         if "sem linha na tabela" in p.lower()), "")
+        self.assertTrue(sentence, "falta a frase que justifica a ausencia")
+        for block in self.catalog:
+            with self.subTest(block=block):
+                self.assertTrue(block in in_table or block in sentence)
+
+    def test_every_sbb_of_the_table_is_in_the_exercise_17_answer_key(self):
+        for _, sbb, *_ in self.sbb_table:
+            if sbb.lower() == PENDING_CANDIDATE:
+                continue
+            with self.subTest(sbb=sbb):
+                self.assertIn(sbb, self.key_17)
+
+    def test_answer_key_lists_candidates_for_every_block_of_the_table(self):
+        rows = table_rows(self.key_17, "Bloco do catálogo")
+        by_block = {row[0].split(",")[0]: row[3] for row in rows}
+        for abb, sbb, *_ in self.sbb_table:
+            with self.subTest(abb=abb, sbb=sbb):
+                self.assertIn(abb, by_block)
+                if sbb.lower() != PENDING_CANDIDATE:
+                    self.assertIn(sbb, by_block[abb])
+
+    def test_exercise_17_asks_for_the_candidates_of_each_block(self):
+        ex = section(self.b1, "Exercício 17")
+        self.assertIn("SBBs candidatos", ex)
+        rows = table_rows(item(ex, 1), "Bloco do catálogo")
+        self.assertEqual([row[0] for row in rows],
+                         [name for name in self.catalog if not name.startswith("Núcleo")])
+        for row in rows:
+            self.assertEqual(row[2:], ["", ""], "o enunciado nao entrega a resposta")
+
+    def test_later_answer_keys_only_adopt_candidates_of_the_table(self):
+        key_18 = self.answer_key[self.answer_key.index('<!--ex n=18'):]
+        key_18 = key_18[:key_18.index("<!--/ex-->")]
+        key_20 = self.answer_key[self.answer_key.index('<!--ex n=20'):]
+        table_sbbs = {row[1] for row in self.sbb_table}
+        for adopted in ("Spring Boot", "Kafka ou compatível"):
+            with self.subTest(adopted=adopted):
+                self.assertIn(adopted, table_sbbs)
+        self.assertIn("Spring Boot", key_18)
+        self.assertIn("Kafka", key_18)
+        for left_out in ("FastAPI", "NestJS", "RabbitMQ"):
+            with self.subTest(left_out=left_out):
+                self.assertIn(left_out, table_sbbs)
+                self.assertIn(left_out, key_18)
+                self.assertIn(left_out, key_20)
+
+
 class BlockTwoTest(unittest.TestCase):
     def test_block_2_keeps_the_definition_and_orders_style_before_platform(self):
         body = concept(read(B2)).lower()
