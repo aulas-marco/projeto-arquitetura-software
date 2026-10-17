@@ -677,6 +677,29 @@ class ContentContractTest(unittest.TestCase):
         finally:
             offender.unlink()
 
+    def test_no_published_page_keeps_an_example_from_another_sector(self):
+        """Decisao de 17/10/2026: todos os exemplos se passam na Universidade ACME."""
+        names = ("Hospital ACME", "Clínica ACME", "Banco ACME", "Varejista ACME",
+                 "Seguradora ACME", "Produtora ACME", "Rede de Clínicas ACME",
+                 "Transportadora ACME")
+        for page in sorted(DOCS.rglob("*.md")):
+            if "superpowers" in page.parts:
+                continue
+            text = page.read_text(encoding="utf-8")
+            for name in names:
+                with self.subTest(page=str(page.relative_to(DOCS)), name=name):
+                    self.assertNotIn(name, text)
+
+    def test_no_published_figure_or_source_diagram_keeps_another_sector(self):
+        sector = re.compile(r"hospital|cl[ií]nica|banking|varejist|seguradora|paciente|prontu[aá]rio",
+                            re.IGNORECASE)
+        files = list((DOCS / "assets" / "images").glob("*.svg"))
+        files += list((DOCS / "assets" / "diagrams").glob("*.puml"))
+        for path in sorted(files):
+            with self.subTest(file=path.name):
+                self.assertIsNone(sector.search(path.name))
+                self.assertIsNone(sector.search(path.read_text(encoding="utf-8")))
+
 
 if __name__ == "__main__":
     unittest.main()
