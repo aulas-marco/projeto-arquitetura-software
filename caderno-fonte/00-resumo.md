@@ -85,11 +85,11 @@ modo: substitui
 
 **A decisão.** Há duas decisões em estado de proposta. A primeira, o ADR 001, adota a arquitetura orientada a eventos na entrada da matrícula. A segunda, o ADR de plataforma, escolhe a plataforma de microsserviços na variante Java, com o Kafka como barramento de eventos, porque a ACME já tem 9 pessoas na camada Java e porque essa plataforma convive com o núcleo pelas transações CICS existentes.
 
-**O que mais pesa no desenho.** A matrícula (5.800 sessões simultâneas) e a nota (10 minutos até o ambiente virtual), com um limite legal. Nenhum dado pessoal de aluno pode ser processado fora do território nacional, e por isso a região escolhida para a nuvem precisa ficar no Brasil.
+**O que mais pesa no desenho.** A matrícula (5.800 sessões simultâneas) e a nota (10 minutos até o ambiente virtual), com uma restrição do Jurídico. Nenhum dado pessoal de aluno pode ser processado fora do território nacional, e por isso a região escolhida para a nuvem precisa ficar no Brasil.
 
 **Consequências.** A confirmação da matrícula continua assíncrona. A equipe Java precisará de capacitação em tecnologias cuja experiência o dossiê não registra. Além disso, a plataforma nova aumenta o que a equipe precisa observar em produção, e o mesmo time absorve esse trabalho.
 
-**Como está o trabalho.** A tecnologia, a plataforma, a segurança dos dados e o registro da plataforma estão decididos como proposta. Restam as pendências da seção 10, entre elas o ensaio de carga com 5.800 sessões e a data dos dois registros.
+**Como está o trabalho.** A tecnologia, a plataforma, as decisões de segurança dos dados e o registro da plataforma estão decididos como proposta. Restam as pendências da seção 10, entre elas o ensaio de carga com 5.800 sessões e a data dos dois registros.
 <!--/gabarito-->
 <!--/ex-->
 
@@ -109,7 +109,7 @@ modo: substitui
 
 **A decisão.** A ACME adota duas decisões, ambas em estado de proposta. A primeira, o ADR 001, coloca uma fila entre o portal e o núcleo COBOL na entrada da matrícula. A segunda, o ADR de plataforma, escolhe a plataforma de microsserviços na variante Java, com o Kafka como barramento de eventos. A entrega segue em três ondas: primeiro a base de acesso (zona de pouso, logon único, gateway de APIs, camada anticorrupção e portal básico do aluno), depois a matrícula digital com o aplicativo móvel e, por último, a migração das regras de negócio do COBOL, que só começa depois de 30/09/2027. O primeiro ciclo de 12 meses cobre as duas primeiras ondas, dentro do orçamento de R$ 6,2 milhões.
 
-**O que mais pesa no desenho.** Duas exigências pesam mais no desenho, a da matrícula e a da nota. Na abertura, o Portal do Aluno precisa sustentar 5.800 sessões simultâneas, com o tempo de confirmação em até 4 segundos para 95% das requisições (registrado no dossiê do caso como requisito R6), e a nota lançada pelo professor precisa chegar ao ambiente virtual de aprendizagem em até 10 minutos (requisito R7). Um limite legal acompanha os dois: nenhum dado pessoal de aluno pode ser processado fora do território nacional, e a região escolhida para a nuvem fica no Brasil.
+**O que mais pesa no desenho.** Duas exigências pesam mais no desenho, a da matrícula e a da nota. Na abertura, o Portal do Aluno precisa sustentar 5.800 sessões simultâneas, com o tempo de confirmação em até 4 segundos para 95% das requisições (registrado no dossiê do caso como requisito R6), e a nota lançada pelo professor precisa chegar ao ambiente virtual de aprendizagem em até 10 minutos (requisito R7). Uma restrição do Jurídico acompanha os dois: nenhum dado pessoal de aluno pode ser processado fora do território nacional, e a região escolhida para a nuvem fica no Brasil.
 
 **Consequências.** A confirmação da matrícula deixa de ser imediata para o aluno, porque o pedido entra na fila e o núcleo o processa depois. A equipe Java precisa aprender Kafka, o produto de mensageria, e Kubernetes, que executa os contêineres, e a ACME passa a monitorar mais peças em produção. Para a obra não se afastar do desenho, testes automáticos avisam quando uma decisão deixa de ser cumprida, e todo uso de IA no projeto passa por verificação em três etapas e fica registrado no ADR.
 

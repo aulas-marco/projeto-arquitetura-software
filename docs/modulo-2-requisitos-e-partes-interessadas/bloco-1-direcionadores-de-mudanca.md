@@ -65,7 +65,7 @@ Para ver os direcionadores atuando em conjunto, volta-se à ACME, universidade p
 | Custo de propriedade do sistema acadêmico | Interno, estratégia de negócio | R$ 15,83 milhões por ano, com meta declarada de R$ 11,0 milhões até o fim de 2029 |
 | Lentidão de resposta a pedido de mudança | Interno, operação | 34 dias úteis entre pedido aprovado e entrega em produção |
 | Risco de perda de competência | Interno, pessoas | 6 especialistas em COBOL na sustentação, 2 deles com aposentadoria prevista para 2027 |
-| Exigência de proteção de dado pessoal | Externo, legislação | Parecer jurídico de 28/04/2026 exigindo processamento em território nacional |
+| Exigência de proteção de dado pessoal | Externo, parecer jurídico | Parecer jurídico de 28/04/2026 exigindo processamento em território nacional |
 | Avaliação regulatória | Externo, regulação | Preocupação declarada da Reitoria com queda de nota na avaliação |
 | Expectativa do aluno | Externo, retorno de clientes | Demanda por aplicativo móvel e por matrícula que não falhe na abertura |
 | Disponibilidade de nuvem contratável | Externo, tecnologia | Dois provedores pré-aprovados pelo Conselho Universitário em 12/03/2026 |
@@ -119,7 +119,7 @@ Nenhum dos três relatórios substitui a evidência produzida pela própria orga
 
 ## Uso pelo arquiteto
 
-Na ACME, o dossiê reúne sete pressões, entre elas o custo anual de R$ 15,83 milhões, o parecer jurídico de 28/04/2026 e os dois provedores de nuvem pré-aprovados em 12/03/2026, e o arquiteto precisa saber quais delas fecham alternativas e quais apenas ordenam preferências. Por isso ele classifica cada direcionador como interno ou externo e registra a evidência antes de discutir qualquer solução, porque a origem indica quem pode revê-lo. O parecer jurídico, de natureza legal e origem externa, elimina as alternativas que processam dado de aluno fora do país, e o custo, de origem interna, serve para ordenar as alternativas que restam. Sem essa classificação, a equipe poderia avaliar uma opção que o parecer já excluiu.
+Na ACME, o dossiê reúne sete pressões, entre elas o custo anual de R$ 15,83 milhões, o parecer jurídico de 28/04/2026 e os dois provedores de nuvem pré-aprovados em 12/03/2026, e o arquiteto precisa saber quais delas fecham alternativas e quais apenas ordenam preferências. Por isso ele classifica cada direcionador como interno ou externo e registra a evidência antes de discutir qualquer solução, porque a origem indica quem pode revê-lo. O parecer jurídico, emitido pelo Jurídico da instituição e externo ao projeto, elimina as alternativas que processam dado de aluno fora do país, e o custo, de origem interna, serve para ordenar as alternativas que restam. Sem essa classificação, a equipe poderia avaliar uma opção que o parecer já excluiu.
 
 O arquiteto volta ao registro quando muda o patrocinador ou quando um novo interlocutor questiona o motivo da iniciativa. Ele leva ao interlocutor a tabela de direcionadores com a evidência de cada linha, como a aposentadoria prevista para 2027 de 2 dos 6 especialistas em COBOL, e mostra que a solução responde a pressões documentadas. Ao preencher a análise PESTLE, ele também separa o fator apoiado em fonte verificável, como um relatório de pesquisa citado com título, edição e data, do fator que ainda é hipótese levantada em oficina. Sem o registro, o motivo da mudança fica na memória de quem participou da conversa inicial, e cada troca de liderança reabre a discussão sobre a necessidade do projeto.
 
@@ -180,7 +180,7 @@ flowchart LR
 | Custo de propriedade do sistema acadêmico | Interno, estratégia de negócio | R$ 15,83 milhões por ano, com meta declarada de R$ 11,0 milhões até o fim de 2029 |
 | Lentidão de resposta a pedido de mudança | Interno, operação | 34 dias úteis entre pedido aprovado e entrega em produção |
 | Risco de perda de competência | Interno, pessoas | 6 especialistas em COBOL na sustentação, 2 deles com aposentadoria prevista para 2027 |
-| Exigência de proteção de dado pessoal | Externo, legislação | Parecer jurídico de 28/04/2026 exigindo processamento em território nacional |
+| Exigência de proteção de dado pessoal | Externo, parecer jurídico | Parecer jurídico de 28/04/2026 exigindo processamento em território nacional |
 | Avaliação regulatória | Externo, regulação | Preocupação declarada da Reitoria com queda de nota na avaliação |
 | Expectativa do aluno | Externo, retorno de clientes | Demanda por aplicativo móvel e por matrícula que não falhe na abertura |
 | Disponibilidade de nuvem contratável | Externo, tecnologia | Dois provedores pré-aprovados pelo Conselho Universitário em 12/03/2026 |

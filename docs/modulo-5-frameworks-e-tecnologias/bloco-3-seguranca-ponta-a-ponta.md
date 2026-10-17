@@ -141,7 +141,7 @@ Classificações, grades e listas de ameaças só protegem a solução quando al
 
 | Campo | O que registra |
 | --- | --- |
-| Código | Identificador da decisão, como DS1, que o requisito do serviço e o teste citam |
+| Código | Identificador da decisão, como DS1 no registro do caderno, que o requisito do serviço e o teste citam, com numeração própria de cada registro |
 | Decisão | O controle adotado e o ativo ou a fronteira em que ele vale |
 | Motivo | O requisito, a ameaça, o artigo de lei ou a vulnerabilidade que a decisão responde |
 | Quem executa | O papel que altera o código, a infraestrutura ou o contrato |
@@ -155,17 +155,17 @@ Considere a atualização de endereço e telefone pelo aplicativo do aluno da Un
 
 | Código | Decisão | Motivo | Quem executa | Como se verifica |
 | --- | --- | --- | --- | --- |
-| DS1 | Tratar endereço e telefone como dado pessoal de confidencialidade média, processado somente em território nacional | LGPD, art. 5º, I, e R14 | Arquiteto de solução registra, e a encarregada de proteção de dados confirma a base legal | Conferência da classificação no caderno e da região no contrato |
-| DS2 | O aluno lê e grava somente o próprio cadastro, a secretaria acadêmica lê e grava, e nenhum outro perfil acessa | Menor privilégio e A01:2021 | Equipe de solução, no serviço de cadastro | Teste em que um aluno tenta alterar o cadastro de outro e recebe recusa |
-| DS3 | Autenticar o aluno por OpenID Connect no provedor de identidade aprovado no modelo técnico de referência | R8 e falsificação de identidade | Equipe de infraestrutura configura o provedor, e a equipe de solução integra o aplicativo | Chamada sem credencial válida é recusada |
-| DS4 | Cifrar toda chamada entre o aplicativo e o serviço, validar cada campo recebido e usar consultas parametrizadas no banco | Divulgação de informação e A03:2021 | Equipe de solução | Teste com entrada maliciosa e conferência da cifra no ponto de entrada |
-| DS5 | Registrar autor e horário de cada leitura e alteração do cadastro, com retenção de 5 anos, na conta de segurança e registros | R9, repúdio e A09:2021 | Equipe de solução emite o registro, e a infraestrutura o guarda | Consulta de auditoria que recupera quem alterou um telefone e quando |
+| DC1 | Tratar endereço e telefone como dado pessoal de confidencialidade média, processado somente em território nacional | LGPD, art. 5º, I, para a classificação, e R14, do parecer do Jurídico, para o território nacional | Arquiteto de solução registra, e a encarregada de proteção de dados confirma a base legal | Conferência da classificação no caderno e da região no contrato |
+| DC2 | O aluno lê e grava somente o próprio cadastro, a secretaria acadêmica lê e grava, e nenhum outro perfil acessa | Menor privilégio e A01:2021 | Equipe de solução, no serviço de cadastro | Teste em que um aluno tenta alterar o cadastro de outro e recebe recusa |
+| DC3 | Autenticar o aluno por OpenID Connect no provedor de identidade aprovado no modelo técnico de referência | R8 e falsificação de identidade | Equipe de infraestrutura configura o provedor, e a equipe de solução integra o aplicativo | Chamada sem credencial válida é recusada |
+| DC4 | Cifrar toda chamada entre o aplicativo e o serviço, validar cada campo recebido e usar consultas parametrizadas no banco | Divulgação de informação e A03:2021 | Equipe de solução | Teste com entrada maliciosa e conferência da cifra no ponto de entrada |
+| DC5 | Registrar autor e horário de cada leitura e alteração do cadastro, com retenção de 5 anos, na conta de segurança e registros | R9, repúdio e A09:2021 | Equipe de solução emite o registro, e a infraestrutura o guarda | Consulta de auditoria que recupera quem alterou um telefone e quando |
 
 #### Revisão de segurança
 
 Antes da implementação, a revisão de segurança confere o registro por dois testes. O primeiro audita o desenho contra os princípios, as políticas e os padrões de segurança adotados pela organização, como o processo definido de concessão de acesso, a gestão formal do segredo de autenticação, a escolha do provedor de identidade conforme o modelo técnico de referência e o registro de todo acesso a dado. A referência mais usada para esse conjunto é a ISO/IEC 27001, cuja edição de 2022 especifica os requisitos para estabelecer, implementar, manter e melhorar continuamente um sistema de gestão de segurança da informação.
 
-O segundo teste simula ameaças e atividades maliciosas para avaliar a resistência da solução, com apoio de catálogos públicos, como a lista OWASP Top 10, que reúne as dez categorias de vulnerabilidade mais frequentes em aplicações web e cuja edição de 2021 é usada neste bloco, e o CWE, lista de fraquezas de software e de hardware mantida pela MITRE que serve de linguagem comum para descrever falhas de segurança. No exemplo, a revisão procura três vulnerabilidades. O acesso além do necessário contraria o menor privilégio e corresponde a A01:2021, controle de acesso quebrado, tratado por DS2. A injeção ocorre porque o portal envia ao banco de dados a informação digitada pelo usuário e corresponde a A03:2021, tratada por DS4. O registro e o monitoramento insuficientes correspondem a A09:2021, falhas de registro e monitoramento de segurança, tratadas por DS5.
+O segundo teste simula ameaças e atividades maliciosas para avaliar a resistência da solução, com apoio de catálogos públicos, como a lista OWASP Top 10, que reúne as dez categorias de vulnerabilidade mais frequentes em aplicações web e cuja edição de 2021 é usada neste bloco, e o CWE, lista de fraquezas de software e de hardware mantida pela MITRE que serve de linguagem comum para descrever falhas de segurança. No exemplo, a revisão procura três vulnerabilidades. O acesso além do necessário contraria o menor privilégio e corresponde a A01:2021, controle de acesso quebrado, tratado por DC2. A injeção ocorre porque o portal envia ao banco de dados a informação digitada pelo usuário e corresponde a A03:2021, tratada por DC4. O registro e o monitoramento insuficientes correspondem a A09:2021, falhas de registro e monitoramento de segurança, tratadas por DC5.
 
 Cada achado aceito pela revisão altera uma linha do registro, e a equipe apresenta a evidência da correção antes da implementação. Uma vulnerabilidade sem decisão que a trate gera uma linha nova, com o executor e a verificação definidos.
 
@@ -193,8 +193,8 @@ O registro segue três caminhos. Cada linha da equipe de solução entra no serv
 | Categoria STRIDE da ameaça | Classifique cada ameaça, de T1 a T6, em uma das seis categorias do STRIDE | 3 |
 | Controle da ameaça | Associe a cada ameaça a letra do controle que a trata | 3 |
 | Controle que também atende ao R9 | Indique qual dos seis controles também atende ao requisito de trilha de auditoria | 3 |
-| Decisão de segurança | Escreva em uma linha o que será decidido em cada uma das cinco decisões, de D1 a D5 | 4 |
-| Quem executa a decisão | Indique, para cada decisão, a equipe ou o papel que a executa | 4 |
+| Decisão de segurança | Escreva em uma linha o que cada uma das cinco decisões, de DS1 a DS5, estabelece, usando as respostas dos itens 1 a 3 | 4 |
+| Quem executa a decisão | Indique, para cada decisão, a equipe ou o papel que a executa, e os dois quando a execução se divide | 4 |
 | Como se verifica a decisão | Escreva em uma linha o teste ou a evidência que mostra o cumprimento de cada decisão | 4 |
 
 **O que você já tem.** A zona de pouso do exercício 18, os requisitos R9 e R14 da seção 3, que o exercício cita para justificar a trilha de auditoria e a região dos dados, e as respostas dos itens 1 a 3 do próprio exercício.
@@ -329,15 +329,15 @@ Suas respostas viram os campos Categoria STRIDE da ameaça, Controle da ameaça 
 
 ### Item 4: Registro de decisões de segurança
 
-Os itens 1 a 3 produziram achados, mas um achado só vira proteção quando alguém o executa e a equipe consegue verificá-lo. Este item consolida cinco achados em decisões do registro de decisões de segurança apresentado no passo 5, de D1 a D5. A tabela traz o motivo de cada decisão, isto é, o achado dos itens 1 a 3 que ela responde, e o executor pode ser um destes três: a equipe de solução, que altera o código dos serviços, a equipe de infraestrutura, que altera conta, rede, ponto de entrada ou provedor de identidade, e o Jurídico com a encarregada de proteção de dados, que decidem sobre contrato e tratamento legal do dado pessoal.
+Os itens 1 a 3 produziram achados, mas um achado só vira proteção quando alguém o executa e a equipe consegue verificá-lo. Este item consolida cinco achados em decisões do registro de decisões de segurança apresentado no passo 5, de DS1 a DS5. A tabela traz o motivo de cada decisão, isto é, o achado dos itens 1 a 3 que ela responde, e o executor pode ser um destes três: a equipe de solução, que altera o código dos serviços, a equipe de infraestrutura, que altera conta, rede, ponto de entrada ou provedor de identidade, e o Jurídico com a encarregada de proteção de dados, que decidem sobre contrato e tratamento legal do dado pessoal.
 
 | Decisão | Motivo |
 | --- | --- |
-| D1 | Os ativos A1 a A5 não podem ser processados fora do território nacional (R14), e o ambiente virtual de aprendizagem recebe a nota consolidada (item 1) |
-| D2 | Três células da grade de permissões dão acesso maior que o necessário (item 2) |
-| D3 | T2, senha de outro aluno, num serviço cujo R8 exige padrão aberto de identidade (item 3) |
-| D4 | T1 e T3, leitura dos dados do pedido na rede e esgotamento da capacidade na abertura da matrícula (item 3) |
-| D5 | T4 e R9, trilha de auditoria com retenção de 5 anos (item 3) |
+| DS1 | Os ativos A1 a A5 não podem ser processados fora do território nacional (R14), e o ambiente virtual de aprendizagem recebe a nota consolidada (item 1) |
+| DS2 | Três células da grade de permissões dão acesso maior que o necessário (item 2) |
+| DS3 | T2, senha de outro aluno, num serviço cujo R8 exige padrão aberto de identidade (item 3) |
+| DS4 | T1 e T3, leitura dos dados do pedido na rede e esgotamento da capacidade na abertura da matrícula (item 3) |
+| DS5 | T4 e R9, trilha de auditoria com retenção de 5 anos (item 3) |
 
 1. Escreva em uma linha o que cada decisão estabelece, usando as respostas dos itens 1 a 3.
 2. Indique quem executa cada decisão, escolhendo entre os três executores, e escreva os dois quando a execução se divide entre eles.

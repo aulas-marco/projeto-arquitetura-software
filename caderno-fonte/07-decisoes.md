@@ -156,7 +156,7 @@ Ao percorrer o fluxo de valor do aluno, o arquiteto encontra problema em quatro 
 | 5. Consultar a nota no ambiente virtual | Uma nota lançada às 15h00 só chega às 06h00 do dia seguinte | R7 |
 | 6. Consultar o resultado de aproveitamento | A linha de base não registra consulta desse resultado pelo portal | R13 |
 
-A etapa 2, a confirmação da matrícula, não entra na lista, porque ocorre no núcleo durante a sessão do aluno e não depende de lote.
+A etapa 2, a confirmação da matrícula, não entra na lista, porque ocorre no núcleo durante a sessão do aluno e não depende de lote. A etapa 4, o lançamento da nota, também não entra, porque o professor a registra no Portal do Professor durante o dia letivo, e o atraso só aparece na etapa 5.
 
 #### Processo de lançamento de nota
 

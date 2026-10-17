@@ -445,13 +445,13 @@ class BlockThreeTest(unittest.TestCase):
         for step in range(1, 6):
             with self.subTest(step=step):
                 self.assertRegex(body, rf"(?m)^### Passo {step}: ")
-        for code in ("DS1", "DS2", "DS3", "DS4", "DS5"):
+        for code in ("DC1", "DC2", "DC3", "DC4", "DC5"):
             with self.subTest(code=code):
                 self.assertRegex(body, rf"(?m)^\| {code} \|")
 
     def test_exercise_19_item_4_consolidates_five_decisions(self):
         item4 = item(section(read(B3), "Exercício 19"), 4)
-        for code in ("D1", "D2", "D3", "D4", "D5"):
+        for code in ("DS1", "DS2", "DS3", "DS4", "DS5"):
             with self.subTest(code=code):
                 self.assertRegex(item4, rf"(?m)^\| {code} \|")
         for phrase in ("quem executa", "teste ou a evidência"):

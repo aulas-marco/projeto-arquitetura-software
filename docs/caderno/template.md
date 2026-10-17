@@ -455,7 +455,7 @@ Você escreve:
 - **Categoria STRIDE da ameaça:** classifique cada ameaça, de T1 a T6, em uma das seis categorias do STRIDE, modelo que classifica ameaças em falsificação, adulteração, repúdio, divulgação de informação, negação de serviço e elevação de privilégio.
 - **Controle da ameaça:** associe a cada ameaça a letra do controle que a trata.
 - **Controle que também atende ao R9:** indique qual dos seis controles também atende ao requisito de trilha de auditoria (R9).
-- **Decisão de segurança:** escreva em uma linha o que cada uma das cinco decisões, de D1 a D5, estabelece, usando as respostas dos itens 1 a 3.
+- **Decisão de segurança:** escreva em uma linha o que cada uma das cinco decisões, de DS1 a DS5, estabelece, usando as respostas dos itens 1 a 3.
 - **Quem executa a decisão:** indique, para cada decisão, a equipe ou o papel que a executa, e os dois quando a execução se divide.
 - **Como se verifica a decisão:** escreva em uma linha o teste ou a evidência que mostra o cumprimento de cada decisão.
 

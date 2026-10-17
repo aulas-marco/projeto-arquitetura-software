@@ -225,7 +225,7 @@ A ACME enfrenta sete pressões para mudar, e nem todas têm a mesma urgência. A
 | Risco de perda de competência | Interno | Antecipatória | Duas das 6 aposentadorias de especialistas em COBOL estão previstas para 2027 |
 | Exigência de proteção de dado pessoal | Externo | Reativa | O parecer jurídico de 28/04/2026 já impõe a obrigação de processar em território nacional |
 | Avaliação regulatória | Externo | Antecipatória | A preocupação da Reitoria é com uma queda futura de nota |
-| Expectativa do aluno | Externo | Reativa | O pedido de aplicativo e a falha na abertura da matrícula já aconteceram, com 2 dos 3 incidentes graves na janela de matrícula |
+| Expectativa do aluno | Externo | Reativa | O pedido de aplicativo e a falha na abertura da matrícula já aconteceram, com 2 dos 3 incidentes graves em janelas críticas, a abertura da matrícula e o fechamento de notas |
 | Disponibilidade de nuvem contratável | Externo | Antecipatória | É uma oportunidade aberta pela pré-aprovação de 12/03/2026, sem pressão imediata |
 
 O risco de perda de competência tem as duas faces. Só 1 dos 6 especialistas em COBOL domina a alteração do módulo de matrícula, o que já é problema hoje, enquanto as duas aposentadorias de 2027 são um risco que a ACME ainda pode evitar.
@@ -345,7 +345,7 @@ Para decidir se os dois cenários merecem análise de arquitetura, o roteiro de 
 
 #### Origem das restrições
 
-Cada restrição foi decidida por alguém de fora do projeto, e saber quem decidiu mostra a quem recorrer se uma delas precisar mudar. Nenhuma das sete restrições da seção 1 (RT1 a RT7) é técnica.
+Cada restrição foi decidida por alguém de fora do projeto, e saber quem decidiu mostra a quem recorrer se uma delas precisar mudar. Nenhuma das sete restrições da seção 1 (RT1 a RT7) é técnica, e nenhuma é regulatória, porque a exigência de território nacional vem de parecer jurídico da própria instituição, e a LGPD não a impõe.
 
 | Restrição | Origem | Quem pode revê-la |
 | --- | --- | --- |
@@ -353,7 +353,7 @@ Cada restrição foi decidida por alguém de fora do projeto, e saber quem decid
 | O ambiente virtual de aprendizagem e o ERP financeiro permanecem | De política interna | Nova decisão da Reitoria |
 | Uso de apenas dois provedores de nuvem pré-aprovados | De política interna | Nova decisão do Conselho Universitário |
 | Identidade e autorização por padrões abertos | De política interna | Nova decisão do Comitê de Segurança da Informação |
-| Dado pessoal de aluno processado em território nacional | Regulatória | Só muda se a norma mudar, e o parecer do Jurídico acompanha a norma |
+| Dado pessoal de aluno processado em território nacional | De política interna, apoiada em parecer jurídico | Nova decisão do Jurídico, porque a LGPD não exige residência nacional e o parecer é decisão da instituição |
 | Manutenção do núcleo COBOL sob contrato até 30/09/2027 | Contratual | Negociação com o fornecedor, dentro dos prazos previstos |
 | Orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses | De política interna | Nova aprovação da Reitoria |
 

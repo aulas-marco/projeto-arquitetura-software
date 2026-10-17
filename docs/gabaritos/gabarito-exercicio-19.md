@@ -296,7 +296,7 @@ A ACME enfrenta sete pressões para mudar, e nem todas têm a mesma urgência. A
 | Risco de perda de competência | Interno | Antecipatória | Duas das 6 aposentadorias de especialistas em COBOL estão previstas para 2027 |
 | Exigência de proteção de dado pessoal | Externo | Reativa | O parecer jurídico de 28/04/2026 já impõe a obrigação de processar em território nacional |
 | Avaliação regulatória | Externo | Antecipatória | A preocupação da Reitoria é com uma queda futura de nota |
-| Expectativa do aluno | Externo | Reativa | O pedido de aplicativo e a falha na abertura da matrícula já aconteceram, com 2 dos 3 incidentes graves na janela de matrícula |
+| Expectativa do aluno | Externo | Reativa | O pedido de aplicativo e a falha na abertura da matrícula já aconteceram, com 2 dos 3 incidentes graves em janelas críticas, a abertura da matrícula e o fechamento de notas |
 | Disponibilidade de nuvem contratável | Externo | Antecipatória | É uma oportunidade aberta pela pré-aprovação de 12/03/2026, sem pressão imediata |
 
 O risco de perda de competência tem as duas faces. Só 1 dos 6 especialistas em COBOL domina a alteração do módulo de matrícula, o que já é problema hoje, enquanto as duas aposentadorias de 2027 são um risco que a ACME ainda pode evitar.
@@ -407,7 +407,7 @@ Para decidir se os dois cenários merecem análise de arquitetura, o roteiro de 
 
 #### Origem das restrições
 
-Cada restrição foi decidida por alguém de fora do projeto, e saber quem decidiu mostra a quem recorrer se uma delas precisar mudar. Nenhuma das sete restrições da seção 1 (RT1 a RT7) é técnica.
+Cada restrição foi decidida por alguém de fora do projeto, e saber quem decidiu mostra a quem recorrer se uma delas precisar mudar. Nenhuma das sete restrições da seção 1 (RT1 a RT7) é técnica, e nenhuma é regulatória, porque a exigência de território nacional vem de parecer jurídico da própria instituição, e a LGPD não a impõe.
 
 | Restrição | Origem | Quem pode revê-la |
 | --- | --- | --- |
@@ -415,7 +415,7 @@ Cada restrição foi decidida por alguém de fora do projeto, e saber quem decid
 | O ambiente virtual de aprendizagem e o ERP financeiro permanecem | De política interna | Nova decisão da Reitoria |
 | Uso de apenas dois provedores de nuvem pré-aprovados | De política interna | Nova decisão do Conselho Universitário |
 | Identidade e autorização por padrões abertos | De política interna | Nova decisão do Comitê de Segurança da Informação |
-| Dado pessoal de aluno processado em território nacional | Regulatória | Só muda se a norma mudar, e o parecer do Jurídico acompanha a norma |
+| Dado pessoal de aluno processado em território nacional | De política interna, apoiada em parecer jurídico | Nova decisão do Jurídico, porque a LGPD não exige residência nacional e o parecer é decisão da instituição |
 | Manutenção do núcleo COBOL sob contrato até 30/09/2027 | Contratual | Negociação com o fornecedor, dentro dos prazos previstos |
 | Orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses | De política interna | Nova aprovação da Reitoria |
 
@@ -528,7 +528,7 @@ A ACME levantou quatro exigências na Aula 2, e cada uma originou um princípio.
 | 3 | Baixo acoplamento, que mantém cada parte pouco dependente das outras | Dependência do legado: o núcleo COBOL fica sob contrato de sustentação até 30/09/2027 (RT6), com 6 especialistas, 2 deles aposentados em 2027, e só 1 domina o módulo de matrícula | Os elementos novos acessam o núcleo apenas pelas transações que ele já oferece e não dependem de alteração de programa COBOL. Fica proibido ler ou gravar as tabelas do núcleo diretamente | Nenhuma entrega do primeiro ciclo depende de demanda aberta com a fábrica de software |
 | 4 | Separação de responsabilidades | Propagação de notas: o requisito R7 pede a nota no ambiente virtual em até 10 minutos, contra o lote diário das 05h10 | Registrar a nota e entregá-la ao ambiente virtual são responsabilidades de elementos distintos, e a entrega passa a ocorrer no ritmo do lançamento, não no do lote | Intervalo entre o lançamento e a chegada da nota, com percentil 95, o valor abaixo do qual ficam 95% dos casos, inferior a 10 minutos |
 
-A evolução incremental ocupa o primeiro lugar porque nasce da restrição de que o sistema acadêmico não pode parar em período letivo (RT1), que o arquiteto não negocia. A residência de dados, regra de que o dado pessoal de aluno fique em território nacional (RT5), também é de natureza legal e vem logo depois. A propagação de notas fica por último porque é um requisito de uma parte interessada, e prazo e alcance podem ser negociados. Quando a nota em 10 minutos entrar em conflito com a continuidade, a continuidade prevalece.
+A evolução incremental ocupa o primeiro lugar porque nasce da restrição de que o sistema acadêmico não pode parar em período letivo (RT1), que o arquiteto não negocia. A residência de dados, regra de que o dado pessoal de aluno fique em território nacional (RT5), vem do parecer do Jurídico e fica logo depois. A propagação de notas fica por último porque é um requisito de uma parte interessada, e prazo e alcance podem ser negociados. Quando a nota em 10 minutos entrar em conflito com a continuidade, a continuidade prevalece.
 
 #### Esboço lógico
 
@@ -649,7 +649,7 @@ Ao percorrer o fluxo de valor do aluno, o arquiteto encontra problema em quatro 
 | 5. Consultar a nota no ambiente virtual | Uma nota lançada às 15h00 só chega às 06h00 do dia seguinte | R7 |
 | 6. Consultar o resultado de aproveitamento | A linha de base não registra consulta desse resultado pelo portal | R13 |
 
-A etapa 2, a confirmação da matrícula, não entra na lista, porque ocorre no núcleo durante a sessão do aluno e não depende de lote.
+A etapa 2, a confirmação da matrícula, não entra na lista, porque ocorre no núcleo durante a sessão do aluno e não depende de lote. A etapa 4, o lançamento da nota, também não entra, porque o professor a registra no Portal do Professor durante o dia letivo, e o atraso só aparece na etapa 5.
 
 #### Processo de lançamento de nota
 
@@ -962,11 +962,11 @@ Cada decisão consolida um achado dos itens 1 a 3, nomeia quem a executa e diz c
 
 | Decisão | O que estabelece | Quem executa | Como se verifica |
 | --- | --- | --- | --- |
-| D1 | Conferir no contrato do fornecedor do ambiente virtual a região em que a nota consolidada é processada e exigir território nacional (R14) | Jurídico e encarregada de proteção de dados | Cláusula de região nacional no contrato e declaração de região do fornecedor arquivada |
-| D2 | Corrigir a grade: o aluno lê somente a própria nota consolidada, o professor lê a matrícula só das turmas que leciona e o ambiente virtual lê a nota consolidada sem gravar | Equipe de solução, nos serviços | Testes automatizados em que o aluno e o ambiente virtual tentam gravar nota e o professor tenta ler a matrícula de turma alheia, todos recusados |
-| D3 | Autenticar o aluno por OpenID Connect no provedor de identidade aprovado, conforme o R8 | Equipe de infraestrutura configura o provedor, e a equipe de solução integra o aplicativo | Chamada ao serviço sem credencial válida é recusada, e a configuração do provedor mostra o padrão OpenID Connect |
-| D4 | Cifrar toda chamada entre o aplicativo e o serviço e aplicar limite de taxa por cliente, com reserva de capacidade, no ponto de entrada | Equipe de infraestrutura | Captura de tráfego sem conteúdo legível e teste de carga em que um cliente excede o limite e é recusado sem degradar as demais sessões |
-| D5 | Registrar autor e horário de cada acesso a dado pessoal em registro imutável, com retenção de 5 anos, guardado fora da conta de produção | Equipe de solução emite o registro, e a equipe de infraestrutura o guarda | Consulta de auditoria que recupera quem leu um dado e quando, e retenção de 5 anos na configuração do registro |
+| DS1 | Conferir no contrato do fornecedor do ambiente virtual a região em que a nota consolidada é processada e exigir território nacional (R14) | Jurídico e encarregada de proteção de dados | Cláusula de região nacional no contrato e declaração de região do fornecedor arquivada |
+| DS2 | Corrigir a grade: o aluno lê somente a própria nota consolidada, o professor lê a matrícula só das turmas que leciona e o ambiente virtual lê a nota consolidada sem gravar | Equipe de solução, nos serviços | Testes automatizados em que o aluno e o ambiente virtual tentam gravar nota e o professor tenta ler a matrícula de turma alheia, todos recusados |
+| DS3 | Autenticar o aluno por OpenID Connect no provedor de identidade aprovado, conforme o R8 | Equipe de infraestrutura configura o provedor, e a equipe de solução integra o aplicativo | Chamada ao serviço sem credencial válida é recusada, e a configuração do provedor mostra o padrão OpenID Connect |
+| DS4 | Cifrar toda chamada entre o aplicativo e o serviço e aplicar limite de taxa por cliente, com reserva de capacidade, no ponto de entrada | Equipe de infraestrutura | Captura de tráfego sem conteúdo legível e teste de carga em que um cliente excede o limite e é recusado sem degradar as demais sessões |
+| DS5 | Registrar autor e horário de cada acesso a dado pessoal em registro imutável, com retenção de 5 anos, guardado fora da conta de produção | Equipe de solução emite o registro, e a equipe de infraestrutura o guarda | Consulta de auditoria que recupera quem leu um dado e quando, e retenção de 5 anos na configuração do registro |
 
 {{/novo}}
 

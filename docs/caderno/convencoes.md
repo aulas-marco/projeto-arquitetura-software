@@ -14,6 +14,7 @@ Cada código é a inicial do item seguida de um número, na ordem em que o item 
 | R | Um requisito declarado pelas pessoas envolvidas | 3 |
 | RD | Um requisito derivado de outro requisito ou de uma restrição | 3 |
 | CQ | Um cenário de qualidade: uma situação de uso descrita em seis partes, com meta que dá para medir | 3 |
+| LB | Um artefato de linha de base: documento ou medição que sustenta um número do caderno | 4 |
 | L | Uma lacuna entre o sistema atual e o que se quer construir | 4 |
 | P | Um princípio de design: regra que as decisões precisam respeitar | 6 |
 | DD | Uma decisão de design, como o estilo da solução ou os padrões adotados | 7 |
@@ -22,6 +23,7 @@ Cada código é a inicial do item seguida de um número, na ordem em que o item 
 | I | Uma interface entre dois blocos | 7 |
 | ADR | Um registro de decisão arquitetural: texto curto com o contexto, as alternativas e as consequências de uma escolha | 7 e 8 |
 | C | Um controle de segurança | 8 |
+| DS | Uma decisão de segurança do registro, com quem a executa e como se verifica | 8 |
 | LG | Uma ligação entre duas partes executáveis da solução, com protocolo e contrato | 7 |
 | FA | Uma função de adequação: teste automático que avisa quando uma decisão deixa de ser cumprida | 9 |
 | CP | Um candidato a componente da solução, classificado por tipo | 1 |
