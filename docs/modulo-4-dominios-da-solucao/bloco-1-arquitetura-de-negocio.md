@@ -56,7 +56,7 @@ flowchart TB
     S --> S1["Que aplicações, dados e interfaces apoiam o trabalho?"]
 ```
 
-Uma capacidade pode apoiar mais de um processo, um processo pode envolver vários sistemas e um sistema pode apoiar vários processos. O esquema serve para distinguir os recortes. Os modelos completos continuam nas seções seguintes.
+Uma capacidade pode apoiar mais de um processo, um processo pode envolver vários sistemas e um sistema pode apoiar vários processos, de modo que o esquema serve para distinguir os quatro recortes, cada um detalhado numa das seções seguintes, a começar pelo mapa de capacidades.
 
 Para saber onde a mudança incide, o arquiteto de solução consulta modelos que a arquitetura de negócio já mantém, cada um com uma pergunta própria. A tabela abaixo resume os quatro mais usados, a pergunta que cada um responde e o que ele oferece ao arquiteto.
 
@@ -79,13 +79,13 @@ A Figura 2 reúne os quatro modelos com a pergunta de cada um e os situa sobre o
 
 Quando o arquiteto pergunta o que a organização precisa conseguir fazer, a resposta organizada é o **mapa de capacidades**, que decompõe as capacidades de topo em capacidades menores. Uma **capacidade** é aquilo que a organização precisa conseguir fazer para entregar seus serviços e executar sua estratégia, e pode ainda não existir, constando apenas do plano. O nome da capacidade descreve uma habilidade da organização e omite quem a exerce e com qual sistema, o que mantém o mapa estável quando a estrutura organizacional ou as aplicações mudam. Cada capacidade tem dois atributos adicionais, o volume, que é quanto se entrega em paralelo, e a competência, que é o nível de habilidade exigido, e é habilitada por recursos como pessoas, unidades organizacionais, tecnologia e conhecimento especializado. O mapa classifica as capacidades em estratégicas, operacionais e de apoio, e outras classificações, como maturidade ou núcleo e periferia, também são usadas.
 
-A Figura 3 organiza as dez capacidades acadêmicas da Universidade ACME, as mesmas usadas no exercício 13. A oferta e a grade curricular orientam o serviço acadêmico, matrícula e notas entregam o serviço ao aluno, e cobrança e biblioteca apoiam a operação. O mapa permite discutir a mudança com as áreas de negócio antes de falar em software.
+A Figura 3 mostra, como exemplo ilustrativo, o mapa de capacidades de uma universidade, com quatro capacidades de topo e catorze capacidades menores. Gestão acadêmica reúne as capacidades estratégicas, que orientam a oferta e a qualidade dos cursos. Relacionamento e Ensino e avaliação reúnem as operacionais, que entregam o serviço ao aluno. Apoio reúne as que sustentam as demais. O mapa permite discutir a mudança com as áreas de negócio antes de falar em software. As dez capacidades acadêmicas da ACME aparecem no exercício 13, sem classificação, e é o aluno quem as classifica.
 
 <figure markdown="span">
-![Mapa das dez capacidades acadêmicas da Universidade ACME, agrupadas em estratégicas, operacionais e de apoio, com os mesmos nomes do exercício 13.](../assets/images/modulo-4-b1-mapa-capacidades-hospital.svg){ .module-diagram }
+![Mapa ilustrativo de uma universidade, com quatro capacidades de topo, gestão acadêmica, relacionamento, ensino e avaliação e apoio, e catorze capacidades menores coloridas como estratégicas, operacionais ou de apoio.](../assets/images/modulo-4-b1-mapa-de-capacidades-universidade.svg){ .module-diagram }
 </figure>
 
-*Figura 3 — Capacidades acadêmicas da Universidade ACME. Fonte: material do curso.*
+*Figura 3 — Mapa de capacidades de uma universidade, em exemplo ilustrativo. Fonte: material do curso.*
 
 ### Uma mudança na Universidade ACME
 
@@ -93,15 +93,15 @@ Na Universidade ACME, o professor registra a nota no sistema acadêmico, mas ela
 
 A proposta troca o envio diário por uma mensagem a cada publicação de nota. O serviço de notas envia a identificação do aluno, da disciplina e da nota, e o ambiente virtual confirma o recebimento. A interface precisa prever versão da mensagem, reenvio e tratamento de duplicidade. O professor continua responsável pelo lançamento, enquanto a equipe de TI acompanha as entregas e trata falhas de integração.
 
-A Figura 4 destaca duas capacidades afetadas por esse recorte: Avaliação e registro de notas e Controle de frequência, quando a situação acadêmica usa os resultados recebidos. A relação com o ambiente virtual é uma integração que sustenta essas capacidades. O exercício 13 amplia a análise para todas as capacidades do primeiro ciclo, incluindo matrícula e documentos.
+A Figura 4 retoma o mapa ilustrativo da Figura 3 e destaca as duas capacidades que esse recorte afeta, Lançamento e publicação de notas e Ensino a distância, que usa o ambiente virtual. A integração com o ambiente virtual sustenta as duas. O exercício 13 amplia a análise para as dez capacidades acadêmicas da ACME, e é o aluno quem decide ali quais delas o primeiro ciclo altera.
 
 <figure markdown="span">
-![Mapa das capacidades da Universidade ACME com destaque para avaliação e registro de notas e controle de frequência, no recorte da publicação de notas.](../assets/images/modulo-4-b1-mapa-de-capacidades-afetadas.svg){ .module-diagram }
+![Mapa ilustrativo de capacidades de uma universidade com destaque para lançamento e publicação de notas e para ensino a distância, afetadas pela publicação de notas. Uma anotação registra o volume de até 360.000 lançamentos e a competência exigida.](../assets/images/acme-b1-capacidades-afetadas-pela-publicacao-de-notas.svg){ .module-diagram }
 </figure>
 
-*Figura 4 — Recorte de capacidades afetadas pela publicação de notas. Fonte: material do curso.*
+*Figura 4 — Capacidades afetadas pela publicação de notas, no mapa ilustrativo da Figura 3. Fonte: material do curso.*
 
-Os dois atributos ajudam a dimensionar a mudança. O volume considera até 360.000 lançamentos na janela de fechamento. A competência inclui publicar a nota, acompanhar a confirmação, tratar duplicidades e recuperar falhas, para cumprir o prazo de 10 minutos do R7.
+Os dois atributos ajudam a dimensionar a mudança, pois o volume considera até 360.000 lançamentos na janela de fechamento e a competência inclui publicar a nota, acompanhar a confirmação, tratar duplicidades e recuperar falhas, para cumprir o prazo de 10 minutos do R7.
 
 ### Capacidade e fluxo de valor em ArchiMate
 
@@ -114,12 +114,12 @@ O mapa de capacidades diz o que a organização sabe fazer, mas não diz por ond
 A Figura 5 acompanha a nota em seis etapas: avaliar o aluno, lançar a nota, validar o lançamento, registrar no núcleo, entregar ao ambiente virtual e consultar o resultado. Hoje a entrega depende do lote diário. A proposta altera essa etapa para que o aluno veja a nota em até 10 minutos, sem confundir esse prazo com o tempo que o professor leva para corrigir a avaliação.
 
 <figure markdown="span">
-![Fluxo da nota na Universidade ACME em seis etapas: avaliar, lançar, validar, registrar, entregar ao ambiente virtual e consultar. A entrega muda do lote diário para até dez minutos.](../assets/images/modulo-4-b1-fluxo-valor-laboratorio.svg){ .module-diagram }
+![Fluxo da nota na Universidade ACME em seis etapas: avaliar, lançar, validar, registrar, entregar ao ambiente virtual e consultar. A entrega muda do lote diário para até dez minutos.](../assets/images/acme-b1-fluxo-de-valor-da-nota.svg){ .module-diagram }
 </figure>
 
 *Figura 5 — Fluxo de valor da nota na Universidade ACME. Fonte: material do curso.*
 
-O fluxo e o mapa se ligam pela responsabilidade de cada etapa. Avaliar, lançar e validar dependem da capacidade Avaliação e registro de notas. Registrar no núcleo e entregar ao ambiente virtual dependem também das aplicações e da integração. Consultar o resultado mostra o valor percebido pelo aluno. Essa ligação ajuda a localizar o que muda em pessoas, processos, dados e tecnologia.
+O fluxo e o mapa se ligam pela responsabilidade de cada etapa, pois avaliar, lançar e validar dependem da capacidade de avaliar e registrar notas, e registrar no núcleo e entregar ao ambiente virtual dependem também das aplicações e da integração. Consultar o resultado mostra o valor percebido pelo aluno, e essa ligação ajuda a localizar o que muda em pessoas, processos, dados e tecnologia.
 
 ### Decomposição funcional e modelo de processo
 
@@ -128,7 +128,7 @@ Depois das capacidades e das etapas, falta saber quem realiza cada função e em
 O modelo de processo de negócio é desenhado com frequência em BPMN (*Business Process Model and Notation*), notação padronizada pelo Object Management Group (OMG), cuja versão 2.0.2 foi publicada em janeiro de 2014 e que a própria OMG descreve como padrão de fato para diagramas de processo de negócio (Object Management Group, 2014). A notação distribui o processo em raias, uma por participante ou unidade responsável, e usa um conjunto básico de símbolos, o evento de início, a tarefa, o gateway de decisão e o evento de fim, ligados por fluxos de sequência. A Figura 6 representa, em notação simplificada, o processo proposto para entregar a nota ao ambiente virtual. O desenho detalha a etapa 5 do fluxo da Figura 5.
 
 <figure markdown="span">
-![Processo proposto de entrega da nota ao ambiente virtual, com raias do serviço de notas, ambiente virtual e operação. Uma decisão separa recebimento confirmado de falha que exige reenvio e acompanhamento.](../assets/images/modulo-4-b1-processo-resultado-exame-v2.svg){ .module-diagram }
+![Processo proposto de entrega da nota ao ambiente virtual, com raias do serviço de notas, ambiente virtual e operação. Uma decisão separa recebimento confirmado de falha que exige reenvio e acompanhamento.](../assets/images/acme-b1-processo-entrega-da-nota.svg){ .module-diagram }
 </figure>
 
 *Figura 6 — Processo proposto de entrega da nota, em BPMN simplificado. Fonte: material do curso.*
@@ -140,13 +140,13 @@ O arquiteto de solução lê um modelo de processo como esse em quatro passos:
 3. Examinar cada decisão e sua regra, como a confirmação de recebimento, para definir quando o envio pode ser encerrado.
 4. Marcar as tarefas de cada sistema, que indicam as interfaces entre o serviço de notas e o ambiente virtual tratadas no bloco 3.
 
-Com a integração proposta, a nota deixa de esperar pelo lote diário. O sistema acompanha cada entrega, repete envios que falharam e evita lançar a mesma mensagem duas vezes. A equipe de operação trata as pendências que não foram resolvidas automaticamente. Automatizar o envio exige definir essa rotina de recuperação e quem responde por ela.
+Com a integração proposta, a nota deixa de esperar pelo lote diário, porque o sistema acompanha cada entrega, repete envios que falharam e evita lançar a mesma mensagem duas vezes. A equipe de operação trata as pendências que não foram resolvidas automaticamente, e por isso automatizar o envio exige definir essa rotina de recuperação e quem responde por ela.
 
 Nesta disciplina, o arquiteto de solução obtém esses modelos do repositório de arquitetura corporativa da organização ou da área de análise de processos, sem desenhá-los. Ferramentas como o Camunda Modeler e o Bizagi Modeler editam diagramas BPMN e permitem exportá-los no formato XML de intercâmbio definido pela especificação, o que permite abrir o mesmo modelo em ferramentas diferentes, e o Archi cumpre papel equivalente para os modelos ArchiMate. A escolha de ferramenta ou de produto para a ACME não é objeto deste bloco e pertence à Aula 5.
 
 ### O que os modelos revelam na Universidade ACME
 
-Os quatro modelos explicam a mesma mudança por ângulos diferentes. O mapa localiza as capacidades afetadas. O fluxo mostra onde o aluno percebe o atraso. O processo detalha lançamento, validação, envio, confirmação e recuperação de falha. A decomposição funcional identifica professores, Secretaria Acadêmica, Educação a Distância e TI como participantes. Esses modelos orientam os blocos de dados, aplicações e infraestrutura que vêm a seguir.
+Os quatro modelos explicam a mesma mudança por ângulos diferentes: o mapa localiza as capacidades afetadas, o fluxo mostra onde o aluno percebe o atraso e o processo detalha lançamento, validação, envio, confirmação e recuperação de falha. A decomposição funcional identifica professores, Secretaria Acadêmica, Educação a Distância e TI como participantes, e a lista de capacidades afetadas é a entrada do bloco de dados, que vem a seguir.
 
 ### Componentes de negócio da solução
 
@@ -247,7 +247,7 @@ Suas respostas viram os campos Classificação da capacidade e Capacidade afetad
 
 ### Item 2: Fluxo de valor do aluno
 
-Para o aluno da ACME, receber o serviço da universidade é passar por uma sequência de etapas, e essa sequência é o fluxo de valor. O enunciado traz o fluxo de valor do aluno em seis etapas, numeradas de 1 a 6, que vão de renovar a matrícula até consultar o resultado do pedido de aproveitamento de disciplina, isto é, o pedido para que a universidade reconheça uma disciplina já cursada. A tabela registra a situação de cada etapa na [arquitetura de linha de base](../caso-acme/linha-de-base.md), ou seja, como o sistema atual a realiza. Em cada etapa, a latência é o atraso entre um fato acontecer e a informação chegar a quem precisa dela. O item serve para descobrir em que etapas o aluno percebe um problema e ligar cada problema ao requisito que pede a melhoria, entre os três da tabela do início do exercício. O R1 trata da renovação de matrícula pelo celular, o R7 trata do prazo de 10 minutos para a nota chegar ao ambiente virtual, e o R13 trata da consulta do resultado de aproveitamento pelo portal. Você registra as etapas com problema e o requisito de cada uma.
+Para o aluno da ACME, receber o serviço da universidade é passar por uma sequência de etapas, e essa sequência é o fluxo de valor. O enunciado traz o fluxo de valor do aluno em seis etapas, numeradas de 1 a 6, que vão de renovar a matrícula até consultar o resultado do pedido de aproveitamento de disciplina, isto é, o pedido para que a universidade reconheça uma disciplina já cursada. A tabela registra a situação de cada etapa na [arquitetura de linha de base](../caso-acme/linha-de-base.md), ou seja, como o sistema atual a realiza. Em cada etapa, a latência é o atraso entre um fato acontecer e a informação chegar a quem precisa dela. O item serve para descobrir em que etapas o aluno percebe um problema e ligar cada problema ao requisito que pede a melhoria, entre os três da tabela do início do exercício. O R1 trata da renovação de matrícula pelo celular, o R7 trata do prazo de 10 minutos para a nota chegar ao ambiente virtual, e o R13 trata da consulta do resultado de aproveitamento pelo portal, e você registra, nos campos Etapa com problema e Requisito da etapa, as etapas com problema e o requisito de cada uma.
 
 ```mermaid
 flowchart TB

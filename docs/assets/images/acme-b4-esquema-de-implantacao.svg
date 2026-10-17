@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1050" role="img" aria-labelledby="title desc">
+  <title id="title">Esquema de implantação do sistema acadêmico em produção</title><desc id="desc">Esquema de implantação da Universidade ACME, em ambiente de produção. No alto, o telefone do aluno executa o aplicativo do aluno, e os navegadores de professores e secretaria abrem os portais, ambos fora do ambiente de produção. No ambiente de produção, o nó nuvem aprovada abriga o serviço de matrícula e o serviço de notas, cada um com o próprio banco, e o nó centro de dados da universidade abriga o núcleo transacional COBOL, o banco do núcleo e os portais existentes. Os serviços novos ligam-se ao núcleo por conexão a definir e a um conjunto de sistemas externos, entre eles o ambiente virtual e o ERP financeiro. Tecnologia, capacidade e recuperação são decisões da Aula 5.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:28px;font-weight:700}.t{font-size:22px;font-weight:700}.b{font-size:20px;font-weight:700}.p{font-size:20px}.q{font-size:20px;fill:#52657E}.i{font-size:20px;font-style:italic;fill:#52657E}.w{fill:#fff}.sk{fill:#D8E9FF}</style><marker id='s' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='8' markerHeight='8' orient='auto'><path d='M0 0L10 5L0 10z' fill='#16243A'/></marker></defs>
+  <rect width="1000" height="1050" rx="24" fill="#F2F6FB"/>
+  <style>.i2{font-size:20px;font-style:italic;fill:#D8E9FF}</style>
+  <text x="20" y="48" class="h">Esquema de implantação, ambiente de produção</text>
+  <text x="20" y="80" class="q">Onde cada parte executa, sem escolher produto, região ou provedor.</text>
+  <rect x="20" y="104" width="320" height="150" rx="12" fill="#E6EEF9" stroke="#52657E" stroke-width="2"/>
+  <text x="36" y="134" class="b">Navegadores web</text>
+  <text x="36" y="160" class="q">[professores e secretaria]</text>
+  <text x="66" y="204" class="p">abrem os portais</text>
+  <text x="66" y="230" class="p">por HTTPS</text>
+  <rect x="360" y="104" width="320" height="150" rx="12" fill="#E6EEF9" stroke="#52657E" stroke-width="2"/>
+  <text x="376" y="134" class="b">Telefone do aluno</text>
+  <text x="376" y="160" class="q">[Android ou iOS]</text>
+  <rect x="380" y="172" width="280" height="70" rx="12" fill="#254DB8"/>
+  <text x="520.0" y="201.5" class="i2" text-anchor="middle" data-max="266">«contêiner»</text>
+  <text x="520.0" y="226.5" class="b w" text-anchor="middle" data-max="266">Aplicativo do aluno</text>
+  <rect x="20" y="310" width="700" height="710" rx="12" fill="#F7F9FC" stroke="#52657E" stroke-width="2"/>
+  <text x="40" y="340" class="b">Ambiente de produção</text>
+  <rect x="80" y="362" width="600" height="268" rx="12" fill="#E6EEF9" stroke="#52657E" stroke-width="2"/>
+  <text x="96" y="392" class="b">Nuvem aprovada</text>
+  <text x="96" y="418" class="q">[nó de implantação]</text>
+  <rect x="100" y="436" width="240" height="80" rx="12" fill="#254DB8"/>
+  <text x="220.0" y="458.0" class="i2" text-anchor="middle" data-max="226">«contêiner»</text>
+  <text x="220.0" y="483.0" class="b w" text-anchor="middle" data-max="226">Serviço de matrícula</text>
+  <text x="220.0" y="508.0" class="i2" text-anchor="middle" data-max="226">[tecnologia a definir]</text>
+  <path d="M400 448V504A120.0 12 0 0 0 640 504V448A120.0 12 0 0 0 400 448Z" fill="#254DB8" stroke="#16243A" stroke-width="2"/>
+  <path d="M400 448A120.0 12 0 0 0 640 448" fill="none" stroke="#D8E9FF" stroke-width="2"/>
+  <text x="520.0" y="475.0" class="i2" text-anchor="middle" data-max="226">«banco de dados»</text>
+  <text x="520.0" y="501.0" class="b w" text-anchor="middle" data-max="226">Banco de matrícula</text>
+  <rect x="100" y="534" width="240" height="80" rx="12" fill="#254DB8"/>
+  <text x="220.0" y="556.0" class="i2" text-anchor="middle" data-max="226">«contêiner»</text>
+  <text x="220.0" y="581.0" class="b w" text-anchor="middle" data-max="226">Serviço de notas</text>
+  <text x="220.0" y="606.0" class="i2" text-anchor="middle" data-max="226">[tecnologia a definir]</text>
+  <path d="M400 546V602A120.0 12 0 0 0 640 602V546A120.0 12 0 0 0 400 546Z" fill="#254DB8" stroke="#16243A" stroke-width="2"/>
+  <path d="M400 546A120.0 12 0 0 0 640 546" fill="none" stroke="#D8E9FF" stroke-width="2"/>
+  <text x="520.0" y="573.0" class="i2" text-anchor="middle" data-max="226">«banco de dados»</text>
+  <text x="520.0" y="599.0" class="b w" text-anchor="middle" data-max="226">Banco de notas</text>
+  <rect x="80" y="668" width="600" height="330" rx="12" fill="#E6EEF9" stroke="#52657E" stroke-width="2"/>
+  <text x="96" y="698" class="b">Centro de dados da universidade</text>
+  <text x="96" y="724" class="q">[nó de implantação]</text>
+  <rect x="100" y="742" width="240" height="92" rx="12" fill="#16243A"/>
+  <text x="220.0" y="770.0" class="i2" text-anchor="middle" data-max="226">«contêiner»</text>
+  <text x="220.0" y="795.0" class="b w" text-anchor="middle" data-max="226">Núcleo transacional</text>
+  <text x="220.0" y="820.0" class="i2" text-anchor="middle" data-max="226">[existente]</text>
+  <path d="M400 754V822A120.0 12 0 0 0 640 822V754A120.0 12 0 0 0 400 754Z" fill="#16243A" stroke="#16243A" stroke-width="2"/>
+  <path d="M400 754A120.0 12 0 0 0 640 754" fill="none" stroke="#D8E9FF" stroke-width="2"/>
+  <text x="520.0" y="774.0" class="i2" text-anchor="middle" data-max="226">«banco de dados»</text>
+  <text x="520.0" y="800.0" class="b w" text-anchor="middle" data-max="226">Banco do núcleo</text>
+  <text x="520.0" y="826.0" class="i2" text-anchor="middle" data-max="226">[existente]</text>
+  <rect x="100" y="868" width="240" height="92" rx="12" fill="#16243A"/>
+  <text x="220.0" y="896.0" class="i2" text-anchor="middle" data-max="226">«contêiner»</text>
+  <text x="220.0" y="921.0" class="b w" text-anchor="middle" data-max="226">Portal do Professor</text>
+  <text x="220.0" y="946.0" class="i2" text-anchor="middle" data-max="226">[existente]</text>
+  <rect x="400" y="868" width="240" height="92" rx="12" fill="#16243A"/>
+  <text x="520.0" y="896.0" class="i2" text-anchor="middle" data-max="226">«contêiner»</text>
+  <text x="520.0" y="921.0" class="b w" text-anchor="middle" data-max="226">Portal da Secretaria</text>
+  <text x="520.0" y="946.0" class="i2" text-anchor="middle" data-max="226">[existente]</text>
+  <rect x="750" y="362" width="230" height="130" rx="12" fill="#7A8799"/>
+  <text x="865" y="398" class="i2" text-anchor="middle" data-max="215">«sistemas externos»</text>
+  <text x="865" y="430" class="b w" text-anchor="middle" data-max="215">Ambiente virtual,</text>
+  <text x="865" y="455" class="b w" text-anchor="middle" data-max="215">ERP financeiro,</text>
+  <text x="865" y="480" class="b w" text-anchor="middle" data-max="215">identidade e outros</text>
+  <path d="M560 254V360" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <text x="574" y="300" class="b">HTTPS</text>
+  <path d="M36 254V914H78" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <path d="M342 476H398" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <path d="M342 574H398" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <path d="M100 476H58V788H98" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <path d="M100 574H58" stroke="#16243A" stroke-width="3" fill="none"/>
+  <path d="M680 400H748" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <text x="740" y="560" class="q" data-max="250">Telefone e navegadores</text>
+  <text x="740" y="586" class="q" data-max="250">ficam fora do ambiente</text>
+  <text x="740" y="612" class="q" data-max="250">de produção.</text>
+  <text x="740" y="680" class="q" data-max="250">Os serviços novos</text>
+  <text x="740" y="706" class="q" data-max="250">acessam o núcleo pelas</text>
+  <text x="740" y="732" class="q" data-max="250">transações existentes.</text>
+  <text x="740" y="800" class="q" data-max="250">Tecnologia, capacidade</text>
+  <text x="740" y="826" class="q" data-max="250">e recuperação são</text>
+  <text x="740" y="852" class="q" data-max="250">decisões da Aula 5.</text>
+  <rect x="20" y="1030" width="0.1" height="0.1" rx="14" fill="#F2F6FB"/>
+</svg>

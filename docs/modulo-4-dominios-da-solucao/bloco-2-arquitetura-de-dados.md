@@ -18,7 +18,7 @@ Quando a nota ou o endereço de um aluno aparecem diferentes em dois sistemas, n
 ![Mapa do bloco 0 com quatro faixas empilhadas, negócio, dados, aplicações e infraestrutura, e o que o arquiteto decide em cada uma, com a faixa de dados em destaque e as demais esmaecidas.](../assets/images/modulo-4-b0-mapa-dados.svg){ .module-diagram }
 </figure>
 
-No mapa do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), este bloco trata do domínio de dados. O arquiteto recebe as capacidades afetadas, localizadas no [bloco 1](bloco-1-arquitetura-de-negocio.md), e o modelo de dados corporativo. Para cada entidade, decide dono, fonte de verdade, regime de consistência e obrigações. A entrega ao bloco 3 é a grade dado × aplicação.
+No mapa do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), este bloco trata do domínio de dados. O arquiteto recebe as capacidades afetadas, localizadas no [bloco 1](bloco-1-arquitetura-de-negocio.md), e o modelo de dados corporativo, e decide para cada entidade o dono, a fonte de verdade, o regime de consistência e as obrigações, de modo que a entrega ao bloco 3 é a grade dado × aplicação.
 
 Como toda solução nova mexe em dados que a organização já gerencia, o arquiteto precisa de uma referência comum, e a DAMA International, associação profissional que mantém o corpo de conhecimento em gestão de dados conhecido como DMBOK (*Data Management Body of Knowledge*), define a **arquitetura de dados** como a estrutura geral dos dados e dos recursos relacionados a dados, tratada como parte integrante da arquitetura corporativa. A referência vigente é a segunda edição revisada do DMBOK, publicada em 2024 e disponível em português, e a terceira edição está prevista para 2027 (DAMA International, 2024). Toda solução tem uma arquitetura de dados própria, mais específica que a corporativa, e essa arquitetura precisa ser consistente com a arquitetura de dados da organização, porque a inconsistência na definição ou no uso do dado produz erro em serviço de negócio.
 
@@ -53,12 +53,12 @@ Antes de propor qualquer entidade nova, o arquiteto verifica o que a organizaç�
 A distinção entre os níveis de modelagem orienta o que o arquiteto de solução lê e o que ele decide. O modelo conceitual registra conceitos de negócio e seus relacionamentos, sem atributo técnico, o modelo lógico acrescenta atributos e chaves, ainda independente de tecnologia, e o modelo físico traduz o lógico em tabelas, tipos e índices de um gerenciador de banco específico, como o PostgreSQL.
 
 <figure markdown="span">
-![Modelo de dados acadêmicos em quatro níveis: áreas de assunto, entidades aluno, disciplina, matrícula e nota, atributos da nota e modelo físico e contrato de mensagem produzidos pelo projeto.](../assets/images/modulo-4-b2-modelo-corporativo.svg){ .module-diagram }
+![Modelo de dados acadêmicos em quatro níveis: áreas de assunto aluno, oferta, avaliação e financeiro, entidades aluno, disciplina, matrícula e nota, atributos da nota e modelo físico e contrato de mensagem produzidos pelo projeto.](../assets/images/acme-b2-modelo-de-dados-corporativo.svg){ .module-diagram }
 </figure>
 
 *Figura 1 — Modelo de dados corporativo em quatro níveis, com o recorte que entra na solução e o que a solução produz. Fonte: material do curso, com base em DAMA Rocky Mountain Chapter (2023).*
 
-A Figura 1 aplica os quatro níveis à publicação de notas da Universidade ACME. A área de assunto é a vida acadêmica. As entidades incluem aluno, disciplina, matrícula e nota. O modelo lógico detalha os atributos e relacionamentos dessas entidades. O projeto produz o modelo físico do serviço e o contrato da mensagem de nota, enquanto a escolha do banco é feita na Aula 5. Uma entidade aparentemente nova deve ser comparada às definições existentes antes de receber outro nome.
+A Figura 1 aplica os quatro níveis à publicação de notas da Universidade ACME. Entre as áreas de assunto, a que interessa à publicação é Avaliação, e suas entidades incluem aluno, disciplina, matrícula e nota. O modelo lógico corporativo detalha os atributos e os relacionamentos da nota, e o projeto produz o modelo físico do serviço e o contrato da mensagem de nota, enquanto a escolha do banco é feita na Aula 5. Uma entidade aparentemente nova deve ser comparada às definições existentes antes de receber outro nome, para que a mesma coisa não ganhe dois nomes.
 
 ### Panorama de dados e linhagem
 
@@ -67,10 +67,10 @@ A edição revisada do DMBOK substituiu o conceito de desenho de fluxo de dados 
 Para a solução, o panorama assume duas formas. A primeira é a grade dado × aplicação, uma matriz que cruza entidades com as aplicações que as gravam, leem ou recebem, e que torna visível, na análise de impacto, quais componentes são atingidos por uma mudança numa entidade. A segunda é o diagrama de fluxo entre sistemas, que mostra o sentido, o meio e o horário de cada troca, como os diagramas de integração do [bloco 3](bloco-3-arquitetura-de-aplicacoes-e-integracao.md).
 
 <figure markdown="span">
-![Grade genérica que cruza três entidades, cliente, pedido e fatura, com três aplicações, loja virtual, logística e faturamento. Cada célula indica se a aplicação grava, lê por interface ou recebe por evento. Uma coluna destacada indica o dono de cada entidade e outra coluna indica o regime de consistência de cada consumidor, forte ou eventual com prazo de dez minutos.](../assets/images/modulo-4-grade-dado-aplicacao.svg){ .module-diagram }
+![Grade ilustrativa que cruza três entidades, aluno, turma e mensalidade, com três aplicações, registro acadêmico, ambiente virtual e financeiro. Cada célula indica se a aplicação grava, lê pela interface ou recebe por evento, com o regime de consistência do consumidor, forte ou eventual com prazo de dez minutos. Uma coluna destacada indica o dono de cada entidade.](../assets/images/modulo-4-grade-dado-aplicacao-academica.svg){ .module-diagram }
 </figure>
 
-*Figura 2 — Grade dado × aplicação com dono, consumidores e regime de consistência. Fonte: material do curso, com base em Lovatt (2021).*
+*Figura 2 — Grade dado × aplicação, em exemplo ilustrativo, com dono, consumidores e regime de consistência. Fonte: material do curso, com base em Lovatt (2021).*
 
 A **linhagem de dados** registra de onde cada conjunto de dados veio e por quais transformações passou, e permite responder, diante de um número errado num relatório, qual origem e qual processamento o produziram. O OpenLineage, projeto da LF AI & Data Foundation, padroniza a coleta desse registro com três entidades, a execução (*run*), o trabalho (*job*) e o conjunto de dados (*dataset*), e o Marquez é sua implementação de referência (OpenLineage, n.d.).
 
@@ -155,10 +155,10 @@ Para evitar que duas aplicações alterem a mesma entidade, a **propriedade do d
 O banco compartilhado entre aplicações contraria a propriedade do dado. Quando duas aplicações leem e gravam as mesmas tabelas, cada mudança de estrutura passa a exigir alteração coordenada em dois códigos-fonte, frequentemente mantidos por equipes distintas, e nenhuma das duas pode evoluir o modelo de dados sem a outra. A forma técnica mais comum da propriedade do dado é a prática de um banco por serviço, em que o dado persistente de cada serviço é privado e acessível apenas pela interface desse serviço (Richardson, n.d.). Os consumidores leem pela interface ou recebem os eventos que o dono publica no Kafka, no estilo da [arquitetura orientada a eventos](../modulo-3-design-e-padroes/bloco-2-estilos-arquiteturais.md#arquitetura-orientada-a-eventos) apresentada na Aula 3, e dependem só do contrato, que o dono mantém estável enquanto altera o esquema interno.
 
 <figure markdown="span">
-![Dois painéis. À esquerda, as aplicações de agenda e de comunicação leem e gravam as mesmas tabelas num banco único, com o acoplamento destacado no esquema. À direita, o serviço de agenda é dono da consulta, tem banco próprio, oferece interface e publica o evento consulta agendada, e o acoplamento fica restrito ao contrato.](../assets/images/modulo-4-b2-banco-por-servico.svg){ .module-diagram }
+![Dois painéis, em exemplo ilustrativo de reservas de laboratório de ensino. No painel superior, as aplicações de reservas e de avisos leem e gravam as mesmas tabelas num banco único, com o acoplamento destacado no esquema. No painel inferior, o serviço de reservas é dono da reserva, tem banco próprio, oferece interface e publica o evento reserva confirmada, e o acoplamento fica restrito ao contrato.](../assets/images/modulo-4-b2-banco-por-servico-reservas.svg){ .module-diagram }
 </figure>
 
-*Figura 5 — Banco compartilhado comparado com um dono por entidade. Fonte: material do curso, com base em Richardson (n.d.) e Dehghani (2022).*
+*Figura 5 — Banco compartilhado comparado com um dono por entidade, em exemplo ilustrativo de reservas de laboratório. Fonte: material do curso, com base em Richardson (n.d.) e Dehghani (2022).*
 
 Quando o dono publica um conjunto de dados, o consumidor precisa saber o que pode esperar dele, e o **contrato de dados** formaliza o que o dono garante. O Open Data Contract Standard (ODCS), mantido pelo projeto Bitol na LF AI & Data Foundation, descreve o contrato num arquivo YAML com seções para esquema, regras de qualidade, acordo de nível de serviço, papéis e servidores, e está na versão 3.2.0, publicada em setembro de 2026 (Bitol, 2026). A prática é recente, e o [contrato de integração](bloco-3-arquitetura-de-aplicacoes-e-integracao.md) do bloco 3 cumpre a mesma função para as interfaces entre aplicações.
 

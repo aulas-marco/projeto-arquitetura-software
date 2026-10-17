@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" role="img" aria-labelledby="title desc">
+  <title id="title">Fluxo de valor da nota na Universidade ACME</title><desc id="desc">Seis etapas nomeadas por verbo e objeto, em duas linhas: avaliar o aluno, lançar a nota, validar o lançamento, registrar no núcleo, entregar ao ambiente virtual e consultar o resultado. A etapa 5 aparece em âmbar porque hoje depende do lote diário das 05h10, e a proposta é entregar a nota em até 10 minutos.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:28px;font-weight:700}.t{font-size:22px;font-weight:700}.b{font-size:20px;font-weight:700}.p{font-size:20px}.q{font-size:20px;fill:#52657E}.i{font-size:20px;font-style:italic;fill:#52657E}.w{fill:#fff}.sk{fill:#D8E9FF}</style><marker id='s' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='8' markerHeight='8' orient='auto'><path d='M0 0L10 5L0 10z' fill='#16243A'/></marker></defs>
+  <rect width="1000" height="640" rx="24" fill="#F2F6FB"/>
+  <text x="20" y="50" class="h">Fluxo de valor da nota</text>
+  <text x="20" y="82" class="q">Do aluno avaliado ao resultado consultado, com a etapa que a mudança altera em âmbar.</text>
+  <rect x="20" y="120" width="290" height="170" rx="18" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <text x="40" y="158" class="t" data-max="255">1. Avaliar</text>
+  <text x="40" y="186" class="t" data-max="255">o aluno</text>
+  <text x="40" y="226" class="q" data-max="255">O professor corrige</text>
+  <text x="40" y="252" class="q" data-max="255">a avaliação</text>
+  <rect x="355" y="120" width="290" height="170" rx="18" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <text x="375" y="158" class="t" data-max="255">2. Lançar</text>
+  <text x="375" y="186" class="t" data-max="255">a nota</text>
+  <text x="375" y="226" class="q" data-max="255">Registro no Portal</text>
+  <text x="375" y="252" class="q" data-max="255">do Professor</text>
+  <rect x="690" y="120" width="290" height="170" rx="18" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <text x="710" y="158" class="t" data-max="255">3. Validar</text>
+  <text x="710" y="186" class="t" data-max="255">o lançamento</text>
+  <text x="710" y="226" class="q" data-max="255">Conferência antes</text>
+  <text x="710" y="252" class="q" data-max="255">de registrar</text>
+  <rect x="20" y="350" width="290" height="170" rx="18" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <text x="40" y="388" class="t" data-max="255">4. Registrar</text>
+  <text x="40" y="416" class="t" data-max="255">no núcleo</text>
+  <text x="40" y="456" class="q" data-max="255">O núcleo calcula média</text>
+  <text x="40" y="482" class="q" data-max="255">e situação do aluno</text>
+  <rect x="355" y="350" width="290" height="170" rx="18" fill="#F2B84B" stroke="#16243A" stroke-width="3"/>
+  <text x="375" y="388" class="t" data-max="255">5. Entregar ao</text>
+  <text x="375" y="416" class="t" data-max="255">ambiente virtual</text>
+  <text x="375" y="456" class="b" data-max="255">Hoje: lote diário às 05h10</text>
+  <text x="375" y="482" class="b" data-max="255">Meta: até 10 minutos</text>
+  <rect x="690" y="350" width="290" height="170" rx="18" fill="#16243A" stroke="#16243A" stroke-width="3"/>
+  <text x="710" y="388" class="t w" data-max="255">6. Consultar</text>
+  <text x="710" y="416" class="t w" data-max="255">o resultado</text>
+  <text x="710" y="456" class="p sk" data-max="255">O aluno vê a nota no</text>
+  <text x="710" y="482" class="p sk" data-max="255">ambiente virtual</text>
+  <path d="M310 205H353" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <path d="M645 205H688" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <path d="M310 435H353" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <path d="M645 435H688" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <path d="M835 290V320H165V348" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <rect x="20" y="550" width="960" height="48" rx="24" fill="#16243A"/>
+  <text x="500" y="582" class="b w" text-anchor="middle" data-max="930">A mudança incide na etapa 5, em que o lote diário passa a ser envio em até 10 minutos</text>
+</svg>

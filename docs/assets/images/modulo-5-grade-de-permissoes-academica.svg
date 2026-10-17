@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-labelledby="title desc">
+  <title id="title">Grade de permissões com tipo de acesso e nível de segurança</title>
+  <desc id="desc">Tabela com três recursos nas linhas, catálogo de disciplinas, cadastro do aluno e configuração do serviço, e três entidades nas colunas, usuário final, serviço de aplicação e administrador. Cada célula indica L para leitura, E para gravação ou traço para nenhum acesso. O usuário final lê o catálogo, lê e grava apenas o próprio cadastro e não acessa a configuração. O serviço de aplicação lê o catálogo, lê e grava cadastros e lê a configuração. O administrador lê e grava o catálogo e a configuração e não acessa cadastros. A última coluna atribui nível de segurança baixo ao catálogo, alto ao cadastro e médio à configuração.</desc>
+  <rect width="1000" height="560" rx="28" fill="#F2F6FB"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" fill="#16243A">
+    <rect x="32" y="24" width="936" height="64" rx="14" fill="#16243A"/>
+    <text x="500" y="65" text-anchor="middle" style="font-size:24px;font-weight:700" fill="#FFFFFF">Grade de permissões: entidade, recurso e nível</text>
+
+    <rect x="32" y="108" width="250" height="76" rx="10" fill="#DCE6F5"/>
+    <text x="157" y="154" text-anchor="middle" style="font-size:22px;font-weight:700">Recurso</text>
+    <rect x="290" y="108" width="160" height="76" rx="10" fill="#254DB8"/>
+    <text x="370" y="140" text-anchor="middle" style="font-size:20px;font-weight:700" fill="#FFFFFF">Usuário</text>
+    <text x="370" y="166" text-anchor="middle" style="font-size:20px;font-weight:700" fill="#FFFFFF">final</text>
+    <rect x="458" y="108" width="160" height="76" rx="10" fill="#254DB8"/>
+    <text x="538" y="140" text-anchor="middle" style="font-size:20px;font-weight:700" fill="#FFFFFF">Serviço de</text>
+    <text x="538" y="166" text-anchor="middle" style="font-size:20px;font-weight:700" fill="#FFFFFF">aplicação</text>
+    <rect x="626" y="108" width="160" height="76" rx="10" fill="#254DB8"/>
+    <text x="706" y="154" text-anchor="middle" style="font-size:20px;font-weight:700" fill="#FFFFFF">Administrador</text>
+    <rect x="794" y="108" width="174" height="76" rx="10" fill="#16243A"/>
+    <text x="881" y="140" text-anchor="middle" style="font-size:20px;font-weight:700" fill="#FFFFFF">Nível de</text>
+    <text x="881" y="166" text-anchor="middle" style="font-size:20px;font-weight:700" fill="#FFFFFF">segurança</text>
+
+    <rect x="32" y="192" width="250" height="76" rx="10" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="157" y="228" text-anchor="middle" style="font-size:22px">Catálogo de</text>
+    <text x="157" y="254" text-anchor="middle" style="font-size:22px">disciplinas</text>
+    <rect x="290" y="192" width="160" height="76" rx="10" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="370" y="240" text-anchor="middle" style="font-size:26px;font-weight:700">L</text>
+    <rect x="458" y="192" width="160" height="76" rx="10" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="538" y="240" text-anchor="middle" style="font-size:26px;font-weight:700">L</text>
+    <rect x="626" y="192" width="160" height="76" rx="10" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="706" y="240" text-anchor="middle" style="font-size:26px;font-weight:700">L E</text>
+    <rect x="794" y="192" width="174" height="76" rx="10" fill="#E3F2E6" stroke="#2E7D45" stroke-width="2"/>
+    <text x="881" y="238" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#1F5C33">baixo</text>
+
+    <rect x="32" y="276" width="250" height="76" rx="10" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="157" y="322" text-anchor="middle" style="font-size:22px">Cadastro do aluno</text>
+    <rect x="290" y="276" width="160" height="76" rx="10" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="370" y="324" text-anchor="middle" style="font-size:26px;font-weight:700">L E *</text>
+    <rect x="458" y="276" width="160" height="76" rx="10" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="538" y="324" text-anchor="middle" style="font-size:26px;font-weight:700">L E</text>
+    <rect x="626" y="276" width="160" height="76" rx="10" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="706" y="324" text-anchor="middle" style="font-size:26px;font-weight:700">–</text>
+    <rect x="794" y="276" width="174" height="76" rx="10" fill="#FBE3E1" stroke="#B3362B" stroke-width="2"/>
+    <text x="881" y="322" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#8A2A21">alto</text>
+
+    <rect x="32" y="360" width="250" height="76" rx="10" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="157" y="396" text-anchor="middle" style="font-size:22px">Configuração</text>
+    <text x="157" y="422" text-anchor="middle" style="font-size:22px">do serviço</text>
+    <rect x="290" y="360" width="160" height="76" rx="10" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="370" y="408" text-anchor="middle" style="font-size:26px;font-weight:700">–</text>
+    <rect x="458" y="360" width="160" height="76" rx="10" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="538" y="408" text-anchor="middle" style="font-size:26px;font-weight:700">L</text>
+    <rect x="626" y="360" width="160" height="76" rx="10" fill="#FFFFFF" stroke="#9FB3D1" stroke-width="2"/>
+    <text x="706" y="408" text-anchor="middle" style="font-size:26px;font-weight:700">L E</text>
+    <rect x="794" y="360" width="174" height="76" rx="10" fill="#FFF3D6" stroke="#B07A00" stroke-width="2"/>
+    <text x="881" y="406" text-anchor="middle" style="font-size:22px;font-weight:700" fill="#7A5500">médio</text>
+
+    <text x="32" y="484" style="font-size:20px" fill="#3E4F66">L leitura    E gravação    – sem acesso</text>
+    <text x="32" y="520" style="font-size:20px" fill="#3E4F66">* condição: somente o próprio cadastro</text>
+  </g>
+</svg>

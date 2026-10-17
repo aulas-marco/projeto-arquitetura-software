@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 840" role="img" aria-labelledby="title desc">
+  <title id="title">Capacidades afetadas pela publicação de notas</title><desc id="desc">O mesmo mapa ilustrativo de capacidades de uma universidade, com duas capacidades destacadas em âmbar como afetadas pela publicação de notas no ambiente virtual: lançamento e publicação de notas e ensino a distância. As demais aparecem esmaecidas. Uma anotação registra o volume de até 360.000 lançamentos na janela de fechamento e a competência que a mudança exige, para cumprir o prazo de 10 minutos do requisito R7.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:28px;font-weight:700}.t{font-size:22px;font-weight:700}.b{font-size:20px;font-weight:700}.p{font-size:20px}.q{font-size:20px;fill:#52657E}.i{font-size:20px;font-style:italic;fill:#52657E}.w{fill:#fff}.sk{fill:#D8E9FF}</style></defs>
+  <rect width="1000" height="840" rx="24" fill="#F2F6FB"/>
+  <text x="20" y="50" class="h">Capacidades afetadas pela mudança</text>
+  <rect x="20" y="72" width="26" height="26" rx="6" fill="#254DB8"/>
+  <text x="56" y="93" class="p">Estratégica</text>
+  <rect x="190" y="72" width="26" height="26" rx="6" fill="#5FC0D1"/>
+  <text x="226" y="93" class="p">Operacional</text>
+  <rect x="360" y="72" width="26" height="26" rx="6" fill="#E6EEF9" stroke="#52657E" stroke-width="1.5"/>
+  <text x="396" y="93" class="p">De apoio</text>
+  <rect x="520" y="72" width="26" height="26" rx="6" fill="white" stroke="#F2B84B" stroke-width="5"/>
+  <text x="556" y="93" class="p">Afetada pela mudança</text>
+  <rect x="20" y="120" width="225" height="56" rx="14" fill="#16243A"/>
+  <text x="132.5" y="155.0" class="t w" text-anchor="middle" data-max="209">Gestão acadêmica</text>
+  <g opacity="0.35">
+  <rect x="28" y="194" width="209" height="76" rx="12" fill="#254DB8"/>
+  <text x="132.5" y="226.0" class="p w" text-anchor="middle" data-max="193">Planejamento da</text>
+  <text x="132.5" y="252.0" class="p w" text-anchor="middle" data-max="193">oferta de cursos</text>
+  </g>
+  <g opacity="0.35">
+  <rect x="28" y="284" width="209" height="76" rx="12" fill="#254DB8"/>
+  <text x="132.5" y="316.0" class="p w" text-anchor="middle" data-max="193">Avaliação</text>
+  <text x="132.5" y="342.0" class="p w" text-anchor="middle" data-max="193">institucional</text>
+  </g>
+  <g opacity="0.35">
+  <rect x="28" y="374" width="209" height="76" rx="12" fill="#254DB8"/>
+  <text x="132.5" y="406.0" class="p w" text-anchor="middle" data-max="193">Gestão de convênios</text>
+  <text x="132.5" y="432.0" class="p w" text-anchor="middle" data-max="193">e parcerias</text>
+  </g>
+  <rect x="265" y="120" width="225" height="56" rx="14" fill="#16243A"/>
+  <text x="377.5" y="155.0" class="t w" text-anchor="middle" data-max="209">Relacionamento</text>
+  <g opacity="0.35">
+  <rect x="273" y="194" width="209" height="76" rx="12" fill="#5FC0D1"/>
+  <text x="377.5" y="226.0" class="p" text-anchor="middle" data-max="193">Atendimento de</text>
+  <text x="377.5" y="252.0" class="p" text-anchor="middle" data-max="193">requerimentos</text>
+  </g>
+  <g opacity="0.35">
+  <rect x="273" y="284" width="209" height="76" rx="12" fill="#5FC0D1"/>
+  <text x="377.5" y="316.0" class="p" text-anchor="middle" data-max="193">Comunicação</text>
+  <text x="377.5" y="342.0" class="p" text-anchor="middle" data-max="193">com o aluno</text>
+  </g>
+  <g opacity="0.35">
+  <rect x="273" y="374" width="209" height="76" rx="12" fill="#5FC0D1"/>
+  <text x="377.5" y="406.0" class="p" text-anchor="middle" data-max="193">Acompanhamento</text>
+  <text x="377.5" y="432.0" class="p" text-anchor="middle" data-max="193">de egressos</text>
+  </g>
+  <rect x="510" y="120" width="225" height="56" rx="14" fill="#16243A"/>
+  <text x="622.5" y="155.0" class="t w" text-anchor="middle" data-max="209">Ensino e avaliação</text>
+  <g opacity="0.35">
+  <rect x="518" y="194" width="209" height="76" rx="12" fill="#5FC0D1"/>
+  <text x="622.5" y="226.0" class="p" text-anchor="middle" data-max="193">Alocação de salas</text>
+  <text x="622.5" y="252.0" class="p" text-anchor="middle" data-max="193">e laboratórios</text>
+  </g>
+  <g>
+  <rect x="518" y="284" width="209" height="76" rx="12" fill="#5FC0D1" stroke="#F2B84B" stroke-width="6"/>
+  <text x="622.5" y="316.0" class="p" text-anchor="middle" data-max="193">Lançamento e</text>
+  <text x="622.5" y="342.0" class="p" text-anchor="middle" data-max="193">publicação de notas</text>
+  </g>
+  <g>
+  <rect x="518" y="374" width="209" height="76" rx="12" fill="#5FC0D1" stroke="#F2B84B" stroke-width="6"/>
+  <text x="622.5" y="406.0" class="p" text-anchor="middle" data-max="193">Ensino a</text>
+  <text x="622.5" y="432.0" class="p" text-anchor="middle" data-max="193">distância</text>
+  </g>
+  <g opacity="0.35">
+  <rect x="518" y="464" width="209" height="76" rx="12" fill="#5FC0D1"/>
+  <text x="622.5" y="496.0" class="p" text-anchor="middle" data-max="193">Estágios e</text>
+  <text x="622.5" y="522.0" class="p" text-anchor="middle" data-max="193">extensão</text>
+  </g>
+  <rect x="755" y="120" width="225" height="56" rx="14" fill="#16243A"/>
+  <text x="867.5" y="155.0" class="t w" text-anchor="middle" data-max="209">Apoio</text>
+  <g opacity="0.35">
+  <rect x="763" y="194" width="209" height="76" rx="12" fill="#E6EEF9" stroke="#52657E" stroke-width="1.5"/>
+  <text x="867.5" y="226.0" class="p" text-anchor="middle" data-max="193">Gestão de</text>
+  <text x="867.5" y="252.0" class="p" text-anchor="middle" data-max="193">pessoas</text>
+  </g>
+  <g opacity="0.35">
+  <rect x="763" y="284" width="209" height="76" rx="12" fill="#E6EEF9" stroke="#52657E" stroke-width="1.5"/>
+  <text x="867.5" y="316.0" class="p" text-anchor="middle" data-max="193">Suprimentos e</text>
+  <text x="867.5" y="342.0" class="p" text-anchor="middle" data-max="193">patrimônio</text>
+  </g>
+  <g opacity="0.35">
+  <rect x="763" y="374" width="209" height="76" rx="12" fill="#E6EEF9" stroke="#52657E" stroke-width="1.5"/>
+  <text x="867.5" y="406.0" class="p" text-anchor="middle" data-max="193">Infraestrutura de</text>
+  <text x="867.5" y="432.0" class="p" text-anchor="middle" data-max="193">tecnologia</text>
+  </g>
+  <g opacity="0.35">
+  <rect x="763" y="464" width="209" height="76" rx="12" fill="#E6EEF9" stroke="#52657E" stroke-width="1.5"/>
+  <text x="867.5" y="496.0" class="p" text-anchor="middle" data-max="193">Gestão de</text>
+  <text x="867.5" y="522.0" class="p" text-anchor="middle" data-max="193">documentos</text>
+  </g>
+  <rect x="20" y="582" width="960" height="230" rx="18" fill="white" stroke="#F2B84B" stroke-width="4"/>
+  <text x="44" y="622" class="t">Lançamento e publicação de notas, capacidade central da mudança</text>
+  <text x="44" y="664" class="b">Volume:</text>
+  <text x="130" y="664" class="p">até 360.000 lançamentos na janela de fechamento, enviados um a um.</text>
+  <text x="44" y="706" class="b">Competência:</text>
+  <text x="190" y="706" class="p">publicar a nota, acompanhar a confirmação, tratar duplicidades</text>
+  <text x="44" y="734" class="p">e recuperar falhas, para cumprir o prazo de 10 minutos do requisito R7.</text>
+  <text x="44" y="782" class="q">O ambiente virtual é a integração que sustenta as duas capacidades destacadas.</text>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 820" role="img" aria-labelledby="title desc">
+  <title id="title">Modelo de dados acadêmicos em quatro níveis</title><desc id="desc">Quatro faixas empilhadas do modelo de dados corporativo da universidade. No nível 1, a visão conceitual com as áreas de assunto aluno, oferta, avaliação e financeiro. No nível 2, a visão da área de avaliação com as entidades aluno, disciplina, matrícula e nota. No nível 3, o modelo lógico corporativo com a entidade nota e seus atributos. No nível 4, os modelos do projeto, com a tabela de notas do serviço e o contrato da mensagem de nota. À direita, uma chave indica que os níveis 1 a 3 entram na solução como insumo e que o nível 4 é produzido pela solução e devolvido como diferença ao modelo corporativo.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:28px;font-weight:700}.t{font-size:22px;font-weight:700}.b{font-size:20px;font-weight:700}.p{font-size:20px}.q{font-size:20px;fill:#52657E}.i{font-size:20px;font-style:italic;fill:#52657E}.w{fill:#fff}.sk{fill:#D8E9FF}</style><marker id='s' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='8' markerHeight='8' orient='auto'><path d='M0 0L10 5L0 10z' fill='#16243A'/></marker></defs>
+  <rect width="1000" height="820" rx="24" fill="#F2F6FB"/>
+  <text x="20" y="48" class="h">Modelo de dados corporativo em quatro níveis</text>
+  <text x="20" y="80" class="q">Cada nível detalha o anterior, e o mapeamento permite seguir uma entidade de cima a baixo.</text>
+  <rect x="20" y="104" width="640" height="140" rx="16" fill="white" stroke="#16243A" stroke-width="3"/>
+  <rect x="20" y="104" width="14" height="140" rx="7" fill="#16243A"/>
+  <text x="50" y="140" class="t">1. Visão conceitual</text>
+  <text x="50" y="168" class="q">Áreas de assunto da organização</text>
+  <rect x="50" y="182" width="140" height="44" rx="10" fill="#16243A"/>
+  <text x="120.0" y="211.0" class="p w" text-anchor="middle" data-max="124">Aluno</text>
+  <rect x="202" y="182" width="140" height="44" rx="10" fill="#16243A"/>
+  <text x="272.0" y="211.0" class="p w" text-anchor="middle" data-max="124">Oferta</text>
+  <rect x="354" y="182" width="140" height="44" rx="10" fill="#16243A"/>
+  <text x="424.0" y="211.0" class="p w" text-anchor="middle" data-max="124">Avaliação</text>
+  <rect x="506" y="182" width="140" height="44" rx="10" fill="#16243A"/>
+  <text x="576.0" y="211.0" class="p w" text-anchor="middle" data-max="124">Financeiro</text>
+  <path d="M340 246V266" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <rect x="20" y="268" width="640" height="140" rx="16" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <rect x="20" y="268" width="14" height="140" rx="7" fill="#254DB8"/>
+  <text x="50" y="304" class="t">2. Visão da área de assunto</text>
+  <text x="50" y="332" class="q">Entidades e relacionamentos de Avaliação</text>
+  <rect x="50" y="346" width="140" height="44" rx="10" fill="#254DB8"/>
+  <text x="120.0" y="375.0" class="p w" text-anchor="middle" data-max="124">Aluno</text>
+  <rect x="202" y="346" width="140" height="44" rx="10" fill="#254DB8"/>
+  <text x="272.0" y="375.0" class="p w" text-anchor="middle" data-max="124">Disciplina</text>
+  <rect x="354" y="346" width="140" height="44" rx="10" fill="#254DB8"/>
+  <text x="424.0" y="375.0" class="p w" text-anchor="middle" data-max="124">Matrícula</text>
+  <rect x="506" y="346" width="140" height="44" rx="10" fill="#254DB8"/>
+  <text x="576.0" y="375.0" class="p w" text-anchor="middle" data-max="124">Nota</text>
+  <path d="M340 410V430" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <rect x="20" y="432" width="640" height="140" rx="16" fill="white" stroke="#5FC0D1" stroke-width="3"/>
+  <rect x="20" y="432" width="14" height="140" rx="7" fill="#5FC0D1"/>
+  <text x="50" y="468" class="t">3. Modelo lógico corporativo</text>
+  <text x="50" y="496" class="q">Entidades com atributos parcialmente atribuídos</text>
+  <rect x="50" y="510" width="590" height="44" rx="10" fill="#E6EEF9"/>
+  <text x="345.0" y="539.0" class="p" text-anchor="middle" data-max="574">Nota: aluno, disciplina, período, valor, situação</text>
+  <path d="M340 574V594" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <rect x="20" y="596" width="640" height="170" rx="16" fill="white" stroke="#F2B84B" stroke-width="3"/>
+  <rect x="20" y="596" width="14" height="170" rx="7" fill="#F2B84B"/>
+  <text x="50" y="632" class="t">4. Modelos do projeto</text>
+  <text x="50" y="660" class="q">Lógico e físico de cada solução</text>
+  <rect x="50" y="674" width="280" height="70" rx="10" fill="#E6EEF9"/>
+  <text x="190.0" y="703.0" class="p" text-anchor="middle" data-max="264">Tabela física de</text>
+  <text x="190.0" y="729.0" class="p" text-anchor="middle" data-max="264">notas do serviço</text>
+  <rect x="350" y="674" width="290" height="70" rx="10" fill="#E6EEF9"/>
+  <text x="495.0" y="703.0" class="p" text-anchor="middle" data-max="274">Contrato da</text>
+  <text x="495.0" y="729.0" class="p" text-anchor="middle" data-max="274">mensagem de nota</text>
+  <path d="M690 104h20v450h-20" stroke="#254DB8" stroke-width="4" fill="none"/>
+  <text x="726" y="292" class="t" data-max="260">Entra na solução</text>
+  <text x="726" y="322" class="q" data-max="260">recorte das áreas de</text>
+  <text x="726" y="348" class="q" data-max="260">assunto na zona de</text>
+  <text x="726" y="374" class="q" data-max="260">impacto da mudança</text>
+  <path d="M690 596h20v170h-20" stroke="#F2B84B" stroke-width="4" fill="none"/>
+  <text x="726" y="650" class="t" data-max="260">Produzido pela solução</text>
+  <text x="726" y="680" class="q" data-max="260">e devolvido como</text>
+  <text x="726" y="706" class="q" data-max="260">diferença para a análise</text>
+  <text x="726" y="732" class="q" data-max="260">de lacunas</text>
+  <text x="20" y="800" class="q">Nomes de entidades e atributos ilustrativos.</text>
+</svg>

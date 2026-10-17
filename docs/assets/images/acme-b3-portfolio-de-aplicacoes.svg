@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" role="img" aria-labelledby="title desc">
+  <title id="title">Portfólio de aplicações classificado em vermelho, âmbar e verde</title><desc id="desc">Três colunas classificam as aplicações da universidade. Verde reúne o ERP financeiro e o ambiente virtual de aprendizagem, que permanecem por decisão de escopo, com a ação manter e evoluir. Âmbar reúne o núcleo transacional COBOL, mantido durante a transição sob contrato, com a ação manter por ora com investimento restrito. Vermelho reúne os portais web legados e os acessos diretos ao banco fora do núcleo, com a ação substituir ou retirar. Uma linha inferior indica o uso de cada classificação na nova solução.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:28px;font-weight:700}.t{font-size:22px;font-weight:700}.b{font-size:20px;font-weight:700}.p{font-size:20px}.q{font-size:20px;fill:#52657E}.i{font-size:20px;font-style:italic;fill:#52657E}.w{fill:#fff}.sk{fill:#D8E9FF}</style><marker id='s' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='8' markerHeight='8' orient='auto'><path d='M0 0L10 5L0 10z' fill='#16243A'/></marker></defs>
+  <rect width="1000" height="700" rx="24" fill="#F2F6FB"/>
+  <text x="20" y="48" class="h">Portfólio de aplicações classificado por cor</text>
+  <text x="20" y="80" class="q">Aplicações da Universidade ACME, com a ação associada a cada classificação.</text>
+  <rect x="20" y="110" width="300" height="420" rx="22" fill="white" stroke="#3E8E63" stroke-width="3"/>
+  <rect x="20" y="110" width="300" height="58" rx="22" fill="#3E8E63"/>
+  <text x="170" y="149" class="t" text-anchor="middle" style="fill:white">Verde</text>
+  <text x="40" y="202" class="b">Manter e evoluir</text>
+  <text x="40" y="228" class="q">Primeira opção na</text>
+  <text x="40" y="254" class="q">nova solução</text>
+  <rect x="40" y="290" width="260" height="104" rx="14" fill="#E6EEF9" stroke="#16243A" stroke-width="2"/>
+  <text x="56" y="322" class="b" data-max="235">ERP financeiro</text>
+  <text x="56" y="352" class="q" data-max="235">aplicação de negócio</text>
+  <rect x="40" y="408" width="260" height="104" rx="14" fill="#E6EEF9" stroke="#16243A" stroke-width="2"/>
+  <text x="56" y="440" class="b" data-max="235">Ambiente virtual de</text>
+  <text x="56" y="466" class="b" data-max="235">aprendizagem</text>
+  <text x="56" y="496" class="q" data-max="235">aplicação de negócio</text>
+  <rect x="350" y="110" width="300" height="420" rx="22" fill="white" stroke="#F2B84B" stroke-width="3"/>
+  <rect x="350" y="110" width="300" height="58" rx="22" fill="#F2B84B"/>
+  <text x="500" y="149" class="t" text-anchor="middle" style="fill:#16243A">Âmbar</text>
+  <text x="370" y="202" class="b">Manter por ora</text>
+  <text x="370" y="228" class="q">Investimento restrito</text>
+  <text x="370" y="254" class="q">e aprovado</text>
+  <rect x="370" y="290" width="260" height="104" rx="14" fill="#E6EEF9" stroke="#16243A" stroke-width="2"/>
+  <text x="386" y="322" class="b" data-max="235">Núcleo transacional</text>
+  <text x="386" y="348" class="b" data-max="235">COBOL</text>
+  <text x="386" y="378" class="q" data-max="235">aplicação de negócio</text>
+  <rect x="680" y="110" width="300" height="420" rx="22" fill="white" stroke="#B5473A" stroke-width="3"/>
+  <rect x="680" y="110" width="300" height="58" rx="22" fill="#B5473A"/>
+  <text x="830" y="149" class="t" text-anchor="middle" style="fill:white">Vermelho</text>
+  <text x="700" y="202" class="b">Substituir ou retirar</text>
+  <text x="700" y="228" class="q">Não usar em</text>
+  <text x="700" y="254" class="q">nova solução</text>
+  <rect x="700" y="290" width="260" height="104" rx="14" fill="#E6EEF9" stroke="#16243A" stroke-width="2"/>
+  <text x="716" y="322" class="b" data-max="235">Portais web legados</text>
+  <text x="716" y="352" class="q" data-max="235">aplicação de negócio</text>
+  <rect x="700" y="408" width="260" height="104" rx="14" fill="#E6EEF9" stroke="#16243A" stroke-width="2"/>
+  <text x="716" y="440" class="b" data-max="235">Acessos diretos</text>
+  <text x="716" y="466" class="b" data-max="235">ao banco</text>
+  <text x="716" y="496" class="q" data-max="235">integração fora do núcleo</text>
+  <text x="20" y="566" class="t">Uso na nova solução</text>
+  <rect x="20" y="580" width="300" height="70" rx="14" fill="#D8E9FF"/>
+  <text x="170.0" y="609.0" class="b" text-anchor="middle" data-max="284">Reusar</text>
+  <text x="170.0" y="635.0" class="b" text-anchor="middle" data-max="284">e estender</text>
+  <rect x="350" y="580" width="300" height="70" rx="14" fill="#D8E9FF"/>
+  <text x="500.0" y="609.0" class="b" text-anchor="middle" data-max="284">Integrar sem</text>
+  <text x="500.0" y="635.0" class="b" text-anchor="middle" data-max="284">ampliar o escopo</text>
+  <rect x="680" y="580" width="300" height="70" rx="14" fill="#D8E9FF"/>
+  <text x="830.0" y="609.0" class="b" text-anchor="middle" data-max="284">Planejar migração</text>
+  <text x="830.0" y="635.0" class="b" text-anchor="middle" data-max="284">e retirada</text>
+  <rect x="20" y="664" width="960" height="0.1" rx="14" fill="#F2F6FB"/>
+  <text x="500" y="692" class="b" text-anchor="middle" data-max="960">A cor orienta o investimento, e o roteiro define quando cada mudança ocorre</text>
+</svg>

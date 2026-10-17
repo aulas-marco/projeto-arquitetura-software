@@ -152,7 +152,7 @@ Aquilo que a organização precisa saber fazer para entregar seus serviços e ex
 
 ## Fluxo de valor
 
-Sequência de etapas, de ponta a ponta, pela qual a organização entrega valor a um cliente, do primeiro contato até o cliente receber esse valor. Cada etapa é nomeada por um verbo seguido do objeto, como solicitar exame.
+Sequência de etapas, de ponta a ponta, pela qual a organização entrega valor a um cliente, do primeiro contato até o cliente receber esse valor. Cada etapa é nomeada por um verbo seguido do objeto, como lançar a nota.
 
 ## Arquitetura de dados
 
@@ -184,7 +184,7 @@ Local em que uma entidade de dado é registrada e mantida com autoridade, e do q
 
 ## Sistema de registro
 
-Sistema que guarda a versão autoritativa de um dado e no qual o dado é escrito primeiro. Os sistemas de dado derivado guardam cópias transformadas a partir dele. Nesta disciplina, equivale à [fonte de verdade](#fonte-de-verdade).
+Sistema que guarda a versão autoritativa de um dado e no qual o dado é escrito primeiro, enquanto os sistemas de dado derivado guardam cópias transformadas a partir dele, e nesta disciplina o termo equivale à [fonte de verdade](#fonte-de-verdade), o registro oficial do dado.
 
 ## Regime de consistência
 

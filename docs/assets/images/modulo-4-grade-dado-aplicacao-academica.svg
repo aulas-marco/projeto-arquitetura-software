@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760" role="img" aria-labelledby="title desc">
+  <title id="title">Grade dado por aplicação com dono e regime de consistência</title><desc id="desc">Grade ilustrativa de uma universidade com as entidades aluno, turma e mensalidade nas linhas e as aplicações registro acadêmico, ambiente virtual e financeiro nas colunas. Cada célula indica se a aplicação grava, lê pela interface ou recebe por evento, e traz o regime de consistência do consumidor, forte ou eventual com prazo de dez minutos. Uma coluna destacada indica o dono de cada entidade.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:28px;font-weight:700}.t{font-size:22px;font-weight:700}.b{font-size:20px;font-weight:700}.p{font-size:20px}.q{font-size:20px;fill:#52657E}.i{font-size:20px;font-style:italic;fill:#52657E}.w{fill:#fff}.sk{fill:#D8E9FF}</style></defs>
+  <rect width="1000" height="760" rx="24" fill="#F2F6FB"/>
+  <text x="20" y="48" class="h">Uma entidade, um dono, consumidores com prazo declarado</text>
+  <text x="20" y="80" class="q">A grade cruza entidades com aplicações e mostra o impacto de mudar cada entidade.</text>
+  <rect x="20" y="104" width="960" height="72" rx="14" fill="#16243A"/>
+  <text x="36" y="148" class="t w">Entidade</text>
+  <text x="285" y="133" class="t w" text-anchor="middle">Registro</text>
+  <text x="285" y="159" class="t w" text-anchor="middle">acadêmico</text>
+  <text x="495" y="133" class="t w" text-anchor="middle">Ambiente</text>
+  <text x="495" y="159" class="t w" text-anchor="middle">virtual</text>
+  <text x="705" y="148" class="t w" text-anchor="middle">Financeiro</text>
+  <text x="897" y="148" class="t" text-anchor="middle" style="fill:#F2B84B">Dono</text>
+  <rect x="20" y="192" width="960" height="100" rx="14" fill="white" stroke="#254DB8" stroke-width="2"/>
+  <text x="36" y="250" class="t" data-max="150">Aluno</text>
+  <rect x="190" y="209" width="190" height="66" rx="33" fill="#254DB8"/>
+  <text x="285.0" y="236.0" class="p w" text-anchor="middle" data-max="174">Grava</text>
+  <text x="285.0" y="262.0" class="p w" text-anchor="middle" data-max="174">só o dono</text>
+  <rect x="400" y="209" width="190" height="66" rx="33" fill="#5FC0D1"/>
+  <text x="495.0" y="236.0" class="p" text-anchor="middle" data-max="174">Lê pela interface</text>
+  <text x="495.0" y="262.0" class="p" text-anchor="middle" data-max="174">regime forte</text>
+  <rect x="610" y="209" width="190" height="66" rx="33" fill="#E6EEF9" stroke="#5FC0D1" stroke-width="2.5"/>
+  <text x="705.0" y="236.0" class="p" text-anchor="middle" data-max="174">Recebe evento</text>
+  <text x="705.0" y="262.0" class="p" text-anchor="middle" data-max="174">eventual, 10 min</text>
+  <rect x="822" y="204" width="150" height="76" rx="12" fill="#F2B84B"/>
+  <text x="897.0" y="236.0" class="b" text-anchor="middle" data-max="134">Registro</text>
+  <text x="897.0" y="262.0" class="b" text-anchor="middle" data-max="134">acadêmico</text>
+  <rect x="20" y="308" width="960" height="100" rx="14" fill="white" stroke="#254DB8" stroke-width="2"/>
+  <text x="36" y="366" class="t" data-max="150">Turma</text>
+  <rect x="190" y="325" width="190" height="66" rx="33" fill="#254DB8"/>
+  <text x="285.0" y="352.0" class="p w" text-anchor="middle" data-max="174">Grava</text>
+  <text x="285.0" y="378.0" class="p w" text-anchor="middle" data-max="174">só o dono</text>
+  <rect x="400" y="325" width="190" height="66" rx="33" fill="#E6EEF9" stroke="#5FC0D1" stroke-width="2.5"/>
+  <text x="495.0" y="352.0" class="p" text-anchor="middle" data-max="174">Recebe evento</text>
+  <text x="495.0" y="378.0" class="p" text-anchor="middle" data-max="174">eventual, 10 min</text>
+  <rect x="610" y="325" width="190" height="66" rx="33" fill="#F2F6FB" stroke="#52657E" stroke-width="2"/>
+  <text x="705.0" y="365.0" class="q" text-anchor="middle" data-max="174">Não usa</text>
+  <rect x="822" y="320" width="150" height="76" rx="12" fill="#F2B84B"/>
+  <text x="897.0" y="352.0" class="b" text-anchor="middle" data-max="134">Registro</text>
+  <text x="897.0" y="378.0" class="b" text-anchor="middle" data-max="134">acadêmico</text>
+  <rect x="20" y="424" width="960" height="100" rx="14" fill="white" stroke="#254DB8" stroke-width="2"/>
+  <text x="36" y="482" class="t" data-max="150">Mensalidade</text>
+  <rect x="190" y="441" width="190" height="66" rx="33" fill="#5FC0D1"/>
+  <text x="285.0" y="468.0" class="p" text-anchor="middle" data-max="174">Lê pela interface</text>
+  <text x="285.0" y="494.0" class="p" text-anchor="middle" data-max="174">regime forte</text>
+  <rect x="400" y="441" width="190" height="66" rx="33" fill="#F2F6FB" stroke="#52657E" stroke-width="2"/>
+  <text x="495.0" y="481.0" class="q" text-anchor="middle" data-max="174">Não usa</text>
+  <rect x="610" y="441" width="190" height="66" rx="33" fill="#254DB8"/>
+  <text x="705.0" y="468.0" class="p w" text-anchor="middle" data-max="174">Grava</text>
+  <text x="705.0" y="494.0" class="p w" text-anchor="middle" data-max="174">só o dono</text>
+  <rect x="822" y="436" width="150" height="76" rx="12" fill="#F2B84B"/>
+  <text x="897.0" y="481.0" class="b" text-anchor="middle" data-max="134">Financeiro</text>
+  <rect x="20" y="560" width="26" height="26" rx="5" fill="#254DB8"/>
+  <text x="56" y="581" class="p">Só o dono grava</text>
+  <rect x="300" y="560" width="26" height="26" rx="5" fill="#5FC0D1"/>
+  <text x="336" y="581" class="p">Leitura pela interface do dono</text>
+  <rect x="20" y="602" width="26" height="26" rx="5" fill="#E6EEF9" stroke="#5FC0D1" stroke-width="2.5"/>
+  <text x="56" y="623" class="p">Cópia derivada recebida por evento publicado pelo dono</text>
+  <rect x="20" y="666" width="960" height="48" rx="24" fill="#16243A"/>
+  <text x="500" y="698" class="b w" text-anchor="middle" data-max="930">Regime eventual sem prazo declarado não pode ser verificado</text>
+  <text x="20" y="744" class="q">Exemplo ilustrativo de uma universidade, sem dados do caso.</text>
+</svg>

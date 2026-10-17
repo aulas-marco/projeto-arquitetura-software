@@ -17,7 +17,7 @@ B4 = "bloco-4-arquitetura-de-infraestrutura.md"
 
 BLOCKS = {
     B1: ("modulo-4-modelos-de-negocio.svg", 13, ("2.3",)),
-    B2: ("modulo-4-grade-dado-aplicacao.svg", 14, ("2.5",)),
+    B2: ("modulo-4-grade-dado-aplicacao-academica.svg", 14, ("2.5",)),
     B3: ("modulo-4-servicos-e-contrato.svg", 15, ("2.6", "3.6.4", "4.3.1")),
     B4: ("modulo-4-solucao-como-grafo.svg", 16, ("2.7", "7.5")),
 }
@@ -38,6 +38,27 @@ INTERFACE_ATTRIBUTES = (
 
 FORBIDDEN_IN_VISUALS = ("ACME", "COBOL", "CICS", "matrícula", "Matrícula")
 CONSTRUCTION_VERBS = ("Desenhe", "Monte", "Construa", "Modele", "Mapeie")
+
+OTHER_SECTORS = re.compile(
+    r"hospital|cl[ií]nica|internet banking|banking|varejist|seguradora|transportadora|produtora"
+    r"|paciente|prontu[aá]rio|laborat[oó]rio de apoio|agendamento (de consultas|ambulatorial)",
+    re.IGNORECASE,
+)
+
+B1_FIGURES = (
+    "modulo-4-b1-mapa-de-capacidades-universidade.svg",
+    "acme-b1-capacidades-afetadas-pela-publicacao-de-notas.svg",
+    "acme-b1-fluxo-de-valor-da-nota.svg",
+    "acme-b1-processo-entrega-da-nota.svg",
+)
+
+REDRAWN_FIGURES = B1_FIGURES + (
+    "acme-b2-modelo-de-dados-corporativo.svg",
+    "modulo-4-grade-dado-aplicacao-academica.svg",
+    "modulo-4-b2-banco-por-servico-reservas.svg",
+    "acme-b3-portfolio-de-aplicacoes.svg",
+    "acme-b4-esquema-de-implantacao.svg",
+)
 
 
 def read(name: str) -> str:
@@ -128,13 +149,42 @@ class ModuleFourStructureTest(unittest.TestCase):
                 with self.subTest(page=page.name, phrase=phrase):
                     self.assertNotIn(phrase, text)
 
-    def test_case_names_are_in_portuguese(self):
-        for name in (B1, B2, B3):
-            with self.subTest(page=name):
-                self.assertIn("Hospital ACME", read(name))
+    def test_every_example_stays_in_the_academic_system(self):
+        """Decisao de 17/10/2026: nenhum exemplo de hospital, clinica, banco ou outro setor."""
         for page in MODULE.glob("*.md"):
+            text = without_sources(page.read_text(encoding="utf-8"))
             with self.subTest(page=page.name):
-                self.assertNotIn("Fallowdale", without_sources(page.read_text(encoding="utf-8")))
+                self.assertNotIn("Fallowdale", text)
+                self.assertIsNone(OTHER_SECTORS.search(text), OTHER_SECTORS.search(text))
+
+    def test_no_figure_of_another_sector_survives(self):
+        for svg_path in sorted(IMAGES.glob("*.svg")) + sorted((DOCS / "assets" / "diagrams").glob("*.puml")):
+            with self.subTest(file=svg_path.name):
+                self.assertIsNone(OTHER_SECTORS.search(svg_path.name))
+                self.assertIsNone(OTHER_SECTORS.search(svg_path.read_text(encoding="utf-8")))
+
+    def test_figures_redrawn_for_the_university_follow_the_svg_rules(self):
+        for name in REDRAWN_FIGURES:
+            svg = (IMAGES / name).read_text(encoding="utf-8")
+            sizes = [int(size) for size in re.findall(r"font-size:(\d+)px", svg)]
+            with self.subTest(image=name):
+                self.assertRegex(svg, r'<svg[^>]*role="img"')
+                self.assertRegex(svg, r"<title[^>]*>[^<]{5,}</title>")
+                self.assertRegex(svg, r"<desc[^>]*>[^<]{20,}</desc>")
+                width = int(re.search(r'viewBox="0 0 (\d+) \d+"', svg).group(1))
+                self.assertLessEqual(width, 1000)
+                self.assertTrue(sizes)
+                self.assertGreaterEqual(min(sizes), 20)
+                if not name.startswith("acme-"):
+                    for term in FORBIDDEN_IN_VISUALS:
+                        self.assertNotIn(term, svg)
+
+    def test_figures_with_case_data_use_the_acme_prefix(self):
+        for name in REDRAWN_FIGURES:
+            svg = (IMAGES / name).read_text(encoding="utf-8")
+            with self.subTest(image=name):
+                if any(term in svg for term in FORBIDDEN_IN_VISUALS):
+                    self.assertTrue(name.startswith("acme-"))
 
 
 class SelfContainedTextTest(unittest.TestCase):
@@ -161,11 +211,17 @@ class SelfContainedTextTest(unittest.TestCase):
     def test_archimate_is_presented_in_version_4(self):
         self.assertIn("ArchiMate 4", read(B1))
 
-    def test_hospital_case_is_the_laboratory_change_without_letters(self):
+    def test_block_1_change_is_the_grade_publication_with_its_four_figures(self):
         text = without_sources(read(B1))
-        self.assertIn("laboratório", text)
-        self.assertNotIn("carta", text)
-        self.assertIn("modulo-4-b1-mapa-de-capacidades-afetadas.svg", text)
+        self.assertIn("publicação de notas", text)
+        self.assertIn("ambiente virtual", text)
+        for name in B1_FIGURES:
+            with self.subTest(image=name):
+                self.assertIn(name, text)
+                self.assertTrue((IMAGES / name).is_file())
+        for phrase in ("laboratório de apoio", "carta", "exame"):
+            with self.subTest(phrase=phrase):
+                self.assertNotIn(phrase, text)
 
 
 class DataArchitectureDepthTest(unittest.TestCase):

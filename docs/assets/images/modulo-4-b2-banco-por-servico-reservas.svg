@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 880" role="img" aria-labelledby="title desc">
+  <title id="title">Banco compartilhado comparado com um dono por entidade</title><desc id="desc">Dois painéis empilhados, em exemplo ilustrativo de reservas de laboratório de ensino. No painel superior, as aplicações de reservas e de avisos aos alunos leem e gravam as mesmas tabelas de aluno e reserva num banco compartilhado, e o acoplamento nasce no esquema das tabelas, destacado em âmbar. No painel inferior, o serviço de reservas é o único dono da reserva e grava no próprio banco, oferece uma interface de leitura e publica o evento reserva confirmada num barramento. O serviço de avisos mantém banco próprio, lê pela interface e recebe o evento, e o acoplamento fica restrito ao contrato da interface e do evento, também destacado em âmbar.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:28px;font-weight:700}.t{font-size:22px;font-weight:700}.b{font-size:20px;font-weight:700}.p{font-size:20px}.q{font-size:20px;fill:#52657E}.i{font-size:20px;font-style:italic;fill:#52657E}.w{fill:#fff}.sk{fill:#D8E9FF}</style><marker id='s' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='8' markerHeight='8' orient='auto'><path d='M0 0L10 5L0 10z' fill='#16243A'/></marker></defs>
+  <rect width="1000" height="880" rx="24" fill="#F2F6FB"/>
+  <text x="20" y="48" class="h">Onde nasce o acoplamento entre duas aplicações</text>
+  <text x="20" y="80" class="q">A mesma necessidade, reservar laboratórios e avisar alunos, em duas formas de organizar o dado.</text>
+  <rect x="20" y="104" width="960" height="290" rx="20" fill="white" stroke="#52657E" stroke-width="2"/>
+  <text x="44" y="142" class="t">Banco compartilhado</text>
+  <rect x="44" y="166" width="240" height="64" rx="14" fill="#E6EEF9" stroke="#16243A" stroke-width="2"/>
+  <text x="164.0" y="192.0" class="b" text-anchor="middle" data-max="224">Aplicação de</text>
+  <text x="164.0" y="218.0" class="b" text-anchor="middle" data-max="224">reservas</text>
+  <rect x="320" y="166" width="240" height="64" rx="14" fill="#E6EEF9" stroke="#16243A" stroke-width="2"/>
+  <text x="440.0" y="192.0" class="b" text-anchor="middle" data-max="224">Aplicação de</text>
+  <text x="440.0" y="218.0" class="b" text-anchor="middle" data-max="224">avisos</text>
+  <path d="M164 232V292" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <path d="M440 232V292" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <text x="176" y="268" class="q">lê e grava</text>
+  <text x="452" y="268" class="q">lê e grava</text>
+  <rect x="44" y="294" width="516" height="84" rx="16" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <rect x="60" y="306" width="484" height="60" rx="10" fill="#F2B84B"/>
+  <text x="302" y="331" class="b" text-anchor="middle">tabelas aluno e reserva</text>
+  <text x="302" y="357" class="b" text-anchor="middle">acoplamento no esquema</text>
+  <text x="590" y="190" class="q" data-max="380">Mudar uma coluna exige</text>
+  <text x="590" y="218" class="q" data-max="380">alterar e implantar as duas</text>
+  <text x="590" y="246" class="q" data-max="380">aplicações juntas.</text>
+  <text x="590" y="300" class="b" data-max="380">Ninguém responde sozinho</text>
+  <text x="590" y="328" class="b" data-max="380">pela reserva.</text>
+  <rect x="20" y="414" width="960" height="410" rx="20" fill="white" stroke="#254DB8" stroke-width="3"/>
+  <text x="44" y="452" class="t">Um dono por entidade</text>
+  <rect x="44" y="476" width="230" height="100" rx="14" fill="#254DB8"/>
+  <text x="159.0" y="507.0" class="p w" text-anchor="middle" data-max="214">Serviço de reservas</text>
+  <text x="159.0" y="533.0" class="p w" text-anchor="middle" data-max="214">dono da reserva</text>
+  <text x="159.0" y="559.0" class="p w" text-anchor="middle" data-max="214">único que grava</text>
+  <rect x="460" y="476" width="230" height="100" rx="14" fill="#E6EEF9" stroke="#16243A" stroke-width="2"/>
+  <text x="575.0" y="520.0" class="p" text-anchor="middle" data-max="214">Serviço de avisos</text>
+  <text x="575.0" y="546.0" class="p" text-anchor="middle" data-max="214">consumidor</text>
+  <rect x="300" y="505" width="70" height="40" rx="8" fill="#F2B84B" stroke="#16243A" stroke-width="2"/>
+  <text x="335" y="532" class="b" text-anchor="middle">API</text>
+  <path d="M458 525H374" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <text x="416" y="500" class="q" text-anchor="middle">lê pela</text>
+  <path d="M300 525H276" stroke="#16243A" stroke-width="3" fill="none"/>
+  <path d="M159 578V622" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <path d="M575 578V622" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <rect x="54" y="624" width="210" height="56" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="159.0" y="659.0" class="b" text-anchor="middle" data-max="194">Banco de reservas</text>
+  <rect x="470" y="624" width="210" height="56" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="575.0" y="659.0" class="b" text-anchor="middle" data-max="194">Banco de avisos</text>
+  <rect x="44" y="724" width="650" height="56" rx="12" fill="#16243A"/>
+  <text x="369" y="760" class="b w" text-anchor="middle" data-max="630">Barramento de eventos: reserva confirmada</text>
+  <path d="M44 526H30V752H42" stroke="#254DB8" stroke-width="3" fill="none" stroke-dasharray="8 6" marker-end="url(#s)"/>
+  <text x="44" y="710" class="q">publica</text>
+  <path d="M694 752H710V526H692" stroke="#254DB8" stroke-width="3" fill="none" stroke-dasharray="8 6" marker-end="url(#s)"/>
+  <text x="690" y="710" class="q" text-anchor="end">recebe</text>
+  <text x="730" y="490" class="q" data-max="240">O esquema interno</text>
+  <text x="730" y="518" class="q" data-max="240">muda sem aviso ao</text>
+  <text x="730" y="546" class="q" data-max="240">consumidor, desde</text>
+  <text x="730" y="574" class="q" data-max="240">que o contrato</text>
+  <text x="730" y="602" class="q" data-max="240">se mantenha.</text>
+  <rect x="730" y="664" width="230" height="96" rx="10" fill="#F2B84B"/>
+  <text x="845" y="696" class="b" text-anchor="middle" data-max="214">acoplamento restrito</text>
+  <text x="845" y="722" class="b" text-anchor="middle" data-max="214">à interface e</text>
+  <text x="845" y="748" class="b" text-anchor="middle" data-max="214">ao evento</text>
+  <rect x="20" y="836" width="960" height="0.1" rx="14" fill="#F2F6FB"/>
+  <text x="20" y="868" class="b">Prática conhecida como banco por serviço: cada dono guarda o próprio dado.</text>
+</svg>

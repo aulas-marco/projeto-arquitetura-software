@@ -26,7 +26,7 @@ O bloco apresenta primeiro os conceitos de aplicação e de integração, cada u
 
 Quando o professor lança uma nota, o Portal do Professor a entrega ao núcleo transacional por uma interface, que é o ponto pelo qual um componente de aplicação oferece sua funcionalidade a outro componente, a uma pessoa ou a um sistema externo, e a integração é a troca de dados e de chamadas que ocorre por essas interfaces. Cada aplicação expõe as entidades de que é dona, no sentido de [propriedade do dado](bloco-2-arquitetura-de-dados.md#propriedade-do-dado) apresentado no bloco 2, e consome por interface as entidades que pertencem a outras aplicações.
 
-O diagrama abaixo acompanha a nota da Universidade ACME. O professor faz o lançamento, o serviço de notas o registra pelo núcleo e publica a mensagem que atualiza o ambiente virtual. Cada seta exige uma interface com dados, condições e tratamento de erro definidos.
+O diagrama abaixo acompanha a nota da Universidade ACME: o professor faz o lançamento, o serviço de notas o registra pelo núcleo e publica a mensagem que atualiza o ambiente virtual, e cada seta exige uma interface com dados, condições e tratamento de erro definidos antes de o desenho seguir para o contrato de integração.
 
 ```mermaid
 flowchart TB
@@ -44,10 +44,10 @@ flowchart TB
 
 Antes de mexer em qualquer aplicação, o arquiteto precisa saber o que a organização já tem, e o artefato principal do domínio para isso é o catálogo do portfólio de aplicações, que lista as aplicações em uso e planejadas, com quem as usa e como. O portfólio costuma ser um conjunto heterogêneo, adquirido ou construído em momentos diferentes da história da organização, e por isso a arquitetura de aplicações trabalha continuamente para racionalizá-lo. Para distinguir aplicações estratégicas de aplicações legadas, é frequente o uso de uma classificação em vermelho, âmbar e verde, que permite à arquitetura de solução escolher a opção mais estratégica. Nesta disciplina, verde indica aplicação estratégica a manter e evoluir, âmbar indica aplicação mantida por ora, com restrição de investimento, e vermelho indica aplicação a substituir ou a retirar.
 
-A Figura 1 aplica a classificação ao portfólio da Universidade ACME. O ERP financeiro e o ambiente virtual permanecem, conforme a decisão de escopo. O núcleo COBOL continua durante a transição, sob contrato. Os portais legados e os acessos diretos ao banco exigem migração. A cor orienta o investimento, enquanto o roteiro define quando cada mudança pode ocorrer.
+A Figura 1 aplica a classificação ao portfólio da Universidade ACME. O ERP financeiro e o ambiente virtual permanecem, conforme a decisão de escopo da Reitoria de 12/03/2026, e por isso ficam em verde. O núcleo COBOL continua durante a transição, sob contrato de sustentação até 30/09/2027, e fica em âmbar. Os portais legados e os acessos diretos ao banco exigem migração e ficam em vermelho, de modo que a cor orienta o investimento, enquanto o roteiro define quando cada mudança pode ocorrer.
 
 <figure markdown="span">
-![Portfólio acadêmico: ERP e ambiente virtual permanecem, núcleo COBOL exige acompanhamento durante a transição e portais legados e acessos diretos ao banco exigem migração.](../assets/images/modulo-4-b3-portfolio-hospital.svg){ .module-diagram }
+![Portfólio de aplicações da Universidade ACME em três colunas: verde para o ERP financeiro e o ambiente virtual, que permanecem, âmbar para o núcleo COBOL, mantido durante a transição, e vermelho para os portais legados e os acessos diretos ao banco, que exigem migração.](../assets/images/acme-b3-portfolio-de-aplicacoes.svg){ .module-diagram }
 </figure>
 
 *Figura 1 — Portfólio de aplicações classificado em vermelho, âmbar e verde, com a ação associada a cada cor. Fonte: material do curso, com base em Lovatt (2021, seção 2.6.1).*
@@ -97,17 +97,17 @@ Um **padrão técnico** reúne a experiência de profissionais ao longo de muito
 
 Quando um portal da ACME confirma quem está entrando, ele conversa com o diretório corporativo segundo regras combinadas de antemão, e esse conjunto de regras, com formato, sequência e tratamento de erro definidos, é um protocolo. Entre os protocolos da linha de base da ACME estão três. O primeiro é o LDAP, protocolo para consultar o diretório corporativo, que é o cadastro central de usuários da instituição, e é por ele que os portais confirmam quem está entrando. O segundo é o HTTPS, a versão protegida do HTTP, usado nas chamadas ao gateway de pagamento, serviço externo que gera boleto e cobra em cartão, e ao assinador digital, serviço externo que assina o histórico e o diploma. O terceiro é um conector transacional proprietário entre os portais e o núcleo, o sistema central da ACME, escrito em COBOL. Esse conector é um componente de um fornecedor específico, que permite aos portais em Java acionar as transações do núcleo, e o formato das mensagens que ele troca pertence ao fornecedor, não a um padrão aberto. O HTTP, base do HTTPS, tem sua semântica definida pelo RFC 9110 (Fielding et al., 2022).
 
-Dois sistemas que usam o mesmo protocolo ainda precisam combinar que mensagens trocam, e é isso que uma especificação de interface descreve de forma verificável para uma interface particular, com operações ou mensagens, esquemas e erros. Para interfaces síncronas sobre HTTP, a especificação OpenAPI define uma descrição independente de linguagem de programação, que permite a pessoas e a programas entender as capacidades de um serviço sem acesso ao código-fonte (OpenAPI Initiative, 2026). Para interfaces orientadas a mensagens, a especificação AsyncAPI descreve canais, mensagens e operações de forma independente do protocolo de transporte (AsyncAPI Initiative, n.d.). Os dois trechos abaixo descrevem, num exemplo genérico de comércio eletrônico, uma consulta síncrona de pedido e a publicação de um evento de pedido confirmado.
+Dois sistemas que usam o mesmo protocolo ainda precisam combinar que mensagens trocam, e é isso que uma especificação de interface descreve de forma verificável para uma interface particular, com operações ou mensagens, esquemas e erros. Para interfaces síncronas sobre HTTP, a especificação OpenAPI define uma descrição independente de linguagem de programação, que permite a pessoas e a programas entender as capacidades de um serviço sem acesso ao código-fonte (OpenAPI Initiative, 2026). Para interfaces orientadas a mensagens, a especificação AsyncAPI descreve canais, mensagens e operações de forma independente do protocolo de transporte (AsyncAPI Initiative, n.d.). Os dois trechos abaixo descrevem, num exemplo ilustrativo de reservas de laboratório de ensino, sem dados do caso ACME, uma consulta síncrona de reserva e a publicação de um evento de reserva confirmada.
 
 ```yaml
 openapi: 3.2.1
 info:
-  title: Pedidos
+  title: Reservas de laboratório
   version: 1.0.0
 paths:
-  /pedidos/{id}:
+  /reservas/{id}:
     get:
-      summary: Consulta um pedido
+      summary: Consulta uma reserva
       parameters:
         - name: id
           in: path
@@ -116,33 +116,33 @@ paths:
             type: string
       responses:
         "200":
-          description: Pedido encontrado
+          description: Reserva encontrada
         "404":
-          description: Pedido inexistente
+          description: Reserva inexistente
 ```
 
 ```yaml
 asyncapi: 3.1.0
 info:
-  title: Eventos de pedido
+  title: Eventos de reserva
   version: 1.0.0
 channels:
-  pedidoConfirmado:
-    address: pedidos.confirmados
+  reservaConfirmada:
+    address: reservas.confirmadas
     messages:
-      pedidoConfirmado:
+      reservaConfirmada:
         payload:
           type: object
           properties:
-            idPedido:
+            idReserva:
               type: string
             versao:
               type: integer
 operations:
-  publicarPedidoConfirmado:
+  publicarReservaConfirmada:
     action: send
     channel:
-      $ref: "#/channels/pedidoConfirmado"
+      $ref: "#/channels/reservaConfirmada"
 ```
 
 A especificação depende de uma linguagem de esquema, que define a estrutura e as restrições de cada mensagem de forma que um programa consiga validá-la antes de processá-la. O JSON Schema é uma linguagem declarativa para definir a estrutura e as restrições de dados JSON, serve de base ao OpenAPI e ao AsyncAPI na descrição do corpo das mensagens e tem como versão corrente a 2020-12 (JSON Schema, n.d.). O Apache Avro é um sistema de serialização com esquemas escritos em JSON, em que o dado armazenado junto do seu esquema se torna autodescritivo (Apache Software Foundation, n.d.). Em fluxos de eventos, os esquemas Avro costumam ficar num registro de esquemas, como o Schema Registry da Confluent, que guarda as versões de cada esquema e verifica a compatibilidade da versão nova com as anteriores antes de aceitá-la (Confluent, n.d.). Os Protocol Buffers são um mecanismo neutro quanto a linguagem e plataforma para serializar dados estruturados, descritos em arquivos .proto a partir dos quais se gera código em cada linguagem, e são o formato usado por padrão no gRPC (Google, n.d.).
@@ -323,7 +323,7 @@ O roteiro de montagem do diagrama de contêineres tem quatro etapas:
 3. Descrever as relações entre contêineres e entre eles e os sistemas externos, especificando protocolo e direção.
 4. Acrescentar a cada contêiner uma descrição curta da responsabilidade e da tecnologia usada.
 
-O diagrama seguinte detalha o mesmo sistema acadêmico. Os portais, o aplicativo, os serviços, os bancos e o núcleo ficam dentro da fronteira. O provedor de identidade, o ambiente virtual e as demais dependências permanecem externos. Compare os nomes com o contexto antes de acrescentar detalhes.
+O diagrama seguinte detalha o mesmo sistema acadêmico: os portais, o aplicativo, os serviços, os bancos e o núcleo ficam dentro da fronteira, e o provedor de identidade, o ambiente virtual e as demais dependências permanecem externos, de modo que os nomes dos elementos devem coincidir com os do diagrama de contexto.
 
 <figure markdown="span">
 ![Contêineres da arquitetura alvo da Universidade ACME, com portais, aplicativo do aluno, serviços de matrícula e notas, seus bancos e núcleo COBOL. As tecnologias dos componentes novos serão escolhidas na Aula 5.](../assets/images/acme-ex16-diagrama-de-conteineres.svg){ .module-diagram }

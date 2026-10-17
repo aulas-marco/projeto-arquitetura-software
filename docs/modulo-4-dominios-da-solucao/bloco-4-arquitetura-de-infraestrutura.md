@@ -44,7 +44,7 @@ Antes de escolher tecnologia, o projeto precisa nomear as partes que serão real
 | Observabilidade | Correlacionar eventos, métricas e registros dos serviços novos | Novo |
 | Núcleo transacional COBOL sob CICS | Executar regras acadêmicas durante a transição | Permanece |
 
-O catálogo não escolhe React, Keycloak, PostgreSQL ou outro produto. Ele só declara **o que a solução precisa ter e fazer**. Evento de nota, camada anticorrupção e observabilidade são blocos lógicos transversais. Podem aparecer dentro de contêineres ou nas relações entre eles, sem ganhar uma caixa própria no diagrama C4. O ambiente virtual, o gateway de pagamento, o ERP, o assinador digital e o órgão regulador são dependências externas. Eles entram no desenho de contexto e nas relações, mas não são blocos que a ACME realiza neste ciclo. A [Aula 5](../modulo-5-frameworks-e-tecnologias/bloco-1-definicao-tecnologica-e-trm.md#exemplos-de-abb-para-sbb-na-acme) transforma cada bloco novo ou modificado em opções concretas e registra por que uma delas foi escolhida.
+O catálogo não escolhe React, Keycloak, PostgreSQL ou outro produto, pois só declara **o que a solução precisa ter e fazer**. Evento de nota, camada anticorrupção e observabilidade são blocos lógicos transversais, que podem aparecer dentro de contêineres ou nas relações entre eles, sem ganhar uma caixa própria no diagrama C4. O ambiente virtual, o gateway de pagamento, o ERP, o assinador digital e o órgão regulador são dependências externas, que entram no desenho de contexto e nas relações, mas não são blocos que a ACME realiza neste ciclo. A [Aula 5](../modulo-5-frameworks-e-tecnologias/bloco-1-definicao-tecnologica-e-trm.md#exemplos-de-abb-para-sbb-na-acme) transforma cada bloco novo ou modificado em opções concretas e registra por que uma delas foi escolhida.
 
 ### A solução como grafo
 
@@ -116,12 +116,12 @@ O diagrama de implantação segue quatro regras de construção, derivadas da de
 O contêiner do modelo C4 é uma unidade executável ou de armazenamento, como aplicação, serviço ou banco. Ele pode executar em contêiner de sistema operacional, máquina virtual ou função sem servidor. A Figura 4 usa os serviços de matrícula e notas da Universidade ACME para mostrar essa distinção. É um esquema de implantação a detalhar na Aula 5, quando a equipe escolher tecnologias e confirmar capacidade, disponibilidade e recuperação.
 
 <figure markdown="span">
-![Esquema de implantação da Universidade ACME: canais nos dispositivos dos usuários, serviços e bancos novos no ambiente de produção, núcleo existente e integrações externas. Tecnologia, capacidade e recuperação são decisões da Aula 5.](../assets/images/modulo-4-b4-c4-implantacao-clinica-v2.svg){ .module-diagram }
+![Esquema de implantação da Universidade ACME: o telefone do aluno e os navegadores de professores e secretaria ficam fora do ambiente de produção. Na nuvem aprovada ficam os serviços de matrícula e de notas com seus bancos, e no centro de dados ficam o núcleo existente, seu banco e os portais, além das integrações externas. Tecnologia, capacidade e recuperação são decisões da Aula 5.](../assets/images/acme-b4-esquema-de-implantacao.svg){ .module-diagram }
 </figure>
 
 *Figura 4 — Localização das partes da solução da Universidade ACME, a detalhar na definição tecnológica. Fonte: material do curso.*
 
-O aplicativo do aluno executa no telefone, e os portais são abertos nos navegadores de professores e secretaria. Esses nós de cliente ficam fora do ambiente de produção da ACME. Os serviços novos acessam o núcleo pelas transações existentes e integram sistemas externos pelos contratos definidos. O diagrama mantém essas fronteiras mesmo ao mostrar onde as partes executam.
+O aplicativo do aluno executa no telefone, e os portais são abertos nos navegadores de professores e secretaria. Esses nós de cliente ficam fora do ambiente de produção da ACME. Os serviços novos acessam o núcleo pelas transações existentes e integram sistemas externos pelos contratos definidos, e o diagrama mantém essas fronteiras mesmo ao mostrar que o núcleo, seu banco e os portais ficam no centro de dados da universidade.
 
 As relações repetem o caminho da arquitetura alvo: canal do usuário, serviço, banco e integração com o núcleo. Na implantação, o arquiteto acrescenta a localização de cada parte, as fronteiras de rede e os recursos necessários. Se a localização impedir o R14, de processamento nacional, ou o R12, de disponibilidade na matrícula, a proposta precisa ser revista antes de aprovada.
 
@@ -255,7 +255,7 @@ flowchart TB
     SN -->|"relação 4<br/>conexão a definir"| NUC
 ```
 
-1. Responda, em uma frase, que consequência essa divisão de responsabilidade tem para a posição do núcleo transacional COBOL no diagrama de contêineres do item 1, com base no critério de fronteira de responsabilidade do [exemplo do internet banking](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#um-exemplo-completo-nos-dois-niveis) do bloco 3.
+1. Responda, em uma frase, que consequência essa divisão de responsabilidade tem para a posição do núcleo transacional COBOL no diagrama de contêineres do item 1, com base no critério de fronteira de responsabilidade da seção [Confira a fronteira nos dois níveis](bloco-3-arquitetura-de-aplicacoes-e-integracao.md#confira-a-fronteira-nos-dois-niveis) do bloco 3.
 
 Sua resposta vira o campo Posição do núcleo transacional, na seção 7 do caderno.
 

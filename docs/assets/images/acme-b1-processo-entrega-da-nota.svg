@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" role="img" aria-labelledby="title desc">
+  <title id="title">Processo de entrega da nota ao ambiente virtual em BPMN simplificado</title><desc id="desc">Três raias horizontais: serviço de notas, ambiente virtual e operação. O serviço de notas publica o evento de nota e aguarda a confirmação. O ambiente virtual confere a versão e a duplicidade da mensagem, grava a nota e envia a confirmação. Uma decisão no serviço de notas pergunta se o recebimento foi confirmado. Se sim, o processo termina com a nota entregue. Se não, a operação acompanha a falha, pede o reenvio e encerra a pendência.</desc>
+  <defs><style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#16243A}.h{font-size:28px;font-weight:700}.t{font-size:22px;font-weight:700}.b{font-size:20px;font-weight:700}.p{font-size:20px}.q{font-size:20px;fill:#52657E}.i{font-size:20px;font-style:italic;fill:#52657E}.w{fill:#fff}.sk{fill:#D8E9FF}</style><marker id='s' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='8' markerHeight='8' orient='auto'><path d='M0 0L10 5L0 10z' fill='#16243A'/></marker></defs>
+  <rect width="1000" height="700" rx="24" fill="#F2F6FB"/>
+  <rect x="20" y="70" width="960" height="180" rx="0" fill="white" stroke="#16243A" stroke-width="2"/>
+  <rect x="20" y="70" width="44" height="180" rx="0" fill="#16243A"/>
+  <text transform="translate(50 160) rotate(-90)" text-anchor="middle" class="b w">Serviço de notas</text>
+  <rect x="20" y="250" width="960" height="180" rx="0" fill="#E6EEF9" stroke="#16243A" stroke-width="2"/>
+  <rect x="20" y="250" width="44" height="180" rx="0" fill="#16243A"/>
+  <text transform="translate(50 340) rotate(-90)" text-anchor="middle" class="b w">Ambiente virtual</text>
+  <rect x="20" y="430" width="960" height="180" rx="0" fill="white" stroke="#16243A" stroke-width="2"/>
+  <rect x="20" y="430" width="44" height="180" rx="0" fill="#16243A"/>
+  <text transform="translate(50 520) rotate(-90)" text-anchor="middle" class="b w">Operação</text>
+  <circle cx="125" cy="160" r="20" fill="white" stroke="#16243A" stroke-width="3"/>
+  <text x="125" y="212" class="p" text-anchor="middle">Nota</text>
+  <text x="125" y="236" class="p" text-anchor="middle">registrada</text>
+  <path d="M145 160H188" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <rect x="190" y="120" width="170" height="80" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="275.0" y="154.0" class="p" text-anchor="middle" data-max="154">Publicar o</text>
+  <text x="275.0" y="180.0" class="p" text-anchor="middle" data-max="154">evento de nota</text>
+  <path d="M360 160H388" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <rect x="390" y="120" width="160" height="80" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="470.0" y="154.0" class="p" text-anchor="middle" data-max="144">Aguardar a</text>
+  <text x="470.0" y="180.0" class="p" text-anchor="middle" data-max="144">confirmação</text>
+  <path d="M550 160H590" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <path d="M640 112L688 160L640 208L592 160Z" fill="#F2B84B" stroke="#16243A" stroke-width="2"/>
+  <text x="640" y="168" class="b" text-anchor="middle">?</text>
+  <text x="640" y="100" class="b" text-anchor="middle">Confirmado?</text>
+  <path d="M688 160H768" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <text x="728" y="146" class="b" text-anchor="middle">sim</text>
+  <circle cx="790" cy="160" r="20" fill="white" stroke="#16243A" stroke-width="6"/>
+  <text x="790" y="212" class="p" text-anchor="middle">Nota</text>
+  <text x="790" y="236" class="p" text-anchor="middle">entregue</text>
+  <rect x="190" y="300" width="170" height="80" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="275.0" y="334.0" class="p" text-anchor="middle" data-max="154">Conferir versão</text>
+  <text x="275.0" y="360.0" class="p" text-anchor="middle" data-max="154">e duplicidade</text>
+  <path d="M360 340H388" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <rect x="390" y="300" width="160" height="80" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="470.0" y="334.0" class="p" text-anchor="middle" data-max="144">Gravar a nota</text>
+  <text x="470.0" y="360.0" class="p" text-anchor="middle" data-max="144">e confirmar</text>
+  <path d="M270 200V298" stroke="#16243A" stroke-width="3" fill="none" stroke-dasharray="8 6" marker-end="url(#s)"/>
+  <path d="M470 298V202" stroke="#16243A" stroke-width="3" fill="none" stroke-dasharray="8 6" marker-end="url(#s)"/>
+  <path d="M640 208V478" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <text x="652" y="262" class="b">não</text>
+  <rect x="530" y="480" width="220" height="80" rx="12" fill="#D8E9FF" stroke="#254DB8" stroke-width="2"/>
+  <text x="640.0" y="514.0" class="p" text-anchor="middle" data-max="204">Acompanhar a falha</text>
+  <text x="640.0" y="540.0" class="p" text-anchor="middle" data-max="204">e pedir o reenvio</text>
+  <path d="M750 520H808" stroke="#16243A" stroke-width="3" fill="none" marker-end="url(#s)"/>
+  <circle cx="830" cy="520" r="20" fill="white" stroke="#16243A" stroke-width="6"/>
+  <text x="830" y="572" class="p" text-anchor="middle">Pendência</text>
+  <text x="830" y="596" class="p" text-anchor="middle">tratada</text>
+  <text x="20" y="650" class="q">Círculo fino: início. Retângulo: tarefa. Losango: decisão. Círculo espesso: fim.</text>
+  <text x="20" y="678" class="q">Linha tracejada: mensagem entre raias. O reenvio automático do serviço não aparece.</text>
+</svg>
