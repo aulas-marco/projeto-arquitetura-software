@@ -2,7 +2,7 @@
 
 {{progresso:19}}
 
-Depois do exercício 19, o caderno da ACME reúne o que os exercícios 1 a 19 produziram, e a moldura âmbar marca o que o exercício 19 acrescentou. Compare com o seu caderno para ver onde as suas respostas diferem. O [enunciado do exercício 19](../modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-fim-a-fim.md#exercicio-19) está na página do bloco.
+Depois do exercício 19, o caderno da ACME reúne o que os exercícios 1 a 19 produziram, e a moldura âmbar marca o que o exercício 19 acrescentou. Compare com o seu caderno para ver onde as suas respostas diferem. O [enunciado do exercício 19](../modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-ponta-a-ponta.md#exercicio-19) está na página do bloco.
 
 ## A solução em uma página
 

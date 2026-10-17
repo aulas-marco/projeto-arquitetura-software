@@ -11,7 +11,7 @@ IMAGES = DOCS / "assets" / "images"
 
 B1 = "bloco-1-definicao-tecnologica-e-trm.md"
 B2 = "bloco-2-plataforma-arquitetural.md"
-B3 = "bloco-3-seguranca-fim-a-fim.md"
+B3 = "bloco-3-seguranca-ponta-a-ponta.md"
 B4 = "bloco-4-adr-de-plataforma.md"
 
 BLOCKS = {
@@ -572,7 +572,7 @@ class CourseIntegrationTest(unittest.TestCase):
     def test_schedule_describes_the_four_blocks_of_class_5(self):
         text = (DOCS / "cronograma.md").read_text(encoding="utf-8")
         aula5 = re.search(r"### Aula 5.*?(?=### Aula 6)", text, re.DOTALL).group(0)
-        for term in ("modelo técnico de referência", "zona de pouso", "Segurança fim a fim",
+        for term in ("modelo técnico de referência", "zona de pouso", "Segurança ponta a ponta",
                      "lacunas na provisão"):
             with self.subTest(term=term):
                 self.assertIn(term, aula5)

@@ -16,10 +16,10 @@ Um projeto de arquitetura começa entendendo o problema, e por isso as duas prim
 | 2 | Direcionadores de mudança, requisitos e atributos de qualidade, artefatos de linha de base, restrições e partes interessadas |
 | 3 | Princípios de design, estilos arquiteturais, padrões de design e registro de decisão arquitetural |
 | 4 | Arquitetura de negócio, de dados, de aplicações e de infraestrutura da solução, com contrato de integração e modelagem C4 |
-| 5 | Definição tecnológica e modelo técnico de referência, plataforma arquitetural e frameworks, segurança fim a fim e ADR de plataforma |
+| 5 | Definição tecnológica e modelo técnico de referência, plataforma arquitetural e frameworks, segurança ponta a ponta e ADR de plataforma |
 | 6 | Governança da mudança, aceleradores de IA e apresentação do caderno arquitetural |
 
-A ordem das aulas é a de um projeto real, que parte do enquadramento, passa pelo desenho e pela tecnologia e termina na entrega governada. A Aula 1 apresenta a disciplina e o processo pelo qual ela opera, e a Aula 2 reúne tudo o que entra antes de qualquer alternativa, de modo que a Aula 3 já pode escolher a forma estrutural e registrar a escolha. Com a forma escolhida, a Aula 4 detalha a solução nos domínios de negócio, dados, aplicações e infraestrutura e a representa nos níveis de contexto e de contêineres do modelo C4. Depois disso, a Aula 5 converte o desenho lógico em tecnologia e avalia a segurança fim a fim sobre a tecnologia escolhida, e a Aula 6 organiza a entrega em ondas, mostra como governar a mudança, apresenta os aceleradores de IA no trabalho do arquiteto e fecha o caderno arquitetural da ACME.
+A ordem das aulas é a de um projeto real, que parte do enquadramento, passa pelo desenho e pela tecnologia e termina na entrega governada. A Aula 1 apresenta a disciplina e o processo pelo qual ela opera, e a Aula 2 reúne tudo o que entra antes de qualquer alternativa, de modo que a Aula 3 já pode escolher a forma estrutural e registrar a escolha. Com a forma escolhida, a Aula 4 detalha a solução nos domínios de negócio, dados, aplicações e infraestrutura e a representa nos níveis de contexto e de contêineres do modelo C4. Depois disso, a Aula 5 converte o desenho lógico em tecnologia e avalia a segurança ponta a ponta sobre a tecnologia escolhida, e a Aula 6 organiza a entrega em ondas, mostra como governar a mudança, apresenta os aceleradores de IA no trabalho do arquiteto e fecha o caderno arquitetural da ACME.
 
 ## Blocos de cada aula
 
@@ -66,7 +66,7 @@ A ordem das aulas é a de um projeto real, que parte do enquadramento, passa pel
 | --- | --- | --- |
 | 1 | Definição tecnológica e modelo técnico de referência, do bloco de construção ao serviço de infraestrutura | 17 |
 | 2 | Plataforma arquitetural, frameworks e zona de pouso, a base preparada do ambiente em nuvem | 18 |
-| 3 | Segurança fim a fim | 19 |
+| 3 | Segurança ponta a ponta | 19 |
 | 4 | ADR de plataforma, dependência de fornecedor e lacunas na provisão de serviços | 20 |
 
 ### Aula 6, governança, aceleradores de IA e apresentação do caderno

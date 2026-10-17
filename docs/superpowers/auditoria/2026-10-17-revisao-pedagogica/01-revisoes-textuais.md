@@ -429,7 +429,7 @@ a base compartilhada que prepara a nuvem para receber as aplicações. Ela reún
 
 ## T31 · P1 · Autoridade de design de segurança
 
-**Local:** [docs/modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-fim-a-fim.md](../../../modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-fim-a-fim.md) · linha 3.
+**Local:** [docs/modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-ponta-a-ponta.md](../../../modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-ponta-a-ponta.md) · linha 3.
 
 **Trecho atual:**
 

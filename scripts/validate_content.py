@@ -63,7 +63,7 @@ CADERNO_BLOCKS: set[str] = {
     "bloco-4-arquitetura-de-infraestrutura.md",
     "bloco-1-definicao-tecnologica-e-trm.md",
     "bloco-2-plataforma-arquitetural.md",
-    "bloco-3-seguranca-fim-a-fim.md",
+    "bloco-3-seguranca-ponta-a-ponta.md",
     "bloco-4-adr-de-plataforma.md",
     "bloco-1-governanca-da-mudanca.md",
     "bloco-2-aceleradores-de-ia.md",

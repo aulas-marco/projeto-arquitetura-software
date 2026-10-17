@@ -532,12 +532,12 @@ class CourseIntegrationTest(unittest.TestCase):
         for domain in ("negócio", "dados", "aplicações", "infraestrutura"):
             with self.subTest(domain=domain):
                 self.assertIn(domain, aula4.lower())
-        self.assertIn("Segurança fim a fim", aula5)
+        self.assertIn("Segurança ponta a ponta", aula5)
         self.assertIn("modelo técnico de referência", aula5)
 
     def test_module_5_index_lists_the_security_block(self):
         text = (DOCS / "modulo-5-frameworks-e-tecnologias" / "index.md").read_text(encoding="utf-8")
-        self.assertIn("Segurança fim a fim", text)
+        self.assertIn("Segurança ponta a ponta", text)
 
     def test_module_3_prepares_for_the_domains(self):
         text = (DOCS / "modulo-3-design-e-padroes" / "index.md").read_text(encoding="utf-8")

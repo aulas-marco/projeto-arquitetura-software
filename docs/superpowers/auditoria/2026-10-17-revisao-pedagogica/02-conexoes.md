@@ -280,9 +280,9 @@ Cada item indica o ponto de inserção, o destino e a expressão clicável pront
 
 **Origem:** [docs/modulo-4-dominios-da-solucao/bloco-2-arquitetura-de-dados.md](../../../modulo-4-dominios-da-solucao/bloco-2-arquitetura-de-dados.md), seção **Requisitos de dados: qualidade e proteção**.
 
-**Destino:** [Grade de permissões e menor privilégio](../../../modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-fim-a-fim.md#grade-de-permissoes-e-menor-privilegio).
+**Destino:** [Grade de permissões e menor privilégio](../../../modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-ponta-a-ponta.md#grade-de-permissoes-e-menor-privilegio).
 
-**Expressão para inserir:** `[como transformar as necessidades de acesso em permissões](../modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-fim-a-fim.md#grade-de-permissoes-e-menor-privilegio)`.
+**Expressão para inserir:** `[como transformar as necessidades de acesso em permissões](../modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-ponta-a-ponta.md#grade-de-permissoes-e-menor-privilegio)`.
 
 **Finalidade:** Ligar dados e segurança, mantendo classificação e controle de acesso distintos.
 
@@ -362,7 +362,7 @@ Cada item indica o ponto de inserção, o destino e a expressão clicável pront
 
 ### L30 · quem executa cada atividade e precisa de acesso
 
-**Origem:** [docs/modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-fim-a-fim.md](../../../modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-fim-a-fim.md), seção **Grade de permissões e menor privilégio**.
+**Origem:** [docs/modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-ponta-a-ponta.md](../../../modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-ponta-a-ponta.md), seção **Grade de permissões e menor privilégio**.
 
 **Destino:** [Decomposição funcional e modelo de processo](../../../modulo-4-dominios-da-solucao/bloco-1-arquitetura-de-negocio.md#decomposicao-funcional-e-modelo-de-processo).
 
@@ -374,7 +374,7 @@ Cada item indica o ponto de inserção, o destino e a expressão clicável pront
 
 ### L31 · retome os atores e sistemas que atravessam a fronteira
 
-**Origem:** [docs/modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-fim-a-fim.md](../../../modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-fim-a-fim.md), seção **Fronteira de confiança e STRIDE**.
+**Origem:** [docs/modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-ponta-a-ponta.md](../../../modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-ponta-a-ponta.md), seção **Fronteira de confiança e STRIDE**.
 
 **Destino:** [Diagrama de contexto](../../../modulo-4-dominios-da-solucao/bloco-3-arquitetura-de-aplicacoes-e-integracao.md#diagrama-de-contexto).
 

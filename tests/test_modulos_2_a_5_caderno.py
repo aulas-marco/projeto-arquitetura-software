@@ -26,7 +26,7 @@ BLOCOS = {
     f"{M4}/bloco-4-arquitetura-de-infraestrutura.md": (16, ["{{ficha:7:4}}"]),
     f"{M5}/bloco-1-definicao-tecnologica-e-trm.md": (17, ["{{ficha:8}}"]),
     f"{M5}/bloco-2-plataforma-arquitetural.md": (18, ["{{ficha:8}}"]),
-    f"{M5}/bloco-3-seguranca-fim-a-fim.md": (19, ["{{ficha:8}}"]),
+    f"{M5}/bloco-3-seguranca-ponta-a-ponta.md": (19, ["{{ficha:8}}"]),
     f"{M5}/bloco-4-adr-de-plataforma.md": (20, ["{{ficha:8}}"]),
 }
 MODULOS = {M2: 2, M3: 3, M4: 4, M5: 5}

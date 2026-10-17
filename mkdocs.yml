@@ -37,6 +37,7 @@ plugins:
         modulo-2-plataforma-e-modelos/index.md: modulo-2-requisitos-e-partes-interessadas/index.md
         modulo-2-plataforma-e-modelos/sintese.md: modulo-2-requisitos-e-partes-interessadas/sintese.md
         modulo-2-plataforma-e-modelos/bloco-1-registro-de-decisao-arquitetural.md: modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md
+        modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-fim-a-fim.md: modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-ponta-a-ponta.md
         modulo-2-plataforma-e-modelos/bloco-2-plataforma-arquitetural.md: modulo-5-frameworks-e-tecnologias/bloco-2-plataforma-arquitetural.md
         modulo-2-plataforma-e-modelos/bloco-3-adr-de-plataforma.md: modulo-5-frameworks-e-tecnologias/bloco-4-adr-de-plataforma.md
         modulo-2-plataforma-e-modelos/bloco-4-representacao-de-modelos-e-c4.md: modulo-4-dominios-da-solucao/bloco-3-arquitetura-de-aplicacoes-e-integracao.md
@@ -104,7 +105,7 @@ nav:
       - Visão geral: modulo-5-frameworks-e-tecnologias/index.md
       - "Bloco 1: definição tecnológica e modelo técnico de referência": modulo-5-frameworks-e-tecnologias/bloco-1-definicao-tecnologica-e-trm.md
       - "Bloco 2: plataforma arquitetural": modulo-5-frameworks-e-tecnologias/bloco-2-plataforma-arquitetural.md
-      - "Bloco 3: segurança fim a fim": modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-fim-a-fim.md
+      - "Bloco 3: segurança ponta a ponta": modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-ponta-a-ponta.md
       - "Bloco 4: ADR de plataforma e lacunas": modulo-5-frameworks-e-tecnologias/bloco-4-adr-de-plataforma.md
       - Síntese: modulo-5-frameworks-e-tecnologias/sintese.md
   - "Aula 6, governança, aceleradores de IA e apresentação do caderno":

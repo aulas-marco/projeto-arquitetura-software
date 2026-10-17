@@ -52,7 +52,7 @@ EXERCICIOS = {
     16: (4, "modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md", "Arquitetura de infraestrutura"),
     17: (5, "modulo-5-frameworks-e-tecnologias/bloco-1-definicao-tecnologica-e-trm.md", "Definição tecnológica e modelo técnico de referência"),
     18: (5, "modulo-5-frameworks-e-tecnologias/bloco-2-plataforma-arquitetural.md", "Plataforma arquitetural"),
-    19: (5, "modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-fim-a-fim.md", "Segurança fim a fim"),
+    19: (5, "modulo-5-frameworks-e-tecnologias/bloco-3-seguranca-ponta-a-ponta.md", "Segurança ponta a ponta"),
     20: (5, "modulo-5-frameworks-e-tecnologias/bloco-4-adr-de-plataforma.md", "ADR de plataforma e lacunas"),
     21: (6, "modulo-6-governanca-ia-e-caderno/bloco-1-governanca-da-mudanca.md", "Governança da mudança"),
     22: (6, "modulo-6-governanca-ia-e-caderno/bloco-1-governanca-da-mudanca.md", "Governança da mudança"),

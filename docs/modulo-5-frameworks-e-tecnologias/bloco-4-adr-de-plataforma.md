@@ -64,7 +64,7 @@ Os dois ADRs não vivem isolados um do outro. O ADR de plataforma faz uma **refe
 
 ### Lacunas na provisão de serviços
 
-Quando a definição tecnológica está completa, o arquiteto compara os serviços que ela exige com o **catálogo de infraestrutura**, a lista dos serviços que a organização já provê, e registra tudo o que impede ou atrapalha a implantação da solução. O resultado é um **relatório de lacunas**, em que cada item é uma lacuna de provisão classificada em um dos quatro tipos da tabela abaixo, e a mesma classificação vale para as lacunas que a [autoridade de design de segurança](bloco-3-seguranca-fim-a-fim.md) aponta no bloco anterior.
+Quando a definição tecnológica está completa, o arquiteto compara os serviços que ela exige com o **catálogo de infraestrutura**, a lista dos serviços que a organização já provê, e registra tudo o que impede ou atrapalha a implantação da solução. O resultado é um **relatório de lacunas**, em que cada item é uma lacuna de provisão classificada em um dos quatro tipos da tabela abaixo, e a mesma classificação vale para as lacunas que a [autoridade de design de segurança](bloco-3-seguranca-ponta-a-ponta.md) aponta no bloco anterior.
 
 | Tipo | Descrição |
 | --- | --- |
@@ -142,7 +142,7 @@ graph LR
     E12["ADR de estilo, Exercício 12 da Aula 3"] -->|"referência cruzada pelo título"| E20["ADR de plataforma, Exercício 20"]
     E18["Quadro comparativo e plataforma escolhida, Exercício 18"] -->|"alternativas"| E20
     E17["Seis critérios de seleção, Exercício 17"] -->|"método dos seis critérios"| E20
-    E19["Segurança fim a fim, Exercício 19"] -->|"entrada de consequências"| E20
+    E19["Segurança ponta a ponta, Exercício 19"] -->|"entrada de consequências"| E20
     E20 -.->|"citado no campo Revisão quando a prática se firma"| E12
 ```
 
@@ -180,7 +180,7 @@ Uma decisão de plataforma só se sustenta se alguém puder conferir depois o qu
 | Contrato de sustentação do núcleo COBOL | Exclusividade da fábrica até 30/09/2027 |
 | Contrato de capacidade de grande porte | Volume mínimo contratado até 31/12/2028 |
 
-1. Escreva as consequências, com ao menos uma positiva, uma negativa e uma neutra, levando em conta os achados de segurança do [Exercício 19](bloco-3-seguranca-fim-a-fim.md#exercicio-19).
+1. Escreva as consequências, com ao menos uma positiva, uma negativa e uma neutra, levando em conta os achados de segurança do [Exercício 19](bloco-3-seguranca-ponta-a-ponta.md#exercicio-19).
 2. Escreva as evidências, indicando o que sustentaria a escolha e onde poderia ser reproduzido.
 3. Escreva a revisão, com um gatilho observável ligado à convivência com o núcleo COBOL sobre CICS, ou seja, um fato que a equipe consiga verificar e que indique a hora de reavaliar a plataforma.
 

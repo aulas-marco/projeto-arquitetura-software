@@ -1,4 +1,4 @@
-# Segurança fim a fim
+# Segurança ponta a ponta
 
 A ACME já escolheu produtos, plataforma e zona de pouso, e o sistema novo vai guardar a nota, o histórico escolar e o CPF de 38.400 alunos. Antes da implementação, o arquiteto de solução precisa deixar registrado, em decisões que as equipes consigam executar, quão sensível é cada dado, quem pode lê-lo ou gravá-lo, o que protege cada chamada que atravessa a rede e em que lugar cada controle será implantado. Dados e chamadas são ativos, isto é, itens de valor para a organização. Este bloco apresenta cinco passos que levam a essas decisões, com a ferramenta de cada passo, e termina no registro de decisões de segurança, o artefato que o arquiteto entrega às equipes e à revisão de segurança. O exercício 19 aplica os passos à ACME.
 

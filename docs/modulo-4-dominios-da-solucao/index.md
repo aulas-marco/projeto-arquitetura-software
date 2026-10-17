@@ -67,4 +67,4 @@ Nas aulas anteriores, o caderno arquitetural da ACME ganhou o contexto do caso, 
 
 ## Preparação para a Aula 5
 
-Os contêineres da arquitetura alvo saem desta aula com o rótulo tecnologia a definir, e a Aula 5 os converte em escolhas de serviço de infraestrutura, de plataforma e de framework, classificadas no modelo técnico de referência. Depois dessas escolhas, a mesma aula avalia a segurança fim a fim sobre a tecnologia escolhida e registra a decisão de plataforma em ADR, com as lacunas de provisão, e o [cronograma](../cronograma.md) traz a sequência completa das seis aulas.
+Os contêineres da arquitetura alvo saem desta aula com o rótulo tecnologia a definir, e a Aula 5 os converte em escolhas de serviço de infraestrutura, de plataforma e de framework, classificadas no modelo técnico de referência. Depois dessas escolhas, a mesma aula avalia a segurança ponta a ponta sobre a tecnologia escolhida e registra a decisão de plataforma em ADR, com as lacunas de provisão, e o [cronograma](../cronograma.md) traz a sequência completa das seis aulas.
