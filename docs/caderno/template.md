@@ -419,7 +419,7 @@ Esta parte é preenchida no exercício 17.
 
 Você escreve:
 
-- **Linha do modelo e padrão obrigatório:** para o provedor de identidade, o serviço de matrícula, o banco do serviço de notas e o evento de nota, diga qual linha do modelo técnico de referência vale e qual padrão ela exige.
+- **Linha do modelo e candidatos por bloco:** para cada bloco do catálogo, exceto o núcleo transacional que permanece, diga qual linha do modelo técnico de referência vale, qual padrão ela exige e quais exemplos aprovados da linha são os produtos candidatos, ou escreva candidato a levantar quando não houver linha.
 - **Linhas válidas para todos os contêineres:** indique as duas linhas do recorte que valem para qualquer contêiner novo, qualquer que seja a função dele, e explique em uma frase.
 - **Classificação da tecnologia:** classifique cada tecnologia da linha de base em verde, âmbar ou vermelho e justifique em uma linha com o dado da tabela.
 - **Tecnologias sob plano de migração:** entre as vermelhas, diga quais continuam em uso hoje e só podem ficar enquanto houver plano de migração documentado.

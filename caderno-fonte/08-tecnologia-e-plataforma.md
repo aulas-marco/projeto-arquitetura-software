@@ -15,7 +15,7 @@ modo: acumula
 
 <!--ex n=17 titulo="Modelo técnico, tecnologias da linha de base e provedor de identidade"-->
 <!--campos-->
-- **Linha do modelo e padrão obrigatório:** para o provedor de identidade, o serviço de matrícula, o banco do serviço de notas e o evento de nota, diga qual linha do modelo técnico de referência vale e qual padrão ela exige.
+- **Linha do modelo e candidatos por bloco:** para cada bloco do catálogo, exceto o núcleo transacional que permanece, diga qual linha do modelo técnico de referência vale, qual padrão ela exige e quais exemplos aprovados da linha são os produtos candidatos, ou escreva candidato a levantar quando não houver linha.
 - **Linhas válidas para todos os contêineres:** indique as duas linhas do recorte que valem para qualquer contêiner novo, qualquer que seja a função dele, e explique em uma frase.
 - **Classificação da tecnologia:** classifique cada tecnologia da linha de base em verde, âmbar ou vermelho e justifique em uma linha com o dado da tabela.
 - **Tecnologias sob plano de migração:** entre as vermelhas, diga quais continuam em uso hoje e só podem ficar enquanto houver plano de migração documentado.
@@ -24,18 +24,27 @@ modo: acumula
 - **Regra de eliminação pela restrição:** escolha R8 ou R14, diga qual condição elimina uma candidata e qual documento pediria para comprovar atendimento. Não descarte A, B ou C apenas pela forma de contratação.
 <!--/campos-->
 <!--gabarito-->
-#### Contêineres novos e linhas do modelo técnico de referência
+#### Blocos do catálogo e linhas do modelo técnico de referência
 
-Cada equipe da ACME precisa saber qual padrão respeitar antes de escolher um produto, e a linha do modelo técnico que trata da função do contêiner diz exatamente isso. O provedor de identidade segue a linha de identidade e acesso, que exige o OpenID Connect, protocolo aberto de autenticação, e o evento de nota segue a de mensageria, que exige um contrato AsyncAPI, a especificação das mensagens trocadas.
+Cada equipe da ACME precisa saber qual padrão respeitar antes de escolher um produto, e a linha do modelo técnico que trata da função do bloco diz exatamente isso. O provedor de identidade segue a linha de identidade e acesso, que exige o OpenID Connect, protocolo aberto de autenticação, e o evento de nota segue a de mensageria, que exige um contrato AsyncAPI, a especificação das mensagens trocadas. Os candidatos de cada bloco são os exemplos aprovados da linha, e a tabela repete os produtos da tabela de ABB para SBB do bloco 1 da Aula 5, de modo que o gabarito e o bloco apresentam a mesma lista.
 
-| Elemento | Linha do modelo técnico | Padrão ou protocolo obrigatório |
-| --- | --- | --- |
-| Provedor de identidade | Segurança transversal, identidade e acesso | OpenID Connect obrigatório, com OAuth 2.0 e SAML 2.0 |
-| Serviço de matrícula | API e integração, exposição de serviços | REST com OpenAPI 3.x |
-| Banco do serviço de notas | Dados, banco de serviço novo | SQL, um banco por serviço e região nacional |
-| Evento de nota do serviço de notas para o ambiente virtual de aprendizagem, que atende a nota em até 10 minutos (R7) | API e integração, mensageria | Tópico com retenção e contrato AsyncAPI |
+| Bloco do catálogo | Linha do modelo técnico | Padrão ou protocolo obrigatório | SBBs candidatos | Origem do candidato |
+| --- | --- | --- | --- | --- |
+| Interface do aplicativo do aluno | Sem linha no recorte | Não há | React Native | Exemplo a avaliar, fora do recorte |
+| Portal do Professor | Sem linha no recorte | Não há | React para web | Exemplo a avaliar, fora do recorte, e só entra se o plano de migração trocar o portal |
+| Portal da Secretaria | Sem linha no recorte | Não há | React para web | Exemplo a avaliar, fora do recorte, e só entra se o plano de migração trocar o portal |
+| Provedor de identidade | Segurança transversal, identidade e acesso | OpenID Connect obrigatório, com OAuth 2.0 e SAML 2.0 | Keycloak operado pela ACME, Auth0 contratado, Azure AD B2C gerenciado | Exemplos aprovados da linha |
+| Serviço de matrícula | API e integração, exposição de serviços | REST com OpenAPI 3.x | Spring Boot, FastAPI, NestJS | Exemplos aprovados da linha |
+| Serviço de notas | API e integração, exposição de serviços | REST com OpenAPI 3.x | Spring Boot, FastAPI, NestJS | Exemplos aprovados da linha |
+| Banco do serviço de matrícula | Dados, banco de serviço novo | SQL, um banco por serviço e região nacional | PostgreSQL em região nacional | Exemplo aprovado da linha |
+| Banco do serviço de notas | Dados, banco de serviço novo | SQL, um banco por serviço e região nacional | PostgreSQL em região nacional | Exemplo aprovado da linha |
+| Evento de nota, que atende a nota em até 10 minutos (R7) | API e integração, mensageria | Tópico com retenção e contrato AsyncAPI | Kafka ou compatível, RabbitMQ | Exemplos aprovados da linha |
+| Camada anticorrupção | Sem linha no recorte | Não há | Candidato a levantar | O recorte e o dossiê não trazem produto |
+| Observabilidade | Infraestrutura, observabilidade | OpenTelemetry | Coletores compatíveis com OpenTelemetry | Exemplo aprovado da linha |
 
-Duas linhas valem para todos os contêineres novos, a de infraestrutura como código, que descreve a infraestrutura em arquivos versionados, e a de observabilidade, que mede e registra o que o serviço faz em operação, porque toda implantação e toda operação passam por elas, e por isso nenhuma equipe pode dispensá-las. As demais dependem do que o serviço faz: só quem autentica usa a linha de identidade, só quem expõe interface usa a de exposição, só quem publica evento usa a de mensageria e só quem guarda dado usa a de banco.
+React Native e React para web ficam fora das seis linhas do recorte, e por isso a resposta “sem linha no recorte, candidato a levantar” é aceita para os três blocos de interface. O núcleo transacional COBOL sob CICS permanece e não recebe candidato. A comparação pelos seis critérios é feita neste exercício só para o provedor de identidade, e para os demais blocos a lista acima é o ponto de partida.
+
+Duas linhas valem para todos os contêineres novos, a de infraestrutura como código, que descreve a infraestrutura em arquivos versionados e aprova Terraform, AWS CDK e Bicep, e a de observabilidade, que mede e registra o que o serviço faz em operação, porque toda implantação e toda operação passam por elas, e por isso nenhuma equipe pode dispensá-las. As demais dependem do que o serviço faz: só quem autentica usa a linha de identidade, só quem expõe interface usa a de exposição, só quem publica evento usa a de mensageria e só quem guarda dado usa a de banco.
 
 #### Classificação das tecnologias da linha de base
 

@@ -144,25 +144,32 @@ Versões anteriores da disciplina usavam outra lista, a dos sete fatores, e os s
 
 #### Exemplos de ABB para SBB na ACME
 
-Agora que o método de comparação está definido, os exemplos ficam concretos, e a coluna SBB traz candidatos permitidos pelo recorte do modelo técnico de referência ou exemplos de realização que a equipe precisa avaliar, sem declarar que um produto já foi escolhido.
+Agora que o método de comparação está definido, os exemplos ficam concretos. Cada linha liga um bloco do catálogo do Passo 1 a um SBB candidato, e o nome do bloco é o mesmo do catálogo. Nas linhas de provedor de identidade, serviços, bancos, evento de nota e observabilidade, o candidato é um exemplo aprovado na linha correspondente do recorte do modelo técnico de referência usado no exercício 17. Nas linhas sem linha no recorte, o candidato é só um exemplo de realização que a equipe precisa avaliar, e nenhum produto está escolhido.
 
 | ABB, bloco lógico | SBB candidato | Por que esse candidato entra na comparação | Evidência que precisa decidir |
 | --- | --- | --- | --- |
-| Interface visual organizada em MVVM | React para web | Implementa a camada de apresentação e pode separar tela, estado e regras de apresentação | Acessibilidade, desempenho percebido, padrão aprovado e competência da equipe |
-| Interface visual móvel organizada em MVVM | React Native | Pode realizar o aplicativo do aluno em dispositivos móveis | Canal definido no escopo, suporte aos dispositivos dos alunos, desempenho e manutenção |
+| Interface do aplicativo do aluno | React Native | Exemplo a avaliar, sem linha no recorte: pode realizar o aplicativo do aluno em dispositivos móveis | Canal definido no escopo, suporte aos dispositivos dos alunos, desempenho e manutenção |
+| Portal do Professor | React para web | Exemplo a avaliar, sem linha no recorte, para a camada web que pode suceder o JSF 1.2 e o EJB 2.0, e só entra se o plano de migração trocar o portal | Plano de migração, as 46 telas do portal, acessibilidade, desempenho percebido e competência da equipe |
+| Portal da Secretaria | React para web | Exemplo a avaliar, sem linha no recorte, para a camada web que pode suceder o JSF 1.2 e o EJB 2.0, e só entra se o plano de migração trocar o portal | Plano de migração, as 62 telas do portal, acessibilidade, desempenho percebido e competência da equipe |
 | Provedor de identidade | Keycloak operado pela ACME | Implementa OpenID Connect e pode executar sob controle da instituição | Residência nacional, disponibilidade na matrícula, operação e custo |
 | Provedor de identidade | Auth0 contratado | Implementa padrões abertos como serviço de terceiro | Região de processamento, contrato, custo total e portabilidade |
 | Provedor de identidade | Azure AD B2C gerenciado | Realiza identidade como serviço do provedor de nuvem | Aderência à restrição de nuvem, região, custo de saída e dependência de fornecedor |
 | Serviço de matrícula | Spring Boot | Pode expor a API REST e implementar regras do serviço | Capacidade para o pico, competência Java, observabilidade e suporte |
 | Serviço de matrícula | FastAPI | Pode expor a API REST como serviço independente | Capacidade para o pico, competência Python, operação e integração existente |
+| Serviço de matrícula | NestJS | Pode expor a API REST como serviço independente, na mesma linha de exposição de serviços | Capacidade para o pico, competência TypeScript, operação e integração existente |
+| Serviço de notas | Spring Boot | Pode expor API REST e publicar o evento de nota | Contrato OpenAPI e AsyncAPI, prazo do R7 e competência Java |
+| Serviço de notas | FastAPI | Pode expor API REST e publicar o evento de nota, na mesma linha de exposição de serviços | Contrato OpenAPI e AsyncAPI, prazo do R7 e competência Python |
 | Serviço de notas | NestJS | Pode expor API REST e publicar o evento de nota | Contrato OpenAPI e AsyncAPI, prazo do R7 e competência TypeScript |
+| Banco do serviço de matrícula | PostgreSQL em região nacional | Implementa o armazenamento SQL próprio do serviço, na mesma linha de banco de serviço novo | Proteção do dado, recuperação, custo e operação da base |
 | Banco do serviço de notas | PostgreSQL em região nacional | Implementa o armazenamento SQL próprio do serviço | Proteção do dado, recuperação, custo e operação da base |
 | Evento de nota | Kafka ou compatível | Publica eventos com retenção e contrato AsyncAPI | Volume, retenção, reentrega e rastreabilidade da mensagem |
 | Evento de nota | RabbitMQ | Pode realizar mensageria entre produtor e consumidor | Garantias de entrega, operação, retenção e compatibilidade com o contrato |
+| Camada anticorrupção | Candidato a levantar | O recorte e o dossiê não trazem produto nem exemplo para isolar os serviços novos do COBOL, e a equipe levanta candidatos antes da comparação | Transações CICS existentes, tempo limite dos conectores e competência da equipe |
 | Observabilidade | Coletores compatíveis com OpenTelemetry | Coletam métricas, logs e rastros para operar os serviços | Correlação, retenção, acesso aos dados e integração com a operação existente |
-| Provisionamento da infraestrutura | Terraform | Declara e versiona a infraestrutura, com possibilidade de atender aos dois provedores pré-aprovados | Portabilidade, competência, cobertura dos recursos e processo de aprovação |
 
-Leia cada linha da esquerda para a direita. “Interface visual em MVVM → React” ou “evento de nota → Kafka” é um ponto de partida para a comparação. Antes de escolher, o aluno verifica as restrições, procura evidências para os seis critérios e registra no ADR por que a opção escolhida atende melhor ao caso.
+Leia cada linha da esquerda para a direita. “Interface do aplicativo do aluno → React Native” ou “evento de nota → Kafka” é um ponto de partida para a comparação. Antes de escolher, o aluno verifica as restrições, procura evidências para os seis critérios e registra no ADR por que a opção escolhida atende melhor ao caso.
+
+Fica sem linha na tabela o Núcleo transacional COBOL sob CICS, que permanece como está no primeiro ciclo e não recebe SBB novo. A infraestrutura como código também não é bloco do catálogo, mas a linha do recorte que a trata vale para todos os contêineres novos, e a ferramenta, entre Terraform, AWS CDK e Bicep, é escolhida pelos seis critérios, como no exemplo de eliminação do Passo 4.
 
 #### Inclua o risco de dependência na comparação
 
@@ -184,11 +191,11 @@ Ao concluir os cinco passos, o arquiteto registra no ADR a opção escolhida, as
 
 **Para que serve.** A ACME precisa de um serviço de matrícula que aguente 5.800 sessões simultâneas, mas o desenho da Aula 4 deixou todos os contêineres novos com a etiqueta tecnologia a definir. Se cada equipe escolher o produto que já conhece, a universidade termina com padrões diferentes em cada serviço e com tecnologias antigas copiadas para o sistema novo. Por isso a seção 8 do caderno começa pelo que a ACME já aprovou e pelo que quer abandonar, e só depois compara as opções de um produto, de modo que quem ler o caderno meses depois encontre o motivo de cada escolha.
 
-**O que você faz neste exercício.** O enunciado reúne o que é preciso para esse primeiro passo: as oito caixas do desenho de contêineres do exercício 16, que são as partes executáveis da solução, como o serviço de matrícula e o banco do serviço de notas, um recorte de seis linhas do modelo técnico de referência da ACME, seis tecnologias que a universidade já usa, como o COBOL sob CICS e o banco Oracle 12c, e três formas de obter um provedor de identidade, chamadas A, B e C. Você liga cada contêiner à linha do modelo que vale para ele, porque é essa linha que diz o padrão a seguir, depois classifica cada tecnologia atual em verde, âmbar ou vermelho para mostrar o que fica e o que sai, e por fim começa a comparar as três formas com o dado que o caso traz, já que o restante ainda precisa ser levantado.
+**O que você faz neste exercício.** O enunciado reúne o que é preciso para esse primeiro passo: as oito caixas do desenho de contêineres do exercício 16, que são as partes executáveis da solução, como o serviço de matrícula e o banco do serviço de notas, o catálogo de doze blocos do mesmo exercício, um recorte de seis linhas do modelo técnico de referência da ACME, seis tecnologias que a universidade já usa, como o COBOL sob CICS e o banco Oracle 12c, e três formas de obter um provedor de identidade, chamadas A, B e C. Você liga cada bloco do catálogo à linha do modelo que vale para ele, porque é essa linha que diz o padrão a seguir e quais produtos aprovados entram como candidatos, depois classifica cada tecnologia atual em verde, âmbar ou vermelho para mostrar o que fica e o que sai, e por fim começa a comparar as três formas com o dado que o caso traz, já que o restante ainda precisa ser levantado.
 
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
-| Linha do modelo e padrão obrigatório | Para o provedor de identidade, o serviço de matrícula, o banco do serviço de notas e o evento de nota, diga qual linha do modelo técnico vale e qual padrão ela exige | 1 |
+| Linha do modelo e candidatos por bloco | Para cada bloco do catálogo, exceto o núcleo transacional que permanece, diga qual linha do modelo técnico vale, qual padrão ela exige e quais exemplos aprovados da linha são os produtos candidatos, ou escreva candidato a levantar quando não houver linha | 1 |
 | Linhas válidas para todos os contêineres | Indique as duas linhas do recorte que valem para qualquer contêiner novo, qualquer que seja a função dele, e explique em uma frase | 1 |
 | Classificação da tecnologia | Classifique cada tecnologia da linha de base em verde, âmbar ou vermelho e justifique em uma linha com o dado da tabela | 2 |
 | Tecnologias sob plano de migração | Entre as vermelhas, diga quais continuam em uso hoje e só podem ficar enquanto houver plano de migração documentado | 2 |
@@ -196,9 +203,9 @@ Ao concluir os cinco passos, o arquiteto registra no ADR a opção escolhida, as
 | Dado que falta por critério | Para maturidade, suporte, custo total de propriedade e competência da equipe, diga qual informação o caso não traz e precisa ser levantada | 3 |
 | Regra de eliminação pela restrição | Escolha R8 ou R14, escreva a condição que elimina uma candidata e indique o documento necessário para verificar o atendimento | 3 |
 
-**O que você já tem.** O diagrama de contêineres do exercício 16, com os contêineres novos ainda marcados como tecnologia a definir, e os requisitos e restrições registrados nas seções 1 e 3.
+**O que você já tem.** O diagrama de contêineres e o catálogo de blocos do exercício 16, com os contêineres novos ainda marcados como tecnologia a definir, e os requisitos e restrições registrados nas seções 1 e 3.
 
-**Quando está pronto.** Os quatro elementos têm linha e padrão, as seis tecnologias têm cor e justificativa, as três alternativas têm exigências e evidências a confirmar, e a regra de eliminação informa qual documento verificar.
+**Quando está pronto.** Os onze blocos têm linha, padrão e candidatos, ou a marca de candidato a levantar, as seis tecnologias têm cor e justificativa, as três alternativas têm exigências e evidências a confirmar, e a regra de eliminação informa qual documento verificar.
 
 [Ver esta seção no template](../caderno/template.md#8-tecnologia-e-plataforma){ .caderno-botao }
 [Ver o gabarito do exercício 17](../gabaritos/gabarito-exercicio-17.md){ .caderno-botao }
@@ -209,11 +216,11 @@ Ao concluir os cinco passos, o arquiteto registra no ADR a opção escolhida, as
 
 A ACME é uma universidade privada brasileira com 38.400 alunos ativos, cujo sistema acadêmico passa por modernização incremental, isto é, é trocado por partes. O núcleo transacional, que é o conjunto de programas em COBOL que executa as operações acadêmicas, como a matrícula e o lançamento de notas, continua em operação sob o monitor CICS durante toda a transição. O monitor CICS é o programa que recebe e processa cada transação desse núcleo.
 
-O exercício 16, da Aula 4, desenhou os contêineres da solução nova e deixou cada um com o rótulo tecnologia a definir. Este exercício dá o passo seguinte, em três itens. No primeiro, o aluno liga cada contêiner à linha do modelo técnico de referência da ACME que vale para ele. No segundo, decide o destino de seis tecnologias que a universidade já usa. No terceiro, começa a comparar três formas de obter um provedor de identidade. O enunciado traz o diagrama de contêineres do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16) e fatos reproduzidos da [arquitetura de linha de base](../caso-acme/linha-de-base.md), dos [dados operacionais](../caso-acme/dados-operacionais.md) e da [página inicial do caso](../caso-acme/index.md), de modo que nenhuma resposta depende de dado externo ao enunciado.
+O exercício 16, da Aula 4, desenhou os contêineres da solução nova e deixou cada um com o rótulo tecnologia a definir. Este exercício dá o passo seguinte, em três itens. No primeiro, o aluno liga cada bloco do catálogo à linha do modelo técnico de referência da ACME que vale para ele e levanta os produtos candidatos dessa linha. No segundo, decide o destino de seis tecnologias que a universidade já usa. No terceiro, começa a comparar três formas de obter um provedor de identidade. O enunciado traz o diagrama de contêineres do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16) e fatos reproduzidos da [arquitetura de linha de base](../caso-acme/linha-de-base.md), dos [dados operacionais](../caso-acme/dados-operacionais.md) e da [página inicial do caso](../caso-acme/index.md), de modo que nenhuma resposta depende de dado externo ao enunciado.
 
-### Item 1: Contêineres e categorias do modelo técnico
+### Item 1: Blocos do catálogo e linhas do modelo técnico
 
-Cada equipe da ACME tende a escolher o produto que já conhece, e é a linha do modelo técnico de referência que diz de antemão qual padrão o contêiner novo precisa respeitar, de modo que o item pede que cada contêiner seja ligado à sua linha. O diagrama traz oito caixas do exercício 16. Seis são contêineres novos, com o rótulo tecnologia a definir: o aplicativo do aluno, o provedor de identidade, que é o serviço que confirma quem é o usuário, os serviços de matrícula e de notas e os dois bancos desses serviços. As outras duas são o núcleo transacional existente e o ambiente virtual de aprendizagem, um sistema externo onde o aluno acessa as turmas e consulta as notas. A tabela traz um recorte do modelo técnico de referência da ACME com seis linhas, e cada linha indica, para uma categoria de tecnologia, o padrão obrigatório, os produtos aprovados e os não aprovados. O R7 citado no diagrama é o requisito de que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos, e o evento de nota é a mensagem que avisa o ambiente virtual de que uma nota foi lançada.
+Cada equipe da ACME tende a escolher o produto que já conhece, e é a linha do modelo técnico de referência que diz de antemão qual padrão o bloco novo precisa respeitar e quais produtos já foram aprovados, de modo que o item pede que cada bloco do catálogo seja ligado à sua linha. O produto que poderia realizar um bloco é o SBB candidato, apresentado no bloco 1 desta aula. O diagrama traz oito caixas do exercício 16. Seis são contêineres novos, com o rótulo tecnologia a definir: o aplicativo do aluno, o provedor de identidade, que é o serviço que confirma quem é o usuário, os serviços de matrícula e de notas e os dois bancos desses serviços. As outras duas são o núcleo transacional existente e o ambiente virtual de aprendizagem, um sistema externo onde o aluno acessa as turmas e consulta as notas. A primeira tabela traz um recorte do modelo técnico de referência da ACME com seis linhas, e cada linha indica, para uma categoria de tecnologia, o padrão obrigatório, os produtos aprovados e os não aprovados. O R7 citado no diagrama é o requisito de que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos, e o evento de nota é a mensagem que avisa o ambiente virtual de que uma nota foi lançada.
 
 ```mermaid
 graph LR
@@ -244,10 +251,26 @@ graph LR
 | Infraestrutura | Observabilidade | OpenTelemetry | Coletores compatíveis | Registro sem correlação |
 | Dados | Banco de serviço novo | SQL, banco por serviço, região nacional | PostgreSQL ou compatível | Oracle sem ADR de desvio |
 
-1. Para cada um dos quatro elementos a seguir, indique a linha do recorte que se aplica e o padrão ou protocolo obrigatório dessa linha: o provedor de identidade, o serviço de matrícula, o banco do serviço de notas e a comunicação por evento do serviço de notas com o ambiente virtual de aprendizagem, que o R7 exige.
+O catálogo de blocos do exercício 16 tem doze linhas, e a tabela a seguir reproduz onze delas com as duas colunas que o aluno preenche. A décima segunda é o núcleo transacional COBOL sob CICS, que permanece como está no primeiro ciclo e por isso não recebe candidato. O diagrama mostra seis contêineres novos, e o catálogo acrescenta blocos que podem ficar dentro de um contêiner ou nas relações entre eles, como o evento de nota, a camada anticorrupção e a observabilidade.
+
+| Bloco do catálogo | Responsabilidade | Linha do recorte e padrão obrigatório | SBBs candidatos |
+| --- | --- | --- | --- |
+| Interface do aplicativo do aluno | Permitir matrícula e consulta de notas no canal móvel |  |  |
+| Portal do Professor | Permitir o lançamento de notas no canal já usado pelos professores |  |  |
+| Portal da Secretaria | Sustentar as operações acadêmicas da secretaria durante a transição |  |  |
+| Provedor de identidade | Autenticar e autorizar alunos, professores e equipe com padrões abertos |  |  |
+| Serviço de matrícula | Receber solicitações e aplicar regras acadêmicas |  |  |
+| Serviço de notas | Registrar, consultar e disponibilizar notas |  |  |
+| Banco do serviço de matrícula | Persistir os dados próprios da matrícula |  |  |
+| Banco do serviço de notas | Persistir os dados próprios das notas |  |  |
+| Evento de nota | Comunicar a publicação de notas ao ambiente virtual |  |  |
+| Camada anticorrupção | Isolar os serviços novos das particularidades do COBOL |  |  |
+| Observabilidade | Correlacionar eventos, métricas e registros dos serviços novos |  |  |
+
+1. Para cada um dos onze blocos da tabela, indique a linha do recorte que vale para ele e o padrão ou protocolo obrigatório dessa linha, e copie os exemplos aprovados da linha como SBBs candidatos. Quando nenhuma das seis linhas tratar do bloco, escreva “sem linha no recorte” e “candidato a levantar”.
 2. Entre as seis linhas do recorte, indique as duas cujo padrão vale para todos os contêineres novos, qualquer que seja a função do serviço, e justifique a escolha em uma frase.
 
-Suas respostas viram os campos Linha do modelo e padrão obrigatório e Linhas válidas para todos os contêineres, na seção 8 do caderno.
+Suas respostas viram os campos Linha do modelo e candidatos por bloco e Linhas válidas para todos os contêineres, na seção 8 do caderno.
 
 ### Item 2: Tecnologias da linha de base
 
