@@ -148,6 +148,8 @@ graph LR
     PA --> NUC["Núcleo transacional, COBOL sobre CICS"]
     PP --> NUC
     NUC --> ORA[("Banco Oracle compartilhado")]
+    PA -.->|"acesso direto, 2.300 pontos no código dos portais"| ORA
+    PP -.-> ORA
     NUC --> LNOT["Lote diário de notas, início às 05h10"]
     LNOT -->|"arquivo"| AVA["Ambiente virtual de aprendizagem"]
     NUC --> LFIN["Lote de lançamentos financeiros, início às 23h10"]

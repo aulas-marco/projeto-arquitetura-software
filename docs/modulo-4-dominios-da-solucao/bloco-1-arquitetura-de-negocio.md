@@ -168,7 +168,7 @@ A arquitetura de solução concentra seu trabalho nos estágios de definir e pro
 
 A pergunta do arquiteto neste domínio, no roteiro do [bloco 0](bloco-0-espinha-dorsal-dos-dominios.md), é a seguinte. Que capacidades, etapas do fluxo de valor e atividades a solução altera, segundo os modelos que a arquitetura de negócio já mantém?
 
-O arquiteto da ACME recebe o requisito de que a nota chegue ao ambiente virtual em até 10 minutos e precisa dizer ao patrocinador o que a universidade terá de mudar para atendê-lo. Para isso consulta os modelos que a arquitetura de negócio já mantém, porque cada um responde a uma parte da dúvida: o mapa de capacidades mostra onde a mudança incide, o fluxo de valor mostra em que etapa o aluno a percebe, e o modelo de processo lista as atividades que as áreas responsáveis precisam rever. Com as três respostas ele delimita o escopo do primeiro ciclo, registra no caderno o efeito da solução no negócio e entrega as capacidades afetadas ao domínio de dados. Quando um dos modelos não existe, ele registra a ausência como risco e solicita o artefato à área de negócio, porque sem o modelo o escopo ficaria baseado na opinião de cada área e o arquiteto teria de modelar processos que pertencem à análise de negócio.
+O arquiteto da ACME recebe o requisito de que a nota chegue ao ambiente virtual em até 10 minutos e precisa dizer ao patrocinador o que a universidade terá de mudar para atendê-lo. Para isso consulta os modelos que a arquitetura de negócio já mantém, porque cada um responde a uma parte da dúvida: o mapa de capacidades mostra onde a mudança incide, o fluxo de valor mostra em que etapa o aluno a percebe, e o modelo de processo, apoiado na decomposição funcional, lista as atividades que as áreas responsáveis precisam rever. Com as três respostas ele delimita o escopo do primeiro ciclo, registra no caderno o efeito da solução no negócio e entrega as capacidades afetadas ao domínio de dados. Quando um dos modelos não existe, ele registra a ausência como risco e solicita o artefato à área de negócio, porque sem o modelo o escopo ficaria baseado na opinião de cada área e o arquiteto teria de modelar processos que pertencem à análise de negócio.
 
 ## No caderno arquitetural
 
@@ -181,7 +181,7 @@ O arquiteto da ACME recebe o requisito de que a nota chegue ao ambiente virtual 
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
 | Classificação da capacidade | Diga se a capacidade é estratégica, quando orienta a oferta e a qualidade do serviço, operacional, quando entrega o serviço ao aluno, ou de apoio, quando sustenta as demais | 1 |
-| Capacidade afetada | Marque as capacidades que o primeiro ciclo altera, conforme a declaração de escopo do exercício 8, e escreva uma linha de justificativa para cada marcação | 1 |
+| Capacidade afetada | Marque as capacidades que o primeiro ciclo altera, a partir dos elementos que mudam na declaração de escopo do exercício 8, e escreva uma linha de justificativa para cada marcação | 1 |
 | Etapa com problema | Aponte as etapas do fluxo de valor do aluno em que ele percebe atraso, restrição de acesso ou falta de função | 2 |
 | Requisito da etapa | Para cada etapa apontada, diga se o problema é o do R1, do R7 ou do R13, ou registre que nenhum dos três se aplica | 2 |
 | Atividade que muda | Aponte as atividades do processo de lançamento de nota que mudam quando a nota passa a chegar ao ambiente virtual em até 10 minutos | 3 |
@@ -235,13 +235,23 @@ block-beta
 | Avaliação e registro de notas | Lançamento de notas, cálculo de média e situação do aluno |
 | Controle de frequência | Apuração de faltas e de reprovação por infrequência |
 | Emissão de documentos acadêmicos | Histórico, declaração, atestado e diploma digital |
-| Gestão de bolsas e descontos | Regras de financiamento estudantil e de convênio |
+| Gestão de bolsas e descontos | Regras de financiamento estudantil e de convênio, que a matrícula consulta para calcular o valor da parcela |
 | Cobrança de mensalidades | Lançamento financeiro e acompanhamento de pagamento |
 | Biblioteca | Empréstimo, reserva e débito |
 | Relação com o órgão regulador | Extração anual do censo da educação superior |
 
 1. Classifique cada uma das dez capacidades em estratégica, operacional ou de apoio.
-2. Marque as capacidades afetadas pelo primeiro ciclo, conforme a declaração de escopo do exercício 8, com uma linha de justificativa para cada marcação.
+A declaração de escopo do exercício 8 marcou dez elementos, e cinco deles mudam no primeiro ciclo. A tabela abaixo os reproduz, e a marcação das capacidades afetadas parte deles.
+
+| Código | Elemento que muda no primeiro ciclo |
+| --- | --- |
+| E1 | Integração de notas e turmas com o ambiente virtual de aprendizagem, desde que a Reitoria aprove o plano superior que traz as interfaces de programação |
+| E5 | Portal do aluno, na renovação de matrícula pelo telefone celular |
+| E6 | Autenticação de alunos e professores por padrões abertos |
+| E7 | Trilha de auditoria de leitura de dado pessoal de aluno |
+| E10 | Responsabilidade pela correção de dado cadastral de aluno |
+
+2. Marque as capacidades afetadas pelo primeiro ciclo, a partir dos elementos E1, E5, E6, E7 e E10 e dos requisitos R1, R7 e R13, com uma linha de justificativa para cada marcação.
 
 Suas respostas viram os campos Classificação da capacidade e Capacidade afetada, na seção 7 do caderno.
 

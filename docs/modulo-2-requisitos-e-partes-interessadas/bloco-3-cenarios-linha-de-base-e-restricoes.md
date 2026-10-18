@@ -48,7 +48,7 @@ Os três exemplos seguintes usam serviços da Universidade ACME, e seus valores 
 | Resposta | Validar a identidade, recuperar a nota e devolver a resposta |
 | Medida | p95 até 500 ms, p99 até 1 s, erros abaixo de 0,1% |
 
-Na medida, p95 e p99 são os tempos dentro dos quais terminam 95% e 99% das consultas. O segundo exemplo trata de modificabilidade: considere uma futura troca do gateway de pagamento usado na matrícula, em que a equipe quer incluir a integração nova sem alterar as existentes, e é a decisão de escopo do primeiro ciclo que define se essa troca será feita.
+Na medida, p95 e p99 são os tempos dentro dos quais terminam 95% e 99% das consultas. O segundo exemplo trata de modificabilidade: considere uma futura troca do gateway de pagamento usado na matrícula, em que a equipe quer incluir a integração nova sem alterar as existentes, e o exemplo é hipotético, porque o contrato vigente do gateway, com multa de rescisão até 30/04/2027, mantém essa troca fora do primeiro ciclo.
 
 | Elemento | Especificação |
 | --- | --- |
@@ -185,7 +185,7 @@ A ACME é uma universidade privada brasileira fictícia cujo sistema acadêmico 
 
 ### Item 1: Cenário do pico de matrícula
 
-O portal da ACME registra 815 sessões simultâneas em média anual ponderada, com pico de 5.800 sessões na abertura da matrícula, uma razão de 7,1 entre pico e média (o pico equivale a 7,1 vezes a média), e taxa de erro de 6,3% das requisições nesse intervalo de pico, contra 0,2% em dia letivo comum. O quadro abaixo traz um [cenário de atributo de qualidade](../referencia/glossario.md#cenario-de-atributo-de-qualidade) para esse pico, com os quatro primeiros dos seis elementos preenchidos e os dois últimos, a resposta do sistema e a medida que permite verificá-la, em branco para o aluno completar.
+O portal da ACME registra 815 sessões simultâneas em média anual ponderada, com pico de 5.800 sessões na abertura da matrícula, uma razão de 7,1 entre pico e média (o pico equivale a 7,1 vezes a média), e taxa de erro de 6,3% das requisições nesse intervalo de pico, contra 0,2% em dia letivo comum. O quadro abaixo traz um [cenário de atributo de qualidade](../referencia/glossario.md#cenario-de-atributo-de-qualidade) para esse pico, com os quatro primeiros dos seis elementos preenchidos e os dois últimos, a resposta do sistema e a medida que permite verificá-la, em branco para o aluno completar. O dossiê não fixa meta de erro, e o curso adota 1% das requisições no pico como valor de referência, ao lado do requisito R6 de tempo de confirmação em até 4 segundos para 95% das requisições.
 
 | Elemento | Especificação |
 | --- | --- |

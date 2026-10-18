@@ -22,6 +22,7 @@ Fontes conferidas, no formato APA 7ª edição. Referências adicionais entram s
 - Gartner. (n.d.). *Gartner Hype Cycle research methodology*. https://www.gartner.com/en/research/methodologies/gartner-hype-cycle
 - Gartner. (n.d.). *Magic Quadrant research methodology*. https://www.gartner.com/en/research/methodologies/magic-quadrants-research
 - Forrester Research. (n.d.). *The Forrester Wave methodology*. https://www.forrester.com/policies/forrester-wave-methodology/
+- The Open Group. (2022). *The TOGAF Standard, 10th Edition*. Acesso em 18 de outubro de 2026. https://www.opengroup.org/open-group-announces-launch-togaf-standard-10th-edition (lançamento da 10ª edição em abril de 2022, que traz o ciclo ADM)
 - Vernon, V. (2013). *Implementing domain-driven design*. Addison-Wesley.
 - Gamma, E., Helm, R., Johnson, R., & Vlissides, J. (1994). *Design patterns: Elements of reusable object-oriented software*. Addison-Wesley.
 - Evans, E. (2003). *Domain-driven design: Tackling complexity in the heart of software*. Addison-Wesley.
@@ -39,7 +40,7 @@ Fontes conferidas, no formato APA 7ª edição. Referências adicionais entram s
 - The Open Group. (2026, 27 de abril). *The Open Group announces ArchiMate® 4 specification* (C260). https://www.opengroup.org/The-Open-Group-Announces-ArchiMate%C2%AE-4-Specification
 - HL7 International. (2023). *FHIR release 5*. https://hl7.org/fhir/R5/
 - Armbrust, M., Ghodsi, A., Xin, R., & Zaharia, M. (2021). Lakehouse: A new generation of open platforms that unify data warehousing and advanced analytics. *Conference on Innovative Data Systems Research (CIDR '21)*. https://www.cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf
-- Bitol. (2026). *Open Data Contract Standard* (Versão 3.2.0). LF AI & Data Foundation. https://bitol-io.github.io/open-data-contract-standard/latest/
+- Bitol. (2026). *Open Data Contract Standard* (série 3.x). LF AI & Data Foundation. https://bitol-io.github.io/open-data-contract-standard/latest/
 - Brasil. (2018). *Lei nº 13.709, de 14 de agosto de 2018. Lei Geral de Proteção de Dados Pessoais (LGPD)*. https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm
 - Carr, A. (2026). *4 common master data management implementation styles*. Stibo Systems. https://www.stibosystems.com/blog/4-common-master-data-management-implementation-styles
 - DAMA Denmark. (2020). *Data management body of knowledge: Overview of the DMBOK2* [Apresentação]. https://www.dama-dk.org/onewebmedia/DAMA%20DMBOK2_PDF.pdf
@@ -77,6 +78,6 @@ Fontes conferidas, no formato APA 7ª edição. Referências adicionais entram s
 - The Kubernetes Authors. (n.d.-b). *Pods*. Kubernetes Documentation. https://kubernetes.io/docs/concepts/workloads/pods/
 - Fowler, M. (n.d.). *Exploring generative AI* [Série de artigos de vários autores, entre eles Birgitta Böckeler, sobre o uso de IA generativa no desenvolvimento de software]. martinfowler.com. Acesso em 16 de outubro de 2026. https://martinfowler.com/articles/exploring-gen-ai.html
 
-As referências ainda não confirmadas (a edição do TOGAF, o número de características da ISO/IEC 25010:2023, o DOI do relatório do SEI e a coletânea de 2016 do Quality Attribute Workshop) ficam fora da lista até serem conferidas.
+As referências ainda não confirmadas (o número de características da ISO/IEC 25010:2023, o DOI do relatório do SEI e a coletânea de 2016 do Quality Attribute Workshop) ficam fora da lista até serem conferidas.
 
 Três observações de conferência. Sobre Clements et al., o guia de ADR do professor cita o artigo de 2003 apresentado na International Conference on Software Engineering, enquanto a bibliografia do site base cita a segunda edição do livro, de 2010. São obras distintas sobre o mesmo método, e a lista acima mantém o livro, que é a referência de leitura. A data de 2011 e a atribuição ao Cognitect Blog para Nygard, antes não verificadas, foram confirmadas contra a bibliografia do [material base do professor](https://marco-mendes.github.io/arquitetura-software/modulo-1-visao-geral/sintese-e-referencias/), que traz o mesmo endereço. Sobre Ford e Richards, o material base registra a primeira edição de 2020 em um lugar e a segunda edição de 2022 em outro, divergência não resolvida nesta conferência, motivo pelo qual a lista mantém a edição de 2020, que é a citada na bibliografia publicada.

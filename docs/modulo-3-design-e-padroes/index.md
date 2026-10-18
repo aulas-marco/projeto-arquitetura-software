@@ -55,9 +55,9 @@ A Aula 2 deixou o caderno com os requisitos, os cenários de qualidade e as rest
 
 | Bloco | Exercício | O que entra no caderno | Gabarito |
 | --- | --- | --- | --- |
-| 1 | 9 | Quatro princípios de design em ordem de prioridade e o esboço lógico com cinco elementos para as oito responsabilidades (RS1 a RS8), com um risco e uma decisão pendente | [Gabarito 9](../gabaritos/gabarito-exercicio-09.md) |
+| 1 | 9 | Entre três e cinco princípios de design em ordem de prioridade, quatro no gabarito, e o esboço lógico com cinco elementos para as oito responsabilidades (RS1 a RS8), com um risco e uma decisão pendente | [Gabarito 9](../gabaritos/gabarito-exercicio-09.md) |
 | 2 | 10 | A comparação de três estilos diante dos dois cenários de qualidade, com risco, mecanismo compensatório e o estilo recomendado | [Gabarito 10](../gabaritos/gabarito-exercicio-10.md) |
-| 3 | 11 | Um padrão para cada um dos três problemas da ACME, com nível, elemento afetado, consequência favorável, custo aceito e os padrões descartados | [Gabarito 11](../gabaritos/gabarito-exercicio-11.md) |
+| 3 | 11 | Um padrão para cada um dos três problemas da ACME, com nível, elemento afetado, consequência favorável, custo aceito e o padrão descartado, com os dois que o gabarito apresenta | [Gabarito 11](../gabaritos/gabarito-exercicio-11.md) |
 | 4 | 12 | O ADR do estilo e dos padrões, nos dez campos do modelo, com estado proposta | [Gabarito 12](../gabaritos/gabarito-exercicio-12.md) |
 
 ## Preparação para a Aula 4

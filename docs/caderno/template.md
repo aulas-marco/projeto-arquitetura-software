@@ -79,7 +79,7 @@ Você escreve:
 - **Responsável:** diga se a tarefa é do arquiteto de solução, do arquiteto de software ou da arquitetura corporativa, pelo mesmo critério do exercício 1: até onde o efeito da tarefa chega.
 - **Justificativa:** explique em uma frase por que a tarefa é desse responsável.
 - **Grupo de competência:** nas tarefas do arquiteto de solução, diga qual habilidade a tarefa pede mais: de negócio, técnica, de entrega ou prática (comunicação, relacionamento com as partes interessadas, requisitos).
-- **Benefício de reaproveitar um componente de software:** escolha, entre os sete benefícios da abordagem arquitetural, o que justifica verificar se já existe um componente de software reaproveitável.
+- **Benefício que justifica a tarefa TA10:** escolha, entre os sete benefícios da abordagem arquitetural, o que justifica verificar se já existe um componente de software reaproveitável.
 
 ### 1.4 Artefatos nas fases do processo, premissas e escopo
 
@@ -368,7 +368,7 @@ Esta parte é preenchida no exercício 13.
 Você escreve:
 
 - **Classificação da capacidade:** diga se cada uma das dez capacidades acadêmicas é estratégica, quando orienta a oferta e a qualidade do serviço, operacional, quando entrega o serviço ao aluno, ou de apoio, quando sustenta as demais.
-- **Capacidade afetada:** marque as capacidades que o primeiro ciclo altera, conforme a declaração de escopo do exercício 8, e escreva uma linha de justificativa para cada marcação.
+- **Capacidade afetada:** marque as capacidades que o primeiro ciclo altera, a partir dos elementos que mudam na declaração de escopo do exercício 8, e escreva uma linha de justificativa para cada marcação.
 - **Etapa com problema:** aponte as etapas do fluxo de valor do aluno em que ele percebe atraso, restrição de acesso ou falta de função.
 - **Requisito da etapa:** para cada etapa apontada, diga se o problema é o da renovação pelo celular (R1), o da nota em até 10 minutos (R7) ou o da consulta do resultado de aproveitamento pelo portal (R13), ou registre que nenhum dos três se aplica.
 - **Atividade que muda:** aponte as atividades do processo de lançamento de nota que mudam quando a nota passa a chegar ao ambiente virtual em até 10 minutos.

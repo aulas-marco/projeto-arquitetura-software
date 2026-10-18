@@ -136,7 +136,7 @@ O primeiro exemplo é o do modelo como redator. O arquiteto quer um rascunho do 
 Você é um assistente que redige rascunhos de ADR (registro de decisão arquitetural).
 
 Tarefa: escreva um rascunho de ADR com os dez campos do modelo abaixo,
-sobre a decisão de colocar uma fila entre o portal e o núcleo COBOL na
+sobre a decisão de colocar uma fila entre a entrada da matrícula e o núcleo COBOL na
 entrada da matrícula.
 
 Campos do modelo: título, estado, data, contexto, forças, alternativas,
@@ -338,7 +338,7 @@ As quatro tarefas de julgamento delimitam o que o arquiteto leva a quem decide. 
 
 ## Exercício 23
 
-A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. Este exercício treina a conferência de um texto escrito por modelo de linguagem, porque o arquiteto que aceita um rascunho sem conferir leva o erro a todos os registros que dependem dele. O arquiteto da ACME pediu a um modelo, aprovado pela área de segurança, o rascunho do registro de decisão sobre a fila entre o portal e o núcleo na entrada da matrícula, o ADR 001 do [exercício 12](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md#exercicio-12), e anexou ao pedido as atas das entrevistas, o formato de dez campos e um documento de orientação do projeto.
+A ACME é a universidade privada brasileira em modernização incremental do sistema acadêmico, usada como caso desta disciplina. Este exercício treina a conferência de um texto escrito por modelo de linguagem, porque o arquiteto que aceita um rascunho sem conferir leva o erro a todos os registros que dependem dele. O arquiteto da ACME pediu a um modelo, aprovado pela área de segurança, o rascunho do registro de decisão sobre a fila entre a entrada da matrícula e o núcleo na entrada da matrícula, o ADR 001 do [exercício 12](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md#exercicio-12), e anexou ao pedido as atas das entrevistas, o formato de dez campos e um documento de orientação do projeto.
 
 O enunciado traz duas tabelas. A primeira reproduz parte do que o modelo devolveu, e a segunda reúne oito dados vigentes do caso, que servem de fonte para a conferência. O exercício tem três itens, e em cada um você aplica uma das verificações do Conceito. Nos enunciados, um código formado por R e um número, como R6, identifica um requisito do dossiê da ACME, a exigência que a solução precisa cumprir.
 
@@ -347,8 +347,8 @@ O enunciado traz duas tabelas. A primeira reproduz parte do que o modelo devolve
 | Estado | Aceita |
 | Data | 14/09/2026 |
 | Contexto | Na abertura da matrícula, o portal precisa atender 4.000 usuários simultâneos, com confirmação em tempo médio de até 3 segundos. A taxa de erro nessa abertura chega a 6,3%, contra a meta de 1%. Em 04/02/2026, o portal ficou indisponível por 4h20. O núcleo COBOL não pode ser alterado durante a transição |
-| Decisão | Adotar a arquitetura orientada a eventos na entrada da matrícula, com fila entre o portal e o núcleo. A decisão foi aprovada pelo Diretor de TI |
-| Consequências | O núcleo deixa de receber a rajada direta e processa no ritmo que sustenta. A taxa de erro na janela de matrícula cai. A equipe ganha isolamento entre o portal e o núcleo |
+| Decisão | Adotar a arquitetura orientada a eventos na entrada da matrícula, com fila entre a entrada da matrícula e o núcleo. A decisão foi aprovada pelo Diretor de TI |
+| Consequências | O núcleo deixa de receber a rajada direta e processa no ritmo que sustenta. A taxa de erro na janela de matrícula cai. A equipe ganha isolamento entre a entrada da matrícula e o núcleo |
 
 | Nº | Dado vigente | Valor | Origem |
 | --- | --- | --- | --- |
@@ -358,7 +358,7 @@ O enunciado traz duas tabelas. A primeira reproduz parte do que o modelo devolve
 | 4 | Incidente de 04/02/2026 | 4h20 de indisponibilidade e 62% das tentativas de matrícula com erro | Dados operacionais |
 | 5 | Documento de orientação anexado ao pedido | Versão anterior, que registrava 4.000 usuários simultâneos e tempo médio de até 3 segundos | Anexo do pedido ao modelo |
 | 6 | Estado e data do ADR 001 | Proposta, com data a definir junto ao Diretor de TI | ADR do exercício 12 |
-| 7 | Consequências negativas do ADR 001 | O aluno deixa de receber a confirmação da matrícula na hora e recebe só a confirmação de recebimento do pedido. A equipe passa a operar um componente assíncrono, em que quem envia segue adiante sem esperar resposta. Os seis padrões exigem manter duas implementações e ajustar limites sem teste de carga. A mensagem pode ser entregue mais de uma vez | ADR do exercício 12 |
+| 7 | Consequências negativas do ADR 001 | O aluno deixa de receber a confirmação da matrícula na hora e recebe só a confirmação de recebimento do pedido. A equipe passa a operar um componente assíncrono, em que quem envia segue adiante sem esperar resposta. Os padrões escolhidos trazem custos, entre eles manter duas implementações e ajustar limites sem teste de carga. A mensagem pode ser entregue mais de uma vez | ADR do exercício 12 |
 | 8 | Exigência do modelo de ADR | Ao menos uma consequência positiva, uma negativa e uma neutra | Template de dez campos, no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md) |
 
 ### Item 1: Rastreabilidade até a fonte

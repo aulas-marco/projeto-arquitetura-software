@@ -70,7 +70,7 @@ Quando a ACME decide algo como mudar o prazo da nota, a decisão quase nunca é 
 | Código | Tipo do componente da solução | Efeito |
 | --- | --- | --- |
 | D2 | Processos | O fechamento de notas deixa de depender da janela noturna de lote |
-| D5 | Estruturas organizacionais | A correção de dado cadastral sai da equipe de sustentação, terceirizada, e passa à Secretaria Acadêmica |
+| D5 | Estruturas organizacionais | A correção de dado cadastral sai da equipe de sustentação e passa à Secretaria Acadêmica |
 | D7 | Estruturas organizacionais | O contrato com a fábrica de software, organização parceira, define quem pode alterar o núcleo |
 | D8 | Processos | A emissão do histórico escolar passa a ter a assinatura digital como etapa do procedimento |
 | D9 | Processos | A rotina de cada equipe muda a cada módulo extraído, no ritmo do calendário acadêmico |

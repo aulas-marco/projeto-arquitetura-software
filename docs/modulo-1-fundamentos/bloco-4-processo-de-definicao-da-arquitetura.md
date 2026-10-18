@@ -131,7 +131,7 @@ Para ligar os artefatos às fases, é preciso saber o que cada um é. Artefato �
 | AR2 | Inventário dos componentes de software atuais do sistema acadêmico, com idade, responsável e tipo de integração |
 | AR3 | Catálogo de blocos de construção da solução escolhida, com as interfaces entre eles |
 | AR4 | Registro da decisão da Reitoria de 12/03/2026 que descartou a substituição por produto de mercado |
-| AR5 | Comparação de duas alternativas de modernização apresentadas ao Conselho Universitário |
+| AR5 | Comparação de duas alternativas de modernização apresentadas à Reitoria |
 | AR6 | Modelo único de componentes da solução, com as mudanças de processo e de propriedade de dado |
 | AR7 | Sequência de extração dos módulos ao longo dos 12 meses, com marcos e riscos |
 | AR8 | Lista de componentes da solução acrescentados, removidos e alterados em relação ao sistema atual |

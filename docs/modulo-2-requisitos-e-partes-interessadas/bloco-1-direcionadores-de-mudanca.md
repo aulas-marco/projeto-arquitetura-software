@@ -70,7 +70,7 @@ Para ver os direcionadores atuando em conjunto, volta-se à ACME, universidade p
 | Expectativa do aluno | Externo, retorno de clientes | Demanda por aplicativo móvel e por matrícula que não falhe na abertura |
 | Disponibilidade de nuvem contratável | Externo, tecnologia | Dois provedores pré-aprovados pelo Conselho Universitário em 12/03/2026 |
 
-Lidos em conjunto, os três direcionadores internos apontam para custo, prazo e competência, e os quatro externos apontam para conformidade, reputação e expectativa. Por isso uma solução que trate só dos internos deixa sem resposta o que pressiona a instituição de fora.
+Lidos em conjunto, os três direcionadores internos apontam para custo, prazo e competência, e os quatro externos apontam para conformidade, reputação, expectativa e oferta de nuvem. Por isso uma solução que trate só dos internos deixa sem resposta o que pressiona a instituição de fora.
 
 ### Fontes práticas de pesquisa para o arquiteto
 
@@ -156,7 +156,7 @@ A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativo
 
 ### Item 1: Direcionadores reativos e antecipatórios
 
-Quando o arquiteto da ACME reuniu o que o dossiê registra, chegou a sete [direcionadores de mudança](../referencia/glossario.md#direcionador-de-mudanca), três internos e quatro externos, reproduzidos no diagrama e no quadro abaixo. A resposta a um direcionador é reativa quando ele já se tornou problema, como a matrícula que já falhou na abertura, e é antecipatória quando a organização prevê a mudança e age antes que ela produza efeito, como a aposentadoria de especialistas marcada para 2027. Para cada direcionador, decida em qual dessas duas situações a ACME se encontra hoje.
+Quando o arquiteto da ACME reuniu o que o dossiê registra, chegou a sete [direcionadores de mudança](../referencia/glossario.md#direcionador-de-mudanca), três internos e quatro externos, reproduzidos no diagrama e no quadro abaixo. A resposta a um direcionador é reativa quando ele já se tornou problema, como a falha de um equipamento que já parou e precisa ser consertado, e é antecipatória quando a organização prevê a mudança e age antes que ela produza efeito, como a troca de um equipamento antes do fim da vida útil. Para cada direcionador, decida em qual dessas duas situações a ACME se encontra hoje.
 
 ```mermaid
 flowchart LR

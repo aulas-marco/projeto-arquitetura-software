@@ -152,8 +152,8 @@ Agora que o método de comparação está definido, os exemplos ficam concretos.
 | Interface do aplicativo do aluno | React Native | Exemplo a avaliar, sem linha no recorte: pode realizar o aplicativo do aluno em dispositivos móveis | Canal definido no escopo, suporte aos dispositivos dos alunos, desempenho e manutenção |
 | Portal do Professor | React para web | Exemplo a avaliar, sem linha no recorte, para a camada web que pode suceder o JSF 1.2 e o EJB 2.0, e só entra se o plano de migração trocar o portal | Plano de migração, as 46 telas do portal, acessibilidade, desempenho percebido e competência da equipe |
 | Portal da Secretaria | React para web | Exemplo a avaliar, sem linha no recorte, para a camada web que pode suceder o JSF 1.2 e o EJB 2.0, e só entra se o plano de migração trocar o portal | Plano de migração, as 62 telas do portal, acessibilidade, desempenho percebido e competência da equipe |
-| Provedor de identidade | Keycloak operado pela ACME | Implementa OpenID Connect e pode executar sob controle da instituição | Residência nacional, disponibilidade na matrícula, operação e custo |
-| Provedor de identidade | Auth0 contratado | Implementa padrões abertos como serviço de terceiro | Região de processamento, contrato, custo total e portabilidade |
+| Provedor de identidade | Keycloak operado por empresa contratada | Implementa OpenID Connect e pode executar em instância dedicada à ACME | Residência nacional, disponibilidade na matrícula, acordo de operação e custo |
+| Provedor de identidade | Auth0 compartilhado | Implementa padrões abertos como serviço compartilhado de terceiro | Região de processamento, contrato, custo total e portabilidade |
 | Provedor de identidade | Azure AD B2C gerenciado | Realiza identidade como serviço do provedor de nuvem | Aderência à restrição de nuvem, região, custo de saída e dependência de fornecedor |
 | Serviço de matrícula | Spring Boot | Pode expor a API REST e implementar regras do serviço | Capacidade para o pico, competência Java, observabilidade e suporte |
 | Serviço de matrícula | FastAPI | Pode expor a API REST como serviço independente | Capacidade para o pico, competência Python, operação e integração existente |
@@ -300,11 +300,11 @@ Você vai começar a comparação do serviço que confirma a identidade dos usu�
 
 | Alternativa | Quem instala e opera | O que a equipe precisa verificar |
 | --- | --- | --- |
-| PI1: software operado pela ACME | A equipe da universidade | Produto, localização, capacidade, disponibilidade e pessoas para operar |
-| PI2: serviço contratado | Uma empresa terceira | Produto oferecido, contrato, locais de processamento e formas de exportação |
+| PI1: serviço em instância dedicada | Uma empresa terceira, para uso exclusivo da ACME | Produto, localização da instância, capacidade, disponibilidade e acordo de operação |
+| PI2: serviço compartilhado | Uma empresa terceira, para vários clientes | Produto oferecido, contrato, locais de processamento e formas de exportação |
 | PI3: serviço da nuvem | O provedor de nuvem | Recursos disponíveis, locais de processamento, contrato e possibilidade de troca de provedor |
 
-Ainda não há informações suficientes para escolher uma vencedora, e seu trabalho é dizer o que precisa ser comprovado em cada alternativa e quais dados faltam, porque a forma de contratação (instalado, contratado ou gerenciado) não serve de prova de que um requisito foi atendido.
+Ainda não há informações suficientes para escolher uma vencedora, e seu trabalho é dizer o que precisa ser comprovado em cada alternativa e quais dados faltam, porque a forma de contratação (dedicado, compartilhado ou gerenciado) não serve de prova de que um requisito foi atendido.
 
 | Código | Requisito ou restrição | Origem |
 | --- | --- | --- |
@@ -316,8 +316,8 @@ Ainda não há informações suficientes para escolher uma vencedora, e seu trab
 
 | Alternativa | Aderência ao requisito | Portabilidade |
 | --- | --- | --- |
-| PI1, instalado e operado pela equipe |  |  |
-| PI2, serviço de terceiro |  |  |
+| PI1, instância dedicada de terceiro |  |  |
+| PI2, serviço compartilhado de terceiro |  |  |
 | PI3, gerenciado da nuvem |  |  |
 
 Use a tabela abaixo para pedir as informações dos quatro critérios restantes. Escreva o que perguntaria ao fornecedor ou à equipe da ACME.

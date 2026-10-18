@@ -44,7 +44,7 @@ flowchart TB
 
 Antes de mexer em qualquer aplicação, o arquiteto precisa saber o que a organização já tem, e o artefato principal do domínio para isso é o catálogo do portfólio de aplicações, que lista as aplicações em uso e planejadas, com quem as usa e como. O portfólio costuma ser um conjunto heterogêneo, adquirido ou construído em momentos diferentes da história da organização, e por isso a arquitetura de aplicações trabalha continuamente para racionalizá-lo. Para distinguir aplicações estratégicas de aplicações legadas, é frequente o uso de uma classificação em vermelho, âmbar e verde, que permite à arquitetura de solução escolher a opção mais estratégica. Nesta disciplina, verde indica aplicação estratégica a manter e evoluir, âmbar indica aplicação mantida por ora, com restrição de investimento, e vermelho indica aplicação a substituir ou a retirar.
 
-A Figura 1 aplica a classificação ao portfólio da Universidade ACME. O ERP financeiro e o ambiente virtual permanecem, conforme a decisão de escopo da Reitoria de 12/03/2026, e por isso ficam em verde. O núcleo COBOL continua durante a transição, sob contrato de sustentação até 30/09/2027, e fica em âmbar. Os portais legados e os acessos diretos ao banco exigem migração e ficam em vermelho, de modo que a cor orienta o investimento, enquanto o roteiro define quando cada mudança pode ocorrer.
+A Figura 1 aplica a classificação a parte do portfólio da Universidade ACME, como exemplo resolvido, e o exercício 15 pede o portfólio completo. O ERP financeiro e o ambiente virtual permanecem, conforme a decisão de escopo da Reitoria de 12/03/2026, e por isso ficam em verde. O núcleo COBOL continua durante a transição, sob contrato de sustentação até 30/09/2027, e fica em âmbar. Os portais legados e os acessos diretos ao banco exigem migração e ficam em vermelho, de modo que a cor orienta o investimento, enquanto o roteiro define quando cada mudança pode ocorrer.
 
 <figure markdown="span">
 ![Portfólio de aplicações da Universidade ACME em três colunas: verde para o ERP financeiro e o ambiente virtual, que permanecem, âmbar para o núcleo COBOL, mantido durante a transição, e vermelho para os portais legados e os acessos diretos ao banco, que exigem migração.](../assets/images/acme-b3-portfolio-de-aplicacoes.svg){ .module-diagram }
@@ -298,14 +298,6 @@ Quando a Reitoria da ACME quer saber o que está dentro da solução e o que est
 
 O roteiro para montar esse diagrama tem cinco etapas encadeadas. Primeiro se identifica o sistema de interesse, porque ele é o foco do modelo, e em seguida se definem os atores externos, que são as pessoas que interagem com ele. Depois se listam os sistemas externos que trocam informação diretamente com o sistema principal, e só então se desenham as relações, que conectam pessoas e sistemas ao sistema principal com descrição clara da interação e do protocolo. A última etapa acrescenta descrição a cada elemento, para que o diagrama seja compreensível por todos os interessados, inclusive os que não participaram do desenho.
 
-O exemplo abaixo é o contexto do sistema acadêmico da Universidade ACME. Ele mostra pessoas, sistemas externos e a fronteira adotada no primeiro ciclo. O núcleo COBOL está dentro da solução porque sua convivência com os serviços novos faz parte do projeto.
-
-<figure markdown="span">
-![Contexto da Universidade ACME, com alunos, professores, secretaria e sistemas externos relacionados ao sistema acadêmico.](../assets/images/acme-ex15-contexto-corrigido.svg){ .module-diagram }
-</figure>
-
-*Figura 7 — Contexto do sistema acadêmico da Universidade ACME. Fonte: material do curso.*
-
 ### Diagrama de contêineres
 
 Quando a equipe técnica precisa saber onde um requisito será implementado, o diagrama de contexto não responde, e o nível seguinte é o diagrama de contêineres, que detalha os principais contêineres que compõem o sistema, com suas responsabilidades e com a forma como interagem entre si e com os sistemas externos. Contêineres representam as aplicações, bancos de dados ou outros serviços que compõem o sistema, cada um com responsabilidade específica e tecnologia declarada. Sistemas externos e relações continuam presentes, com o mesmo significado do nível de contexto apresentado acima.
@@ -314,7 +306,7 @@ Quando a equipe técnica precisa saber onde um requisito será implementado, o d
 ![Diagrama de contêineres com o Sistema Principal decomposto em Frontend Web em Angular, Backend de Aplicação em Spring Boot e Banco de Dados PostgreSQL, ligados entre si e ao Sistema Externo Financeiro por relações rotuladas com a interação e o protocolo.](../assets/images/modulo-4-b3-c4-conteineres-generico-v2.svg){ .module-diagram }
 </figure>
 
-*Figura 8 — Diagrama de contêineres genérico, com a decomposição interna do sistema e a tecnologia de cada contêiner. Fonte: material do curso, com base em Brown (n.d.).*
+*Figura 7 — Diagrama de contêineres genérico, com a decomposição interna do sistema e a tecnologia de cada contêiner. Fonte: material do curso, com base em Brown (n.d.).*
 
 O roteiro de montagem do diagrama de contêineres tem quatro etapas:
 
@@ -329,7 +321,7 @@ O diagrama seguinte detalha o mesmo sistema acadêmico: os portais, o aplicativo
 ![Contêineres da arquitetura alvo da Universidade ACME, com portais, aplicativo do aluno, serviços de matrícula e notas, seus bancos e núcleo COBOL. As tecnologias dos componentes novos serão escolhidas na Aula 5.](../assets/images/acme-ex16-diagrama-de-conteineres-v2.svg){ .module-diagram }
 </figure>
 
-*Figura 9 — Contêineres do mesmo sistema acadêmico. Fonte: material do curso.*
+*Figura 8 — Contêineres do mesmo sistema acadêmico. Fonte: material do curso.*
 
 ### Tecnologia no contêiner antes da definição tecnológica
 

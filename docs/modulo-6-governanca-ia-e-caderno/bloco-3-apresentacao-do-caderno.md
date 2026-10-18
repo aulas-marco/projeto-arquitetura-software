@@ -63,7 +63,7 @@ Para mostrar o encadeamento, o professor acompanha na aula um único pedido da A
 | Requisito | A Diretoria de TI declara o pedido, e a queixa registrada como R3 é reescrita com a carga de 5.800 sessões e a medida de 4 segundos | 3 |
 | Cenário de qualidade | O pico de matrícula é descrito em seis partes, com taxa de erro abaixo de 1% verificada em teste de carga | 3 |
 | Lacuna | A diferença entre o portal atual, que erra 6,3% no pico, e o que o desenho exige é registrada para fechar em onda | 4 |
-| Decisão | O registro de decisão ADR 001 coloca uma fila entre o portal e o núcleo COBOL para absorver o pico sem alterar o núcleo | 7 |
+| Decisão | O registro de decisão ADR 001 coloca uma fila entre a entrada da matrícula e o núcleo COBOL para absorver o pico sem alterar o núcleo | 7 |
 | Contêiner | O serviço de matrícula e as relações 1 e 8 do diagrama de contêineres formam o caminho da confirmação de recebimento, e a fila da relação 3 protege o núcleo | 7 |
 | Tecnologia | A plataforma de microsserviços na variante Java, com barramento de eventos, concretiza a fila | 8 |
 | Onda | O critério de conclusão da segunda onda exige a matrícula digital operando numa janela real, com o desempenho do R6 medido em produção | 9 |
@@ -148,7 +148,7 @@ Uma tabela de rastreabilidade só ajuda quem decide se cada linha diz de onde a 
 
 | Linha | Decisão ou pendência | Requisito ou restrição de origem | Onde aparece no desenho | Responsável |
 | --- | --- | --- | --- | --- |
-| 1 | Fila entre o portal e o núcleo COBOL na entrada da matrícula, registrada no ADR 001 | O portal sustentar 5.800 sessões simultâneas na abertura da matrícula, com percentil 95 de até 4 segundos (R6) | Serviço de matrícula na frente do núcleo, relações 1 e 3 do diagrama de contêineres | Diretor de TI |
+| 1 | Fila entre a entrada da matrícula e o núcleo COBOL na entrada da matrícula, registrada no ADR 001 | O portal sustentar 5.800 sessões simultâneas na abertura da matrícula, com percentil 95 de até 4 segundos (R6) | Serviço de matrícula na frente do núcleo, relações 1 e 3 do diagrama de contêineres | Diretor de TI |
 | 2 | O índice de busca de disciplinas do portal passa a ficar em memória (D6) | Em branco | Funcionamento interno do portal, sem relação própria no diagrama de contêineres | Arquiteto de software |
 | 3 | A propagação da nota ao ambiente virtual de aprendizagem passa do lote diário a até 10 minutos (D2) | A nota lançada pelo professor chegar ao ambiente virtual em até 10 minutos (R7) | Serviço de notas, relações 2, 4 e 6 do diagrama de contêineres | Reitoria |
 | 4 | Pendência: ensaio de carga com 5.800 sessões em ambiente equivalente ao de produção, a resolver antes de aceitar o ADR 001 | O portal sustentar 5.800 sessões simultâneas (R6) | Ambiente de teste de carga, que a ACME ainda não tem | Em branco |
@@ -183,7 +183,7 @@ Suas respostas viram os campos O problema, A pergunta, A decisão, O que mais pe
 
 ### Item 3: Pendências finais
 
-Cada pendência do caderno precisa dizer quem a resolve e quando, porque uma pendência sem responsável permanece parada. Um exemplo já presente na lista do [Exercício 20](../modulo-5-frameworks-e-tecnologias/bloco-4-adr-de-plataforma.md#exercicio-20) é a data e os decisores do registro que coloca a fila entre o portal e o núcleo (ADR 001), que o Diretor de TI define antes da aprovação do registro. O item pede a lista final, que reúne as pendências do seu caderno com as que a conferência do item 1 acrescenta.
+Cada pendência do caderno precisa dizer quem a resolve e quando, porque uma pendência sem responsável permanece parada. Um exemplo já presente na lista do [Exercício 20](../modulo-5-frameworks-e-tecnologias/bloco-4-adr-de-plataforma.md#exercicio-20) é a data e os decisores do registro que coloca a fila entre a entrada da matrícula e o núcleo (ADR 001), que o Diretor de TI define antes da aprovação do registro. O item pede a lista final, que reúne as pendências do seu caderno com as que a conferência do item 1 acrescenta.
 
 1. Escreva a lista final de pendências em uma tabela, com uma frase que se entenda sozinha para cada pendência, o responsável por resolvê-la e o marco ou a data em que deve estar resolvida.
 

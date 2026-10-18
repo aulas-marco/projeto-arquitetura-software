@@ -350,7 +350,7 @@ Suas respostas viram os campos Domínio da lacuna, Tipo da lacuna e Justificativ
 
 ### Item 2: Forma de fechar as lacunas organizacionais
 
-Uma lacuna organizacional não se fecha com programa, e por isso o relatório da ACME diz que tipo de decisão ela pede. O relatório trabalha com três formas de decisão. A capacitação forma pessoas para que a organização passe a dominar um conhecimento, a mudança de processo troca a maneira de trabalhar, e a decisão de contrato renova, reduz, encerra ou renegocia um acordo com um fornecedor. Este item usa as lacunas que o item 1 deve ter classificado como organizacionais, que são as que dependem de pessoas, de processos ou de contratos, como o fim do contrato de sustentação (LC7) e a implantação lenta (LC5).
+Uma lacuna organizacional não se fecha com programa, e por isso o relatório da ACME diz que tipo de decisão ela pede. O relatório trabalha com três formas de decisão. A capacitação forma pessoas para que a organização passe a dominar um conhecimento, a mudança de processo troca a maneira de trabalhar, e a decisão de contrato renova, reduz, encerra ou renegocia um acordo com um fornecedor. Este item usa as lacunas que o item 1 deve ter classificado como organizacionais, que são as que dependem de pessoas, de processos ou de contratos, como aquelas que só se resolvem com treinamento, com nova rotina de trabalho ou com novo acordo.
 
 1. Diga, para cada lacuna organizacional do item 1, se ela pede capacitação, mudança de processo ou decisão de contrato.
 
@@ -358,7 +358,7 @@ Sua resposta vira o campo Forma de fechar a lacuna organizacional, na seção 4 
 
 ### Item 3: Ordem das ondas
 
-Quando o arquiteto apresenta o roteiro à Reitoria, ele precisa mostrar por que uma entrega vem antes da outra, e a ordem das ondas se justifica pelo critério de conclusão e pelas dependências. Uma onda é uma etapa de entrega do roteiro, e o critério de conclusão é o que precisa estar em produção, validado e operando para a onda ser considerada completa. O enunciado traz três entregas da ACME, identificadas pelas letras A, B e C e apresentadas fora de ordem, cada uma com o critério de conclusão. Um exemplo é a entrega que constrói a base técnica, como o logon único, e outro é a que migra as regras do COBOL, que só começa depois do fim da exclusividade da fábrica. Duas datas de contrato, 30/09/2027 e 31/12/2028, aparecem logo abaixo das entregas, com o efeito de cada uma.
+Quando o arquiteto apresenta o roteiro à Reitoria, ele precisa mostrar por que uma entrega vem antes da outra, e a ordem das ondas se justifica pelo critério de conclusão e pelas dependências. Uma onda é uma etapa de entrega do roteiro, e o critério de conclusão é o que precisa estar em produção, validado e operando para a onda ser considerada completa. O enunciado traz três entregas da ACME, identificadas pelas letras A, B e C e apresentadas fora de ordem, cada uma com o critério de conclusão. Um exemplo genérico é uma entrega de integração, que só termina quando os dois sistemas trocam dado em produção sem intervenção manual. Duas datas de contrato, 30/09/2027 e 31/12/2028, aparecem logo abaixo das entregas, com o efeito de cada uma.
 
 | Entrega | O que entrega | Critério de conclusão |
 | --- | --- | --- |
@@ -384,7 +384,7 @@ Uma obra bem ordenada ainda pode se afastar do desenho, e este exercício trata 
 
 ### Item 1: Mecanismo de cada situação de desvio
 
-Cada mecanismo de governança age em um momento diferente do caminho, e o arquiteto precisa reconhecer qual deles atua em cada situação. O enunciado traz cinco situações de desvio na ACME, numeradas de S1 a S5, e uma delas é a esteira que interrompe uma mudança antes da implantação. Cada situação corresponde a exatamente um dos cinco mecanismos, e nenhum mecanismo serve a duas situações.
+Cada mecanismo de governança age em um momento diferente do caminho, e o arquiteto precisa reconhecer qual deles atua em cada situação. O enunciado traz cinco situações de desvio na ACME, numeradas de S1 a S5, e elas envolvem a esteira de implantação, pedidos de decisão, a chegada de pessoas novas, a revisão por conselho e atalhos aceitos. Cada situação corresponde a exatamente um dos cinco mecanismos, e nenhum mecanismo serve a duas situações.
 
 | Situação | O que acontece |
 | --- | --- |
@@ -401,7 +401,7 @@ Suas respostas viram o campo Mecanismo contra o desvio, na seção 9 do caderno.
 
 ### Item 2: Quem decide cada pedido
 
-Contido o desvio, alguém precisa decidir o que fazer com o pedido de exceção, e na ACME cada tipo de decisão tem um aprovador definido. A tabela de aprovadores abaixo mostra cinco tipos de decisão e quem aprova cada um. O enunciado traz quatro pedidos, numerados de P1 a P4, como o pedido de usar um banco de dados que o modelo técnico de referência não prevê. Você diz de que tipo é cada pedido e quem o aprova, e o tipo estrutura da solução não corresponde a nenhum dos quatro pedidos.
+Contido o desvio, alguém precisa decidir o que fazer com o pedido de exceção, e na ACME cada tipo de decisão tem um aprovador definido. A tabela de aprovadores abaixo mostra cinco tipos de decisão e quem aprova cada um. O enunciado traz quatro pedidos, numerados de P1 a P4, entre eles pedidos de exceção técnica, de custo, de contrato e de prioridade. Você diz de que tipo é cada pedido e quem o aprova, e o tipo estrutura da solução não corresponde a nenhum dos quatro pedidos.
 
 | Tipo da decisão | Quem aprova |
 | --- | --- |
@@ -425,7 +425,7 @@ Suas respostas viram o campo Quem decide, na seção 9 do caderno.
 
 ### Item 3: Regras que viram função de adequação
 
-A função de adequação é um teste automático que avisa quando uma decisão deixa de ser cumprida, e ela só funciona quando uma regra é objetiva o bastante para um programa conferir. O arquiteto da ACME precisa separar essas regras das que dependem de julgamento humano, porque as primeiras ficam na esteira e as outras vão ao conselho. O enunciado traz quatro regras da arquitetura, numeradas de V1 a V4, como a que impede um serviço novo de abrir conexão com o banco do núcleo. Para cada uma você diz se pode virar função de adequação e, nesse caso, em que momento o teste roda e qual decisão registrada ele protege.
+A função de adequação é um teste automático que avisa quando uma decisão deixa de ser cumprida, e ela só funciona quando uma regra é objetiva o bastante para um programa conferir. O arquiteto da ACME precisa separar essas regras das que dependem de julgamento humano, porque as primeiras ficam na esteira e as outras vão ao conselho. O enunciado traz quatro regras da arquitetura, numeradas de V1 a V4, entre elas regras sobre conexão, prazo, contrato e pessoas. Para cada uma você diz se pode virar função de adequação e, nesse caso, em que momento o teste roda e qual decisão registrada ele protege.
 
 | Regra | Texto |
 | --- | --- |
@@ -444,6 +444,6 @@ Suas respostas viram os campos Regra que vira função de adequação e Decisão
 As referências seguem o formato APA, 7ª edição, e constam da [bibliografia](../referencia/bibliografia.md) do curso, com exceção do TOGAF. O trecho consultado aparece entre parênteses ao fim de cada entrada.
 
 - Lovatt, M. (2021). *Solution architecture foundations*. BCS, The Chartered Institute for IT. (seções 5.1 a 5.7, análise de lacunas, seção 6.7, governança e autoridade de desenho, e seções 8.1 a 8.6, roteiro de entrega, acompanhamento da entrega e apoio à mudança)
-- The Open Group. TOGAF Standard, ciclo ADM (fases E a H, fonte conceitual da Figura 1)
+- The Open Group. (2022). *The TOGAF Standard, 10th Edition*. Acesso em 18 de outubro de 2026. https://www.opengroup.org/open-group-announces-launch-togaf-standard-10th-edition (ciclo ADM, fases E a H, fonte conceitual da Figura 1)
 
 **Material do curso.** O glossário traz as entradas [arquitetura de linha de base](../referencia/glossario.md#arquitetura-de-linha-de-base), [arquitetura alvo](../referencia/glossario.md#arquitetura-alvo), [ADR](../referencia/glossario.md#adr) e [lacuna de provisão](../referencia/glossario.md#lacuna-de-provisao), e o dossiê da instituição fictícia [ACME](../caso-acme/index.md) fornece a [arquitetura de linha de base](../caso-acme/linha-de-base.md) e os [dados operacionais](../caso-acme/dados-operacionais.md).

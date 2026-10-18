@@ -31,7 +31,7 @@ A comunicação com essas pessoas tem quatro motivos distintos, e confundi-los g
 | Clientes e usuários dos serviços | Quem recebe o serviço afetado | Qualidade percebida do serviço |
 | Arquitetura corporativa e subdomínios | Quem responde pelos domínios de negócio, dados, aplicações, infraestrutura e segurança | Aderência às diretrizes e reuso do que já existe |
 | Participantes do desenho | Quem desenha partes da solução | Consistência entre as partes desenhadas |
-| Participantes da implantação | Quem constrói, implanta e sustenta | Exequibilidade do desenho e condições de sustentação |
+| Participantes da implantação | Quem, na equipe da ACME, constrói, implanta e sustenta | Exequibilidade do desenho e condições de sustentação |
 | Fornecedores de produto e serviço | Quem provê tecnologia ou serviço contratado | Escopo contratual e continuidade da receita |
 | Reguladores e entidades setoriais | Quem impõe exigência externa | Conformidade demonstrável |
 
@@ -139,7 +139,7 @@ A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativo
 
 ### Item 1: Categoria de cada papel
 
-Cada papel do mapa de atores traz um tipo de interesse, e o tipo define como o arquiteto se comunica com ele. O diagrama abaixo mostra os oito papéis do mapa de atores do caso, com a área a que cada um pertence, e o quadro seguinte reproduz o que cada papel quer e o que teme.
+Cada papel do mapa de atores traz um tipo de interesse, e o tipo define como o arquiteto se comunica com ele. O diagrama abaixo mostra os oito papéis do mapa de atores do caso, com a área a que cada um pertence, e o quadro seguinte resume o que cada papel quer e o que teme.
 
 ```mermaid
 flowchart LR

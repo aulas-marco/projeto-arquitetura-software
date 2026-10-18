@@ -13,7 +13,7 @@ Depois do exercício 13, o caderno da ACME reúne o que os exercícios 1 a 13 pr
 
 **A pergunta.** Diante desse quadro, o projeto pergunta como evoluir o sistema acadêmico de forma segura e incremental, com o núcleo em operação durante a transição e respeitando os contratos já assumidos.
 
-**A decisão.** A ACME adota a arquitetura orientada a eventos na entrada da matrícula, com uma fila entre o portal e o núcleo COBOL. Para a convivência com o sistema antigo e para a falha de integração, a decisão traz seis padrões de projeto, listados no registro ADR 001, que está em estado de proposta.
+**A decisão.** A ACME adota a arquitetura orientada a eventos na entrada da matrícula, com uma fila entre a entrada da matrícula e o núcleo COBOL. Para a convivência com o sistema antigo e para a falha de integração, a decisão traz seis padrões de projeto, listados no registro ADR 001, que está em estado de proposta.
 
 **O que mais pesa no desenho.** A abertura da matrícula. O Portal do Aluno recebe em média 815 sessões simultâneas e chega a 5.800, 7,1 vezes a média, com erro de 6,3% contra a meta de 1%. A fila absorve esse pico sem alterar o núcleo.
 
@@ -86,7 +86,7 @@ Quando a ACME decide algo como mudar o prazo da nota, a decisão quase nunca é 
 | Código | Tipo do componente da solução | Efeito |
 | --- | --- | --- |
 | D2 | Processos | O fechamento de notas deixa de depender da janela noturna de lote |
-| D5 | Estruturas organizacionais | A correção de dado cadastral sai da equipe de sustentação, terceirizada, e passa à Secretaria Acadêmica |
+| D5 | Estruturas organizacionais | A correção de dado cadastral sai da equipe de sustentação e passa à Secretaria Acadêmica |
 | D7 | Estruturas organizacionais | O contrato com a fábrica de software, organização parceira, define quem pode alterar o núcleo |
 | D8 | Processos | A emissão do histórico escolar passa a ter a assinatura digital como etapa do procedimento |
 | D9 | Processos | A rotina de cada equipe muda a cada módulo extraído, no ritmo do calendário acadêmico |
@@ -160,7 +160,7 @@ A tarefa de verificar se já existe componente de software de envio de mensagem 
 
 #### Artefatos nas fases do processo
 
-Para dar um papel a cada artefato, ajuda pensar no caminho que ele faz. Alguns já existem quando a fase começa, como o mapa de atores, e a fase só os recebe e usa: são as entradas. Outros nascem no meio do trabalho e servem de matéria-prima para a fase seguinte, como o catálogo de blocos de construção e interfaces: são os produtos intermediários. E há os que o arquiteto entrega ao patrocinador como resultado do seu trabalho, como o modelo único de componentes da solução: são os entregáveis. Dois casos pedem um pouco mais de cuidado. O documento que autoriza a equipe a investigar conta como entrada, porque é com ele em mãos que a equipe começa. E a comparação das duas alternativas é o caso de negócio que o Conselho Universitário recebe para decidir, por isso é um entregável da fase de análise.
+Para dar um papel a cada artefato, ajuda pensar no caminho que ele faz. Alguns já existem quando a fase começa, como o mapa de atores, e a fase só os recebe e usa: são as entradas. Outros nascem no meio do trabalho e servem de matéria-prima para a fase seguinte, como o catálogo de blocos de construção e interfaces: são os produtos intermediários. E há os que o arquiteto entrega ao patrocinador como resultado do seu trabalho, como o modelo único de componentes da solução: são os entregáveis. Dois casos pedem um pouco mais de cuidado. O documento que autoriza a equipe a investigar conta como entrada, porque é com ele em mãos que a equipe começa. E a comparação das duas alternativas é o caso de negócio que o Reitoria recebe para decidir, por isso é um entregável da fase de análise.
 
 | Código | Artefato | Fase | Papel | Linha de base | Seção do caderno |
 | --- | --- | --- | --- | --- | --- |
@@ -556,7 +556,7 @@ O registro abaixo, o primeiro registro de decisão arquitetural (ADR) do caderno
 | Contexto | O Portal do Aluno recebe em média 815 sessões simultâneas e chega a 5.800 na abertura da matrícula, com erro de 6,3% contra a meta de 1%. Em 04/02/2026, sessões abandonadas esgotaram as tarefas simultâneas que o servidor de transações CICS aceita, com 4h20 de indisponibilidade e 62% de erro na matrícula. O núcleo COBOL não pode ser alterado nem substituído durante a transição. Fica fora deste registro a escolha do produto de mensageria |
 | Forças | Absorver o pico, que é 7,1 vezes a média, princípio da evolução incremental. Levar o erro de 6,3% a menos de 1%. Conter a indisponibilidade nos 43 minutos mensais de indisponibilidade que o acordo de nível de serviço, o compromisso de disponibilidade, permite. Preservar o núcleo, princípio do baixo acoplamento e restrição do contrato de sustentação. Entregar a nota em 10 minutos, princípio da separação de responsabilidades. Manter o dado pessoal em território nacional, princípio da segurança por desenho |
 | Alternativas | Manter a arquitetura em camadas atual atende a preservação do núcleo, mas não as três primeiras forças, porque é a configuração que produz os 6,3% de erro. Microsserviços atenderiam a escalabilidade seletiva, mas exigem extrair a matrícula do COBOL, trabalho de mais de um ciclo de 12 meses em conflito com a preservação do núcleo. A arquitetura hexagonal protegeria o acesso ao núcleo, mas não reduz a carga do pico e acrescenta indireção |
-| Decisão | Adotar a arquitetura orientada a eventos na entrada da matrícula, com fila entre o portal e o núcleo. Usar Strangler Fig e Anti-Corruption Layer para a convivência com o legado, Timeout, Circuit Breaker e Bulkhead contra a falha de integração e Transactional Outbox para publicar a nota. A fila absorve o pico sem tocar o núcleo, e os padrões atendem as forças de erro, de disponibilidade e de 10 minutos |
+| Decisão | Adotar a arquitetura orientada a eventos na entrada da matrícula, com fila entre a entrada da matrícula e o núcleo. Usar Strangler Fig e Anti-Corruption Layer para a convivência com o legado, Timeout, Circuit Breaker e Bulkhead contra a falha de integração e Transactional Outbox para publicar a nota. A fila absorve o pico sem tocar o núcleo, e os padrões atendem as forças de erro, de disponibilidade e de 10 minutos |
 | Consequências | Positiva: o núcleo deixa de receber a rajada direta e processa no ritmo que sustenta. Negativa: o aluno recebe na hora só a confirmação de recebimento do pedido, a confirmação da matrícula chega depois, e a equipe passa a operar um componente assíncrono, em que quem envia segue adiante sem esperar resposta, com os custos de cada padrão, entre eles a manutenção de duas implementações, o ajuste de limites sem teste de carga e a entrega ao menos uma vez. Neutra: o tratamento de erro sai do horário de pico e passa para o processamento da fila |
 | Evidências | Não existe teste de carga, porque a linha de base registra a ausência desse ambiente. A evidência disponível é o histórico do incidente de 04/02/2026, reproduzível pelos registros de operação do CICS. A evidência desejável e ausente é um ensaio de carga com 5.800 sessões em ambiente equivalente ao de produção |
 | Revisão | Reabrir o registro se a taxa de erro na janela de matrícula seguinte ficar acima de 2%, ou se o percentil 95 do intervalo entre o lançamento e a chegada da nota ao ambiente virtual passar de 10 minutos por duas semanas seguidas |
@@ -571,19 +571,19 @@ Campos incompletos: a data e os decisores dependem do Diretor de TI, e a evidên
 
 #### Capacidades acadêmicas e o primeiro ciclo
 
-O arquiteto começa por saber onde a mudança toca o trabalho da universidade. Das dez capacidades, duas são alteradas de forma direta, porque os pedidos do primeiro ciclo recaem sobre a matrícula e sobre as notas, e uma terceira é atingida de forma indireta. A classificação segue este critério: estratégica é a capacidade ligada aos objetivos da modernização, operacional é a que executa o serviço acadêmico de rotina, e de apoio é a que sustenta as demais sem contato direto com o aluno.
+O arquiteto começa por saber onde a mudança toca o trabalho da universidade. Das dez capacidades, duas são alteradas de forma direta, porque os pedidos do primeiro ciclo recaem sobre a matrícula e sobre as notas, e uma terceira é atingida de forma indireta. A classificação segue o critério do enunciado: estratégica é a capacidade que orienta a oferta e a qualidade do serviço, operacional é a que entrega o serviço ao aluno, e de apoio é a que sustenta as demais.
 
 | Capacidade | Classificação | Afetada no primeiro ciclo | Justificativa |
 | --- | --- | --- | --- |
-| Admissão e ingresso | Operacional | Não | Fica fora do escopo declarado no exercício 8 |
-| Oferta e grade curricular | Operacional | Não | Fica fora do escopo declarado no exercício 8 |
-| Matrícula em disciplinas | Estratégica | Sim | O requisito R1 pede a renovação pelo celular, o R6 fixa em 4 segundos o tempo de confirmação com 5.800 sessões simultâneas, e o incidente de 04/02/2026 ocorreu na abertura da matrícula |
-| Avaliação e registro de notas | Estratégica | Sim | O requisito R7 pede a nota no ambiente virtual em até 10 minutos |
-| Controle de frequência | Operacional | Não | Nenhum dos três requisitos do exercício a atinge |
-| Emissão de documentos acadêmicos | Operacional | Não | Fica fora do escopo declarado no exercício 8 |
-| Gestão de bolsas e descontos | Operacional | Indiretamente | A matrícula depende do cálculo da parcela feito por esse módulo, que não muda, mas precisa continuar acessível |
+| Admissão e ingresso | Operacional | Não | Nenhum dos cinco elementos que mudam toca esta capacidade |
+| Oferta e grade curricular | Estratégica | Não | Nenhum dos cinco elementos que mudam toca esta capacidade |
+| Matrícula em disciplinas | Operacional | Sim | O elemento E5 muda a renovação pelo celular, que é o requisito R1, e o incidente de 04/02/2026 ocorreu na abertura da matrícula |
+| Avaliação e registro de notas | Operacional | Sim | O elemento E1 muda a integração de notas com o ambiente virtual, e o requisito R7 pede a nota nesse ambiente em até 10 minutos |
+| Controle de frequência | Operacional | Não | Nenhum elemento que muda nem requisito do exercício a atinge |
+| Emissão de documentos acadêmicos | Operacional | Não | Nenhum dos cinco elementos que mudam toca esta capacidade |
+| Gestão de bolsas e descontos | Operacional | Indiretamente | A matrícula consulta essa capacidade para calcular a parcela, ela não muda, mas precisa continuar acessível |
 | Cobrança de mensalidades | De apoio | Não | O ERP financeiro permanece por decisão da Reitoria |
-| Biblioteca | De apoio | Não | Fica fora do escopo declarado no exercício 8 |
+| Biblioteca | De apoio | Não | Nenhum dos cinco elementos que mudam toca esta capacidade |
 | Relação com o órgão regulador | De apoio | Não | É obrigação legal, e a extração do censo não muda no primeiro ciclo |
 
 #### Etapas do fluxo de valor com problema

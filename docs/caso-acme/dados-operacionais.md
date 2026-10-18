@@ -16,7 +16,7 @@ A carga do sistema não é a mesma ao longo do ano, e é essa variação que dec
 | Abertura da matrícula, primeiro dia | 2 | 5.800 | 14,2 milhões | 11,8 s |
 | Total | 251 | | | |
 
-Na manhã de abertura, o pico de 5.800 sessões simultâneas é medido nos 30 minutos seguintes às 08h00 do primeiro dia. Nesse intervalo, 2.400 matrículas são confirmadas e o restante das sessões permanece em fila ou expira por tempo limite, e a taxa de erro chega a 6,3% das requisições, contra 0,2% em dia letivo comum.
+Na manhã de abertura, o pico de 5.800 sessões simultâneas é medido nos 30 minutos seguintes às 08h00 do primeiro dia. Nesse intervalo, 2.400 matrículas são confirmadas e o restante das sessões permanece em fila ou expira por tempo limite, e a taxa de erro chega a 6,3% das requisições, contra 0,2% em dia letivo comum. O percentual de 6,3% mede requisições, e o de 62% do incidente de 04/02/2026, descrito adiante, mede tentativas de matrícula, de modo que os dois não são comparáveis.
 
 ## Sazonalidade
 

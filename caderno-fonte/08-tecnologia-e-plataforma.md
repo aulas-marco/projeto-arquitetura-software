@@ -33,7 +33,7 @@ Cada equipe da ACME precisa saber qual padrão respeitar antes de escolher um pr
 | Interface do aplicativo do aluno | Sem linha no recorte | Não há | React Native | Exemplo a avaliar, fora do recorte |
 | Portal do Professor | Sem linha no recorte | Não há | React para web | Exemplo a avaliar, fora do recorte, e só entra se o plano de migração trocar o portal |
 | Portal da Secretaria | Sem linha no recorte | Não há | React para web | Exemplo a avaliar, fora do recorte, e só entra se o plano de migração trocar o portal |
-| Provedor de identidade | Segurança transversal, identidade e acesso | OpenID Connect obrigatório, com OAuth 2.0 e SAML 2.0 | Keycloak operado pela ACME, Auth0 contratado, Azure AD B2C gerenciado | Exemplos aprovados da linha |
+| Provedor de identidade | Segurança transversal, identidade e acesso | OpenID Connect obrigatório, com OAuth 2.0 e SAML 2.0 | Keycloak operado por empresa contratada, Auth0 compartilhado, Azure AD B2C gerenciado | Exemplos aprovados da linha |
 | Serviço de matrícula | API e integração, exposição de serviços | REST com OpenAPI 3.x | Spring Boot, FastAPI, NestJS | Exemplos aprovados da linha |
 | Serviço de notas | API e integração, exposição de serviços | REST com OpenAPI 3.x | Spring Boot, FastAPI, NestJS | Exemplos aprovados da linha |
 | Banco do serviço de matrícula | Dados, banco de serviço novo | SQL, um banco por serviço e região nacional | PostgreSQL em região nacional | Exemplo aprovado da linha |
@@ -68,8 +68,8 @@ A Universidade ACME compara três formas de obter o serviço de identidade. O do
 
 | Alternativa | Aderência ao requisito | Portabilidade |
 | --- | --- | --- |
-| PI1, instalado e operado pela equipe | Confirmar OpenID Connect (R8), processamento nacional de dados, cópias e suporte (R14), teste de carga para o pico (R6) e capacidade de operação para o R12 | Verificar instalação e recuperação nos dois provedores aprovados, exportação de dados e esforço de migração. A confirmar |
-| PI2, serviço de terceiro | Pedir documentação de OpenID Connect (R8), contrato e locais de processamento (R14), limites de capacidade (R6) e acordo de disponibilidade (R12) | Verificar exportação, substituição por outro serviço e mudanças necessárias nas aplicações. A confirmar |
+| PI1, instância dedicada de terceiro | Confirmar OpenID Connect (R8), região da instância, das cópias e do suporte (R14), teste de carga para o pico (R6) e acordo de operação e disponibilidade (R12) | Verificar a implantação da instância e a recuperação nos dois provedores aprovados, exportação de dados e esforço de migração. A confirmar |
+| PI2, serviço compartilhado de terceiro | Pedir documentação de OpenID Connect (R8), contrato e locais de processamento (R14), limites de capacidade (R6) e acordo de disponibilidade (R12) | Verificar exportação, substituição por outro serviço e mudanças necessárias nas aplicações. A confirmar |
 | PI3, gerenciado da nuvem | Pedir documentação de OpenID Connect (R8), locais de processamento de todos os dados (R14), quotas e teste de carga (R6), acordo e desenho de disponibilidade (R12) | Verificar como substituir o serviço no outro provedor aprovado, incluindo migração de usuários, credenciais e configuração. A confirmar |
 
 Os outros quatro critérios ficam sem valor, porque o dossiê não traz dado sobre eles, e por isso o caderno registra o que precisa ser levantado antes da comparação.

@@ -59,7 +59,7 @@ Quando alguém questiona o tempo gasto nas fases anteriores ao desenho, o arquit
 | Responsável | Diga se a tarefa é do arquiteto de solução, do arquiteto de software ou da arquitetura corporativa, pelo mesmo critério do exercício 1: até onde o efeito da tarefa chega | 1 |
 | Justificativa | Explique em uma frase por que a tarefa é desse responsável | 1 |
 | Grupo de competência | Nas tarefas do arquiteto de solução, diga qual habilidade a tarefa pede mais: de negócio, técnica, de entrega ou prática (comunicação, relacionamento com as partes interessadas, requisitos) | 2 |
-| Benefício de reaproveitar um componente de software | Escolha, entre os sete benefícios da abordagem arquitetural, o que justifica verificar se já existe um componente de software reaproveitável | 3 |
+| Benefício que justifica a tarefa TA10 | Escolha, entre os sete benefícios da abordagem arquitetural, o que justifica verificar se já existe um componente de software reaproveitável | 3 |
 
 **O que você já tem.** A classificação por nível do exercício 1, porque o mesmo critério de alcance separa as decisões e as tarefas.
 
@@ -140,7 +140,7 @@ A abordagem arquitetural traz benefícios que justificam o trabalho extra do arq
 
 1. Identifique qual dos sete benefícios justifica a existência da tarefa TA10, e explique em três linhas o que a instituição perde se essa verificação não for feita antes de especificar componente de software novo.
 
-Sua resposta vira o campo Benefício de reaproveitar um componente de software da tabela de papéis, no caderno.
+Sua resposta vira o campo Benefício que justifica a tarefa TA10 da tabela de papéis, no caderno.
 
 ## Fontes
 

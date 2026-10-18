@@ -51,7 +51,7 @@ modo: substitui
 
 **A pergunta.** Diante desse quadro, o projeto pergunta como evoluir o sistema acadêmico de forma segura e incremental, com o núcleo em operação durante a transição e respeitando os contratos já assumidos.
 
-**A decisão.** A ACME adota a arquitetura orientada a eventos na entrada da matrícula, com uma fila entre o portal e o núcleo COBOL. Para a convivência com o sistema antigo e para a falha de integração, a decisão traz seis padrões de projeto, listados no registro ADR 001, que está em estado de proposta.
+**A decisão.** A ACME adota a arquitetura orientada a eventos na entrada da matrícula, com uma fila entre a entrada da matrícula e o núcleo COBOL. Para a convivência com o sistema antigo e para a falha de integração, a decisão traz seis padrões de projeto, listados no registro ADR 001, que está em estado de proposta.
 
 **O que mais pesa no desenho.** A abertura da matrícula. O Portal do Aluno recebe em média 815 sessões simultâneas e chega a 5.800, 7,1 vezes a média, com erro de 6,3% contra a meta de 1%. A fila absorve esse pico sem alterar o núcleo.
 
@@ -107,7 +107,7 @@ modo: substitui
 
 **A pergunta.** Diante desse quadro, o projeto pergunta como evoluir o sistema acadêmico de forma segura e incremental, com o núcleo em operação durante a transição e respeitando os contratos já assumidos.
 
-**A decisão.** A ACME adota duas decisões, ambas em estado de proposta. A primeira, o ADR 001, coloca uma fila entre o portal e o núcleo COBOL na entrada da matrícula. A segunda, o ADR de plataforma, escolhe a plataforma de microsserviços na variante Java, com o Kafka como barramento de eventos. A entrega segue em três ondas: primeiro a base de acesso (zona de pouso, logon único, gateway de APIs, camada anticorrupção e portal básico do aluno), depois a matrícula digital com o aplicativo móvel e, por último, a migração das regras de negócio do COBOL, que só começa depois de 30/09/2027. O primeiro ciclo de 12 meses cobre as duas primeiras ondas, dentro do orçamento de R$ 6,2 milhões.
+**A decisão.** A ACME adota duas decisões, ambas em estado de proposta. A primeira, o ADR 001, coloca uma fila entre a entrada da matrícula e o núcleo COBOL na entrada da matrícula. A segunda, o ADR de plataforma, escolhe a plataforma de microsserviços na variante Java, com o Kafka como barramento de eventos. A entrega segue em três ondas: primeiro a base de acesso (zona de pouso, logon único, gateway de APIs, camada anticorrupção e portal básico do aluno), depois a matrícula digital com o aplicativo móvel e, por último, a migração das regras de negócio do COBOL, que só começa depois de 30/09/2027. O primeiro ciclo de 12 meses cobre as duas primeiras ondas, dentro do orçamento de R$ 6,2 milhões.
 
 **O que mais pesa no desenho.** Duas exigências pesam mais no desenho, a da matrícula e a da nota. Na abertura, o Portal do Aluno precisa sustentar 5.800 sessões simultâneas, com o tempo de confirmação em até 4 segundos para 95% das requisições (registrado no dossiê do caso como requisito R6), e a nota lançada pelo professor precisa chegar ao ambiente virtual de aprendizagem em até 10 minutos (requisito R7). Uma restrição do Jurídico acompanha os dois: nenhum dado pessoal de aluno pode ser processado fora do território nacional, e a região escolhida para a nuvem fica no Brasil.
 

@@ -46,7 +46,7 @@ Quando a ACME decidiu que a nota deveria chegar ao ambiente virtual em até 10 m
 
 | Tipo do componente da solução | O que abrange | Exemplo na ACME |
 | --- | --- | --- |
-| Pessoas | Funcionários, clientes, parceiros, papéis, capacidades, habilidades e descrições de cargo | Professores que passam a lançar nota diretamente, com o treinamento correspondente |
+| Pessoas | Funcionários, clientes, parceiros, papéis, capacidades, habilidades e descrições de cargo | Professores que passam a lançar nota com publicação imediata, com o treinamento correspondente |
 | Estruturas organizacionais | Unidades, estruturas de gestão, terceirização, organizações parceiras, metas e acordos de nível de serviço | Fim da intermediação da fábrica de software na correção de dado cadastral, que volta para a Secretaria Acadêmica |
 | Processos | Serviços de negócio, cadeia de valor, processos, políticas, regras de negócio e procedimentos | Fechamento de notas deixa de depender da janela noturna de lote |
 | Informação | Entrada, saída, gatilho, retorno, auditoria e informação como produto | Trilha de auditoria de leitura de dado pessoal, com retenção de 5 anos |

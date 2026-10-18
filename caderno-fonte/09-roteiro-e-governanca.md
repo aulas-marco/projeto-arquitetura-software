@@ -110,7 +110,7 @@ A segunda verificação compara o texto com o modelo de dez campos e com o ADR j
 
 | Ponto | O que o rascunho diz | O que o caderno registra | Quem decide |
 | --- | --- | --- | --- |
-| Consequência negativa omitida | Só ganhos, como o isolamento entre o portal e o núcleo | O aluno deixa de receber a confirmação da matrícula na hora e recebe só a de recebimento do pedido, e a equipe passa a operar um componente assíncrono, com duas implementações a manter e limites ajustados sem teste de carga. O que o aluno percebe na matrícula é a confirmação que deixa de ser imediata | Quem aceita o risco é o Diretor de TI, e a aceitação de um risco é uma das quatro tarefas de julgamento que não se delegam ao modelo |
+| Consequência negativa omitida | Só ganhos, como o isolamento entre a entrada da matrícula e o núcleo | O aluno deixa de receber a confirmação da matrícula na hora e recebe só a de recebimento do pedido, e a equipe passa a operar um componente assíncrono, com duas implementações a manter e limites ajustados sem teste de carga. O que o aluno percebe na matrícula é a confirmação que deixa de ser imediata | Quem aceita o risco é o Diretor de TI, e a aceitação de um risco é uma das quatro tarefas de julgamento que não se delegam ao modelo |
 | Estado | Aceita | Proposta | Diretor de TI |
 | Data | 14/09/2026 | A definir, junto ao Diretor de TI | Diretor de TI |
 | Frase da decisão | A decisão foi aprovada pelo Diretor de TI | Retirar a frase, pois nenhuma fonte registra a aprovação | Diretor de TI |

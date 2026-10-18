@@ -52,7 +52,7 @@ A arquitetura em camadas organiza apresentação, regras de negócio e persistê
 | --- | --- |
 | Forma estrutural | Camadas horizontais empilhadas, cada uma com responsabilidade fixa |
 | Componentes e comunicação | Apresentação, negócio e persistência, com chamada síncrona sempre da camada superior para a inferior |
-| Favorece | Simplicidade de raciocínio e testabilidade de cada camada em isolamento |
+| Favorece | Simplicidade de raciocínio, manutenibilidade e testabilidade de cada camada em isolamento |
 | Prejudica | Escalabilidade independente, porque a unidade de implantação costuma ser o sistema inteiro |
 | Quando usar | Escopo estável, carga homogênea entre funcionalidades e equipe que precisa de estrutura de aprendizado rápido |
 | Quando evitar | Partes do sistema com carga muito desigual ou com ritmos de mudança muito diferentes |
