@@ -120,7 +120,7 @@ A conferência final percorreu as oito linhas da tabela de rastreabilidade e enc
 | --- | --- | --- | --- |
 | 2, índice de busca de disciplinas em memória (D6) | O requisito ou a restrição de origem | Toda decisão cita o requisito ou a restrição que a motivou | Registrar a origem ou revisar a necessidade da decisão |
 | 4, ensaio de carga com 5.800 sessões | O responsável, embora o prazo exista | Toda pendência tem responsável e prazo | Atribuir à Diretoria de TI, como na pendência registrada no ADR 001 |
-| 6, custo anual de R$ 15,83 milhões para R$ 11,0 milhões até o fim de 2029 (R15) | A decisão que atende o requisito | Todo requisito cita a decisão que o atende | Registrar a decisão ou anotar a lacuna na seção 4 |
+| 6, custo anual de R$ 15,83 milhões para R$ 11,0 milhões até o fim de 2029 (R15) | A decisão que atende o requisito | Todo requisito cita a decisão que o atende | Registrar a decisão ou anotar a lacuna na seção 4, porque a onda 3 do roteiro só mede o custo e nenhuma decisão registrada o reduz |
 
 #### Pendências finais
 
@@ -150,7 +150,7 @@ A lista final reúne as pendências abertas ao fim da disciplina, com as três q
 | Região de processamento do fornecedor do ambiente virtual de aprendizagem, que recebe a nota consolidada, e cláusula de território nacional no contrato (DS1 do exercício 19) | Jurídico e encarregada de proteção de dados | Antes do início do primeiro ciclo |
 | Gatilhos de reabertura, os valores que levam a rever o ADR de plataforma, propostos sem fonte no dossiê | Diretoria de TI | Na revisão do registro |
 | Requisito ou restrição que motive o índice de busca de disciplinas em memória (D6), ou revisão da necessidade da decisão | Arquiteto de software | Antes de validar as decisões propostas |
-| Decisão que atenda ao custo anual de R$ 11,0 milhões até o fim de 2029 (R15), hoje sem decisão registrada | Diretoria de TI | Antes de aprovar o roteiro em ondas |
+| Decisão que atenda ao custo anual de R$ 11,0 milhões até o fim de 2029 (R15), hoje sem decisão registrada, embora a onda 3 do roteiro meça o custo anual | Diretoria de TI | Antes de aprovar o roteiro em ondas |
 | Nome do segundo arquiteto que revisa as saídas de IA e assina o registro da assistência | Diretor de TI | Antes do primeiro uso de IA no projeto |
 <!--/gabarito-->
 <!--/ex-->

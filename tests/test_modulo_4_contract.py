@@ -335,8 +335,6 @@ class BlockZeroReviewTest(unittest.TestCase):
         self.assertIn("camada de execução compatível", opening)
 
     def test_course_pages_mention_the_block_0_opening(self):
-        cronograma = (DOCS / "cronograma.md").read_text(encoding="utf-8").split("\n\n")[1]
-        self.assertIn("bloco 0", cronograma)
         home = (DOCS / "index.md").read_text(encoding="utf-8")
         self.assertIn("bloco 0", home)
 

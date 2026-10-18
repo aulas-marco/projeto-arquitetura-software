@@ -14,8 +14,6 @@ class ExercisesOutsideClassTest(unittest.TestCase):
     def test_schedule_gives_class_time_only_to_concepts(self):
         text = (DOCS / "cronograma.md").read_text(encoding="utf-8")
         self.assertNotIn("quinze de exercício", text)
-        self.assertIn("blocos de apresentação conceitual somam 130 minutos", text)
-        self.assertIn(MARKER, text)
 
     def test_home_page_states_the_rule(self):
         self.assertIn(MARKER, (DOCS / "index.md").read_text(encoding="utf-8"))

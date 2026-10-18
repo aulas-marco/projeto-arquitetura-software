@@ -1,11 +1,5 @@
 # Cronograma
 
-Cada uma das seis aulas começa às 19h00 e termina às 22h30, com intervalo das 20h30 às 20h45 e encerramento do conteúdo até as 22h10. Para caber nesse tempo, a aula se divide em blocos, que são partes de cerca de 30 minutos dedicadas a um conceito, e cada bloco tem um exercício correspondente, numerado de 1 a 24 ao longo da disciplina. Os quatro blocos de apresentação conceitual somam 130 minutos, com 32 ou 33 minutos por bloco. Na Aula 4, porém, há um bloco 0, de 10 minutos e sem exercício, que abre a aula antes dos quatro blocos, e por isso os blocos 1 e 2 passam a durar 28 e 27 minutos, para o total continuar em 130. A Aula 6 tem três blocos, com o de governança ocupando a primeira metade da aula, 75 minutos e dois exercícios, e um único Kahoot depois do intervalo. Como a aula é inteira de apresentação, o aluno faz os exercícios fora do horário, aplicando cada conceito ao caso da instituição fictícia ACME, apresentado na página do [caso ACME](caso-acme/index.md). Esse caso é um sistema acadêmico antigo que a ACME precisa evoluir sem interromper a matrícula nem a publicação de notas, e todos os exercícios partem dele.
-
-A partir da Aula 3, cada aula abre com 15 minutos de questões sobre a aula anterior e inclui três questionários Kahoot, plataforma de perguntas respondidas ao vivo, de 10 minutos cada. O primeiro revisa a aula anterior, o segundo trata dos blocos 1 e 2 e vem depois do intervalo, e o terceiro trata dos blocos 3 e 4 e fecha a aula.
-
-Como a instituição divulga a cada turma as datas da sua oferta, elas não aparecem aqui, e este cronograma descreve apenas a sequência dos temas, que não muda entre ofertas.
-
 ## Sequência das aulas
 
 Um projeto de arquitetura começa entendendo o problema, e por isso as duas primeiras aulas tratam da disciplina e do seu processo e depois das entradas, dos requisitos e das partes interessadas. Só então as quatro seguintes percorrem o desenho, a tecnologia e a entrega. Alguns termos técnicos da tabela, como ADR e modelagem C4, podem ser novos para você, e cada um é explicado na primeira aula em que aparece e reunido no [glossário](referencia/glossario.md). O ADR é o registro curto de uma decisão de arquitetura, e a modelagem C4 é uma forma de desenhar o sistema em quatro níveis de detalhe.
