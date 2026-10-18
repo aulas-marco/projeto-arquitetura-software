@@ -150,6 +150,10 @@ def render_template(secoes: list[Secao]) -> str:
                            f"Esta parte é preenchida no exercício {fragmento.n}.", ""]
                 if fragmento.campos:
                     partes += ["Você escreve:", "", fragmento.campos, ""]
+        else:
+            for fragmento in secao.fragmentos:
+                if fragmento.campos:
+                    partes += [f"Você escreve, no exercício {fragmento.n}:", "", fragmento.campos, ""]
         partes += ["</details>", "", "{{/folha}}", ""]
     return "\n".join(partes).rstrip() + "\n"
 

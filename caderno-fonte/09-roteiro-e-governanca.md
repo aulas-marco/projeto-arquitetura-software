@@ -27,7 +27,7 @@ A ordem das ondas da ACME acompanha as dependências técnicas, e o critério de
 
 | Onda | Entrega do enunciado | Por que nessa posição |
 | --- | --- | --- |
-| 1 | C, zona de pouso, logon único, gateway de APIs, camada anticorrupção e portal básico do aluno | É a base de que as outras duas dependem, e o critério pede o portal básico em produção, a autenticação por OpenID Connect e a consulta ao núcleo pela camada anticorrupção, sem acesso direto ao banco |
+| 1 | C, zona de pouso, logon único, gateway de APIs, camada anticorrupção e portal básico do aluno | É a base de que as outras duas dependem, e o critério pede o portal básico em produção, a autenticação por OpenID Connect, a consulta ao núcleo pela camada anticorrupção sem acesso direto ao banco, o registro de auditoria de leitura de dado pessoal com retenção de 5 anos na conta de segurança e registros (R9, decisão DS5) e o teste de carga executado no ambiente novo, que a ACME ainda não tem e a própria onda cria |
 | 2 | A, matrícula digital, aplicativo móvel mínimo viável e integração automatizada com o ERP financeiro | O critério exige a matrícula digital operando numa janela real com o requisito R6, as 5.800 sessões simultâneas na abertura da matrícula, medido em produção, e isso só é possível sobre o logon único, o gateway e a camada anticorrupção da onda 1 |
 | 3 | B, migração das regras de negócio do COBOL | O critério pede as regras migradas cobertas por teste automatizado, e a cobertura do núcleo hoje é de 0%, de modo que a onda também espera o fim da exclusividade da fábrica |
 
@@ -68,7 +68,7 @@ Os quatro pedidos do enunciado pertencem a tipos de decisão diferentes, e cada 
 | --- | --- | --- |
 | Usar banco que não consta do modelo técnico de referência (P1) | Exceção ao modelo técnico de referência | Conselho de revisão |
 | Alterar o formato de um evento de modo incompatível (P2) | Mudança incompatível de contrato de integração | Conselho de revisão |
-| Contratar o plano superior do ambiente virtual, 38% mais caro por ano (P3) | Contrato com fornecedor ou acréscimo de custo | Diretor Financeiro, com o material preparado pelo arquiteto de solução |
+| Contratar o plano superior do ambiente virtual, 38% mais caro por ano (P3) | Contrato com fornecedor ou acréscimo de custo | Reitoria, com o material preparado pelo arquiteto de solução |
 | Prioridades diferentes da Graduação e da Educação a Distância (P4) | Prioridade de atributo de qualidade em conflito | Patrocinador |
 
 #### Regras que viram função de adequação
@@ -110,7 +110,7 @@ A segunda verificação compara o texto com o modelo de dez campos e com o ADR j
 
 | Ponto | O que o rascunho diz | O que o caderno registra | Quem decide |
 | --- | --- | --- | --- |
-| Consequência negativa omitida | Só ganhos, como o isolamento entre o portal e o núcleo | O aluno deixa de receber a confirmação da matrícula na hora, e a equipe passa a operar um componente assíncrono, com duas implementações a manter e limites ajustados sem teste de carga. O que o aluno percebe na matrícula é a confirmação que deixa de ser imediata | Quem aceita o risco é o Diretor de TI, e a aceitação de um risco é uma das quatro tarefas de julgamento que não se delegam ao modelo |
+| Consequência negativa omitida | Só ganhos, como o isolamento entre o portal e o núcleo | O aluno deixa de receber a confirmação da matrícula na hora e recebe só a de recebimento do pedido, e a equipe passa a operar um componente assíncrono, com duas implementações a manter e limites ajustados sem teste de carga. O que o aluno percebe na matrícula é a confirmação que deixa de ser imediata | Quem aceita o risco é o Diretor de TI, e a aceitação de um risco é uma das quatro tarefas de julgamento que não se delegam ao modelo |
 | Estado | Aceita | Proposta | Diretor de TI |
 | Data | 14/09/2026 | A definir, junto ao Diretor de TI | Diretor de TI |
 | Frase da decisão | A decisão foi aprovada pelo Diretor de TI | Retirar a frase, pois nenhuma fonte registra a aprovação | Diretor de TI |

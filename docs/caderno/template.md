@@ -19,6 +19,15 @@ Ao longo do curso, a arquitetura da solução da ACME vai sendo registrada num �
 | Vem de onde | O resumo não traz informação nova, porque retoma em poucas linhas o que as outras seções já registram, e por isso ele é escrito depois delas. |
 | Quando se preenche | Ao fim de cada aula você reescreve o resumo, nos exercícios 4, 8, 12, 16, 20 e 24, e cada versão substitui a anterior. |
 
+Você escreve, no exercício 24:
+
+- **O problema:** conte a situação da ACME e por que ela exige mudança, com os números do caso.
+- **A pergunta:** escreva a pergunta que o projeto responde.
+- **A decisão:** diga a decisão central do projeto e o estado dela, proposta ou aceita.
+- **O que mais pesa no desenho:** diga qual exigência mais pesa, escrevendo o conteúdo e a medida antes do código.
+- **Consequências:** diga o que a decisão custa à ACME, com ao menos uma consequência para a equipe.
+- **Como está o trabalho:** diga o que está decidido, o que está proposto e o que falta, incluindo o roteiro em ondas e a conferência final.
+
 </details>
 
 {{/folha}}
@@ -390,7 +399,7 @@ Você escreve:
 - **Catálogo de blocos lógicos:** liste os blocos da arquitetura alvo, a responsabilidade de cada um e se ele é novo, modificado ou permanece no primeiro ciclo. Não escolha produto nesta seção.
 - **Modo de comunicação:** para cada uma das 15 relações do diagrama de contêineres, diga se é síncrona, quando quem chama espera a resposta, ou assíncrona, quando segue adiante.
 - **Volume e latência:** para cada relação, escreva quanto passa por ela e quanto tempo a troca pode levar, usando os fatos dos dados operacionais, e escreva "não informado" quando o dossiê não trouxer o dado.
-- **Relações do R6:** indique, pelo número, as relações que fazem parte do caminho da confirmação da matrícula em até 4 segundos (requisito R6).
+- **Relações do R6:** indique, pelo número, as relações que fazem parte do caminho da confirmação de recebimento do pedido de matrícula em até 4 segundos (requisito R6).
 - **Relações do R7:** indique, pelo número, as relações que fazem parte do caminho da nota até o ambiente virtual em até 10 minutos (requisito R7).
 - **Posição do núcleo transacional:** diga se o núcleo COBOL fica dentro ou fora da fronteira da solução, e por quê.
 
@@ -423,9 +432,9 @@ Você escreve:
 - **Linhas válidas para todos os contêineres:** indique as duas linhas do recorte que valem para qualquer contêiner novo, qualquer que seja a função dele, e explique em uma frase.
 - **Classificação da tecnologia:** classifique cada tecnologia da linha de base em verde, âmbar ou vermelho e justifique em uma linha com o dado da tabela.
 - **Tecnologias sob plano de migração:** entre as vermelhas, diga quais continuam em uso hoje e só podem ficar enquanto houver plano de migração documentado.
-- **Aderência e portabilidade das alternativas:** para cada forma de obter o provedor de identidade (A, B e C), escreva o dado do caso que sustenta a aderência ao requisito e a portabilidade, citando o código do requisito ou da restrição.
+- **Aderência e portabilidade das alternativas:** para cada forma de obter o provedor de identidade (PI1, PI2 e PI3), escreva o dado do caso que sustenta a aderência ao requisito e a portabilidade, citando o código do requisito ou da restrição.
 - **Dado que falta por critério:** para maturidade, suporte, custo total de propriedade e competência da equipe, diga qual informação o caso não traz e precisa ser levantada.
-- **Regra de eliminação pela restrição:** escolha R8 ou R14, diga qual condição elimina uma candidata e qual documento pediria para comprovar atendimento. Não descarte A, B ou C apenas pela forma de contratação.
+- **Regra de eliminação pela restrição:** escolha R8 ou R14, diga qual condição elimina uma candidata e qual documento pediria para comprovar atendimento. Não descarte PI1, PI2 ou PI3 apenas pela forma de contratação.
 
 ### 8.2 Plataforma escolhida e zona de pouso
 
@@ -452,7 +461,7 @@ Você escreve:
 - **Ativos restritos pelo R14:** diga quais ativos não podem ser processados fora do território nacional, conforme a exigência R14, e qual sistema externo recebe hoje um deles.
 - **Células que violam o menor privilégio:** aponte as três células da grade de permissões que dão acesso maior que o necessário, com o perfil e o recurso.
 - **Acesso correto:** escreva o acesso correto de cada uma das três células, com a condição quando houver.
-- **Categoria STRIDE da ameaça:** classifique cada ameaça, de T1 a T6, em uma das seis categorias do STRIDE, modelo que classifica ameaças em falsificação, adulteração, repúdio, divulgação de informação, negação de serviço e elevação de privilégio.
+- **Categoria STRIDE da ameaça:** classifique cada ameaça, de AM1 a AM6, em uma das seis categorias do STRIDE, modelo que classifica ameaças em falsificação, adulteração, repúdio, divulgação de informação, negação de serviço e elevação de privilégio.
 - **Controle da ameaça:** associe a cada ameaça a letra do controle que a trata.
 - **Controle que também atende ao R9:** indique qual dos seis controles também atende ao requisito de trilha de auditoria (R9).
 - **Decisão de segurança:** escreva em uma linha o que cada uma das cinco decisões, de DS1 a DS5, estabelece, usando as respostas dos itens 1 a 3.
@@ -546,6 +555,18 @@ Você escreve:
 | O que você escreve | Você monta uma tabela com cada pendência, quem decide e quando ela deve ser resolvida. Na versão final, escrita no exercício 24, entra também a conferência do caderno completo, que aponta as decisões sem requisito de origem, os requisitos sem decisão e as pendências sem responsável. |
 | Vem de onde | De todas as seções, porque toda premissa ainda não confirmada passa a ser uma pendência. |
 | Quando se preenche | Ao fim de cada aula você atualiza a lista, nos exercícios 4, 8, 12, 16, 20 e 24, e cada versão substitui a anterior. |
+
+Você escreve, no exercício 4:
+
+- **Pendência da data de conclusão:** na seção 10, escreva quem decide a data de conclusão do ciclo e em que fase ela pode ser dada com precisão.
+
+Você escreve, no exercício 24:
+
+- **Inconsistência apontada:** indique a linha da tabela de rastreabilidade que viola uma regra e diga o que falta nela.
+- **Regra violada:** diga qual das três regras de rastreabilidade a linha viola.
+- **Pendência:** escreva cada pendência em uma frase que se entenda sozinha.
+- **Quem decide:** nomeie o responsável por resolver a pendência.
+- **Quando se resolve:** diga o marco ou a data em que a pendência deve estar resolvida.
 
 </details>
 

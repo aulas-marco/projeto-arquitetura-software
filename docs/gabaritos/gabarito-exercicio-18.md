@@ -613,7 +613,7 @@ O registro abaixo, o primeiro registro de decisão arquitetural (ADR) do caderno
 | Forças | Absorver o pico, que é 7,1 vezes a média, princípio da evolução incremental. Levar o erro de 6,3% a menos de 1%. Conter a indisponibilidade nos 43 minutos mensais de indisponibilidade que o acordo de nível de serviço, o compromisso de disponibilidade, permite. Preservar o núcleo, princípio do baixo acoplamento e restrição do contrato de sustentação. Entregar a nota em 10 minutos, princípio da separação de responsabilidades. Manter o dado pessoal em território nacional, princípio da segurança por desenho |
 | Alternativas | Manter a arquitetura em camadas atual atende a preservação do núcleo, mas não as três primeiras forças, porque é a configuração que produz os 6,3% de erro. Microsserviços atenderiam a escalabilidade seletiva, mas exigem extrair a matrícula do COBOL, trabalho de mais de um ciclo de 12 meses em conflito com a preservação do núcleo. A arquitetura hexagonal protegeria o acesso ao núcleo, mas não reduz a carga do pico e acrescenta indireção |
 | Decisão | Adotar a arquitetura orientada a eventos na entrada da matrícula, com fila entre o portal e o núcleo. Usar Strangler Fig e Anti-Corruption Layer para a convivência com o legado, Timeout, Circuit Breaker e Bulkhead contra a falha de integração e Transactional Outbox para publicar a nota. A fila absorve o pico sem tocar o núcleo, e os padrões atendem as forças de erro, de disponibilidade e de 10 minutos |
-| Consequências | Positiva: o núcleo deixa de receber a rajada direta e processa no ritmo que sustenta. Negativa: o aluno deixa de receber a confirmação na hora, e a equipe passa a operar um componente assíncrono, em que quem envia segue adiante sem esperar resposta, com os custos de cada padrão, entre eles a manutenção de duas implementações, o ajuste de limites sem teste de carga e a entrega ao menos uma vez. Neutra: o tratamento de erro sai do horário de pico e passa para o processamento da fila |
+| Consequências | Positiva: o núcleo deixa de receber a rajada direta e processa no ritmo que sustenta. Negativa: o aluno recebe na hora só a confirmação de recebimento do pedido, a confirmação da matrícula chega depois, e a equipe passa a operar um componente assíncrono, em que quem envia segue adiante sem esperar resposta, com os custos de cada padrão, entre eles a manutenção de duas implementações, o ajuste de limites sem teste de carga e a entrega ao menos uma vez. Neutra: o tratamento de erro sai do horário de pico e passa para o processamento da fila |
 | Evidências | Não existe teste de carga, porque a linha de base registra a ausência desse ambiente. A evidência disponível é o histórico do incidente de 04/02/2026, reproduzível pelos registros de operação do CICS. A evidência desejável e ausente é um ensaio de carga com 5.800 sessões em ambiente equivalente ao de produção |
 | Revisão | Reabrir o registro se a taxa de erro na janela de matrícula seguinte ficar acima de 2%, ou se o percentil 95 do intervalo entre o lançamento e a chegada da nota ao ambiente virtual passar de 10 minutos por duas semanas seguidas |
 
@@ -730,7 +730,7 @@ O banco Oracle, com 740 tabelas, é compartilhado entre o núcleo COBOL e a cama
 
 #### Contêineres da arquitetura alvo e suas relações
 
-Ao fim do primeiro ciclo, o aluno renova a matrícula pelo aplicativo, o professor lança a nota pelo portal, e dois serviços novos, o de matrícula e o de notas, chamam o núcleo COBOL pelas transações que ele já tem. Cada serviço novo tem banco próprio, e o núcleo continua gravando no banco Oracle existente. A figura mostra os contêineres e as 15 relações numeradas, e a tabela dá o que cada relação exige da comunicação. Contêiner, no modelo C4, é uma parte executável da solução, como um portal, um serviço ou um banco. O R6 é o requisito de confirmar a matrícula em até 4 segundos com 5.800 sessões simultâneas, e o R7 é o de entregar a nota em até 10 minutos.
+Ao fim do primeiro ciclo, o aluno renova a matrícula pelo aplicativo, o professor lança a nota pelo portal, e dois serviços novos, o de matrícula e o de notas, chamam o núcleo COBOL pelas transações que ele já tem. Cada serviço novo tem banco próprio, e o núcleo continua gravando no banco Oracle existente. A figura mostra os contêineres e as 15 relações numeradas, e a tabela dá o que cada relação exige da comunicação. Contêiner, no modelo C4, é uma parte executável da solução, como um portal, um serviço ou um banco. O R6 é o requisito de confirmar o pedido de matrícula em até 4 segundos com 5.800 sessões simultâneas, e o R7 é o de entregar a nota em até 10 minutos. Na entrada da matrícula há uma fila entre o serviço de matrícula e o núcleo, decidida no ADR 001 do exercício 12, para que o pico de pedidos não chegue ao núcleo de uma só vez e não repita o esgotamento de tarefas do CICS de 04/02/2026.
 
 #### Catálogo de blocos lógicos da arquitetura alvo
 
@@ -741,27 +741,28 @@ Esta é a lista de ABBs que a Aula 5 transforma em candidatos concretos. Ela dec
 | Interface do aplicativo do aluno | Permitir matrícula e consulta de notas no canal móvel | Novo |
 | Portal do Professor | Permitir o lançamento de notas no canal já usado pelos professores | Modificado |
 | Portal da Secretaria | Sustentar as operações acadêmicas da secretaria durante a transição | Modificado |
-| Provedor de identidade | Autenticar e autorizar alunos, professores e equipe com padrões abertos | Novo, realizado por serviço contratado, gerenciado ou operado pela ACME |
+| Provedor de identidade | Autenticar e autorizar alunos, professores e equipe com padrões abertos | Novo, obtido como serviço contratado, e a forma de obtenção é escolhida na Aula 5 |
 | Serviço de matrícula | Receber solicitações e aplicar regras acadêmicas | Novo |
 | Serviço de notas | Registrar, consultar e disponibilizar notas | Novo |
 | Banco do serviço de matrícula | Persistir os dados próprios da matrícula | Novo |
 | Banco do serviço de notas | Persistir os dados próprios das notas | Novo |
+| Fila de solicitações de matrícula | Absorver o pico de pedidos e entregá-los ao núcleo no ritmo que ele sustenta | Novo |
 | Evento de nota | Comunicar a publicação de notas ao ambiente virtual | Novo |
 | Camada anticorrupção | Isolar os serviços novos das particularidades do COBOL | Novo |
 | Observabilidade | Correlacionar eventos, métricas e registros dos serviços novos | Novo |
 | Núcleo transacional COBOL sob CICS | Executar regras acadêmicas durante a transição | Permanece |
 
-Evento de nota, camada anticorrupção e observabilidade são responsabilidades lógicas transversais e podem ficar dentro de contêineres ou nas relações entre eles. Por isso, não precisam ganhar uma caixa própria no C4. O ambiente virtual, o gateway de pagamento, o ERP, o assinador digital e o órgão regulador são dependências externas. Eles influenciam os contratos, mas não são blocos que a ACME realiza neste ciclo.
+Fila de solicitações de matrícula, evento de nota, camada anticorrupção e observabilidade são responsabilidades lógicas transversais e podem ficar dentro de contêineres ou nas relações entre eles. Por isso, não precisam ganhar uma caixa própria no C4. O provedor de identidade é um serviço novo, contratado, e por isso fica fora da fronteira, mas leva o rótulo tecnologia a definir. O ambiente virtual, o gateway de pagamento, o ERP, o assinador digital e o órgão regulador são dependências externas. Eles influenciam os contratos, mas não são blocos que a ACME realiza neste ciclo.
 
-![Diagrama de contêineres da arquitetura alvo do primeiro ciclo da ACME. No alto, professor, aluno e secretaria acadêmica. Dentro da fronteira do sistema acadêmico, o Portal do Professor e o Portal da Secretaria existentes, o aplicativo do aluno, os serviços de notas e de matrícula com banco próprio cada um e tecnologia a definir, e o núcleo transacional COBOL existente com o banco Oracle existente. À direita, fora da fronteira, provedor de identidade, assinador digital ICP-Brasil, ambiente virtual de aprendizagem, gateway de pagamento, ERP financeiro e órgão regulador. As relações estão numeradas de 1 a 15.](../assets/images/acme-ex16-diagrama-de-conteineres.svg){ .module-diagram }
+![Diagrama de contêineres da arquitetura alvo do primeiro ciclo da ACME. No alto, professor, aluno e secretaria acadêmica. Dentro da fronteira do sistema acadêmico, o Portal do Professor e o Portal da Secretaria existentes, o aplicativo do aluno, os serviços de notas e de matrícula com banco próprio cada um e tecnologia a definir, e o núcleo transacional COBOL existente com o banco Oracle existente. À direita, fora da fronteira, o provedor de identidade, serviço novo contratado com tecnologia a definir, e os sistemas externos assinador digital ICP-Brasil, ambiente virtual de aprendizagem, gateway de pagamento, ERP financeiro e órgão regulador. As relações estão numeradas de 1 a 15.](../assets/images/acme-ex16-diagrama-de-conteineres-v2.svg){ .module-diagram }
 
 | Relação | Origem e destino | Modo | Volume | Latência |
 | --- | --- | --- | --- | --- |
-| 1 | Aplicativo do aluno para serviço de matrícula | Síncrono | 5.800 sessões simultâneas no pico e 2.400 confirmações em 30 minutos | Percentil 95 de até 4 segundos, pelo R6 |
+| 1 | Aplicativo do aluno para serviço de matrícula | Síncrono | 5.800 sessões simultâneas no pico e 2.400 confirmações em 30 minutos | Percentil 95 de até 4 segundos para a confirmação de recebimento, pelo R6 |
 | 2 | Portal do Professor para serviço de notas | Síncrono | 4.800 lançamentos em dia letivo comum e até 360.000 na janela de fechamento | Não informado |
-| 3 | Serviço de matrícula para núcleo | Síncrono | O mesmo da relação 1 | Dentro dos 4 segundos do R6 |
+| 3 | Serviço de matrícula para núcleo, por meio da fila | Assíncrono | O mesmo da relação 1 | Fora dos 4 segundos do R6, porque o serviço grava o pedido na fila e segue adiante, e o núcleo consome no ritmo que sustenta |
 | 4 | Serviço de notas para núcleo | Síncrono | O mesmo da relação 2 | Não informado |
-| 5 | Núcleo para banco Oracle | Síncrono | Até 14,2 milhões de transações no núcleo no primeiro dia da matrícula | Dentro dos 4 segundos do R6 |
+| 5 | Núcleo para banco Oracle | Síncrono | Até 14,2 milhões de transações no núcleo no primeiro dia da matrícula | Não informado, e fora dos 4 segundos do R6, porque o núcleo processa depois da fila |
 | 6 | Serviço de notas para ambiente virtual | Assíncrono | Até 360.000 lançamentos na janela de fechamento | Até 10 minutos, pelo R7 |
 | 7 | Serviço de matrícula para gateway de pagamento | Síncrono | Não informado | Tempo limite atual de 15 segundos |
 | 8 | Aplicativo do aluno para provedor de identidade | Síncrono | 5.800 sessões simultâneas no pico | Tempo limite atual do diretório de 10 segundos |
@@ -773,7 +774,7 @@ Evento de nota, camada anticorrupção e observabilidade são responsabilidades 
 | 14 | Aplicativo do aluno para serviço de notas | Síncrono | Não informado | Não informado |
 | 15 | Portal da Secretaria para núcleo | Síncrono | Não informado | Tempo limite atual de 30 segundos do conector dos portais |
 
-O requisito de confirmação em até 4 segundos (R6) é sustentado pelas relações 1, 3, 5 e 8, que formam o caminho da confirmação, da entrada do aluno ao banco. As relações 3 e 5 precisam caber nos mesmos 4 segundos, o que faz do núcleo o ponto provável de gargalo da matrícula. O requisito de nota em até 10 minutos (R7) é sustentado pelas relações 2, 4 e 6, que levam a nota do portal ao ambiente virtual. A relação 12 fica fora da lista do R6, porque o dossiê não diz se a gravação no banco do serviço entra no tempo da confirmação, e a 13 fica fora da lista do R7 pelo mesmo motivo.
+O requisito de confirmação em até 4 segundos (R6) é sustentado pelas relações 1 e 8, que formam o caminho da confirmação de recebimento do pedido, da entrada do aluno ao serviço de matrícula e ao provedor de identidade. A fila da relação 3 tira o núcleo desse caminho, e é essa a justificativa da decisão do ADR 001: o núcleo, que a equipe não pode alterar até 30/09/2027 e que esgotou as tarefas do CICS no pico de 04/02/2026, passa a receber os pedidos no ritmo que sustenta, e não mais a rajada de 5.800 sessões. A confirmação da matrícula em si chega ao aluno depois, quando o núcleo processa o pedido, e a leitura do R6 como confirmação de recebimento fica registrada como pendência para a Diretoria de TI confirmar. O requisito de nota em até 10 minutos (R7) é sustentado pelas relações 2, 4 e 6, que levam a nota do portal ao ambiente virtual. A relação 12 fica fora da lista do R6, porque o dossiê não diz se a gravação no banco do serviço entra no tempo da confirmação, e a 13 fica fora da lista do R7 pelo mesmo motivo.
 
 O núcleo transacional fica dentro da fronteira, como contêiner. A ACME detém a responsabilidade pelo núcleo e terceiriza à fábrica apenas a manutenção dos programas COBOL, e o critério que decide a posição de um elemento é a fronteira de responsabilidade sobre ele. O contrato de sustentação até 30/09/2027 impede que a equipe interna altere o núcleo, e por isso os serviços novos o acessam pelas transações existentes.
 
@@ -803,6 +804,7 @@ Cada equipe da ACME precisa saber qual padrão respeitar antes de escolher um pr
 | Serviço de notas | API e integração, exposição de serviços | REST com OpenAPI 3.x | Spring Boot, FastAPI, NestJS | Exemplos aprovados da linha |
 | Banco do serviço de matrícula | Dados, banco de serviço novo | SQL, um banco por serviço e região nacional | PostgreSQL em região nacional | Exemplo aprovado da linha |
 | Banco do serviço de notas | Dados, banco de serviço novo | SQL, um banco por serviço e região nacional | PostgreSQL em região nacional | Exemplo aprovado da linha |
+| Fila de solicitações de matrícula, que protege o núcleo no pico da matrícula | API e integração, mensageria | Tópico com retenção e contrato AsyncAPI | Kafka ou compatível, RabbitMQ | Exemplos aprovados da linha |
 | Evento de nota, que atende a nota em até 10 minutos (R7) | API e integração, mensageria | Tópico com retenção e contrato AsyncAPI | Kafka ou compatível, RabbitMQ | Exemplos aprovados da linha |
 | Camada anticorrupção | Sem linha no recorte | Não há | Candidato a levantar | O recorte e o dossiê não trazem produto |
 | Observabilidade | Infraestrutura, observabilidade | OpenTelemetry | Coletores compatíveis com OpenTelemetry | Exemplo aprovado da linha |
@@ -828,13 +830,13 @@ Entre as vermelhas, continuam em uso e só ficam sob plano de migração documen
 
 #### Matriz de seleção do provedor de identidade
 
-A Universidade ACME compara três formas de obter o serviço de identidade. O dossiê informa o que ele deve cumprir, mas não apresenta produtos, contratos ou medições de A, B e C. Por isso a matriz registra as verificações necessárias. Nenhuma alternativa recebe uma vantagem sem evidência.
+A Universidade ACME compara três formas de obter o serviço de identidade. O dossiê informa o que ele deve cumprir, mas não apresenta produtos, contratos ou medições de PI1, PI2 e PI3. Por isso a matriz registra as verificações necessárias. Nenhuma alternativa recebe uma vantagem sem evidência.
 
 | Alternativa | Aderência ao requisito | Portabilidade |
 | --- | --- | --- |
-| A, instalado e operado pela equipe | Confirmar OpenID Connect (R8), processamento nacional de dados, cópias e suporte (R14), teste de carga para o pico (R6) e capacidade de operação para o R12 | Verificar instalação e recuperação nos dois provedores aprovados, exportação de dados e esforço de migração. A confirmar |
-| B, serviço de terceiro | Pedir documentação de OpenID Connect (R8), contrato e locais de processamento (R14), limites de capacidade (R6) e acordo de disponibilidade (R12) | Verificar exportação, substituição por outro serviço e mudanças necessárias nas aplicações. A confirmar |
-| C, gerenciado da nuvem | Pedir documentação de OpenID Connect (R8), locais de processamento de todos os dados (R14), quotas e teste de carga (R6), acordo e desenho de disponibilidade (R12) | Verificar como substituir o serviço no outro provedor aprovado, incluindo migração de usuários, credenciais e configuração. A confirmar |
+| PI1, instalado e operado pela equipe | Confirmar OpenID Connect (R8), processamento nacional de dados, cópias e suporte (R14), teste de carga para o pico (R6) e capacidade de operação para o R12 | Verificar instalação e recuperação nos dois provedores aprovados, exportação de dados e esforço de migração. A confirmar |
+| PI2, serviço de terceiro | Pedir documentação de OpenID Connect (R8), contrato e locais de processamento (R14), limites de capacidade (R6) e acordo de disponibilidade (R12) | Verificar exportação, substituição por outro serviço e mudanças necessárias nas aplicações. A confirmar |
+| PI3, gerenciado da nuvem | Pedir documentação de OpenID Connect (R8), locais de processamento de todos os dados (R14), quotas e teste de carga (R6), acordo e desenho de disponibilidade (R12) | Verificar como substituir o serviço no outro provedor aprovado, incluindo migração de usuários, credenciais e configuração. A confirmar |
 
 Os outros quatro critérios ficam sem valor, porque o dossiê não traz dado sobre eles, e por isso o caderno registra o que precisa ser levantado antes da comparação.
 
@@ -845,7 +847,7 @@ Os outros quatro critérios ficam sem valor, porque o dossiê não traz dado sob
 | Custo total de propriedade | Licença ou assinatura, operação, treinamento e custo de saída |
 | Competência da equipe | Quantas pessoas conhecem o produto e o protocolo, dado que o dossiê não registra para identidade |
 
-Escolha uma das regras abaixo. Ela só elimina uma candidata quando há evidência de descumprimento. Sem documento ou medição, registre a pendência e peça comprovação. A, B e C podem atender ou falhar, dependendo da oferta concreta.
+Escolha uma das regras abaixo. Ela só elimina uma candidata quando há evidência de descumprimento. Sem documento ou medição, registre a pendência e peça comprovação. PI1, PI2 e PI3 podem atender ou falhar, dependendo da oferta concreta.
 
 | Restrição | Regra de eliminação | Documento que comprova |
 | --- | --- | --- |
@@ -881,7 +883,7 @@ O quadro usa só o dado que o dossiê traz. O orçamento de R$ 6,2 milhões e o 
 
 A plataforma escolhida é a de microsserviços na variante Java, porque os serviços de matrícula e de notas acessam o núcleo pelas transações CICS existentes, sem alterar programa COBOL, convivem com o Oracle compartilhado e com os lotes noturnos durante o primeiro ciclo e aproveitam a competência Java já existente. A escolha da plataforma orientada a eventos também é aceita quando a justificativa cita a convivência com os lotes e a publicação da nota em até 10 minutos exigida pelo R7.
 
-Os produtos que realizam blocos do catálogo vêm da tabela de ABB para SBB do bloco 1 da Aula 5. Na variante Java, o Spring Boot realiza o serviço de matrícula e o de notas, e o Kafka realiza o evento de nota. O FastAPI e o NestJS, aprovados na mesma linha de exposição de serviços, ficam fora da escolha porque o dossiê registra 9 pessoas em Java e traz competência em Python ou em TypeScript apenas como dado ausente, o que pesa no critério de competência da equipe. O RabbitMQ continua como alternativa para o evento de nota, porque o dossiê não traz dado de volume, de retenção ou de reentrega que o distinga do Kafka, e a escolha do Kafka decorre da plataforma e precisa de confirmação em prova de conceito. O Keycloak aparece entre as ferramentas da variante, mas o provedor de identidade segue aberto entre A, B e C, como no exercício 17. Kubernetes, Docker, Prometheus, Grafana e as demais ferramentas compõem a plataforma do bloco 2 e ficam fora do catálogo, e a observabilidade do catálogo tem como candidato os coletores compatíveis com OpenTelemetry.
+Os produtos que realizam blocos do catálogo vêm da tabela de ABB para SBB do bloco 1 da Aula 5. Na variante Java, o Spring Boot realiza o serviço de matrícula e o de notas, e o Kafka realiza o evento de nota e a fila de solicitações de matrícula. O FastAPI e o NestJS, aprovados na mesma linha de exposição de serviços, ficam fora da escolha porque o dossiê registra 9 pessoas em Java e traz competência em Python ou em TypeScript apenas como dado ausente, o que pesa no critério de competência da equipe. O RabbitMQ continua como alternativa para o evento de nota, porque o dossiê não traz dado de volume, de retenção ou de reentrega que o distinga do Kafka, e a escolha do Kafka decorre da plataforma e precisa de confirmação em prova de conceito. O Keycloak aparece entre as ferramentas da variante, mas o provedor de identidade segue aberto entre PI1, PI2 e PI3, como no exercício 17. Kubernetes, Docker, Prometheus, Grafana e as demais ferramentas compõem a plataforma do bloco 2 e ficam fora do catálogo, e a observabilidade do catálogo tem como candidato os coletores compatíveis com OpenTelemetry.
 
 #### Zona de pouso: pilares, etiquetas e requisito
 
@@ -927,6 +929,7 @@ A conta de segurança e registros existe por causa do requisito R9, que exige tr
 | Aprovação da Reitoria à troca do plano do ambiente virtual de aprendizagem para o que oferece interfaces de programação, condição para mudar o envio de notas (elemento E1 do escopo) | Reitoria | Antes do início do primeiro ciclo |
 | Data e decisores do ADR 001, o registro que adota a arquitetura orientada a eventos | Diretor de TI | Antes da aprovação do registro |
 | Ensaio de carga com 5.800 sessões em ambiente equivalente ao de produção | Diretoria de TI | Antes de aceitar o ADR 001, pois o ambiente de carga ainda não existe |
+| Confirmação de que o R6 mede o tempo até a confirmação de recebimento do pedido de matrícula, e não até a conclusão no núcleo, como a fila do ADR 001 pressupõe | Diretoria de TI | Antes de aceitar o ADR 001 |
 | Escolha do produto de mensageria | Diretoria de TI, com a fábrica de software | Na Aula 5, definição tecnológica |
 | Gravação da tabela de saída do Transactional Outbox na mesma transação da nota, hoje dentro do programa COBOL | Fábrica de software | Antes de implantar o serviço de notas |
 | Prazo de guarda do histórico escolar e a norma que o sustenta, ligado à retenção de 5 anos da trilha de auditoria (R9) | Encarregada de proteção de dados | Antes de fixar a retenção no data warehouse |

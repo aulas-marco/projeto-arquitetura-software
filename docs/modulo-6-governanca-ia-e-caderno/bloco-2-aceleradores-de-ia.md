@@ -358,7 +358,7 @@ O enunciado traz duas tabelas. A primeira reproduz parte do que o modelo devolve
 | 4 | Incidente de 04/02/2026 | 4h20 de indisponibilidade e 62% das tentativas de matrícula com erro | Dados operacionais |
 | 5 | Documento de orientação anexado ao pedido | Versão anterior, que registrava 4.000 usuários simultâneos e tempo médio de até 3 segundos | Anexo do pedido ao modelo |
 | 6 | Estado e data do ADR 001 | Proposta, com data a definir junto ao Diretor de TI | ADR do exercício 12 |
-| 7 | Consequências negativas do ADR 001 | O aluno deixa de receber a confirmação da matrícula na hora. A equipe passa a operar um componente assíncrono, em que quem envia segue adiante sem esperar resposta. Os seis padrões exigem manter duas implementações e ajustar limites sem teste de carga. A mensagem pode ser entregue mais de uma vez | ADR do exercício 12 |
+| 7 | Consequências negativas do ADR 001 | O aluno deixa de receber a confirmação da matrícula na hora e recebe só a confirmação de recebimento do pedido. A equipe passa a operar um componente assíncrono, em que quem envia segue adiante sem esperar resposta. Os seis padrões exigem manter duas implementações e ajustar limites sem teste de carga. A mensagem pode ser entregue mais de uma vez | ADR do exercício 12 |
 | 8 | Exigência do modelo de ADR | Ao menos uma consequência positiva, uma negativa e uma neutra | Template de dez campos, no [bloco 4 da Aula 3](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md) |
 
 ### Item 1: Rastreabilidade até a fonte

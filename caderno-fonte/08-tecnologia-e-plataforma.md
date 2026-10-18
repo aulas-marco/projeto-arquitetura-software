@@ -19,9 +19,9 @@ modo: acumula
 - **Linhas válidas para todos os contêineres:** indique as duas linhas do recorte que valem para qualquer contêiner novo, qualquer que seja a função dele, e explique em uma frase.
 - **Classificação da tecnologia:** classifique cada tecnologia da linha de base em verde, âmbar ou vermelho e justifique em uma linha com o dado da tabela.
 - **Tecnologias sob plano de migração:** entre as vermelhas, diga quais continuam em uso hoje e só podem ficar enquanto houver plano de migração documentado.
-- **Aderência e portabilidade das alternativas:** para cada forma de obter o provedor de identidade (A, B e C), escreva o dado do caso que sustenta a aderência ao requisito e a portabilidade, citando o código do requisito ou da restrição.
+- **Aderência e portabilidade das alternativas:** para cada forma de obter o provedor de identidade (PI1, PI2 e PI3), escreva o dado do caso que sustenta a aderência ao requisito e a portabilidade, citando o código do requisito ou da restrição.
 - **Dado que falta por critério:** para maturidade, suporte, custo total de propriedade e competência da equipe, diga qual informação o caso não traz e precisa ser levantada.
-- **Regra de eliminação pela restrição:** escolha R8 ou R14, diga qual condição elimina uma candidata e qual documento pediria para comprovar atendimento. Não descarte A, B ou C apenas pela forma de contratação.
+- **Regra de eliminação pela restrição:** escolha R8 ou R14, diga qual condição elimina uma candidata e qual documento pediria para comprovar atendimento. Não descarte PI1, PI2 ou PI3 apenas pela forma de contratação.
 <!--/campos-->
 <!--gabarito-->
 #### Blocos do catálogo e linhas do modelo técnico de referência
@@ -38,6 +38,7 @@ Cada equipe da ACME precisa saber qual padrão respeitar antes de escolher um pr
 | Serviço de notas | API e integração, exposição de serviços | REST com OpenAPI 3.x | Spring Boot, FastAPI, NestJS | Exemplos aprovados da linha |
 | Banco do serviço de matrícula | Dados, banco de serviço novo | SQL, um banco por serviço e região nacional | PostgreSQL em região nacional | Exemplo aprovado da linha |
 | Banco do serviço de notas | Dados, banco de serviço novo | SQL, um banco por serviço e região nacional | PostgreSQL em região nacional | Exemplo aprovado da linha |
+| Fila de solicitações de matrícula, que protege o núcleo no pico da matrícula | API e integração, mensageria | Tópico com retenção e contrato AsyncAPI | Kafka ou compatível, RabbitMQ | Exemplos aprovados da linha |
 | Evento de nota, que atende a nota em até 10 minutos (R7) | API e integração, mensageria | Tópico com retenção e contrato AsyncAPI | Kafka ou compatível, RabbitMQ | Exemplos aprovados da linha |
 | Camada anticorrupção | Sem linha no recorte | Não há | Candidato a levantar | O recorte e o dossiê não trazem produto |
 | Observabilidade | Infraestrutura, observabilidade | OpenTelemetry | Coletores compatíveis com OpenTelemetry | Exemplo aprovado da linha |
@@ -63,13 +64,13 @@ Entre as vermelhas, continuam em uso e só ficam sob plano de migração documen
 
 #### Matriz de seleção do provedor de identidade
 
-A Universidade ACME compara três formas de obter o serviço de identidade. O dossiê informa o que ele deve cumprir, mas não apresenta produtos, contratos ou medições de A, B e C. Por isso a matriz registra as verificações necessárias. Nenhuma alternativa recebe uma vantagem sem evidência.
+A Universidade ACME compara três formas de obter o serviço de identidade. O dossiê informa o que ele deve cumprir, mas não apresenta produtos, contratos ou medições de PI1, PI2 e PI3. Por isso a matriz registra as verificações necessárias. Nenhuma alternativa recebe uma vantagem sem evidência.
 
 | Alternativa | Aderência ao requisito | Portabilidade |
 | --- | --- | --- |
-| A, instalado e operado pela equipe | Confirmar OpenID Connect (R8), processamento nacional de dados, cópias e suporte (R14), teste de carga para o pico (R6) e capacidade de operação para o R12 | Verificar instalação e recuperação nos dois provedores aprovados, exportação de dados e esforço de migração. A confirmar |
-| B, serviço de terceiro | Pedir documentação de OpenID Connect (R8), contrato e locais de processamento (R14), limites de capacidade (R6) e acordo de disponibilidade (R12) | Verificar exportação, substituição por outro serviço e mudanças necessárias nas aplicações. A confirmar |
-| C, gerenciado da nuvem | Pedir documentação de OpenID Connect (R8), locais de processamento de todos os dados (R14), quotas e teste de carga (R6), acordo e desenho de disponibilidade (R12) | Verificar como substituir o serviço no outro provedor aprovado, incluindo migração de usuários, credenciais e configuração. A confirmar |
+| PI1, instalado e operado pela equipe | Confirmar OpenID Connect (R8), processamento nacional de dados, cópias e suporte (R14), teste de carga para o pico (R6) e capacidade de operação para o R12 | Verificar instalação e recuperação nos dois provedores aprovados, exportação de dados e esforço de migração. A confirmar |
+| PI2, serviço de terceiro | Pedir documentação de OpenID Connect (R8), contrato e locais de processamento (R14), limites de capacidade (R6) e acordo de disponibilidade (R12) | Verificar exportação, substituição por outro serviço e mudanças necessárias nas aplicações. A confirmar |
+| PI3, gerenciado da nuvem | Pedir documentação de OpenID Connect (R8), locais de processamento de todos os dados (R14), quotas e teste de carga (R6), acordo e desenho de disponibilidade (R12) | Verificar como substituir o serviço no outro provedor aprovado, incluindo migração de usuários, credenciais e configuração. A confirmar |
 
 Os outros quatro critérios ficam sem valor, porque o dossiê não traz dado sobre eles, e por isso o caderno registra o que precisa ser levantado antes da comparação.
 
@@ -80,7 +81,7 @@ Os outros quatro critérios ficam sem valor, porque o dossiê não traz dado sob
 | Custo total de propriedade | Licença ou assinatura, operação, treinamento e custo de saída |
 | Competência da equipe | Quantas pessoas conhecem o produto e o protocolo, dado que o dossiê não registra para identidade |
 
-Escolha uma das regras abaixo. Ela só elimina uma candidata quando há evidência de descumprimento. Sem documento ou medição, registre a pendência e peça comprovação. A, B e C podem atender ou falhar, dependendo da oferta concreta.
+Escolha uma das regras abaixo. Ela só elimina uma candidata quando há evidência de descumprimento. Sem documento ou medição, registre a pendência e peça comprovação. PI1, PI2 e PI3 podem atender ou falhar, dependendo da oferta concreta.
 
 | Restrição | Regra de eliminação | Documento que comprova |
 | --- | --- | --- |
@@ -123,7 +124,7 @@ O quadro usa só o dado que o dossiê traz. O orçamento de R$ 6,2 milhões e o 
 
 A plataforma escolhida é a de microsserviços na variante Java, porque os serviços de matrícula e de notas acessam o núcleo pelas transações CICS existentes, sem alterar programa COBOL, convivem com o Oracle compartilhado e com os lotes noturnos durante o primeiro ciclo e aproveitam a competência Java já existente. A escolha da plataforma orientada a eventos também é aceita quando a justificativa cita a convivência com os lotes e a publicação da nota em até 10 minutos exigida pelo R7.
 
-Os produtos que realizam blocos do catálogo vêm da tabela de ABB para SBB do bloco 1 da Aula 5. Na variante Java, o Spring Boot realiza o serviço de matrícula e o de notas, e o Kafka realiza o evento de nota. O FastAPI e o NestJS, aprovados na mesma linha de exposição de serviços, ficam fora da escolha porque o dossiê registra 9 pessoas em Java e traz competência em Python ou em TypeScript apenas como dado ausente, o que pesa no critério de competência da equipe. O RabbitMQ continua como alternativa para o evento de nota, porque o dossiê não traz dado de volume, de retenção ou de reentrega que o distinga do Kafka, e a escolha do Kafka decorre da plataforma e precisa de confirmação em prova de conceito. O Keycloak aparece entre as ferramentas da variante, mas o provedor de identidade segue aberto entre A, B e C, como no exercício 17. Kubernetes, Docker, Prometheus, Grafana e as demais ferramentas compõem a plataforma do bloco 2 e ficam fora do catálogo, e a observabilidade do catálogo tem como candidato os coletores compatíveis com OpenTelemetry.
+Os produtos que realizam blocos do catálogo vêm da tabela de ABB para SBB do bloco 1 da Aula 5. Na variante Java, o Spring Boot realiza o serviço de matrícula e o de notas, e o Kafka realiza o evento de nota e a fila de solicitações de matrícula. O FastAPI e o NestJS, aprovados na mesma linha de exposição de serviços, ficam fora da escolha porque o dossiê registra 9 pessoas em Java e traz competência em Python ou em TypeScript apenas como dado ausente, o que pesa no critério de competência da equipe. O RabbitMQ continua como alternativa para o evento de nota, porque o dossiê não traz dado de volume, de retenção ou de reentrega que o distinga do Kafka, e a escolha do Kafka decorre da plataforma e precisa de confirmação em prova de conceito. O Keycloak aparece entre as ferramentas da variante, mas o provedor de identidade segue aberto entre PI1, PI2 e PI3, como no exercício 17. Kubernetes, Docker, Prometheus, Grafana e as demais ferramentas compõem a plataforma do bloco 2 e ficam fora do catálogo, e a observabilidade do catálogo tem como candidato os coletores compatíveis com OpenTelemetry.
 
 #### Zona de pouso: pilares, etiquetas e requisito
 
@@ -160,7 +161,7 @@ A conta de segurança e registros existe por causa do requisito R9, que exige tr
 - **Ativos restritos pelo R14:** diga quais ativos não podem ser processados fora do território nacional, conforme a exigência R14, e qual sistema externo recebe hoje um deles.
 - **Células que violam o menor privilégio:** aponte as três células da grade de permissões que dão acesso maior que o necessário, com o perfil e o recurso.
 - **Acesso correto:** escreva o acesso correto de cada uma das três células, com a condição quando houver.
-- **Categoria STRIDE da ameaça:** classifique cada ameaça, de T1 a T6, em uma das seis categorias do STRIDE, modelo que classifica ameaças em falsificação, adulteração, repúdio, divulgação de informação, negação de serviço e elevação de privilégio.
+- **Categoria STRIDE da ameaça:** classifique cada ameaça, de AM1 a AM6, em uma das seis categorias do STRIDE, modelo que classifica ameaças em falsificação, adulteração, repúdio, divulgação de informação, negação de serviço e elevação de privilégio.
 - **Controle da ameaça:** associe a cada ameaça a letra do controle que a trata.
 - **Controle que também atende ao R9:** indique qual dos seis controles também atende ao requisito de trilha de auditoria (R9).
 - **Decisão de segurança:** escreva em uma linha o que cada uma das cinco decisões, de DS1 a DS5, estabelece, usando as respostas dos itens 1 a 3.
@@ -174,14 +175,14 @@ Todo ativo ligado a um aluno identificado é dado pessoal, e só o laudo, por tr
 
 | Ativo | Classificação LGPD | Confidencialidade | Justificativa |
 | --- | --- | --- | --- |
-| A1, nota | Pessoal | Média | Informação ligada a aluno identificado, art. 5º, I |
-| A2, histórico escolar | Pessoal | Alta | Reúne identificação e todo o percurso acadêmico, e a emissão tem valor documental |
-| A3, CPF | Pessoal | Alta | Identificador único, que pode ser usado em fraude de identidade |
-| A4, dados socioeconômicos de bolsa | Pessoal | Alta | Revelam renda e situação familiar e não constam da lista do art. 5º, II |
-| A5, laudo de necessidade educacional específica | Pessoal sensível | Alta | Dado referente à saúde, art. 5º, II, cuja violação expõe o titular a discriminação |
-| A6, oferta de turmas | Não pessoal | Baixa | Informação institucional, sem vínculo a pessoa natural |
+| AT1, nota | Pessoal | Média | Informação ligada a aluno identificado, art. 5º, I |
+| AT2, histórico escolar | Pessoal | Alta | Reúne identificação e todo o percurso acadêmico, e a emissão tem valor documental |
+| AT3, CPF | Pessoal | Alta | Identificador único, que pode ser usado em fraude de identidade |
+| AT4, dados socioeconômicos de bolsa | Pessoal | Alta | Revelam renda e situação familiar e não constam da lista do art. 5º, II |
+| AT5, laudo de necessidade educacional específica | Pessoal sensível | Alta | Dado referente à saúde, art. 5º, II, cuja violação expõe o titular a discriminação |
+| AT6, oferta de turmas | Não pessoal | Baixa | Informação institucional, sem vínculo a pessoa natural |
 
-A exigência de dado pessoal de aluno em território nacional (R14) impede o processamento fora do país de A1 a A5, e só a oferta de turmas fica livre. O sistema externo do diagrama do exercício 16 que recebe hoje um desses ativos é o ambiente virtual de aprendizagem, que recebe a nota consolidada no lote das 05h10. O dossiê não registra a região de processamento do fornecedor do ambiente virtual, e por isso essa verificação fica como lacuna a conferir no contrato.
+A exigência de dado pessoal de aluno em território nacional (R14) impede o processamento fora do país de AT1 a AT5, e só a oferta de turmas fica livre. O sistema externo do diagrama do exercício 16 que recebe hoje um desses ativos é o ambiente virtual de aprendizagem, que recebe a nota consolidada no lote das 05h10. O dossiê não registra a região de processamento do fornecedor do ambiente virtual, e por isso essa verificação fica como lacuna a conferir no contrato.
 
 #### Grade de permissões corrigida
 
@@ -199,12 +200,12 @@ Cada ameaça pertence a uma categoria do STRIDE e é tratada por um dos seis con
 
 | Ameaça | Categoria STRIDE | Controle |
 | --- | --- | --- |
-| T1, dados do pedido lidos na rede | Divulgação de informação | (c) criptografia em trânsito e em repouso |
-| T2, senha de outro aluno | Falsificação de identidade | (d) autenticação forte por OpenID Connect |
-| T3, milhares de pedidos por segundo | Negação de serviço | (a) limite de taxa e reserva de capacidade |
-| T4, aluno nega o cancelamento | Repúdio | (e) registro de auditoria imutável |
-| T5, parâmetro trocado para executar ajuste de vaga | Elevação de privilégio | (b) autorização por papel no serviço de matrícula |
-| T6, lista de turmas alterada no caminho | Adulteração | (f) assinatura e verificação de integridade |
+| AM1, dados do pedido lidos na rede | Divulgação de informação | (c) criptografia em trânsito e em repouso |
+| AM2, senha de outro aluno | Falsificação de identidade | (d) autenticação forte por OpenID Connect |
+| AM3, milhares de pedidos por segundo | Negação de serviço | (a) limite de taxa e reserva de capacidade |
+| AM4, aluno nega o cancelamento | Repúdio | (e) registro de auditoria imutável |
+| AM5, parâmetro trocado para executar ajuste de vaga | Elevação de privilégio | (b) autorização por papel no serviço de matrícula |
+| AM6, lista de turmas alterada no caminho | Adulteração | (f) assinatura e verificação de integridade |
 
 O controle que também atende ao requisito de trilha de auditoria (R9) é o (e), registro de auditoria imutável, porque ele guarda o autor e o horário de cada acesso. A retenção de 5 anos exigida pelo R9 é um parâmetro a configurar nesse controle.
 

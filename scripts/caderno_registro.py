@@ -60,7 +60,7 @@ EXERCICIOS = {
     24: (6, "modulo-6-governanca-ia-e-caderno/bloco-3-apresentacao-do-caderno.md", "Apresentação do caderno arquitetural"),
 }
 
-CODIGOS = ("D", "PR", "RT", "R", "RD", "CQ", "LB", "L", "P", "DD", "DL", "B", "I", "ADR", "C", "DS", "LG", "FA", "CP", "N", "T", "A")
+CODIGOS = ("D", "PR", "RT", "R", "RD", "CQ", "LB", "L", "P", "DD", "DL", "B", "I", "ADR", "C", "DS", "AM", "AT", "PI", "LG", "FA", "CP", "N", "T", "A")
 
 ROTULOS_CURTOS = {
     0: "Resumo", 1: "Contexto", 2: "Partes", 3: "Requisitos", 4: "Linha de base",

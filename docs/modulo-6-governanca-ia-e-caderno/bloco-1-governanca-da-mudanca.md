@@ -83,7 +83,7 @@ A tabela mostra as três ondas da ACME. Três requisitos do caso aparecem nela p
 
 | Onda | Prazo suposto | Valor de negócio | Entregas principais | Critério de conclusão |
 | --- | --- | --- | --- | --- |
-| 1, agora | 0 a 6 meses | Base para os canais novos | Zona de pouso, logon único, gateway de APIs, camada anticorrupção sobre o núcleo e portal básico do aluno | Portal básico em produção, autenticação por OpenID Connect no logon único, consulta ao núcleo pela camada anticorrupção sem acesso direto ao banco, teste de carga executado no ambiente novo |
+| 1, agora | 0 a 6 meses | Base para os canais novos | Zona de pouso, logon único, gateway de APIs, camada anticorrupção sobre o núcleo e portal básico do aluno | Portal básico em produção, autenticação por OpenID Connect no logon único, consulta ao núcleo pela camada anticorrupção sem acesso direto ao banco, registro de auditoria de leitura de dado pessoal com retenção de 5 anos na conta de segurança e registros (R9), teste de carga executado no ambiente novo |
 | 2, em seguida | 6 a 12 meses | A matrícula pelo celular que não cai (R1 e R6) e fim da troca manual de arquivos com o ERP financeiro | Matrícula digital, aplicativo móvel mínimo viável e integração automatizada com o ERP financeiro | Matrícula digital operando numa janela real, com o R6 medido em produção, processo de matrícula redesenhado, Secretaria Acadêmica treinada e nenhuma troca manual de arquivos |
 | 3, depois | 12 a 24 meses | Caminho para o custo de R$ 11,0 milhões (R15) | Migração das regras de negócio do COBOL | Regras migradas cobertas por teste automatizado, testes de caracterização sem divergência contra o núcleo e custo anual medido no mesmo escopo do R15 |
 
@@ -132,7 +132,7 @@ Cada tipo de decisão tem um responsável e um aprovador definidos, e a tabela t
 | Tipo da decisão | Quem aprova |
 | --- | --- |
 | Estrutura da solução, como o estilo arquitetural | Diretor de TI, com a Reitoria para a decisão mais ampla |
-| Contrato com fornecedor ou acréscimo de custo | Diretor Financeiro, com o material preparado pelo arquiteto de solução |
+| Contrato com fornecedor ou acréscimo de custo | Reitoria, com o material preparado pelo arquiteto de solução |
 | Exceção ao modelo técnico de referência | Conselho de revisão |
 | Mudança incompatível de contrato de integração | Conselho de revisão |
 | Prioridade de atributo de qualidade em conflito | Patrocinador |
@@ -364,7 +364,7 @@ Quando o arquiteto apresenta o roteiro à Reitoria, ele precisa mostrar por que 
 | --- | --- | --- |
 | A | Matrícula digital, aplicativo móvel mínimo viável e integração automatizada com o ERP financeiro | Matrícula digital operando numa janela real, com o requisito R6, de 5.800 sessões simultâneas, medido em produção, processo de matrícula redesenhado, Secretaria Acadêmica treinada e nenhuma troca manual de arquivos |
 | B | Migração das regras de negócio do COBOL | Regras migradas cobertas por teste automatizado, testes de caracterização sem divergência contra o núcleo e custo anual medido no mesmo escopo do requisito R15, a meta de R$ 11,0 milhões em 2029 |
-| C | Zona de pouso, logon único, gateway de APIs, camada anticorrupção sobre o núcleo e portal básico do aluno | Portal básico em produção, autenticação por OpenID Connect no logon único, consulta ao núcleo pela camada anticorrupção sem acesso direto ao banco e teste de carga executado no ambiente novo |
+| C | Zona de pouso, logon único, gateway de APIs, camada anticorrupção sobre o núcleo e portal básico do aluno | Portal básico em produção, autenticação por OpenID Connect no logon único, consulta ao núcleo pela camada anticorrupção sem acesso direto ao banco, registro de auditoria de leitura de dado pessoal com retenção de 5 anos na conta de segurança e registros (R9) e teste de carga executado no ambiente novo |
 
 | Contrato | Data | Efeito |
 | --- | --- | --- |
@@ -406,7 +406,7 @@ Contido o desvio, alguém precisa decidir o que fazer com o pedido de exceção,
 | Tipo da decisão | Quem aprova |
 | --- | --- |
 | Estrutura da solução | Diretor de TI |
-| Contrato com fornecedor ou acréscimo de custo | Diretor Financeiro |
+| Contrato com fornecedor ou acréscimo de custo | Reitoria |
 | Exceção ao modelo técnico de referência | Conselho de revisão |
 | Mudança incompatível de contrato de integração | Conselho de revisão |
 | Prioridade de atributo de qualidade em conflito | Patrocinador |

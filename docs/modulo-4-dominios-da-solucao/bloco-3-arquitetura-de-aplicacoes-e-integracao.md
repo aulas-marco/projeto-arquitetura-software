@@ -323,10 +323,10 @@ O roteiro de montagem do diagrama de contêineres tem quatro etapas:
 3. Descrever as relações entre contêineres e entre eles e os sistemas externos, especificando protocolo e direção.
 4. Acrescentar a cada contêiner uma descrição curta da responsabilidade e da tecnologia usada.
 
-O diagrama seguinte detalha o mesmo sistema acadêmico: os portais, o aplicativo, os serviços, os bancos e o núcleo ficam dentro da fronteira, e o provedor de identidade, o ambiente virtual e as demais dependências permanecem externos, de modo que os nomes dos elementos devem coincidir com os do diagrama de contexto.
+O diagrama seguinte detalha o mesmo sistema acadêmico: os portais, o aplicativo, os serviços, os bancos e o núcleo ficam dentro da fronteira, e o provedor de identidade, serviço novo contratado, o ambiente virtual e as demais dependências permanecem fora da fronteira, de modo que os nomes dos elementos devem coincidir com os do diagrama de contexto.
 
 <figure markdown="span">
-![Contêineres da arquitetura alvo da Universidade ACME, com portais, aplicativo do aluno, serviços de matrícula e notas, seus bancos e núcleo COBOL. As tecnologias dos componentes novos serão escolhidas na Aula 5.](../assets/images/acme-ex16-diagrama-de-conteineres.svg){ .module-diagram }
+![Contêineres da arquitetura alvo da Universidade ACME, com portais, aplicativo do aluno, serviços de matrícula e notas, seus bancos e núcleo COBOL. As tecnologias dos componentes novos serão escolhidas na Aula 5.](../assets/images/acme-ex16-diagrama-de-conteineres-v2.svg){ .module-diagram }
 </figure>
 
 *Figura 9 — Contêineres do mesmo sistema acadêmico. Fonte: material do curso.*

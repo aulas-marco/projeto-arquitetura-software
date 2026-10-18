@@ -296,7 +296,7 @@ class AbbSbbMirrorTest(unittest.TestCase):
         cls.key_17 = cls.answer_key[start:cls.answer_key.index("<!--/ex-->", start)]
 
     def test_the_three_catalogs_use_the_same_block_names(self):
-        self.assertEqual(len(self.catalog), 12)
+        self.assertEqual(len(self.catalog), 13)
         passo_1 = [row[0] for row in table_rows(self.b1, "ABB, bloco lógico")]
         source_07 = [row[0] for row in table_rows(
             SOURCE_07.read_text(encoding="utf-8"), "ABB, bloco lógico")]

@@ -22,8 +22,11 @@ Cada código é a inicial do item seguida de um número, na ordem em que o item 
 | B | Um bloco de construção da solução | 7 |
 | I | Uma interface entre dois blocos | 7 |
 | ADR | Um registro de decisão arquitetural: texto curto com o contexto, as alternativas e as consequências de uma escolha | 7 e 8 |
-| C | Um controle de segurança | 8 |
+| C | Uma capacidade acadêmica, aquilo que a universidade precisa conseguir fazer, como avaliar e registrar notas | 7 |
 | DS | Uma decisão de segurança do registro, com quem a executa e como se verifica | 8 |
+| AM | Uma ameaça examinada numa fronteira de confiança, classificada pelo STRIDE | 8 |
+| AT | Um ativo de dado, classificado pela LGPD e por nível de confidencialidade | 8 |
+| PI | Uma alternativa de forma de obter o provedor de identidade | 8 |
 | LG | Uma ligação entre duas partes executáveis da solução, com protocolo e contrato | 7 |
 | FA | Uma função de adequação: teste automático que avisa quando uma decisão deixa de ser cumprida | 9 |
 | CP | Um candidato a componente da solução, classificado por tipo | 1 |

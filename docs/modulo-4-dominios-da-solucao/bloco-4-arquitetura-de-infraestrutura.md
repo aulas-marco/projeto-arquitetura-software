@@ -34,11 +34,12 @@ Antes de escolher tecnologia, o projeto precisa nomear as partes que serão real
 | Interface do aplicativo do aluno | Permitir matrícula e consulta de notas no canal móvel | Novo |
 | Portal do Professor | Permitir o lançamento de notas no canal já usado pelos professores | Modificado |
 | Portal da Secretaria | Sustentar as operações acadêmicas da secretaria durante a transição | Modificado |
-| Provedor de identidade | Autenticar e autorizar alunos, professores e equipe com padrões abertos | Novo, realizado por serviço contratado, gerenciado ou operado pela ACME |
+| Provedor de identidade | Autenticar e autorizar alunos, professores e equipe com padrões abertos | Novo, obtido como serviço contratado, e a forma de obtenção é escolhida na Aula 5 |
 | Serviço de matrícula | Receber solicitações e aplicar regras acadêmicas | Novo |
 | Serviço de notas | Registrar, consultar e disponibilizar notas | Novo |
 | Banco do serviço de matrícula | Persistir os dados próprios da matrícula | Novo |
 | Banco do serviço de notas | Persistir os dados próprios das notas | Novo |
+| Fila de solicitações de matrícula | Absorver o pico de pedidos e entregá-los ao núcleo no ritmo que ele sustenta | Novo |
 | Evento de nota | Comunicar a publicação de notas ao ambiente virtual | Novo |
 | Camada anticorrupção | Isolar os serviços novos das particularidades do COBOL | Novo |
 | Observabilidade | Correlacionar eventos, métricas e registros dos serviços novos | Novo |
@@ -143,7 +144,7 @@ O arquiteto da ACME chega a este domínio com o diagrama de contêineres e preci
 | --- | --- | --- |
 | Modo de comunicação | Para cada uma das 15 relações, diga se é síncrona, quando quem chama espera a resposta, ou assíncrona, quando segue adiante | 1 |
 | Volume e latência | Para cada relação, escreva quanto passa por ela e quanto tempo a troca pode levar, e escreva não informado quando o dossiê não trouxer o dado | 1 |
-| Relações do R6 | Indique, pelo número, as relações que fazem parte do caminho da confirmação da matrícula em até 4 segundos | 2 |
+| Relações do R6 | Indique, pelo número, as relações que fazem parte do caminho da confirmação de recebimento do pedido de matrícula em até 4 segundos | 2 |
 | Relações do R7 | Indique, pelo número, as relações que fazem parte do caminho da nota até o ambiente virtual em até 10 minutos | 2 |
 | Posição do núcleo transacional | Diga se o núcleo COBOL fica dentro ou fora da fronteira da solução e por quê | 3 |
 
@@ -164,10 +165,10 @@ O exercício parte do diagrama de contexto corrigido no [exercício 15](bloco-3-
 
 ### Item 1: Modo, volume e latência das relações
 
-Uma relação que atende 5.800 sessões simultâneas na abertura da matrícula e outra que leva 4.800 lançamentos de nota em dia letivo comum exigem coisas muito diferentes da comunicação, e este item descreve o que cada relação entre contêineres exige. O modo de comunicação é síncrono, quando quem chama espera a resposta, ou assíncrono, quando quem chama segue adiante e a resposta ou o efeito chega depois. O volume é quanto passa pela relação, por exemplo o número de sessões ou de lançamentos de nota, e a latência é o tempo que a troca pode levar. O diagrama abaixo é o diagrama de contêineres da arquitetura alvo do primeiro ciclo, coerente com o diagrama de contexto corrigido no exercício 15. Os contêineres novos, que são o aplicativo do aluno, o serviço de matrícula, o serviço de notas e o banco próprio de cada um desses dois serviços, levam o rótulo tecnologia a definir na Aula 5. O Portal do Professor e o Portal da Secretaria são contêineres existentes, mantidos no primeiro ciclo, e o núcleo transacional COBOL continua gravando no banco Oracle existente. As relações estão apenas numeradas, sem rótulo de comunicação, e as relações 12 a 15 ligam os serviços novos aos seus bancos, o aplicativo do aluno ao serviço de notas e o Portal da Secretaria ao núcleo.
+Uma relação que atende 5.800 sessões simultâneas na abertura da matrícula e outra que leva 4.800 lançamentos de nota em dia letivo comum exigem coisas muito diferentes da comunicação, e este item descreve o que cada relação entre contêineres exige. O modo de comunicação é síncrono, quando quem chama espera a resposta, ou assíncrono, quando quem chama segue adiante e a resposta ou o efeito chega depois. O volume é quanto passa pela relação, por exemplo o número de sessões ou de lançamentos de nota, e a latência é o tempo que a troca pode levar. O diagrama abaixo é o diagrama de contêineres da arquitetura alvo do primeiro ciclo, coerente com o diagrama de contexto corrigido no exercício 15. Os elementos novos, que são o aplicativo do aluno, o serviço de matrícula, o serviço de notas, o banco próprio de cada um desses dois serviços e o provedor de identidade, contratado como serviço e por isso fora da fronteira, levam o rótulo tecnologia a definir na Aula 5. A decisão do ADR 001, registrada no [exercício 12](../modulo-3-design-e-padroes/bloco-4-registro-de-decisao-arquitetural.md#exercicio-12), vale para este desenho: na entrada da matrícula há uma fila entre o serviço de matrícula e o núcleo, para que o pico de pedidos não chegue ao núcleo de uma só vez. O Portal do Professor e o Portal da Secretaria são contêineres existentes, mantidos no primeiro ciclo, e o núcleo transacional COBOL continua gravando no banco Oracle existente. As relações estão apenas numeradas, sem rótulo de comunicação, e as relações 12 a 15 ligam os serviços novos aos seus bancos, o aplicativo do aluno ao serviço de notas e o Portal da Secretaria ao núcleo.
 
 <figure markdown="span">
-![Diagrama de contêineres da arquitetura alvo do primeiro ciclo da ACME. No alto, professor, aluno e secretaria acadêmica. Dentro da fronteira do sistema acadêmico, o Portal do Professor e o Portal da Secretaria existentes, o aplicativo do aluno, os serviços de notas e de matrícula com banco próprio cada um e tecnologia a definir, e o núcleo transacional COBOL existente com o banco Oracle existente. À direita, fora da fronteira, provedor de identidade, assinador digital ICP-Brasil, ambiente virtual de aprendizagem, gateway de pagamento, ERP financeiro e órgão regulador. As relações estão numeradas de 1 a 15, em linhas ortogonais e sem rótulo de comunicação.](../assets/images/acme-ex16-diagrama-de-conteineres.svg){ .module-diagram }
+![Diagrama de contêineres da arquitetura alvo do primeiro ciclo da ACME. No alto, professor, aluno e secretaria acadêmica. Dentro da fronteira do sistema acadêmico, o Portal do Professor e o Portal da Secretaria existentes, o aplicativo do aluno, os serviços de notas e de matrícula com banco próprio cada um e tecnologia a definir, e o núcleo transacional COBOL existente com o banco Oracle existente. À direita, fora da fronteira, o provedor de identidade, serviço novo contratado com tecnologia a definir, e os sistemas externos assinador digital ICP-Brasil, ambiente virtual de aprendizagem, gateway de pagamento, ERP financeiro e órgão regulador. As relações estão numeradas de 1 a 15, em linhas ortogonais e sem rótulo de comunicação.](../assets/images/acme-ex16-diagrama-de-conteineres-v2.svg){ .module-diagram }
 </figure>
 
 
@@ -215,6 +216,8 @@ Dos 15 caminhos do diagrama, só alguns importam para o aluno que espera a confi
 | --- | --- |
 | R6 | Percentil 95 do tempo de confirmação da matrícula em até 4 segundos, com 5.800 sessões simultâneas |
 | R7 | Nota lançada pelo professor no ambiente virtual em até 10 minutos |
+
+Como a fila do ADR 001 separa o núcleo do pedido, o tempo do R6 é lido neste exercício como o tempo até o aluno receber a confirmação de recebimento do pedido, e a confirmação da matrícula em si chega depois.
 
 ```mermaid
 graph LR

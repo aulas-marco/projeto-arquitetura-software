@@ -31,17 +31,18 @@ Comece pelo diagrama de contêineres do [exercício 16](../modulo-4-dominios-da-
 | Interface do aplicativo do aluno | Permitir matrícula e consulta de notas no canal móvel | Novo |
 | Portal do Professor | Permitir o lançamento de notas no canal já usado pelos professores | Modificado |
 | Portal da Secretaria | Sustentar as operações acadêmicas da secretaria durante a transição | Modificado |
-| Provedor de identidade | Autenticar e autorizar alunos, professores e equipe com padrões abertos | Novo, realizado por serviço contratado, gerenciado ou operado pela ACME |
+| Provedor de identidade | Autenticar e autorizar alunos, professores e equipe com padrões abertos | Novo, obtido como serviço contratado, e a forma de obtenção é escolhida na Aula 5 |
 | Serviço de matrícula | Receber solicitações e aplicar regras acadêmicas | Novo |
 | Serviço de notas | Registrar, consultar e disponibilizar notas | Novo |
 | Banco do serviço de matrícula | Persistir os dados próprios da matrícula | Novo |
 | Banco do serviço de notas | Persistir os dados próprios das notas | Novo |
+| Fila de solicitações de matrícula | Absorver o pico de pedidos e entregá-los ao núcleo no ritmo que ele sustenta | Novo |
 | Evento de nota | Comunicar a publicação de notas ao ambiente virtual | Novo |
 | Camada anticorrupção | Isolar os serviços novos das particularidades do COBOL | Novo |
 | Observabilidade | Correlacionar eventos, métricas e registros dos serviços novos | Novo |
 | Núcleo transacional COBOL sob CICS | Executar regras acadêmicas durante a transição | Permanece |
 
-Evento de nota, camada anticorrupção e observabilidade atravessam mais de um contêiner. Por isso, podem ficar nas relações ou dentro dos contêineres, sem uma caixa própria no C4. O ambiente virtual, o gateway de pagamento, o ERP, o assinador digital e o órgão regulador são sistemas externos. Eles influenciam os contratos e a escolha, mas a ACME não precisa construí-los neste ciclo.
+Fila de solicitações de matrícula, evento de nota, camada anticorrupção e observabilidade atravessam mais de um contêiner. Por isso, podem ficar nas relações ou dentro dos contêineres, sem uma caixa própria no C4. O ambiente virtual, o gateway de pagamento, o ERP, o assinador digital e o órgão regulador são sistemas externos. Eles influenciam os contratos e a escolha, mas a ACME não precisa construí-los neste ciclo.
 
 ### Passo 2: elimine o que não atende às restrições
 
@@ -162,6 +163,8 @@ Agora que o método de comparação está definido, os exemplos ficam concretos.
 | Serviço de notas | NestJS | Pode expor API REST e publicar o evento de nota | Contrato OpenAPI e AsyncAPI, prazo do R7 e competência TypeScript |
 | Banco do serviço de matrícula | PostgreSQL em região nacional | Implementa o armazenamento SQL próprio do serviço, na mesma linha de banco de serviço novo | Proteção do dado, recuperação, custo e operação da base |
 | Banco do serviço de notas | PostgreSQL em região nacional | Implementa o armazenamento SQL próprio do serviço | Proteção do dado, recuperação, custo e operação da base |
+| Fila de solicitações de matrícula | Kafka ou compatível | Recebe os pedidos de matrícula do serviço e os entrega ao núcleo no ritmo que ele sustenta | Volume do pico, retenção, reentrega e ordem dos pedidos |
+| Fila de solicitações de matrícula | RabbitMQ | Pode realizar a fila entre o serviço de matrícula e o núcleo | Garantias de entrega, operação e capacidade para o pico |
 | Evento de nota | Kafka ou compatível | Publica eventos com retenção e contrato AsyncAPI | Volume, retenção, reentrega e rastreabilidade da mensagem |
 | Evento de nota | RabbitMQ | Pode realizar mensageria entre produtor e consumidor | Garantias de entrega, operação, retenção e compatibilidade com o contrato |
 | Camada anticorrupção | Candidato a levantar | O recorte e o dossiê não trazem produto nem exemplo para isolar os serviços novos do COBOL, e a equipe levanta candidatos antes da comparação | Transações CICS existentes, tempo limite dos conectores e competência da equipe |
@@ -191,7 +194,7 @@ Ao concluir os cinco passos, o arquiteto registra no ADR a opção escolhida, as
 
 **Para que serve.** A ACME precisa de um serviço de matrícula que aguente 5.800 sessões simultâneas, mas o desenho da Aula 4 deixou todos os contêineres novos com a etiqueta tecnologia a definir. Se cada equipe escolher o produto que já conhece, a universidade termina com padrões diferentes em cada serviço e com tecnologias antigas copiadas para o sistema novo. Por isso a seção 8 do caderno começa pelo que a ACME já aprovou e pelo que quer abandonar, e só depois compara as opções de um produto, de modo que quem ler o caderno meses depois encontre o motivo de cada escolha.
 
-**O que você faz neste exercício.** O enunciado reúne o que é preciso para esse primeiro passo: as oito caixas do desenho de contêineres do exercício 16, que são as partes executáveis da solução, como o serviço de matrícula e o banco do serviço de notas, o catálogo de doze blocos do mesmo exercício, um recorte de seis linhas do modelo técnico de referência da ACME, seis tecnologias que a universidade já usa, como o COBOL sob CICS e o banco Oracle 12c, e três formas de obter um provedor de identidade, chamadas A, B e C. Você liga cada bloco do catálogo à linha do modelo que vale para ele, porque é essa linha que diz o padrão a seguir e quais produtos aprovados entram como candidatos, depois classifica cada tecnologia atual em verde, âmbar ou vermelho para mostrar o que fica e o que sai, e por fim começa a comparar as três formas com o dado que o caso traz, já que o restante ainda precisa ser levantado.
+**O que você faz neste exercício.** O enunciado reúne o que é preciso para esse primeiro passo: as oito caixas do desenho de contêineres do exercício 16, que são as partes executáveis da solução, como o serviço de matrícula e o banco do serviço de notas, o catálogo de doze blocos do mesmo exercício, um recorte de seis linhas do modelo técnico de referência da ACME, seis tecnologias que a universidade já usa, como o COBOL sob CICS e o banco Oracle 12c, e três formas de obter um provedor de identidade, chamadas PI1, PI2 e PI3. Você liga cada bloco do catálogo à linha do modelo que vale para ele, porque é essa linha que diz o padrão a seguir e quais produtos aprovados entram como candidatos, depois classifica cada tecnologia atual em verde, âmbar ou vermelho para mostrar o que fica e o que sai, e por fim começa a comparar as três formas com o dado que o caso traz, já que o restante ainda precisa ser levantado.
 
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
@@ -199,13 +202,13 @@ Ao concluir os cinco passos, o arquiteto registra no ADR a opção escolhida, as
 | Linhas válidas para todos os contêineres | Indique as duas linhas do recorte que valem para qualquer contêiner novo, qualquer que seja a função dele, e explique em uma frase | 1 |
 | Classificação da tecnologia | Classifique cada tecnologia da linha de base em verde, âmbar ou vermelho e justifique em uma linha com o dado da tabela | 2 |
 | Tecnologias sob plano de migração | Entre as vermelhas, diga quais continuam em uso hoje e só podem ficar enquanto houver plano de migração documentado | 2 |
-| Aderência e portabilidade das alternativas | Para cada forma de obter o provedor de identidade (A, B e C), escreva o dado do caso que sustenta a aderência ao requisito e a portabilidade, citando o código do requisito ou da restrição | 3 |
+| Aderência e portabilidade das alternativas | Para cada forma de obter o provedor de identidade (PI1, PI2 e PI3), escreva o dado do caso que sustenta a aderência ao requisito e a portabilidade, citando o código do requisito ou da restrição | 3 |
 | Dado que falta por critério | Para maturidade, suporte, custo total de propriedade e competência da equipe, diga qual informação o caso não traz e precisa ser levantada | 3 |
 | Regra de eliminação pela restrição | Escolha R8 ou R14, escreva a condição que elimina uma candidata e indique o documento necessário para verificar o atendimento | 3 |
 
 **O que você já tem.** O diagrama de contêineres e o catálogo de blocos do exercício 16, com os contêineres novos ainda marcados como tecnologia a definir, e os requisitos e restrições registrados nas seções 1 e 3.
 
-**Quando está pronto.** Os onze blocos têm linha, padrão e candidatos, ou a marca de candidato a levantar, as seis tecnologias têm cor e justificativa, as três alternativas têm exigências e evidências a confirmar, e a regra de eliminação informa qual documento verificar.
+**Quando está pronto.** Os doze blocos têm linha, padrão e candidatos, ou a marca de candidato a levantar, as seis tecnologias têm cor e justificativa, as três alternativas têm exigências e evidências a confirmar, e a regra de eliminação informa qual documento verificar.
 
 [Ver esta seção no template](../caderno/template.md#8-tecnologia-e-plataforma){ .caderno-botao }
 [Ver o gabarito do exercício 17](../gabaritos/gabarito-exercicio-17.md){ .caderno-botao }
@@ -220,12 +223,12 @@ O exercício 16, da Aula 4, desenhou os contêineres da solução nova e deixou 
 
 ### Item 1: Blocos do catálogo e linhas do modelo técnico
 
-Cada equipe da ACME tende a escolher o produto que já conhece, e é a linha do modelo técnico de referência que diz de antemão qual padrão o bloco novo precisa respeitar e quais produtos já foram aprovados, de modo que o item pede que cada bloco do catálogo seja ligado à sua linha. O produto que poderia realizar um bloco é o SBB candidato, apresentado no bloco 1 desta aula. O diagrama traz oito caixas do exercício 16. Seis são contêineres novos, com o rótulo tecnologia a definir: o aplicativo do aluno, o provedor de identidade, que é o serviço que confirma quem é o usuário, os serviços de matrícula e de notas e os dois bancos desses serviços. As outras duas são o núcleo transacional existente e o ambiente virtual de aprendizagem, um sistema externo onde o aluno acessa as turmas e consulta as notas. A primeira tabela traz um recorte do modelo técnico de referência da ACME com seis linhas, e cada linha indica, para uma categoria de tecnologia, o padrão obrigatório, os produtos aprovados e os não aprovados. O R7 citado no diagrama é o requisito de que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos, e o evento de nota é a mensagem que avisa o ambiente virtual de que uma nota foi lançada.
+Cada equipe da ACME tende a escolher o produto que já conhece, e é a linha do modelo técnico de referência que diz de antemão qual padrão o bloco novo precisa respeitar e quais produtos já foram aprovados, de modo que o item pede que cada bloco do catálogo seja ligado à sua linha. O produto que poderia realizar um bloco é o SBB candidato, apresentado no bloco 1 desta aula. O diagrama traz oito caixas do exercício 16. Seis são contêineres novos, com o rótulo tecnologia a definir: o aplicativo do aluno, o provedor de identidade, serviço novo contratado que confirma quem é o usuário, os serviços de matrícula e de notas e os dois bancos desses serviços. As outras duas são o núcleo transacional existente e o ambiente virtual de aprendizagem, um sistema externo onde o aluno acessa as turmas e consulta as notas. A primeira tabela traz um recorte do modelo técnico de referência da ACME com seis linhas, e cada linha indica, para uma categoria de tecnologia, o padrão obrigatório, os produtos aprovados e os não aprovados. O R7 citado no diagrama é o requisito de que a nota lançada pelo professor chegue ao ambiente virtual de aprendizagem em até 10 minutos, e o evento de nota é a mensagem que avisa o ambiente virtual de que uma nota foi lançada.
 
 ```mermaid
 graph LR
     APP["Aplicativo do aluno<br/>tecnologia a definir<br/>na Aula 5"]
-    IDP["Provedor de identidade<br/>externo<br/>tecnologia a definir<br/>na Aula 5"]
+    IDP["Provedor de identidade<br/>serviço contratado<br/>tecnologia a definir<br/>na Aula 5"]
     SM["Serviço de matrícula<br/>tecnologia a definir<br/>na Aula 5"]
     SN["Serviço de notas<br/>tecnologia a definir<br/>na Aula 5"]
     BM[("Banco do serviço<br/>de matrícula<br/>tecnologia a definir")]
@@ -251,7 +254,7 @@ graph LR
 | Infraestrutura | Observabilidade | OpenTelemetry | Coletores compatíveis | Registro sem correlação |
 | Dados | Banco de serviço novo | SQL, banco por serviço, região nacional | PostgreSQL ou compatível | Oracle sem ADR de desvio |
 
-O catálogo de blocos do exercício 16 tem doze linhas, e a tabela a seguir reproduz onze delas com as duas colunas que o aluno preenche. A décima segunda é o núcleo transacional COBOL sob CICS, que permanece como está no primeiro ciclo e por isso não recebe candidato. O diagrama mostra seis contêineres novos, e o catálogo acrescenta blocos que podem ficar dentro de um contêiner ou nas relações entre eles, como o evento de nota, a camada anticorrupção e a observabilidade.
+O catálogo de blocos do exercício 16 tem treze linhas, e a tabela a seguir reproduz doze delas com as duas colunas que o aluno preenche. A décima terceira é o núcleo transacional COBOL sob CICS, que permanece como está no primeiro ciclo e por isso não recebe candidato. O diagrama mostra seis contêineres novos, e o catálogo acrescenta blocos que podem ficar dentro de um contêiner ou nas relações entre eles, como a fila de solicitações de matrícula, o evento de nota, a camada anticorrupção e a observabilidade.
 
 | Bloco do catálogo | Responsabilidade | Linha do recorte e padrão obrigatório | SBBs candidatos |
 | --- | --- | --- | --- |
@@ -263,11 +266,12 @@ O catálogo de blocos do exercício 16 tem doze linhas, e a tabela a seguir repr
 | Serviço de notas | Registrar, consultar e disponibilizar notas |  |  |
 | Banco do serviço de matrícula | Persistir os dados próprios da matrícula |  |  |
 | Banco do serviço de notas | Persistir os dados próprios das notas |  |  |
+| Fila de solicitações de matrícula | Absorver o pico de pedidos e entregá-los ao núcleo no ritmo que ele sustenta |  |  |
 | Evento de nota | Comunicar a publicação de notas ao ambiente virtual |  |  |
 | Camada anticorrupção | Isolar os serviços novos das particularidades do COBOL |  |  |
 | Observabilidade | Correlacionar eventos, métricas e registros dos serviços novos |  |  |
 
-1. Para cada um dos onze blocos da tabela, indique a linha do recorte que vale para ele e o padrão ou protocolo obrigatório dessa linha, e copie os exemplos aprovados da linha como SBBs candidatos. Quando nenhuma das seis linhas tratar do bloco, escreva “sem linha no recorte” e “candidato a levantar”.
+1. Para cada um dos doze blocos da tabela, indique a linha do recorte que vale para ele e o padrão ou protocolo obrigatório dessa linha, e copie os exemplos aprovados da linha como SBBs candidatos. Quando nenhuma das seis linhas tratar do bloco, escreva “sem linha no recorte” e “candidato a levantar”.
 2. Entre as seis linhas do recorte, indique as duas cujo padrão vale para todos os contêineres novos, qualquer que seja a função do serviço, e justifique a escolha em uma frase.
 
 Suas respostas viram os campos Linha do modelo e candidatos por bloco e Linhas válidas para todos os contêineres, na seção 8 do caderno.
@@ -296,9 +300,9 @@ Você vai começar a comparação do serviço que confirma a identidade dos usu�
 
 | Alternativa | Quem instala e opera | O que a equipe precisa verificar |
 | --- | --- | --- |
-| A: software operado pela ACME | A equipe da universidade | Produto, localização, capacidade, disponibilidade e pessoas para operar |
-| B: serviço contratado | Uma empresa terceira | Produto oferecido, contrato, locais de processamento e formas de exportação |
-| C: serviço da nuvem | O provedor de nuvem | Recursos disponíveis, locais de processamento, contrato e possibilidade de troca de provedor |
+| PI1: software operado pela ACME | A equipe da universidade | Produto, localização, capacidade, disponibilidade e pessoas para operar |
+| PI2: serviço contratado | Uma empresa terceira | Produto oferecido, contrato, locais de processamento e formas de exportação |
+| PI3: serviço da nuvem | O provedor de nuvem | Recursos disponíveis, locais de processamento, contrato e possibilidade de troca de provedor |
 
 Ainda não há informações suficientes para escolher uma vencedora, e seu trabalho é dizer o que precisa ser comprovado em cada alternativa e quais dados faltam, porque a forma de contratação (instalado, contratado ou gerenciado) não serve de prova de que um requisito foi atendido.
 
@@ -312,9 +316,9 @@ Ainda não há informações suficientes para escolher uma vencedora, e seu trab
 
 | Alternativa | Aderência ao requisito | Portabilidade |
 | --- | --- | --- |
-| A, instalado e operado pela equipe |  |  |
-| B, serviço de terceiro |  |  |
-| C, gerenciado da nuvem |  |  |
+| PI1, instalado e operado pela equipe |  |  |
+| PI2, serviço de terceiro |  |  |
+| PI3, gerenciado da nuvem |  |  |
 
 Use a tabela abaixo para pedir as informações dos quatro critérios restantes. Escreva o que perguntaria ao fornecedor ou à equipe da ACME.
 
@@ -325,9 +329,9 @@ Use a tabela abaixo para pedir as informações dos quatro critérios restantes.
 | Custo total de propriedade |  |
 | Competência da equipe |  |
 
-1. Para A, B e C, preencha **Aderência ao requisito** com o que precisa ser comprovado para R6, R8, R12 e R14. Em **Portabilidade**, explique o que precisa ser verificado para trocar entre os dois provedores aprovados. Cite o código de origem e escreva “a confirmar” quando faltar evidência.
+1. Para PI1, PI2 e PI3, preencha **Aderência ao requisito** com o que precisa ser comprovado para R6, R8, R12 e R14. Em **Portabilidade**, explique o que precisa ser verificado para trocar entre os dois provedores aprovados. Cite o código de origem e escreva “a confirmar” quando faltar evidência.
 2. Para cada um dos quatro critérios da terceira tabela, escreva uma frase que diga qual dado o caso não traz e precisaria ser levantado com o fornecedor ou com a equipe, sem atribuir valor às alternativas.
-3. Escolha R8 ou R14. Escreva uma **regra de eliminação**: qual condição faria uma candidata ser descartada e qual documento você pediria para comprovar o atendimento. Exemplo: “Descartar a candidata que processa dados pessoais fora do Brasil. Pedir contrato e descrição dos locais de processamento, inclusive cópias e suporte”. Não é possível descartar A, B ou C apenas por sua forma de contratação.
+3. Escolha R8 ou R14. Escreva uma **regra de eliminação**: qual condição faria uma candidata ser descartada e qual documento você pediria para comprovar o atendimento. Exemplo: “Descartar a candidata que processa dados pessoais fora do Brasil. Pedir contrato e descrição dos locais de processamento, inclusive cópias e suporte”. Não é possível descartar PI1, PI2 ou PI3 apenas por sua forma de contratação.
 
 Suas respostas viram os campos Aderência e portabilidade das alternativas, Dado que falta por critério e Regra de eliminação pela restrição, na seção 8 do caderno.
 

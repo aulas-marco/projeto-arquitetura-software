@@ -181,7 +181,7 @@ O registro segue três caminhos. Cada linha da equipe de solução entra no serv
 
 **Para que serve.** O sistema novo vai guardar a nota, o histórico escolar e o CPF de 38.400 alunos, e a lei brasileira trata esses dados de formas diferentes. Antes da implementação, o arquiteto precisa deixar escrito quão sensível é cada dado, quem pode lê-lo ou gravá-lo, que ataques a solução pode sofrer no ponto em que o aluno se conecta e, para cada controle escolhido, quem o executa e como se verifica. A seção 8 do caderno guarda essas respostas, a equipe as usa como lista de trabalho e quem revisa a segurança as lê para encontrar onde o desenho pode falhar.
 
-**O que você faz neste exercício.** O enunciado traz seis ativos de dado, de A1 a A6, como a nota (A1) e o CPF (A3), uma grade de permissões com seis perfis e três recursos e seis ameaças, de T1 a T6, com seis controles identificados pelas letras de (a) a (f). Você classifica cada dado pela LGPD e dá a ele um nível de confidencialidade, aponta e corrige as três células da grade que dão acesso maior que o necessário e associa cada ameaça a uma categoria do STRIDE e ao controle que a trata. Por fim consolida esses achados em cinco decisões de segurança, escrevendo para cada uma o que será decidido, quem executa e como se verifica.
+**O que você faz neste exercício.** O enunciado traz seis ativos de dado, de AT1 a AT6, como a nota (AT1) e o CPF (AT3), uma grade de permissões com seis perfis e três recursos e seis ameaças, de AM1 a AM6, com seis controles identificados pelas letras de (a) a (f). Você classifica cada dado pela LGPD e dá a ele um nível de confidencialidade, aponta e corrige as três células da grade que dão acesso maior que o necessário e associa cada ameaça a uma categoria do STRIDE e ao controle que a trata. Por fim consolida esses achados em cinco decisões de segurança, escrevendo para cada uma o que será decidido, quem executa e como se verifica.
 
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
@@ -190,7 +190,7 @@ O registro segue três caminhos. Cada linha da equipe de solução entra no serv
 | Ativos restritos pelo R14 | Diga quais ativos não podem ser processados fora do território nacional e qual sistema externo recebe hoje um deles | 1 |
 | Células que violam o menor privilégio | Aponte as três células da grade de permissões que dão acesso maior que o necessário, com o perfil e o recurso | 2 |
 | Acesso correto | Escreva o acesso correto de cada uma das três células, com a condição quando houver | 2 |
-| Categoria STRIDE da ameaça | Classifique cada ameaça, de T1 a T6, em uma das seis categorias do STRIDE | 3 |
+| Categoria STRIDE da ameaça | Classifique cada ameaça, de AM1 a AM6, em uma das seis categorias do STRIDE | 3 |
 | Controle da ameaça | Associe a cada ameaça a letra do controle que a trata | 3 |
 | Controle que também atende ao R9 | Indique qual dos seis controles também atende ao requisito de trilha de auditoria | 3 |
 | Decisão de segurança | Escreva em uma linha o que cada uma das cinco decisões, de DS1 a DS5, estabelece, usando as respostas dos itens 1 a 3 | 4 |
@@ -222,7 +222,7 @@ Nos enunciados, um código formado por R e um número, como R9, identifica um re
 
 ### Item 1: Ativos de dado e LGPD
 
-O sistema novo da ACME vai guardar dados de natureza muito diferente, e o grau de proteção de cada um determina os controles que o desenho precisa prever. O enunciado traz seis ativos de dado, numerados de A1 a A6 no diagrama, entre eles a nota (A1) e o CPF (A3). O dossiê não detalha os campos de cada módulo, e os ativos e as ligações abaixo são os considerados neste exercício. O diagrama liga cada ativo à capacidade acadêmica que o usa. Capacidade é uma função que a universidade executa, e o [exercício 13](../modulo-4-dominios-da-solucao/bloco-1-arquitetura-de-negocio.md#exercicio-13) da Aula 4 numerou dez delas, de C1 a C10. O diagrama usa cinco, e a tabela abaixo diz o que cada código designa.
+O sistema novo da ACME vai guardar dados de natureza muito diferente, e o grau de proteção de cada um determina os controles que o desenho precisa prever. O enunciado traz seis ativos de dado, numerados de AT1 a AT6 no diagrama, entre eles a nota (AT1) e o CPF (AT3). O dossiê não detalha os campos de cada módulo, e os ativos e as ligações abaixo são os considerados neste exercício. O diagrama liga cada ativo à capacidade acadêmica que o usa. Capacidade é uma função que a universidade executa, e o [exercício 13](../modulo-4-dominios-da-solucao/bloco-1-arquitetura-de-negocio.md#exercicio-13) da Aula 4 numerou dez delas, de C1 a C10. O diagrama usa cinco, e a tabela abaixo diz o que cada código designa.
 
 | Código | Capacidade | O que a universidade executa nela |
 | --- | --- | --- |
@@ -236,12 +236,12 @@ Os códigos C3 e C5, de matrícula em disciplinas e de controle de frequência, 
 
 ```mermaid
 graph LR
-    A1["Nota"] --> C4["Avaliação e<br/>registro de notas"]
-    A2["Histórico<br/>escolar"] --> C6["Emissão de<br/>documentos acadêmicos"]
-    A3["CPF"] --> C1["Admissão<br/>e ingresso"]
-    A4["Dados socioeconômicos<br/>de bolsa"] --> C7["Gestão de bolsas<br/>e descontos"]
-    A5["Laudo de necessidade<br/>educacional específica"] --> C1
-    A6["Oferta de<br/>turmas"] --> C2["Oferta e<br/>grade curricular"]
+    AT1["Nota"] --> C4["Avaliação e<br/>registro de notas"]
+    AT2["Histórico<br/>escolar"] --> C6["Emissão de<br/>documentos acadêmicos"]
+    AT3["CPF"] --> C1["Admissão<br/>e ingresso"]
+    AT4["Dados socioeconômicos<br/>de bolsa"] --> C7["Gestão de bolsas<br/>e descontos"]
+    AT5["Laudo de necessidade<br/>educacional específica"] --> C1
+    AT6["Oferta de<br/>turmas"] --> C2["Oferta e<br/>grade curricular"]
 ```
 
 A tabela indica o módulo do núcleo, conforme a [arquitetura de linha de base](../caso-acme/linha-de-base.md), relacionado a cada ativo. Todos os módulos gravam no banco compartilhado entre o núcleo e a camada web.
@@ -255,7 +255,7 @@ A tabela indica o módulo do núcleo, conforme a [arquitetura de linha de base](
 | Laudo de necessidade educacional específica | O dossiê não registra o módulo |
 | Oferta de turmas | Oferta e grade curricular |
 
-1. Classifique cada ativo, de A1 a A6, em não pessoal, pessoal ou pessoal sensível, conforme o art. 5º da LGPD apresentado na seção Ativos e sua classificação.
+1. Classifique cada ativo, de AT1 a AT6, em não pessoal, pessoal ou pessoal sensível, conforme o art. 5º da LGPD apresentado na seção Ativos e sua classificação.
 2. Atribua a cada ativo um nível de confidencialidade baixo, médio ou alto, conforme o dano que a divulgação indevida do dado causaria, e justifique em uma linha o nível do ativo pessoal sensível.
 3. Responda em uma linha quais ativos a restrição R14 impede de serem processados fora do território nacional e qual sistema externo do diagrama do exercício 16 recebe hoje, pelos lotes noturnos descritos na linha de base, um desses ativos.
 
@@ -281,7 +281,7 @@ Suas respostas viram os campos Células que violam o menor privilégio e Acesso 
 
 ### Item 3: Ameaças na fronteira do aplicativo do aluno
 
-O ponto em que o aplicativo do aluno chama o serviço de matrícula está exposto a ataques conhecidos, e o item pede que cada ameaça seja associada a uma categoria do STRIDE e ao controle que a trata, para que o desenho já traga a defesa certa nesse ponto. Ameaça é uma forma de ataque ou de uso indevido, e controle é a medida que a combate. O enunciado traz seis ameaças, numeradas de T1 a T6, e seis controles, identificados pelas letras de (a) a (f). A fronteira de confiança analisada é a ligação entre o aplicativo do aluno, instalado no telefone, e o serviço de matrícula, que o R1 e o R6 exigem e que aparece como relação 1 no diagrama do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16). A execução do serviço de matrícula na conta de produção da zona de pouso do [exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) é suposição do exercício. A tabela reproduz da [página inicial do caso](../caso-acme/index.md) os requisitos R1, R6 e R8, que este item cita.
+O ponto em que o aplicativo do aluno chama o serviço de matrícula está exposto a ataques conhecidos, e o item pede que cada ameaça seja associada a uma categoria do STRIDE e ao controle que a trata, para que o desenho já traga a defesa certa nesse ponto. Ameaça é uma forma de ataque ou de uso indevido, e controle é a medida que a combate. O enunciado traz seis ameaças, numeradas de AM1 a AM6, e seis controles, identificados pelas letras de (a) a (f). A fronteira de confiança analisada é a ligação entre o aplicativo do aluno, instalado no telefone, e o serviço de matrícula, que o R1 e o R6 exigem e que aparece como relação 1 no diagrama do [exercício 16](../modulo-4-dominios-da-solucao/bloco-4-arquitetura-de-infraestrutura.md#exercicio-16). A execução do serviço de matrícula na conta de produção da zona de pouso do [exercício 18](bloco-2-plataforma-arquitetural.md#exercicio-18) é suposição do exercício. A tabela reproduz da [página inicial do caso](../caso-acme/index.md) os requisitos R1, R6 e R8, que este item cita.
 
 | Código | Declaração | Origem |
 | --- | --- | --- |
@@ -301,16 +301,16 @@ graph LR
     APP -.->|"autentica"| IDP["Provedor de<br/>identidade"]
 ```
 
-A tabela descreve as seis ameaças, T1 a T6, a essa fronteira, e cada linha traz o cenário de um ataque.
+A tabela descreve as seis ameaças, AM1 a AM6, a essa fronteira, e cada linha traz o cenário de um ataque.
 
 | Ameaça | Cenário |
 | --- | --- |
-| T1 | Os dados do pedido, com CPF e turmas escolhidas, trafegam sem cifra e são lidos por quem observa a rede do telefone |
-| T2 | Alguém usa a senha obtida de outro aluno e envia pedidos de matrícula em nome dele |
-| T3 | Um programa envia milhares de pedidos por segundo na abertura da matrícula e esgota a capacidade do serviço |
-| T4 | Um aluno afirma que não pediu o cancelamento de uma disciplina, e o serviço não consegue mostrar quem enviou o pedido nem quando |
-| T5 | Um aluno troca um parâmetro do pedido e executa o ajuste de vaga, operação reservada à secretaria acadêmica |
-| T6 | Um intermediário altera, no caminho, a lista de turmas do pedido antes que ela chegue ao serviço |
+| AM1 | Os dados do pedido, com CPF e turmas escolhidas, trafegam sem cifra e são lidos por quem observa a rede do telefone |
+| AM2 | Alguém usa a senha obtida de outro aluno e envia pedidos de matrícula em nome dele |
+| AM3 | Um programa envia milhares de pedidos por segundo na abertura da matrícula e esgota a capacidade do serviço |
+| AM4 | Um aluno afirma que não pediu o cancelamento de uma disciplina, e o serviço não consegue mostrar quem enviou o pedido nem quando |
+| AM5 | Um aluno troca um parâmetro do pedido e executa o ajuste de vaga, operação reservada à secretaria acadêmica |
+| AM6 | Um intermediário altera, no caminho, a lista de turmas do pedido antes que ela chegue ao serviço |
 
 Os controles disponíveis são os seis da lista abaixo.
 
@@ -321,7 +321,7 @@ Os controles disponíveis são os seis da lista abaixo.
 - (e) Registro de auditoria imutável, com autor e horário de cada acesso.
 - (f) Assinatura e verificação de integridade da mensagem.
 
-1. Classifique cada ameaça, de T1 a T6, numa das seis categorias STRIDE.
+1. Classifique cada ameaça, de AM1 a AM6, numa das seis categorias STRIDE.
 2. Associe a cada ameaça a letra do controle que a trata.
 3. Indique qual dos seis controles também atende ao requisito R9.
 
@@ -333,11 +333,11 @@ Os itens 1 a 3 produziram achados, mas um achado só vira proteção quando algu
 
 | Decisão | Motivo |
 | --- | --- |
-| DS1 | Os ativos A1 a A5 não podem ser processados fora do território nacional (R14), e o ambiente virtual de aprendizagem recebe a nota consolidada (item 1) |
+| DS1 | Os ativos AT1 a AT5 não podem ser processados fora do território nacional (R14), e o ambiente virtual de aprendizagem recebe a nota consolidada (item 1) |
 | DS2 | Três células da grade de permissões dão acesso maior que o necessário (item 2) |
-| DS3 | T2, senha de outro aluno, num serviço cujo R8 exige padrão aberto de identidade (item 3) |
-| DS4 | T1 e T3, leitura dos dados do pedido na rede e esgotamento da capacidade na abertura da matrícula (item 3) |
-| DS5 | T4 e R9, trilha de auditoria com retenção de 5 anos (item 3) |
+| DS3 | AM2, senha de outro aluno, num serviço cujo R8 exige padrão aberto de identidade (item 3) |
+| DS4 | AM1 e AM3, leitura dos dados do pedido na rede e esgotamento da capacidade na abertura da matrícula (item 3) |
+| DS5 | AM4 e R9, trilha de auditoria com retenção de 5 anos (item 3) |
 
 1. Escreva em uma linha o que cada decisão estabelece, usando as respostas dos itens 1 a 3.
 2. Indique quem executa cada decisão, escolhendo entre os três executores, e escreva os dois quando a execução se divide entre eles.

@@ -57,7 +57,7 @@ Ao fim da Aula 4, o caderno da ACME já dizia o que a universidade quer construi
 | --- | --- | --- | --- |
 | 1 | 17 | A linha do modelo técnico de cada contêiner novo, a cor de cada uma das seis tecnologias da linha de base e a matriz de seleção do provedor de identidade | [Gabarito 17](../gabaritos/gabarito-exercicio-17.md) |
 | 2 | 18 | As duas plataformas candidatas com o quadro de seis critérios, a plataforma escolhida, o pilar de cada elemento da zona de pouso e as etiquetas que faltam | [Gabarito 18](../gabaritos/gabarito-exercicio-18.md) |
-| 3 | 19 | A classificação dos seis ativos de dado pela LGPD, a grade de permissões corrigida, as seis ameaças (T1 a T6) com categoria STRIDE e controle e as cinco decisões de segurança com executor e verificação | [Gabarito 19](../gabaritos/gabarito-exercicio-19.md) |
+| 3 | 19 | A classificação dos seis ativos de dado pela LGPD, a grade de permissões corrigida, as seis ameaças (AM1 a AM6) com categoria STRIDE e controle e as cinco decisões de segurança com executor e verificação | [Gabarito 19](../gabaritos/gabarito-exercicio-19.md) |
 | 4 | 20 | O ADR de plataforma, com os dez campos, e o tipo de cada uma das seis lacunas de provisão | [Gabarito 20](../gabaritos/gabarito-exercicio-20.md) |
 
 ## Preparação para a Aula 6

@@ -64,7 +64,7 @@ Para mostrar o encadeamento, o professor acompanha na aula um único pedido da A
 | Cenário de qualidade | O pico de matrícula é descrito em seis partes, com taxa de erro abaixo de 1% verificada em teste de carga | 3 |
 | Lacuna | A diferença entre o portal atual, que erra 6,3% no pico, e o que o desenho exige é registrada para fechar em onda | 4 |
 | Decisão | O registro de decisão ADR 001 coloca uma fila entre o portal e o núcleo COBOL para absorver o pico sem alterar o núcleo | 7 |
-| Contêiner | O serviço de matrícula e as relações 1, 3, 5 e 8 do diagrama de contêineres formam o caminho da confirmação | 7 |
+| Contêiner | O serviço de matrícula e as relações 1 e 8 do diagrama de contêineres formam o caminho da confirmação de recebimento, e a fila da relação 3 protege o núcleo | 7 |
 | Tecnologia | A plataforma de microsserviços na variante Java, com barramento de eventos, concretiza a fila | 8 |
 | Onda | O critério de conclusão da segunda onda exige a matrícula digital operando numa janela real, com o desempenho do R6 medido em produção | 9 |
 | Controle | Uma função de adequação, teste automático que avisa quando uma decisão deixa de ser cumprida, roda o teste de carga com 5.800 sessões antes de cada janela de matrícula, a função de adequação FA2 do caderno | 9 |
