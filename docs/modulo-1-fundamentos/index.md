@@ -2,7 +2,7 @@
 
 Quando a ACME decidiu modernizar o sistema acadêmico, o arquiteto de solução precisou responder a quatro perguntas antes de desenhar qualquer coisa: o que diferencia a arquitetura de soluções da arquitetura de software, com o que ele trabalha, o que o papel exige dele e por qual processo uma solução é definida. A aula percorre essas perguntas na ordem em que aparecem num projeto, e cada uma termina num exercício que preenche a seção 1 do caderno arquitetural.
 
-![Atlas visual da modernização da ACME. O requisito R7 é analisado em quatro lentes conectadas, escopo das decisões D1 a D3, solução como sistema, responsabilidades T1 a T10 e processo com artefatos A1 a A10.](../assets/images/modulo-1-visao-da-solucao.svg){ .module-diagram }
+![Atlas visual da modernização da ACME. O requisito R7 é analisado em quatro lentes conectadas, escopo das decisões D1 a D3, solução como sistema, responsabilidades TA1 a TA10 e processo com artefatos AR1 a AR10.](../assets/images/modulo-1-visao-da-solucao-v2.svg){ .module-diagram }
 
 ## O fio condutor do curso: o caderno arquitetural
 
@@ -73,8 +73,8 @@ Os quatro exercícios desta aula preenchem a seção 1, Contexto, que registra o
 | --- | --- | --- | --- |
 | 1 | 1 | A classificação das nove decisões da ACME por nível de arquitetura (D1 a D9), com o componente da solução afetado e a dependência entre elas | [Gabarito 1](../gabaritos/gabarito-exercicio-01.md) |
 | 2 | 2 | O tipo de cada um dos dez candidatos a componente da solução (CP1 a CP10) e o nível de cada um dos seis elementos da situação atual (N1 a N6) | [Gabarito 2](../gabaritos/gabarito-exercicio-02.md) |
-| 3 | 3 | A divisão das dez tarefas do ciclo (T1 a T10) entre os papéis, o grupo de competência de cada uma e o benefício da tarefa T10 | [Gabarito 3](../gabaritos/gabarito-exercicio-03.md) |
-| 4 | 4 | A fase, o papel e a seção do caderno de cada um dos dez artefatos do caso (A1 a A10), mais a data de conclusão como primeira pendência | [Gabarito 4](../gabaritos/gabarito-exercicio-04.md) |
+| 3 | 3 | A divisão das dez tarefas do ciclo (TA1 a TA10) entre os papéis, o grupo de competência de cada uma e o benefício da tarefa TA10 | [Gabarito 3](../gabaritos/gabarito-exercicio-03.md) |
+| 4 | 4 | A fase, o papel e a seção do caderno de cada um dos dez artefatos do caso (AR1 a AR10), mais a data de conclusão como primeira pendência | [Gabarito 4](../gabaritos/gabarito-exercicio-04.md) |
 
 ## Preparação para a Aula 2
 

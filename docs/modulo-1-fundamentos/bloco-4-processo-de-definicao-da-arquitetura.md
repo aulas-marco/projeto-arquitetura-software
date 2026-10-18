@@ -96,7 +96,7 @@ Ao fim de cada fase, o arquiteto usa a tabela que liga as seções do caderno à
 
 **Para que serve.** O arquiteto trabalha em fases, e cada fase deixa documentos que a seguinte usa. O caderno é onde esses documentos se encontram. Saber em que fase cada documento nasce, que papel ele cumpre e em que seção do caderno ele entra evita cobrar do arquiteto, cedo demais, algo que só existe mais adiante, como a data de conclusão do projeto.
 
-**O que você faz neste exercício.** O enunciado lista dez artefatos do caso ACME, numerados de A1 a A10. Artefato é qualquer documento ou modelo que o trabalho usa ou produz, como o mapa de atores ou o inventário dos componentes de software atuais do sistema. Alguns já existiam antes de o processo começar e outros ainda serão produzidos. Você liga cada um à fase do processo em que aparece, ao papel que ele cumpre e à seção do caderno em que seu resultado fica. Depois, registra na seção 10 a data de conclusão do ciclo como pendência, porque ela ainda não pode ser prometida. O gabarito mostra também a primeira versão do resumo, na seção 0.
+**O que você faz neste exercício.** O enunciado lista dez artefatos do caso ACME, numerados de AR1 a AR10. Artefato é qualquer documento ou modelo que o trabalho usa ou produz, como o mapa de atores ou o inventário dos componentes de software atuais do sistema. Alguns já existiam antes de o processo começar e outros ainda serão produzidos. Você liga cada um à fase do processo em que aparece, ao papel que ele cumpre e à seção do caderno em que seu resultado fica. Depois, registra na seção 10 a data de conclusão do ciclo como pendência, porque ela ainda não pode ser prometida. O gabarito mostra também a primeira versão do resumo, na seção 0.
 
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
@@ -123,20 +123,20 @@ Na ACME, o arquiteto trabalha em fases, e cada fase usa documentos produzidos pe
 
 ### Item 1: Fase e papel de cada artefato
 
-Para ligar os artefatos às fases, é preciso saber o que cada um é. Artefato é qualquer documento ou modelo que o trabalho usa ou produz, como o mapa de atores, que registra o que cada área da universidade quer e teme, ou o inventário dos componentes de software atuais do sistema. O quadro abaixo traz dez artefatos do caso, numerados de A1 a A10, alguns já existentes e outros ainda por produzir. Cada artefato tem um papel: entrada, quando a fase o recebe pronto, produto intermediário, quando ele é produzido para alimentar uma fase seguinte, ou entregável, quando é o resultado entregue ao patrocinador de negócio, o responsável último pela solução. Um [artefato de linha de base](../referencia/glossario.md#artefato-de-linha-de-base) é aquele que já descreve a situação atual antes do início do processo, conforme a seção [Conceito](#conceito) deste bloco.
+Para ligar os artefatos às fases, é preciso saber o que cada um é. Artefato é qualquer documento ou modelo que o trabalho usa ou produz, como o mapa de atores, que registra o que cada área da universidade quer e teme, ou o inventário dos componentes de software atuais do sistema. O quadro abaixo traz dez artefatos do caso, numerados de AR1 a AR10, alguns já existentes e outros ainda por produzir. Cada artefato tem um papel: entrada, quando a fase o recebe pronto, produto intermediário, quando ele é produzido para alimentar uma fase seguinte, ou entregável, quando é o resultado entregue ao patrocinador de negócio, o responsável último pela solução. Um [artefato de linha de base](../referencia/glossario.md#artefato-de-linha-de-base) é aquele que já descreve a situação atual antes do início do processo, conforme a seção [Conceito](#conceito) deste bloco.
 
 | Código | Artefato |
 | --- | --- |
-| A1 | Mapa de atores com o que cada área quer e o que teme |
-| A2 | Inventário dos componentes de software atuais do sistema acadêmico, com idade, responsável e tipo de integração |
-| A3 | Catálogo de blocos de construção da solução escolhida, com as interfaces entre eles |
-| A4 | Registro da decisão da Reitoria de 12/03/2026 que descartou a substituição por produto de mercado |
-| A5 | Comparação de duas alternativas de modernização apresentadas ao Conselho Universitário |
-| A6 | Modelo único de componentes da solução, com as mudanças de processo e de propriedade de dado |
-| A7 | Sequência de extração dos módulos ao longo dos 12 meses, com marcos e riscos |
-| A8 | Lista de componentes da solução acrescentados, removidos e alterados em relação ao sistema atual |
-| A9 | Documento que autoriza a equipe de arquitetura a iniciar a investigação, com prazo e entregáveis |
-| A10 | Conjunto de modelos da solução implantada, devolvido ao repositório de arquitetura corporativa |
+| AR1 | Mapa de atores com o que cada área quer e o que teme |
+| AR2 | Inventário dos componentes de software atuais do sistema acadêmico, com idade, responsável e tipo de integração |
+| AR3 | Catálogo de blocos de construção da solução escolhida, com as interfaces entre eles |
+| AR4 | Registro da decisão da Reitoria de 12/03/2026 que descartou a substituição por produto de mercado |
+| AR5 | Comparação de duas alternativas de modernização apresentadas ao Conselho Universitário |
+| AR6 | Modelo único de componentes da solução, com as mudanças de processo e de propriedade de dado |
+| AR7 | Sequência de extração dos módulos ao longo dos 12 meses, com marcos e riscos |
+| AR8 | Lista de componentes da solução acrescentados, removidos e alterados em relação ao sistema atual |
+| AR9 | Documento que autoriza a equipe de arquitetura a iniciar a investigação, com prazo e entregáveis |
+| AR10 | Conjunto de modelos da solução implantada, devolvido ao repositório de arquitetura corporativa |
 
 1. Indique, para cada um dos dez artefatos, a fase do ciclo em que ele é produzido ou usado como entrada, entre iniciação, descoberta, definição do esboço da solução, análise, desenho lógico, validação, desenvolvimento do roteiro e conclusão, e diga se ele é entrada, produto intermediário ou entregável.
 2. Identifique quais artefatos do quadro são artefatos de linha de base, isto é, já existiam antes do início do processo.
@@ -146,12 +146,12 @@ Suas respostas viram os campos Fase, Papel, Linha de base e Seção do caderno d
 
 ### Item 2: Data de conclusão do ciclo
 
-A instituição pediu ao arquiteto a data em que o ciclo termina, logo após a autorização registrada em A9, o documento que autoriza a equipe de arquitetura a iniciar a investigação. Esse pedido é um caso típico de pendência, ou seja, uma decisão que ainda não pode ser tomada e que o caderno registra, com o nome de quem decide, para que não seja prometida antes da hora. O diagrama abaixo mostra as oito fases do ciclo e o momento em que a data foi pedida.
+A instituição pediu ao arquiteto a data em que o ciclo termina, logo após a autorização registrada em AR9, o documento que autoriza a equipe de arquitetura a iniciar a investigação. Esse pedido é um caso típico de pendência, ou seja, uma decisão que ainda não pode ser tomada e que o caderno registra, com o nome de quem decide, para que não seja prometida antes da hora. O diagrama abaixo mostra as oito fases do ciclo e o momento em que a data foi pedida.
 
 ```mermaid
 %%{init: {"flowchart": {"curve": "stepAfter"}}}%%
 flowchart TB
-    A9["A9, autorização para<br/>iniciar a investigação"] -.-> L1
+    AR9["AR9, autorização para<br/>iniciar a investigação"] -.-> L1
     PED["Pedido da data de<br/>conclusão do ciclo"] -.-> L1
     subgraph L1["Fases 1 a 4"]
         direction LR

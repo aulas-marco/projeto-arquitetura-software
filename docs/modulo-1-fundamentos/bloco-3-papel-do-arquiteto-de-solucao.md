@@ -52,7 +52,7 @@ Quando alguém questiona o tempo gasto nas fases anteriores ao desenho, o arquit
 
 **Para que serve.** O caderno precisa deixar claro quem faz o quê. Num projeto de modernização, parte das tarefas é do arquiteto de solução, que cuida da solução como um todo. Outra parte é do arquiteto de software ou da equipe de desenvolvimento, que cuidam do interior de cada componente de software. E uma terceira é da arquitetura corporativa, que define regras para a organização inteira. Quando essa divisão não está escrita, o arquiteto acaba decidindo o que não é dele ou deixa sem dono o que é.
 
-**O que você faz neste exercício.** O enunciado lista dez tarefas do ciclo de modernização da ACME, numeradas de T1 a T10. Entre elas estão entrevistar a Pró-Reitoria de Graduação (T1), estimar o custo da mudança (T3) e escolher a estrutura de dados do serviço de matrícula (T4). Você diz de quem é cada tarefa, que tipo de habilidade ela pede do arquiteto de solução e, no caso da T10, que benefício ela traz. O resultado vira a tabela de papéis do caderno.
+**O que você faz neste exercício.** O enunciado lista dez tarefas do ciclo de modernização da ACME, numeradas de TA1 a TA10. Entre elas estão entrevistar a Pró-Reitoria de Graduação (TA1), estimar o custo da mudança (TA3) e escolher a estrutura de dados do serviço de matrícula (TA4). Você diz de quem é cada tarefa, que tipo de habilidade ela pede do arquiteto de solução e, no caso da TA10, que benefício ela traz. O resultado vira a tabela de papéis do caderno.
 
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
@@ -63,7 +63,7 @@ Quando alguém questiona o tempo gasto nas fases anteriores ao desenho, o arquit
 
 **O que você já tem.** A classificação por nível do exercício 1, porque o mesmo critério de alcance separa as decisões e as tarefas.
 
-**Quando está pronto.** As dez tarefas têm responsável e justificativa, as tarefas do arquiteto de solução têm grupo de competência e a tarefa T10 tem o benefício que a justifica.
+**Quando está pronto.** As dez tarefas têm responsável e justificativa, as tarefas do arquiteto de solução têm grupo de competência e a tarefa TA10 tem o benefício que a justifica.
 
 [Ver esta seção no template](../caderno/template.md#1-contexto){ .caderno-botao }
 [Ver o gabarito do exercício 3](../gabaritos/gabarito-exercicio-03.md){ .caderno-botao }
@@ -74,7 +74,7 @@ Quando alguém questiona o tempo gasto nas fases anteriores ao desenho, o arquit
 
 A ACME é uma universidade privada brasileira fictícia, com 38.400 alunos ativos, 2.150 professores e 4 campi, cujo sistema acadêmico está em operação desde 2004. A instituição aprovou um ciclo de modernização de 12 meses com orçamento de R$ 6,2 milhões, mantendo o ambiente virtual de aprendizagem e o ERP financeiro em operação, e o núcleo em COBOL permanece sob contrato de sustentação de uma fábrica de software até 30/09/2027. A fábrica de software é a empresa contratada que mantém o núcleo, a parte mais antiga do sistema acadêmico, escrita em COBOL, uma linguagem de programação antiga.
 
-Em um projeto de modernização, muita gente trabalha ao mesmo tempo, e cada tarefa precisa ter dono. Quando a divisão não está clara, o arquiteto de solução decide o que não é dele ou deixa sem responsável o que é. Este exercício apresenta dez tarefas do ciclo de modernização da ACME, numeradas de T1 a T10, como entrevistar a Pró-Reitoria de Graduação (T1) e escolher a estrutura de dados do serviço de matrícula (T4). Nos três itens você diz de quem é cada tarefa, que tipo de habilidade as tarefas do arquiteto de solução pedem e que benefício da abordagem arquitetural justifica a tarefa T10. As respostas vão para a tabela de papéis do caderno arquitetural, o documento em que o curso reúne, seção por seção, a arquitetura da solução da ACME, apresentado no [bloco 4](bloco-4-processo-de-definicao-da-arquitetura.md#o-caderno-arquitetural).
+Em um projeto de modernização, muita gente trabalha ao mesmo tempo, e cada tarefa precisa ter dono. Quando a divisão não está clara, o arquiteto de solução decide o que não é dele ou deixa sem responsável o que é. Este exercício apresenta dez tarefas do ciclo de modernização da ACME, numeradas de TA1 a TA10, como entrevistar a Pró-Reitoria de Graduação (TA1) e escolher a estrutura de dados do serviço de matrícula (TA4). Nos três itens você diz de quem é cada tarefa, que tipo de habilidade as tarefas do arquiteto de solução pedem e que benefício da abordagem arquitetural justifica a tarefa TA10. As respostas vão para a tabela de papéis do caderno arquitetural, o documento em que o curso reúne, seção por seção, a arquitetura da solução da ACME, apresentado no [bloco 4](bloco-4-processo-de-definicao-da-arquitetura.md#o-caderno-arquitetural).
 
 ### Item 1: Responsável por cada tarefa
 
@@ -94,16 +94,16 @@ flowchart TB
 
 | Código | Tarefa |
 | --- | --- |
-| T1 | Entrevistar a Pró-Reitoria de Graduação e a Coordenação de Educação a Distância para levantar o que cada área precisa do sistema |
-| T2 | Definir como o serviço extraído mantém consistência de dado com o núcleo em COBOL durante a coexistência |
-| T3 | Estimar o custo da mudança tecnológica do primeiro ciclo e verificar se cabe nos R$ 6,2 milhões |
-| T4 | Escolher a estrutura de dados que o serviço de matrícula usa para ordenar a lista de turmas disponíveis |
-| T5 | Negociar com a fábrica de software a abertura de interfaces no núcleo antes do fim do contrato |
-| T6 | Redigir a política institucional que define como qualquer sistema da universidade trata dado pessoal de aluno |
-| T7 | Produzir o roteiro de entrega do ciclo, com a ordem em que os módulos são extraídos |
-| T8 | Decidir que a Secretaria Acadêmica passa a responder pela correção de dado cadastral de aluno |
-| T9 | Configurar o servidor de integração contínua que compila e publica o serviço extraído |
-| T10 | Verificar com a Diretoria de TI se já existe na universidade um componente de software de envio de mensagem que possa ser reaproveitado |
+| TA1 | Entrevistar a Pró-Reitoria de Graduação e a Coordenação de Educação a Distância para levantar o que cada área precisa do sistema |
+| TA2 | Definir como o serviço extraído mantém consistência de dado com o núcleo em COBOL durante a coexistência |
+| TA3 | Estimar o custo da mudança tecnológica do primeiro ciclo e verificar se cabe nos R$ 6,2 milhões |
+| TA4 | Escolher a estrutura de dados que o serviço de matrícula usa para ordenar a lista de turmas disponíveis |
+| TA5 | Negociar com a fábrica de software a abertura de interfaces no núcleo antes do fim do contrato |
+| TA6 | Redigir a política institucional que define como qualquer sistema da universidade trata dado pessoal de aluno |
+| TA7 | Produzir o roteiro de entrega do ciclo, com a ordem em que os módulos são extraídos |
+| TA8 | Decidir que a Secretaria Acadêmica passa a responder pela correção de dado cadastral de aluno |
+| TA9 | Configurar o servidor de integração contínua que compila e publica o serviço extraído |
+| TA10 | Verificar com a Diretoria de TI se já existe na universidade um componente de software de envio de mensagem que possa ser reaproveitado |
 
 1. Separe as dez tarefas em três grupos, as que cabem ao arquiteto de solução, as que cabem ao arquiteto de software ou à equipe de desenvolvimento, e as que cabem à arquitetura corporativa, usando o critério de alcance apresentado no [bloco 1](bloco-1-arquitetura-de-solucoes-e-de-software.md#como-aplicar-o-grao-correto). Justifique cada tarefa em uma linha.
 
@@ -126,7 +126,7 @@ Sua resposta vira o campo Grupo de competência da mesma tabela, no caderno.
 
 ### Item 3: A justificativa de reaproveitar um componente de software de envio de mensagem
 
-A abordagem arquitetural traz benefícios que justificam o trabalho extra do arquiteto, e cada tarefa de um projeto bem conduzido serve a algum deles. A tarefa T10 consiste em verificar com a Diretoria de TI se já existe na universidade um componente de software de envio de mensagem, isto é, um programa que transmite avisos de um sistema a outro, que possa ser reaproveitado. O item pede que você diga qual benefício está por trás dessa verificação. O quadro abaixo lista os sete benefícios da abordagem arquitetural apresentados na seção [Benefícios da abordagem](#beneficios-da-abordagem) deste bloco.
+A abordagem arquitetural traz benefícios que justificam o trabalho extra do arquiteto, e cada tarefa de um projeto bem conduzido serve a algum deles. A tarefa TA10 consiste em verificar com a Diretoria de TI se já existe na universidade um componente de software de envio de mensagem, isto é, um programa que transmite avisos de um sistema a outro, que possa ser reaproveitado. O item pede que você diga qual benefício está por trás dessa verificação. O quadro abaixo lista os sete benefícios da abordagem arquitetural apresentados na seção [Benefícios da abordagem](#beneficios-da-abordagem) deste bloco.
 
 | Benefício | Como ele se produz |
 | --- | --- |
@@ -138,7 +138,7 @@ A abordagem arquitetural traz benefícios que justificam o trabalho extra do arq
 | Redução de dependência | Componentes de software encapsulados com interfaces definidas mudam por dentro sem repercussão sobre os demais |
 | Resolução precoce de conflito e de duplicação | Escopo declarado e análises de lacuna e de impacto revelam cedo outras iniciativas que tocam a mesma área |
 
-1. Identifique qual dos sete benefícios justifica a existência da tarefa T10, e explique em três linhas o que a instituição perde se essa verificação não for feita antes de especificar componente de software novo.
+1. Identifique qual dos sete benefícios justifica a existência da tarefa TA10, e explique em três linhas o que a instituição perde se essa verificação não for feita antes de especificar componente de software novo.
 
 Sua resposta vira o campo Benefício de reaproveitar um componente de software da tabela de papéis, no caderno.
 

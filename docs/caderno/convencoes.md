@@ -31,8 +31,8 @@ Cada código é a inicial do item seguida de um número, na ordem em que o item 
 | FA | Uma função de adequação: teste automático que avisa quando uma decisão deixa de ser cumprida | 9 |
 | CP | Um candidato a componente da solução, classificado por tipo | 1 |
 | N | Um elemento da situação atual, lido nos três níveis de sistema | 1 |
-| T | Uma tarefa do ciclo de modernização, atribuída a um papel | 1 |
-| A | Um artefato do caso, ligado a uma fase, a um papel e a uma seção | 1 |
+| TA | Uma tarefa do ciclo de modernização, atribuída a um papel | 1 |
+| AR | Um artefato do caso, ligado a uma fase, a um papel e a uma seção | 1 |
 
 Na seção 1, os exercícios numeram os seus itens com CP, N, T e A. A letra C já pertence aos controles de segurança, e por isso os componentes da solução usam CP.
 
