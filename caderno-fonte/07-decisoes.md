@@ -209,7 +209,7 @@ Na abertura da matrícula a confirmação ao aluno deve ficar em até 4 segundos
 | Entidade | Núcleo transacional | Portais Java | ERP financeiro | Ambiente virtual | Data warehouse |
 | --- | --- | --- | --- | --- | --- |
 | Aluno | Dono, grava | Forte, lê pelas transações do núcleo | Eventual, até 1 dia, lote das 23h10 | Eventual, até 1 dia, lote das 04h00 | Eventual, até 1 dia, lote das 02h30 |
-| Matrícula | Dono, grava | Forte na confirmação ao aluno, com percentil 95 de até 4 segundos pelo R6 | Não registrado | Eventual, até 1 dia, lote das 04h00 | Eventual, até 1 dia, lote das 02h30 |
+| Matrícula | Dono, grava | Forte na confirmação de recebimento ao aluno, com percentil 95 de até 4 segundos pelo R6 | Não registrado | Eventual, até 1 dia, lote das 04h00 | Eventual, até 1 dia, lote das 02h30 |
 | Nota | Dono da nota consolidada, grava | Forte | Não registrado | Eventual, até 10 minutos pelo R7, e devolução da nota de atividade em até 1 dia, lote das 06h15 | Eventual, até 1 dia, lote das 02h30 |
 | Lançamento financeiro | Dono do lançamento, grava | Forte | Eventual, até 1 dia, lote das 23h10, e devolução da baixa em até 1 dia, lote das 05h30 | Não registrado | Eventual, até 1 dia, lote das 02h30 |
 | Turma | Dono, grava | Forte | Não registrado | Eventual, até 1 dia, lote das 04h00 | Eventual, até 1 dia, lote das 02h30 |
@@ -260,7 +260,7 @@ O banco Oracle, com 740 tabelas, é compartilhado entre o núcleo COBOL e a cama
 <!--gabarito-->
 #### Contêineres da arquitetura alvo e suas relações
 
-Ao fim do primeiro ciclo, o aluno renova a matrícula pelo aplicativo, o professor lança a nota pelo portal, e dois serviços novos, o de matrícula e o de notas, chamam o núcleo COBOL pelas transações que ele já tem. Cada serviço novo tem banco próprio, e o núcleo continua gravando no banco Oracle existente. A figura mostra os contêineres e as 15 relações numeradas, e a tabela dá o que cada relação exige da comunicação. Contêiner, no modelo C4, é uma parte executável da solução, como um portal, um serviço ou um banco. O R6 é o requisito de confirmar o pedido de matrícula em até 4 segundos com 5.800 sessões simultâneas, e o R7 é o de entregar a nota em até 10 minutos. Na entrada da matrícula há uma fila entre o serviço de matrícula e o núcleo, decidida no ADR 001 do exercício 12, para que o pico de pedidos não chegue ao núcleo de uma só vez e não repita o esgotamento de tarefas do CICS de 04/02/2026.
+Ao fim do primeiro ciclo, o aluno renova a matrícula pelo aplicativo, o professor lança a nota pelo portal, e dois serviços novos, o de matrícula e o de notas, chamam o núcleo COBOL pelas transações que ele já tem. Cada serviço novo tem banco próprio, e o núcleo continua gravando no banco Oracle existente. A figura mostra os contêineres e as 15 relações numeradas, e a tabela dá o que cada relação exige da comunicação. Contêiner, no modelo C4, é uma parte executável da solução, como um portal, um serviço ou um banco. O R6 é o requisito de confirmar o pedido de matrícula em até 4 segundos com 5.800 sessões simultâneas, e o R7 é o de entregar a nota em até 10 minutos. Na entrada da matrícula há uma fila entre o serviço de matrícula e o núcleo, proposta no ADR 001 e adotada como premissa do exercício 12, para que o pico de pedidos não chegue ao núcleo de uma só vez e não repita o esgotamento de tarefas do CICS de 04/02/2026.
 
 #### Catálogo de blocos lógicos da arquitetura alvo
 
@@ -271,7 +271,7 @@ Esta é a lista de ABBs que a Aula 5 transforma em candidatos concretos. Ela dec
 | Interface do aplicativo do aluno | Permitir matrícula e consulta de notas no canal móvel | Novo |
 | Portal do Professor | Permitir o lançamento de notas no canal já usado pelos professores | Modificado |
 | Portal da Secretaria | Sustentar as operações acadêmicas da secretaria durante a transição | Modificado |
-| Provedor de identidade | Autenticar e autorizar alunos, professores e equipe com padrões abertos | Novo, obtido como serviço contratado, e a forma de obtenção é escolhida na Aula 5 |
+| Provedor de identidade | Autenticar e autorizar alunos, professores e equipe com padrões abertos | Novo, serviço contratado, com tecnologia a definir na Aula 5 |
 | Serviço de matrícula | Receber solicitações e aplicar regras acadêmicas | Novo |
 | Serviço de notas | Registrar, consultar e disponibilizar notas | Novo |
 | Banco do serviço de matrícula | Persistir os dados próprios da matrícula | Novo |

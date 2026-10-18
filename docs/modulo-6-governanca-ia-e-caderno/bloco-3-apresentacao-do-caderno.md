@@ -29,7 +29,7 @@ Quando o caderno chega às mãos de quem decide, nenhum dos três leitores o lê
 | 9. Roteiro e governança | Em que ordem as lacunas serão fechadas e como evitar que a obra se afaste do desenho? | A Reitoria, que financia o primeiro ciclo, e a Diretoria de TI, que acompanha a execução |
 | 10. O que ainda falta decidir | O que ainda impede o projeto de seguir e quem resolve? | Cada responsável nomeado, que descobre ali o que lhe cabe e até quando |
 
-Quem tem poucos minutos lê as seções 0 e 10, porque a primeira diz o que o projeto decidiu e a última diz o que ainda não decidiu. Quem precisa defender uma decisão sai da seção 7 e chega ao requisito na seção 3. A ordem das seções acompanha a ordem em que o desenho foi construído, e por isso o aluno reconhece em cada uma o exercício que a produziu: a seção 1 veio da Aula 1, as seções 2 e 3 da Aula 2, a seção 6 da Aula 3, as seções 5 e 7 das Aulas 3 e 4, a seção 8 da Aula 5 e a seção 9 desta Aula 6. A seção 4 nasceu na Aula 2 e recebeu as lacunas no [bloco 1](bloco-1-governanca-da-mudanca.md) desta aula.
+Quem tem poucos minutos lê as seções 0 e 10, porque a primeira diz o que o projeto decidiu e a última diz o que ainda não decidiu. Quem precisa defender uma decisão sai da seção 7 e chega ao requisito na seção 3. A ordem das seções acompanha a ordem em que o desenho foi construído, e por isso o aluno reconhece em cada uma o exercício que a produziu: a seção 1 veio da Aula 1, as seções 2 e 3 da Aula 2, a seção 6 da Aula 3, a seção 5 da Aula 4 e a seção 7 das Aulas 3 e 4, a seção 8 da Aula 5 e a seção 9 desta Aula 6. A seção 4 nasceu na Aula 2 e recebeu as lacunas no [bloco 1](bloco-1-governanca-da-mudanca.md) desta aula.
 
 ### Os catorze artefatos do ciclo
 
@@ -41,7 +41,7 @@ Ao longo das seis aulas, a ACME produziu catorze artefatos, que são os document
 | 2 | Mapa de partes interessadas | As entradas | 2 |
 | 3 | Catálogo de requisitos com cenários de qualidade | O mapa de partes interessadas | 3 |
 | 4 | Relatório de lacunas | A linha de base e o catálogo de requisitos | 4 |
-| 5 | Desenho lógico, com blocos de construção e interfaces | O catálogo e o relatório, porque cada bloco atende a um requisito ou fecha uma lacuna | 6 e 7 |
+| 5 | Desenho lógico, com blocos de construção e interfaces | O catálogo e a linha de base, porque cada bloco atende a um requisito ou fecha uma lacuna | 6 e 7 |
 | 6 | ADRs de estilo e de padrões | Os cenários, que fornecem as forças, e o desenho lógico | 7 |
 | 7 | Contratos de integração | As relações entre blocos que atravessam a fronteira de uma equipe ou de um sistema | 5 |
 | 8 | Diagramas de contexto e de contêineres | A fronteira e os contêineres do desenho lógico | 5 e 7 |
@@ -52,11 +52,11 @@ Ao longo das seis aulas, a ACME produziu catorze artefatos, que são os document
 | 13 | Roteiro em ondas | A arquitetura alvo, o relatório de lacunas e a definição tecnológica | 9 |
 | 14 | Modelo de governança | Todas as decisões registradas | 9 |
 
-Os artefatos 1 a 4 vieram das Aulas 1 e 2, os artefatos 5 a 8 das Aulas 3 e 4, os artefatos 9 a 11 da Aula 5 e os artefatos 12 a 14 desta Aula 6. A dependência entre eles tem uma consequência prática: quando o roteiro mostra que uma onda não cabe no prazo, a alteração volta ao patrocinador e às partes interessadas do mapa que abriu o processo, o que fecha o ciclo no artefato 2.
+Os artefatos 1 a 3 vieram das Aulas 1 e 2, os artefatos 5 a 8 das Aulas 3 e 4, os artefatos 9 a 11 da Aula 5 e os artefatos 4 e 12 a 14 desta Aula 6, porque o relatório de lacunas só é produzido no exercício 21. A dependência entre eles tem uma consequência prática: quando o roteiro mostra que uma onda não cabe no prazo, a alteração volta ao patrocinador e às partes interessadas do mapa que abriu o processo, o que fecha o ciclo no artefato 2.
 
 ### O fio de um requisito pelo caderno inteiro
 
-Para mostrar o encadeamento, o professor acompanha na aula um único pedido da ACME, da primeira seção à última. Na abertura da matrícula, o Portal do Aluno chega a 5.800 sessões simultâneas, com 6,3% de erro, e a Diretoria de TI pediu que o portal sustente esse pico e confirme 95% das matrículas em até 4 segundos. O pedido tem o código R6 no dossiê, que é a descrição do caso ACME usada pelo curso, e nasceu de uma queixa vaga da representação discente, a de que o tempo de resposta precisava ser bom, registrada no dossiê como requisito R3. A tabela mostra o que acontece com o R6 em cada artefato.
+Para mostrar o encadeamento, o professor acompanha na aula um único pedido da ACME, da primeira seção à última. Na abertura da matrícula, o Portal do Aluno chega a 5.800 sessões simultâneas, com 6,3% de erro, e a Diretoria de TI pediu que o portal sustente esse pico e confirme o recebimento de 95% dos pedidos de matrícula em até 4 segundos. O pedido tem o código R6 no dossiê, que é a descrição do caso ACME usada pelo curso, e nasceu de uma queixa vaga da representação discente, a de que o tempo de resposta precisava ser bom, registrada no dossiê como requisito R3. A tabela mostra o que acontece com o R6 em cada artefato.
 
 | Etapa | O que acontece com o pedido | Seção do caderno |
 | --- | --- | --- |
@@ -67,7 +67,7 @@ Para mostrar o encadeamento, o professor acompanha na aula um único pedido da A
 | Contêiner | O serviço de matrícula e as relações 1 e 8 do diagrama de contêineres formam o caminho da confirmação de recebimento, e a fila da relação 3 protege o núcleo | 7 |
 | Tecnologia | A plataforma de microsserviços na variante Java, com barramento de eventos, concretiza a fila | 8 |
 | Onda | O critério de conclusão da segunda onda exige a matrícula digital operando numa janela real, com o desempenho do R6 medido em produção | 9 |
-| Controle | Uma função de adequação, teste automático que avisa quando uma decisão deixa de ser cumprida, roda o teste de carga com 5.800 sessões antes de cada janela de matrícula, a função de adequação FA2 do caderno | 9 |
+| Controle | Uma função de adequação, teste automático que avisa quando uma decisão deixa de ser cumprida, roda o teste de carga com 5.800 sessões antes de cada janela de matrícula, a função de adequação do caderno | 9 |
 
 A leitura em sentido inverso serve a quem propõe uma mudança. Se alguém sugerir ao conselho de revisão, apresentado no [bloco 1](bloco-1-governanca-da-mudanca.md), que a fila seja retirada para reduzir a latência, o arquiteto parte do teste de carga, passa pela decisão que o teste protege, pelo contêiner, pela lacuna e pelo cenário, e chega à Diretoria de TI, que declarou o pedido. Em cada parada ele encontra o que a proposta coloca em risco e quem precisa ser consultado antes da votação.
 

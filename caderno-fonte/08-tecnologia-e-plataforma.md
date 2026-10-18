@@ -54,7 +54,7 @@ Para decidir a cor de cada tecnologia, o arquiteto lê o dado da linha de base e
 | Tecnologia | Cor | Justificativa |
 | --- | --- | --- |
 | JSF 1.2 e EJB 2.0 | Vermelho | 410.000 linhas de 2007 a 2009 sobre servidor sem suporte do fornecedor desde 2018, com 220 telas em quatro aplicações que precisam de plano de migração |
-| Oracle 12c Release 2 | Âmbar | O recorte só aceita Oracle em projeto novo com um registro de decisão arquitetural (ADR) de desvio, que justifica o uso de tecnologia fora do padrão, e os 11 TB e as 740 tabelas seguem em uso, com suporte estendido encerrado em 31/03/2022 |
+| Oracle 12c Release 2 | Âmbar | O recorte só aceita Oracle em projeto novo com um registro de decisão arquitetural (ADR) de desvio, que justifica o uso de tecnologia fora do padrão, e os 11 TB e as 740 tabelas seguem em uso, com correções limitadas do fornecedor encerradas em 31/03/2022 |
 | Acesso direto ao banco | Vermelho | 2.300 pontos de código contornam as transações do CICS e impedem a extração por partes |
 | COBOL sob CICS | Vermelho em projeto novo, com permanência por contrato | Manutenção sob contrato exclusivo até 30/09/2027, com 6 especialistas e 2 aposentadorias previstas para 2027 |
 | Diretório corporativo | Âmbar | A autenticação de todos os perfis por LDAP, protocolo de consulta ao diretório de usuários, de forma síncrona e com tempo limite de 10 s, permanece até o último portal migrar para o provedor de identidade |

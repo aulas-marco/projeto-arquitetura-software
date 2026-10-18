@@ -16,7 +16,7 @@ Ao final da aula, o aluno é capaz de
 
 ## Grade de tempo
 
-A aula ocorre das 19h00 às 22h30, com intervalo das 20h30 às 20h45, e o tempo de conteúdo encerra até as 22h10. Todo o tempo de aula é destinado à apresentação conceitual dos quatro blocos, e os exercícios são realizados fora do horário de aula. A tabela abaixo é o único lugar do site em que os minutos de cada bloco aparecem, porque as páginas de bloco não exibem cronômetro.
+A aula ocorre das 19h00 às 22h30, com intervalo das 20h30 às 20h45, e o tempo de conteúdo encerra até as 22h10. Todo o tempo de aula é destinado à apresentação conceitual dos quatro blocos, e os exercícios são realizados fora do horário de aula. A tabela abaixo é o único lugar desta aula em que os minutos de cada bloco aparecem, porque as páginas de bloco não exibem cronômetro.
 
 | Bloco | Conceito | Apresentação (min) |
 | --- | --- | --- |

@@ -160,7 +160,7 @@ Antes de propor qualquer solução, o arquiteto consulta os artefatos de linha d
 
 **Para que serve.** Um cenário só convence se os números que ele cita forem verdadeiros. As 5.800 sessões do pico e os 260 minutos do incidente vêm de medições e registros que já existiam antes do projeto e que formam a linha de base, a descrição do sistema como ele é hoje. A seção 4 do caderno guarda essa descrição, e este exercício a começa pelos documentos de que os cenários dependem, porque, se um deles estiver desatualizado, o cenário também estará.
 
-**O que você faz neste exercício.** O enunciado lista seis artefatos de linha de base, numerados de L1 a L6, como o inventário de componentes (L1) e a série de medição de sessões simultâneas do portal (L6). Você escolhe quatro que sustentam os dois cenários, diz que dado cada um fornece e o que aconteceria com o cenário se esse dado estivesse desatualizado. As lacunas, que comparam o sistema atual com o desenhado, ficam para a Aula 6.
+**O que você faz neste exercício.** O enunciado lista seis artefatos de linha de base, numerados de LB1 a LB6, como o inventário de componentes (LB1) e a série de medição de sessões simultâneas do portal (LB6). Você escolhe quatro que sustentam os dois cenários, diz que dado cada um fornece e o que aconteceria com o cenário se esse dado estivesse desatualizado. As lacunas, que comparam o sistema atual com o desenhado, ficam para a Aula 6.
 
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
@@ -246,16 +246,16 @@ Suas respostas viram os campos Respostas ao roteiro de significância e Conclus�
 
 ### Item 4: Artefatos de linha de base que sustentam os cenários
 
-Os números dos dois cenários vêm de documentos e medições que já existiam, e por isso os cenários só são confiáveis se os [artefatos de linha de base](../referencia/glossario.md#artefato-de-linha-de-base), documentos ou medições já existentes que descrevem o sistema atual, estiverem corretos. O quadro abaixo lista seis artefatos disponíveis no caso da ACME, numerados de L1 a L6, entre eles o inventário de componentes, L1, e a série de medição de sessões simultâneas do portal, L6. A seção [Artefatos de linha de base](#artefatos-de-linha-de-base) deste bloco descreve o conceito.
+Os números dos dois cenários vêm de documentos e medições que já existiam, e por isso os cenários só são confiáveis se os [artefatos de linha de base](../referencia/glossario.md#artefato-de-linha-de-base), documentos ou medições já existentes que descrevem o sistema atual, estiverem corretos. O quadro abaixo lista seis artefatos disponíveis no caso da ACME, numerados de LB1 a LB6, entre eles o inventário de componentes, LB1, e a série de medição de sessões simultâneas do portal, LB6. A seção [Artefatos de linha de base](#artefatos-de-linha-de-base) deste bloco descreve o conceito.
 
 | Código | Artefato de linha de base |
 | --- | --- |
-| L1 | Inventário de componentes do sistema acadêmico, com idade e responsável |
-| L2 | Registro dos três incidentes graves dos últimos 18 meses |
-| L3 | Medição de 34 dias úteis entre pedido aprovado e entrega em produção |
-| L4 | Custo anual de propriedade de R$ 15,83 milhões |
-| L5 | Contratos de sustentação e de capacidade, com prazos em 30/09/2027 e 31/12/2028 |
-| L6 | Série de medição de sessões simultâneas e de taxa de erro do portal, com média anual e pico |
+| LB1 | Inventário de componentes do sistema acadêmico, com idade e responsável |
+| LB2 | Registro dos três incidentes graves dos últimos 18 meses |
+| LB3 | Medição de 34 dias úteis entre pedido aprovado e entrega em produção |
+| LB4 | Custo anual de propriedade de R$ 15,83 milhões |
+| LB5 | Contratos de sustentação e de capacidade, com prazos em 30/09/2027 e 31/12/2028 |
+| LB6 | Série de medição de sessões simultâneas e de taxa de erro do portal, com média anual e pico |
 
 1. Escolha quatro artefatos do quadro que sustentam os dois cenários e indique, para cada um, o dado específico que ele fornece.
 2. Indique, para cada um dos quatro artefatos escolhidos, o que aconteceria com o cenário se esse dado estivesse desatualizado.
@@ -275,6 +275,8 @@ Uma restrição é uma decisão tomada fora do projeto, e saber de onde ela vem 
 | Dado pessoal de aluno processado em território nacional | Jurídico, parecer de 28/04/2026 |
 | Manutenção do núcleo COBOL sob contrato até 30/09/2027 | Contrato de sustentação |
 | Orçamento de R$ 6,2 milhões para o primeiro ciclo de 12 meses | Reitoria |
+
+O parecer jurídico de 28/04/2026 é uma decisão da própria instituição, e a LGPD não exige que o dado pessoal seja processado em território nacional.
 
 1. Classifique cada uma das sete restrições pela origem, entre regulatória, contratual, de política interna e técnica, e indique quem teria autoridade para revê-la. Registre os dois resultados ao lado de cada restrição.
 

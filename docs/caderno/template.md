@@ -532,7 +532,7 @@ Esta parte é preenchida no exercício 23.
 
 Você escreve:
 
-- **Verificação de rastreabilidade:** diga, para cada afirmação do contexto gerado, se ela tem origem em dado vigente e corrija a que não tem, citando a fonte.
+- **Verificação de rastreabilidade:** diga, para cada afirmação do contexto gerado, se ela tem origem em dado vigente e corrija as que não têm, citando a fonte.
 - **Consequência omitida:** escreva as consequências negativas que o rascunho não traz, com o dado do enunciado que as comprova.
 - **Decisão que volta à autoridade:** corrija o estado e a data do registro e diga quem decide.
 - **Registro da assistência de IA:** escreva a ferramenta, as partes rascunhadas, o prompt e a versão, as verificações aplicadas e o revisor.

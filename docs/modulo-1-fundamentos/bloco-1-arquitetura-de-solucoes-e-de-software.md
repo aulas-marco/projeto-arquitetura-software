@@ -58,7 +58,7 @@ Figura 3. As três declarações da tabela acima aplicadas à modernização do 
 
 As três frases entre aspas no infográfico são as mesmas da linha "Exemplo na ACME" da tabela, e servem de teste de classificação: cada uma decide algo de alcance diferente sobre a mesma iniciativa de modernização. O Exercício 1 deste bloco amplia esse conjunto para nove decisões, numeradas de D1 a D9, e as três do infográfico correspondem a D1, D2 e D3. O diagrama a seguir lê essas três decisões por outro ângulo, o da estrutura de domínios que a arquitetura corporativa usa para organizar suas diretrizes.
 
-![Diagrama técnico da ACME alinhado ao TOGAF. Os domínios corporativos de negócio, dados, aplicações e tecnologia estabelecem diretrizes. A decisão corporativa D1 é refinada na decisão de solução D2 e orienta a decisão de software D3.](../assets/images/modulo-1-arquitetura-corporativa-togaf.svg){ .module-diagram }
+![Diagrama técnico da ACME alinhado ao TOGAF. Os domínios corporativos de negócio, dados, aplicações e tecnologia estabelecem diretrizes. A decisão corporativa D1 restringe a decisão de solução D2, e as duas restringem a decisão de software D3.](../assets/images/modulo-1-arquitetura-corporativa-togaf.svg){ .module-diagram }
 
 Figura 4. Percurso das decisões D1, D2 e D3 da ACME, da diretriz corporativa transversal aos quatro domínios do TOGAF até a decisão de componente de software.
 

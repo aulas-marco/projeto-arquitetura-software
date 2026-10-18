@@ -1,6 +1,6 @@
 # Definição tecnológica e modelo técnico de referência
 
-Quando o desenho da Aula 4 ficou pronto, a ACME tinha oito caixas no diagrama. Seis ainda diziam “tecnologia a definir”. Essas caixas são contêineres, partes executáveis da solução, como aplicativo, serviço ou banco de dados. Este bloco mostra como escolher o produto que realizará cada uma: primeiro registra as restrições, depois compara as alternativas permitidas por seis critérios e documenta o motivo da escolha. O exercício 17 aplica esse caminho à ACME.
+Quando o desenho da Aula 4 ficou pronto, a ACME tinha seis elementos novos que ainda diziam “tecnologia a definir”. Essas caixas são contêineres, partes executáveis da solução, como aplicativo, serviço ou banco de dados. Este bloco mostra como escolher o produto que realizará cada uma: primeiro registra as restrições, depois compara as alternativas permitidas por seis critérios e documenta o motivo da escolha. O exercício 17 aplica esse caminho à ACME.
 
 ## Antes de começar
 
@@ -31,7 +31,7 @@ Comece pelo diagrama de contêineres do [exercício 16](../modulo-4-dominios-da-
 | Interface do aplicativo do aluno | Permitir matrícula e consulta de notas no canal móvel | Novo |
 | Portal do Professor | Permitir o lançamento de notas no canal já usado pelos professores | Modificado |
 | Portal da Secretaria | Sustentar as operações acadêmicas da secretaria durante a transição | Modificado |
-| Provedor de identidade | Autenticar e autorizar alunos, professores e equipe com padrões abertos | Novo, obtido como serviço contratado, e a forma de obtenção é escolhida na Aula 5 |
+| Provedor de identidade | Autenticar e autorizar alunos, professores e equipe com padrões abertos | Novo, serviço contratado, com tecnologia a definir na Aula 5 |
 | Serviço de matrícula | Receber solicitações e aplicar regras acadêmicas | Novo |
 | Serviço de notas | Registrar, consultar e disponibilizar notas | Novo |
 | Banco do serviço de matrícula | Persistir os dados próprios da matrícula | Novo |
@@ -145,7 +145,7 @@ Versões anteriores da disciplina usavam outra lista, a dos sete fatores, e os s
 
 #### Exemplos de ABB para SBB na ACME
 
-Agora que o método de comparação está definido, os exemplos ficam concretos. Cada linha liga um bloco do catálogo do Passo 1 a um SBB candidato, e o nome do bloco é o mesmo do catálogo. Nas linhas de provedor de identidade, serviços, bancos, evento de nota e observabilidade, o candidato é um exemplo aprovado na linha correspondente do recorte do modelo técnico de referência usado no exercício 17. Nas linhas sem linha no recorte, o candidato é só um exemplo de realização que a equipe precisa avaliar, e nenhum produto está escolhido.
+Agora que o método de comparação está definido, os exemplos ficam concretos. Cada linha liga um bloco do catálogo do Passo 1 a um SBB candidato, e o nome do bloco é o mesmo do catálogo. Nas linhas de provedor de identidade, serviços, bancos, fila de solicitações de matrícula, evento de nota e observabilidade, o candidato é um exemplo aprovado na linha correspondente do recorte do modelo técnico de referência usado no exercício 17. Nas linhas sem linha no recorte, o candidato é só um exemplo de realização que a equipe precisa avaliar, e nenhum produto está escolhido.
 
 | ABB, bloco lógico | SBB candidato | Por que esse candidato entra na comparação | Evidência que precisa decidir |
 | --- | --- | --- | --- |
@@ -194,7 +194,7 @@ Ao concluir os cinco passos, o arquiteto registra no ADR a opção escolhida, as
 
 **Para que serve.** A ACME precisa de um serviço de matrícula que aguente 5.800 sessões simultâneas, mas o desenho da Aula 4 deixou todos os contêineres novos com a etiqueta tecnologia a definir. Se cada equipe escolher o produto que já conhece, a universidade termina com padrões diferentes em cada serviço e com tecnologias antigas copiadas para o sistema novo. Por isso a seção 8 do caderno começa pelo que a ACME já aprovou e pelo que quer abandonar, e só depois compara as opções de um produto, de modo que quem ler o caderno meses depois encontre o motivo de cada escolha.
 
-**O que você faz neste exercício.** O enunciado reúne o que é preciso para esse primeiro passo: as oito caixas do desenho de contêineres do exercício 16, que são as partes executáveis da solução, como o serviço de matrícula e o banco do serviço de notas, o catálogo de doze blocos do mesmo exercício, um recorte de seis linhas do modelo técnico de referência da ACME, seis tecnologias que a universidade já usa, como o COBOL sob CICS e o banco Oracle 12c, e três formas de obter um provedor de identidade, chamadas PI1, PI2 e PI3. Você liga cada bloco do catálogo à linha do modelo que vale para ele, porque é essa linha que diz o padrão a seguir e quais produtos aprovados entram como candidatos, depois classifica cada tecnologia atual em verde, âmbar ou vermelho para mostrar o que fica e o que sai, e por fim começa a comparar as três formas com o dado que o caso traz, já que o restante ainda precisa ser levantado.
+**O que você faz neste exercício.** O enunciado reúne o que é preciso para esse primeiro passo: as oito caixas do recorte do desenho de contêineres do exercício 16, que são as partes executáveis da solução, como o serviço de matrícula e o banco do serviço de notas, o catálogo de treze blocos do mesmo exercício, um recorte de seis linhas do modelo técnico de referência da ACME, seis tecnologias que a universidade já usa, como o COBOL sob CICS e o banco Oracle 12c, e três formas de obter um provedor de identidade, chamadas PI1, PI2 e PI3. Você liga cada bloco do catálogo à linha do modelo que vale para ele, porque é essa linha que diz o padrão a seguir e quais produtos aprovados entram como candidatos, depois classifica cada tecnologia atual em verde, âmbar ou vermelho para mostrar o que fica e o que sai, e por fim começa a comparar as três formas com o dado que o caso traz, já que o restante ainda precisa ser levantado.
 
 | Campo do caderno | Como preencher | Item |
 | --- | --- | --- |
@@ -283,7 +283,7 @@ O plano de modernização da ACME precisa saber o que manter e o que substituir,
 | Tecnologia | Dado da linha de base |
 | --- | --- |
 | JSF 1.2 e EJB 2.0 | 410.000 linhas de Java escritas entre 2007 e 2009, sobre servidor de aplicação cuja versão saiu de suporte do fornecedor em 2018, em 220 telas distribuídas em quatro aplicações |
-| Oracle 12c Release 2 | 740 tabelas e 11 TB de dados, suporte estendido encerrado em 31/03/2022 e licenciamento com renovação anual em 30/06 |
+| Oracle 12c Release 2 | 740 tabelas e 11 TB de dados, correções limitadas do fornecedor encerradas em 31/03/2022 e licenciamento com renovação anual em 30/06 |
 | Acesso direto ao banco | 2.300 pontos no código Java que leem ou gravam tabelas do núcleo, contornando as transações do CICS |
 | COBOL sob CICS | 6 especialistas da fábrica contratada, com 2 aposentadorias previstas para 2027, e manutenção sob contrato exclusivo até 30/09/2027 |
 | Diretório corporativo | Autenticação de todos os perfis pelos portais, por LDAP síncrono com tempo limite de 10 s |

@@ -22,10 +22,10 @@ Em cada fase, além de consultar entradas e produzir saídas, o arquiteto precis
 
 ```mermaid
 flowchart LR
-    A["Iniciar<br/>Por que investigar?"] --> B["Descobrir<br/>O que já sabemos?"]
-    B --> C["Definir<br/>O que precisa mudar?"] --> D["Desenhar<br/>Como a solução responde?"]
-    D --> E["Validar<br/>Quem confirma?"] --> F["Planejar<br/>Como realizar?"]
-    F --> G["Entregar<br/>O que construir e acompanhar?"] --> H["Encerrar<br/>O que registrar para continuidade?"]
+    A["Iniciação<br/>Por que investigar?"] --> B["Descoberta<br/>O que já sabemos?"]
+    B --> C["Definição do esboço<br/>O que precisa mudar?"] --> D["Análise<br/>Qual alternativa atende melhor?"]
+    D --> E["Desenho lógico<br/>Como a solução responde?"] --> F["Validação<br/>Quem confirma?"]
+    F --> G["Desenvolvimento do roteiro<br/>Como realizar?"] --> H["Conclusão<br/>O que construir e registrar?"]
 ```
 
 <figure markdown="span">
@@ -56,7 +56,7 @@ Quando o desenho lógico fica pronto, a fase de validação o verifica com três
 
 O ciclo foi desenhado para funcionar em situações variadas, com soluções de tipos e tamanhos diferentes. Ao aplicá-lo a um problema concreto, o arquiteto escolhe as atividades que fazem sentido e as ajusta. Mesmo uma solução aparentemente pequena e simples se beneficia de percorrer as fases de forma consistente, ainda que o trabalho de algumas atividades seja reduzido a poucas horas. A mesma lógica vale para os artefatos, que podem ser adaptados à solução, ao modo de trabalho da organização ou ao setor.
 
-Na ACME, universidade privada brasileira fictícia com 38.400 alunos ativos e sistema acadêmico em operação desde 2004, o percurso já começou antes da primeira aula. O conceito de solução é a modernização do sistema acadêmico. A área do problema foi definida com números, o prazo médio de 34 dias úteis entre pedido aprovado e entrega, a concentração de incidentes na janela de matrícula e a dependência de 6 especialistas em COBOL, dos quais 2 se aposentam em 2027. Duas alternativas foram descartadas na análise preliminar pela Reitoria em 12/03/2026, a substituição por produto de mercado e a reescrita em entrega única.
+Na ACME, universidade privada brasileira fictícia com 38.400 alunos ativos e sistema acadêmico em operação desde 2004, o percurso já começou antes da primeira aula. O conceito de solução é a modernização do sistema acadêmico. A área do problema foi definida com números, o prazo médio de 34 dias úteis entre pedido aprovado e entrega, a concentração de incidentes nas janelas de matrícula e de fechamento de notas e a dependência de 6 especialistas em COBOL, dos quais 2 se aposentam em 2027. Duas alternativas foram descartadas na análise preliminar pela Reitoria em 12/03/2026, a substituição por produto de mercado e a reescrita em entrega única.
 
 ### O caderno arquitetural
 

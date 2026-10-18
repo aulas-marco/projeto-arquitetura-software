@@ -35,7 +35,7 @@ PLANO = {
 # Os arquivos da Aula 6 ainda não existem, e o gerador só cria link para arquivo existente.
 EXERCICIOS = {
     1: (1, "modulo-1-fundamentos/bloco-1-arquitetura-de-solucoes-e-de-software.md", "Arquitetura de soluções e arquitetura de software"),
-    2: (1, "modulo-1-fundamentos/bloco-2-a-solucao-como-sistema.md", "A solução como sistema e seus componentes (pessoas, áreas, processos, informação e tecnologia)"),
+    2: (1, "modulo-1-fundamentos/bloco-2-a-solucao-como-sistema.md", "A solução como sistema e seus componentes (pessoas, estruturas organizacionais, processos, informação e tecnologia)"),
     3: (1, "modulo-1-fundamentos/bloco-3-papel-do-arquiteto-de-solucao.md", "O papel do arquiteto de solução"),
     4: (1, "modulo-1-fundamentos/bloco-4-processo-de-definicao-da-arquitetura.md", "O processo de definição da arquitetura"),
     5: (2, "modulo-2-requisitos-e-partes-interessadas/bloco-1-direcionadores-de-mudanca.md", "Direcionadores de mudança"),
@@ -60,7 +60,7 @@ EXERCICIOS = {
     24: (6, "modulo-6-governanca-ia-e-caderno/bloco-3-apresentacao-do-caderno.md", "Apresentação do caderno arquitetural"),
 }
 
-CODIGOS = ("D", "PR", "RT", "R", "RD", "CQ", "LB", "L", "P", "DD", "DL", "B", "I", "ADR", "C", "DS", "AM", "AT", "PI", "LG", "FA", "CP", "N", "TA", "AR")
+CODIGOS = ("D", "PR", "RT", "E", "R", "RD", "CQ", "F", "LB", "LC", "P", "DD", "DL", "B", "I", "ADR", "C", "DS", "AM", "AT", "PI", "LG", "FA", "CP", "N", "TA", "AR")
 
 ROTULOS_CURTOS = {
     0: "Resumo", 1: "Contexto", 2: "Partes", 3: "Requisitos", 4: "Linha de base",

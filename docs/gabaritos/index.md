@@ -5,7 +5,7 @@ O caderno arquitetural é o documento em que a arquitetura da solução da ACME 
 | Exercício | Gabarito |
 | --- | --- |
 | Exercício 1, Arquitetura de soluções e arquitetura de software | [Gabarito 1](gabarito-exercicio-01.md) |
-| Exercício 2, A solução como sistema e seus componentes (pessoas, áreas, processos, informação e tecnologia) | [Gabarito 2](gabarito-exercicio-02.md) |
+| Exercício 2, A solução como sistema e seus componentes (pessoas, estruturas organizacionais, processos, informação e tecnologia) | [Gabarito 2](gabarito-exercicio-02.md) |
 | Exercício 3, O papel do arquiteto de solução | [Gabarito 3](gabarito-exercicio-03.md) |
 | Exercício 4, O processo de definição da arquitetura | [Gabarito 4](gabarito-exercicio-04.md) |
 | Exercício 5, Direcionadores de mudança | [Gabarito 5](gabarito-exercicio-05.md) |

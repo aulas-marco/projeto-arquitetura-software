@@ -1,4 +1,4 @@
-# A solução como sistema e seus componentes (pessoas, áreas, processos, informação e tecnologia)
+# A solução como sistema e seus componentes (pessoas, estruturas organizacionais, processos, informação e tecnologia)
 
 Quando a ACME decidiu que a nota lançada pelo professor deveria chegar ao ambiente virtual em até 10 minutos, o pedido envolvia mais do que programa. Este bloco mostra com o que o arquiteto de solução trabalha em situações assim: a solução vista como sistema, com seus cinco tipos de componente da solução, os três níveis em que uma organização é modelada e o alinhamento com a estratégia.
 
@@ -130,7 +130,7 @@ O enunciado reúne dez candidatos a componente da solução, que poderiam atende
 1. Classifique cada um dos dez candidatos a componente da solução em um dos cinco tipos de [componentes da solução](../referencia/glossario.md#componentes-da-solucao), pessoas, estruturas organizacionais, processos, informação e tecnologia, e indique se algum tipo ficou sem componente da solução.
 2. Indique qual dos cinco tipos exige a mudança de maior impacto sobre quem trabalha na instituição, e justifique em duas linhas.
 
-Suas respostas viram os campos Tipo do componente da solução e Tipo de componente da solução ausente, na seção 1 do caderno.
+Suas respostas viram os campos Tipo do componente da solução e Tipo do componente da solução ausente, na seção 1 do caderno.
 
 ### Item 2: Os fatos da situação atual em três níveis
 

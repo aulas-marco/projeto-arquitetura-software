@@ -45,7 +45,7 @@ A aula ocorre das 19h00 às 22h30, com intervalo das 20h30 às 20h45, e o tempo 
 | Bloco | Conceito | Apresentação (min) |
 | --- | --- | --- |
 | 1 | Arquitetura de soluções e arquitetura de software | 40 |
-| 2 | A solução como sistema e seus componentes (pessoas, áreas, processos, informação e tecnologia) | 40 |
+| 2 | A solução como sistema e seus componentes (pessoas, estruturas organizacionais, processos, informação e tecnologia) | 40 |
 | 3 | O papel do arquiteto de solução | 40 |
 | 4 | O processo de definição da arquitetura | 40 |
 
@@ -55,7 +55,7 @@ Os quatro blocos somam 160 minutos. Os 15 minutos restantes do tempo útil de 17
 
 O [bloco 1](bloco-1-arquitetura-de-solucoes-e-de-software.md) apresenta a distinção que organiza o curso inteiro, entre arquitetura corporativa, de solução e de software, e o critério para saber a quem pertence cada decisão: até onde o efeito dela chega. No exercício, você classifica nove decisões da ACME nesses três níveis e registra o resultado na seção 1 do caderno.
 
-O [bloco 2](bloco-2-a-solucao-como-sistema.md) mostra com o que o arquiteto de solução trabalha: a solução vista como um sistema, com cinco tipos de componente da solução e três níveis em que uma organização pode ser descrita. No exercício, você classifica os componentes da solução (pessoas, estruturas organizacionais, processos, informação e tecnologia) que atendem ao requisito R7 da ACME, a nota lançada chegar ao ambiente virtual em até 10 minutos, e situa esse requisito nos três níveis. O resultado também entra na seção 1, e o inventário de componentes da solução será usado no bloco 4, porque as fases do processo trabalham sobre componentes da solução já identificados.
+O [bloco 2](bloco-2-a-solucao-como-sistema.md) mostra com o que o arquiteto de solução trabalha: a solução vista como um sistema, com cinco tipos de componente da solução e três níveis em que uma organização pode ser descrita. No exercício, você classifica os componentes da solução (pessoas, estruturas organizacionais, processos, informação e tecnologia) que atendem ao requisito R7 da ACME, a nota lançada chegar ao ambiente virtual em até 10 minutos, e situa esse requisito nos três níveis. O resultado também entra na seção 1.
 
 O [bloco 3](bloco-3-papel-do-arquiteto-de-solucao.md) descreve o papel do arquiteto de solução: as competências que ele precisa ter, as três coisas que o trabalho entrega e os sete benefícios da abordagem arquitetural. No exercício, você separa dez tarefas do ciclo de modernização da ACME entre o arquiteto de solução, o arquiteto de software e a arquitetura corporativa, e registra a divisão na seção 1.
 

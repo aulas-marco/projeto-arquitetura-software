@@ -297,7 +297,7 @@ A ACME enfrenta sete pressões para mudar, e nem todas têm a mesma urgência. A
 | --- | --- | --- | --- |
 | Custo de propriedade do sistema acadêmico | Interno | Antecipatória | A meta de R$ 11,0 milhões tem prazo no fim de 2029, sem gatilho imediato |
 | Lentidão de resposta a pedido de mudança | Interno | Reativa | Os 34 dias úteis entre pedido aprovado e entrega já pesam na operação de hoje |
-| Risco de perda de competência | Interno | Antecipatória | Duas das 6 aposentadorias de especialistas em COBOL estão previstas para 2027 |
+| Risco de perda de competência | Interno | Antecipatória | Dois dos 6 especialistas em COBOL se aposentam em 2027 |
 | Exigência de proteção de dado pessoal | Externo | Reativa | O parecer jurídico de 28/04/2026 já impõe a obrigação de processar em território nacional |
 | Avaliação regulatória | Externo | Antecipatória | A preocupação da Reitoria é com uma queda futura de nota |
 | Expectativa do aluno | Externo | Reativa | O pedido de aplicativo e a falha na abertura da matrícula já aconteceram, com 2 dos 3 incidentes graves em janelas críticas, a abertura da matrícula e o fechamento de notas |
@@ -434,14 +434,14 @@ Cada restrição foi decidida por alguém de fora do projeto, e saber quem decid
 
 #### Artefatos de linha de base dos cenários
 
-Os cenários do pico de matrícula, com 5.800 sessões simultâneas, e do incidente de 04/02/2026 só são confiáveis se os números que os sustentam estiverem corretos, e esses números vêm dos artefatos da linha de base, os documentos e as medições que descrevem o sistema atual. Quatro dos seis artefatos (L1, L2, L5 e L6) sustentam os cenários, mas o prazo de 34 dias úteis (L3) e o custo anual de R$ 15,83 milhões (L4) não aparecem em nenhum deles.
+Os cenários do pico de matrícula, com 5.800 sessões simultâneas, e do incidente de 04/02/2026 só são confiáveis se os números que os sustentam estiverem corretos, e esses números vêm dos artefatos da linha de base, os documentos e as medições que descrevem o sistema atual. Quatro dos seis artefatos (LB1, LB2, LB5 e LB6) sustentam os cenários, mas o prazo de 34 dias úteis (LB3) e o custo anual de R$ 15,83 milhões (LB4) não aparecem em nenhum deles.
 
 | Artefato | Dado que fornece | Efeito de um dado desatualizado |
 | --- | --- | --- |
-| L6, série de medição de sessões simultâneas e de taxa de erro do portal | A média anual de 815 sessões, o pico de 5.800 e a taxa de erro de 6,3% no pico | A razão de 7,1 entre o pico e a média e a meta de erro ficariam erradas, e o teste de carga simularia um pico diferente do real |
-| L2, registro dos três incidentes graves dos últimos 18 meses | A sequência do incidente de 04/02/2026, com 4h20 de duração e 62% das tentativas com erro | O cenário do incidente trataria uma causa que não aconteceu, e a medida de 260 minutos de indisponibilidade perderia o ponto de comparação |
-| L1, inventário de componentes do sistema acadêmico | O monitor CICS, o limite de tarefas e as camadas que o estímulo atravessa | O campo Artefato apontaria uma parte do sistema que já mudou, e a resposta seria desenhada para o lugar errado |
-| L5, contratos de sustentação e de capacidade | O prazo de 30/09/2027 para qualquer alteração no núcleo COBOL | A resposta poderia prever alteração no núcleo sem que o contrato permita, e o tempo limite teria de ficar na camada web |
+| LB6, série de medição de sessões simultâneas e de taxa de erro do portal | A média anual de 815 sessões, o pico de 5.800 e a taxa de erro de 6,3% no pico | A razão de 7,1 entre o pico e a média e a meta de erro ficariam erradas, e o teste de carga simularia um pico diferente do real |
+| LB2, registro dos três incidentes graves dos últimos 18 meses | A sequência do incidente de 04/02/2026, com 4h20 de duração e 62% das tentativas com erro | O cenário do incidente trataria uma causa que não aconteceu, e a medida de 260 minutos de indisponibilidade perderia o ponto de comparação |
+| LB1, inventário de componentes do sistema acadêmico | O monitor CICS, o limite de tarefas e as camadas que o estímulo atravessa | O campo Artefato apontaria uma parte do sistema que já mudou, e a resposta seria desenhada para o lugar errado |
+| LB5, contratos de sustentação e de capacidade | O prazo de 30/09/2027 para qualquer alteração no núcleo COBOL | A resposta poderia prever alteração no núcleo sem que o contrato permita, e o tempo limite teria de ficar na camada web |
 
 </details>
 
@@ -716,7 +716,7 @@ Na abertura da matrícula a confirmação ao aluno deve ficar em até 4 segundos
 | Entidade | Núcleo transacional | Portais Java | ERP financeiro | Ambiente virtual | Data warehouse |
 | --- | --- | --- | --- | --- | --- |
 | Aluno | Dono, grava | Forte, lê pelas transações do núcleo | Eventual, até 1 dia, lote das 23h10 | Eventual, até 1 dia, lote das 04h00 | Eventual, até 1 dia, lote das 02h30 |
-| Matrícula | Dono, grava | Forte na confirmação ao aluno, com percentil 95 de até 4 segundos pelo R6 | Não registrado | Eventual, até 1 dia, lote das 04h00 | Eventual, até 1 dia, lote das 02h30 |
+| Matrícula | Dono, grava | Forte na confirmação de recebimento ao aluno, com percentil 95 de até 4 segundos pelo R6 | Não registrado | Eventual, até 1 dia, lote das 04h00 | Eventual, até 1 dia, lote das 02h30 |
 | Nota | Dono da nota consolidada, grava | Forte | Não registrado | Eventual, até 10 minutos pelo R7, e devolução da nota de atividade em até 1 dia, lote das 06h15 | Eventual, até 1 dia, lote das 02h30 |
 | Lançamento financeiro | Dono do lançamento, grava | Forte | Eventual, até 1 dia, lote das 23h10, e devolução da baixa em até 1 dia, lote das 05h30 | Não registrado | Eventual, até 1 dia, lote das 02h30 |
 | Turma | Dono, grava | Forte | Não registrado | Eventual, até 1 dia, lote das 04h00 | Eventual, até 1 dia, lote das 02h30 |
@@ -761,7 +761,7 @@ O banco Oracle, com 740 tabelas, é compartilhado entre o núcleo COBOL e a cama
 
 #### Contêineres da arquitetura alvo e suas relações
 
-Ao fim do primeiro ciclo, o aluno renova a matrícula pelo aplicativo, o professor lança a nota pelo portal, e dois serviços novos, o de matrícula e o de notas, chamam o núcleo COBOL pelas transações que ele já tem. Cada serviço novo tem banco próprio, e o núcleo continua gravando no banco Oracle existente. A figura mostra os contêineres e as 15 relações numeradas, e a tabela dá o que cada relação exige da comunicação. Contêiner, no modelo C4, é uma parte executável da solução, como um portal, um serviço ou um banco. O R6 é o requisito de confirmar o pedido de matrícula em até 4 segundos com 5.800 sessões simultâneas, e o R7 é o de entregar a nota em até 10 minutos. Na entrada da matrícula há uma fila entre o serviço de matrícula e o núcleo, decidida no ADR 001 do exercício 12, para que o pico de pedidos não chegue ao núcleo de uma só vez e não repita o esgotamento de tarefas do CICS de 04/02/2026.
+Ao fim do primeiro ciclo, o aluno renova a matrícula pelo aplicativo, o professor lança a nota pelo portal, e dois serviços novos, o de matrícula e o de notas, chamam o núcleo COBOL pelas transações que ele já tem. Cada serviço novo tem banco próprio, e o núcleo continua gravando no banco Oracle existente. A figura mostra os contêineres e as 15 relações numeradas, e a tabela dá o que cada relação exige da comunicação. Contêiner, no modelo C4, é uma parte executável da solução, como um portal, um serviço ou um banco. O R6 é o requisito de confirmar o pedido de matrícula em até 4 segundos com 5.800 sessões simultâneas, e o R7 é o de entregar a nota em até 10 minutos. Na entrada da matrícula há uma fila entre o serviço de matrícula e o núcleo, proposta no ADR 001 e adotada como premissa do exercício 12, para que o pico de pedidos não chegue ao núcleo de uma só vez e não repita o esgotamento de tarefas do CICS de 04/02/2026.
 
 #### Catálogo de blocos lógicos da arquitetura alvo
 
@@ -772,7 +772,7 @@ Esta é a lista de ABBs que a Aula 5 transforma em candidatos concretos. Ela dec
 | Interface do aplicativo do aluno | Permitir matrícula e consulta de notas no canal móvel | Novo |
 | Portal do Professor | Permitir o lançamento de notas no canal já usado pelos professores | Modificado |
 | Portal da Secretaria | Sustentar as operações acadêmicas da secretaria durante a transição | Modificado |
-| Provedor de identidade | Autenticar e autorizar alunos, professores e equipe com padrões abertos | Novo, obtido como serviço contratado, e a forma de obtenção é escolhida na Aula 5 |
+| Provedor de identidade | Autenticar e autorizar alunos, professores e equipe com padrões abertos | Novo, serviço contratado, com tecnologia a definir na Aula 5 |
 | Serviço de matrícula | Receber solicitações e aplicar regras acadêmicas | Novo |
 | Serviço de notas | Registrar, consultar e disponibilizar notas | Novo |
 | Banco do serviço de matrícula | Persistir os dados próprios da matrícula | Novo |

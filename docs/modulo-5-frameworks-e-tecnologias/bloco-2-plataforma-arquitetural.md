@@ -102,7 +102,7 @@ Os pilares são cinco, e a Figura 2 os apresenta sobre uma base comum de infraes
 4. As políticas de conformidade automatizadas valem para todas as contas e recusam o recurso que viole as regras da organização, como o recurso criado fora da região permitida ou sem as etiquetas obrigatórias.
 5. O monitoramento com faturamento consolidado permite acompanhar no mesmo lugar o comportamento e o custo de todos os ambientes.
 
-Os dois primeiros pilares, ambientes separados e rede segmentada, também funcionam como controles de segurança, e o [bloco 3](bloco-3-seguranca-ponta-a-ponta.md) os trata nesse papel.
+Os três primeiros pilares, ambientes separados, rede segmentada e identidade centralizada, também funcionam como controles de segurança, e o [bloco 3](bloco-3-seguranca-ponta-a-ponta.md) os trata nesse papel.
 
 #### Infraestrutura como código e etiquetas
 

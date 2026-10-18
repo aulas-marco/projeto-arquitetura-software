@@ -24,11 +24,11 @@ O processo de definição da arquitetura produz e consome texto estruturado em q
 | Fase | Uso do modelo | Modo |
 | --- | --- | --- |
 | Iniciação e descoberta | Consolidar entradas e entrevistas num registro de motivadores, restrições e partes interessadas, com a entrevista de origem de cada linha | Redator |
-| Esboço da solução | Confrontar a direção candidata com as restrições declaradas pela organização | Crítico |
+| Definição do esboço da solução | Confrontar a direção candidata com as restrições declaradas pela organização | Crítico |
 | Análise | Rascunhar o catálogo de requisitos, converter requisito vago em cenário de qualidade e procurar lacuna esquecida no relatório de lacunas | Redator e crítico |
-| Projeto lógico | Rascunhar o ADR com alternativas e o esqueleto da especificação de contrato | Redator |
+| Desenho lógico | Rascunhar o ADR com alternativas e o esqueleto da especificação de contrato | Redator |
 | Validação | Criticar o desenho lógico contra os atributos de qualidade priorizados | Crítico |
-| Roteiro e governança | Conferir uma proposta nova contra as decisões já registradas | Crítico |
+| Desenvolvimento do roteiro | Conferir uma proposta nova contra as decisões já registradas | Crítico |
 
 Em todas as fases, o modelo ajuda a produzir o material, e quem responde diante do patrocinador à pergunta de saída da fase continua sendo o arquiteto de solução.
 
@@ -52,11 +52,11 @@ A ACME organizou o uso do modelo em quatro assistentes, e cada um é descrito em
 | Entrevistador Arquiteto | Iniciação e descoberta | Conduz a entrevista com uma pergunta por vez e nunca responde no lugar da parte interessada. Na ACME, ele ajuda a fechar com a Coordenadora de Educação a Distância o percentil e a carga de referência do prazo de 10 minutos para a nota chegar ao ambiente virtual | A resposta registrada é da parte interessada, e a ata comprova |
 | Gerador de Cenários de Atributos de Qualidade | Análise | Escreve os seis elementos do cenário usando só os fatos fornecidos e cita a fonte de cada número. Na ACME, o exemplo é a disponibilidade de 99,9% na janela de matrícula, com 43 minutos de indisponibilidade tolerados por mês | Cada número aponta para o requisito ou para o dado de origem |
 | Revisor Crítico de Arquitetura | Validação | Aponta desvios contra critérios declarados, sem reescrever o artefato, sob uma de três lentes, a de arquitetura, a de back-end e a de front-end, cada uma com a sua lista de cobranças | O par humano confirma cada desvio a partir da fonte citada, e desvio sem fonte é descartado |
-| Desenhador de Modelos em PlantUML | Projeto lógico | Converte as tabelas de contêineres e de ligações em código de diagrama no [modelo C4](../referencia/glossario.md#modelo-c4) e devolve a lista do que desenhou | A lista é comparada com as tabelas, porque elemento a mais é invenção e elemento a menos é omissão |
+| Desenhador de Modelos em PlantUML | Desenho lógico | Converte as tabelas de contêineres e de ligações em código de diagrama no [modelo C4](../referencia/glossario.md#modelo-c4) e devolve a lista do que desenhou | A lista é comparada com as tabelas, porque elemento a mais é invenção e elemento a menos é omissão |
 
 ### O que o arquiteto não delega
 
-Quando a Coordenadora de Educação a Distância pede a nota no ambiente virtual em minutos e o Diretor Financeiro responde pelo acréscimo de 38% no valor anual do contrato, nenhum texto entregue ao modelo contém a informação que decide, que é a disposição do patrocinador e o orçamento do próximo exercício. O modelo pode organizar os argumentos dos dois lados e listar o que falta saber para a reunião. O ADR então fica em estado de proposta, com o campo de decisão vazio, até que o Diretor Financeiro decida e tenha o nome registrado.
+Quando a Coordenadora de Educação a Distância pede a nota no ambiente virtual em minutos e o Diretor Financeiro responde pelo acréscimo de 38% no valor anual do contrato, nenhum texto entregue ao modelo contém a informação que decide, que é a disposição do patrocinador e o orçamento do próximo exercício. O modelo pode organizar os argumentos dos dois lados e listar o que falta saber para a reunião. O ADR então fica em estado de proposta, com o campo de decisão vazio, até que a Reitoria decida e tenha o nome registrado.
 
 Esse caso ilustra uma das quatro tarefas que exigem julgamento do arquiteto e não se delegam ao modelo.
 
@@ -310,7 +310,7 @@ O arquiteto consulta a verificação de três etapas no momento em que um rascun
 
 A classificação do conteúdo e o registro da assistência atendem a outro interlocutor, a encarregada de proteção de dados e quem audita o projeto. O arquiteto classifica o material antes de montar o prompt para poder afirmar à encarregada que nenhuma ata com nome de aluno saiu da rede da ACME, e usa a subseção de assistência do ADR para provar o que foi gerado, com qual prompt e quem conferiu. Sem esse registro, uma pergunta de auditoria sobre dado pessoal enviado a um modelo só teria resposta pela memória de quem trabalhou no projeto.
 
-As quatro tarefas de julgamento delimitam o que o arquiteto leva a quem decide. O modelo prepara o material de uma escolha como a do plano superior do ambiente virtual, com os argumentos de cada lado e a lista do que falta saber, e o arquiteto o apresenta ao Diretor Financeiro com o ADR em estado de proposta. Se o arquiteto deixasse o texto do modelo marcar a decisão como tomada, o ADR registraria uma aprovação que ninguém deu.
+As quatro tarefas de julgamento delimitam o que o arquiteto leva a quem decide. O modelo prepara o material de uma escolha como a do plano superior do ambiente virtual, com os argumentos de cada lado e a lista do que falta saber, e o arquiteto o apresenta à Reitoria com o ADR em estado de proposta. Se o arquiteto deixasse o texto do modelo marcar a decisão como tomada, o ADR registraria uma aprovação que ninguém deu.
 
 ## No caderno arquitetural
 
@@ -366,7 +366,7 @@ O enunciado traz duas tabelas. A primeira reproduz parte do que o modelo devolve
 A primeira verificação pergunta de onde vem cada afirmação, e por isso este item confere as quatro afirmações do campo de contexto contra os dados vigentes da segunda tabela. As quatro são, na ordem do texto gerado, os 4.000 usuários simultâneos, o tempo médio de até 3 segundos, o erro de 6,3% contra a meta de 1% e as 4h20 de indisponibilidade em 04/02/2026.
 
 1. Para cada uma das quatro afirmações, diga se ela tem origem em um dado vigente da segunda tabela e cite o número do dado.
-2. Para a afirmação que não tem origem vigente, escreva o valor correto e diga de onde o valor errado veio.
+2. Para cada afirmação que não tem origem vigente, escreva o valor correto e diga de onde o valor errado veio.
 
 Sua resposta vira o campo Verificação de rastreabilidade, na seção 9 do caderno.
 

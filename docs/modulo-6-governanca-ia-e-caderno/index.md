@@ -15,7 +15,7 @@ Ao final da aula, o aluno é capaz de
 
 ## Grade de tempo
 
-A aula ocorre das 19h00 às 22h30, com intervalo das 20h30 às 20h45, e o tempo de conteúdo encerra até as 22h10. A primeira metade da aula é dedicada à governança, e há um único questionário Kahoot, logo depois do intervalo. Os exercícios são realizados fora do horário de aula, e a tabela abaixo é o único lugar do site em que os minutos de cada bloco aparecem, porque as páginas de bloco não exibem cronômetro.
+A aula ocorre das 19h00 às 22h30, com intervalo das 20h30 às 20h45, e o tempo de conteúdo encerra até as 22h10. A primeira metade da aula é dedicada à governança, e há um único questionário Kahoot, logo depois do intervalo. Os exercícios são realizados fora do horário de aula, e a tabela abaixo é o único lugar desta aula em que os minutos de cada bloco aparecem, porque as páginas de bloco não exibem cronômetro.
 
 | Horário | Atividade | Duração (min) |
 | --- | --- | --- |

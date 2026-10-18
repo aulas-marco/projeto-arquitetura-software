@@ -64,7 +64,7 @@ Os dois ADRs não vivem isolados um do outro. O ADR de plataforma faz uma **refe
 
 ### Lacunas na provisão de serviços
 
-Quando a definição tecnológica está completa, o arquiteto compara os serviços que ela exige com o **catálogo de infraestrutura**, a lista dos serviços que a organização já provê, e registra tudo o que impede ou atrapalha a implantação da solução. O resultado é um **relatório de lacunas**, em que cada item é uma lacuna de provisão classificada em um dos quatro tipos da tabela abaixo, e a mesma classificação vale para as lacunas que a [autoridade de design de segurança](bloco-3-seguranca-ponta-a-ponta.md) aponta no bloco anterior.
+Quando a definição tecnológica está completa, o arquiteto compara os serviços que ela exige com o **catálogo de infraestrutura**, a lista dos serviços que a organização já provê, e registra tudo o que impede ou atrapalha a implantação da solução. O resultado é um **relatório de lacunas**, em que cada item é uma lacuna de provisão classificada em um dos quatro tipos da tabela abaixo, e a mesma classificação vale para as lacunas que a revisão de segurança aponta no [bloco anterior](bloco-3-seguranca-ponta-a-ponta.md).
 
 | Tipo | Descrição |
 | --- | --- |

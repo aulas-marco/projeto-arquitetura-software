@@ -92,7 +92,7 @@ A grade recebe ainda o nível de segurança de cada recurso, baixo, médio ou al
 
 *Figura 3 — Grade de permissões com tipo de acesso e nível de segurança. Fonte: material do curso, com base em Lovatt (2021, seção 4.6.7).*
 
-O princípio que orienta o preenchimento da grade é o **menor privilégio**, segundo o qual cada entidade recebe o conjunto mínimo de recursos, com o menor nível de privilégio, que ainda permite executar as atividades de negócio que lhe cabem. Na prática, a leitura é concedida a quem precisa consultar, a gravação fica reservada a quem não consegue concluir a tarefa sem ela, e a condição restringe o alcance do acesso, como na célula do usuário final da Figura 3, que lê e grava somente o próprio pedido. O produto do passo é a grade preenchida, e cada célula corrigida em relação ao primeiro rascunho é uma decisão para o registro.
+O princípio que orienta o preenchimento da grade é o **menor privilégio**, segundo o qual cada entidade recebe o conjunto mínimo de recursos, com o menor nível de privilégio, que ainda permite executar as atividades de negócio que lhe cabem. Na prática, a leitura é concedida a quem precisa consultar, a gravação fica reservada a quem não consegue concluir a tarefa sem ela, e a condição restringe o alcance do acesso, como na célula do usuário final da Figura 3, que lê e grava somente o próprio cadastro. O produto do passo é a grade preenchida, e cada célula corrigida em relação ao primeiro rascunho é uma decisão para o registro.
 
 ### Passo 3: examinar as fronteiras
 
@@ -329,7 +329,7 @@ Suas respostas viram os campos Categoria STRIDE da ameaça, Controle da ameaça 
 
 ### Item 4: Registro de decisões de segurança
 
-Os itens 1 a 3 produziram achados, mas um achado só vira proteção quando alguém o executa e a equipe consegue verificá-lo. Este item consolida cinco achados em decisões do registro de decisões de segurança apresentado no passo 5, de DS1 a DS5. A tabela traz o motivo de cada decisão, isto é, o achado dos itens 1 a 3 que ela responde, e o executor pode ser um destes três: a equipe de solução, que altera o código dos serviços, a equipe de infraestrutura, que altera conta, rede, ponto de entrada ou provedor de identidade, e o Jurídico com a encarregada de proteção de dados, que decidem sobre contrato e tratamento legal do dado pessoal.
+Os itens 1 a 3 produziram achados, mas um achado só vira proteção quando alguém o executa e a equipe consegue verificá-lo. Este item consolida cinco achados em decisões do registro de decisões de segurança apresentado no passo 5, de DS1 a DS5. A tabela traz o motivo de cada decisão, isto é, o achado dos itens 1 a 3 que ela responde, e o executor pode ser um destes três: a equipe de solução, que altera o código dos serviços, a equipe de infraestrutura, que altera conta, rede, ponto de entrada ou provedor de identidade, e o Jurídico com a encarregada de proteção de dados, que confirmam a base legal e a cláusula contratual de tratamento do dado pessoal, cabendo à Reitoria a decisão sobre o contrato.
 
 | Decisão | Motivo |
 | --- | --- |

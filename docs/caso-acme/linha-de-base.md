@@ -97,7 +97,7 @@ Nenhuma das quatro aplicações tem versão responsiva, ou seja, que se ajuste a
 
 ## Banco de dados
 
-Sob as duas camadas fica o banco Oracle Database 12c Release 2, com 740 tabelas e 11 TB de dados em produção. O suporte estendido dessa versão, período em que o fornecedor ainda atende a clientes de versões antigas, encerrou em 31/03/2022, e desde então a instituição opera sem correção de segurança do fornecedor, isto é, sem receber as atualizações que fecham falhas de segurança descobertas no produto. O banco é compartilhado entre o núcleo COBOL e a camada Java, sem separação de esquema por responsabilidade.
+Sob as duas camadas fica o banco Oracle Database 12c Release 2, com 740 tabelas e 11 TB de dados em produção. O período de correções limitadas dessa versão, em que o fornecedor só corrige falhas graves e de segurança e não oferece suporte estendido, encerrou em 31/03/2022, e desde então a instituição opera sem correção de segurança do fornecedor, isto é, sem receber as atualizações que fecham falhas de segurança descobertas no produto. O banco é compartilhado entre o núcleo COBOL e a camada Java, sem separação de esquema por responsabilidade.
 
 Essa mistura tem uma consequência concreta, porque existem 2.300 pontos no código Java que leem ou gravam tabelas do núcleo diretamente, contornando as transações CICS. Qualquer mudança de estrutura de tabela afeta então dois códigos-fonte mantidos por equipes distintas, e por isso esses pontos são a principal barreira à extração incremental de módulos.
 

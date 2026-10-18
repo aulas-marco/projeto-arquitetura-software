@@ -6,7 +6,7 @@ Um projeto de arquitetura começa entendendo o problema, e por isso as duas prim
 
 | Aula | Tema |
 | --- | --- |
-| 1 | Arquitetura de soluções e arquitetura de software, componentes da solução (pessoas, áreas, processos, informação e tecnologia), papel do arquiteto e processo de definição da arquitetura |
+| 1 | Arquitetura de soluções e arquitetura de software, componentes da solução (pessoas, estruturas organizacionais, processos, informação e tecnologia), papel do arquiteto e processo de definição da arquitetura |
 | 2 | Direcionadores de mudança, requisitos e atributos de qualidade, artefatos de linha de base, restrições e partes interessadas |
 | 3 | Princípios de design, estilos arquiteturais, padrões de design e registro de decisão arquitetural |
 | 4 | Arquitetura de negócio, de dados, de aplicações e de infraestrutura da solução, com contrato de integração e modelagem C4 |
@@ -22,7 +22,7 @@ A ordem das aulas é a de um projeto real, que parte do enquadramento, passa pel
 | Bloco | Tema | Exercício |
 | --- | --- | --- |
 | 1 | Arquitetura de soluções e arquitetura de software | 1 |
-| 2 | A solução como sistema e seus componentes (pessoas, áreas, processos, informação e tecnologia) | 2 |
+| 2 | A solução como sistema e seus componentes (pessoas, estruturas organizacionais, processos, informação e tecnologia) | 2 |
 | 3 | O papel do arquiteto de solução | 3 |
 | 4 | O processo de definição da arquitetura | 4 |
 
@@ -41,8 +41,8 @@ A ordem das aulas é a de um projeto real, que parte do enquadramento, passa pel
 | --- | --- | --- |
 | 1 | Princípios de design da solução e a passagem do conceitual ao lógico | 9 |
 | 2 | Estilos arquiteturais e sua relação com atributo de qualidade | 10 |
-| 3 | Padrões de design e sua relação com padrões arquiteturais | 11 |
-| 4 | Registro de decisão arquitetural, formatos Nygard e MADR, dois modelos de ficha para anotar uma decisão | 12 |
+| 3 | Padrões arquiteturais e padrões de design | 11 |
+| 4 | Registro de decisão arquitetural, formatos Nygard, MADR e o modelo de dez campos para anotar uma decisão | 12 |
 
 ### Aula 4, domínios da arquitetura de solução
 

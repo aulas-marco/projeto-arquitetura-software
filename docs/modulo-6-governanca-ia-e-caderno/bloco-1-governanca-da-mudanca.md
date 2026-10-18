@@ -41,7 +41,7 @@ A ACME mostra como o método de tabela funciona. Para o aplicativo do aluno, que
 | Diretório corporativo por LDAP | Removido como meio de autenticação dos canais | O provedor de identidade com OpenID Connect o substitui |
 | Núcleo COBOL sobre CICS | Inalterado | Nenhum programa é alterado no primeiro ciclo, e a camada anticorrupção passa a chamá-lo |
 
-A diferença entre lacuna técnica e lacuna organizacional decide quem resolve cada item. Um exemplo técnico da ACME é o banco Oracle 12c, sem correção de segurança do fornecedor desde 31/03/2022, que a equipe de TI fecha com controle compensatório e plano de atualização dentro do próprio orçamento. Um exemplo organizacional é o contrato de capacidade de grande porte, que termina em 31/12/2028 com volume mínimo e ainda não tem decisão sobre o que vem depois, e que nenhum projeto de software resolve, porque a decisão cabe ao Diretor Financeiro e à Reitoria. O relatório leva à diretoria os itens organizacionais com o nome de quem decide e a data limite, que no caso do contrato é 31/12/2028.
+A diferença entre lacuna técnica e lacuna organizacional decide quem resolve cada item. Um exemplo técnico da ACME é o banco Oracle 12c, sem correção de segurança do fornecedor desde 31/03/2022, que a equipe de TI fecha com controle compensatório e plano de atualização dentro do próprio orçamento. Um exemplo organizacional é o contrato de capacidade de grande porte, que termina em 31/12/2028 com volume mínimo e que nenhum projeto de software resolve, porque a decisão cabe à Reitoria. O relatório leva à diretoria os itens organizacionais com o nome de quem decide e a data limite, que no caso do contrato é 31/12/2028.
 
 ### O ciclo ADM e o papel do arquiteto de solução
 
@@ -168,7 +168,7 @@ test('a tela de matrícula atende ao WCAG 2.1 nível AA', async ({ page }) => {
 });
 ```
 
-O segundo exemplo trata da performance e é a segunda função citada acima. Ele protege o requisito do pico de matrícula, o R6, que pede 5.800 sessões simultâneas com 95% das confirmações em até 4 segundos e erro abaixo da meta de 1%. O script usa a ferramenta k6, que termina com falha quando um limite declarado em `thresholds` é violado, e a esteira interpreta essa falha como reprovação.
+O segundo exemplo trata da performance e é a segunda função citada acima. Ele protege o requisito do pico de matrícula, o R6, que pede 5.800 sessões simultâneas com 95% das confirmações de recebimento em até 4 segundos, e o cenário de qualidade da matrícula, que fixa o erro abaixo de 1%. O script usa a ferramenta k6, que termina com falha quando um limite declarado em `thresholds` é violado, e a esteira interpreta essa falha como reprovação.
 
 ```js
 import http from 'k6/http';
@@ -250,7 +250,7 @@ Nos três casos a função de adequação fica no mesmo repositório do código 
 
 ## Uso pelo arquiteto
 
-A pergunta que o arquiteto precisa responder à diretoria é o que o orçamento vai fechar, e o relatório de lacunas é a informação que a responde. Ele o produz ao fim da validação do desenho, antes do roteiro de entrega, porque nesse momento as duas descrições já estão prontas para a comparação e a diretoria ainda pode decidir o que fazer com cada item. Ele o leva ao Diretor de TI, para as lacunas técnicas, e ao Diretor Financeiro e à Reitoria, para as organizacionais, como a do contrato de grande porte que termina em 31/12/2028. Sem o relatório, o orçamento de R$ 6,2 milhões seria gasto sem que ninguém soubesse quais lacunas ele fecha, e as decisões de contrato e de pessoal chegariam depois do prazo.
+A pergunta que o arquiteto precisa responder à diretoria é o que o orçamento vai fechar, e o relatório de lacunas é a informação que a responde. Ele o produz ao fim da validação do desenho, antes do roteiro de entrega, porque nesse momento as duas descrições já estão prontas para a comparação e a diretoria ainda pode decidir o que fazer com cada item. Ele o leva ao Diretor de TI, para as lacunas técnicas, e à Reitoria, para as organizacionais, como a do contrato de grande porte que termina em 31/12/2028. Sem o relatório, o orçamento de R$ 6,2 milhões seria gasto sem que ninguém soubesse quais lacunas ele fecha, e as decisões de contrato e de pessoal chegariam depois do prazo.
 
 Com o relatório aprovado, ele monta o roteiro em ondas e o apresenta ao patrocinador, que usa o critério de conclusão para saber quando uma onda terminou e a data de 30/09/2027 para saber quando o núcleo pode ser alterado. Quando a execução mostra que uma onda não cabe no prazo, ele reabre o roteiro com as mesmas partes interessadas, para que a ordem e as datas combinadas com o negócio sejam renegociadas antes de a onda atrasar.
 
@@ -430,8 +430,8 @@ A função de adequação é um teste automático que avisa quando uma decisão 
 | Regra | Texto |
 | --- | --- |
 | V1 | Nenhum serviço novo abre conexão com o banco Oracle do núcleo |
-| V2 | O percentil 95 da confirmação da matrícula fica em até 4 segundos com 5.800 sessões simultâneas |
-| V3 | O conselho decide se a sustentação do núcleo será renovada, reduzida ou internalizada depois de 30/09/2027 |
+| V2 | O percentil 95 da confirmação de recebimento do pedido de matrícula fica em até 4 segundos com 5.800 sessões simultâneas |
+| V3 | A Reitoria decide se a sustentação do núcleo será renovada, reduzida ou internalizada depois de 30/09/2027 |
 | V4 | A equipe interna tem pelo menos duas pessoas capazes de explicar a regra de prioridade de vaga |
 
 1. Marque as regras que um teste automático pode conferir e diga quando cada teste roda.

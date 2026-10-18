@@ -11,11 +11,13 @@ Cada código é a inicial do item seguida de um número, na ordem em que o item 
 | D | Uma decisão, classificada pelo nível de arquitetura de quem a toma | 1 |
 | PR | Uma premissa: algo que o projeto assume como verdadeiro sem ter confirmado | 1 |
 | RT | Uma restrição: decisão tomada fora do projeto, que o arquiteto não pode mudar | 1 |
+| E | Um elemento da declaração de escopo, que muda ou permanece no primeiro ciclo | 2 |
 | R | Um requisito declarado pelas pessoas envolvidas | 3 |
 | RD | Um requisito derivado de outro requisito ou de uma restrição | 3 |
 | CQ | Um cenário de qualidade: uma situação de uso descrita em seis partes, com meta que dá para medir | 3 |
+| F | Um fato registrado no dossiê, distribuído nas dimensões da análise PESTLE | 3 |
 | LB | Um artefato de linha de base: documento ou medição que sustenta um número do caderno | 4 |
-| L | Uma lacuna entre o sistema atual e o que se quer construir | 4 |
+| LC | Uma lacuna entre o sistema atual e o que se quer construir | 4 |
 | P | Um princípio de design: regra que as decisões precisam respeitar | 6 |
 | DD | Uma decisão de design, como o estilo da solução ou os padrões adotados | 7 |
 | DL | Uma decisão sobre o sistema antigo e sobre os dados | 7 |
@@ -34,7 +36,7 @@ Cada código é a inicial do item seguida de um número, na ordem em que o item 
 | TA | Uma tarefa do ciclo de modernização, atribuída a um papel | 1 |
 | AR | Um artefato do caso, ligado a uma fase, a um papel e a uma seção | 1 |
 
-Na seção 1, os exercícios numeram os seus itens com CP, N, T e A. A letra C já pertence aos controles de segurança, e por isso os componentes da solução usam CP.
+Na seção 1, os exercícios numeram os seus itens com CP, N, TA e AR. A letra C já pertence às capacidades acadêmicas, e por isso os componentes da solução usam CP.
 
 ## Marcadores de estado
 

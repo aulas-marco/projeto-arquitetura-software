@@ -40,7 +40,7 @@ Michael Nygard propôs o formato original em Nygard (2011), com cinco partes fix
 
 | Parte | Conteúdo |
 | --- | --- |
-| Título | Frase curta e clara, como "Adoção do .NET Core 9" |
+| Título | Frase curta e clara, como "Adoção do .NET 9" |
 | Contexto | Descrição neutra das forças em jogo, sejam requisitos técnicos, sociais, políticos ou organizacionais |
 | Decisão | Explicação objetiva da escolha, em linguagem ativa, do tipo "nós decidimos adotar" |
 | Status | Estágio da decisão, proposta, aceita ou substituída |
@@ -167,7 +167,7 @@ Quando falta dado para preencher um campo, o arquiteto registra o ADR com estado
 
 {{ficha:7:3}}
 
-**Para que serve.** Daqui a alguns meses, uma pessoa nova na equipe da ACME vai perguntar por que o sistema usa eventos na entrada da matrícula, e ninguém mais vai lembrar da conversa. O registro de decisão arquitetural, o ADR, existe para responder a essa pergunta, porque guarda o contexto da decisão, as alternativas pesadas e as consequências aceitas. Na seção 7 do caderno, ele reúne num único texto o estilo e os padrões escolhidos nesta aula, para que outra pessoa consiga revisá-los.
+**Para que serve.** Daqui a alguns meses, uma pessoa nova na equipe da ACME vai perguntar por que o sistema usa o estilo escolhido na entrada da matrícula, e ninguém mais vai lembrar da conversa. O registro de decisão arquitetural, o ADR, existe para responder a essa pergunta, porque guarda o contexto da decisão, as alternativas pesadas e as consequências aceitas. Na seção 7 do caderno, ele reúne num único texto o estilo e os padrões escolhidos nesta aula, para que outra pessoa consiga revisá-los.
 
 **O que você faz neste exercício.** O enunciado não traz dado novo, porque o ADR é montado com o que você já produziu: os princípios e o esboço lógico do exercício 9, a comparação de estilos do exercício 10 e o mapa de padrões do exercício 11. Você escreve os dez campos do modelo da aula, de Título a Revisão, ligando cada um ao exercício de onde vem o conteúdo. Se faltar dado para algum campo, o registro fica com o estado proposta e lista no fim os campos incompletos, porque um dado inventado levaria as decisões seguintes a partir de premissas que ninguém verificou.
 
@@ -217,14 +217,14 @@ O item cobre sete campos do ADR, reunidos em cinco grupos, e o aluno escreve cad
 1. título, estado e data
 2. contexto, descrevendo de forma neutra os dois cenários que motivaram a análise, o pico de acessos na abertura da matrícula e o incidente de 04/02/2026, e delimitando o que fica fora do registro
 3. forças, derivadas dos princípios priorizados no exercício 9 e dos cenários, com medida sempre que o caso fornecer
-4. alternativas, com os dois estilos comparados e descartados no exercício 10, cada um avaliado pelas mesmas forças do item anterior
+4. alternativas, com os estilos comparados e descartados no exercício 10, e a opção de manter a situação atual quando ela foi considerada, cada um avaliado pelas mesmas forças do item anterior
 5. decisão, com o estilo escolhido e os padrões do exercício 11, conectando a justificativa às forças listadas
 
 Suas respostas viram os campos Título, Estado, Data, Contexto, Forças, Alternativas e Decisão, na seção 7 do caderno.
 
 ### Item 2: Consequências, evidências e revisão
 
-Os campos de consequências, alternativas e revisão costumam sair fracos quando o autor não sabe como redigi-los. As quatro frases abaixo servem de modelo, e as letras X, Y, Z e W são lacunas que o aluno substitui por dados da própria decisão, como o nome do estilo descartado, a força afetada e a medida observada.
+Os campos de consequências, alternativas, evidências e revisão costumam sair fracos quando o autor não sabe como redigi-los. As quatro frases abaixo servem de modelo, e as letras X, Y, Z e W são lacunas que o aluno substitui por dados da própria decisão, como o nome do estilo descartado, a força afetada e a medida observada.
 
 | Campo | Frase-modelo |
 | --- | --- |

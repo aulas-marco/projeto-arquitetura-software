@@ -222,7 +222,7 @@ A ACME enfrenta sete pressões para mudar, e nem todas têm a mesma urgência. A
 | --- | --- | --- | --- |
 | Custo de propriedade do sistema acadêmico | Interno | Antecipatória | A meta de R$ 11,0 milhões tem prazo no fim de 2029, sem gatilho imediato |
 | Lentidão de resposta a pedido de mudança | Interno | Reativa | Os 34 dias úteis entre pedido aprovado e entrega já pesam na operação de hoje |
-| Risco de perda de competência | Interno | Antecipatória | Duas das 6 aposentadorias de especialistas em COBOL estão previstas para 2027 |
+| Risco de perda de competência | Interno | Antecipatória | Dois dos 6 especialistas em COBOL se aposentam em 2027 |
 | Exigência de proteção de dado pessoal | Externo | Reativa | O parecer jurídico de 28/04/2026 já impõe a obrigação de processar em território nacional |
 | Avaliação regulatória | Externo | Antecipatória | A preocupação da Reitoria é com uma queda futura de nota |
 | Expectativa do aluno | Externo | Reativa | O pedido de aplicativo e a falha na abertura da matrícula já aconteceram, com 2 dos 3 incidentes graves em janelas críticas, a abertura da matrícula e o fechamento de notas |

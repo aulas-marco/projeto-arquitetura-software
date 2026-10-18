@@ -264,7 +264,7 @@ O dono marcado para a entidade nota é a origem do contrato de integração do e
 
 ### Item 2: Regime de consistência por consumidor
 
-Quando o professor lança uma nota às 15h00, o aluno só a enxerga no ambiente virtual às 06h00 do dia seguinte, e esse atraso é o que o regime de consistência declara, isto é, o atraso aceito entre a gravação da entidade na fonte de verdade e o momento em que o consumidor a enxerga. Consumidor é toda aplicação que lê ou recebe uma entidade, como as colunas da grade do item 1. O regime é forte quando a leitura reflete a gravação na hora, e eventual quando reflete dentro de um prazo declarado, como 10 minutos. Este item decide o regime de cada consumidor para cada entidade. Hoje toda troca com o ERP financeiro e com o ambiente virtual de aprendizagem ocorre por arquivo, em lote noturno, e o data warehouse recebe uma extração diária. O diagrama mostra o sentido e o horário de cada um dos seis lotes da linha de base.
+Quando o professor lança uma nota às 15h00, o aluno só a enxerga no ambiente virtual às 06h00 do dia seguinte, e esse atraso é o que o regime de consistência declara, isto é, o atraso aceito entre a gravação da entidade na fonte de verdade e o momento em que o consumidor a enxerga. Consumidor é toda aplicação que lê ou recebe uma entidade, como as colunas da grade do item 1. O regime é forte quando a leitura reflete a gravação na hora, e eventual quando reflete dentro de um prazo declarado, como 10 minutos. Este item decide o regime de cada consumidor para cada entidade. Hoje toda troca com o ERP financeiro e com o ambiente virtual de aprendizagem ocorre por arquivo, em lote noturno, e o data warehouse recebe uma extração diária. O diagrama mostra o sentido e o horário de cada um dos seis lotes diários da linha de base.
 
 ```mermaid
 graph LR
@@ -281,7 +281,7 @@ graph LR
     AVA -->|"06h15 notas e frequência de atividades"| ACA
 ```
 
-Dois requisitos do caso, reproduzidos na tabela abaixo, afetam o regime de consistência. O R7, pedido pela Educação a Distância, define o prazo de propagação da nota até o ambiente virtual. O R6, da Diretoria de TI, exige tempo de resposta do sistema de registro durante a matrícula, o que interessa à decisão de o consumidor ler a fonte com consistência forte. O percentil 95 do R6 é o valor abaixo do qual ficam 95% das respostas.
+Dois requisitos do caso, reproduzidos na tabela abaixo, afetam o regime de consistência. O R7, pedido pela Educação a Distância, define o prazo de propagação da nota até o ambiente virtual. O R6, da Diretoria de TI, exige tempo de resposta para a confirmação de recebimento do pedido durante a matrícula, o que interessa à decisão de o consumidor ler a fonte com consistência forte. O percentil 95 do R6 é o valor abaixo do qual ficam 95% das respostas.
 
 | Código | Declaração |
 | --- | --- |
